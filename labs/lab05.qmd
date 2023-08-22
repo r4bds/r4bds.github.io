@@ -1,0 +1,34 @@
+# Lab 5: Data Wrangling II {.unnumbered}
+
+## Package(s)
+
+- [dplyr](https://dplyr.tidyverse.org)
+- [stringr](https://stringr.tidyverse.org)
+- [tidyr](https://tidyr.tidyverse.org)
+- [forcats](https://forcats.tidyverse.org)
+
+## Schedule
+
+- 08.00 - 08.15: Exercises recap
+- 08.15 - 08.30: Assignment walk-through
+- 08.30 - 09.00: Introduction to Lab
+- 09.00 - 09.15: Break
+- 09.00 - 12.00: Exercises, (Do not use this unless you are told to: data_files)
+
+## Learning Materials
+
+_Please prepare the following materials_
+
+- Book: R4DS: 12.3-12.7: "Tidy Data", 13: "Relational Data", 14: "Strings", 15: "Factors"
+- Video: [Tidy Data and tidyr](https://youtu.be/1ELALQlO-yM?t=465) - NB! Start at 7:45 and please note: gather() is now pivot_longer() and spread() is now pivot_wider()
+- Video: [Working with Two Datasets: Binds, Set Operations, and Joins](https://www.youtube.com/watch?v=AuBgYDCg1Cg)
+- Video: [stringr](https://www.youtube.com/watch?v=oIu5jK8DeX8&list=PLiC1doDIe9rDwsUhd3FtN1XGCV2ES1xZ2) (Playlist with 7 short videos)
+
+## Learning Objectives
+
+_A student who has met the objectives of the session will be able to:_
+
+- Understand and apply the various str_*() functions for string manipulation
+- Understand and apply the family of *_join() functions for combining data sets
+- Understand and apply pivot_wider() and pivot_longer()
+- Use factors in conjugation with plotting categorical data using ggplot

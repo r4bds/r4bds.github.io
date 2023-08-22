@@ -1,0 +1,36 @@
+---
+title: "Lab"
+author: "Leon Eyrich Jessen"
+format:
+  revealjs:
+    slide-number: c/t
+    width: 1600
+    height: 900
+    logo: ../images/R_for_bio_data_science_hex_logo_quadratic_small.png
+    footer: "R for Bio Data Science"
+    theme: moon
+---
+
+# In the morning
+
+## Getting up
+
+-   Turn off alarm
+-   Get out of bed
+
+## Breakfast
+
+-   Eat eggs
+-   Drink coffee
+
+# In the evening
+
+## Dinner
+
+-   Eat spaghetti
+-   Drink wine
+
+## Going to sleep
+
+-   Get in bed
+-   Count sheep

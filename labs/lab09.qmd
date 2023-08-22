@@ -1,0 +1,39 @@
+# Lab 9 Creating a Simple Shiny Application {.unnumbered}
+
+## Package(s)
+
+- [shiny](https://github.com/rstudio/shiny)
+- [golem](https://engineering-shiny.org/index.html)
+
+## Schedule
+
+- 08.00 - 08.15: Recap of exercises from last lab
+- 08.15 - 08.30: Assignment walk-through
+- 08.30 - 09.00: Slides
+- 09.00 - 09.15: Break
+- 09.00 - 12.00: Exercises
+
+## Learning Materials
+
+_Please prepare the following materials_
+
+- Book: [Mastering Shiny](https://mastering-shiny.org/) by Hadley Wickham -- Read Chapter 1 (Chapter 2 and 3 are good to read as well, if you want).
+- Book: [Engineering Production-Grade Shiny Apps](https://engineering-shiny.org/index.html) -- Read Chapter 2 - 5 (they are fairly short, but if you don't find Shiny Apps super cool, feel free to skip Chapter 3 and 5 and Sections 2.2.2 and 4.2.3 - 4.2.4), the rest are quite important for the exercises.
+- Cheatsheet: [Shiny](https://raw.githubusercontent.com/rstudio/cheatsheets/main/shiny.pdf) -- This cheatsheet is a bit cluttered, but useful
+- Cheatsheet: [Golem](https://raw.githubusercontent.com/rstudio/cheatsheets/main/golem.pdf) -- Look through this after reading the chapters in "Engineering Production-Grade Shiny Apps" - the exercises will remind you to look at the cheatsheet as well.
+
+_Note: The following are suggested learning materials, i.e., do not go over everything, but poke around. You will use these materials as a point of reference for the group exercises_
+
+- [Shiny Input Gallery](https://shiny.rstudio.com/gallery/widget-gallery.html)
+- Web: [Shiny from RStudio](https://shiny.rstudio.com/)
+- Web: [RStudio tutorials on Shiny](https://shiny.rstudio.com/tutorial/)
+- Video: [Playlist: Web Apps in R: Building your First Web Application in R | Shiny Tutorial](https://www.youtube.com/watch?v=tfN10IUX9Lo&list=PLtqF5YXg7GLkxx_GGXDI_EiAvkhY9olbe)
+- Example: [nnvizRt](https://leonjessen.shinyapps.io/nnvizRt/)
+- More inspiration: [Shiny Gallery](https://shiny.rstudio.com/gallery/)
+
+## Learning Objectives
+
+_A student who has met the objectives of the session will be able to:_
+
+- Prepare a simple shiny application
+- Using relevant online ressources to autonomously identify and obtain new and expand on existing knowledge of R

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R for Bio Data Science - Getting Started</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./course_labs.html" rel="next">
+<link href="./prologue.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Getting Started</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R for Bio Data Science</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome to R for Bio Data Science</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./prologue.html" class="sidebar-item-text sidebar-link">Prologue</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./getting_started.html" class="sidebar-item-text sidebar-link active">Getting Started</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./course_labs.html" class="sidebar-item-text sidebar-link">Course Labs</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab01.html" class="sidebar-item-text sidebar-link">Lab 1: Course Intro &amp; the Very Basics</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab02.html" class="sidebar-item-text sidebar-link">Lab 2: Data Visualisation I</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab03.html" class="sidebar-item-text sidebar-link">Lab 3: Data Visualisation II</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab04.html" class="sidebar-item-text sidebar-link">Lab 4: Data Wrangling I</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab05.html" class="sidebar-item-text sidebar-link">Lab 5: Data Wrangling II</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab06.html" class="sidebar-item-text sidebar-link">Lab 6: (a bit on) Modelling in the Tidyverse</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab07.html" class="sidebar-item-text sidebar-link">Lab 7: Scripting in a Reproducible and Collaborative Framework using GitHub via RStudio</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab08.html" class="sidebar-item-text sidebar-link">Lab 8: Creating a Simple R-package</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab09.html" class="sidebar-item-text sidebar-link">Lab 9 Creating a Simple Shiny Application</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs/lab10.html" class="sidebar-item-text sidebar-link">Lab 10 Project Startup &amp; Industry Talks</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project_faq.html" class="sidebar-item-text sidebar-link">Project FAQ</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exam.html" class="sidebar-item-text sidebar-link">Exam</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#logging-onto-cloud-server" id="toc-logging-onto-cloud-server" class="nav-link active" data-scroll-target="#logging-onto-cloud-server">Logging onto Cloud Server</a></li>
+  <li><a href="#setting-up-a-github-account" id="toc-setting-up-a-github-account" class="nav-link" data-scroll-target="#setting-up-a-github-account">Setting up a GitHub account</a></li>
+  <li><a href="#class-communication" id="toc-class-communication" class="nav-link" data-scroll-target="#class-communication">Class Communication</a></li>
+  <li><a href="#group-formation" id="toc-group-formation" class="nav-link" data-scroll-target="#group-formation">Group Formation</a></li>
+  <li><a href="#to-do" id="toc-to-do" class="nav-link" data-scroll-target="#to-do">To do</a></li>
+  <li><a href="#course-check-list" id="toc-course-check-list" class="nav-link" data-scroll-target="#course-check-list">Course Check list</a>
+  <ul class="collapse">
+  <li><a href="#before-course-starts" id="toc-before-course-starts" class="nav-link" data-scroll-target="#before-course-starts">Before Course starts</a></li>
+  <li><a href="#at-first-session" id="toc-at-first-session" class="nav-link" data-scroll-target="#at-first-session">At first session</a></li>
+  <li><a href="#after-first-session" id="toc-after-first-session" class="nav-link" data-scroll-target="#after-first-session">After first session</a></li>
+  </ul></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
+  <li><a href="#notes-reg.-online-teaching" id="toc-notes-reg.-online-teaching" class="nav-link" data-scroll-target="#notes-reg.-online-teaching">Notes reg. online teaching</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Getting Started</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p><em>This section contain essential information for getting up and running for the classes</em></p>
+<section id="logging-onto-cloud-server" class="level2">
+<h2 class="anchored" data-anchor-id="logging-onto-cloud-server">Logging onto Cloud Server</h2>
+<p>First, make sure you have a working DTU account, either as a student id or employee initials (e.g.&nbsp;PhD-students or postdocs). In this course we will be using a cloud server infrastructure to perform our work. Click below to access the cloud server:</p>
+<ul>
+<li><a href="http://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science Cloud Server</a></li>
+</ul>
+<p>Note, that there is a 24h time out on the sessions, meaning that if you logon and forget to sign out, your session will be terminated after 24h.</p>
+</section>
+<section id="setting-up-a-github-account" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-a-github-account">Setting up a GitHub account</h2>
+<p>Prior to class, please go to <a href="https://github.com">GitHub</a> and setup and account, shouldn’t take long. During the registration process you can set up a student account, which will give you additional benefits, including GitHub Pro. In order to get it, you need to use your <span class="citation" data-cites="dtu.dk">(<a href="references.html#ref-dtu.dk" role="doc-biblioref"><strong>dtu.dk?</strong></a>)</span> email when setting account and select Apply for your GitHub student benefits when asked during the registration process. You’ll be then asked to apply for GitHub Student Developer Pack, which will require uploading your student id photo. The process of confirming a student account may take up to a few days (however, it can be almost instantaneous). In the meantime you can already use your free account. Free account should be sufficient for this class, so if you don’t want to set up a school account, you don’t need to. Please state your GitHub username in this google sheet.</p>
+</section>
+<section id="class-communication" class="level2">
+<h2 class="anchored" data-anchor-id="class-communication">Class Communication</h2>
+<p>This course has grown from ~35 students in 2020 to ~150 students in 2023, therefore this term we will be using Piazza for class discussion. The system is highly catered to getting you help fast and efficiently from classmates, the TAs, and myself. Rather than emailing questions to the teaching staff, I encourage you to post your questions on Piazza. If you have any problems or feedback for the developers, email <a href="mailto:team@piazza.com">team@piazza.com</a>.</p>
+<p>Find our class signup link at: <a href="https://piazza.com/dtu.dk/fall2023/22100">https://piazza.com/dtu.dk/fall2023/22100</a> and see the <a href="https://www.youtube.com/watch?v=tqGummy1Be4">Intro for Students</a> video.</p>
+</section>
+<section id="group-formation" class="level2">
+<h2 class="anchored" data-anchor-id="group-formation">Group Formation</h2>
+<p>The backbone of this course is modern collaborative data science and as such “active participation in the group work … [is an] indispensable prerequisites for exam participation” as stated in the course base. Furthermore, It is <strong>important</strong> that course participants prioritise to be present during classes as the course design is based on student-student interaction in an active learning environment.</p>
+<p>Therefore, students will work in groups of 4-5 students. Group formation sheet can be found <a href="https://docs.google.com/spreadsheets/d/1MtXCz41uGSnBpJvTARd1TNyqCFYinQxJCEpOwzlBcPo/edit?usp=sharing">here</a></p>
+</section>
+<section id="to-do" class="level2">
+<h2 class="anchored" data-anchor-id="to-do">To do</h2>
+<p>Each group has to complete the assignment containing information on which data set you selected for the project and a brief text on preliminary project direction (Read “Is this data set ok to use?” below)</p>
+<p>Recall from Lab 1:</p>
+<p>Important information</p>
+</section>
+<section id="course-check-list" class="level2">
+<h2 class="anchored" data-anchor-id="course-check-list">Course Check list</h2>
+<section id="before-course-starts" class="level3">
+<h3 class="anchored" data-anchor-id="before-course-starts">Before Course starts</h3>
+<ul>
+<li><p><input type="checkbox" disabled="">
+Setup course pre-evaluation using google forms</p></li>
+<li><p><input type="checkbox" disabled="">
+Groups using sheets, remember to allow edit access, 3-5 members per group</p></li>
+<li><p><input type="checkbox" disabled="">
+Remember to include midterm evaluation</p></li>
+<li><p><input type="checkbox" disabled="">
+Setup RStudio Cloud</p></li>
+<li><p><input type="checkbox" disabled="">
+Notification can be turned on for announcements</p></li>
+<li><p><input type="checkbox" disabled="">
+Book rooms for teaching n students</p></li>
+<li><p><input type="checkbox" disabled="">
+Close post enrollment if nessesary</p></li>
+<li><p><input type="checkbox" disabled="">
+Make a waiting list if nessesary</p></li>
+<li><p><input type="checkbox" disabled="">
+Add TAs to learn</p></li>
+<li><p><input type="checkbox" disabled="">
+Create invitation for lab 10 mini symposium</p></li>
+<li><p><input type="checkbox" disabled="">
+Create overview of enrollment*</p></li>
+<li><p>Exporting Classlist/Groups to CSV/Excel: Course admin =&gt; Grades =&gt; Enter Grades =&gt; Export =&gt; Deselect all =&gt; Export to CSV. <a href="https://learnsupport.dtu.dk/teachers/Export_classlist_or_groups_to_excel_or_csv.php">Source</a></p></li>
+</ul>
+</section>
+<section id="at-first-session" class="level3">
+<h3 class="anchored" data-anchor-id="at-first-session">At first session</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Take role call to see who showed up</li>
+</ul>
+</section>
+<section id="after-first-session" class="level3">
+<h3 class="anchored" data-anchor-id="after-first-session">After first session</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="">
+Create groups based google sheet on DTU Learn</li>
+<li><input type="checkbox" disabled="">
+Invite/add users to RStudio Cloud workspace</li>
+<li><input type="checkbox" disabled="">
+Write participation email to no-show students</li>
+</ul>
+</section>
+</section>
+<section id="notes" class="level2">
+<h2 class="anchored" data-anchor-id="notes">Notes</h2>
+<ul>
+<li>At midway eval, ask if the student are actually spending 5h outside class</li>
+<li>Add intro-to-bioinformatics to pre-requisites</li>
+<li>Assignment are created inside a module, set start-end-dates -&gt; CLICK VISIBILITY IN THE BOTTOM</li>
+<li>My course -&gt; class list -&gt; email class list -&gt; Send email</li>
+<li>Check if added students are also on learn</li>
+<li>List of assignemtns: Course content -&gt; assignments</li>
+<li>Pre-evaluation</li>
+<li>Midterm-evaluation</li>
+<li>Paste in evaluering.dtu.dk link in an announcement to make sure they can find it easily</li>
+<li>Discussions</li>
+<li>Peer-eval?</li>
+<li>Each student need a github token to avoid the API error</li>
+</ul>
+</section>
+<section id="notes-reg.-online-teaching" class="level2">
+<h2 class="anchored" data-anchor-id="notes-reg.-online-teaching">Notes reg. online teaching</h2>
+<ul>
+<li>Add TAs to learn</li>
+<li>CSV file -&gt; group rooms at zoom</li>
+<li>At each lab, setup zoom session</li>
+<li>Setup RStudio workspace for students</li>
+<li>Create we-need-input-waiting-list google sheet</li>
+</ul>
+<p>Important information</p>
+<p>In today’s lab you will be introduced to R packages and how to build them. The exercises will give you examples of functions to implement, but you will be given the honor of naming them. “There are only two hard things in Computer Science: cache invalidation and naming things.”&nbsp;— Phil Karlton</p>
+<p>Important information</p>
+<p>Today will be something completely new! Briefly on shiny: Think of shiny as a way to connect your data to a pointy-clicky interface, so that non-data users may interact with it Before class, create an account on shinyapps.io&nbsp;and link it to your GitHub account Building an app can lead to some headaches if you walk in to it too carelessly. Help yourself by reading the suggested chapters and use the cheatsheets as much as possible.</p>
+<p>Important information</p>
+<p>Location: Auditorium 32 in building 306 Google doc for audience questions can be found here</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./prologue.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Prologue</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./course_labs.html" class="pagination-link">
+        <span class="nav-page-text">Course Labs</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">R for Bio Data Science</div>   
+    <div class="nav-footer-right">Full course description available at <a href="https://kurser.dtu.dk/course/22100">DTU Course Base</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>

@@ -1,0 +1,65 @@
+# Lab 10 Project Startup & Industry Talks {.unnumbered}
+
+## Schedule
+
+- 08.00 - 08.15: Recap and Assignment
+- 08.15 - 08.45: Introduction to Project Period and Exam
+- 08.45 - 09.00: Break
+- 09.00 - 10.00: Mini Symposium (See below)
+
+## Mini Symposium: Applications of R for Bio Data Science in Industry
+
+_This mini symposium on Applications of R for Bio Data Science in Industry aims to give students a glimpse into how modern data science is transforming value creation in the pharmaceutical industry and healthcare sector._
+
+### 2023
+
+#### Companies Represented
+
+- TBA
+
+#### Speaker List
+
+- TBA
+
+### 2022
+
+#### Companies Represented
+
+- [Abzu](https://www.abzu.ai)
+- [Bristol Myers Squibb](https://www.bms.com)
+- [Clinical Microbiomics](https://clinical-microbiomics.com)
+- [Novo Nordisk Bioinformatics](https://www.novonordisk.com)
+- [Novo Nordisk Biostatistics](https://www.novonordisk.com)
+- [Steno Diabetes Center Copenhagen](https://www.sdcc.dk)
+
+#### Speaker List
+
+- [Andrea Marquard](https://www.linkedin.com/in/andreamarquard/), Head of Data Science and Automation, Clinical Microbiomics: "How we use internal R packages, and why you should learn to make one"
+- [Anders Gorst-Rasmussen](https://www.linkedin.com/in/anders-gorst-rasmussen-50bb732/), Statistical Director, Novo Nordisk Biostatistics, Novo Nordisk: "How we use R in Novo Nordisk Biostatistics"
+- [Anne-Mette Bjerregaard](https://www.linkedin.com/in/anne-mette-bjerregaard-821b8295/), Senior Scientist in Computational Biology, Novo Nordisk: "The Evolution of a Computational Biologist"
+- [Sam Demharter](https://www.linkedin.com/in/demharter/), Bioinformatics Specialist, Abzu: "Explainable AI in Precision Medicine - Closing the Loop from Patient to Drug"
+- [Lykke Pedersen](https://www.linkedin.com/in/lykkepedersen/), Head of RNA Therapeutics, Abzu: "Explainable AI in Precision Medicine - Closing the Loop from Patient to Drug"
+- [Simon Papillon-Cavanagh](https://www.linkedin.com/in/simon-papillon-cavanagh-3435b9108/), Principal Scientist, Bristol Myers Squibb (USA): "A Career Built on Mistakes"
+- [Sofie Olund Villumsen](https://www.linkedin.com/in/sofie-olund-villumsen-044ba8147/), Bioinformatician, Steno Diabetes Center Copenhagen: "Using R for Data Analysis in Clinical Studies"
+- [Tarun Veer Singh Ahluwalia](https://www.linkedin.com/in/ahluwalia0679/), Assoc. Prof., Steno Diabetes Center Copenhagen: "Using R for Data Analysis in Clinical Studies"
+
+### 2021
+
+#### Companies Represented
+
+- [Abzu](https://www.abzu.ai)
+- [ALK](https://www.alk.dk/)
+- [Chr. Hansen](https://www.chr-hansen.com/en)
+- [Lundbeck](https://lundbeck.com/global)
+- [Novozymes](https://www.novozymes.com/en)
+- [TeraData](https://www.teradata.com/About-Us/Contact/Denmark)
+
+#### Speaker List
+
+- [Samuel Demharter](https://www.linkedin.com/in/demharter/), Senior Bioinformatician, Abzu
+- [Lykke Pedersen](https://www.linkedin.com/in/lykkepedersen/), Senior Bioinformatician, Abzu
+- [Marie-Catherine Le Bihan](https://www.linkedin.com/in/marie-catherine-le-bihan-459b6351/), Senior Data Scientist, Chr. Hansen
+- [Thomas Strantzl](https://www.linkedin.com/in/thomas-stranzl-b87b202b/), Head of Bioinformatics, ALK
+- [Maria Dalby](https://www.linkedin.com/in/maria-dalby-91334b67/), Postdoctoral Researcher, Lundbeck
+- [Thomas Poulsen](https://www.linkedin.com/in/thpoulsen/), Science Manager, Novozymes
+- [Mikkel Freltoft Krogsholm](https://www.linkedin.com/in/mikkelkrogsholm/), Team lead, Senior Data Scientist, TeraData

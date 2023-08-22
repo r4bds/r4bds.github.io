@@ -1,0 +1,28 @@
+# Exam {.unnumbered}
+
+_Please make sure to read the description of the exam and exam times on the course base._
+
+## Design
+
+The exam consists of 3 components:
+
+1. A group project, where all members are responsible for all parts of the project. This is handed in as a code base on GitHub
+1. An oral group presentation of the project
+1. 2 hour MCQ exam, where general course learning objectives are examined
+
+_Please note that active participation in the group work and timely submission of project and code base are both indispensable prerequisites for exam participation. The final grade is based on an overall assessment of all three components._
+
+### The Group Project
+- Be sure that everyone understands ALL code in the project as all group members are responsible for ALL code
+- The point of the project is to cover more or less the entire course cycle, so if you have decided to leave out some parts, then you are also expected to be able to answer questions relating to these
+- Expect a few overall questions regarding the decisions you have made throughout your project
+
+### The Presentation
+- The format is a 10-slides-in-10-mins and everyone in the group must present a part
+- The group presentations will be on the last day of the course, i.e. lab 13
+
+### The MCQ
+- A 2-hour individual multiple choice exam
+- In 2022 the exam contained 60 questions, expect a similar number of questions
+- All aids are allowed, but no open internet
+- Each question will have 4 possible answers and only 1 is the right one and you can only choose one answer per question

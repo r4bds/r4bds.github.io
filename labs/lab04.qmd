@@ -1,0 +1,35 @@
+# Lab 4: Data Wrangling I {.unnumbered}
+
+## Package(s)
+
+- [dplyr](https://dplyr.tidyverse.org)
+- [readr](https://readr.tidyverse.org)
+- [tibble](https://tibble.tidyverse.org)
+- [magrittr](https://magrittr.tidyverse.org)
+
+## Schedule
+
+08.00 - 08.15: Recap of Lab 3
+08.15 - 08.30: Assignment 2 walk-through
+08.30 - 09.00: Introduction to Lab 4
+09.00 - 09.15: Break
+09.00 - 12.00: Exercises
+
+## Learning Materials
+
+_Please prepare the following materials:_
+
+- Book: R4DS chapters 2, 7, 5, 9, 10, 11, 12.1-12.2
+- Web: [What is data wrangling? Intro, Motivation, Outline, Setup -- Pt. 1 Data Wrangling Introduction](https://www.youtube.com/watch?v=jOd65mR1zfw)
+- Web: (NB! STOP at 7:45, i.e. skip tidyr) [Tidy Data and tidyr -- Pt 2 Intro to Data Wrangling with R and the Tidyverse](https://www.youtube.com/watch?v=1ELALQlO-yM)
+- Web: [Data Manipulation Tools: dplyr -- Pt 3 Intro to the Grammar of Data Manipulation with R](https://www.youtube.com/watch?v=Zc_ufg4uW4U)
+
+## Learning Objectives
+
+_A student who has met the objectives of the session will be able to:_
+
+- Understand and apply the 6 basic dplyr verbs: `filter()`, arrange(), select(), mutate(), summarise() and group_by()
+- Construct and apply logical tests in context with dplyr pipelines
+- Understand and apply the additional verbs count(), drop_na(), View()
+- Combine dplyr verbs to form a data manipulation pipeline using the pipe %&gt;% operator
+- Decipher the components and functions hereof in a dplyr pipeline

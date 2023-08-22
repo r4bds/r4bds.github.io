@@ -1,0 +1,49 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "R for Bio Data Science"
+  reader-mode: true
+  page-navigation: true
+
+  page-footer:
+    left: |
+      R for Bio Data Science
+    right: |
+      Full course description available at <a href="https://kurser.dtu.dk/course/22100">DTU Course Base</a>.
+  
+  cover-image: images/r4bds_logo_v2.png
+  
+  chapters:
+    - index.qmd
+    - prologue.qmd
+    - getting_started.qmd
+    
+    - part: course_labs.qmd
+      chapters:
+        - labs/lab01.qmd
+        - labs/lab02.qmd
+        - labs/lab03.qmd
+        - labs/lab04.qmd
+        - labs/lab05.qmd
+        - labs/lab06.qmd
+        - labs/lab07.qmd
+        - labs/lab08.qmd
+        - labs/lab09.qmd
+        - labs/lab10.qmd
+        
+    - project_faq.qmd
+    - references.qmd
+    - exam.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    mainfont: avenir
+    fontsize: 18px
+
+editor: source
+

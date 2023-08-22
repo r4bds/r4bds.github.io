@@ -1,0 +1,30 @@
+# Lab 2: Data Visualisation I {.unnumbered}
+
+## Package(s)
+
+- [ggplot2](https://ggplot2.tidyverse.org)
+
+## Schedule
+
+- 08.00 - 08.15: Pre-course Survey Walk-through
+- 08.15 - 08.30: Recap: RStudio Cloud, RStudio and R - The Very Basics (Live session)
+- 08.30 - 09.00: Lecture
+- 09.00 - 09.15: Break
+- 09.00 - 12.00: Exercises (download gravier data)
+
+## Learning Materials
+
+_Please prepare the following materials:_
+
+- Book: [R4DS2 Chapter 2 Data Visualisation](https://r4ds.hadley.nz/data-visualize.html)
+- Web: [Overview of R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) (Familiarise and revisit when needed)
+- Paper: ["A Layered Grammar of Graphics"](http://vita.had.co.nz/papers/layered-grammar.pdf) by Hadley Wickham
+- Video: EMBL Keynote Lecture - ["Data visualization and data science"](https://www.youtube.com/watch?v=9YTNYT1maa4) by Hadley Wickham
+
+## Learning Objectives
+
+_A student who has met the objectives of the session will be able to:_
+
+* Explains the basic theory of data visualisation
+* Decipher the components of a ggplot
+* Use ggplot to do basic data visualisation

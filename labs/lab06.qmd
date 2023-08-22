@@ -1,0 +1,34 @@
+# Lab 6: (a bit on) Modelling in the Tidyverse {.unnumbered}
+
+## Package(s)
+
+- [broom](https://broom.tidymodels.org)
+- [purrr](https://purrr.tidyverse.org)
+- [vroom](https://vroom.r-lib.org)
+
+## Schedule
+
+- 08.00 - 08.10: Course midway evaluation
+- 08.10 - 08.30: Recap of exercises from last lab (Incl. assignment)
+- 08.30 - 09.00: Introduction to Lab
+- 09.00 - 09.15: Break
+- 09.00 - 12.00: Exercises, here is a walk-along-example
+
+## Learning Materials
+
+_Please prepare the following materials:_
+
+Book: R4DS chapters 22 Introduction, 23 Model basics, 24 Model building, 25 Many models
+Video: [Broom: Converting Statistical Models to Tidy Data Frames](https://www.youtube.com/watch?v=7VGPUBWGv6g)
+Video: [Alex Hayes | Solving the model representation problem with broom | RStudio (2019)](https://www.youtube.com/watch?v=gLZyvY5_kWQ)
+Video: ["The Joy of Functional Programming (for Data Science)" with Hadley Wickham](https://www.youtube.com/watch?v=bzUmK0Y07ck)
+
+## Learning Objectives
+
+_A student who has met the objectives of the session will be able to:_
+
+- Understand and apply simple purrr-functions for element-wise function application
+- Understand and apply grouped supervised models to form nested model objects
+- Understand and apply the broom-functions for tidying various model objects
+- Perform a basic principal component analysis for dimension reduction of high dimensional data
+- Perform a basic unsupervised k-means clustering of high dimensional data

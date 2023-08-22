@@ -1,0 +1,35 @@
+# Lab 8: Creating a Simple R-package  {.unnumbered}
+
+## Package(s)
+
+- [devtools](https://github.com/r-lib/devtools)
+- [usethis](https://devtools.r-lib.org)
+- [roxygen2](https://roxygen2.r-lib.org)
+- [testthat](https://testthat.r-lib.org)
+
+## Schedule
+
+- 08.00 - 08.15: Recap of exercises from last lab
+- 08.15 - 08.30: Assignment walk-through
+- 08.30 - 09.00: Introduction to Lab
+- 09.00 - 09.15: Break
+- 09.00 - 12.00: Exercises
+
+## Learning Materials
+
+_Please prepare the following materials:_
+
+- Cheatsheet: [Package development with devtools](https://raw.githubusercontent.com/rstudio/cheatsheets/main/package-development.pdf) -- When in doubt, check here first
+- Web: [R Packages: A Beginner's Tutorial](https://www.datacamp.com/community/tutorials/r-packages-guide) -- Read this before class
+- Web: [Developing Packages with RStudio](https://support.rstudio.com/hc/en-us/articles/200486488-Developing-Packages-with-RStudio) -- Creating an R Package with RStudio
+- Web: [R package primer a minimal tutorial](https://kbroman.org/pkg_primer/) -- Brief but comprehensive R Package tutorial
+- Book: [R Packages - 1 Introduction](https://r-pkgs.org/intro.html) -- Everything you need to know about R Packages
+
+## Learning Objectives
+
+_A student who has met the objectives of the session will be able to:_
+
+- Prepare a simple R package for distributing documented functions
+- Explain the terms Repository, Dependencies, and Namespace
+- Implement testing in an R package
+- Collaboratively work on an R package on GitHub
