@@ -6,15 +6,12 @@
 
 ## Schedule
 
--   08.00 - 09.15: Arrival and 5 min. pre-course anonymous survey: Click here to answer
--   09.15 - 09.30: Lecture: [Course Introduction](lecture_lab01.qmd)
--   09.30 - 10:00: Up and Running
-    -   Group Formation
-    -   Cloud computing using RStudio Cloud
--   10.00 - 10.15 Break
--   10.15 - 11.15: Exercises: [Virtual AI Assistant](virtual_ai_assistant.qmd)
--   11.15 - 11.30 Break
--   11.30 - 12.00: Reproducibility and Replicability in modern Bio Data Science
+-   08.00 - 08.15: Arrival and 5 min. pre-course anonymous survey: [Click here to answer](https://docs.google.com/forms/d/e/1FAIpQLSeMVWtgwg1i5wp0kUus64jF1vnDjqBMBVUk_UOgb2HypbeoaQ/viewform?usp=sf_link)
+-   08.15 - 08.45: Lecture: Course Introduction
+-   08.45 - 09.00: Break
+-   09.00 - 11.15: Exercises
+-   11.15 - 11.30: Break
+-   11.30 - 12.00: Lecture: Reproducibility in Modern Bio Data Science
 
 ## Learning Materials
 

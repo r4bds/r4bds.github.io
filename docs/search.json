@@ -95,7 +95,7 @@
     "href": "labs/lab01.html#schedule",
     "title": "Lab 1: Course Intro & the Very Basics",
     "section": "Schedule",
-    "text": "Schedule\n\n08.00 - 09.15: Arrival and 5 min. pre-course anonymous survey: Click here to answer\n09.15 - 09.30: Lecture: Course Introduction\n09.30 - 10:00: Up and Running\n\nGroup Formation\nCloud computing using RStudio Cloud\n\n10.00 - 10.15 Break\n10.15 - 11.15: Exercises: Virtual AI Assistant\n11.15 - 11.30 Break\n11.30 - 12.00: Reproducibility and Replicability in modern Bio Data Science"
+    "text": "Schedule\n\n08.00 - 08.15: Arrival and 5 min. pre-course anonymous survey: Click here to answer\n08.15 - 08.45: Lecture: Course Introduction\n08.45 - 09.00: Break\n09.00 - 11.15: Exercises\n11.15 - 11.30: Break\n11.30 - 12.00: Lecture: Reproducibility in Modern Bio Data Science"
   },
   {
     "objectID": "labs/lab01.html#learning-materials",
