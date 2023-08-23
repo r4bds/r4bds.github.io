@@ -8,7 +8,7 @@ First, make sure you have a working DTU account, either as a student id or emplo
 
 - [R for Bio Data Science Cloud Server](http://teaching.healthtech.dtu.dk/22100/rstudio.php)
 
-Note, that there is a 24h time out on the sessions, meaning that if you logon and forget to sign out, your session will be terminated after 24h.
+_Note, that there is a 24h time out on the sessions, meaning that if you logon and forget to sign out, your session will be terminated after 24h._
 
 ## Setting up a GitHub account
 

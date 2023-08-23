@@ -1,5 +1,7 @@
 # Lab 7: Scripting in a Reproducible and Collaborative Framework using GitHub via RStudio {.unnumbered}
 
+#### STOP: Section not yet completed!
+
 Package(s)
 
 - [usethis](https://usethis.r-lib.org)

@@ -1,5 +1,7 @@
 # Lab 3: Data Visualisation II {.unnumbered}
 
+#### STOP: Section not yet completed!
+
 ## Package(s)
 
 - [ggplot2](https://ggplot2.tidyverse.org)

@@ -1,5 +1,7 @@
 # Lab 4: Data Wrangling I {.unnumbered}
 
+#### STOP: Section not yet completed!
+
 ## Package(s)
 
 - [dplyr](https://dplyr.tidyverse.org)

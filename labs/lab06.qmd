@@ -1,5 +1,7 @@
 # Lab 6: (a bit on) Modelling in the Tidyverse {.unnumbered}
 
+#### STOP: Section not yet completed!
+
 ## Package(s)
 
 - [broom](https://broom.tidymodels.org)

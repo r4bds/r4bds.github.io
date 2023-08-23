@@ -11,7 +11,7 @@
     "href": "prologue.html",
     "title": "Prologue",
     "section": "",
-    "text": "The course is designed as a semi-flipped classroom, with an emphasis on active learning. This means that during the 4h classes, the first hour will be dedicated to reviewing key points from last week and then a brief introduction to the topic of the day followed by a break. Hereafter, the students will work hands-on in groups on computational exercises using cloud computing infrastructure. The exercises will rely on relevant bioinformatics data from publicly available databases and gradually build the students toolbox with an emphasis on collaborative project work. This part will take up the first 9 labs. Each lab is defined by a set of specified learning objectives, it is essential that students continously make sure, that they are on track with these LOs.\nThe fist hour of the 10th lab is dedicated to introducing the project part of the course and the subsequent 3h are dedicated to a mini symposium on “Application of R for Bio Data Science in Industry”. Here students will get a change to get insights into how the course topics are implemented in industry and get a glimpse into what options are available upon completing their education. This hybrid event typically attracts ~250 participants and have featured talks from major national and international Pharma/biotech companies, such as: Novo Nordisk, Lundbeck, Chr. Hansen, Bristol Meyer Squibb, a.o.\nIn the project part of the course, students will form groups of 4-5 students based on common interests. Hereafter, the students will seek out and select a data set, which will form the foundation for the project work. In the project work, the students will go through the entire data science cycle and produce a complete bioinformatics project. This entails a complete synthesis of all components of the exercise labs and supports the collaborative aspect. The groups must then condense the project into a presentation, thereby addressing communicative competencies as an essential part of being a modern bio data scientist.\nFinally, the exam will be an overall assessment of the project code base as delivered on Github, the condensation of the project work into a presentation and an individual 2h MCQ exam."
+    "text": "The course is designed as a semi-flipped classroom, with an emphasis on active learning. This means that during the 4h classes, the first hour will be dedicated to reviewing key points from last week and then a brief introduction to the topic of the day followed by a break. Hereafter, the students will work hands-on in groups on computational exercises using cloud computing infrastructure. The exercises will rely on relevant bioinformatics data from publicly available databases and gradually build the students toolbox with an emphasis on collaborative project work. This part will take up the first 9 labs. Each lab is defined by a set of specified learning objectives, it is essential that students continuously make sure, that they are on track with these LOs.\nThe fist hour of the 10th lab is dedicated to introducing the project part of the course and the subsequent 3h are dedicated to a mini symposium on “Application of R for Bio Data Science in Industry”. Here students will get a change to get insights into how the course topics are implemented in industry and get a glimpse into what options are available upon completing their education. This hybrid event typically attracts ~250 participants and have featured talks from major national and international Pharma/biotech companies, such as: Novo Nordisk, Lundbeck, Chr. Hansen, Bristol Meyer Squibb, a.o.\nIn the project part of the course, students will form groups of 4-5 students based on common interests. Hereafter, the students will seek out and select a data set, which will form the foundation for the project work. In the project work, the students will go through the entire data science cycle and produce the code base for a complete bioinformatics project. This entails a complete synthesis of all components of the exercise labs and supports the collaborative aspect. The groups must then condense the project into a presentation, thereby addressing communicative competencies as an essential part of being a modern bio data scientist.\nFinally, the exam will be an overall assessment of the project code base as delivered on Github, the condensation of the project work into a presentation and an individual 2h MCQ exam."
   },
   {
     "objectID": "getting_started.html",
@@ -74,7 +74,7 @@
     "href": "labs/lab01.html#learning-materials",
     "title": "Lab 1: Course Intro & the Very Basics",
     "section": "Learning Materials",
-    "text": "Learning Materials\nPlease prepare the following materials:\n\nR4DS2e Book: Welcome, Preface to the second edition, Chapter 1, Chapter 3, Chapter 29 (Don’t do the exercises)\nVideo: RStudio for the Total Beginner\nWeb: Read the detailed course description\nPaper: Ten Simple Rules for Effective Statistical Practice\nPaper: A Quick Guide to Organizing Computational Biology Projects"
+    "text": "Learning Materials\nPlease prepare the following materials:\n\nRead course site sections: Welcome to R for Bio Data Science, Prologue and Getting Started\nR4DS2e Book: Welcome, Preface to the second edition, Chapter 1, Chapter 3, Chapter 29 (Don’t do the exercises)\nVideo: RStudio for the Total Beginner\nWeb: Read the detailed course description\nPaper: Ten Simple Rules for Effective Statistical Practice\nPaper: A Quick Guide to Organizing Computational Biology Projects"
   },
   {
     "objectID": "labs/lab01.html#learning-objectives",
@@ -88,14 +88,14 @@
     "href": "labs/lab01.html#exercises",
     "title": "Lab 1: Course Intro & the Very Basics",
     "section": "Exercises",
-    "text": "Exercises\nToday, we will focused on getting you started and up and running with the first elements of the course, namely the RStudio IDE (Integrated Developer Environment) and Quarto. If the relationship between R and RStudio is unclear, think of it this way: Consider a car, in that case, R would be the engine and RStudio would be the rest of the car. Neither is particularly useful, but together they form a functioning unit. Before you continue, make sure you in fact did watch the “RStudio for the Total Beginner” video (See the Learning Materials for todays session).\n\nCloud server and the RStudio IDE\nGo to the R for Bio Data Science Cloud Server and follow the login procedure. Upon login, you will see this:\n\n\n\n\n\nThis is the RStudio IDE. It allows you to consolidate all features needed to develop R code for analysis. Now, click Tools \\(\\rightarrow\\) Global Options... \\(\\rightarrow\\) Pane Layout and you will see this:\n\n\n\n\n\nThis outlines the four panes you have in your RStudio IDE and allow you rearrange them as you please. Now, re-arrange them, so that they look like this:\n\n\n\n\n\nClick Apply \\(\\rightarrow\\) OK and you should see this:\n\n\n\n\n\n\n\nFirst steps\n\nThe Console\nNow, in the console, as you saw in the video, you can type commands like:\n\n2+2\n1:100\n3*3\nsample(1:9)\nX <- matrix(sample(1:9), nrow = 3, ncol = 3)\nX\nsum(X)\nmean(X)\n?sum\nsum\nnucleotides <- c(\"a\", \"c\", \"g\", \"t\")\nnucleotides\nsample(nucleotides, size = 100, replace = TRUE)\ntable(sample(nucleotides, size = 100, replace = TRUE))\npaste0(sample(nucleotides, size = 100, replace = TRUE), collapse = \"\")\nreplicate(n = 10, expr = paste0(sample(nucleotides, size = 100, replace = TRUE), collapse = \"\"))\ndf <- data.frame(id = paste0(\"seq\", 1:10), seq = replicate(n = 10, expr = paste0(sample(nucleotides, size = 100, replace = TRUE), collapse = \"\")))\ndf\nstr(df)\nls()\n\nTake some time and play around with these commands and other things you can come up with. Use the ?function to get help on what that function does. Be sure to discuss what you observe in the console. Do not worry too much on the details for now, we are just getting started. But as you hopefully can see, R is very flexible and basically the message is: “If you can think it, you can build it in R”.\n\n\nThe Terminal\nNotice how in the console pane, you also get a Terminal, click and enter:\n\nls\nmkdir tmp\ntouch tmp/test.txt\nls tmp\nrm tmp/test.txt\nrmdir tmp\nls\necho $SHELL\n\nBasically, here you have access to a full terminal, which can prove immensely useful! Note, you may or may not be familiar with the concept of a terminal. Simply think of it as a way to interact with the computer using text command, rather than clicking on icons etc. Click back to the console.\n\n\nThe Source\nThe source is where you will write scripts. A script is a series of commands to be executed sequentially. Right now, you should have a open script called Untitled1. If not, you can create a new script by clicking white paper with a round green plus sign in the upper left corner.\nTaking inspiration from the examples above, try to write a series of commands and include a print()-statement at the very end. Click File \\(\\rightarrow\\) Save and save the file as e.g. my_first_script.R. Now, go to the console and type in the command source(\"my_first_script.R\"). Congratulations! You have now written your very first reproducible R-program!\n\n\n\nThe Whole Shebang\nEnough playing around, let us embark on our modern Bio Data Science in R journey.\n\nIn the Files pane, click New Folder and create a folder called projects\nIn the upper right corner, click where it says Project: (None) and then click New Project...\nClick New Directory and then New Project\nIn the Directory name:, enter e.g. r_for_bio_data_science\nClick the Browse... button and select your newly created projects directory and then click Choose\nClick Create Project and wait a bit for it to get created\n\n\nOn Working in Projects\nProjects allow you to create fully transferable bio data science projects, meaning that the root of the project will be where the .Rproj file is located. You can confirm this by entering getwd() in the console. This means that under no circumstance should ever not work in a project nor should ever use absolute paths. Every single path you state in your project must be relative to the project root.\nBut why? Imagine you have create a project, where you have indeed used absolute paths. Now you want to share that project with a colleague. Said colleague gets your project and tests the reproducibility by running the project end-to-end. But it completely fails because you have hardcoded your paths to be absolute, meaning that all files and project ressources locations points to locations on your laptop.\nProjects are a must and allows you to create reproducible encapsulated bio data science projects. Note, the concept of reproducibility is absolute central to this course and must be considered in all aspect of the life cycle of a project!\n\n\nQuarto\nWhile .R-scripts are a perfectly, there is another Skywalker:\n\nIn the upper left corner, again, click the white paper with the round green plus, but this time select Quarto Document\nEnter a Title:, e.g. “Lab 1 Exercises” and enter your name below in the box Author:\nClick Create\nImportant: Save your Quarto document! Click File \\(\\rightarrow\\) Save and name it e.g. lab_01_exercises.qmd\nMinimise the Environment-pane\n\nYou should now see something like this:\n\n\n\n\n\nIf you have previously worked with Rmarkdown, then many features of Quarto will be familiar. Think of Quarto as the complete rethink of Rmarkdown, i.e. based on all the experience gained, what would the optimal way of constructing an open-source scientific and technical publishing system?\nPerhaps you have previously encountered Jupyter notebooks, Quarto is similar. The basic idea is to have one document covering the entire project cycle.\nProceed R for Data Science (2e), chapter 29 and do the exercises.\n\n\n\nBio Data Science with a Virtual AI Assistant\nI am pretty sure you all know of chatGPT, so let us address the elefant in the room!\n\nGetting started\n\nGo to the ChatGPT site\nCreate a user and login\n\n\nLet us get acquainted\nNow, at the bottom it says “Send a message”, let us ask 3 simple question and see if we can find out what is what. Type the following questions in the prompt and read the answers:\n\nExplain in simple terms what you are\nExplain in simple terms how you work\nExplain in simple terms how you can be used to generate value as a virtual AI assistant, when doing Bio Data Science for R\n\n\n\nMoving onto R\nIn the upper left corner, it says + New chat, click it to start a new session.\nAgain, type the following questions in the prompt and read the answers:\n\nR\nWhat is R?\nGive a few simple examples\n\nIf you do get some code examples, try to copy/paste into the console in RStudio and see if they run\n\n\nPrompt Engineering\nStart a new chat and enter:\n\nGive a few simple examples\n\nCompare the response with the one from before, is it the same or different and why so?\nDiscuss in your group what is “Prompt Engineering” and how does it relate to the above few tests you did? (Bonus info: Prompt engineer is already a job and people are making money off of selling prompts)\n\n\n…a bit more\nStart a new chat and enter:\n\nTell me about dna\n\nCheck if it gives you correct information?\nNow, write:\n\nGive a few fun examples on how to get started with the R programming language using dna\n\nCopy/paste the code into the Console, do the examples all run?\n\n\nSummary\nWhile chatGPT can be a powerful tool for code productivity, it comes with a major caveat: When it fails, it fails with confidence. This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can see if you are heading in the right direction or if you’re being send on a wild goose chase.\nTherefore, in the beginning of the course, for your own sake, please refrain from using chatGPT. Instead solve the exercises based on the materials you have prepared, talk to you group members and discuss the challenges and check your understanding"
+    "text": "Exercises\nToday, we will focused on getting you started and up and running with the first elements of the course, namely the RStudio IDE (Integrated Developer Environment) and Quarto. If the relationship between R and RStudio is unclear, think of it this way: Consider a car, in that case, R would be the engine and RStudio would be the rest of the car. Neither is particularly useful, but together they form a functioning unit. Before you continue, make sure you in fact did watch the “RStudio for the Total Beginner” video (See the Learning Materials for todays session).\n\nCloud server and the RStudio IDE\nGo to the R for Bio Data Science Cloud Server and follow the login procedure. Upon login, you will see this:\n\n\n\n\n\nThis is the RStudio IDE. It allows you to consolidate all features needed to develop R code for analysis. Now, click Tools \\(\\rightarrow\\) Global Options... \\(\\rightarrow\\) Pane Layout and you will see this:\n\n\n\n\n\nThis outlines the four panes you have in your RStudio IDE and allow you rearrange them as you please. Now, re-arrange them, so that they look like this:\n\n\n\n\n\nClick Apply \\(\\rightarrow\\) OK and you should see this:\n\n\n\n\n\n\n\nFirst steps\n\nThe Console\nNow, in the console, as you saw in the video, you can type commands like:\n\n2+2\n1:100\n3*3\nsample(1:9)\nX <- matrix(sample(1:9), nrow = 3, ncol = 3)\nX\nsum(X)\nmean(X)\n?sum\nsum\nnucleotides <- c(\"a\", \"c\", \"g\", \"t\")\nnucleotides\nsample(nucleotides, size = 100, replace = TRUE)\ntable(sample(nucleotides, size = 100, replace = TRUE))\npaste0(sample(nucleotides, size = 100, replace = TRUE), collapse = \"\")\nreplicate(n = 10, expr = paste0(sample(nucleotides, size = 100, replace = TRUE), collapse = \"\"))\ndf <- data.frame(id = paste0(\"seq\", 1:10), seq = replicate(n = 10, expr = paste0(sample(nucleotides, size = 100, replace = TRUE), collapse = \"\")))\ndf\nstr(df)\nls()\n\nTake some time and play around with these commands and other things you can come up with. Use the ?function to get help on what that function does. Be sure to discuss what you observe in the console. Do not worry too much on the details for now, we are just getting started. But as you hopefully can see, R is very flexible and basically the message is: “If you can think it, you can build it in R”.\n\n\nThe Terminal\nNotice how in the console pane, you also get a Terminal, click and enter:\n\nls\nmkdir tmp\ntouch tmp/test.txt\nls tmp\nrm tmp/test.txt\nrmdir tmp\nls\necho $SHELL\n\nBasically, here you have access to a full terminal, which can prove immensely useful! Note, you may or may not be familiar with the concept of a terminal. Simply think of it as a way to interact with the computer using text command, rather than clicking on icons etc. Click back to the console.\n\n\nThe Source\nThe source is where you will write scripts. A script is a series of commands to be executed sequentially. Right now, you should have a open script called Untitled1. If not, you can create a new script by clicking white paper with a round green plus sign in the upper left corner.\nTaking inspiration from the examples above, try to write a series of commands and include a print()-statement at the very end. Click File \\(\\rightarrow\\) Save and save the file as e.g. my_first_script.R. Now, go to the console and type in the command source(\"my_first_script.R\"). Congratulations! You have now written your very first reproducible R-program!\n\n\n\nThe Whole Shebang\nEnough playing around, let us embark on our modern Bio Data Science in R journey.\n\nIn the Files pane, click New Folder and create a folder called projects\nIn the upper right corner, click where it says Project: (None) and then click New Project...\nClick New Directory and then New Project\nIn the Directory name:, enter e.g. r_for_bio_data_science\nClick the Browse... button and select your newly created projects directory and then click Choose\nClick Create Project and wait a bit for it to get created\n\n\nOn Working in Projects\nProjects allow you to create fully transferable bio data science projects, meaning that the root of the project will be where the .Rproj file is located. You can confirm this by entering getwd() in the console. This means that under no circumstance should ever not work in a project nor should ever use absolute paths. Every single path you state in your project must be relative to the project root.\nBut why? Imagine you have create a project, where you have indeed used absolute paths. Now you want to share that project with a colleague. Said colleague gets your project and tests the reproducibility by running the project end-to-end. But it completely fails because you have hardcoded your paths to be absolute, meaning that all files and project ressources locations points to locations on your laptop.\nProjects are a must and allows you to create reproducible encapsulated bio data science projects. Note, the concept of reproducibility is absolute central to this course and must be considered in all aspect of the life cycle of a project!\n\n\nQuarto\nWhile .R-scripts are a perfectly, there is another Skywalker:\n\nIn the upper left corner, again, click the white paper with the round green plus, but this time select Quarto Document\nEnter a Title:, e.g. “Lab 1 Exercises” and enter your name below in the box Author:\nClick Create\nImportant: Save your Quarto document! Click File \\(\\rightarrow\\) Save and name it e.g. lab_01_exercises.qmd\nMinimise the Environment-pane\n\nYou should now see something like this:\n\n\n\n\n\nTry clicking the Render button just above the quarto-document. This will create the HTML5 output file. Note! You may get a Connection Refused message. If so, don’t worry, just close the page to return to the cloud server and find the generated .html file, left-click and select View in Web Browser.\nIf you have previously worked with Rmarkdown, then many features of Quarto will be familiar. Think of Quarto as the complete rethink of Rmarkdown, i.e. based on all the experience gained, what would the optimal way of constructing an open-source scientific and technical publishing system?\nPerhaps you have previously encountered Jupyter notebooks, Quarto is similar. The basic idea is to have one document covering the entire project cycle.\nProceed R for Data Science (2e), chapter 29 and do the exercises.\n\n\n\nBio Data Science with a Virtual AI Assistant\nI am pretty sure you all know of chatGPT by now, so let us address the elephant in the room!\n\nGetting started\n\nGo to the ChatGPT site\nCreate a user and login\n\n\nLet us get acquainted\nNow, at the bottom it says “Send a message”, let us ask 3 simple question and see if we can find out what is what. Type the following questions in the prompt and read the answers:\n\nExplain in simple terms what you are\nExplain in simple terms how you work\nExplain in simple terms how you can be used to generate value as a virtual AI assistant, when doing Bio Data Science for R\n\n\n\nMoving onto R\nIn the upper left corner, it says + New chat, click it to start a new session.\nAgain, type the following questions in the prompt and read the answers:\n\nR\nWhat is R?\nGive a few simple examples\n\nIf you do get some code examples, try to copy/paste into the console in RStudio and see if they run\n\n\nPrompt Engineering\nStart a new chat and enter:\n\nGive a few simple examples\n\nCompare the response with the one from before, is it the same or different and why so?\nDiscuss in your group what is “Prompt Engineering” and how does it relate to the above few tests you did? (Bonus info: Prompt engineer is already a job and people are making money off of selling prompts)\n\n\n…a bit more\nStart a new chat and enter:\n\nTell me about DNA\n\nCheck if it gives you correct information?\nNow, write:\n\nGive a few fun examples on how to get started with the R programming language using DNA\n\nCopy/paste the code into the Console, do the examples all run?\n\n\nSummary\nWhile chatGPT can be a powerful tool for code productivity, it comes with a major caveat: When it fails, it fails with confidence. This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can see if you are heading in the right direction or if you’re being send on a wild goose chase.\nTherefore, in the beginning of the course, for your own sake, please refrain from using chatGPT!\nInstead solve the exercises based on the materials you have prepared, talk to you group members and discuss the challenges and check your understanding. Then later on, when you have gained initial experience, we can explore using chatGPT to augment your bio data science workflow to enhance productivity"
   },
   {
-    "objectID": "labs/lab02.html",
-    "href": "labs/lab02.html",
+    "objectID": "labs/lab02.html#packages",
+    "href": "labs/lab02.html#packages",
     "title": "Lab 2: Data Visualisation I",
-    "section": "",
-    "text": "ggplot2"
+    "section": "Package(s)",
+    "text": "Package(s)\n\nggplot2"
   },
   {
     "objectID": "labs/lab02.html#schedule",
@@ -119,11 +119,11 @@
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nExplains the basic theory of data visualisation\nDecipher the components of a ggplot\nUse ggplot to do basic data visualisation"
   },
   {
-    "objectID": "labs/lab03.html",
-    "href": "labs/lab03.html",
+    "objectID": "labs/lab03.html#packages",
+    "href": "labs/lab03.html#packages",
     "title": "Lab 3: Data Visualisation II",
-    "section": "",
-    "text": "ggplot2\npatchwork\nscales"
+    "section": "Package(s)",
+    "text": "Package(s)\n\nggplot2\npatchwork\nscales"
   },
   {
     "objectID": "labs/lab03.html#schedule",
@@ -147,11 +147,11 @@
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nUse more advanced ggplot features\nCustomise the data visualisation\nCombine multiple plots into one pane\nLook at a more advanced ggplot and decipher the components used"
   },
   {
-    "objectID": "labs/lab04.html",
-    "href": "labs/lab04.html",
+    "objectID": "labs/lab04.html#packages",
+    "href": "labs/lab04.html#packages",
     "title": "Lab 4: Data Wrangling I",
-    "section": "",
-    "text": "dplyr\nreadr\ntibble\nmagrittr"
+    "section": "Package(s)",
+    "text": "Package(s)\n\ndplyr\nreadr\ntibble\nmagrittr"
   },
   {
     "objectID": "labs/lab04.html#schedule",
@@ -175,11 +175,11 @@
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nUnderstand and apply the 6 basic dplyr verbs: filter(), arrange(), select(), mutate(), summarise() and group_by()\nConstruct and apply logical tests in context with dplyr pipelines\nUnderstand and apply the additional verbs count(), drop_na(), View()\nCombine dplyr verbs to form a data manipulation pipeline using the pipe %>% operator\nDecipher the components and functions hereof in a dplyr pipeline"
   },
   {
-    "objectID": "labs/lab05.html",
-    "href": "labs/lab05.html",
+    "objectID": "labs/lab05.html#packages",
+    "href": "labs/lab05.html#packages",
     "title": "Lab 5: Data Wrangling II",
-    "section": "",
-    "text": "dplyr\nstringr\ntidyr\nforcats"
+    "section": "Package(s)",
+    "text": "Package(s)\n\ndplyr\nstringr\ntidyr\nforcats"
   },
   {
     "objectID": "labs/lab05.html#schedule",
@@ -203,11 +203,11 @@
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nUnderstand and apply the various str_*() functions for string manipulation\nUnderstand and apply the family of *_join() functions for combining data sets\nUnderstand and apply pivot_wider() and pivot_longer()\nUse factors in conjugation with plotting categorical data using ggplot"
   },
   {
-    "objectID": "labs/lab06.html",
-    "href": "labs/lab06.html",
+    "objectID": "labs/lab06.html#packages",
+    "href": "labs/lab06.html#packages",
     "title": "Lab 6: (a bit on) Modelling in the Tidyverse",
-    "section": "",
-    "text": "broom\npurrr\nvroom"
+    "section": "Package(s)",
+    "text": "Package(s)\n\nbroom\npurrr\nvroom"
   },
   {
     "objectID": "labs/lab06.html#schedule",
@@ -235,7 +235,7 @@
     "href": "labs/lab07.html",
     "title": "Lab 7: Scripting in a Reproducible and Collaborative Framework using GitHub via RStudio",
     "section": "",
-    "text": "Package(s)"
+    "text": "Package(s)\n\nusethis\ngit (Actually not an R-package this time)"
   },
   {
     "objectID": "labs/lab07.html#schedule",
@@ -259,11 +259,11 @@
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nExplain why reproducible data analysis is important\nIdentify associated relevant challenges\nExplain replicability versus reproducibility\nDescribe the components of a reproducible data analysis\nUse RStudio and GitHub (git) for collaborative bio data science projects"
   },
   {
-    "objectID": "labs/lab08.html",
-    "href": "labs/lab08.html",
+    "objectID": "labs/lab08.html#packages",
+    "href": "labs/lab08.html#packages",
     "title": "Lab 8: Creating a Simple R-package",
-    "section": "",
-    "text": "devtools\nusethis\nroxygen2\ntestthat"
+    "section": "Package(s)",
+    "text": "Package(s)\n\ndevtools\nusethis\nroxygen2\ntestthat"
   },
   {
     "objectID": "labs/lab08.html#schedule",
@@ -287,11 +287,11 @@
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nPrepare a simple R package for distributing documented functions\nExplain the terms Repository, Dependencies, and Namespace\nImplement testing in an R package\nCollaboratively work on an R package on GitHub"
   },
   {
-    "objectID": "labs/lab09.html",
-    "href": "labs/lab09.html",
+    "objectID": "labs/lab09.html#packages",
+    "href": "labs/lab09.html#packages",
     "title": "Lab 9 Creating a Simple Shiny Application",
-    "section": "",
-    "text": "shiny\ngolem"
+    "section": "Package(s)",
+    "text": "Package(s)\n\nshiny\ngolem"
   },
   {
     "objectID": "labs/lab09.html#schedule",
@@ -315,11 +315,11 @@
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nPrepare a simple shiny application\nUsing relevant online ressources to autonomously identify and obtain new and expand on existing knowledge of R"
   },
   {
-    "objectID": "labs/lab10.html",
-    "href": "labs/lab10.html",
+    "objectID": "labs/lab10.html#schedule",
+    "href": "labs/lab10.html#schedule",
     "title": "Lab 10 Project Startup & Industry Talks",
-    "section": "",
-    "text": "08.00 - 08.15: Recap and Assignment\n08.15 - 08.45: Introduction to Project Period and Exam\n08.45 - 09.00: Break\n09.00 - 10.00: Mini Symposium (See below)"
+    "section": "Schedule",
+    "text": "Schedule\n\n08.00 - 08.15: Recap and Assignment\n08.15 - 08.45: Introduction to Project Period and Exam\n08.45 - 09.00: Break\n09.00 - 10.00: Mini Symposium (See below)"
   },
   {
     "objectID": "labs/lab10.html#mini-symposium-applications-of-r-for-bio-data-science-in-industry",

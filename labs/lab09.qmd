@@ -1,5 +1,7 @@
 # Lab 9 Creating a Simple Shiny Application {.unnumbered}
 
+#### STOP: Section not yet completed!
+
 ## Package(s)
 
 - [shiny](https://github.com/rstudio/shiny)

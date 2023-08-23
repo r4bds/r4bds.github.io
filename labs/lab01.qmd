@@ -17,6 +17,7 @@
 
 *Please prepare the following materials:*
 
+- Read course site sections: [Welcome to R for Bio Data Science](https://r4bds.github.io), [Prologue](https://r4bds.github.io/prologue.html) and [Getting Started](https://r4bds.github.io/getting_started.html)
 -   R4DS2e Book: [Welcome](https://r4ds.hadley.nz), [Preface to the second edition](https://r4ds.hadley.nz/preface-2e), [Chapter 1](https://r4ds.hadley.nz/intro), [Chapter 3](https://r4ds.hadley.nz/workflow-basics), [Chapter 29](https://r4ds.hadley.nz/quarto.html) (Don't do the exercises)
 -   Video: [RStudio for the Total Beginner](https://www.youtube.com/watch?v=FIrsOBy5k58)
 -   Web: Read the [detailed course description](https://kurser.dtu.dk/course/22100)
@@ -144,6 +145,8 @@ You should now see something like this:
 
 ![](images/lab01_05.png){fig-align="center" width="800px"}
 
+Try clicking the `Render` button just above the quarto-document. This will create the HTML5 output file. Note! You may get a `Connection Refused` message. If so, don't worry, just close the page to return to the cloud server and find the generated `.html` file, left-click and select `View in Web Browser`.
+
 If you have previously worked with `Rmarkdown`, then many features of `Quarto` will be familiar. Think of `Quarto` as the complete rethink of `Rmarkdown`, i.e. based on all the experience gained, what would the optimal way of constructing an open-source scientific and technical publishing system?
 
 Perhaps you have previously encountered Jupyter notebooks, Quarto is similar. The basic idea is to have one document covering the entire project cycle.
@@ -152,7 +155,7 @@ Proceed [R for Data Science (2e), chapter 29](https://r4ds.hadley.nz/quarto) and
 
 ### Bio Data Science with a Virtual AI Assistant
 
-I am pretty sure you all know of chatGPT, so let us address the elefant in the room!
+I am pretty sure you all know of chatGPT by now, so let us address the elephant in the room!
 
 #### Getting started
 
@@ -193,20 +196,20 @@ Discuss in your group what is "Prompt Engineering" and how does it relate to the
 
 Start a new chat and enter:
 
-1. *Tell me about dna*
+1. *Tell me about DNA*
 
 Check if it gives you correct information?
 
 Now, write:
 
-1. *Give a few fun examples on how to get started with the R programming language using dna*
+1. *Give a few fun examples on how to get started with the R programming language using DNA*
 
 Copy/paste the code into the Console, do the examples all run?
 
 ##### Summary
 
-While `chatGPT` can be a powerful tool for code productivity, it comes with a major caveat: When it fails, it fails with confidence. This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can see if you are heading in the right direction or if you're being send on a wild goose chase.
+While `chatGPT` can be a powerful tool for code productivity, it comes with a major caveat: **When it fails, it fails with confidence**. This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can see if you are heading in the right direction or if you're being send on a wild goose chase.
 
-**Therefore, in the beginning of the course, for your own sake, please refrain from using chatGPT. Instead solve the exercises based on the materials you have prepared, talk to you group members and discuss the challenges and check your understanding**
+**Therefore, in the beginning of the course, for your own sake, please refrain from using chatGPT!**
 
-
+_Instead solve the exercises based on the materials you have prepared, talk to you group members and discuss the challenges and check your understanding. Then later on, when you have gained initial experience, we can explore using chatGPT to augment your bio data science workflow to enhance productivity_
