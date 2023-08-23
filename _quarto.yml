@@ -20,7 +20,7 @@ book:
     - prologue.qmd
     - getting_started.qmd
     
-    - part: course_labs.qmd
+    - part: labs/course_labs.qmd
       chapters:
         - labs/lab01.qmd
         - labs/lab02.qmd
