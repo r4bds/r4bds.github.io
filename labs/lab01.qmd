@@ -17,7 +17,7 @@
 
 *Please prepare the following materials:*
 
-- Read course site sections: [Welcome to R for Bio Data Science](https://r4bds.github.io), [Prologue](https://r4bds.github.io/prologue.html) and [Getting Started](https://r4bds.github.io/getting_started.html)
+- Read course site sections: [Welcome to R for Bio Data Science](https://r4bds.github.io), [Prologue](https://r4bds.github.io/prologue.html) and [Getting Started](https://r4bds.github.io/getting_started.html) and perform any small tasks mentioned
 -   R4DS2e Book: [Welcome](https://r4ds.hadley.nz), [Preface to the second edition](https://r4ds.hadley.nz/preface-2e), [Chapter 1](https://r4ds.hadley.nz/intro), [Chapter 3](https://r4ds.hadley.nz/workflow-basics), [Chapter 29](https://r4ds.hadley.nz/quarto.html) (Don't do the exercises)
 -   Video: [RStudio for the Total Beginner](https://www.youtube.com/watch?v=FIrsOBy5k58)
 -   Web: Read the [detailed course description](https://kurser.dtu.dk/course/22100)

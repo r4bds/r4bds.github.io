@@ -74,7 +74,7 @@
     "href": "labs/lab01.html#learning-materials",
     "title": "Lab 1: Course Intro & the Very Basics",
     "section": "Learning Materials",
-    "text": "Learning Materials\nPlease prepare the following materials:\n\nRead course site sections: Welcome to R for Bio Data Science, Prologue and Getting Started\nR4DS2e Book: Welcome, Preface to the second edition, Chapter 1, Chapter 3, Chapter 29 (Don’t do the exercises)\nVideo: RStudio for the Total Beginner\nWeb: Read the detailed course description\nPaper: Ten Simple Rules for Effective Statistical Practice\nPaper: A Quick Guide to Organizing Computational Biology Projects"
+    "text": "Learning Materials\nPlease prepare the following materials:\n\nRead course site sections: Welcome to R for Bio Data Science, Prologue and Getting Started and perform any small tasks mentioned\nR4DS2e Book: Welcome, Preface to the second edition, Chapter 1, Chapter 3, Chapter 29 (Don’t do the exercises)\nVideo: RStudio for the Total Beginner\nWeb: Read the detailed course description\nPaper: Ten Simple Rules for Effective Statistical Practice\nPaper: A Quick Guide to Organizing Computational Biology Projects"
   },
   {
     "objectID": "labs/lab01.html#learning-objectives",
