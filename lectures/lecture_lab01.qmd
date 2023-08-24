@@ -1,36 +1,87 @@
 ---
-title: "Lab"
+title: "Lecture Lab 1"
 author: "Leon Eyrich Jessen"
 format:
   revealjs:
+    theme: moon
     slide-number: c/t
     width: 1600
     height: 900
-    logo: ../images/R_for_bio_data_science_hex_logo_quadratic_small.png
+    mainfont: avenir
+    logo: images/r4bds_logo_small.png
     footer: "R for Bio Data Science"
-    theme: moon
 ---
 
-# In the morning
+# Course Introduction
 
-## Getting up
+## R for Bio Data Science - What is it?
 
-- Turn off alarm
-- Get out of bed
+![](images/data_science.png){fig-align="center" width=80%}
 
-## Breakfast
+- In essence: The art of converting numbers to value
 
-- Eat eggs
-- Drink coffee
+## Why this Course?
 
-# In the evening
+![](images/data_tutorial_vs_reality.jpg){fig-align="center" width=80%}
 
-## Dinner
+## Why this Course?
 
-- Eat spaghetti
-- Drink wine
+![](images/code_now_only_god.png){fig-align="center" width=70%}
 
-## Going to sleep
+## Why this Course?
 
-- Get in bed
-- Count sheep
+In this course you will learn
+
+- The craft of going from raw extracted data to insights
+- Advanced data visualisation
+- Collaborative project oriented coding
+- All with an emphasis on reproducibility and communication
+
+![](images/data_science_cycle.png){fig-align="center" width=80%}
+
+## General Course Outline
+
+- Mondays 08.00 - 12.00
+  - 08.00 - 08.30 Recap of Exercises
+  - 08.30 - 09.00 Introduction to Theme of the Day
+  - 09.00 - 12.00 Exercises
+
+## About
+
+### Course Description
+- Basically, what can you expect to learn and what do I expect that you learn: [https://kurser.dtu.dk/course/22100](https://kurser.dtu.dk/course/22100)
+
+### Course Resources
+
+- Text Book: ["R for Data Science"](https://r4ds.had.co.nz) by Garrett Grolemund and Hadley Wickham
+- See course frontpage on DTU Learn for additional learning resources
+
+### Course format
+
+- Active Learning: _Strong emphasis on students working in groups_, rather than me talking
+- The focus is on you working actively, _not_ me talking
+- I will _not_ go through all preparation materials in class
+- Proper preparation is a prerequisite for completing lab exercises and maximising course yield
+- I focus on supporting your independence, hence for some exercises you will have to seek out information (_I'm not a good data scientist, I'm just slightly better at googling than others_)
+
+## Exercise feedback
+
+### Weekly
+- An exercise question will be highlighted 
+- Each group is responsible for crafting an answer to this highlighted question
+- These answers will be hand-ins
+- The following week, we will choose a random answer to be discussed in plenum
+
+## Group Formation
+
+- Modern Bio Data Science is a team sport!
+- You have to form a group of 4 students (3-5) with a Shared Bio Data Science / Bioinformatics Area of Interest
+- You will work in these groups throughout the course
+- You will do the final project in these groups
+- You will attend the exam in these groups
+- Group work is a _very important_ meta skill for an engineer!
+- Please fill in groups, see schedule for lab 1
+- If you do not have a group, fill in your id and interest at an available group and someone might join you
+- I aim to let you decide on the groups, I will of course be happy to help if needed
+
+# Questions?

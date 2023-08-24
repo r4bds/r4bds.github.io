@@ -262,7 +262,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
   <li><a href="#learning-materials" id="toc-learning-materials" class="nav-link" data-scroll-target="#learning-materials">Learning Materials</a></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a>
+  <li><a href="#sec-exercises" id="toc-sec-exercises" class="nav-link" data-scroll-target="#sec-exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#cloud-server-and-the-rstudio-ide" id="toc-cloud-server-and-the-rstudio-ide" class="nav-link" data-scroll-target="#cloud-server-and-the-rstudio-ide">Cloud server and the RStudio IDE</a></li>
   <li><a href="#first-steps" id="toc-first-steps" class="nav-link" data-scroll-target="#first-steps">First steps</a></li>
@@ -303,7 +303,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>08.00 - 08.15: Arrival and 5 min. pre-course anonymous survey: <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMVWtgwg1i5wp0kUus64jF1vnDjqBMBVUk_UOgb2HypbeoaQ/viewform?usp=sf_link">Click here to answer</a></li>
 <li>08.15 - 08.45: Lecture: Course Introduction</li>
 <li>08.45 - 09.00: Break</li>
-<li>09.00 - 11.15: Exercises</li>
+<li>09.00 - 11.15: <a href="#sec-exercises">Exercises</a></li>
 <li>11.15 - 11.30: Break</li>
 <li>11.30 - 12.00: Lecture: Reproducibility in Modern Bio Data Science</li>
 </ul>
@@ -331,8 +331,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Describe the components of a reproducible data analysis</li>
 </ul>
 </section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+<section id="sec-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="sec-exercises">Exercises</h2>
 <p>Today, we will focused on getting you started and up and running with the first elements of the course, namely the RStudio IDE (Integrated Developer Environment) and Quarto. If the relationship between <code>R</code> and RStudio is unclear, think of it this way: Consider a car, in that case, <code>R</code> would be the engine and RStudio would be the rest of the car. Neither is particularly useful, but together they form a functioning unit. Before you continue, make sure you in fact did watch the “RStudio for the Total Beginner” video (See the Learning Materials for todays session).</p>
 <section id="cloud-server-and-the-rstudio-ide" class="level3">
 <h3 class="anchored" data-anchor-id="cloud-server-and-the-rstudio-ide">Cloud server and the RStudio IDE</h3>
@@ -389,6 +389,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Take some time and play around with these commands and other things you can come up with. Use the <code>?function</code> to get help on what that function does. Be sure to discuss what you observe in the console. Do not worry too much on the details for now, we are just getting started. But as you hopefully can see, <code>R</code> is very flexible and basically the message is: “If you can think it, you can build it in <code>R</code>”.</p>
+<ul>
+<li>Go to <a href="https://r4ds.hadley.nz/workflow-basics">Chapter 3</a> in R4DS2e and do the exercises</li>
+</ul>
 </section>
 <section id="the-terminal" class="level4">
 <h4 class="anchored" data-anchor-id="the-terminal">The Terminal</h4>
@@ -407,7 +410,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="the-source" class="level4">
 <h4 class="anchored" data-anchor-id="the-source">The Source</h4>
-<p>The source is where you will write scripts. A script is a series of commands to be executed sequentially. Right now, you should have a open script called <code>Untitled1</code>. If not, you can create a new script by clicking white paper with a round green plus sign in the upper left corner.</p>
+<p>The source is where you will write scripts. A script is a series of commands to be executed sequentially, i.e.&nbsp;first line 1, then line 2 and so on. Right now, you should have a open script called <code>Untitled1</code>. If not, you can create a new script by clicking white paper with a round green plus sign in the upper left corner.</p>
 <p>Taking inspiration from the examples above, try to write a series of commands and include a <code>print()</code>-statement at the very end. Click <code>File</code> <span class="math inline">\(\rightarrow\)</span> <code>Save</code> and save the file as e.g.&nbsp;<code>my_first_script.R</code>. Now, go to the console and type in the command <code>source("my_first_script.R")</code>. Congratulations! You have now written your very first reproducible R-program!</p>
 </section>
 </section>
@@ -491,15 +494,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="a-bit-more" class="level5">
 <h5 class="anchored" data-anchor-id="a-bit-more">…a bit more</h5>
 <p>Start a new chat and enter:</p>
-<ol type="1">
+<ul>
 <li><em>Tell me about DNA</em></li>
-</ol>
+</ul>
 <p>Check if it gives you correct information?</p>
 <p>Now, write:</p>
-<ol type="1">
+<ul>
 <li><em>Give a few fun examples on how to get started with the R programming language using DNA</em></li>
-</ol>
+</ul>
 <p>Copy/paste the code into the Console, do the examples all run?</p>
+<ul>
+<li>Earlier you were told to play around with some code snippets. Perhaps you didn’t fully catch what was going on? If so, try to type in e.g.:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>I'm new to R, please explain in simple terms, what the following code does:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>"</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>nucleotides &lt;- c("a", "c", "g", "t")</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>replicate(n = 10, expr = paste0(sample(nucleotides, size = 100, replace = TRUE), collapse = ""))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="summary" class="level5">
 <h5 class="anchored" data-anchor-id="summary">Summary</h5>

@@ -4,7 +4,7 @@ _A tidy approach to wrangling, exploring, visualising and communicating bio data
 
 ### Welcome to R for Bio Data Science {.unnumbered}
 
-So, you signed up for this bioinformatics course - Congratulations! That was your first step towards getting a set of skills, which will serve you through your future career regardless of your path!
+So, you signed up for the [22100](https://kurser.dtu.dk/course/22100)/[22160](https://kurser.dtu.dk/course/22160) bioinformatics study line course - Congratulations! That was your first step towards getting a set of bio data science skills, which will serve you through your future career regardless of your path!
 
 Inspirational quotes can be cliche, however this one hits the nail on the head:
 
