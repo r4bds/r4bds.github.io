@@ -7,7 +7,7 @@
 ## Schedule
 
 -   08.00 - 08.15: Arrival and 5 min. pre-course anonymous survey: [Click here to answer](https://docs.google.com/forms/d/e/1FAIpQLSeMVWtgwg1i5wp0kUus64jF1vnDjqBMBVUk_UOgb2HypbeoaQ/viewform?usp=sf_link)
--   08.15 - 08.45: Lecture: Course Introduction
+-   08.15 - 08.45: Lecture: [Course Introduction](https://raw.githack.com/r4bds/r4bds.github.io/main/lectures/lecture_lab01.html)
 -   08.45 - 09.00: Break
 -   09.00 - 11.15: [Exercises](#sec-exercises)
 -   11.15 - 11.30: Break
