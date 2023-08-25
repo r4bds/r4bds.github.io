@@ -14,23 +14,76 @@ format:
 
 # Course Introduction
 
+## DATADATADATA: Data Hoarding
+
+![](images/data_hoarding.png){fig-align="center" width=80%}
+
+## Increasing the Value of Data Requires Activation!
+
+![](images/increasing_the_value_of_data.png){fig-align="center" width=80%}
+
+## Data Driven Decision Making
+
+_Because we've always done it this way!_
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+Your job as a Bio Data Scientist:
+
+ - Activate data
+ - Extract insights
+ - Communicate to non-data stakeholders
+ - Facilitate data driven decision making
+
+:::
+
+::: {.column width="60%"}
+
+![](images/data_driven_decision_making.jpg){fig-align="center" width=80%}
+
+:::
+
+::::
+
+_Levering data driven decision making allows the company to gain a competitive edge and this is where you Bio Data Science skills are indispensable!_
+
+## You value as a Bio Data Scientist / Bioinformatician
+
+- In your career, your task will be to create value
+
+- This is regardless of whether you plan to work in indstry or pursue a research career
+
+- What you do has to create value
+
+- Creating value requires skills
+
+- Skills need to be learned
+
+- So, why are you here?
+
+# You're here to gain skills, which will allow you to generate value!
+
 ## R for Bio Data Science - What is it?
 
-![](images/data_science.png){fig-align="center" width=80%}
+![](images/bio_data_science.png){fig-align="center" width=80%}
 
 - In essence: The art of converting numbers to value
 
-## Why this Course?
+## R for Bio Data Science - Intrinsically interdisciplinary
+
+![](images/r_for_bio_data_science_hex_logo_quadratic.png){fig-align="center" width=100%}
+
+## What is the motivation for this Course?
 
 ![](images/data_tutorial_vs_reality.jpg){fig-align="center" width=80%}
 
-## Why this Course?
+## What is the motivation for this Course?
 
 ![](images/code_now_only_god.png){fig-align="center" width=70%}
 
-## Why this Course?
-
-In this course you will learn
+## What will you learn?
 
 - The craft of going from raw extracted data to insights
 - Advanced data visualisation
@@ -39,26 +92,214 @@ In this course you will learn
 
 ![](images/data_science_cycle.png){fig-align="center" width=80%}
 
+# R
+
+## Introducing R: A Journey into Bio Data Science
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+- Open-source programming language
+- Essential tool for statistics & data visualization
+- Widely used in bioinformatics and data science
+- Dynamic community & vast library of packages
+
+:::
+
+::: {.column width="60%"}
+
+![](images/R_logo.png){fig-align="center" width=80%}
+
+:::
+
+::::
+
+_"To understand computations in R, two slogans are helpful: Everything that exists is an object. Everything that happens is a function call." – John Chambers (creator of the S language, of which R is an implementation)._
+
+## The Roots and Rise of R
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+- Originated from the 'S' language at Bell Laboratories in the 1970s
+- S was proprietary, so basically R is an open source implementation of S and was officially released in 1995
+- This similar to Linux vs. Unix
+- A leader in statistical computing. Powers many academic research & industry projects
+- E.g. Crucial in genomics, where R aids in decoding biological data
+- R comes with a very large and well proven built in tools for data analysis
+
+:::
+
+::: {.column width="60%"}
+
+![](images/R_logo.png){fig-align="center" width=80%}
+
+:::
+
+::::
+
+## A Few Examples of Functional Programming
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+You can approach `R` as
+
+- an object-oriented programming language
+- a imperative programming language
+- a functional programming language
+
+The code on the right all performs the same task, but which do you think is:
+
+- simpler to read and understand?
+- faster to execute?
+
+In this course we will work with `R` in its native form - a fully fledged functional programming language
+
+:::
+
+::: {.column width="50%"}
+
+Object Oriented Approach:
+
+```{r}
+#| echo: true
+#| eval: false
+Vector <- R6Class("Vector",
+  public = list(
+    data = NULL,
+    initialize = function(data) {
+      if (!is.numeric(data)) {
+        stop("Data should be numeric.")
+      }
+      self$data <- data
+    },
+    mean = function() {
+      return(sum(self$data) / length(self$data))
+    }
+  )
+)
+numbers <- Vector$new(c(49, 31, 24, 35, 71, 7, 36, 23, 67, 37))
+numbers$mean()
+```
+
+Imperative Approach:
+
+```{r}
+#| echo: true
+my_vector <- c(49, 31, 24, 35, 71, 7, 36, 23, 67, 37)
+my_sum <- 0
+for( i in 1:length(my_vector) ){
+  my_sum <- my_sum + my_vector[i]
+}
+my_mean <- my_sum / length(my_vector)
+print(my_mean)
+```
+
+Functional approach:
+
+```{r}
+#| echo: true
+my_vector <- c(49, 31, 24, 35, 71, 7, 36, 23, 67, 37)
+my_mean <- mean(my_vector)
+print(my_mean)
+```
+
+:::
+
+::::
+
+## R: Debunking Myths
+
+:::: {.columns}
+
+::: {.column width="50%"}
+1. `R` is Turing-complete: `R` can theoretically solve any computational problem. Foundational concept shared with e.g. Python, C++, Java, etc.
+
+2. R is fully capable in Production: E.g. shiny apps used in industry and `R` comes with an ecosystem supporting reproducibility in production settings.
+
+3. Comprehensive Ecosystem: CRAN contains ~20,000 packages. Also Bioconductor is a gold standard for bioinformatics software.
+
+4. Interoperability: Seamless integration with other languages (C, C++, Fortran, and Python) using packages like Rcpp and reticulate.
+:::
+
+::: {.column width="50%"}
+5. Advanced Programming Features: Supports object-oriented, functional, and imperative programming paradigms. Flexible metaprogramming with capabilities like non-standard evaluation.
+
+6. R's Active & Growing Community: Annual global R conferences and numerous local user groups and also: `tidyverse`
+
+7. Performance: `R` is interpreted and can be slower, packages like data.table and Rcpp offer dramatic performance enhancements. Also, parallel computing is straightforward with packages like future and parallel.
+
+8. Not Just for Statisticians: R's applications range from web development to machine learning (tidymodels, caret, mlr3) to reporting (Quarto, bookdown).
+
+:::
+
+::::
+
+
+_Closing Thought: Every tool has its strengths. The key is to understand and leverage them effectively._
+
+
+
+## Intermezzo: A brief course History
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: center
+library("tidyverse")
+library("broom")
+d <- tibble(
+  year = c(2018, 2020, 2021, 2022, 2023),
+  users = c(8, 38, 89, 91, 147),
+  s = rep("obs", 5)
+)
+
+mdl <- lm(users ~ year, data = d)
+
+d |>
+  bind_rows(
+    tibble(year = 2023:2030) |> 
+      mutate(users = predict(mdl, newdata = data.frame(year = 2023:2030)),
+             s = rep("pred", 8))
+  ) |> 
+  ggplot(aes(x = year,
+             y = users,
+             colour = s)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  scale_x_continuous(breaks = 2018:2030) +
+  theme_classic() +
+  theme(panel.grid.major = element_line(),
+        legend.position = "none")
+```
+
+
 ## General Course Outline
 
-- Mondays 08.00 - 12.00
-  - 08.00 - 08.30 Recap of Exercises
-  - 08.30 - 09.00 Introduction to Theme of the Day
-  - 09.00 - 12.00 Exercises
+Tuesdays 08.00 - 12.00
+
+- 08.00 - 08.30 Recap of key points from last weeks exercises
+- 08.30 - 09.00 Introduction to theme of the day
+- 09.00 - 12.00 Exercises
 
 ## About
 
 ### Course Description
-- Basically, what can you expect to learn and what do I expect that you learn: [https://kurser.dtu.dk/course/22100](https://kurser.dtu.dk/course/22100)
+- Basically, what can you expect to learn and what do I expect that you learn: [DTU Course Base](https://kurser.dtu.dk/course/22100)
 
 ### Course Resources
 
-- Text Book: ["R for Data Science"](https://r4ds.had.co.nz) by Garrett Grolemund and Hadley Wickham
-- See course frontpage on DTU Learn for additional learning resources
+- Text Book: ["R for Data Science 2e"](https://r4ds.hadley.nz) by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund
+- Course site: [https://r4bds.github.io](https://r4bds.github.io)
 
 ### Course format
 
-- Active Learning: _Strong emphasis on students working in groups_, rather than me talking
+- Active Learning: _Very strong emphasis on students working in groups_, rather than me talking
 - The focus is on you working actively, _not_ me talking
 - I will _not_ go through all preparation materials in class
 - Proper preparation is a prerequisite for completing lab exercises and maximising course yield
@@ -75,7 +316,7 @@ In this course you will learn
 ## Group Formation
 
 - Modern Bio Data Science is a team sport!
-- You have to form a group of 4 students (3-5) with a Shared Bio Data Science / Bioinformatics Area of Interest
+- You have to form a group of 4-5 students with a Shared Bio Data Science / Bioinformatics Area of Interest
 - You will work in these groups throughout the course
 - You will do the final project in these groups
 - You will attend the exam in these groups
@@ -83,5 +324,14 @@ In this course you will learn
 - Please fill in groups, see schedule for lab 1
 - If you do not have a group, fill in your id and interest at an available group and someone might join you
 - I aim to let you decide on the groups, I will of course be happy to help if needed
+
+## How to succeed in this course
+
+- Prepare materials as instructed!
+- Show up for class!
+- Do the exercises!
+- Do the project work!
+
+_Basically, show up, follow the curriculum and you will do fine!_
 
 # Questions?

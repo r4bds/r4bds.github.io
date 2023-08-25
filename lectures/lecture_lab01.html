@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #f07178; background-color: #2a0f15; font-weight: bold; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #00e0e0; } /* Attribute */
+    code span.bn { color: #d4d0ab; } /* BaseN */
+    code span.bu { color: #abe338; } /* BuiltIn */
+    code span.cf { color: #ffa07a; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffd700; } /* Constant */
+    code span.co { color: #f8f8f2; font-style: italic; } /* Comment */
+    code span.cv { color: #ffd700; } /* CommentVar */
+    code span.do { color: #f8f8f2; } /* Documentation */
+    code span.dt { color: #ffa07a; } /* DataType */
+    code span.dv { color: #d4d0ab; } /* DecVal */
+    code span.er { color: #f07178; text-decoration: underline; } /* Error */
+    code span.ex { color: #00e0e0; font-weight: bold; } /* Extension */
+    code span.fl { color: #d4d0ab; } /* Float */
+    code span.fu { color: #ffa07a; } /* Function */
+    code span.im { color: #abe338; } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; font-weight: bold; } /* Keyword */
+    code span.op { color: #ffa07a; } /* Operator */
+    code span.ot { color: #00e0e0; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.re { color: #00e0e0; background-color: #f8f8f2; } /* RegionMarker */
+    code span.sc { color: #abe338; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #00e0e0; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #dcc6e0; } /* Warning */
   </style>
   <link rel="stylesheet" href="lecture_lab01_files/libs/revealjs/dist/theme/quarto.css">
   <link href="lecture_lab01_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -341,24 +406,73 @@ Leon Eyrich Jessen
 <h1>Course Introduction</h1>
 
 </section>
+<section id="datadatadata-data-hoarding" class="slide level2">
+<h2>DATADATADATA: Data Hoarding</h2>
+
+<img data-src="images/data_hoarding.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<section id="increasing-the-value-of-data-requires-activation" class="slide level2">
+<h2>Increasing the Value of Data Requires Activation!</h2>
+
+<img data-src="images/increasing_the_value_of_data.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<section id="data-driven-decision-making" class="slide level2">
+<h2>Data Driven Decision Making</h2>
+<p><em>Because we’ve always done it this way!</em></p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Your job as a Bio Data Scientist:</p>
+<ul>
+<li>Activate data</li>
+<li>Extract insights</li>
+<li>Communicate to non-data stakeholders</li>
+<li>Facilitate data driven decision making</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/data_driven_decision_making.jpg" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>Levering data driven decision making allows the company to gain a competitive edge and this is where you Bio Data Science skills are indispensable!</em></p>
+</section>
+<section id="you-value-as-a-bio-data-scientist-bioinformatician" class="slide level2">
+<h2>You value as a Bio Data Scientist / Bioinformatician</h2>
+<ul>
+<li><p>In your career, your task will be to create value</p></li>
+<li><p>This is regardless of whether you plan to work in indstry or pursue a research career</p></li>
+<li><p>What you do has to create value</p></li>
+<li><p>Creating value requires skills</p></li>
+<li><p>Skills need to be learned</p></li>
+<li><p>So, why are you here?</p></li>
+</ul>
+</section></section>
+<section>
+<section id="youre-here-to-gain-skills-which-will-allow-you-to-generate-value" class="title-slide slide level1 center">
+<h1>You’re here to gain skills, which will allow you to generate value!</h1>
+
+</section>
 <section id="r-for-bio-data-science---what-is-it" class="slide level2">
 <h2>R for Bio Data Science - What is it?</h2>
 
-<img data-src="images/data_science.png" style="width:80.0%" class="r-stretch quarto-figure-center"><ul>
+<img data-src="images/bio_data_science.png" style="width:80.0%" class="r-stretch quarto-figure-center"><ul>
 <li>In essence: The art of converting numbers to value</li>
 </ul>
 </section>
-<section id="why-this-course" class="slide level2">
-<h2>Why this Course?</h2>
+<section id="r-for-bio-data-science---intrinsically-interdisciplinary" class="slide level2">
+<h2>R for Bio Data Science - Intrinsically interdisciplinary</h2>
+
+<img data-src="images/r_for_bio_data_science_hex_logo_quadratic.png" style="width:100.0%" class="r-stretch quarto-figure-center"></section>
+<section id="what-is-the-motivation-for-this-course" class="slide level2">
+<h2>What is the motivation for this Course?</h2>
 
 <img data-src="images/data_tutorial_vs_reality.jpg" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
-<section id="why-this-course-1" class="slide level2">
-<h2>Why this Course?</h2>
+<section id="what-is-the-motivation-for-this-course-1" class="slide level2">
+<h2>What is the motivation for this Course?</h2>
 
 <img data-src="images/code_now_only_god.png" style="width:70.0%" class="r-stretch quarto-figure-center"></section>
-<section id="why-this-course-2" class="slide level2">
-<h2>Why this Course?</h2>
-<p>In this course you will learn</p>
+<section id="what-will-you-learn" class="slide level2">
+<h2>What will you learn?</h2>
 <ul>
 <li>The craft of going from raw extracted data to insights</li>
 <li>Advanced data visualisation</li>
@@ -366,32 +480,162 @@ Leon Eyrich Jessen
 <li>All with an emphasis on reproducibility and communication</li>
 </ul>
 
-<img data-src="images/data_science_cycle.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section>
+<img data-src="images/data_science_cycle.png" style="width:80.0%" class="r-stretch quarto-figure-center"></section></section>
+<section>
+<section id="r" class="title-slide slide level1 center">
+<h1>R</h1>
+
+</section>
+<section id="introducing-r-a-journey-into-bio-data-science" class="slide level2">
+<h2>Introducing R: A Journey into Bio Data Science</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>Open-source programming language</li>
+<li>Essential tool for statistics &amp; data visualization</li>
+<li>Widely used in bioinformatics and data science</li>
+<li>Dynamic community &amp; vast library of packages</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/R_logo.png" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>“To understand computations in R, two slogans are helpful: Everything that exists is an object. Everything that happens is a function call.” – John Chambers (creator of the S language, of which R is an implementation).</em></p>
+</section>
+<section id="the-roots-and-rise-of-r" class="slide level2">
+<h2>The Roots and Rise of R</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>Originated from the ‘S’ language at Bell Laboratories in the 1970s</li>
+<li>S was proprietary, so basically R is an open source implementation of S and was officially released in 1995</li>
+<li>This similar to Linux vs.&nbsp;Unix</li>
+<li>A leader in statistical computing. Powers many academic research &amp; industry projects</li>
+<li>E.g. Crucial in genomics, where R aids in decoding biological data</li>
+<li>R comes with a very large and well proven built in tools for data analysis</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/R_logo.png" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="a-few-examples-of-functional-programming" class="slide level2">
+<h2>A Few Examples of Functional Programming</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>You can approach <code>R</code> as</p>
+<ul>
+<li>an object-oriented programming language</li>
+<li>a imperative programming language</li>
+<li>a functional programming language</li>
+</ul>
+<p>The code on the right all performs the same task, but which do you think is:</p>
+<ul>
+<li>simpler to read and understand?</li>
+<li>faster to execute?</li>
+</ul>
+<p>In this course we will work with <code>R</code> in its native form - a fully fledged functional programming language</p>
+</div><div class="column" style="width:50%;">
+<p>Object Oriented Approach:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>Vector <span class="ot">&lt;-</span> <span class="fu">R6Class</span>(<span class="st">"Vector"</span>,</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="at">public =</span> <span class="fu">list</span>(</span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="at">data =</span> <span class="cn">NULL</span>,</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="at">initialize =</span> <span class="cf">function</span>(data) {</span>
+<span id="cb1-5"><a href="#cb1-5"></a>      <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(data)) {</span>
+<span id="cb1-6"><a href="#cb1-6"></a>        <span class="fu">stop</span>(<span class="st">"Data should be numeric."</span>)</span>
+<span id="cb1-7"><a href="#cb1-7"></a>      }</span>
+<span id="cb1-8"><a href="#cb1-8"></a>      self<span class="sc">$</span>data <span class="ot">&lt;-</span> data</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    },</span>
+<span id="cb1-10"><a href="#cb1-10"></a>    <span class="at">mean =</span> <span class="cf">function</span>() {</span>
+<span id="cb1-11"><a href="#cb1-11"></a>      <span class="fu">return</span>(<span class="fu">sum</span>(self<span class="sc">$</span>data) <span class="sc">/</span> <span class="fu">length</span>(self<span class="sc">$</span>data))</span>
+<span id="cb1-12"><a href="#cb1-12"></a>    }</span>
+<span id="cb1-13"><a href="#cb1-13"></a>  )</span>
+<span id="cb1-14"><a href="#cb1-14"></a>)</span>
+<span id="cb1-15"><a href="#cb1-15"></a>numbers <span class="ot">&lt;-</span> Vector<span class="sc">$</span><span class="fu">new</span>(<span class="fu">c</span>(<span class="dv">49</span>, <span class="dv">31</span>, <span class="dv">24</span>, <span class="dv">35</span>, <span class="dv">71</span>, <span class="dv">7</span>, <span class="dv">36</span>, <span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">37</span>))</span>
+<span id="cb1-16"><a href="#cb1-16"></a>numbers<span class="sc">$</span><span class="fu">mean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Imperative Approach:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">49</span>, <span class="dv">31</span>, <span class="dv">24</span>, <span class="dv">35</span>, <span class="dv">71</span>, <span class="dv">7</span>, <span class="dv">36</span>, <span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">37</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>my_sum <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="cf">for</span>( i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(my_vector) ){</span>
+<span id="cb2-4"><a href="#cb2-4"></a>  my_sum <span class="ot">&lt;-</span> my_sum <span class="sc">+</span> my_vector[i]</span>
+<span id="cb2-5"><a href="#cb2-5"></a>}</span>
+<span id="cb2-6"><a href="#cb2-6"></a>my_mean <span class="ot">&lt;-</span> my_sum <span class="sc">/</span> <span class="fu">length</span>(my_vector)</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="fu">print</span>(my_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 38</code></pre>
+</div>
+</div>
+<p>Functional approach:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">49</span>, <span class="dv">31</span>, <span class="dv">24</span>, <span class="dv">35</span>, <span class="dv">71</span>, <span class="dv">7</span>, <span class="dv">36</span>, <span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">37</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>my_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(my_vector)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">print</span>(my_mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 38</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="r-debunking-myths" class="slide level2">
+<h2>R: Debunking Myths</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li><p><code>R</code> is Turing-complete: <code>R</code> can theoretically solve any computational problem. Foundational concept shared with e.g.&nbsp;Python, C++, Java, etc.</p></li>
+<li><p>R is fully capable in Production: E.g. shiny apps used in industry and <code>R</code> comes with an ecosystem supporting reproducibility in production settings.</p></li>
+<li><p>Comprehensive Ecosystem: CRAN contains ~20,000 packages. Also Bioconductor is a gold standard for bioinformatics software.</p></li>
+<li><p>Interoperability: Seamless integration with other languages (C, C++, Fortran, and Python) using packages like Rcpp and reticulate.</p></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<ol start="5" type="1">
+<li><p>Advanced Programming Features: Supports object-oriented, functional, and imperative programming paradigms. Flexible metaprogramming with capabilities like non-standard evaluation.</p></li>
+<li><p>R’s Active &amp; Growing Community: Annual global R conferences and numerous local user groups and also: <code>tidyverse</code></p></li>
+<li><p>Performance: <code>R</code> is interpreted and can be slower, packages like data.table and Rcpp offer dramatic performance enhancements. Also, parallel computing is straightforward with packages like future and parallel.</p></li>
+<li><p>Not Just for Statisticians: R’s applications range from web development to machine learning (tidymodels, caret, mlr3) to reporting (Quarto, bookdown).</p></li>
+</ol>
+</div>
+</div>
+<p><em>Closing Thought: Every tool has its strengths. The key is to understand and leverage them effectively.</em></p>
+</section>
+<section id="intermezzo-a-brief-course-history" class="slide level2">
+<h2>Intermezzo: A brief course History</h2>
+
+<img data-src="lecture_lab01_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch quarto-figure-center"></section>
 <section id="general-course-outline" class="slide level2">
 <h2>General Course Outline</h2>
+<p>Tuesdays 08.00 - 12.00</p>
 <ul>
-<li>Mondays 08.00 - 12.00
-<ul>
-<li>08.00 - 08.30 Recap of Exercises</li>
-<li>08.30 - 09.00 Introduction to Theme of the Day</li>
+<li>08.00 - 08.30 Recap of key points from last weeks exercises</li>
+<li>08.30 - 09.00 Introduction to theme of the day</li>
 <li>09.00 - 12.00 Exercises</li>
-</ul></li>
 </ul>
 </section>
 <section id="about" class="slide level2">
 <h2>About</h2>
 <h3 id="course-description">Course Description</h3>
 <ul>
-<li>Basically, what can you expect to learn and what do I expect that you learn: <a href="https://kurser.dtu.dk/course/22100">https://kurser.dtu.dk/course/22100</a></li>
+<li>Basically, what can you expect to learn and what do I expect that you learn: <a href="https://kurser.dtu.dk/course/22100">DTU Course Base</a></li>
 </ul>
 <h3 id="course-resources">Course Resources</h3>
 <ul>
-<li>Text Book: <a href="https://r4ds.had.co.nz">“R for Data Science”</a> by Garrett Grolemund and Hadley Wickham</li>
-<li>See course frontpage on DTU Learn for additional learning resources</li>
+<li>Text Book: <a href="https://r4ds.hadley.nz">“R for Data Science 2e”</a> by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund</li>
+<li>Course site: <a href="https://r4bds.github.io">https://r4bds.github.io</a></li>
 </ul>
 <h3 id="course-format">Course format</h3>
 <ul>
-<li>Active Learning: <em>Strong emphasis on students working in groups</em>, rather than me talking</li>
+<li>Active Learning: <em>Very strong emphasis on students working in groups</em>, rather than me talking</li>
 <li>The focus is on you working actively, <em>not</em> me talking</li>
 <li>I will <em>not</em> go through all preparation materials in class</li>
 <li>Proper preparation is a prerequisite for completing lab exercises and maximising course yield</li>
@@ -412,7 +656,7 @@ Leon Eyrich Jessen
 <h2>Group Formation</h2>
 <ul>
 <li>Modern Bio Data Science is a team sport!</li>
-<li>You have to form a group of 4 students (3-5) with a Shared Bio Data Science / Bioinformatics Area of Interest</li>
+<li>You have to form a group of 4-5 students with a Shared Bio Data Science / Bioinformatics Area of Interest</li>
 <li>You will work in these groups throughout the course</li>
 <li>You will do the final project in these groups</li>
 <li>You will attend the exam in these groups</li>
@@ -421,6 +665,16 @@ Leon Eyrich Jessen
 <li>If you do not have a group, fill in your id and interest at an available group and someone might join you</li>
 <li>I aim to let you decide on the groups, I will of course be happy to help if needed</li>
 </ul>
+</section>
+<section id="how-to-succeed-in-this-course" class="slide level2">
+<h2>How to succeed in this course</h2>
+<ul>
+<li>Prepare materials as instructed!</li>
+<li>Show up for class!</li>
+<li>Do the exercises!</li>
+<li>Do the project work!</li>
+</ul>
+<p><em>Basically, show up, follow the curriculum and you will do fine!</em></p>
 </section></section>
 <section id="questions" class="title-slide slide level1 center">
 <h1>Questions?</h1>
@@ -640,6 +894,44 @@ Leon Eyrich Jessen
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

@@ -24,7 +24,7 @@ See full course description here: [22100](https://kurser.dtu.dk/course/2023-2024
 
 #### When and Where
 
-Teaching sessions will be E3A, Tuesday mornings 8 - 12 in building 358, room 060b and the general schedule will be:
+Teaching sessions will be E3A, Tuesday mornings 8 - 12 in building 358, room 060a (exercises: Also room 045) and the general schedule will be:
 
 * 08.00 - 08.30 Recap of key points from last weeks exercises
 * 08.30 - 09.00 Introduction to theme of the day
