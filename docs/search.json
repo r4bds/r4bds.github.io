@@ -49,281 +49,323 @@
     "text": "Group Formation\nThe backbone of this course is modern collaborative data science and as such “active participation in the group work … [is an] indispensable prerequisites for exam participation” as stated in the course base. Furthermore, It is important that course participants prioritise to be present during classes as the course design is based on student-student interaction in an active learning environment.\nTherefore, students will work in groups of 4-5 students. Group formation sheet can be found here"
   },
   {
-    "objectID": "labs/course_labs.html",
-    "href": "labs/course_labs.html",
+    "objectID": "lab00.html",
+    "href": "lab00.html",
     "title": "Course Labs",
     "section": "",
     "text": "This section provides a complete overview of the course curriculum"
   },
   {
-    "objectID": "labs/lab01.html",
-    "href": "labs/lab01.html",
+    "objectID": "lab01.html",
+    "href": "lab01.html",
     "title": "Lab 1: Course Intro & the Very Basics",
     "section": "",
     "text": "Base"
   },
   {
-    "objectID": "labs/lab01.html#schedule",
-    "href": "labs/lab01.html#schedule",
+    "objectID": "lab01.html#schedule",
+    "href": "lab01.html#schedule",
     "title": "Lab 1: Course Intro & the Very Basics",
     "section": "Schedule",
     "text": "Schedule\n\n08.00 - 08.15: Arrival and 5 min. pre-course anonymous survey: Click here to answer\n08.15 - 08.45: Lecture: Course Introduction\n08.45 - 09.00: Break\n09.00 - 11.15: Exercises\n11.15 - 11.30: Break\n11.30 - 12.00: Lecture: Reproducibility in Modern Bio Data Science"
   },
   {
-    "objectID": "labs/lab01.html#learning-materials",
-    "href": "labs/lab01.html#learning-materials",
+    "objectID": "lab01.html#learning-materials",
+    "href": "lab01.html#learning-materials",
     "title": "Lab 1: Course Intro & the Very Basics",
     "section": "Learning Materials",
     "text": "Learning Materials\nPlease prepare the following materials:\n\nRead course site sections: Welcome to R for Bio Data Science, Prologue and Getting Started and perform any small tasks mentioned\nR4DS2e Book: Welcome, Preface to the second edition, Chapter 1, Chapter 3, Chapter 29 (Don’t do the exercises)\nVideo: RStudio for the Total Beginner\nWeb: Read the detailed course description\nPaper: Ten Simple Rules for Effective Statistical Practice\nPaper: A Quick Guide to Organizing Computational Biology Projects"
   },
   {
-    "objectID": "labs/lab01.html#learning-objectives",
-    "href": "labs/lab01.html#learning-objectives",
+    "objectID": "lab01.html#learning-objectives",
+    "href": "lab01.html#learning-objectives",
     "title": "Lab 1: Course Intro & the Very Basics",
     "section": "Learning Objectives",
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nMaster the very basics of R\nNavigate the RStudio IDE\nCreate, edit and run a basic Quarto document\nExplain why reproducible data analysis is important, as well as identify relevant challenges and explain replicability versus reproducibility\nDescribe the components of a reproducible data analysis"
   },
   {
-    "objectID": "labs/lab01.html#sec-exercises",
-    "href": "labs/lab01.html#sec-exercises",
+    "objectID": "lab01.html#sec-exercises",
+    "href": "lab01.html#sec-exercises",
     "title": "Lab 1: Course Intro & the Very Basics",
     "section": "Exercises",
     "text": "Exercises\nToday, we will focused on getting you started and up and running with the first elements of the course, namely the RStudio IDE (Integrated Developer Environment) and Quarto. If the relationship between R and RStudio is unclear, think of it this way: Consider a car, in that case, R would be the engine and RStudio would be the rest of the car. Neither is particularly useful, but together they form a functioning unit. Before you continue, make sure you in fact did watch the “RStudio for the Total Beginner” video (See the Learning Materials for todays session).\n\nCloud server and the RStudio IDE\nGo to the R for Bio Data Science Cloud Server and follow the login procedure. Upon login, you will see this:\n\n\n\n\n\nThis is the RStudio IDE. It allows you to consolidate all features needed to develop R code for analysis. Now, click Tools \\(\\rightarrow\\) Global Options... \\(\\rightarrow\\) Pane Layout and you will see this:\n\n\n\n\n\nThis outlines the four panes you have in your RStudio IDE and allow you rearrange them as you please. Now, re-arrange them, so that they look like this:\n\n\n\n\n\nClick Apply \\(\\rightarrow\\) OK and you should see this:\n\n\n\n\n\n\n\nFirst steps\n\nThe Console\nNow, in the console, as you saw in the video, you can type commands like:\n\n2+2\n1:100\n3*3\nsample(1:9)\nX <- matrix(sample(1:9), nrow = 3, ncol = 3)\nX\nsum(X)\nmean(X)\n?sum\nsum\nnucleotides <- c(\"a\", \"c\", \"g\", \"t\")\nnucleotides\nsample(nucleotides, size = 100, replace = TRUE)\ntable(sample(nucleotides, size = 100, replace = TRUE))\npaste0(sample(nucleotides, size = 100, replace = TRUE), collapse = \"\")\nreplicate(n = 10, expr = paste0(sample(nucleotides, size = 100, replace = TRUE), collapse = \"\"))\ndf <- data.frame(id = paste0(\"seq\", 1:10), seq = replicate(n = 10, expr = paste0(sample(nucleotides, size = 100, replace = TRUE), collapse = \"\")))\ndf\nstr(df)\nls()\n\nTake some time and play around with these commands and other things you can come up with. Use the ?function to get help on what that function does. Be sure to discuss what you observe in the console. Do not worry too much on the details for now, we are just getting started. But as you hopefully can see, R is very flexible and basically the message is: “If you can think it, you can build it in R”.\n\nGo to Chapter 3 in R4DS2e and do the exercises\n\n\n\nThe Terminal\nNotice how in the console pane, you also get a Terminal, click and enter:\n\nls\nmkdir tmp\ntouch tmp/test.txt\nls tmp\nrm tmp/test.txt\nrmdir tmp\nls\necho $SHELL\n\nBasically, here you have access to a full terminal, which can prove immensely useful! Note, you may or may not be familiar with the concept of a terminal. Simply think of it as a way to interact with the computer using text command, rather than clicking on icons etc. Click back to the console.\n\n\nThe Source\nThe source is where you will write scripts. A script is a series of commands to be executed sequentially, i.e. first line 1, then line 2 and so on. Right now, you should have a open script called Untitled1. If not, you can create a new script by clicking white paper with a round green plus sign in the upper left corner.\nTaking inspiration from the examples above, try to write a series of commands and include a print()-statement at the very end. Click File \\(\\rightarrow\\) Save and save the file as e.g. my_first_script.R. Now, go to the console and type in the command source(\"my_first_script.R\"). Congratulations! You have now written your very first reproducible R-program!\n\n\n\nThe Whole Shebang\nEnough playing around, let us embark on our modern Bio Data Science in R journey.\n\nIn the Files pane, click New Folder and create a folder called projects\nIn the upper right corner, click where it says Project: (None) and then click New Project...\nClick New Directory and then New Project\nIn the Directory name:, enter e.g. r_for_bio_data_science\nClick the Browse... button and select your newly created projects directory and then click Choose\nClick Create Project and wait a bit for it to get created\n\n\nOn Working in Projects\nProjects allow you to create fully transferable bio data science projects, meaning that the root of the project will be where the .Rproj file is located. You can confirm this by entering getwd() in the console. This means that under no circumstance should ever not work in a project nor should ever use absolute paths. Every single path you state in your project must be relative to the project root.\nBut why? Imagine you have create a project, where you have indeed used absolute paths. Now you want to share that project with a colleague. Said colleague gets your project and tests the reproducibility by running the project end-to-end. But it completely fails because you have hardcoded your paths to be absolute, meaning that all files and project ressources locations points to locations on your laptop.\nProjects are a must and allows you to create reproducible encapsulated bio data science projects. Note, the concept of reproducibility is absolute central to this course and must be considered in all aspect of the life cycle of a project!\n\n\nQuarto\nWhile .R-scripts are a perfectly, there is another Skywalker:\n\nIn the upper left corner, again, click the white paper with the round green plus, but this time select Quarto Document\nEnter a Title:, e.g. “Lab 1 Exercises” and enter your name below in the box Author:\nClick Create\nImportant: Save your Quarto document! Click File \\(\\rightarrow\\) Save and name it e.g. lab_01_exercises.qmd\nMinimise the Environment-pane\n\nYou should now see something like this:\n\n\n\n\n\nTry clicking the Render button just above the quarto-document. This will create the HTML5 output file. Note! You may get a Connection Refused message. If so, don’t worry, just close the page to return to the cloud server and find the generated .html file, left-click and select View in Web Browser.\nIf you have previously worked with Rmarkdown, then many features of Quarto will be familiar. Think of Quarto as the complete rethink of Rmarkdown, i.e. based on all the experience gained, what would the optimal way of constructing an open-source scientific and technical publishing system?\nPerhaps you have previously encountered Jupyter notebooks, Quarto is similar. The basic idea is to have one document covering the entire project cycle.\nProceed R for Data Science (2e), chapter 29 and do the exercises.\n\n\n\nBio Data Science with a Virtual AI Assistant\nI am pretty sure you all know of chatGPT by now, so let us address the elephant in the room!\n\nGetting started\n\nGo to the ChatGPT site\nCreate a user and login\n\n\nLet us get acquainted\nNow, at the bottom it says “Send a message”, let us ask 3 simple question and see if we can find out what is what. Type the following questions in the prompt and read the answers:\n\nExplain in simple terms what you are\nExplain in simple terms how you work\nExplain in simple terms how you can be used to generate value as a virtual AI assistant, when doing Bio Data Science for R\n\n\n\nMoving onto R\nIn the upper left corner, it says + New chat, click it to start a new session.\nAgain, type the following questions in the prompt and read the answers:\n\nR\nWhat is R?\nGive a few simple examples\n\nIf you do get some code examples, try to copy/paste into the console in RStudio and see if they run\n\n\nPrompt Engineering\nStart a new chat and enter:\n\nGive a few simple examples\n\nCompare the response with the one from before, is it the same or different and why so?\nDiscuss in your group what is “Prompt Engineering” and how does it relate to the above few tests you did? (Bonus info: Prompt engineer is already a job and people are making money off of selling prompts)\n\n\n…a bit more\nStart a new chat and enter:\n\nTell me about DNA\n\nCheck if it gives you correct information?\nNow, write:\n\nGive a few fun examples on how to get started with the R programming language using DNA\n\nCopy/paste the code into the Console, do the examples all run?\n\nEarlier you were told to play around with some code snippets. Perhaps you didn’t fully catch what was going on? If so, try to type in e.g.:\n\nI'm new to R, please explain in simple terms, what the following code does:\n\n\"\nnucleotides <- c(\"a\", \"c\", \"g\", \"t\")\nreplicate(n = 10, expr = paste0(sample(nucleotides, size = 100, replace = TRUE), collapse = \"\"))\n\"\n\n\nSummary\nWhile chatGPT can be a powerful tool for code productivity, it comes with a major caveat: When it fails, it fails with confidence. This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can see if you are heading in the right direction or if you’re being send on a wild goose chase.\nTherefore, in the beginning of the course, for your own sake, please refrain from using chatGPT!\nInstead solve the exercises based on the materials you have prepared, talk to you group members and discuss the challenges and check your understanding. Then later on, when you have gained initial experience, we can explore using chatGPT to augment your bio data science workflow to enhance productivity"
   },
   {
-    "objectID": "labs/lab02.html#packages",
-    "href": "labs/lab02.html#packages",
+    "objectID": "lab02.html",
+    "href": "lab02.html",
     "title": "Lab 2: Data Visualisation I",
-    "section": "Package(s)",
-    "text": "Package(s)\n\nggplot2"
+    "section": "",
+    "text": "ggplot2"
   },
   {
-    "objectID": "labs/lab02.html#schedule",
-    "href": "labs/lab02.html#schedule",
+    "objectID": "lab02.html#schedule",
+    "href": "lab02.html#schedule",
     "title": "Lab 2: Data Visualisation I",
     "section": "Schedule",
-    "text": "Schedule\n\n08.00 - 08.15: Pre-course Survey Walk-through\n08.15 - 08.30: Recap: RStudio Cloud, RStudio and R - The Very Basics (Live session)\n08.30 - 09.00: Lecture\n09.00 - 09.15: Break\n09.00 - 12.00: Exercises (download gravier data)"
+    "text": "Schedule\n\n08.00 - 08.15: Pre-course Survey Walk-through\n08.15 - 08.30: Recap: RStudio Cloud, RStudio and R - The Very Basics (Live session)\n08.30 - 09.00: Lecture\n09.00 - 09.15: Break\n09.00 - 12.00: Exercises"
   },
   {
-    "objectID": "labs/lab02.html#learning-materials",
-    "href": "labs/lab02.html#learning-materials",
+    "objectID": "lab02.html#learning-materials",
+    "href": "lab02.html#learning-materials",
     "title": "Lab 2: Data Visualisation I",
     "section": "Learning Materials",
-    "text": "Learning Materials\nPlease prepare the following materials:\n\nBook: R4DS2 Chapter 2 Data Visualisation\nWeb: Overview of R Markdown (Familiarise and revisit when needed)\nPaper: “A Layered Grammar of Graphics” by Hadley Wickham\nVideo: EMBL Keynote Lecture - “Data visualization and data science” by Hadley Wickham"
+    "text": "Learning Materials\nPlease prepare the following materials:\n\nBook: R4DS2e Chapter 2 Data Visualisation\nPaper: “A Layered Grammar of Graphics” by Hadley Wickham\nVideo: The best stats you’ve ever seen\nVideo: The SDGs aren’t the same old same old\nVideo: EMBL Keynote Lecture - “Data visualization and data science” by Hadley Wickham"
   },
   {
-    "objectID": "labs/lab02.html#learning-objectives",
-    "href": "labs/lab02.html#learning-objectives",
+    "objectID": "lab02.html#learning-objectives",
+    "href": "lab02.html#learning-objectives",
     "title": "Lab 2: Data Visualisation I",
     "section": "Learning Objectives",
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nExplains the basic theory of data visualisation\nDecipher the components of a ggplot\nUse ggplot to do basic data visualisation"
   },
   {
-    "objectID": "labs/lab03.html#packages",
-    "href": "labs/lab03.html#packages",
+    "objectID": "lab02.html#sec-exercises",
+    "href": "lab02.html#sec-exercises",
+    "title": "Lab 2: Data Visualisation I",
+    "section": "Exercises",
+    "text": "Exercises"
+  },
+  {
+    "objectID": "lab02.html#prelude",
+    "href": "lab02.html#prelude",
+    "title": "Lab 2: Data Visualisation I",
+    "section": "Prelude",
+    "text": "Prelude\nDiscuss these 4 visualisations with your group members\n\nWhat is problematic?\nWhat could be done to rectify?\n\n\n\n\nClick here for visualisation 1\n\n\nNote, AMR = Antimicrobial Resistance\n\n\n\n\n\nClick here for visualisation 2\n\n\n\n\n\n\n\nClick here for visualisation 3\n\n\n\n\n\n\n\nClick here for visualisation 4"
+  },
+  {
+    "objectID": "lab02.html#getting-started",
+    "href": "lab02.html#getting-started",
+    "title": "Lab 2: Data Visualisation I",
+    "section": "Getting Started",
+    "text": "Getting Started\nFirst of all, make sure to read every line in these exercises carefully!\nIf you get stuck with Quarto, revisit R4DS2e, chapter 29 or take a look at the Comprehensive guide to using Quarto\n\nGo to the R for Bio Data Science RStudio Cloud Server session from last time and login and choose the project you created.\nCreate a new Quarto Document for todays exercises, e.g. lab02_exercises.qmd\n\nRecall the layout of the IDE (Integrated Development Environment)\n\n\n\n\n\nThen, before we start, we need to fetch some data to work on.\n\nSee if you can figure out how to create a new folder called “data”, make sure to place it the same place as your my_project_name.Rproj file\n\nThen, without further ado, run each of the following lines separately in your console:\n\ntarget_url <- \"https://github.com/ramhiser/datamicroarray/raw/master/data/gravier.RData\"\noutput_file <- \"data/gravier.RData\"\ncurl::curl_download(url = target_url,\n                    destfile = output_file)\n\n\nUsing the files pane, check the folder you created to see if you managed to retrieve the file.\n\nRecall the syntax for a new code chunk:\n\n::: {.cell}\n\n```{.r .cell-code}\n# Here goes the code... Note how this part does not get executed because of the initial hashtag, this is called a code-comment\n```\n:::\n\nIMPORTANT! You are mixing code and text in a Quarto Document! Anything within a “chunk” as defined above will be evaluated as code, whereas anything outside the chunks is markdown. You can use shortcuts to insert new code chunks:\n\nMac: CMD + OPTION + i\nWindows: CTRL + ALT + i\n\nNote, this might not work, depending on your browser. In that case you can insert a new code chunk using .\n\nAdd a new code chunk and use the load()-function to load the data you retrieved.\n\n\n\n\nClick here for a hint\n\n\nRemember, you can use ?load to get help on how the function works and remember your project root path is defined by the location of your .Rproj file\n\nNow, in the console, run the ls()-command and confirm, that you did indeed load the gravier data.\n\nRead the information about the gravier-data here\n\nNow, in your Quarto Document, add a new code chunk like so\n\nlibrary(\"tidyverse\")\n\nThis will load out data science toolbox, including ggplot."
+  },
+  {
+    "objectID": "lab02.html#create-data",
+    "href": "lab02.html#create-data",
+    "title": "Lab 2: Data Visualisation I",
+    "section": "Create data",
+    "text": "Create data\nBefore we can visualise the data, we need to wrangle it a bit. Nevermind the details here, we will get to that later. Just create a new chunk, copy/paste the below code and run it:\n\nset.seed(676571)\ncancer_data=mutate(as_tibble(pluck(gravier,\"x\")),y=pluck(gravier,\"y\"),pt_id=1:length(pluck(gravier, \"y\")),age=round(rnorm(length(pluck(gravier,\"y\")),mean=55,sd=10),1))\ncancer_data=rename(cancer_data,event_label=y)\ncancer_data$age_group=cut(cancer_data$age,breaks=seq(10,100,by=10))\ncancer_data=relocate(cancer_data,c(pt_id,age,age_group,pt_id,event_label))\n\nNow we have the data set as an tibble, which is an augmented data frame (we will also get to that later):\n\ncancer_data\n\n# A tibble: 168 × 2,909\n   pt_id   age age_group event_label    g2E09    g7F07    g1A01   g3C09    g3H08\n   <int> <dbl> <fct>     <fct>          <dbl>    <dbl>    <dbl>   <dbl>    <dbl>\n 1     1  34.2 (30,40]   good        -0.00144 -0.00144 -0.0831  -0.0475  1.58e-2\n 2     2  47   (40,50]   good        -0.0604   0.0129  -0.00144  0.0104  3.16e-2\n 3     3  60.3 (60,70]   good         0.0398   0.0524  -0.0786   0.0635 -3.95e-2\n 4     4  57.8 (50,60]   good         0.0101   0.0314  -0.0218   0.0215  8.68e-2\n 5     5  54.9 (50,60]   good         0.0496   0.0201   0.0370   0.0311  2.07e-2\n 6     6  58.8 (50,60]   good        -0.0664   0.0468   0.00720 -0.370   2.88e-3\n 7     7  52.9 (50,60]   good        -0.00289 -0.0816  -0.0291  -0.0249 -1.74e-2\n 8     8  74.5 (70,80]   good        -0.198   -0.0499  -0.0634  -0.0298  3.00e-2\n 9     9  47.6 (40,50]   good         0.00288  0.0201   0.0272   0.0174 -7.89e-5\n10    10  55.8 (50,60]   good        -0.0574  -0.0574  -0.0831  -0.0897 -1.01e-1\n# ℹ 158 more rows\n# ℹ 2,900 more variables: g1A08 <dbl>, g1B01 <dbl>, g1int1 <dbl>, g1E11 <dbl>,\n#   g8G02 <dbl>, g1H04 <dbl>, g1C01 <dbl>, g1F11 <dbl>, g3F05 <dbl>,\n#   g3B09 <dbl>, g1int2 <dbl>, g2C01 <dbl>, g1A05 <dbl>, g1E01 <dbl>,\n#   g1B05 <dbl>, g3C05 <dbl>, g3A07 <dbl>, g1F01 <dbl>, g2D01 <dbl>,\n#   g1int3 <dbl>, g1int4 <dbl>, g1D05 <dbl>, g1E05 <dbl>, g1G05 <dbl>,\n#   g1C05 <dbl>, g1G11 <dbl>, g2D08 <dbl>, g2E06 <dbl>, g3H09 <dbl>, …\n\n\nThis is just the first 8 rows and the first 8 columns, so\n\nQ1: What is this data?\n\nHint: Where did the data come from?\n\nQ2: How many rows and columns are there in the data set in total?\n\nHint: Do you think you are the first person in the world to try to find out how many rows and columns are in a data set in R?\n\nQ3: Which are the variables and which are the observations in relation to rows and columns?"
+  },
+  {
+    "objectID": "lab02.html#ggplot---the-very-basics",
+    "href": "lab02.html#ggplot---the-very-basics",
+    "title": "Lab 2: Data Visualisation I",
+    "section": "ggplot - The Very Basics",
+    "text": "ggplot - The Very Basics\n\nGeneral Syntax\nThe general syntax for a basic ggplot is:\n\nggplot(data = my_data,\n       mapping = aes(x = variable_1_name,\n                     y = variable_2_name)) +\n  geom_something() +\n  labs()\n\nNote the + for adding layers to the plot\n\nggplot the plotting function\nmy_data the data you want to plot\naes() the mappings of your data to the plot\nx data for the x-axis\ny data for the y-axis\ngeom_something() the representation of your data\nlabs() the x-/y-labels, title, etc.\n\nA very handy ggplot cheat-sheet can be found here\n\n\nBasic Plots\nRemember to write notes in your rmarkdown document. You will likely revisit these basic plots in future exercises.\nPrimer: Plotting 2 x 20 random normally distributed numbers, can be done like so:\n\nggplot(data = tibble(x = rnorm(20), y = rnorm(20)),\n       mapping = aes(x = x, y = y)) +\n  geom_point()\n\n\n\n\nUsing this small primer, the materials you read for today and the cancer_data you created, in separate code-chunks, create a:\n\nT1: scatterplot of one variable against another\nT2: linegraph of one variable against another\nT3: boxplot of one variable (Hint: Set x = \"my_gene\" in aes())\nT4: histogram of one variable\nT5: densitogram of one variable\n\nRemember to write notes to yourself, so you know what you did and if there is something in particular you want to remember.\n\nQ4: Do all geoms require both x and y?\n\n\n\nExtending Basic Plots\n\nT6: Pick your favourite gene and create a boxplot of expression levels stratified on the variable event_label\nT7: Like T6, but with densitograms GROUP ASSIGNMENT\nT8: Pick your favourite gene and create a boxplot of expression levels stratified on the variable age_group\n\nThen, add stratification on event_label\nThen, add transparency to the boxes\nThen, add some labels\n\nT9: Pick your favourite gene and create a scatter-plot of expression levels versus age\n\nThen, add stratification on event_label\nThen, add a smoothing line\nThen, add some labels\n\nT10: Pick your favourite two genes and create a scatter-plot of their expression levels\n\nThen, add stratification on event_label\nThen, add a smoothing line\nThen, show split into seperate panes based on the variable age_group\nThen, add some labels\nChange the event_label title of the legend\n\nT11: Recreate the following plot\n\n\n\n\n\n\n\nQ5: Using your biological knowledge, what is your interpretation of the plot?\nT12: Recreate the following plot\n\n\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\nQ6: Using your biological knowledge, what is your interpretation of the plot?\nT13: If you arrive here and there is still time left for the exercises, you are probably already familiar with ggplot - Use what time is left to challenge yourself to further explore the cancer_data and create some nice data visualisations - Show me what you come up with!"
+  },
+  {
+    "objectID": "lab02.html#further-ressources-for-data-visualisation",
+    "href": "lab02.html#further-ressources-for-data-visualisation",
+    "title": "Lab 2: Data Visualisation I",
+    "section": "Further ressources for data visualisation",
+    "text": "Further ressources for data visualisation\n\nA very handy ggplot cheat-sheet can be found here\nSo which plot to choose? Check this handy guide\nExplore ways of plotting here"
+  },
+  {
+    "objectID": "lab03.html#packages",
+    "href": "lab03.html#packages",
     "title": "Lab 3: Data Visualisation II",
     "section": "Package(s)",
     "text": "Package(s)\n\nggplot2\npatchwork\nscales"
   },
   {
-    "objectID": "labs/lab03.html#schedule",
-    "href": "labs/lab03.html#schedule",
+    "objectID": "lab03.html#schedule",
+    "href": "lab03.html#schedule",
     "title": "Lab 3: Data Visualisation II",
     "section": "Schedule",
     "text": "Schedule\n\n08.00 - 08.30: Recap of Lab 2\n08.30 - 09.00: Introduction to Lab 3\n09.00 - 09.15: Break\n09.00 - 12.00: Exercises"
   },
   {
-    "objectID": "labs/lab03.html#learning-materials",
-    "href": "labs/lab03.html#learning-materials",
+    "objectID": "lab03.html#learning-materials",
+    "href": "lab03.html#learning-materials",
     "title": "Lab 3: Data Visualisation II",
     "section": "Learning Materials",
     "text": "Learning Materials\nPlease prepare the following materials\n\nVideo: William Chase | The Glamour of Graphics | RStudio (2020)\nWeb: Patchwork - Getting started\nWeb: Scales - Getting started\nBook: R4DS 3.5 - 3.10 Data Visualisation II\nBook: R4DS 27 R Markdown"
   },
   {
-    "objectID": "labs/lab03.html#learning-objectives",
-    "href": "labs/lab03.html#learning-objectives",
+    "objectID": "lab03.html#learning-objectives",
+    "href": "lab03.html#learning-objectives",
     "title": "Lab 3: Data Visualisation II",
     "section": "Learning Objectives",
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nUse more advanced ggplot features\nCustomise the data visualisation\nCombine multiple plots into one pane\nLook at a more advanced ggplot and decipher the components used"
   },
   {
-    "objectID": "labs/lab04.html#packages",
-    "href": "labs/lab04.html#packages",
+    "objectID": "lab04.html#packages",
+    "href": "lab04.html#packages",
     "title": "Lab 4: Data Wrangling I",
     "section": "Package(s)",
     "text": "Package(s)\n\ndplyr\nreadr\ntibble\nmagrittr"
   },
   {
-    "objectID": "labs/lab04.html#schedule",
-    "href": "labs/lab04.html#schedule",
+    "objectID": "lab04.html#schedule",
+    "href": "lab04.html#schedule",
     "title": "Lab 4: Data Wrangling I",
     "section": "Schedule",
     "text": "Schedule\n08.00 - 08.15: Recap of Lab 3 08.15 - 08.30: Assignment 2 walk-through 08.30 - 09.00: Introduction to Lab 4 09.00 - 09.15: Break 09.00 - 12.00: Exercises"
   },
   {
-    "objectID": "labs/lab04.html#learning-materials",
-    "href": "labs/lab04.html#learning-materials",
+    "objectID": "lab04.html#learning-materials",
+    "href": "lab04.html#learning-materials",
     "title": "Lab 4: Data Wrangling I",
     "section": "Learning Materials",
     "text": "Learning Materials\nPlease prepare the following materials:\n\nBook: R4DS chapters 2, 7, 5, 9, 10, 11, 12.1-12.2\nWeb: What is data wrangling? Intro, Motivation, Outline, Setup – Pt. 1 Data Wrangling Introduction\nWeb: (NB! STOP at 7:45, i.e. skip tidyr) Tidy Data and tidyr – Pt 2 Intro to Data Wrangling with R and the Tidyverse\nWeb: Data Manipulation Tools: dplyr – Pt 3 Intro to the Grammar of Data Manipulation with R"
   },
   {
-    "objectID": "labs/lab04.html#learning-objectives",
-    "href": "labs/lab04.html#learning-objectives",
+    "objectID": "lab04.html#learning-objectives",
+    "href": "lab04.html#learning-objectives",
     "title": "Lab 4: Data Wrangling I",
     "section": "Learning Objectives",
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nUnderstand and apply the 6 basic dplyr verbs: filter(), arrange(), select(), mutate(), summarise() and group_by()\nConstruct and apply logical tests in context with dplyr pipelines\nUnderstand and apply the additional verbs count(), drop_na(), View()\nCombine dplyr verbs to form a data manipulation pipeline using the pipe %>% operator\nDecipher the components and functions hereof in a dplyr pipeline"
   },
   {
-    "objectID": "labs/lab05.html#packages",
-    "href": "labs/lab05.html#packages",
+    "objectID": "lab05.html#packages",
+    "href": "lab05.html#packages",
     "title": "Lab 5: Data Wrangling II",
     "section": "Package(s)",
     "text": "Package(s)\n\ndplyr\nstringr\ntidyr\nforcats"
   },
   {
-    "objectID": "labs/lab05.html#schedule",
-    "href": "labs/lab05.html#schedule",
+    "objectID": "lab05.html#schedule",
+    "href": "lab05.html#schedule",
     "title": "Lab 5: Data Wrangling II",
     "section": "Schedule",
     "text": "Schedule\n\n08.00 - 08.15: Exercises recap\n08.15 - 08.30: Assignment walk-through\n08.30 - 09.00: Introduction to Lab\n09.00 - 09.15: Break\n09.00 - 12.00: Exercises, (Do not use this unless you are told to: data_files)"
   },
   {
-    "objectID": "labs/lab05.html#learning-materials",
-    "href": "labs/lab05.html#learning-materials",
+    "objectID": "lab05.html#learning-materials",
+    "href": "lab05.html#learning-materials",
     "title": "Lab 5: Data Wrangling II",
     "section": "Learning Materials",
     "text": "Learning Materials\nPlease prepare the following materials\n\nBook: R4DS: 12.3-12.7: “Tidy Data”, 13: “Relational Data”, 14: “Strings”, 15: “Factors”\nVideo: Tidy Data and tidyr - NB! Start at 7:45 and please note: gather() is now pivot_longer() and spread() is now pivot_wider()\nVideo: Working with Two Datasets: Binds, Set Operations, and Joins\nVideo: stringr (Playlist with 7 short videos)"
   },
   {
-    "objectID": "labs/lab05.html#learning-objectives",
-    "href": "labs/lab05.html#learning-objectives",
+    "objectID": "lab05.html#learning-objectives",
+    "href": "lab05.html#learning-objectives",
     "title": "Lab 5: Data Wrangling II",
     "section": "Learning Objectives",
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nUnderstand and apply the various str_*() functions for string manipulation\nUnderstand and apply the family of *_join() functions for combining data sets\nUnderstand and apply pivot_wider() and pivot_longer()\nUse factors in conjugation with plotting categorical data using ggplot"
   },
   {
-    "objectID": "labs/lab06.html#packages",
-    "href": "labs/lab06.html#packages",
+    "objectID": "lab06.html#packages",
+    "href": "lab06.html#packages",
     "title": "Lab 6: (a bit on) Modelling in the Tidyverse",
     "section": "Package(s)",
     "text": "Package(s)\n\nbroom\npurrr\nvroom"
   },
   {
-    "objectID": "labs/lab06.html#schedule",
-    "href": "labs/lab06.html#schedule",
+    "objectID": "lab06.html#schedule",
+    "href": "lab06.html#schedule",
     "title": "Lab 6: (a bit on) Modelling in the Tidyverse",
     "section": "Schedule",
     "text": "Schedule\n\n08.00 - 08.10: Course midway evaluation\n08.10 - 08.30: Recap of exercises from last lab (Incl. assignment)\n08.30 - 09.00: Introduction to Lab\n09.00 - 09.15: Break\n09.00 - 12.00: Exercises, here is a walk-along-example"
   },
   {
-    "objectID": "labs/lab06.html#learning-materials",
-    "href": "labs/lab06.html#learning-materials",
+    "objectID": "lab06.html#learning-materials",
+    "href": "lab06.html#learning-materials",
     "title": "Lab 6: (a bit on) Modelling in the Tidyverse",
     "section": "Learning Materials",
     "text": "Learning Materials\nPlease prepare the following materials:\nBook: R4DS chapters 22 Introduction, 23 Model basics, 24 Model building, 25 Many models Video: Broom: Converting Statistical Models to Tidy Data Frames Video: Alex Hayes | Solving the model representation problem with broom | RStudio (2019) Video: “The Joy of Functional Programming (for Data Science)” with Hadley Wickham"
   },
   {
-    "objectID": "labs/lab06.html#learning-objectives",
-    "href": "labs/lab06.html#learning-objectives",
+    "objectID": "lab06.html#learning-objectives",
+    "href": "lab06.html#learning-objectives",
     "title": "Lab 6: (a bit on) Modelling in the Tidyverse",
     "section": "Learning Objectives",
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nUnderstand and apply simple purrr-functions for element-wise function application\nUnderstand and apply grouped supervised models to form nested model objects\nUnderstand and apply the broom-functions for tidying various model objects\nPerform a basic principal component analysis for dimension reduction of high dimensional data\nPerform a basic unsupervised k-means clustering of high dimensional data"
   },
   {
-    "objectID": "labs/lab07.html",
-    "href": "labs/lab07.html",
+    "objectID": "lab07.html",
+    "href": "lab07.html",
     "title": "Lab 7: Scripting in a Reproducible and Collaborative Framework using GitHub via RStudio",
     "section": "",
     "text": "Package(s)\n\nusethis\ngit (Actually not an R-package this time)"
   },
   {
-    "objectID": "labs/lab07.html#schedule",
-    "href": "labs/lab07.html#schedule",
+    "objectID": "lab07.html#schedule",
+    "href": "lab07.html#schedule",
     "title": "Lab 7: Scripting in a Reproducible and Collaborative Framework using GitHub via RStudio",
     "section": "Schedule",
     "text": "Schedule\n\n08.00 - 08.15: Recap of midway evaluation and exercises from last lab\n08.15 - 08.30: Assignment walk-through\n08.30 - 09.00: Introduction to Lab\n09.00 - 09.15: Break\n09.00 - 12.00: Exercises"
   },
   {
-    "objectID": "labs/lab07.html#learning-materials",
-    "href": "labs/lab07.html#learning-materials",
+    "objectID": "lab07.html#learning-materials",
+    "href": "lab07.html#learning-materials",
     "title": "Lab 7: Scripting in a Reproducible and Collaborative Framework using GitHub via RStudio",
     "section": "Learning Materials",
     "text": "Learning Materials\nPlease prepare the following materials\n\nBook: Happy Git and GitHub for the useR – Read chapters 1 (intro), 20 (basic terms), 22 (branching), 23 (remotes). Do not pay much attention to syntax of specific commands, because we are not going to use them during the exercises, focus on the idea.\nBook: Introduction to Data Science - Data Analysis and Prediction Algorithms with R by Rafael A. Irizarry: Chapter 40 Git and GitHub – Some of the information here is redundant with the previous book, but very important thing is a visualization of basic git actions and screenshots of how to perform them using RStudio.\nVideo: RStudio and Git - an Overview (Part 1) – Basic git concepts, for those who prefer listen rather than read. Books, however, contain more information.\nVideo: How to use Git and GitHub with R – Basic operating on git in RStudio. Complementary to second book. You can skip to 2:50, we are not going to link to git manually either way."
   },
   {
-    "objectID": "labs/lab07.html#learning-objectives",
-    "href": "labs/lab07.html#learning-objectives",
+    "objectID": "lab07.html#learning-objectives",
+    "href": "lab07.html#learning-objectives",
     "title": "Lab 7: Scripting in a Reproducible and Collaborative Framework using GitHub via RStudio",
     "section": "Learning Objectives",
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nExplain why reproducible data analysis is important\nIdentify associated relevant challenges\nExplain replicability versus reproducibility\nDescribe the components of a reproducible data analysis\nUse RStudio and GitHub (git) for collaborative bio data science projects"
   },
   {
-    "objectID": "labs/lab08.html#packages",
-    "href": "labs/lab08.html#packages",
+    "objectID": "lab08.html#packages",
+    "href": "lab08.html#packages",
     "title": "Lab 8: Creating a Simple R-package",
     "section": "Package(s)",
     "text": "Package(s)\n\ndevtools\nusethis\nroxygen2\ntestthat"
   },
   {
-    "objectID": "labs/lab08.html#schedule",
-    "href": "labs/lab08.html#schedule",
+    "objectID": "lab08.html#schedule",
+    "href": "lab08.html#schedule",
     "title": "Lab 8: Creating a Simple R-package",
     "section": "Schedule",
     "text": "Schedule\n\n08.00 - 08.15: Recap of exercises from last lab\n08.15 - 08.30: Assignment walk-through\n08.30 - 09.00: Introduction to Lab\n09.00 - 09.15: Break\n09.00 - 12.00: Exercises"
   },
   {
-    "objectID": "labs/lab08.html#learning-materials",
-    "href": "labs/lab08.html#learning-materials",
+    "objectID": "lab08.html#learning-materials",
+    "href": "lab08.html#learning-materials",
     "title": "Lab 8: Creating a Simple R-package",
     "section": "Learning Materials",
     "text": "Learning Materials\nPlease prepare the following materials:\n\nCheatsheet: Package development with devtools – When in doubt, check here first\nWeb: R Packages: A Beginner’s Tutorial – Read this before class\nWeb: Developing Packages with RStudio – Creating an R Package with RStudio\nWeb: R package primer a minimal tutorial – Brief but comprehensive R Package tutorial\nBook: R Packages - 1 Introduction – Everything you need to know about R Packages"
   },
   {
-    "objectID": "labs/lab08.html#learning-objectives",
-    "href": "labs/lab08.html#learning-objectives",
+    "objectID": "lab08.html#learning-objectives",
+    "href": "lab08.html#learning-objectives",
     "title": "Lab 8: Creating a Simple R-package",
     "section": "Learning Objectives",
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nPrepare a simple R package for distributing documented functions\nExplain the terms Repository, Dependencies, and Namespace\nImplement testing in an R package\nCollaboratively work on an R package on GitHub"
   },
   {
-    "objectID": "labs/lab09.html#packages",
-    "href": "labs/lab09.html#packages",
+    "objectID": "lab09.html#packages",
+    "href": "lab09.html#packages",
     "title": "Lab 9 Creating a Simple Shiny Application",
     "section": "Package(s)",
     "text": "Package(s)\n\nshiny\ngolem"
   },
   {
-    "objectID": "labs/lab09.html#schedule",
-    "href": "labs/lab09.html#schedule",
+    "objectID": "lab09.html#schedule",
+    "href": "lab09.html#schedule",
     "title": "Lab 9 Creating a Simple Shiny Application",
     "section": "Schedule",
     "text": "Schedule\n\n08.00 - 08.15: Recap of exercises from last lab\n08.15 - 08.30: Assignment walk-through\n08.30 - 09.00: Slides\n09.00 - 09.15: Break\n09.00 - 12.00: Exercises"
   },
   {
-    "objectID": "labs/lab09.html#learning-materials",
-    "href": "labs/lab09.html#learning-materials",
+    "objectID": "lab09.html#learning-materials",
+    "href": "lab09.html#learning-materials",
     "title": "Lab 9 Creating a Simple Shiny Application",
     "section": "Learning Materials",
     "text": "Learning Materials\nPlease prepare the following materials\n\nBook: Mastering Shiny by Hadley Wickham – Read Chapter 1 (Chapter 2 and 3 are good to read as well, if you want).\nBook: Engineering Production-Grade Shiny Apps – Read Chapter 2 - 5 (they are fairly short, but if you don’t find Shiny Apps super cool, feel free to skip Chapter 3 and 5 and Sections 2.2.2 and 4.2.3 - 4.2.4), the rest are quite important for the exercises.\nCheatsheet: Shiny – This cheatsheet is a bit cluttered, but useful\nCheatsheet: Golem – Look through this after reading the chapters in “Engineering Production-Grade Shiny Apps” - the exercises will remind you to look at the cheatsheet as well.\n\nNote: The following are suggested learning materials, i.e., do not go over everything, but poke around. You will use these materials as a point of reference for the group exercises\n\nShiny Input Gallery\nWeb: Shiny from RStudio\nWeb: RStudio tutorials on Shiny\nVideo: Playlist: Web Apps in R: Building your First Web Application in R | Shiny Tutorial\nExample: nnvizRt\nMore inspiration: Shiny Gallery"
   },
   {
-    "objectID": "labs/lab09.html#learning-objectives",
-    "href": "labs/lab09.html#learning-objectives",
+    "objectID": "lab09.html#learning-objectives",
+    "href": "lab09.html#learning-objectives",
     "title": "Lab 9 Creating a Simple Shiny Application",
     "section": "Learning Objectives",
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nPrepare a simple shiny application\nUsing relevant online ressources to autonomously identify and obtain new and expand on existing knowledge of R"
   },
   {
-    "objectID": "labs/lab10.html#schedule",
-    "href": "labs/lab10.html#schedule",
+    "objectID": "lab10.html#schedule",
+    "href": "lab10.html#schedule",
     "title": "Lab 10 Project Startup & Industry Talks",
     "section": "Schedule",
     "text": "Schedule\n\n08.00 - 08.15: Recap and Assignment\n08.15 - 08.45: Introduction to Project Period and Exam\n08.45 - 09.00: Break\n09.00 - 10.00: Mini Symposium (See below)"
   },
   {
-    "objectID": "labs/lab10.html#mini-symposium-applications-of-r-for-bio-data-science-in-industry",
-    "href": "labs/lab10.html#mini-symposium-applications-of-r-for-bio-data-science-in-industry",
+    "objectID": "lab10.html#mini-symposium-applications-of-r-for-bio-data-science-in-industry",
+    "href": "lab10.html#mini-symposium-applications-of-r-for-bio-data-science-in-industry",
     "title": "Lab 10 Project Startup & Industry Talks",
     "section": "Mini Symposium: Applications of R for Bio Data Science in Industry",
     "text": "Mini Symposium: Applications of R for Bio Data Science in Industry\nThis mini symposium on Applications of R for Bio Data Science in Industry aims to give students a glimpse into how modern data science is transforming value creation in the pharmaceutical industry and healthcare sector.\n\n2023\n\nCompanies Represented\n\nTBA\n\n\n\nSpeaker List\n\nTBA\n\n\n\n\n2022\n\nCompanies Represented\n\nAbzu\nBristol Myers Squibb\nClinical Microbiomics\nNovo Nordisk Bioinformatics\nNovo Nordisk Biostatistics\nSteno Diabetes Center Copenhagen\n\n\n\nSpeaker List\n\nAndrea Marquard, Head of Data Science and Automation, Clinical Microbiomics: “How we use internal R packages, and why you should learn to make one”\nAnders Gorst-Rasmussen, Statistical Director, Novo Nordisk Biostatistics, Novo Nordisk: “How we use R in Novo Nordisk Biostatistics”\nAnne-Mette Bjerregaard, Senior Scientist in Computational Biology, Novo Nordisk: “The Evolution of a Computational Biologist”\nSam Demharter, Bioinformatics Specialist, Abzu: “Explainable AI in Precision Medicine - Closing the Loop from Patient to Drug”\nLykke Pedersen, Head of RNA Therapeutics, Abzu: “Explainable AI in Precision Medicine - Closing the Loop from Patient to Drug”\nSimon Papillon-Cavanagh, Principal Scientist, Bristol Myers Squibb (USA): “A Career Built on Mistakes”\nSofie Olund Villumsen, Bioinformatician, Steno Diabetes Center Copenhagen: “Using R for Data Analysis in Clinical Studies”\nTarun Veer Singh Ahluwalia, Assoc. Prof., Steno Diabetes Center Copenhagen: “Using R for Data Analysis in Clinical Studies”\n\n\n\n\n2021\n\nCompanies Represented\n\nAbzu\nALK\nChr. Hansen\nLundbeck\nNovozymes\nTeraData\n\n\n\nSpeaker List\n\nSamuel Demharter, Senior Bioinformatician, Abzu\nLykke Pedersen, Senior Bioinformatician, Abzu\nMarie-Catherine Le Bihan, Senior Data Scientist, Chr. Hansen\nThomas Strantzl, Head of Bioinformatics, ALK\nMaria Dalby, Postdoctoral Researcher, Lundbeck\nThomas Poulsen, Science Manager, Novozymes\nMikkel Freltoft Krogsholm, Team lead, Senior Data Scientist, TeraData"

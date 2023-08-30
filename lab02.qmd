@@ -1,0 +1,289 @@
+# Lab 2: Data Visualisation I {.unnumbered}
+
+## Package(s)
+
+- [ggplot2](https://ggplot2.tidyverse.org)
+
+## Schedule
+
+- 08.00 - 08.15: Pre-course Survey Walk-through
+- 08.15 - 08.30: Recap: RStudio Cloud, RStudio and R - The Very Basics (Live session)
+- 08.30 - 09.00: [Lecture](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab02.html)
+- 09.00 - 09.15: Break
+- 09.00 - 12.00: [Exercises](#sec-exercises)
+
+## Learning Materials
+
+_Please prepare the following materials:_
+
+- Book: [R4DS2e Chapter 2 Data Visualisation](https://r4ds.hadley.nz/data-visualize)
+- Paper: ["A Layered Grammar of Graphics"](http://vita.had.co.nz/papers/layered-grammar.pdf) by Hadley Wickham
+- Video: [The best stats you've ever seen](https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen)
+- Video: [The SDGs aren't the same old same old](https://www.gapminder.org)
+- Video: EMBL Keynote Lecture - ["Data visualization and data science"](https://www.youtube.com/watch?v=9YTNYT1maa4) by Hadley Wickham
+
+## Learning Objectives
+
+_A student who has met the objectives of the session will be able to:_
+
+* Explains the basic theory of data visualisation
+* Decipher the components of a ggplot
+* Use ggplot to do basic data visualisation
+
+## Exercises {#sec-exercises}
+
+```{r}
+#| echo: false
+#| eval: true
+load(file = "data/gravier.RData")
+```
+
+
+## Prelude
+
+Discuss these 4 visualisations with your group members
+
+- _What is problematic?_
+- _What could be done to rectify?_
+
+<details>
+<p><summary>Click here for visualisation 1</summary></p>
+
+_Note, AMR = Antimicrobial Resistance_
+
+![](images/bad_viz_09.png){fig-align="center" width="80%"}
+</details>
+
+<details>
+<p><summary>Click here for visualisation 2</summary></p>
+![](images/bad_viz_10.png){fig-align="center" width="80%"}
+</details>
+
+<details>
+<p><summary>Click here for visualisation 3</summary></p>
+![](images/bad_viz_11.png){fig-align="center" width="80%"}
+</details>
+
+<details>
+<p><summary>Click here for visualisation 4</summary></p>
+![](images/bad_viz_12.png){fig-align="center" width="80%"}
+</details>
+
+
+## Getting Started
+
+_First of all, make sure to read every line in these exercises carefully!_
+
+_If you get stuck with Quarto, revisit [R4DS2e, chapter 29](https://r4ds.hadley.nz/quarto.html) or [take a look at the Comprehensive guide to using Quarto](https://quarto.org/docs/guide/)_
+
+- Go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) session from last time and login and choose the project you created.
+
+- Create a new Quarto Document for todays exercises, e.g. lab02_exercises.qmd
+
+Recall the layout of the IDE (Integrated Development Environment)
+
+![](images/lab01_04.png){fig-align="center" width="80%"}
+
+Then, before we start, we need to fetch some data to work on.
+
+- See if you can figure out how to create a new folder called "data", make sure to place it the same place as your my_project_name.Rproj file
+
+Then, without further ado, run each of the following lines separately in your _console_:
+
+```{r}
+#| eval: false
+
+target_url <- "https://github.com/ramhiser/datamicroarray/raw/master/data/gravier.RData"
+output_file <- "data/gravier.RData"
+curl::curl_download(url = target_url,
+                    destfile = output_file)
+```
+
+- Using the `files` pane, check the folder you created to see if you managed to retrieve the file.
+
+Recall the syntax for a new code chunk:
+
+````
+
+```{r}
+#| echo: true
+#| eval: true
+# Here goes the code... Note how this part does not get executed because of the initial hashtag, this is called a code-comment
+```
+
+````
+
+IMPORTANT! You are mixing code and text in a Quarto Document! Anything within a "chunk" as defined above will be evaluated as code, whereas anything outside the chunks is markdown. You can use shortcuts to insert new code chunks:
+
+- Mac: CMD + OPTION + i
+- Windows: CTRL + ALT + i
+
+Note, this might not work, depending on your browser. In that case you can insert a new code chunk using ![](images/insert_new_chunk).
+
+- Add a new code chunk and use the `load()`-function to load the data you retrieved.
+
+<details>
+<p><summary>Click here for a hint</summary></p>
+Remember, you can use `?load` to get help on how the function works and remember your project root path is defined by the location of your `.Rproj` file
+</details>
+
+Now, in the console, run the `ls()`-command and confirm, that you did indeed load the `gravier` data.
+
+- Read the information about the `gravier`-data [here](https://github.com/ramhiser/datamicroarray/wiki/Gravier-%282010%29)
+
+Now, in your Quarto Document, add a new code chunk like so
+
+```{r}
+#| message: false
+#| warning: false
+library("tidyverse")
+```
+
+This will load out data science toolbox, including `ggplot`.
+
+## Create data
+
+Before we can visualise the data, we need to wrangle it a bit. Nevermind the details here, we will get to that later. Just create a new chunk, copy/paste the below code and run it:
+
+```{r}
+set.seed(676571)
+cancer_data=mutate(as_tibble(pluck(gravier,"x")),y=pluck(gravier,"y"),pt_id=1:length(pluck(gravier, "y")),age=round(rnorm(length(pluck(gravier,"y")),mean=55,sd=10),1))
+cancer_data=rename(cancer_data,event_label=y)
+cancer_data$age_group=cut(cancer_data$age,breaks=seq(10,100,by=10))
+cancer_data=relocate(cancer_data,c(pt_id,age,age_group,pt_id,event_label))
+```
+
+Now we have the data set as an tibble, which is an augmented data frame (we will also get to that later):
+
+```{r}
+cancer_data
+```
+
+This is just the first 8 rows and the first 8 columns, so
+
+* __Q1: What is this data?__
+
+_Hint: Where did the data come from?_
+
+* __Q2: How many rows and columns are there in the data set in total?__
+
+_Hint: Do you think you are the first person in the world to try to find out how many rows and columns are in a data set in `R`?_
+
+* __Q3: Which are the variables and which are the observations in relation to rows and columns?__
+
+## ggplot - The Very Basics
+
+### General Syntax
+
+The general syntax for a basic ggplot is:
+
+```{r eval=FALSE}
+ggplot(data = my_data,
+       mapping = aes(x = variable_1_name,
+                     y = variable_2_name)) +
+  geom_something() +
+  labs()
+```
+
+Note the `+` for adding layers to the plot
+
+- `ggplot` the plotting function
+- `my_data` the data you want to plot
+- `aes()` the mappings of your data to the plot
+- `x` data for the x-axis
+- `y` data for the y-axis
+- `geom_something()` the representation of your data
+- `labs()` the x-/y-labels, title, etc.
+
+A very handy `ggplot` cheat-sheet can be found [here](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+
+### Basic Plots
+
+Remember to write notes in your rmarkdown document. You will likely revisit these basic plots in future exercises.
+
+Primer: Plotting 2 x 20 random normally distributed numbers, can be done like so:
+
+```{r}
+ggplot(data = tibble(x = rnorm(20), y = rnorm(20)),
+       mapping = aes(x = x, y = y)) +
+  geom_point()
+```
+
+Using this small primer, the materials you read for today and the `cancer_data` you created, in separate code-chunks, create a:
+
+* __T1: scatterplot of one variable against another__
+* __T2: linegraph of one variable against another__
+* __T3: boxplot of one variable__ (_Hint: Set `x = "my_gene"` in `aes()`_)
+* __T4: histogram of one variable__
+* __T5: densitogram of one variable__
+
+Remember to write notes to yourself, so you know what you did and if there is something in particular you want to remember.
+
+* __Q4: Do all geoms require both `x` and `y?`__
+
+### Extending Basic Plots
+
+* __T6: Pick your favourite gene and create a boxplot of expression levels stratified on the variable `event_label`__
+
+* __T7: Like T6, but with densitograms__ <span style="color: red;">GROUP ASSIGNMENT</span>
+
+* __T8: Pick your favourite gene and create a boxplot of expression levels stratified on the variable `age_group`__
+    * Then, add stratification on `event_label`
+    * Then, add transparency to the boxes
+    * Then, add some labels
+
+* __T9: Pick your favourite gene and create a scatter-plot of expression levels versus `age`__
+    * Then, add stratification on `event_label`
+    * Then, add a smoothing line
+    * Then, add some labels
+
+* __T10: Pick your favourite two genes and create a scatter-plot of their expression levels__
+    * Then, add stratification on `event_label`
+    * Then, add a smoothing line
+    * Then, show split into seperate panes based on the variable `age_group`
+    * Then, add some labels
+    * Change the `event_label` title of the legend
+
+* __T11: Recreate the following plot__
+
+```{r echo=FALSE}
+cancer_data %>%
+  ggplot(aes(x = event_label, y = g1CNS507, fill = event_label)) +
+  geom_boxplot(alpha = 0.5,
+               show.legend = FALSE) +
+  coord_flip() +
+  labs(x = "Event After Diagnosis",
+       y = "Expression level of g1CNS507 (log2 transformed)",
+       title = "A prognostic DNA signature for T1T2 node-negative breast cancer patients",
+       subtitle = "Labelling: good = no event, poor = early metastasis",
+       caption = "Data from Gravier et al. (2010)")
+```
+
+* __Q5: Using your biological knowledge, what is your interpretation of the plot?__
+
+* __T12: Recreate the following plot__
+
+```{r echo=FALSE}
+cancer_data %>%
+  ggplot(aes(x = age, y = g1int239, fill = event_label)) +
+  geom_point(pch = 21) +
+  geom_smooth(aes(colour = event_label), method = "lm", se = FALSE) +
+  labs(x = "Subject Age",
+       y = "Expression level of g1int239 (log2 transformed)",
+       title = "A prognostic DNA signature for T1T2 node-negative breast cancer patients",
+       subtitle = "Stratified on labelling: good = no event, poor = early metastasis",
+       caption = "Data from Gravier et al. (2010)",
+       fill = "Label",
+       colour = "Label") +
+  theme(legend.position = "bottom")
+```
+
+* __Q6: Using your biological knowledge, what is your interpretation of the plot?__
+
+* __T13: If you arrive here and there is still time left for the exercises, you are probably already familiar with `ggplot` - Use what time is left to challenge yourself to further explore the `cancer_data` and create some nice data visualisations - Show me what you come up with!__
+
+## Further ressources for data visualisation
+
+- A very handy `ggplot` cheat-sheet can be found [here](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+- So which plot to choose? Check this handy [guide](https://www.data-to-viz.com/)
+- Explore ways of plotting [here](https://www.r-graph-gallery.com/)

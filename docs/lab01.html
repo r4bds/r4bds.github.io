@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R for Bio Data Science - Lab 1: Course Intro &amp; the Very Basics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./lab02.html" rel="next">
+<link href="./lab00.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Lab 1: Course Intro &amp; the Very Basics</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R for Bio Data Science</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome to R for Bio Data Science</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./prologue.html" class="sidebar-item-text sidebar-link">Prologue</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./getting_started.html" class="sidebar-item-text sidebar-link">Getting Started</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./lab00.html" class="sidebar-item-text sidebar-link">Course Labs</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab01.html" class="sidebar-item-text sidebar-link active">Lab 1: Course Intro &amp; the Very Basics</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab02.html" class="sidebar-item-text sidebar-link">Lab 2: Data Visualisation I</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab03.html" class="sidebar-item-text sidebar-link">Lab 3: Data Visualisation II</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab04.html" class="sidebar-item-text sidebar-link">Lab 4: Data Wrangling I</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab05.html" class="sidebar-item-text sidebar-link">Lab 5: Data Wrangling II</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab06.html" class="sidebar-item-text sidebar-link">Lab 6: (a bit on) Modelling in the Tidyverse</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab07.html" class="sidebar-item-text sidebar-link">Lab 7: Scripting in a Reproducible and Collaborative Framework using GitHub via RStudio</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab08.html" class="sidebar-item-text sidebar-link">Lab 8: Creating a Simple R-package</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab09.html" class="sidebar-item-text sidebar-link">Lab 9 Creating a Simple Shiny Application</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab10.html" class="sidebar-item-text sidebar-link">Lab 10 Project Startup &amp; Industry Talks</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project_faq.html" class="sidebar-item-text sidebar-link">Project FAQ</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exam.html" class="sidebar-item-text sidebar-link">Exam</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Package(s)</a></li>
+  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
+  <li><a href="#learning-materials" id="toc-learning-materials" class="nav-link" data-scroll-target="#learning-materials">Learning Materials</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#sec-exercises" id="toc-sec-exercises" class="nav-link" data-scroll-target="#sec-exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#cloud-server-and-the-rstudio-ide" id="toc-cloud-server-and-the-rstudio-ide" class="nav-link" data-scroll-target="#cloud-server-and-the-rstudio-ide">Cloud server and the RStudio IDE</a></li>
+  <li><a href="#first-steps" id="toc-first-steps" class="nav-link" data-scroll-target="#first-steps">First steps</a></li>
+  <li><a href="#the-whole-shebang" id="toc-the-whole-shebang" class="nav-link" data-scroll-target="#the-whole-shebang">The Whole Shebang</a></li>
+  <li><a href="#bio-data-science-with-a-virtual-ai-assistant" id="toc-bio-data-science-with-a-virtual-ai-assistant" class="nav-link" data-scroll-target="#bio-data-science-with-a-virtual-ai-assistant">Bio Data Science with a Virtual AI Assistant</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Lab 1: Course Intro &amp; the Very Basics</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">Package(s)</h2>
+<ul>
+<li><a href="https://www.r-project.org">Base</a></li>
+</ul>
+</section>
+<section id="schedule" class="level2">
+<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
+<ul>
+<li>08.00 - 08.15: Arrival and 5 min. pre-course anonymous survey: <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMVWtgwg1i5wp0kUus64jF1vnDjqBMBVUk_UOgb2HypbeoaQ/viewform?usp=sf_link">Click here to answer</a></li>
+<li>08.15 - 08.45: Lecture: <a href="https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab01.html">Course Introduction</a></li>
+<li>08.45 - 09.00: Break</li>
+<li>09.00 - 11.15: <a href="#sec-exercises">Exercises</a></li>
+<li>11.15 - 11.30: Break</li>
+<li>11.30 - 12.00: Lecture: Reproducibility in Modern Bio Data Science</li>
+</ul>
+</section>
+<section id="learning-materials" class="level2">
+<h2 class="anchored" data-anchor-id="learning-materials">Learning Materials</h2>
+<p><em>Please prepare the following materials:</em></p>
+<ul>
+<li>Read course site sections: <a href="https://r4bds.github.io">Welcome to R for Bio Data Science</a>, <a href="https://r4bds.github.io/prologue.html">Prologue</a> and <a href="https://r4bds.github.io/getting_started.html">Getting Started</a> and perform any small tasks mentioned</li>
+<li>R4DS2e Book: <a href="https://r4ds.hadley.nz">Welcome</a>, <a href="https://r4ds.hadley.nz/preface-2e">Preface to the second edition</a>, <a href="https://r4ds.hadley.nz/intro">Chapter 1</a>, <a href="https://r4ds.hadley.nz/workflow-basics">Chapter 3</a>, <a href="https://r4ds.hadley.nz/quarto.html">Chapter 29</a> (Don’t do the exercises)</li>
+<li>Video: <a href="https://www.youtube.com/watch?v=FIrsOBy5k58">RStudio for the Total Beginner</a></li>
+<li>Web: Read the <a href="https://kurser.dtu.dk/course/22100">detailed course description</a></li>
+<li>Paper: <a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004961">Ten Simple Rules for Effective Statistical Practice</a></li>
+<li>Paper: <a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424">A Quick Guide to Organizing Computational Biology Projects</a></li>
+</ul>
+</section>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p><em>A student who has met the objectives of the session will be able to:</em></p>
+<ul>
+<li>Master the very basics of R</li>
+<li>Navigate the RStudio IDE</li>
+<li>Create, edit and run a basic Quarto document</li>
+<li>Explain why reproducible data analysis is important, as well as identify relevant challenges and explain replicability versus reproducibility</li>
+<li>Describe the components of a reproducible data analysis</li>
+</ul>
+</section>
+<section id="sec-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="sec-exercises">Exercises</h2>
+<p>Today, we will focused on getting you started and up and running with the first elements of the course, namely the RStudio IDE (Integrated Developer Environment) and Quarto. If the relationship between <code>R</code> and RStudio is unclear, think of it this way: Consider a car, in that case, <code>R</code> would be the engine and RStudio would be the rest of the car. Neither is particularly useful, but together they form a functioning unit. Before you continue, make sure you in fact did watch the “RStudio for the Total Beginner” video (See the Learning Materials for todays session).</p>
+<section id="cloud-server-and-the-rstudio-ide" class="level3">
+<h3 class="anchored" data-anchor-id="cloud-server-and-the-rstudio-ide">Cloud server and the RStudio IDE</h3>
+<p>Go to the <a href="http://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science Cloud Server</a> and follow the login procedure. Upon login, you will see this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lab01_01.png" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+<p>This is the RStudio IDE. It allows you to consolidate all features needed to develop <code>R</code> code for analysis. Now, click <code>Tools</code> <span class="math inline">\(\rightarrow\)</span> <code>Global Options...</code> <span class="math inline">\(\rightarrow\)</span> <code>Pane Layout</code> and you will see this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lab01_02.png" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+<p>This outlines the four panes you have in your RStudio IDE and allow you rearrange them as you please. Now, re-arrange them, so that they look like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lab01_03.png" class="img-fluid figure-img" width="600"></p>
+</figure>
+</div>
+<p>Click <code>Apply</code> <span class="math inline">\(\rightarrow\)</span> <code>OK</code> and you should see this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lab01_04.png" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+</section>
+<section id="first-steps" class="level3">
+<h3 class="anchored" data-anchor-id="first-steps">First steps</h3>
+<section id="the-console" class="level4">
+<h4 class="anchored" data-anchor-id="the-console">The Console</h4>
+<p>Now, in the console, as you saw in the video, you can type commands like:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">*</span><span class="dv">3</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>X</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(X)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(X)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>?sum</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>sum</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>nucleotides <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"c"</span>, <span class="st">"g"</span>, <span class="st">"t"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>nucleotides</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(nucleotides, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">sample</span>(nucleotides, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">paste0</span>(<span class="fu">sample</span>(nucleotides, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">collapse =</span> <span class="st">""</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">replicate</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">expr =</span> <span class="fu">paste0</span>(<span class="fu">sample</span>(nucleotides, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">collapse =</span> <span class="st">""</span>))</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="fu">paste0</span>(<span class="st">"seq"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), <span class="at">seq =</span> <span class="fu">replicate</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">expr =</span> <span class="fu">paste0</span>(<span class="fu">sample</span>(nucleotides, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">collapse =</span> <span class="st">""</span>)))</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>df</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Take some time and play around with these commands and other things you can come up with. Use the <code>?function</code> to get help on what that function does. Be sure to discuss what you observe in the console. Do not worry too much on the details for now, we are just getting started. But as you hopefully can see, <code>R</code> is very flexible and basically the message is: “If you can think it, you can build it in <code>R</code>”.</p>
+<ul>
+<li>Go to <a href="https://r4ds.hadley.nz/workflow-basics">Chapter 3</a> in R4DS2e and do the exercises</li>
+</ul>
+</section>
+<section id="the-terminal" class="level4">
+<h4 class="anchored" data-anchor-id="the-terminal">The Terminal</h4>
+<p>Notice how in the console pane, you also get a <code>Terminal</code>, click and enter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> tmp</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> tmp/test.txt</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> tmp</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> tmp/test.txt</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rmdir</span> tmp</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$SHELL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Basically, here you have access to a full terminal, which can prove immensely useful! Note, you may or may not be familiar with the concept of a terminal. Simply think of it as a way to interact with the computer using text command, rather than clicking on icons etc. Click back to the console.</p>
+</section>
+<section id="the-source" class="level4">
+<h4 class="anchored" data-anchor-id="the-source">The Source</h4>
+<p>The source is where you will write scripts. A script is a series of commands to be executed sequentially, i.e.&nbsp;first line 1, then line 2 and so on. Right now, you should have a open script called <code>Untitled1</code>. If not, you can create a new script by clicking white paper with a round green plus sign in the upper left corner.</p>
+<p>Taking inspiration from the examples above, try to write a series of commands and include a <code>print()</code>-statement at the very end. Click <code>File</code> <span class="math inline">\(\rightarrow\)</span> <code>Save</code> and save the file as e.g.&nbsp;<code>my_first_script.R</code>. Now, go to the console and type in the command <code>source("my_first_script.R")</code>. Congratulations! You have now written your very first reproducible R-program!</p>
+</section>
+</section>
+<section id="the-whole-shebang" class="level3">
+<h3 class="anchored" data-anchor-id="the-whole-shebang">The Whole Shebang</h3>
+<p>Enough playing around, let us embark on our modern Bio Data Science in R journey.</p>
+<ul>
+<li>In the <code>Files</code> pane, click <code>New Folder</code> and create a folder called <code>projects</code></li>
+<li>In the upper right corner, click where it says <code>Project: (None)</code> and then click <code>New Project...</code></li>
+<li>Click <code>New Directory</code> and then <code>New Project</code></li>
+<li>In the <code>Directory name:</code>, enter e.g.&nbsp;<code>r_for_bio_data_science</code></li>
+<li>Click the <code>Browse...</code> button and select your newly created <code>projects</code> directory and then click <code>Choose</code></li>
+<li>Click <code>Create Project</code> and wait a bit for it to get created</li>
+</ul>
+<section id="on-working-in-projects" class="level4">
+<h4 class="anchored" data-anchor-id="on-working-in-projects">On Working in Projects</h4>
+<p>Projects allow you to create fully transferable bio data science projects, meaning that the root of the project will be where the <code>.Rproj</code> file is located. You can confirm this by entering <code>getwd()</code> in the console. This means that under <em>no circumstance</em> should ever <em>not</em> work in a project nor should <em>ever</em> use absolute paths. Every single path you state in your project <em>must</em> be relative to the project root.</p>
+<p>But why? Imagine you have create a project, where you have indeed used absolute paths. Now you want to share that project with a colleague. Said colleague gets your project and tests the reproducibility by running the project end-to-end. But it <em>completely</em> fails because you have hardcoded your paths to be absolute, meaning that all files and project ressources locations points to locations on your laptop.</p>
+<p>Projects are a <em>must</em> and allows you to create reproducible encapsulated bio data science projects. Note, the concept of reproducibility is absolute central to this course and must be considered in all aspect of the life cycle of a project!</p>
+</section>
+<section id="quarto" class="level4">
+<h4 class="anchored" data-anchor-id="quarto">Quarto</h4>
+<p>While <code>.R</code>-scripts are a perfectly, there is another Skywalker:</p>
+<ul>
+<li>In the upper left corner, again, click the white paper with the round green plus, but this time select <code>Quarto Document</code></li>
+<li>Enter a <code>Title:</code>, e.g.&nbsp;“Lab 1 Exercises” and enter your name below in the box <code>Author:</code></li>
+<li>Click <code>Create</code></li>
+<li>Important: Save your Quarto document! Click <code>File</code> <span class="math inline">\(\rightarrow\)</span> <code>Save</code> and name it e.g.&nbsp;<code>lab_01_exercises.qmd</code></li>
+<li>Minimise the <code>Environment</code>-pane</li>
+</ul>
+<p>You should now see something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lab01_05.png" class="img-fluid figure-img" width="800"></p>
+</figure>
+</div>
+<p>Try clicking the <code>Render</code> button just above the quarto-document. This will create the HTML5 output file. Note! You may get a <code>Connection Refused</code> message. If so, don’t worry, just close the page to return to the cloud server and find the generated <code>.html</code> file, left-click and select <code>View in Web Browser</code>.</p>
+<p>If you have previously worked with <code>Rmarkdown</code>, then many features of <code>Quarto</code> will be familiar. Think of <code>Quarto</code> as the complete rethink of <code>Rmarkdown</code>, i.e.&nbsp;based on all the experience gained, what would the optimal way of constructing an open-source scientific and technical publishing system?</p>
+<p>Perhaps you have previously encountered Jupyter notebooks, Quarto is similar. The basic idea is to have one document covering the entire project cycle.</p>
+<p>Proceed <a href="https://r4ds.hadley.nz/quarto">R for Data Science (2e), chapter 29</a> and do the exercises.</p>
+</section>
+</section>
+<section id="bio-data-science-with-a-virtual-ai-assistant" class="level3">
+<h3 class="anchored" data-anchor-id="bio-data-science-with-a-virtual-ai-assistant">Bio Data Science with a Virtual AI Assistant</h3>
+<p>I am pretty sure you all know of chatGPT by now, so let us address the elephant in the room!</p>
+<section id="getting-started" class="level4">
+<h4 class="anchored" data-anchor-id="getting-started">Getting started</h4>
+<ul>
+<li>Go to the <a href="https://chat.openai.com">ChatGPT</a> site</li>
+<li>Create a user and login</li>
+</ul>
+<section id="let-us-get-acquainted" class="level5">
+<h5 class="anchored" data-anchor-id="let-us-get-acquainted">Let us get acquainted</h5>
+<p>Now, at the bottom it says <em>“Send a message”</em>, let us ask 3 simple question and see if we can find out what is what. Type the following questions in the prompt and read the answers:</p>
+<ol type="1">
+<li><em>Explain in simple terms what you are</em></li>
+<li><em>Explain in simple terms how you work</em></li>
+<li><em>Explain in simple terms how you can be used to generate value as a virtual AI assistant, when doing Bio Data Science for R</em></li>
+</ol>
+</section>
+<section id="moving-onto-r" class="level5">
+<h5 class="anchored" data-anchor-id="moving-onto-r">Moving onto R</h5>
+<p>In the upper left corner, it says <code>+ New chat</code>, click it to start a new session.</p>
+<p>Again, type the following questions in the prompt and read the answers:</p>
+<ol type="1">
+<li><em>R</em></li>
+<li><em>What is R?</em></li>
+<li><em>Give a few simple examples</em></li>
+</ol>
+<p>If you do get some code examples, try to copy/paste into the console in RStudio and see if they run</p>
+</section>
+<section id="prompt-engineering" class="level5">
+<h5 class="anchored" data-anchor-id="prompt-engineering">Prompt Engineering</h5>
+<p>Start a new chat and enter:</p>
+<ol type="1">
+<li><em>Give a few simple examples</em></li>
+</ol>
+<p>Compare the response with the one from before, is it the same or different and why so?</p>
+<p>Discuss in your group what is “Prompt Engineering” and how does it relate to the above few tests you did? (Bonus info: Prompt engineer is already a job and people are making money off of selling prompts)</p>
+</section>
+<section id="a-bit-more" class="level5">
+<h5 class="anchored" data-anchor-id="a-bit-more">…a bit more</h5>
+<p>Start a new chat and enter:</p>
+<ul>
+<li><em>Tell me about DNA</em></li>
+</ul>
+<p>Check if it gives you correct information?</p>
+<p>Now, write:</p>
+<ul>
+<li><em>Give a few fun examples on how to get started with the R programming language using DNA</em></li>
+</ul>
+<p>Copy/paste the code into the Console, do the examples all run?</p>
+<ul>
+<li>Earlier you were told to play around with some code snippets. Perhaps you didn’t fully catch what was going on? If so, try to type in e.g.:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>I'm new to R, please explain in simple terms, what the following code does:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>"</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>nucleotides &lt;- c("a", "c", "g", "t")</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>replicate(n = 10, expr = paste0(sample(nucleotides, size = 100, replace = TRUE), collapse = ""))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="summary" class="level5">
+<h5 class="anchored" data-anchor-id="summary">Summary</h5>
+<p>While <code>chatGPT</code> can be a powerful tool for code productivity, it comes with a major caveat: <strong>When it fails, it fails with confidence</strong>. This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can see if you are heading in the right direction or if you’re being send on a wild goose chase.</p>
+<p><strong>Therefore, in the beginning of the course, for your own sake, please refrain from using chatGPT!</strong></p>
+<p><em>Instead solve the exercises based on the materials you have prepared, talk to you group members and discuss the challenges and check your understanding. Then later on, when you have gained initial experience, we can explore using chatGPT to augment your bio data science workflow to enhance productivity</em></p>
+
+
+</section>
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./lab00.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Course Labs</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./lab02.html" class="pagination-link">
+        <span class="nav-page-text">Lab 2: Data Visualisation I</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">R for Bio Data Science</div>   
+    <div class="nav-footer-right">Full course description available at <a href="https://kurser.dtu.dk/course/22100">DTU Course Base</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>

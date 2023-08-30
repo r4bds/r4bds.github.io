@@ -1,0 +1,305 @@
+---
+title: "Lecture Lab 2"
+author: "Leon Eyrich Jessen"
+format:
+  revealjs:
+    theme: moon
+    slide-number: c/t
+    width: 1600
+    height: 900
+    mainfont: avenir
+    logo: images/r4bds_logo_small.png
+    footer: "R for Bio Data Science"
+---
+
+# Data Visualisation I
+
+```{r}
+library("ggplot2")
+library("tibble")
+library("dplyr")
+```
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## First: Make sure you're on track!
+
+### Lab I Learning Objectives
+
+-   Navigate the RStudio IDE and master the very basics of R
+-   Create, edit and run a basic Quarto document
+-   Explain why reproducible data analysis is important
+-   Describe the components of a reproducible data analysis
+
+### Where should you be by now?
+
+-   In a group
+-   On Piazza
+-   On the RStudio Cloud Server
+-   On GitHub
+
+*If any of this is not the case, see the `Getting Started` section on the course site*
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## What is Data Visualisation?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+-   Think about Hadley's and Hans' lectures, the book chapter and paper you read for today
+-   Use the next 5 minutes to think and talk to the person next to you
+-   Then, write your thoughts on Piazza in the "LIVE Q&A"
+
+:::
+
+::: {.column width="50%"}
+
+![](images/what_is_data_viz.png)
+
+:::
+::::
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## On Data Visualisation
+
+-   Depending on where your read, something along the lines of:
+    -   *The graphical representation of information and data*
+    -   *Uses visual elements like charts, graphs and maps*
+    -   *Provide an accessible way to see and understand trends, outliers and patterns*
+-   Data visualisation is your means to summarise and communicate key messages
+    -   Within research
+    -   Within industry
+-   It is not easy!
+    -   Anyone can make a plot, but an impactful data visualisation requires true skills
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## What is wrong here?
+
+```{r}
+#| echo: false
+#| fig-align: center
+tibble(performance = c(0.82, 0.84),
+       method = c("Someone else", "me")) |>
+  ggplot(aes(x = method, y = performance)) +
+  geom_col() +
+  coord_cartesian(ylim = c(0.80, 0.85))
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Should have been
+
+```{r}
+#| echo: false
+#| fig-align: center
+tibble(performance = c(0.82, 0.84),
+       method = c("Someone else", "me"))  |> 
+  ggplot(aes(x = method, y = performance)) +
+  geom_col() +
+  geom_hline(yintercept = 0) +
+  coord_cartesian(ylim = c(0, 1))
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## What's wrong here?
+
+```{r}
+#| echo: false
+#| fig-align: center
+set.seed(541880)
+d = tibble(value = c(rnorm(20, 10, 2),
+                 rnorm(20, 8, 2)),
+       time = c(rep("t1", 20), rep("t2", 20)))
+d |>
+  group_by(time) |>
+  summarise(mu = mean(value), sigma = sd(value)) |>
+  ggplot(aes(x = time, y = mu)) +
+  geom_col() +
+  geom_errorbar(aes(ymin = mu - sigma,
+                    ymax = mu + sigma), width = 0.1)
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Should have been
+
+```{r}
+#| echo: false
+#| fig-align: center
+d |> 
+  ggplot(aes(x = time, y = value)) +
+  geom_boxplot()
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Or maybe even
+
+```{r}
+#| echo: false
+#| fig-align: center
+d |> 
+  ggplot(aes(x = time, y = value)) +
+  geom_violin(scale = "width") +
+  geom_boxplot(width = 0.2)
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## What is this?
+
+![](images/bad_viz_01.png){fig-align="center" width="80%"}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Or this?
+
+![](images/bad_viz_02.png){fig-align="center" width="80%"}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Or this?
+
+![](images/bad_viz_03.png){fig-align="center" width="80%"}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Or this?
+
+![](images/bad_viz_04.png){fig-align="center" width="80%"}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Or this?
+
+![](images/bad_viz_05.png){fig-align="center" width="80%"}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Or this?
+
+![](images/bad_viz_06.png){fig-align="center" width="80%"}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Or this?
+
+![](images/bad_viz_07.png){fig-align="center" width="80%"}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## ...and then there is this one?!?
+
+![](images/bad_viz_17.jpeg){fig-align="center" width="80%"}
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## ...and then there is this one?!?
+
+![](images/bad_viz_17_mod.jpeg){fig-align="center" width="80%"}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Or this?
+
+![](images/bad_viz_08.png){fig-align="center" width="80%"}
+
+-   Don't even know where to begin with this one...
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## In Summary on Data Visualisation
+
+-   Think carefully about *exactly* what it is, you want to communicate with your visualisation
+
+-   Remove redundant information
+
+-   Be honest and show your data
+
+-   Less is more, do not cram 3 plots into 1
+
+-   Do not make a fancy, but information deprived plot
+
+-   Think about colour choice - Separation, but also quite a few people are colour blind
+
+-   Today is meant as in intro, data visualisation will be an integrated part of the rest of the course
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## ggplot, the Grammar of Graphics
+
+### The basic syntax of ggplot
+
+-   In a new code chunk in your Quarto document, input and run:
+
+```{{r}}
+ggplot(data = my_data,
+       mapping = aes(x = v1, y = v2)) +
+  geom_point()
+```
+
+-   Define your data
+
+-   Map variables in your plot to your visualisation
+
+-   Choose a graphical representation
+
+-   Let us look at that in e another way
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## ggplot, the Grammar of Graphics
+
+![](images/vis_ggplot_components.png){fig-align="center" width="80%"}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Example - Scatter plot
+
+```{r}
+#| echo: true
+#| fig-align: center
+#| fig-height: 3
+library("tidyverse")
+ggplot(data = datasets::Puromycin,
+       mapping = aes(x = conc,
+                     y = rate)) +
+  geom_point()
+```
+
+# Break and the it is time for exercises...
