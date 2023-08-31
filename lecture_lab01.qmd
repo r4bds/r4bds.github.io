@@ -3,6 +3,7 @@ title: "Lecture Lab 1"
 author: "Leon Eyrich Jessen"
 format:
   revealjs:
+    embed-resources: true
     theme: moon
     slide-number: c/t
     width: 1600

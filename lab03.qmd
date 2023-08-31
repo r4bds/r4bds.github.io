@@ -7,6 +7,7 @@
 - [ggplot2](https://ggplot2.tidyverse.org)
 - [patchwork](https://patchwork.data-imaginist.com)
 - [scales](https://scales.r-lib.org)
+- [ggridges](https://wilkelab.org/ggridges/)
 
 ## Schedule
 
@@ -19,11 +20,10 @@
 
 _Please prepare the following materials_
 
+- Book: ["Visualize", chapters 10, 11 and 12](https://r4ds.hadley.nz/visualize)
 - Video: [William Chase | The Glamour of Graphics | RStudio (2020)](https://www.youtube.com/watch?v=h5cTacaWE6I)
 - Web: [Patchwork - Getting started](https://patchwork.data-imaginist.com/articles/patchwork.html)
-- Web: [Scales - Getting started](https://www.tidyverse.org/blog/2018/08/scales-1-0-0/)
-- Book: R4DS 3.5 - 3.10 Data Visualisation II
-- Book: R4DS 27 R Markdown
+- Web: [Scales - Getting started](https://www.tidyverse.org/blog/2022/04/scales-1-2-0/)
 
 ## Learning Objectives
 
@@ -33,3 +33,244 @@ _A student who has met the objectives of the session will be able to:_
 - Customise the data visualisation
 - Combine multiple plots into one pane
 - Look at a more advanced ggplot and decipher the components used
+
+## Exercises
+
+_Read the steps of this exercises carefully, while completing them_ 
+
+### Introduction
+
+Some authors are kind enough to supply the data they used for their paper, e.g.:
+
+- [_"Assessment of the influence of intrinsic environmental and geographical factors on the bacterial ecology of pit latrines"_](https://sfamjournals.onlinelibrary.wiley.com/doi/full/10.1111/1751-7915.12334)
+
+Where the supporting data can be found here:
+
+- [http://userweb.eng.gla.ac.uk/umer.ijaz/bioinformatics/ecological.html](http://userweb.eng.gla.ac.uk/umer.ijaz/bioinformatics/ecological.html)
+
+### Getting Started
+
+Again, go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) session from last time and login and choose the project you created
+
+- **Create a new Quarto Document for todays exercises, e.g. lab03_exercises.qmd**
+- **NB! The rmarkdown document MUST be placed together with your `.Rproj` file (defining, the project root - look in your `Files`-tab) and also there, the `data`-folder should be placed!**
+- **REMEMBER paths are important! Also, R is case-sensitive, i.e. "data" is not the same as "Data"**
+
+### Getting the data
+
+Add a new code chunk and add the following code (Never mind the details, we will get back to this), remember you can use headers to nicely section your quarto Document.
+
+```{r}
+#| echo: true
+#| eval: false
+base_url <- "http://userweb.eng.gla.ac.uk/umer.ijaz/bioinformatics/ecological/"
+
+SPE <- read_csv(file = str_c(base_url, "SPE_pitlatrine.csv"))
+write_csv(x = SPE, file = "data/SPE_pitlatrine.csv")
+
+ENV <- read_csv(file = str_c(base_url, "ENV_pitlatrine.csv"))
+write_csv(x = ENV, file = "data/ENV_pitlatrine.csv")
+```
+
+Add the chunk settings `#| echo: true` and `#| eval: true`, then run the block and change the latter to `#| eval: false`.
+
+- Discuss in your group, what this means and why we do it
+
+<details>
+<p><summary>Click here for hint</summary></p>
+
+From where do we retrieve the data and to where do we write it?
+
+</details>
+
+Run this code block ONCE and then change the chunk header from ` ```{r} ` to ` ```{r echo=TRUE, eval=FALSE} ` (i.e. see the code, but don't run it), this we do, because once you have run this code once, you have downloaded the data and saved it into your data folder. Moving forward we don't want to download the data each time we run this document
+
+### Wrangling the data
+
+Before we continue with plotting, we want to unify the data, so here again you will run some code, where the details are not important right now.
+
+But... Make sure, that you have run `library("tidyverse")` somewhere in your rmarkdown document. If you get a message saying "No such library"... How would we install a package?
+
+```{r echo=TRUE, eval=FALSE}
+SPE %>%
+  pivot_longer(cols = -Taxa,
+               names_to = "Samples",
+               values_to = "OTU_Count") %>%
+  full_join(ENV, by = "Samples") %>%
+  mutate(site = case_when(str_detect(Samples, "^T") ~ "Tanzania",
+                          str_detect(Samples, "^V") ~ "Vietnam")) %>% 
+  write_tsv(file = "data/SPE_ENV.tsv")
+```
+
+Change the chunk header as before
+
+## Data Visualisation II
+
+### Read the data
+```{r message=FALSE}
+SPE_ENV = read_tsv(file = "data/SPE_ENV.tsv")
+SPE_ENV
+```
+
+### IMPORTANT INSTRUCTIONS - READ!
+
+_For these exercises I want you to identify what you see in the plot!_
+
+For each plot, complete the following steps
+
+1. Look at this overview of the components of a ggplot (see below)
+1. Look at the plot you are to recreate and discuss in the group:
+   1. What is the data? Take a look at it and understand what is _in_ the data
+   1. What are the mappings? I.e. what variables are on the x-/y-axis?
+   1. Are there any colour-/fill-mappings?
+   1. What are the geoms used?
+   1. Are there any modifications to theme?
+
+_Hints_
+
+- Consult the [Data visualization with ggplot2 cheatsheet](https://www.rstudio.com/resources/cheatsheets/) to see what options you have available
+- Feel free to google BUT, if you do, DO NOT simply copy/paste stackoverflow code in, you HAVE to think about what the code does, then modify and adapt to your needs
+
+```{r, out.width = "90%", fig.align = "center", echo=FALSE}
+knitr::include_graphics(path = "images/vis_ggplot_components.png")
+```
+
+### TASKS
+
+#### Task 1 - Recreate the following plot
+
+_Discuss in your group, which ggplot elements can you identify?_
+
+```{r echo=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = OTU_Count,
+                     y = Taxa,
+                     fill = site)) +
+  geom_boxplot()
+```
+
+#### Task 2 - Recreate the following plot
+
+_Discuss in your group, which ggplot elements can you identify?_
+
+```{r echo=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = site,
+                     y = Temp)) +
+  geom_boxplot()
+```
+
+#### Task 3 - Recreate the following plot
+
+_Discuss in your group, which ggplot elements can you identify?_
+
+```{r echo=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = Temp,
+                     y = pH,
+                     colour = site)) +
+  geom_point()
+```
+
+#### Task 4 - Recreate the following plot
+
+_Discuss in your group, which ggplot elements can you identify?_
+
+```{r echo=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = Temp,
+                     y = pH,
+                     colour = site,
+                     label = Samples)) +
+  geom_label(size = 3)
+```
+
+
+#### Task 5 - Recreate the following plot
+
+_Discuss in your group, which ggplot elements can you identify?_
+
+```{r echo=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = NH4,
+                     fill = site)) +
+  geom_density()
+```
+
+#### Task 6 - Recreate the following plot
+
+_Discuss in your group, which ggplot elements can you identify?_
+
+```{r echo=FALSE, message=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = CODt,
+                     y = CODs,
+                     colour = site)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+- _Hint: See if you can find something online on `geom_smooth()`_ 
+
+#### Task 7 - Recreate the following plot
+
+_Discuss in your group, which ggplot elements can you identify?_
+
+```{r  echo=FALSE, message=FALSE, fig.align='center', fig.height=7, fig.width=7}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = Taxa,
+                     y = Samples,
+                     fill = OTU_Count)) +
+  geom_tile(alpha = 0.5) +
+  scale_fill_gradient2(midpoint = 10000,
+                       low = "blue",
+                       mid = "white",
+                       high = "red") +
+  theme_classic(base_size = 8) +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+- _Hint: Think about `fill` and then see if you can find something online on `geom_tile()`, `scale_fill_gradient2` and how to `ggplot rotate axis labels`_ 
+
+#### Task 8 - Recreate the following plot
+
+Start by running this code in a new chunk (ignore details for now)
+```{r}
+targets = c("Methanobacteria", "Clostridia", "Actinobacteria",
+            "Sphingobacteria", "Anaerolineae")
+SPE_ENV_targets = filter(SPE_ENV, Taxa %in% targets)
+```
+and then use the created dataset `SPE_ENV_targets` to recreate this plot:
+
+_Discuss in your group, which ggplot elements can you identify?_
+
+```{r echo=FALSE, message=FALSE}
+library("ggridges")
+ggplot(data = SPE_ENV_targets,
+       mapping = aes(x = OTU_Count,
+                     y = Taxa,
+                     fill = Taxa)) +
+  geom_density_ridges(alpha = 0.5) +
+  scale_fill_viridis_d() +
+  labs(x = "OTU Count",
+       y = "Taxa Identified",
+       title = "OTU Count Distribution for 5 Taxa Stratified on Site",
+       caption = "Data from doi.org/10.1111/1751-7915.12334") +
+  theme_minimal(base_family = "Avenir", base_size = 12) +
+  theme(legend.position = "bottom") +
+  facet_wrap(vars(site), ncol = 2)
+```
+
+- _Hint: Here we need to use `geom_density_ridges()`, but which package contains this and how do we install packages? Also we are using a colour scale called `viridis`, but how do we add this? Also, perhaps there are more themes we can use than just `theme_classic()?`_
+
+#### Task 9 - <span style="color: red;">GROUP ASSIGNMENT</span>
+
+_For this assignment you and your group are to apply what you have learned in the two data visualisation labs. The task is to create a really nice plot using one of two datasets, the `cancer_data` or the `SPE_ENV`_
+
+##### Instructions
+
+- This time, submit one __PDF__ file per group
+- Submit only _this_ assignment, _not_ the entire exercises
+- Make it nice, add a title, your group number and names and a bit of text to along with your data visualisation
+- Deadline is Thursday 23:59 as usual
