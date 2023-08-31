@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R for Bio Data Science - Project FAQ</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./lab10.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Project FAQ</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R for Bio Data Science</a> 
+        <div class="sidebar-tools-main">
+  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome to R for Bio Data Science</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./prologue.html" class="sidebar-item-text sidebar-link">Prologue</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./getting_started.html" class="sidebar-item-text sidebar-link">Getting Started</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./lab00.html" class="sidebar-item-text sidebar-link">Course Labs</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab01.html" class="sidebar-item-text sidebar-link">Lab 1: Course Intro &amp; the Very Basics</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab02.html" class="sidebar-item-text sidebar-link">Lab 2: Data Visualisation I</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab03.html" class="sidebar-item-text sidebar-link">Lab 3: Data Visualisation II</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab04.html" class="sidebar-item-text sidebar-link">Lab 4: Data Wrangling I</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab05.html" class="sidebar-item-text sidebar-link">Lab 5: Data Wrangling II</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab06.html" class="sidebar-item-text sidebar-link">Lab 6: (a bit on) Modelling in the Tidyverse</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab07.html" class="sidebar-item-text sidebar-link">Lab 7: Scripting in a Reproducible and Collaborative Framework using GitHub via RStudio</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab08.html" class="sidebar-item-text sidebar-link">Lab 8: Creating a Simple R-package</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab09.html" class="sidebar-item-text sidebar-link">Lab 9 Creating a Simple Shiny Application</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab10.html" class="sidebar-item-text sidebar-link">Lab 10 Project Startup &amp; Industry Talks</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./project_faq.html" class="sidebar-item-text sidebar-link active">Project FAQ</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exam.html" class="sidebar-item-text sidebar-link">Exam</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">Data</a>
+  <ul class="collapse">
+  <li><a href="#is-this-data-set-ok-to-use" id="toc-is-this-data-set-ok-to-use" class="nav-link" data-scroll-target="#is-this-data-set-ok-to-use">Is this data set ok to use?</a></li>
+  <li><a href="#how-should-we-handle-nas-in-the-data" id="toc-how-should-we-handle-nas-in-the-data" class="nav-link" data-scroll-target="#how-should-we-handle-nas-in-the-data">How should we handle NAs in the data?</a></li>
+  <li><a href="#how-should-we-handle-binary-variables" id="toc-how-should-we-handle-binary-variables" class="nav-link" data-scroll-target="#how-should-we-handle-binary-variables">How should we handle binary variables?</a></li>
+  <li><a href="#how-do-we-handle-nonsensical-data-points" id="toc-how-do-we-handle-nonsensical-data-points" class="nav-link" data-scroll-target="#how-do-we-handle-nonsensical-data-points">How do we handle nonsensical data points?</a></li>
+  <li><a href="#can-we-subset-the-data" id="toc-can-we-subset-the-data" class="nav-link" data-scroll-target="#can-we-subset-the-data">Can we subset the data?</a></li>
+  </ul></li>
+  <li><a href="#inputoutput-files" id="toc-inputoutput-files" class="nav-link" data-scroll-target="#inputoutput-files">Input/output files</a>
+  <ul class="collapse">
+  <li><a href="#how-can-we-get-a-better-overview-of-the-data-file-flow" id="toc-how-can-we-get-a-better-overview-of-the-data-file-flow" class="nav-link" data-scroll-target="#how-can-we-get-a-better-overview-of-the-data-file-flow">How can we get a better overview of the data file flow?</a></li>
+  <li><a href="#how-can-we-write-a-file-with-e.g.-factor-encoding-or-a-nested-tibble" id="toc-how-can-we-write-a-file-with-e.g.-factor-encoding-or-a-nested-tibble" class="nav-link" data-scroll-target="#how-can-we-write-a-file-with-e.g.-factor-encoding-or-a-nested-tibble">How can we write a file with e.g.&nbsp;factor encoding or a nested tibble?</a></li>
+  <li><a href="#how-do-we-handle-different-naming-conventions" id="toc-how-do-we-handle-different-naming-conventions" class="nav-link" data-scroll-target="#how-do-we-handle-different-naming-conventions">How do we handle different naming conventions?</a></li>
+  <li><a href="#where-should-we-place-external-files" id="toc-where-should-we-place-external-files" class="nav-link" data-scroll-target="#where-should-we-place-external-files">Where should we place external files?</a></li>
+  </ul></li>
+  <li><a href="#modelling" id="toc-modelling" class="nav-link" data-scroll-target="#modelling">Modelling</a>
+  <ul class="collapse">
+  <li><a href="#what-should-we-include-in-the-modelling-part" id="toc-what-should-we-include-in-the-modelling-part" class="nav-link" data-scroll-target="#what-should-we-include-in-the-modelling-part">What should we include in the modelling part?</a></li>
+  <li><a href="#do-we-have-to-do-a-pca" id="toc-do-we-have-to-do-a-pca" class="nav-link" data-scroll-target="#do-we-have-to-do-a-pca">Do we HAVE to do a PCA?</a></li>
+  <li><a href="#our-model-is-not-performing-very-well.-what-should-we-do" id="toc-our-model-is-not-performing-very-well.-what-should-we-do" class="nav-link" data-scroll-target="#our-model-is-not-performing-very-well.-what-should-we-do">Our model is not performing very well. What should we do?</a></li>
+  </ul></li>
+  <li><a href="#coding" id="toc-coding" class="nav-link" data-scroll-target="#coding">Coding</a>
+  <ul class="collapse">
+  <li><a href="#what-goes-in-the-augment-script" id="toc-what-goes-in-the-augment-script" class="nav-link" data-scroll-target="#what-goes-in-the-augment-script">What goes in the “augment” script?</a></li>
+  <li><a href="#can-we-mix-base-r-and-tidyverse" id="toc-can-we-mix-base-r-and-tidyverse" class="nav-link" data-scroll-target="#can-we-mix-base-r-and-tidyverse">Can we mix base R and tidyverse?</a></li>
+  <li><a href="#what-if-we-cant-make-it-work-in-tidyverse-but-only-in-base-r" id="toc-what-if-we-cant-make-it-work-in-tidyverse-but-only-in-base-r" class="nav-link" data-scroll-target="#what-if-we-cant-make-it-work-in-tidyverse-but-only-in-base-r">What if we can’t make it work in tidyverse but only in base R?</a></li>
+  <li><a href="#is-it-okay-to-use-e.g.-the-base-function-sum" id="toc-is-it-okay-to-use-e.g.-the-base-function-sum" class="nav-link" data-scroll-target="#is-it-okay-to-use-e.g.-the-base-function-sum">Is it okay to use e.g.&nbsp;the base function sum()?</a></li>
+  <li><a href="#how-do-we-know-if-there-is-a-tidyverse-function-we-should-use-rather-than-base" id="toc-how-do-we-know-if-there-is-a-tidyverse-function-we-should-use-rather-than-base" class="nav-link" data-scroll-target="#how-do-we-know-if-there-is-a-tidyverse-function-we-should-use-rather-than-base">How do we know if there is a tidyverse function we should use rather than base?</a></li>
+  <li><a href="#can-we-use-package-x-for-analysisvisualisation" id="toc-can-we-use-package-x-for-analysisvisualisation" class="nav-link" data-scroll-target="#can-we-use-package-x-for-analysisvisualisation">Can we use package X for analysis/visualisation?</a></li>
+  <li><a href="#how-do-we-run-the-entire-project-incl.-the-presentation" id="toc-how-do-we-run-the-entire-project-incl.-the-presentation" class="nav-link" data-scroll-target="#how-do-we-run-the-entire-project-incl.-the-presentation">How do we run the entire project incl.&nbsp;the presentation?</a></li>
+  <li><a href="#should-we-create-a-shiny-app" id="toc-should-we-create-a-shiny-app" class="nav-link" data-scroll-target="#should-we-create-a-shiny-app">Should we create a Shiny app?</a></li>
+  <li><a href="#should-we-create-a-package" id="toc-should-we-create-a-package" class="nav-link" data-scroll-target="#should-we-create-a-package">Should we create a package?</a></li>
+  <li><a href="#when-should-we-create-functions" id="toc-when-should-we-create-functions" class="nav-link" data-scroll-target="#when-should-we-create-functions">When should we create functions?</a></li>
+  <li><a href="#can-we-use-loops" id="toc-can-we-use-loops" class="nav-link" data-scroll-target="#can-we-use-loops">Can we use loops?</a></li>
+  <li><a href="#can-we-directly-copypaste-a-code-chunk-from-an-online-source" id="toc-can-we-directly-copypaste-a-code-chunk-from-an-online-source" class="nav-link" data-scroll-target="#can-we-directly-copypaste-a-code-chunk-from-an-online-source">Can we directly copy/paste a code chunk from an online source?</a></li>
+  <li><a href="#how-should-we-comment-on-our-code" id="toc-how-should-we-comment-on-our-code" class="nav-link" data-scroll-target="#how-should-we-comment-on-our-code">How should we comment on our code?</a></li>
+  <li><a href="#how-should-we-style-our-code" id="toc-how-should-we-style-our-code" class="nav-link" data-scroll-target="#how-should-we-style-our-code">How should we style our code?</a></li>
+  <li><a href="#how-should-we-style-our-plots" id="toc-how-should-we-style-our-plots" class="nav-link" data-scroll-target="#how-should-we-style-our-plots">How should we style our plots?</a></li>
+  </ul></li>
+  <li><a href="#github" id="toc-github" class="nav-link" data-scroll-target="#github">GitHub</a>
+  <ul class="collapse">
+  <li><a href="#should-our-github-be-public-or-private" id="toc-should-our-github-be-public-or-private" class="nav-link" data-scroll-target="#should-our-github-be-public-or-private">Should our GitHub be public or private?</a></li>
+  <li><a href="#should-we-keep-all-the-data-on-github" id="toc-should-we-keep-all-the-data-on-github" class="nav-link" data-scroll-target="#should-we-keep-all-the-data-on-github">Should we keep all the data on GitHub?</a></li>
+  <li><a href="#what-goes-in-the-doc-folder" id="toc-what-goes-in-the-doc-folder" class="nav-link" data-scroll-target="#what-goes-in-the-doc-folder">What goes in the “doc” folder?</a></li>
+  <li><a href="#why-are-there-multiple-reports-in-the-doc-folder" id="toc-why-are-there-multiple-reports-in-the-doc-folder" class="nav-link" data-scroll-target="#why-are-there-multiple-reports-in-the-doc-folder">Why are there multiple “reports” in the “doc” folder?</a></li>
+  <li><a href="#should-we-include-a-readme-on-github" id="toc-should-we-include-a-readme-on-github" class="nav-link" data-scroll-target="#should-we-include-a-readme-on-github">Should we include a README on GitHub?</a></li>
+  <li><a href="#should-everything-be-on-github-also-plots-we-dont-present" id="toc-should-everything-be-on-github-also-plots-we-dont-present" class="nav-link" data-scroll-target="#should-everything-be-on-github-also-plots-we-dont-present">Should everything be on Github, also plots we don’t present?</a></li>
+  </ul></li>
+  <li><a href="#examhand-in-deliverables" id="toc-examhand-in-deliverables" class="nav-link" data-scroll-target="#examhand-in-deliverables">Exam/hand-in deliverables</a>
+  <ul class="collapse">
+  <li><a href="#what-is-the-final-product" id="toc-what-is-the-final-product" class="nav-link" data-scroll-target="#what-is-the-final-product">What is the final product?</a></li>
+  <li><a href="#do-we-need-to-hand-in-a-report" id="toc-do-we-need-to-hand-in-a-report" class="nav-link" data-scroll-target="#do-we-need-to-hand-in-a-report">Do we need to hand in a report?</a></li>
+  </ul></li>
+  <li><a href="#presentation" id="toc-presentation" class="nav-link" data-scroll-target="#presentation">Presentation</a>
+  <ul class="collapse">
+  <li><a href="#should-we-include-code-in-our-presentation" id="toc-should-we-include-code-in-our-presentation" class="nav-link" data-scroll-target="#should-we-include-code-in-our-presentation">Should we include code in our presentation?</a></li>
+  <li><a href="#should-we-include-tables-or-plots" id="toc-should-we-include-tables-or-plots" class="nav-link" data-scroll-target="#should-we-include-tables-or-plots">Should we include tables or plots?</a></li>
+  <li><a href="#how-do-we-add-plots-to-the-rmarkdown-presentation" id="toc-how-do-we-add-plots-to-the-rmarkdown-presentation" class="nav-link" data-scroll-target="#how-do-we-add-plots-to-the-rmarkdown-presentation">How do we add plots to the rmarkdown presentation?</a></li>
+  <li><a href="#how-do-we-get-the-presentation-in-wide-full-screen" id="toc-how-do-we-get-the-presentation-in-wide-full-screen" class="nav-link" data-scroll-target="#how-do-we-get-the-presentation-in-wide-full-screen">How do we get the presentation in wide-/full screen?</a></li>
+  <li><a href="#should-we-split-our-presentation-into-sub-presentations" id="toc-should-we-split-our-presentation-into-sub-presentations" class="nav-link" data-scroll-target="#should-we-split-our-presentation-into-sub-presentations">Should we split our presentation into sub-presentations?</a></li>
+  <li><a href="#we-are-working-on-re-creating-paper-results.-should-we-re-create-the-exact-same-plots" id="toc-we-are-working-on-re-creating-paper-results.-should-we-re-create-the-exact-same-plots" class="nav-link" data-scroll-target="#we-are-working-on-re-creating-paper-results.-should-we-re-create-the-exact-same-plots">We are working on re-creating paper results. Should we re-create the exact same plots?</a></li>
+  <li><a href="#where-should-we-place-our-shiny-app-in-our-presentation" id="toc-where-should-we-place-our-shiny-app-in-our-presentation" class="nav-link" data-scroll-target="#where-should-we-place-our-shiny-app-in-our-presentation">Where should we “place” our Shiny app in our presentation?</a></li>
+  <li><a href="#how-can-we-illustrate-our-data-handling" id="toc-how-can-we-illustrate-our-data-handling" class="nav-link" data-scroll-target="#how-can-we-illustrate-our-data-handling">How can we illustrate our data handling?</a></li>
+  <li><a href="#how-much-code-should-we-include-in-the-presentation" id="toc-how-much-code-should-we-include-in-the-presentation" class="nav-link" data-scroll-target="#how-much-code-should-we-include-in-the-presentation">How much code should we include in the presentation?</a></li>
+  <li><a href="#how-do-we-include-data-numbers-in-the-presentation" id="toc-how-do-we-include-data-numbers-in-the-presentation" class="nav-link" data-scroll-target="#how-do-we-include-data-numbers-in-the-presentation">How do we include data numbers in the presentation?</a></li>
+  <li><a href="#what-goes-into-the-materials-and-methods-section" id="toc-what-goes-into-the-materials-and-methods-section" class="nav-link" data-scroll-target="#what-goes-into-the-materials-and-methods-section">What goes into the materials and methods section?</a></li>
+  <li><a href="#should-we-interpret-our-results" id="toc-should-we-interpret-our-results" class="nav-link" data-scroll-target="#should-we-interpret-our-results">Should we interpret our results?</a></li>
+  <li><a href="#what-about-all-the-stuff-we-tried-which-did-not-work" id="toc-what-about-all-the-stuff-we-tried-which-did-not-work" class="nav-link" data-scroll-target="#what-about-all-the-stuff-we-tried-which-did-not-work">What about all the stuff we tried, which did not work?</a></li>
+  </ul></li>
+  <li><a href="#project-check-up-and-summary" id="toc-project-check-up-and-summary" class="nav-link" data-scroll-target="#project-check-up-and-summary">Project Check Up and Summary</a>
+  <ul class="collapse">
+  <li><a href="#important-ask-yourselves" id="toc-important-ask-yourselves" class="nav-link" data-scroll-target="#important-ask-yourselves">IMPORTANT: Ask yourselves:</a></li>
+  <li><a href="#does-our-presentation-follow-the-imrad-structure" id="toc-does-our-presentation-follow-the-imrad-structure" class="nav-link" data-scroll-target="#does-our-presentation-follow-the-imrad-structure">“Does our presentation follow the IMRAD structure?”</a></li>
+  <li><a href="#does-our-project-include-all-components-of-the-data-science-cycle" id="toc-does-our-project-include-all-components-of-the-data-science-cycle" class="nav-link" data-scroll-target="#does-our-project-include-all-components-of-the-data-science-cycle">“Does our project include all components of the data science cycle?”</a></li>
+  <li><a href="#are-we-aware-of-and-have-included-learning-objectives-as-appropriate-in-the-project" id="toc-are-we-aware-of-and-have-included-learning-objectives-as-appropriate-in-the-project" class="nav-link" data-scroll-target="#are-we-aware-of-and-have-included-learning-objectives-as-appropriate-in-the-project">“Are we aware of and have included learning objectives as appropriate in the project?”</a></li>
+  <li><a href="#is-our-project-github-organised-as-instructed-and-can-it-run-end-to-end-via-doit" id="toc-is-our-project-github-organised-as-instructed-and-can-it-run-end-to-end-via-doit" class="nav-link" data-scroll-target="#is-our-project-github-organised-as-instructed-and-can-it-run-end-to-end-via-doit">“Is our project-GitHub organised as instructed and can it run end-to-end via doit?”</a></li>
+  <li><a href="#does-our-code-in-all-our-scripts-follow-the-tidyverse-style-guide" id="toc-does-our-code-in-all-our-scripts-follow-the-tidyverse-style-guide" class="nav-link" data-scroll-target="#does-our-code-in-all-our-scripts-follow-the-tidyverse-style-guide">“Does our code in all our scripts follow the Tidyverse style guide?”</a></li>
+  <li><a href="#are-we-using-base-r-where-we-should-use-tidyverse-r" id="toc-are-we-using-base-r-where-we-should-use-tidyverse-r" class="nav-link" data-scroll-target="#are-we-using-base-r-where-we-should-use-tidyverse-r">“Are we using base-R, where we should use tidyverse-R?”</a></li>
+  <li><a href="#can-we-explain-and-justify-the-data-decisions-in-the-project" id="toc-can-we-explain-and-justify-the-data-decisions-in-the-project" class="nav-link" data-scroll-target="#can-we-explain-and-justify-the-data-decisions-in-the-project">“Can we explain and justify the data decisions in the project?”</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Project FAQ</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<section id="is-this-data-set-ok-to-use" class="level3">
+<h3 class="anchored" data-anchor-id="is-this-data-set-ok-to-use">Is this data set ok to use?</h3>
+<ul>
+<li>Where can I find data? Rethink the question: Discuss in your group what are your interests and then find data related to your problem, there are literally terabytes of publicly available data, i.e.&nbsp;don’t just google “data”, be specific</li>
+<li>In order for you to demonstrate that you master the entire bio data science cycle, you must choose a bio data set, which requires cleaning and tidying</li>
+<li>It would be good, if the data set requires joining, if not, consider artificially splitting it, to demonstrate that you master joining</li>
+<li>One approach could be to work on reproducing results from a paper. Here, you can even consider improving the data visualisations or adding something extra</li>
+<li>Do not use a data set from one of the course exercises. Doing so would not allow you to demonstrate that you are independently capable of performing a bio data science analysis</li>
+<li>You are 100% free to choose bio data from any resource as long as it meets the above requirements</li>
+</ul>
+</section>
+<section id="how-should-we-handle-nas-in-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="how-should-we-handle-nas-in-the-data">How should we handle NAs in the data?</h3>
+<ul>
+<li>Depends, does your data set come with a readme, which allows you to make a decision regarding NAs?</li>
+<li>Be careful not to simply drop all NAs as you might drop observations, where columns of interest have complete data</li>
+</ul>
+</section>
+<section id="how-should-we-handle-binary-variables" class="level3">
+<h3 class="anchored" data-anchor-id="how-should-we-handle-binary-variables">How should we handle binary variables?</h3>
+<ul>
+<li>In case your variable contains categories, i.e.&nbsp;values, where the question “Is one larger than the other” is nonsensical, then encode as factors</li>
+</ul>
+</section>
+<section id="how-do-we-handle-nonsensical-data-points" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-we-handle-nonsensical-data-points">How do we handle nonsensical data points?</h3>
+<ul>
+<li>If you believe the data points are nonsensical, e.g.&nbsp;manual typing errors, then exclude them, but be very clear about which data (groups of) points were excluded and why</li>
+</ul>
+</section>
+<section id="can-we-subset-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="can-we-subset-the-data">Can we subset the data?</h3>
+<ul>
+<li>Yes, if you are particularly interested in a subset of the data, then that is perfectly fine. Just be aware, that any choice you take with the data, you must be able to account for why you took that choice</li>
+<li>You should NOT just sample 100 observations as was done in the exercises to reduce runtime. However, if your data set is large, consider down-sampling either randomly or by some metric of association. For the latter e.g.&nbsp;perform a test and identify the top X observations, save those to file and continue from there.</li>
+<li>For large data, try appending “.gz” to your files, when you write them using write_tsv(), this will invoke gzip-compression</li>
+</ul>
+</section>
+</section>
+<section id="inputoutput-files" class="level2">
+<h2 class="anchored" data-anchor-id="inputoutput-files">Input/output files</h2>
+<section id="how-can-we-get-a-better-overview-of-the-data-file-flow" class="level3">
+<h3 class="anchored" data-anchor-id="how-can-we-get-a-better-overview-of-the-data-file-flow">How can we get a better overview of the data file flow?</h3>
+<ul>
+<li>Consider creating a flow chart of “your data journey”. It will force you to think about how files are connected and how input/output flows</li>
+</ul>
+</section>
+<section id="how-can-we-write-a-file-with-e.g.-factor-encoding-or-a-nested-tibble" class="level3">
+<h3 class="anchored" data-anchor-id="how-can-we-write-a-file-with-e.g.-factor-encoding-or-a-nested-tibble">How can we write a file with e.g.&nbsp;factor encoding or a nested tibble?</h3>
+<ul>
+<li>This can only be done by writing an R-object. However, this is for future reference - in this course stick to flat text files, e.g.&nbsp;.tsv or .csv</li>
+</ul>
+</section>
+<section id="how-do-we-handle-different-naming-conventions" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-we-handle-different-naming-conventions">How do we handle different naming conventions?</h3>
+<ul>
+<li>DO NOT do a manual search and replace in Excel. That defeats the whole purpose of this course</li>
+<li>Fix names using a programmatic approach. The stringr-package is extremely useful in this context</li>
+</ul>
+</section>
+<section id="where-should-we-place-external-files" class="level3">
+<h3 class="anchored" data-anchor-id="where-should-we-place-external-files">Where should we place external files?</h3>
+<ul>
+<li>Consider creating an “images” folder in the “doc” folder, from where you can input images to your presentation</li>
+</ul>
+</section>
+</section>
+<section id="modelling" class="level2">
+<h2 class="anchored" data-anchor-id="modelling">Modelling</h2>
+<section id="what-should-we-include-in-the-modelling-part" class="level3">
+<h3 class="anchored" data-anchor-id="what-should-we-include-in-the-modelling-part">What should we include in the modelling part?</h3>
+<ul>
+<li>We have worked with fitting a logistic regression, we have done a PCA and we have performed clustering using k-means. You could do something along those lines or something of similar complexity</li>
+<li>This is not a modelling course. We briefly visited modelling to bridge the process of going from the raw data to analysis ready and then communication via data visualisation. Therefore, do not start fitting a full fledged machine/deep learning model, it is a time-void, which you cannot “afford” to get sucked into</li>
+<li>Also, mind that the focus of this course is to make you realise that even though you have been trained in delivering results, then the process of arriving at the results in a reproducible manner is equally important</li>
+</ul>
+</section>
+<section id="do-we-have-to-do-a-pca" class="level3">
+<h3 class="anchored" data-anchor-id="do-we-have-to-do-a-pca">Do we HAVE to do a PCA?</h3>
+<ul>
+<li>Does it make sense to do a PCA-analysis in your project? If you have group labels and you want to visualise to see if there is a separation, then a PCA is a good first step</li>
+</ul>
+</section>
+<section id="our-model-is-not-performing-very-well.-what-should-we-do" class="level3">
+<h3 class="anchored" data-anchor-id="our-model-is-not-performing-very-well.-what-should-we-do">Our model is not performing very well. What should we do?</h3>
+<ul>
+<li>Leave it as is. The focus of this course is not on the results, but on the reproducible process of arriving and communicating said results</li>
+</ul>
+</section>
+</section>
+<section id="coding" class="level2">
+<h2 class="anchored" data-anchor-id="coding">Coding</h2>
+<section id="what-goes-in-the-augment-script" class="level3">
+<h3 class="anchored" data-anchor-id="what-goes-in-the-augment-script">What goes in the “augment” script?</h3>
+<ul>
+<li>If you google “Augment“, you will get “make (something) greater by adding to it; increase”, in other words, when you add e.g.&nbsp;variables to your data, which was not there initially, e.g.&nbsp;like we did, when we calculated the BMI from existing information on weight and height</li>
+<li>You should think of the augment script as the place, where you create your database for everything that happens afterwards, i.e.&nbsp;all your analyses and ideas</li>
+<li>Create that “database” and then load it into your downstream scripts</li>
+<li>Augment == Adding something</li>
+</ul>
+</section>
+<section id="can-we-mix-base-r-and-tidyverse" class="level3">
+<h3 class="anchored" data-anchor-id="can-we-mix-base-r-and-tidyverse">Can we mix base R and tidyverse?</h3>
+<ul>
+<li>No, you might as well get used to it - Tidyverse all the way! (This is a tidyverse course)</li>
+</ul>
+</section>
+<section id="what-if-we-cant-make-it-work-in-tidyverse-but-only-in-base-r" class="level3">
+<h3 class="anchored" data-anchor-id="what-if-we-cant-make-it-work-in-tidyverse-but-only-in-base-r">What if we can’t make it work in tidyverse but only in base R?</h3>
+<ul>
+<li>If you can make it work in base R, you can make it work in tidyverse</li>
+</ul>
+</section>
+<section id="is-it-okay-to-use-e.g.-the-base-function-sum" class="level3">
+<h3 class="anchored" data-anchor-id="is-it-okay-to-use-e.g.-the-base-function-sum">Is it okay to use e.g.&nbsp;the base function sum()?</h3>
+<ul>
+<li>Yes, think of it this way: R has as core functionality to do statistics. Tidyverse is for performing the data manipulation surrounding these calculations. Therefore, using functions such as sum(), mean(), sd(), etc. is naturally fine</li>
+</ul>
+</section>
+<section id="how-do-we-know-if-there-is-a-tidyverse-function-we-should-use-rather-than-base" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-we-know-if-there-is-a-tidyverse-function-we-should-use-rather-than-base">How do we know if there is a tidyverse function we should use rather than base?</h3>
+<ul>
+<li>Identify the general area of what you’re working with. E.g. if strings, then go to your RStudio session and find the console and type “stringr::” and hit tab, then you can look through the functions</li>
+<li>Look in the R-for-Data-Science book https://r4ds.had.co.nz</li>
+<li>Ask on the community pages <a href="https://community.rstudio.com">https://community.rstudio.com</a></li>
+</ul>
+</section>
+<section id="can-we-use-package-x-for-analysisvisualisation" class="level3">
+<h3 class="anchored" data-anchor-id="can-we-use-package-x-for-analysisvisualisation">Can we use package X for analysis/visualisation?</h3>
+<ul>
+<li>If the package performs a lot of the work, which you are to demonstrate that you can do, then no. Do not use packages, where you call a plot-my-data-function and the ggplot-magick happens that will not allow you to demonstrate that you have met the course learning objectives</li>
+</ul>
+</section>
+<section id="how-do-we-run-the-entire-project-incl.-the-presentation" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-we-run-the-entire-project-incl.-the-presentation">How do we run the entire project incl.&nbsp;the presentation?</h3>
+<ul>
+<li>Make sure to include a programmatic call to knitr at the end of your doit-script</li>
+</ul>
+</section>
+<section id="should-we-create-a-shiny-app" class="level3">
+<h3 class="anchored" data-anchor-id="should-we-create-a-shiny-app">Should we create a Shiny app?</h3>
+<ul>
+<li>The project deliverables are the GitHub repo and your presentation. Remember, you do this project not for me as a teacher, but for you to internalize the knowledge you have been exposed to during the initial 10 weeks of teaching. If you find Shiny interesting/fun, then by all means, please do create an app. Shiny apps are optional</li>
+</ul>
+</section>
+<section id="should-we-create-a-package" class="level3">
+<h3 class="anchored" data-anchor-id="should-we-create-a-package">Should we create a package?</h3>
+<ul>
+<li>Optional, if you do, be careful with your time usage. You should focus on the data science cycle</li>
+</ul>
+</section>
+<section id="when-should-we-create-functions" class="level3">
+<h3 class="anchored" data-anchor-id="when-should-we-create-functions">When should we create functions?</h3>
+<ul>
+<li>Remember DRY (Dont-Repeat-Yourself), so generally, if you do something more than once, it is a function. However, we do not focus much on functions in this course, so don’t put too much effort into creating functions</li>
+<li>Place functions in 99_proj_functions.R as illustrated in the overview</li>
+<li>DO NOT hide your code away in functions, so that your main script just becomes 10 function calls. For this process-oriented course, show the code in your main scripts, i.e.&nbsp;01_, 02_, …</li>
+</ul>
+</section>
+<section id="can-we-use-loops" class="level3">
+<h3 class="anchored" data-anchor-id="can-we-use-loops">Can we use loops?</h3>
+<ul>
+<li>No, you should instead embrace functional programming and use functions from the “purrr”-package. Revisit lab 6, if needed</li>
+</ul>
+</section>
+<section id="can-we-directly-copypaste-a-code-chunk-from-an-online-source" class="level3">
+<h3 class="anchored" data-anchor-id="can-we-directly-copypaste-a-code-chunk-from-an-online-source">Can we directly copy/paste a code chunk from an online source?</h3>
+<ul>
+<li>No, that would be plagiarism. Understand the steps in the chunk and make the code your own</li>
+<li>I acknowledge that for coding this is not completely black and white, but please refrain from a direct copy/paste Coding style</li>
+</ul>
+</section>
+<section id="how-should-we-comment-on-our-code" class="level3">
+<h3 class="anchored" data-anchor-id="how-should-we-comment-on-our-code">How should we comment on our code?</h3>
+<ul>
+<li>Remember, the point of writing verbose tidyverse code is that the code-becomes-the-comments. Think of it this way: The pipeline is the text on a page in a book, so before your pipeline, put a header/title on what is happening below, just as a title/header in a book</li>
+<li>The title/header will be what is generally going on, e.g.&nbsp;“Normalise all gene expression values using standard score approach” and the pipeline will be how that is actually done</li>
+<li>The pipe “%&gt;%” is pronounced as “then”, when you “read” your code</li>
+</ul>
+</section>
+<section id="how-should-we-style-our-code" class="level3">
+<h3 class="anchored" data-anchor-id="how-should-we-style-our-code">How should we style our code?</h3>
+<ul>
+<li>Use the tidyverse style guide as introduced in the course: <a href="https://style.tidyverse.org/index.html">https://style.tidyverse.org/index.html</a></li>
+<li>Make sure that all scripts are styled the same way and be consistent in your coding style</li>
+<li>Your code should not be &gt;80 chars wide, follow the vertical line in your editor</li>
+</ul>
+</section>
+<section id="how-should-we-style-our-plots" class="level3">
+<h3 class="anchored" data-anchor-id="how-should-we-style-our-plots">How should we style our plots?</h3>
+<ul>
+<li>Be concise, “less is more”</li>
+<li>Make some nice and relevant plots. Show us that you’ve learned data visualisation. Remember legends, titles etc.</li>
+<li>Do not put 3 messages in 1 plot. Instead put each message into a different plot</li>
+<li>Be careful with matching the text size in your plots to that of your presentation (trial-and-error)</li>
+</ul>
+</section>
+</section>
+<section id="github" class="level2">
+<h2 class="anchored" data-anchor-id="github">GitHub</h2>
+<section id="should-our-github-be-public-or-private" class="level3">
+<h3 class="anchored" data-anchor-id="should-our-github-be-public-or-private">Should our GitHub be public or private?</h3>
+<ul>
+<li>That is completely up to you. As students, you “own” anything you create while studying. The teaching staff must however have complete access.</li>
+</ul>
+</section>
+<section id="should-we-keep-all-the-data-on-github" class="level3">
+<h3 class="anchored" data-anchor-id="should-we-keep-all-the-data-on-github">Should we keep all the data on GitHub?</h3>
+<ul>
+<li>Yes, for this course. However, be aware that GitHub is meant for code, not data.</li>
+</ul>
+</section>
+<section id="what-goes-in-the-doc-folder" class="level3">
+<h3 class="anchored" data-anchor-id="what-goes-in-the-doc-folder">What goes in the “doc” folder?</h3>
+<ul>
+<li>The project organisation chart is a generic figure. You should not hand in a report. Your deliverable/product outcome for the project period is: 1) Your GitHub repository and 2) A presentation. Therefore, the “doc” folder would in this case contain your presentation</li>
+</ul>
+</section>
+<section id="why-are-there-multiple-reports-in-the-doc-folder" class="level3">
+<h3 class="anchored" data-anchor-id="why-are-there-multiple-reports-in-the-doc-folder">Why are there multiple “reports” in the “doc” folder?</h3>
+<ul>
+<li>In case you have a computationally intensive part of the project it can be an advantage to split into sub-reports and then collect in a master report (think large LaTeX reports)</li>
+<li>Overview, even if your report is not computationally intensive, then it may be long and splitting into sub-reports facilitate better overview</li>
+</ul>
+</section>
+<section id="should-we-include-a-readme-on-github" class="level3">
+<h3 class="anchored" data-anchor-id="should-we-include-a-readme-on-github">Should we include a README on GitHub?</h3>
+<ul>
+<li>That would be a good way to briefly introduce what the contents of this repo is and something one would usually do</li>
+</ul>
+</section>
+<section id="should-everything-be-on-github-also-plots-we-dont-present" class="level3">
+<h3 class="anchored" data-anchor-id="should-everything-be-on-github-also-plots-we-dont-present">Should everything be on Github, also plots we don’t present?</h3>
+<ul>
+<li>Yes, everything!</li>
+</ul>
+</section>
+</section>
+<section id="examhand-in-deliverables" class="level2">
+<h2 class="anchored" data-anchor-id="examhand-in-deliverables">Exam/hand-in deliverables</h2>
+<section id="what-is-the-final-product" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-the-final-product">What is the final product?</h3>
+<ul>
+<li>A GitHub repository organised according to principles of reproducible data analysis</li>
+<li>A ioslides/rmarkdown HTML-presentation following the IMRAD structure as elaborated in the project introduction slides (see lab 10)</li>
+<li>This final presentation in HTML-format should be uploaded to DTU Learn</li>
+</ul>
+</section>
+<section id="do-we-need-to-hand-in-a-report" class="level3">
+<h3 class="anchored" data-anchor-id="do-we-need-to-hand-in-a-report">Do we need to hand in a report?</h3>
+<ul>
+<li>No, no report is required!</li>
+</ul>
+</section>
+</section>
+<section id="presentation" class="level2">
+<h2 class="anchored" data-anchor-id="presentation">Presentation</h2>
+<section id="should-we-include-code-in-our-presentation" class="level3">
+<h3 class="anchored" data-anchor-id="should-we-include-code-in-our-presentation">Should we include code in our presentation?</h3>
+<ul>
+<li>Your presentation should follow the standard scientific IMRAD-structure, i.e.&nbsp;introduction, materials-and-methods, results, and discussion.</li>
+<li>Include certain decisions you took with the data and your reasoning herfore.</li>
+<li>If you found a particular challenging problem in coding, to which you found an elegant solution, include that in your presentation as an example</li>
+<li>The presentation is your chance to practice communicating insights to stakeholders</li>
+<li>Your audience will be same-level bioinformaticians</li>
+<li>Perhaps consider a graphical representation of your process going from raw to analysis-ready data</li>
+</ul>
+</section>
+<section id="should-we-include-tables-or-plots" class="level3">
+<h3 class="anchored" data-anchor-id="should-we-include-tables-or-plots">Should we include tables or plots?</h3>
+<ul>
+<li>What makes sense? If you only have two numerical values, then perhaps a table is fine. If you have 100 observations, then a plot is likely better</li>
+<li>Remember, we are as humans evolutionary encoded to interpret visual information, not numbers</li>
+</ul>
+</section>
+<section id="how-do-we-add-plots-to-the-rmarkdown-presentation" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-we-add-plots-to-the-rmarkdown-presentation">How do we add plots to the rmarkdown presentation?</h3>
+<ul>
+<li>Output the plot as a png file using the function ggsave and include that png in your presentation. Think dynamically, we don’t want to type anything manually in our presentation</li>
+</ul>
+</section>
+<section id="how-do-we-get-the-presentation-in-wide-full-screen" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-we-get-the-presentation-in-wide-full-screen">How do we get the presentation in wide-/full screen?</h3>
+<ul>
+<li>Hit w and f while the HTML presentation is loaded</li>
+</ul>
+</section>
+<section id="should-we-split-our-presentation-into-sub-presentations" class="level3">
+<h3 class="anchored" data-anchor-id="should-we-split-our-presentation-into-sub-presentations">Should we split our presentation into sub-presentations?</h3>
+<ul>
+<li>No, this is not necessary given the extend/size of this project. Just create one Rmd file, which outputs an HTML-presentation</li>
+</ul>
+</section>
+<section id="we-are-working-on-re-creating-paper-results.-should-we-re-create-the-exact-same-plots" class="level3">
+<h3 class="anchored" data-anchor-id="we-are-working-on-re-creating-paper-results.-should-we-re-create-the-exact-same-plots">We are working on re-creating paper results. Should we re-create the exact same plots?</h3>
+<ul>
+<li>Ideally, you re-create the plots and then you create your own improved version of the visualisation.</li>
+</ul>
+</section>
+<section id="where-should-we-place-our-shiny-app-in-our-presentation" class="level3">
+<h3 class="anchored" data-anchor-id="where-should-we-place-our-shiny-app-in-our-presentation">Where should we “place” our Shiny app in our presentation?</h3>
+<ul>
+<li>Demo it briefly at the end</li>
+</ul>
+</section>
+<section id="how-can-we-illustrate-our-data-handling" class="level3">
+<h3 class="anchored" data-anchor-id="how-can-we-illustrate-our-data-handling">How can we illustrate our data handling?</h3>
+<ul>
+<li>Consider creating a flow chart, what are input files and how are they connected to final output?</li>
+</ul>
+</section>
+<section id="how-much-code-should-we-include-in-the-presentation" class="level3">
+<h3 class="anchored" data-anchor-id="how-much-code-should-we-include-in-the-presentation">How much code should we include in the presentation?</h3>
+<ul>
+<li>The exam deliverables are two-fold. Code is the GitHub repo and your ability to communicate biological insights is in the presentation. Therefore, code could be included in the presentation if you faced and solved a particularly challenging problem</li>
+</ul>
+</section>
+<section id="how-do-we-include-data-numbers-in-the-presentation" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-we-include-data-numbers-in-the-presentation">How do we include data numbers in the presentation?</h3>
+<ul>
+<li>You could from your script output a results table with relevant numbers as a .tsv file and then read that into the presentation and extract the numbers</li>
+<li>Remember, think dynamical reporting, what if your input data changes and you manually entered the numbers in your presentation? Then you wouldn’t be much farther than a powerpoint</li>
+</ul>
+</section>
+<section id="what-goes-into-the-materials-and-methods-section" class="level3">
+<h3 class="anchored" data-anchor-id="what-goes-into-the-materials-and-methods-section">What goes into the materials and methods section?</h3>
+<ul>
+<li>Materials: What data did you use and where did you get it from?</li>
+<li>Methods: Which modelling did you use? Think of the methods section as a recipe for how to go from raw to results =&gt; Flow chart?</li>
+</ul>
+</section>
+<section id="should-we-interpret-our-results" class="level3">
+<h3 class="anchored" data-anchor-id="should-we-interpret-our-results">Should we interpret our results?</h3>
+<ul>
+<li>Yes, you have to think about it as a “normal” project presentation</li>
+</ul>
+</section>
+<section id="what-about-all-the-stuff-we-tried-which-did-not-work" class="level3">
+<h3 class="anchored" data-anchor-id="what-about-all-the-stuff-we-tried-which-did-not-work">What about all the stuff we tried, which did not work?</h3>
+<ul>
+<li>In the presentation, you should focus on what worked and what results you arrived at</li>
+<li>Exclude dead-ends from the presentation, but… Leave them in the repo, perhaps with an initial comment signifying that the following turned out to be a dead-end</li>
+<li>Think about this - Scenario: You’re working in a company and you and your team of 3 spend 6 months on a project, which turns out to be a dead-end. For future reference: Would the company be interested in knowing that this project was a dead end or should you delete everything and never speak of it again?</li>
+</ul>
+</section>
+</section>
+<section id="project-check-up-and-summary" class="level2">
+<h2 class="anchored" data-anchor-id="project-check-up-and-summary">Project Check Up and Summary</h2>
+<section id="important-ask-yourselves" class="level3">
+<h3 class="anchored" data-anchor-id="important-ask-yourselves">IMPORTANT: Ask yourselves:</h3>
+</section>
+<section id="does-our-presentation-follow-the-imrad-structure" class="level3">
+<h3 class="anchored" data-anchor-id="does-our-presentation-follow-the-imrad-structure">“Does our presentation follow the IMRAD structure?”</h3>
+<ul>
+<li>Is the presentation created as one ioslides Rmd file and output to a HTML?</li>
+<li>Is the presentation clear and concise?</li>
+<li>Are we doing good data communication via good visualisations?</li>
+<li>Do we present a clear overview of the data process incl.&nbsp;any decisions made, e.g.&nbsp;using a flow chart?</li>
+<li>Are we clearly communicating a biological insight?</li>
+<li>Are we following std guidelines? Sources, references, etc.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/project_check_01.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</section>
+<section id="does-our-project-include-all-components-of-the-data-science-cycle" class="level3">
+<h3 class="anchored" data-anchor-id="does-our-project-include-all-components-of-the-data-science-cycle">“Does our project include all components of the data science cycle?”</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/project_check_02.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</section>
+<section id="are-we-aware-of-and-have-included-learning-objectives-as-appropriate-in-the-project" class="level3">
+<h3 class="anchored" data-anchor-id="are-we-aware-of-and-have-included-learning-objectives-as-appropriate-in-the-project">“Are we aware of and have included learning objectives as appropriate in the project?”</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/project_check_03.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</section>
+<section id="is-our-project-github-organised-as-instructed-and-can-it-run-end-to-end-via-doit" class="level3">
+<h3 class="anchored" data-anchor-id="is-our-project-github-organised-as-instructed-and-can-it-run-end-to-end-via-doit">“Is our project-GitHub organised as instructed and can it run end-to-end via doit?”</h3>
+<p><em>(Note, this is a generic representation, your doc folder will contain your presentation)</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/project_check_04.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</section>
+<section id="does-our-code-in-all-our-scripts-follow-the-tidyverse-style-guide" class="level3">
+<h3 class="anchored" data-anchor-id="does-our-code-in-all-our-scripts-follow-the-tidyverse-style-guide">“Does our code in all our scripts follow the Tidyverse style guide?”</h3>
+<ul>
+<li>Recall what we discussed in the course on styling</li>
+<li>Also, see: <a href="https://style.tidyverse.org/index.html">https://style.tidyverse.org/index.html</a></li>
+<li>E.g.:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/project_check_05.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</section>
+<section id="are-we-using-base-r-where-we-should-use-tidyverse-r" class="level3">
+<h3 class="anchored" data-anchor-id="are-we-using-base-r-where-we-should-use-tidyverse-r">“Are we using base-R, where we should use tidyverse-R?”</h3>
+<ul>
+<li>E.g. think about the following:</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/project_check_06.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+</section>
+<section id="can-we-explain-and-justify-the-data-decisions-in-the-project" class="level3">
+<h3 class="anchored" data-anchor-id="can-we-explain-and-justify-the-data-decisions-in-the-project">“Can we explain and justify the data decisions in the project?”</h3>
+<ul>
+<li>IMPORTANT: <em>In essence it does not matter which decision you took, what matters is your ability to explain and justify why you decided on that particular path in your analysis</em></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/project_check_07.png" class="img-fluid figure-img" width="400"></p>
+</figure>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./lab10.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 10 Project Startup &amp; Industry Talks</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">R for Bio Data Science</div>   
+    <div class="nav-footer-right">Full course description available at <a href="https://kurser.dtu.dk/course/22100">DTU Course Base</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>

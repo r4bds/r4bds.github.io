@@ -36,6 +36,16 @@ _A student who has met the objectives of the session will be able to:_
 
 ## Exercises
 
+```{r}
+#| message: false
+#| warning: false
+#| echo: false
+#| eval: true
+library("tidyverse")
+library("ggridges")
+```
+
+
 _Read the steps of this exercises carefully, while completing them_ 
 
 ### Introduction
@@ -78,43 +88,44 @@ Add the chunk settings `#| echo: true` and `#| eval: true`, then run the block a
 
 <details>
 <p><summary>Click here for hint</summary></p>
-
-From where do we retrieve the data and to where do we write it?
-
+From where do we retrieve the data and to where do we write it and what happens if we run the chunk more than one time?
 </details>
-
-Run this code block ONCE and then change the chunk header from ` ```{r} ` to ` ```{r echo=TRUE, eval=FALSE} ` (i.e. see the code, but don't run it), this we do, because once you have run this code once, you have downloaded the data and saved it into your data folder. Moving forward we don't want to download the data each time we run this document
 
 ### Wrangling the data
 
+- What is data wrangling?
+
 Before we continue with plotting, we want to unify the data, so here again you will run some code, where the details are not important right now.
 
-But... Make sure, that you have run `library("tidyverse")` somewhere in your rmarkdown document. If you get a message saying "No such library"... How would we install a package?
+But... Make sure, that you have run `library("tidyverse")` somewhere in your rmarkdown document - Perhaps under an initial header saying "Load Libraries" or similar?
 
-```{r echo=TRUE, eval=FALSE}
-SPE %>%
+```{r}
+#| echo: true
+#| eval: false
+SPE |> 
   pivot_longer(cols = -Taxa,
                names_to = "Samples",
-               values_to = "OTU_Count") %>%
-  full_join(ENV, by = "Samples") %>%
+               values_to = "OTU_Count")  |> 
+  full_join(ENV, by = "Samples") |> 
   mutate(site = case_when(str_detect(Samples, "^T") ~ "Tanzania",
-                          str_detect(Samples, "^V") ~ "Vietnam")) %>% 
+                          str_detect(Samples, "^V") ~ "Vietnam")) |>  
   write_tsv(file = "data/SPE_ENV.tsv")
 ```
 
-Change the chunk header as before
+Change the chunk settings as before
 
 ## Data Visualisation II
 
 ### Read the data
-```{r message=FALSE}
-SPE_ENV = read_tsv(file = "data/SPE_ENV.tsv")
+```{r}
+#| message: false
+SPE_ENV <- read_tsv(file = "data/SPE_ENV.tsv")
 SPE_ENV
 ```
 
 ### IMPORTANT INSTRUCTIONS - READ!
 
-_For these exercises I want you to identify what you see in the plot!_
+_For these exercises, you will have to identify what you see in the plot!_
 
 For each plot, complete the following steps
 
@@ -128,12 +139,11 @@ For each plot, complete the following steps
 
 _Hints_
 
-- Consult the [Data visualization with ggplot2 cheatsheet](https://www.rstudio.com/resources/cheatsheets/) to see what options you have available
-- Feel free to google BUT, if you do, DO NOT simply copy/paste stackoverflow code in, you HAVE to think about what the code does, then modify and adapt to your needs
+- Consult the [Data visualization with ggplot2 cheatsheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+- Check which options you have available
+- Consult the chapters in the book you read, see preparation materials for labs 2 and 3
 
-```{r, out.width = "90%", fig.align = "center", echo=FALSE}
-knitr::include_graphics(path = "images/vis_ggplot_components.png")
-```
+![](images/vis_ggplot_components.png)
 
 ### TASKS
 
@@ -141,7 +151,8 @@ knitr::include_graphics(path = "images/vis_ggplot_components.png")
 
 _Discuss in your group, which ggplot elements can you identify?_
 
-```{r echo=FALSE}
+```{r}
+#| echo: false
 ggplot(data = SPE_ENV,
        mapping = aes(x = OTU_Count,
                      y = Taxa,
@@ -153,7 +164,8 @@ ggplot(data = SPE_ENV,
 
 _Discuss in your group, which ggplot elements can you identify?_
 
-```{r echo=FALSE}
+```{r}
+#| echo: false
 ggplot(data = SPE_ENV,
        mapping = aes(x = site,
                      y = Temp)) +
@@ -164,7 +176,8 @@ ggplot(data = SPE_ENV,
 
 _Discuss in your group, which ggplot elements can you identify?_
 
-```{r echo=FALSE}
+```{r}
+#| echo: false
 ggplot(data = SPE_ENV,
        mapping = aes(x = Temp,
                      y = pH,
@@ -176,7 +189,8 @@ ggplot(data = SPE_ENV,
 
 _Discuss in your group, which ggplot elements can you identify?_
 
-```{r echo=FALSE}
+```{r}
+#| echo: false
 ggplot(data = SPE_ENV,
        mapping = aes(x = Temp,
                      y = pH,
@@ -190,7 +204,8 @@ ggplot(data = SPE_ENV,
 
 _Discuss in your group, which ggplot elements can you identify?_
 
-```{r echo=FALSE}
+```{r}
+#| echo: false
 ggplot(data = SPE_ENV,
        mapping = aes(x = NH4,
                      fill = site)) +
@@ -201,7 +216,9 @@ ggplot(data = SPE_ENV,
 
 _Discuss in your group, which ggplot elements can you identify?_
 
-```{r echo=FALSE, message=FALSE}
+```{r}
+#| echo: false
+#| message: false
 ggplot(data = SPE_ENV,
        mapping = aes(x = CODt,
                      y = CODs,
@@ -210,13 +227,21 @@ ggplot(data = SPE_ENV,
   geom_smooth(method = "lm")
 ```
 
-- _Hint: See if you can find something online on `geom_smooth()`_ 
+<details>
+<p><summary>Click here for hint</summary></p>
+_See if you can find something online on `geom_smooth()`_ 
+</details>
 
 #### Task 7 - Recreate the following plot
 
 _Discuss in your group, which ggplot elements can you identify?_
 
-```{r  echo=FALSE, message=FALSE, fig.align='center', fig.height=7, fig.width=7}
+```{r}
+#| echo: false
+#| message: false
+#| fig-align: center
+#| fig-width: 7
+#| fig-height: 7
 ggplot(data = SPE_ENV,
        mapping = aes(x = Taxa,
                      y = Samples,
@@ -231,22 +256,29 @@ ggplot(data = SPE_ENV,
         axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-- _Hint: Think about `fill` and then see if you can find something online on `geom_tile()`, `scale_fill_gradient2` and how to `ggplot rotate axis labels`_ 
+<details>
+<p><summary>Click here for hint</summary></p>
+_Think about `fill` and then see if you can find something online on `geom_tile()`, `scale_fill_gradient2` and how to `ggplot rotate axis labels`_ 
+</details>
 
 #### Task 8 - Recreate the following plot
 
 Start by running this code in a new chunk (ignore details for now)
+
 ```{r}
-targets = c("Methanobacteria", "Clostridia", "Actinobacteria",
+targets <- c("Methanobacteria", "Clostridia", "Actinobacteria",
             "Sphingobacteria", "Anaerolineae")
-SPE_ENV_targets = filter(SPE_ENV, Taxa %in% targets)
+SPE_ENV_targets <- SPE_ENV |>
+  filter(Taxa %in% targets)
 ```
+
 and then use the created dataset `SPE_ENV_targets` to recreate this plot:
 
 _Discuss in your group, which ggplot elements can you identify?_
 
-```{r echo=FALSE, message=FALSE}
-library("ggridges")
+```{r}
+#| echo: false
+#| message: false
 ggplot(data = SPE_ENV_targets,
        mapping = aes(x = OTU_Count,
                      y = Taxa,
@@ -257,12 +289,17 @@ ggplot(data = SPE_ENV_targets,
        y = "Taxa Identified",
        title = "OTU Count Distribution for 5 Taxa Stratified on Site",
        caption = "Data from doi.org/10.1111/1751-7915.12334") +
-  theme_minimal(base_family = "Avenir", base_size = 12) +
+  theme_minimal(base_family = "Avenir",
+                base_size = 12) +
   theme(legend.position = "bottom") +
-  facet_wrap(vars(site), ncol = 2)
+  facet_wrap(facets = vars(site),
+             ncol = 2)
 ```
 
-- _Hint: Here we need to use `geom_density_ridges()`, but which package contains this and how do we install packages? Also we are using a colour scale called `viridis`, but how do we add this? Also, perhaps there are more themes we can use than just `theme_classic()?`_
+<details>
+<p><summary>Click here for hint</summary></p>
+_Here we need to use `geom_density_ridges()`, but which package contains this? Also we are using a colour scale called `viridis`, but how do we add this? Also, perhaps there are more themes we can use than just `theme_classic()?`_ 
+</details>
 
 #### Task 9 - <span style="color: red;">GROUP ASSIGNMENT</span>
 

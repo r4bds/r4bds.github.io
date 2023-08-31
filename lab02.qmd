@@ -120,7 +120,7 @@ IMPORTANT! You are mixing code and text in a Quarto Document! Anything within a 
 - Mac: CMD + OPTION + i
 - Windows: CTRL + ALT + i
 
-Note, this might not work, depending on your browser. In that case you can insert a new code chunk using ![](images/insert_new_chunk).
+Note, this might not work, depending on your browser. In that case you can insert a new code chunk using ![](images/insert_new_chunk) or You can change the shortcuts via “Tools” > “Modify Keyboard shortcuts…” > Filter for “Insert Chunk” and then choose the desired shortcut. E.g. change the shortcut for code chunks to Shift+Cmd+i or similar.
 
 - Add a new code chunk and use the `load()`-function to load the data you retrieved.
 
@@ -141,7 +141,7 @@ Now, in your Quarto Document, add a new code chunk like so
 library("tidyverse")
 ```
 
-This will load out data science toolbox, including `ggplot`.
+This will load our data science toolbox, including `ggplot`.
 
 ## Create data
 
@@ -163,11 +163,17 @@ cancer_data
 
 * __Q1: What is this data?__
 
-_Hint: Where did the data come from?_
+<details>
+<p><summary>Click here for a hint</summary></p>
+_Where did the data come from?_
+</details>
 
 * __Q2: How many rows and columns are there in the data set in total?__
 
-_Hint: Do you think you are the first person in the world to try to find out how many rows and columns are in a data set in `R`?_
+<details>
+<p><summary>Click here for a hint</summary></p>
+_Do you think you are the first person in the world to try to find out how many rows and columns are in a data set in `R`?_
+</details>
 
 * __Q3: Which are the variables and which are the observations in relation to rows and columns?__
 
@@ -210,8 +216,10 @@ Remember to write notes in your rmarkdown document. You will likely revisit thes
 Primer: Plotting 2 x 20 random normally distributed numbers, can be done like so:
 
 ```{r}
-ggplot(data = tibble(x = rnorm(20), y = rnorm(20)),
-       mapping = aes(x = x, y = y)) +
+ggplot(data = tibble(x = rnorm(20),
+                     y = rnorm(20)),
+       mapping = aes(x = x,
+                     y = y)) +
   geom_point()
 ```
 

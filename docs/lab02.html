@@ -420,7 +420,7 @@ Click here for visualisation 4
 <li>Mac: CMD + OPTION + i</li>
 <li>Windows: CTRL + ALT + i</li>
 </ul>
-<p>Note, this might not work, depending on your browser. In that case you can insert a new code chunk using <img src="images/insert_new_chunk.png" class="img-fluid">.</p>
+<p>Note, this might not work, depending on your browser. In that case you can insert a new code chunk using <img src="images/insert_new_chunk.png" class="img-fluid"> or You can change the shortcuts via “Tools” &gt; “Modify Keyboard shortcuts…” &gt; Filter for “Insert Chunk” and then choose the desired shortcut. E.g. change the shortcut for code chunks to Shift+Cmd+i or similar.</p>
 <ul>
 <li>Add a new code chunk and use the <code>load()</code>-function to load the data you retrieved.</li>
 </ul>
@@ -440,7 +440,7 @@ Remember, you can use <code>?load</code> to get help on how the function works a
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This will load out data science toolbox, including <code>ggplot</code>.</p>
+<p>This will load our data science toolbox, including <code>ggplot</code>.</p>
 </section>
 <section id="create-data" class="level2">
 <h2 class="anchored" data-anchor-id="create-data">Create data</h2>
@@ -481,11 +481,25 @@ Remember, you can use <code>?load</code> to get help on how the function works a
 <ul>
 <li><strong>Q1: What is this data?</strong></li>
 </ul>
-<p><em>Hint: Where did the data come from?</em></p>
+<details>
+<p>
+</p><summary>
+Click here for a hint
+</summary>
+<p></p>
+<em>Where did the data come from?</em>
+</details>
 <ul>
 <li><strong>Q2: How many rows and columns are there in the data set in total?</strong></li>
 </ul>
-<p><em>Hint: Do you think you are the first person in the world to try to find out how many rows and columns are in a data set in <code>R</code>?</em></p>
+<details>
+<p>
+</p><summary>
+Click here for a hint
+</summary>
+<p></p>
+<em>Do you think you are the first person in the world to try to find out how many rows and columns are in a data set in <code>R</code>?</em>
+</details>
 <ul>
 <li><strong>Q3: Which are the variables and which are the observations in relation to rows and columns?</strong></li>
 </ul>
@@ -524,9 +538,11 @@ Remember, you can use <code>?load</code> to get help on how the function works a
 <p>Remember to write notes in your rmarkdown document. You will likely revisit these basic plots in future exercises.</p>
 <p>Primer: Plotting 2 x 20 random normally distributed numbers, can be done like so:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">20</span>), <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">20</span>)),</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">20</span>),</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">20</span>)),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> x,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="lab02_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
