@@ -303,7 +303,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="schedule" class="level2">
 <h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
 <ul>
-<li>08.00 - 08.15: Pre-course Survey Walk-through</li>
+<li>08.00 - 08.15: <a href="https://raw.githack.com/r4bds/r4bds.github.io/main/pre_course_questionnaire_summary.html">Pre-course Survey Walk-through</a></li>
 <li>08.15 - 08.30: Recap: RStudio Cloud, RStudio and R - The Very Basics (Live session)</li>
 <li>08.30 - 09.00: <a href="https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab02.html">Lecture</a></li>
 <li>09.00 - 09.15: Break</li>
@@ -383,7 +383,7 @@ Click here for visualisation 4
 <p><em>If you get stuck with Quarto, revisit <a href="https://r4ds.hadley.nz/quarto.html">R4DS2e, chapter 29</a> or <a href="https://quarto.org/docs/guide/">take a look at the Comprehensive guide to using Quarto</a></em></p>
 <ul>
 <li><p>Go to the <a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science RStudio Cloud Server</a> session from last time and login and choose the project you created.</p></li>
-<li><p>Create a new Quarto Document for todays exercises, e.g.&nbsp;lab02_exercises.qmd</p></li>
+<li><p><strong>Create a new Quarto Document for todays exercises, e.g.&nbsp;lab02_exercises.qmd</strong></p></li>
 </ul>
 <p>Recall the layout of the IDE (Integrated Development Environment)</p>
 <div class="quarto-figure quarto-figure-center">
@@ -393,7 +393,7 @@ Click here for visualisation 4
 </div>
 <p>Then, before we start, we need to fetch some data to work on.</p>
 <ul>
-<li>See if you can figure out how to create a new folder called “data”, make sure to place it the same place as your my_project_name.Rproj file</li>
+<li>See if you can figure out how to create a new folder called “data”, make sure to place it the same place as your my_project_name.Rproj file.</li>
 </ul>
 <p>Then, without further ado, run each of the following lines separately in your <em>console</em>:</p>
 <div class="cell">
@@ -406,14 +406,15 @@ Click here for visualisation 4
 <li>Using the <code>files</code> pane, check the folder you created to see if you managed to retrieve the file.</li>
 </ul>
 <p>Recall the syntax for a new code chunk:</p>
-<pre><code>
-::: {.cell}
-
-```{.r .cell-code}
-# Here goes the code... Note how this part does not get executed because of the initial hashtag, this is called a code-comment
-```
-:::
-</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  ```{r}</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  #| echo: true</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  #| eval: true</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  # Here goes the code... Note how this part does not get executed because of the initial hashtag, this is called a code-comment</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  1 + 1</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  my_vector &lt;- c(1, 2, 3)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  my_mean &lt;- mean(my_vector)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  print(my_mean)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  ```</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>IMPORTANT! You are mixing code and text in a Quarto Document! Anything within a “chunk” as defined above will be evaluated as code, whereas anything outside the chunks is markdown. You can use shortcuts to insert new code chunks:</p>
 <ul>
 <li>Mac: CMD + OPTION + i</li>
@@ -429,7 +430,7 @@ Click here for visualisation 4
 Click here for a hint
 </summary>
 <p></p>
-Remember, you can use <code>?load</code> to get help on how the function works and remember your project root path is defined by the location of your <code>.Rproj</code> file
+Remember, you can use <code>?load</code> to get help on how the function works and remember your project root path is defined by the location of your <code>.Rproj</code> file, i.e.&nbsp;the path. A path is simply where <code>R</code> can find your file, e.g.&nbsp;<code>/home/projects/r_for_bio_data_science/</code> or similar depending on your particular setup.
 </details>
 <p>Now, in the console, run the <code>ls()</code>-command and confirm, that you did indeed load the <code>gravier</code> data.</p>
 <ul>
@@ -477,7 +478,6 @@ Remember, you can use <code>?load</code> to get help on how the function works a
 #   g1C05 &lt;dbl&gt;, g1G11 &lt;dbl&gt;, g2D08 &lt;dbl&gt;, g2E06 &lt;dbl&gt;, g3H09 &lt;dbl&gt;, …</code></pre>
 </div>
 </div>
-<p>This is just the first 8 rows and the first 8 columns, so</p>
 <ul>
 <li><strong>Q1: What is this data?</strong></li>
 </ul>
@@ -512,6 +512,11 @@ Remember, you can use <code>?load</code> to get help on how the function works a
 <li><code>geom_something()</code> the representation of your data</li>
 <li><code>labs()</code> the x-/y-labels, title, etc.</li>
 </ul>
+<p>Now:</p>
+<ul>
+<li>Reivisit this illustration and discuss in your group what is what:</li>
+</ul>
+<p><img src="images/vis_ggplot_components.png" class="img-fluid"></p>
 <p>A very handy <code>ggplot</code> cheat-sheet can be found <a href="https://rstudio.github.io/cheatsheets/data-visualization.pdf">here</a></p>
 </section>
 <section id="basic-plots" class="level3">

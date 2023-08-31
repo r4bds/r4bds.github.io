@@ -6,7 +6,7 @@
 
 ## Schedule
 
-- 08.00 - 08.15: Pre-course Survey Walk-through
+- 08.00 - 08.15: [Pre-course Survey Walk-through](https://raw.githack.com/r4bds/r4bds.github.io/main/pre_course_questionnaire_summary.html)
 - 08.15 - 08.30: Recap: RStudio Cloud, RStudio and R - The Very Basics (Live session)
 - 08.30 - 09.00: [Lecture](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab02.html)
 - 09.00 - 09.15: Break
@@ -78,7 +78,7 @@ _If you get stuck with Quarto, revisit [R4DS2e, chapter 29](https://r4ds.hadley.
 
 - Go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) session from last time and login and choose the project you created.
 
-- Create a new Quarto Document for todays exercises, e.g. lab02_exercises.qmd
+- **Create a new Quarto Document for todays exercises, e.g. lab02_exercises.qmd**
 
 Recall the layout of the IDE (Integrated Development Environment)
 
@@ -86,7 +86,7 @@ Recall the layout of the IDE (Integrated Development Environment)
 
 Then, before we start, we need to fetch some data to work on.
 
-- See if you can figure out how to create a new folder called "data", make sure to place it the same place as your my_project_name.Rproj file
+- See if you can figure out how to create a new folder called "data", make sure to place it the same place as your my_project_name.Rproj file.
 
 Then, without further ado, run each of the following lines separately in your _console_:
 
@@ -103,15 +103,17 @@ curl::curl_download(url = target_url,
 
 Recall the syntax for a new code chunk:
 
-````
-
-```{r}
-#| echo: true
-#| eval: true
-# Here goes the code... Note how this part does not get executed because of the initial hashtag, this is called a code-comment
+```{verbatim}
+  ```{r}
+  #| echo: true
+  #| eval: true
+  # Here goes the code... Note how this part does not get executed because of the initial hashtag, this is called a code-comment
+  1 + 1
+  my_vector <- c(1, 2, 3)
+  my_mean <- mean(my_vector)
+  print(my_mean)
+  ```
 ```
-
-````
 
 IMPORTANT! You are mixing code and text in a Quarto Document! Anything within a "chunk" as defined above will be evaluated as code, whereas anything outside the chunks is markdown. You can use shortcuts to insert new code chunks:
 
@@ -124,7 +126,7 @@ Note, this might not work, depending on your browser. In that case you can inser
 
 <details>
 <p><summary>Click here for a hint</summary></p>
-Remember, you can use `?load` to get help on how the function works and remember your project root path is defined by the location of your `.Rproj` file
+Remember, you can use `?load` to get help on how the function works and remember your project root path is defined by the location of your `.Rproj` file, i.e. the path. A path is simply where `R` can find your file, e.g. `/home/projects/r_for_bio_data_science/` or similar depending on your particular setup.
 </details>
 
 Now, in the console, run the `ls()`-command and confirm, that you did indeed load the `gravier` data.
@@ -159,8 +161,6 @@ Now we have the data set as an tibble, which is an augmented data frame (we will
 cancer_data
 ```
 
-This is just the first 8 rows and the first 8 columns, so
-
 * __Q1: What is this data?__
 
 _Hint: Where did the data come from?_
@@ -194,6 +194,12 @@ Note the `+` for adding layers to the plot
 - `y` data for the y-axis
 - `geom_something()` the representation of your data
 - `labs()` the x-/y-labels, title, etc.
+
+Now:
+
+- Reivisit this illustration and discuss in your group what is what:
+
+![](images/vis_ggplot_components.png)
 
 A very handy `ggplot` cheat-sheet can be found [here](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
 

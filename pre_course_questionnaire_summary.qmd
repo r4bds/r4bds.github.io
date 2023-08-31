@@ -1,0 +1,244 @@
+---
+title: "Pre Course Quesionnaire"
+author: "Leon Eyrich Jessen"
+format:
+  revealjs:
+    theme: moon
+    slide-number: c/t
+    width: 1600
+    height: 900
+    mainfont: avenir
+    logo: images/r4bds_logo_small.png
+    footer: "R for Bio Data Science"
+---
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Is there any specific area of bio-research you would like to see covered?
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## General Bioinformatics & Data Analysis:
+
+- General interest in bioinformatics.
+- Comfortable handling different types of biological data in R.
+- How to work with data and make it easier to analyze.
+- Visualizations of big data.
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Genetics & Genomics:
+
+- Genetics, Genomics, and Evolution.
+- Transcriptomics, Metagenomics, Genomic data analysis, and RNA-seq.
+- Single cell omics, Bulk RNA-seq data manipulation.
+- Gene expression data analysis in R.
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Disease & Medical Research:
+
+- Personalized medicine and precision medicine.
+- Research related to specific diseases: obesity, cancer, autoimmune diseases, infectious diseases.
+- Drug design, clinical drug trials, and drug trial data analysis.
+- Analysis of complex cancer patient data.
+
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Immunology & Microbiology:
+
+- Immunology, especially related to MHC, neoantigens, antibodies, and antigens.
+- Clinical research in R related to immunology.
+- Gut microbiome, Microbiome studies on cancer, and Microbiologic studies.
+- Immune response bio-research and immune system or stem cells.
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Advanced Computational Techniques:
+
+- Predictive modeling and visualizations of complex networks/pathways.
+- Deep learning in R and Artificial Intelligence.
+- Analysis of peptide sequencing via mass spec (TD-search and de novo).
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Specific Bio-research Topics:
+- Food-related research.
+- Ecology.
+- Plastic degradation by microorganisms or enzymes.
+- CO2 capture by microorganisms.
+- Mass screening and patient profiling, especially for cancer.
+- LC-MS data, peptide prediction from proteins.
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Others:
+
+- Some students have expressed that they are open to any topic or aren't particularly focused on a specific area.
+- A few are excited about the course in general and don't have specific preferences.
+- There's interest in the integration of bioinformatics with scientific articles and hospital data.
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Briefly, what are your general expectations to this course?
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## R Proficiency:
+
+- Many students wish to gain or improve proficiency in using R for data analysis.
+- There's an emphasis on understanding the R environment, syntax, and packages.
+- Some students are already familiar with R and wish to polish and expand their skills, while others are complete beginners hoping to grasp the basics.
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Bioinformatics and Biology Application:
+
+- Many students want to learn how to apply R specifically to biological and bioinformatic datasets.
+- They expect to work with real-life bio data and learn how to handle and analyze data relevant to their bio studies.
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Data Visualization & Manipulation:
+
+- Students are keen to learn about data visualization and manipulation in R.
+- They are interested in using R for creating plots, visualizations, and handling various data types.
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Practical Skills for Future Application:
+
+- Several students hope the course will prepare them for future projects, research, or roles that require data analysis.
+- Some students are interested in using the skills they gain in this course for their thesis or future studies.
+- A few want to be able to transfer the knowledge they gain to other programming languages, like Python.
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Data Analysis Techniques:
+
+- Students wish to learn about different data analysis methods, including statistics, RNA sequencing data processing, etc.
+- They hope to understand how to organize, clean, and interpret data.
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Tool and Package Familiarity:
+
+- Some students want to familiarize themselves with specific R packages, like tidyverse.
+- There's an interest in learning how to utilize GitHub for shared programming.
+- Several mention wanting to know how to use specific tools for data analysis, such as data wrangling and lab notebook style coding.
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Learning Environment:
+
+- A few students mentioned hoping for a structured or gradual introduction, especially for those without prior knowledge.
+- Some have heard from past students and have expectations based on word-of-mouth.
+- A couple of students are concerned about the timing and structure of the exam.
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Miscellaneous:
+
+- There are mentions of topics like the application of R in various biological datasets, multiomics, and genetics.
+- Some are looking forward to learning how to plan scientific studies or adjust chosen methods.
+- A few students don't have specific expectations, while others hope for a challenging but rewarding experience.
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Summary
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Alignment of Expectations
+
+- Key criteria for succes is that we agree on the content of this course
+- Luckily, much of what is mentioned is part of this course
+- However, if we were to cover all of the mentioned aspects, that would basically be an entire bioinformatics education
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## This course
+
+- Practical Application: Equip students with hands-on bio data science skills, emphasizing on transforming messy datasets to clean, structured ones, and performing insightful data analyses.
+- Tools & Platforms: Utilize Tidyverse R, RStudio IDE, Quarto reporting, git/GitHub, and other specific tools such as dplyr, ggplot, and shinyapps.io for comprehensive bio data science tasks.
+- Reproducibility & Collaboration: Stress on the importance of reproducible data analysis and effective collaboration in bio data science projects using Tidyverse R and git/GitHub.
+- Broad Skill Set: Train students to perform basic statistical tests, create R packages, design Shiny apps, employ Large-Language-Model (LLM) technology like chatGPT, and more.
+- Project Analysis & Presentation: Guide students to assess and critique bio data science projects on method choices and data communication, and organize & present their own results in dynamic Quarto reports.
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## This course - In other words
+
+- Creates the foundation for you to explore the multitude of bioinformatics subjects
+- Gives you concrete skills to handle (almost) any kind of bio data
+- Trains your collaborative and communicative meta skills
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Tag along and you'll have fun and learn a ton!
