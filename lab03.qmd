@@ -11,10 +11,9 @@
 
 ## Schedule
 
-- 08.00 - 08.30: Recap of Lab 2
-- 08.30 - 09.00: Introduction to Lab 3
-- 09.00 - 09.15: Break
-- 09.00 - 12.00: Exercises
+- 08.00 - 08.45: [Recap of Lab 2 and Lecture](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab03.html)
+- 08.45 - 09.00: Break
+- 09.00 - 12.00: [Exercises](#sec-exercises)
 
 ## Learning Materials
 
@@ -34,7 +33,7 @@ _A student who has met the objectives of the session will be able to:_
 - Combine multiple plots into one pane
 - Look at a more advanced ggplot and decipher the components used
 
-## Exercises
+## Exercises {#sec-exercises}
 
 ```{r}
 #| message: false

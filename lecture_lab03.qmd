@@ -1,0 +1,1026 @@
+---
+title: "Lecture Lab 3"
+author: "Leon Eyrich Jessen"
+format:
+  revealjs:
+    embed-resources: true
+    theme: moon
+    slide-number: c/t
+    width: 1600
+    height: 900
+    mainfont: avenir
+    logo: images/r4bds_logo_small.png
+    footer: "R for Bio Data Science"
+---
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Recap of Lab 2
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+library("tidyverse")
+cancer_data <- read_tsv(file = "data/cancer_data.tsv")
+top10_pharma <- tribble(
+  ~Company, ~Revenue,
+  "Bristol-Myers Squibb", 22.6,
+  "GlaxoSmithKline", 23,
+  "Amgen", 23.7,
+  "Abbvie", 32.8,
+  "Novartis", 34.9,
+  "Merck", 39.7,
+  "Sanofi", 39.3,
+  "Johnson-Johnson", 40.7,
+  "Roche", 45.6,
+  "Pfizer", 53.7) |> 
+  mutate(Company = factor(Company, levels = Company))
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## What is wrong with this visualisation?
+
+![](images/bad_viz_11.png)
+
+
+
+## What is wrong with this visualisation?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+top10_pharma %>% 
+  ggplot(aes(x = Company,
+             y = Revenue,
+             label = Company)) +
+  geom_col() +
+  labs(x = "", y = "Revenue [billion USD]") +
+  theme_classic(base_size = 18) +
+  theme(axis.text.x = element_text(angle = 50, hjust = 1))
+```
+:::
+
+::: {.column width="50%"}
+![](images/bad_viz_11.png)
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The Cancer Data
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+cancer_data
+```
+
+:::
+
+::: {.column width="50%"}
+### Dimensions of data
+
+```{r}
+#| echo: true
+dim(cancer_data)
+nrow(cancer_data)
+ncol(cancer_data)
+```
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## ggplot - The Very Basics
+
+```{r}
+#| echo: true
+#| eval: false
+ggplot(data = my_data,
+       mapping = aes(x = v1,
+                     y = v2)) +
+  geom_point()
+```
+
+![](images/vis_ggplot_components.png)
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Basic Examples
+
+### Scatter-plot: `geom_point()`
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = g2E09,
+                                y = g7F07)) +
+  geom_point()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Basic Examples
+
+### Line-plot: `geom_line()`
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = g2E09,
+                                y = g7F07)) +
+  geom_line()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Basic Examples
+
+### Box-plot: `geom_boxplot()`
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = g2E09)) +
+  geom_boxplot()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Basic Examples
+
+### Histogram-plot: `geom_histogram()`
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = g2E09)) +
+  geom_histogram(binwidth = 0.1)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+
+:::
+
+::::
+
+_Note! Here, you'll get a warning if you do not state your choice of bin_
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Basic Examples
+
+### Densitogram-plot: `geom_density()`
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = g2E09)) +
+  geom_density()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Extended Examples
+
+### boxplot of expression levels stratified on the variable `age_group` 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = event_label,
+                                y = g2E09)) +
+  geom_boxplot()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Extended Examples
+
+### GROUP ASSIGNMENT
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = g2E09,
+                                fill = event_label)) +
+  geom_density()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Extended Examples
+
+### Plot Recreation
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  aes(x = event_label,
+                      y = g1CNS507,
+                      fill = event_label)) +
+  geom_boxplot(alpha = 0.5,
+               show.legend = FALSE) +
+  coord_flip() +
+  labs(x = "Event After Diagnosis",
+       y = str_c("Expression level of g1CNS507 ",
+                 "(log2 transformed)"),
+       title = str_c("A prognostic DNA signature ",
+                     "for T1T2 node-negative ",
+                     "breast cancer patients"),
+       subtitle = str_c("Labelling: good = no ",
+                        " event, poor = early ",
+                        "metastasis"),
+       caption = "Data from Gravier et al. (2010)")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+
+:::
+
+::::
+
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## A Few Tips and Tricks
+
+- Use a pen and paper to doodle your thoughts on a good visualisation
+
+- When googling write e.g. "Custom legend labels" and then do an image search to find a plot that look somewhat like what you are looking for and then go to the page, most often, there will be some code
+
+- Stick to the following syntaxical best-practises:
+
+```{r}
+#| echo: true
+#| eval: false
+ggplot(data = my_data,
+       mapping = aes(x = v1,
+                     y = v2,
+                     fill = v3)) +
+  geom_something() +
+  labs(x = "My x",
+       y = "My y")
+```
+
+- **NOTE! You are expected to adhere to a specific code style moving forward in this course**
+- Because... Yes, syntax matters!
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Data Visualisation II
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## First: Make sure you're on track!
+
+### Lab II Learning Objectives
+
+-   Explains the basic theory of data visualisation
+
+-   Decipher the components of a ggplot
+
+-   Use ggplot to do basic data visualisation
+
+*Making sure you are in tune with the LOs as we progress is essential for tracking your learning!*
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Customisation
+
+- If you can think it, ggplot can plot
+
+- The trick is to build experience, practice makes perfect!
+
+- Let us go over a few examples
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Customisation Examples
+
+### Adding text to data points
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = age,
+                                y = g7E05,
+                                label = pt_id)) +
+  geom_text()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Customisation Examples
+
+### Adding labels to data points
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = age,
+                                y = g7E05,
+                                label = pt_id)) +
+  geom_label()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Customisation Examples
+
+### `age_group` stratification
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = age_group,
+                                y = g7E05)) +
+  geom_boxplot()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Customisation Examples
+
+### `event_label` stratification
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = age_group,
+                                y = g7E05,
+                                fill = event_label)) +
+  geom_boxplot()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Customisation Examples
+
+### Adding a theme (A collection of settings)
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = age_group,
+                                y = g7E05,
+                                fill = event_label)) +
+  geom_boxplot() +
+  theme_classic()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Customisation Examples
+
+### Changing the font size
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = age_group,
+                                y = g7E05,
+                                fill = event_label)) +
+  geom_boxplot() +
+  theme_classic(base_size = 18)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Customisation Examples
+
+### Changing the font
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = age_group,
+                                y = g7E05,
+                                fill = event_label)) +
+  geom_boxplot() +
+  theme_classic(base_size = 18,
+                base_family = "Avenir")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Customisation Examples
+
+### Adding some labels
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = age_group,
+                                y = g7E05,
+                                fill = event_label)) +
+  geom_boxplot() +
+  labs(x = "Patient Age Group",
+       y = "log2 expression of g7E05") +
+  theme_classic(base_size = 18,
+                base_family = "Avenir")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Customisation Examples
+
+### Relocating the legend
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = age_group,
+                                y = g7E05,
+                                fill = event_label)) +
+  geom_boxplot() +
+  labs(x = "Patient Age Group",
+       y = "log2 expression of g7E05") +
+  theme_classic(base_size = 18,
+                base_family = "Avenir") +
+  theme(legend.position = "bottom")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Customisation Examples
+
+### Customising the legend
+
+- Note the colour mapping green is good, red is bad
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = age_group,
+                                y = g7E05,
+                                fill = event_label)) +
+  geom_boxplot() +
+  scale_fill_manual(labels = c("No", "Yes"),
+                    values = c("green", "red")) +
+  labs(x = "Patient Age Group",
+       y = "log2 expression of g7E05",
+       fill = "Early Metastasis") +
+  theme_classic(base_size = 18,
+                base_family = "Avenir") +
+  theme(legend.position = "bottom")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Customisation Examples
+
+### Adding transparency
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = age_group,
+                                y = g7E05,
+                                fill = event_label)) +
+  geom_boxplot(alpha = 0.5) +
+  scale_fill_manual(labels = c("No", "Yes"),
+                    values = c("green", "red")) +
+  labs(x = "Patient Age Group",
+       y = "log2 expression of g7E05",
+       fill = "Early Metastasis") +
+  theme_classic(base_size = 18,
+                base_family = "Avenir") +
+  theme(legend.position = "bottom")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Customisation Examples
+
+### Marking a threshold
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+my_plot <- ggplot(data = cancer_data,
+                  mapping = aes(x = age_group,
+                                y = g7E05,
+                                fill = event_label)) +
+  geom_hline(yintercept = 0,
+             linetype = "dashed") +
+  geom_boxplot(alpha = 0.5) +
+  scale_fill_manual(labels = c("No", "Yes"),
+                    values = c("green", "red")) +
+  labs(x = "Patient Age Group",
+       y = "log2 expression of g7E05",
+       fill = "Early Metastasis") +
+  theme_classic(base_size = 18,
+                base_family = "Avenir") +
+  theme(legend.position = "bottom")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+my_plot
+```
+:::
+
+::::
+
+_Note! Layer order matters!_
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Plotting multiple plots
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+pl1 <- ggplot(data = cancer_data,
+              mapping = aes(x = age_group,
+                            y = g7E05,
+                            fill = event_label)) +
+  geom_hline(yintercept = 0,
+             linetype = "dashed") +
+  geom_boxplot(alpha = 0.5) +
+  scale_fill_manual(labels = c("No", "Yes"),
+                    values = c("green", "red")) +
+  labs(x = "Patient Age Group",
+       y = "log2 expression of g7E05",
+       fill = "Early Metastasis") +
+  theme_classic(base_size = 12,
+                base_family = "Avenir") +
+  theme(legend.position = "bottom")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+pl2 <- ggplot(data = cancer_data,
+              mapping = aes(x = age_group,
+                            y = g8C05,
+                            fill = event_label)) +
+  geom_hline(yintercept = 0,
+             linetype = "dashed") +
+  geom_boxplot(alpha = 0.5) +
+  scale_fill_manual(labels = c("No", "Yes"),
+                    values = c("green", "red")) +
+  labs(x = "Patient Age Group",
+       y = "log2 expression of g8C05",
+       fill = "Early Metastasis") +
+  theme_classic(base_size = 12,
+                base_family = "Avenir") +
+  theme(legend.position = "bottom")
+
+```
+:::
+
+::::
+
+_If you had not noticed before, everything is an object, even a plot!_
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Plotting multiple plots
+
+```{r}
+#| echo: true
+#| eval: true
+#| out-width: 90%
+#| fig-align: center
+library("patchwork")
+pl1 + pl2
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Plotting multiple plots
+
+```{r}
+#| echo: true
+#| eval: true
+#| out-width: 90%
+#| fig-align: center
+pl1 / pl2
+```
+
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Plotting multiple plots
+
+```{r}
+#| echo: true
+#| eval: true
+#| out-width: 90%
+#| fig-align: center
+pl1 / (pl2 + pl1)
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Summary
+
+- ggplot is _very_ flexible
+
+- Practise makes perfect
+
+- Compare it with learning a langauge, initially there is a vocabulary boundary
+
+- Return to these slides, but also remember a meta learning objective is to seek out the solutions online
+
+- A VERY good place to go to get input is the RStudio community pages: [https://community.rstudio.com](https://community.rstudio.com)
+
+- Also, have fun!
+
+# Break, then exercises!

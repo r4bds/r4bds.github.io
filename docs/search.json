@@ -172,7 +172,7 @@
     "href": "lab03.html#schedule",
     "title": "Lab 3: Data Visualisation II",
     "section": "Schedule",
-    "text": "Schedule\n\n08.00 - 08.30: Recap of Lab 2\n08.30 - 09.00: Introduction to Lab 3\n09.00 - 09.15: Break\n09.00 - 12.00: Exercises"
+    "text": "Schedule\n\n08.00 - 08.45: Recap of Lab 2 and Lecture\n08.45 - 09.00: Break\n09.00 - 12.00: Exercises"
   },
   {
     "objectID": "lab03.html#learning-materials",
@@ -189,8 +189,8 @@
     "text": "Learning Objectives\nA student who has met the objectives of the session will be able to:\n\nUse more advanced ggplot features\nCustomise the data visualisation\nCombine multiple plots into one pane\nLook at a more advanced ggplot and decipher the components used"
   },
   {
-    "objectID": "lab03.html#exercises",
-    "href": "lab03.html#exercises",
+    "objectID": "lab03.html#sec-exercises",
+    "href": "lab03.html#sec-exercises",
     "title": "Lab 3: Data Visualisation II",
     "section": "Exercises",
     "text": "Exercises\n\n\n\nRead the steps of this exercises carefully, while completing them\n\nIntroduction\nSome authors are kind enough to supply the data they used for their paper, e.g.:\n\n“Assessment of the influence of intrinsic environmental and geographical factors on the bacterial ecology of pit latrines”\n\nWhere the supporting data can be found here:\n\nhttp://userweb.eng.gla.ac.uk/umer.ijaz/bioinformatics/ecological.html\n\n\n\nGetting Started\nAgain, go to the R for Bio Data Science RStudio Cloud Server session from last time and login and choose the project you created\n\nCreate a new Quarto Document for todays exercises, e.g. lab03_exercises.qmd\nNB! The rmarkdown document MUST be placed together with your .Rproj file (defining, the project root - look in your Files-tab) and also there, the data-folder should be placed!\nREMEMBER paths are important! Also, R is case-sensitive, i.e. “data” is not the same as “Data”\n\n\n\nGetting the data\nAdd a new code chunk and add the following code (Never mind the details, we will get back to this), remember you can use headers to nicely section your quarto Document.\n\nbase_url <- \"http://userweb.eng.gla.ac.uk/umer.ijaz/bioinformatics/ecological/\"\n\nSPE <- read_csv(file = str_c(base_url, \"SPE_pitlatrine.csv\"))\nwrite_csv(x = SPE, file = \"data/SPE_pitlatrine.csv\")\n\nENV <- read_csv(file = str_c(base_url, \"ENV_pitlatrine.csv\"))\nwrite_csv(x = ENV, file = \"data/ENV_pitlatrine.csv\")\n\nAdd the chunk settings #| echo: true and #| eval: true, then run the block and change the latter to #| eval: false.\n\nDiscuss in your group, what this means and why we do it\n\n\n\n\nClick here for hint\n\n\nFrom where do we retrieve the data and to where do we write it and what happens if we run the chunk more than one time?\n\n\n\nWrangling the data\n\nWhat is data wrangling?\n\nBefore we continue with plotting, we want to unify the data, so here again you will run some code, where the details are not important right now.\nBut… Make sure, that you have run library(\"tidyverse\") somewhere in your rmarkdown document - Perhaps under an initial header saying “Load Libraries” or similar?\n\nSPE |> \n  pivot_longer(cols = -Taxa,\n               names_to = \"Samples\",\n               values_to = \"OTU_Count\")  |> \n  full_join(ENV, by = \"Samples\") |> \n  mutate(site = case_when(str_detect(Samples, \"^T\") ~ \"Tanzania\",\n                          str_detect(Samples, \"^V\") ~ \"Vietnam\")) |>  \n  write_tsv(file = \"data/SPE_ENV.tsv\")\n\nChange the chunk settings as before"
