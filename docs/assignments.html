@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R for Bio Data Science - References</title>
+<title>R for Bio Data Science - Assignments</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -15,25 +15,6 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
@@ -44,8 +25,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./exam.html" rel="next">
-<link href="./project_faq.html" rel="prev">
+<link href="./project_faq.html" rel="next">
+<link href="./lab10.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -84,7 +65,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">References</h1>
+      <h1 class="quarto-secondary-nav-title">Assignments</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -191,12 +172,12 @@ div.csl-indent {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./project_faq.html" class="sidebar-item-text sidebar-link">Project FAQ</a>
+  <a href="./assignments.html" class="sidebar-item-text sidebar-link active">Assignments</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">References</a>
+  <a href="./project_faq.html" class="sidebar-item-text sidebar-link">Project FAQ</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -216,7 +197,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">References</h1>
+<h1 class="title d-none d-lg-block">Assignments</h1>
 </div>
 
 
@@ -230,9 +211,21 @@ div.csl-indent {
 
 </header>
 
-<div id="refs" role="doc-bibliography" style="display: none">
-
-</div>
+<p>As part of this course, starting from Lab 2, there will be a weekly hand in. The assignment will be noted with red in the exercises. In your group, you are to prepare a answer to just this one question. Think about reproducibility from the get-go, so include in the answer, what is needed to re-create the small report, e.g.&nbsp;if you’re using external data, from where and how did you get it? You will then receive group feedback on your answer, which you should make sure to go over in your group.</p>
+<ul>
+<li>Go to <a href="http://learn.inside.dtu.dk">DTU Learn</a></li>
+<li>Find and click in on the <code>R for Bio Data Science</code> course</li>
+</ul>
+<p>Here, you will need to enroll in appropriate groups as defined by the Group Formation Sheet, see the Getting Started Section. In case groups consists of a mix of BSc. and MSc. students, then enroll under your respective courses. Please note, that the google sheet defines the group numbers, so nevermind what Learn assigns.</p>
+<p>You should hand in the rendered html file. Please note, that in order to include all elements in a self-contained html file, you will have to use the following YAML-header in your Quarto document:</p>
+<pre><code>---
+title: "Lab 2 Assignment: Group 02"
+format:
+  html:
+    embed-resources: true
+editor: visual
+---</code></pre>
+<p>Or at least one similar, format title and other elements as you see fit, key here is the <code>html</code>-format with embedded resources.</p>
 
 
 
@@ -336,13 +329,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./project_faq.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Project FAQ</span>
+      <a href="./lab10.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 10 Project Startup &amp; Industry Talks</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./exam.html" class="pagination-link">
-        <span class="nav-page-text">Exam</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./project_faq.html" class="pagination-link">
+        <span class="nav-page-text">Project FAQ</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

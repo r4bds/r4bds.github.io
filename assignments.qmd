@@ -1,0 +1,22 @@
+# Assignments {.unnumbered}
+
+As part of this course, starting from Lab 2, there will be a weekly hand in. The assignment will be noted with red in the exercises. In your group, you are to prepare a answer to just this one question. Think about reproducibility from the get-go, so include in the answer, what is needed to re-create the small report, e.g. if you're using external data, from where and how did you get it? You will then receive group feedback on your answer, which you should make sure to go over in your group.
+
+- Go to [DTU Learn](http://learn.inside.dtu.dk)
+- Find and click in on the `R for Bio Data Science` course
+
+Here, you will need to enroll in appropriate groups as defined by the Group Formation Sheet, see the Getting Started Section. In case groups consists of a mix of BSc. and MSc. students, then enroll under your respective courses. Please note, that the google sheet defines the group numbers, so nevermind what Learn assigns.
+
+You should hand in the rendered html file. Please note, that in order to include all elements in a self-contained html file, you will have to use the following YAML-header in your Quarto document:
+
+````
+---
+title: "Lab 2 Assignment: Group 02"
+format:
+  html:
+    embed-resources: true
+editor: visual
+---
+````
+
+Or at least one similar, format title and other elements as you see fit, key here is the `html`-format with embedded resources.

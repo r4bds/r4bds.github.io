@@ -33,11 +33,9 @@ book:
         - lab09.qmd
         - lab10.qmd
         
+    - assignments.qmd
     - project_faq.qmd
-    - references.qmd
     - exam.qmd
-
-bibliography: references.bib
 
 format:
   html:
