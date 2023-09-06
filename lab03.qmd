@@ -1,7 +1,5 @@
 # Lab 3: Data Visualisation II {.unnumbered}
 
-#### STOP: Section not yet completed!
-
 ## Package(s)
 
 - [ggplot2](https://ggplot2.tidyverse.org)
@@ -304,9 +302,4 @@ _Here we need to use `geom_density_ridges()`, but which package contains this? A
 
 _For this assignment you and your group are to apply what you have learned in the two data visualisation labs. The task is to create a really nice plot using one of two datasets, the `cancer_data` or the `SPE_ENV`_
 
-##### Instructions
-
-- This time, submit one __PDF__ file per group
-- Submit only _this_ assignment, _not_ the entire exercises
-- Make it nice, add a title, your group number and names and a bit of text to along with your data visualisation
-- Deadline is Thursday 23:59 as usual
+Try to play around with some custom colouring. There is a nice tool to aid in choosing colours for visualisations [here](https://www.sessions.edu/color-calculator/)

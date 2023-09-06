@@ -1,4 +1,4 @@
-# Project FAQ {.unnumbered}
+# Project FAQ {.unnumbered #sec-projfaq}
 
 ## Data
 

@@ -360,6 +360,56 @@ my_plot
 <!--# ---------------------------------------------------------------------- -->
 ## Extended Examples
 
+### GROUP ASSIGNMENT - Customisation
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+ggplot(data = cancer_data,
+       mapping = aes(x = g2E09,
+                     fill = event_label)) +
+  geom_density()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+#| eval: true
+ggplot(data = cancer_data,
+       mapping = aes(x = g2E09,
+                     y = event_label,
+                     fill = event_label)) +
+  geom_vline(xintercept = 0) +
+  geom_violin(scale = "width",
+              adjust = 0.5) +
+  geom_boxplot(width = 0.2,
+               fill = "grey95") +
+  scale_fill_manual(values = c("#e3eaff", "#f8e3ff")) +
+  theme_bw(base_family = "Avenir", base_size = 14) +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.major.y = element_line(colour = "grey"),
+        legend.position = "none",
+        plot.background = element_rect(fill = "#fff8e3"),
+        panel.background = element_rect(fill = "#eaffe3")) +
+  labs(y = "Event Label")
+```
+
+:::
+
+::::
+
+_Same data in these plots! If you can think it - You can build it in `ggplot`_
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Extended Examples
+
 ### Plot Recreation
 
 :::: {.columns}
