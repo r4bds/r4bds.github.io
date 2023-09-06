@@ -41,7 +41,7 @@ Click ![](images/paths_new_proj.png) `New Project`:
 
 ![](images/paths_06.png)
 
-In the `Directory name:`, enter e.g. `r_for_bio_data_science`:
+In the `Directory name:`, enter e.g. `r_for_bio_data_science` and note how we are creating the folder (In this case `Directory name`, which is equivalent) as a sub-folder of `projects`. The funny wavy symbol followed by a slash `~/` is simply a short hand for "in this users home folder". So let us proceed:
 
 ![](images/paths_07.png)
 
