@@ -134,13 +134,16 @@ For each plot, complete the following steps
    1. What are the geoms used?
    1. Are there any modifications to theme?
 
-_Hints_
-
+<details>
+<p><summary>Click here for hint</summary></p>
 - Consult the [Data visualization with ggplot2 cheatsheet](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
 - Check which options you have available
 - Consult the chapters in the book you read, see preparation materials for labs 2 and 3
 
 ![](images/vis_ggplot_components.png)
+</details>
+
+
 
 ### TASKS
 
@@ -197,7 +200,7 @@ ggplot(data = SPE_ENV,
 ```
 
 
-#### Task 5 - Recreate the following plot
+#### Task 5 - Recreate the following plots
 
 _Discuss in your group, which ggplot elements can you identify?_
 
@@ -208,6 +211,25 @@ ggplot(data = SPE_ENV,
                      fill = site)) +
   geom_density()
 ```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+ggplot(data = SPE_ENV,
+       mapping = aes(x = NH4,
+                     fill = site)) +
+  geom_density(alpha = 0.5) +
+  geom_hline(yintercept = 0) +
+  scale_x_log10() +
+  theme(panel.grid.minor.x = element_blank())
+```
+
+<details>
+<p><summary>Click here for hint</summary></p>
+Same data, but a transformation happened, changing the representation of the data. Look carefully at the axes.
+</details>
+
 
 #### Task 6 - Recreate the following plot
 

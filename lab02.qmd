@@ -92,7 +92,6 @@ Then, without further ado, run each of the following lines separately in your _c
 
 ```{r}
 #| eval: false
-
 target_url <- "https://github.com/ramhiser/datamicroarray/raw/master/data/gravier.RData"
 output_file <- "data/gravier.RData"
 curl::curl_download(url = target_url,
@@ -183,7 +182,8 @@ _Do you think you are the first person in the world to try to find out how many 
 
 The general syntax for a basic ggplot is:
 
-```{r eval=FALSE}
+```{r}
+#| eval: false
 ggplot(data = my_data,
        mapping = aes(x = variable_1_name,
                      y = variable_2_name)) +
@@ -260,7 +260,8 @@ Remember to write notes to yourself, so you know what you did and if there is so
 
 * __T11: Recreate the following plot__
 
-```{r echo=FALSE}
+```{r}
+#| echo: false
 cancer_data %>%
   ggplot(aes(x = event_label, y = g1CNS507, fill = event_label)) +
   geom_boxplot(alpha = 0.5,
@@ -277,7 +278,9 @@ cancer_data %>%
 
 * __T12: Recreate the following plot__
 
-```{r echo=FALSE}
+```{r}
+#| echo: false
+#| message: false
 cancer_data %>%
   ggplot(aes(x = age, y = g1int239, fill = event_label)) +
   geom_point(pch = 21) +

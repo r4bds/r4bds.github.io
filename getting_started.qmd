@@ -2,6 +2,14 @@
 
 _This section contain essential information for getting up and running for the classes_
 
+## When and Where
+
+Teaching sessions will be E3A, Tuesday mornings 8 - 12 in building 358, room 060a (exercises: Also room 045) and the general schedule will be:
+
+* 08.00 - 08.30 Recap of key points from last weeks exercises
+* 08.30 - 09.00 Introduction to theme of the day
+* 09.00 - 12.00 Exercises
+
 ## Logging onto Cloud Server
 
 First, make sure you have a working DTU account, either as a student id or employee initials (e.g. PhD-students or postdocs). In this course we will be using a cloud server infrastructure to perform our work. Click below to access the cloud server:

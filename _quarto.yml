@@ -36,6 +36,7 @@ book:
     - assignments.qmd
     - project_faq.qmd
     - exam.qmd
+    - resources.qmd
 
 format:
   html:
