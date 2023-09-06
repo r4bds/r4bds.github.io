@@ -32,6 +32,9 @@ book:
         - lab08.qmd
         - lab09.qmd
         - lab10.qmd
+    - part: background.qmd
+      chapters: 
+        - paths_and_projects.qmd
         
     - assignments.qmd
     - project_faq.qmd
