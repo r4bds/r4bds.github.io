@@ -21,7 +21,7 @@ Now, click the projects folder you created and then you should see:
 
 Note how the `Home` now is extended to ![](images/paths_home.png) `Home > projects`. This signifies, that you are looking at the projects folder in your home.
 
-Try to click ![](images/paths_dir_up.png)`..`, this will take you one level up, so you again see:
+Try to click on the 2 dots in ![](images/paths_dir_up.png)`..` (the green arrow won't do it, so hit those dots!), this will take you one level up, so you again see:
 
 ![](images/paths_02.png)
 
@@ -49,13 +49,19 @@ and then click `Create Project`. Now, depending on your choice of directory name
 
 ![](images/paths_08.png)
 
-Now, note how you now see ![](images/paths_home.png) `Home > projects > r_for_bio_data_science`, meaning that you are now in your `Home` and then in your folder containing `projects`, one of which is your `r_for_bio_data_science` project.
+Briefly, the created `r_for_bio_data_science.Rproj` file contains the settings for your project. You can verify this, by clicking on the file and you should see:
+
+![](images/paths_18.png)
+
+We will leave this as is for now, so go ahead and click `OK`.
+
+Now, back to folders and paths - note how you now see ![](images/paths_home.png) `Home > projects > r_for_bio_data_science`, this means that you are now in the `r_for_bio_data_science` folder, which is inside the `projects` folder which in turn is inside the `Home` folder. If you take a look at the ![](images/paths_home.png) `Home > projects > r_for_bio_data_science`, you can in fact also click directly on e.g. `projects` - Try it!
 
 _But why? Don't worry, we will return to why RStudio Projects are indispensable when working with reproducible Bio Data Science_
 
 ## Locating Data
 
-Let's move on. Now, again click the ![](images/paths_new_folder.png) `New Folder`-button and create a `data`-folder. This should result in:
+Let's move on. Now, again click the ![](images/paths_new_folder.png) `New Folder`-button and create a `data`-folder, make sure it ends up in the `r_for_bio_data_science`-folder. This should result in:
 
 ![](images/paths_09.png)
 
