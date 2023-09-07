@@ -60,8 +60,10 @@ Where the supporting data can be found here:
 Again, go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) session from last time and login and choose the project you created
 
 - **Create a new Quarto Document for todays exercises, e.g. lab03_exercises.qmd**
-- **NB! The rmarkdown document MUST be placed together with your `.Rproj` file (defining, the project root - look in your `Files`-tab) and also there, the `data`-folder should be placed!**
+- **NB! The Quarto document MUST be placed together with your `.Rproj` file (defining, the project root - look in your `Files`-tab) and also there, the `data`-folder should be placed!**
 - **REMEMBER paths are important! Also, R is case-sensitive, i.e. "data" is not the same as "Data"**
+
+See [Paths and Projects](paths_and_projects.qmd)
 
 ### Getting the data
 
@@ -94,7 +96,7 @@ From where do we retrieve the data and to where do we write it and what happens 
 
 Before we continue with plotting, we want to unify the data, so here again you will run some code, where the details are not important right now.
 
-But... Make sure, that you have run `library("tidyverse")` somewhere in your rmarkdown document - Perhaps under an initial header saying "Load Libraries" or similar?
+But... Make sure, that you have run `library("tidyverse")` somewhere in your Quarto document - Perhaps under an initial header saying "Load Libraries" or similar?
 
 ```{r}
 #| echo: true
@@ -325,3 +327,5 @@ _Here we need to use `geom_density_ridges()`, but which package contains this? A
 _For this assignment you and your group are to apply what you have learned in the two data visualisation labs. The task is to create a really nice plot using one of two datasets, the `cancer_data` or the `SPE_ENV`_
 
 Try to play around with some custom colouring. There is a nice tool to aid in choosing colours for visualisations [here](https://www.sessions.edu/color-calculator/)
+
+Be sure to read the [assignment instructions](assignments.qmd) before submitting your solution.

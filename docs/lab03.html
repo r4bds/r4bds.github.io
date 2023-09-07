@@ -243,7 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paths_and_projects.html" class="sidebar-item-text sidebar-link">Paths &amp; Projects</a>
+  <a href="./paths_and_projects.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Paths &amp; Projects</span></a>
   </div>
 </li>
       </ul>
@@ -375,9 +375,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Again, go to the <a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science RStudio Cloud Server</a> session from last time and login and choose the project you created</p>
 <ul>
 <li><strong>Create a new Quarto Document for todays exercises, e.g.&nbsp;lab03_exercises.qmd</strong></li>
-<li><strong>NB! The rmarkdown document MUST be placed together with your <code>.Rproj</code> file (defining, the project root - look in your <code>Files</code>-tab) and also there, the <code>data</code>-folder should be placed!</strong></li>
+<li><strong>NB! The Quarto document MUST be placed together with your <code>.Rproj</code> file (defining, the project root - look in your <code>Files</code>-tab) and also there, the <code>data</code>-folder should be placed!</strong></li>
 <li><strong>REMEMBER paths are important! Also, R is case-sensitive, i.e.&nbsp;“data” is not the same as “Data”</strong></li>
 </ul>
+<p>See <a href="./paths_and_projects.html">Paths and Projects</a></p>
 </section>
 <section id="getting-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="getting-the-data">Getting the data</h3>
@@ -410,7 +411,7 @@ From where do we retrieve the data and to where do we write it and what happens 
 <li>What is data wrangling?</li>
 </ul>
 <p>Before we continue with plotting, we want to unify the data, so here again you will run some code, where the details are not important right now.</p>
-<p>But… Make sure, that you have run <code>library("tidyverse")</code> somewhere in your rmarkdown document - Perhaps under an initial header saying “Load Libraries” or similar?</p>
+<p>But… Make sure, that you have run <code>library("tidyverse")</code> somewhere in your Quarto document - Perhaps under an initial header saying “Load Libraries” or similar?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SPE <span class="sc">|&gt;</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Taxa,</span>
@@ -606,6 +607,7 @@ Click here for hint
 <h4 class="anchored" data-anchor-id="task-9---group-assignment">Task 9 - <span style="color: red;">GROUP ASSIGNMENT</span></h4>
 <p><em>For this assignment you and your group are to apply what you have learned in the two data visualisation labs. The task is to create a really nice plot using one of two datasets, the <code>cancer_data</code> or the <code>SPE_ENV</code></em></p>
 <p>Try to play around with some custom colouring. There is a nice tool to aid in choosing colours for visualisations <a href="https://www.sessions.edu/color-calculator/">here</a></p>
+<p>Be sure to read the <a href="./assignments.html">assignment instructions</a> before submitting your solution.</p>
 
 
 </section>

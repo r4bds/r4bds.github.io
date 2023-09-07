@@ -5,7 +5,7 @@ As part of this course, starting from Lab 2, there will be a weekly hand in. The
 - Go to [DTU Learn](http://learn.inside.dtu.dk)
 - Find and click in on the `R for Bio Data Science` course
 
-Here, you will need to enroll in appropriate groups as defined by the Group Formation Sheet, see the Getting Started Section. In case groups consists of a mix of BSc. and MSc. students, then enroll under your respective courses. Please note, that the google sheet defines the group numbers, so nevermind what Learn assigns.
+Here, you will need to enroll in appropriate groups as defined by the Group Formation Sheet, see the Getting Started Section. In case groups consists of a mix of BSc. and MSc. students, then enroll under your respective courses. Please note, that the google sheet defines the group numbers!
 
 You should hand in the rendered html file. Please note, that in order to include all elements in a self-contained html file, you will have to use the following YAML-header in your Quarto document:
 
@@ -20,3 +20,7 @@ editor: visual
 ````
 
 Or at least one similar, format title and other elements as you see fit, key here is the `html`-format with embedded resources.
+
+Lastly, make sure to compress your html file prior to upload! DTU Learn does "something" to the `html`-file, but we can bypass this by compressing.
+
+Enjoy!

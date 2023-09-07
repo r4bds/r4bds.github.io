@@ -7,21 +7,20 @@
 - [dplyr](https://dplyr.tidyverse.org)
 - [readr](https://readr.tidyverse.org)
 - [tibble](https://tibble.tidyverse.org)
-- [magrittr](https://magrittr.tidyverse.org)
 
 ## Schedule
 
-08.00 - 08.15: Recap of Lab 3
-08.15 - 08.30: Assignment 2 walk-through
-08.30 - 09.00: Introduction to Lab 4
-09.00 - 09.15: Break
-09.00 - 12.00: Exercises
+- 08.00 - 08.15: Recap of Lab 3
+- 08.15 - 08.30: Assignment 2 walk-through
+- 08.30 - 09.00: Introduction to Lab 4
+- 09.00 - 09.15: Break
+- 09.00 - 12.00: [Exercises](#sec-exercises)
 
 ## Learning Materials
 
 _Please prepare the following materials:_
 
-- Book: R4DS chapters 2, 7, 5, 9, 10, 11, 12.1-12.2
+- R4DS2e book: [Chapter 4](https://r4ds.hadley.nz/data-transform), [chapter 5](https://r4ds.hadley.nz/workflow-style), [chapter 8](https://r4ds.hadley.nz/data-import), [chapter 9](https://r4ds.hadley.nz/workflow-help)
 - Web: [What is data wrangling? Intro, Motivation, Outline, Setup -- Pt. 1 Data Wrangling Introduction](https://www.youtube.com/watch?v=jOd65mR1zfw)
 - Web: (NB! STOP at 7:45, i.e. skip tidyr) [Tidy Data and tidyr -- Pt 2 Intro to Data Wrangling with R and the Tidyverse](https://www.youtube.com/watch?v=1ELALQlO-yM)
 - Web: [Data Manipulation Tools: dplyr -- Pt 3 Intro to the Grammar of Data Manipulation with R](https://www.youtube.com/watch?v=Zc_ufg4uW4U)
@@ -30,8 +29,341 @@ _Please prepare the following materials:_
 
 _A student who has met the objectives of the session will be able to:_
 
-- Understand and apply the 6 basic dplyr verbs: `filter()`, arrange(), select(), mutate(), summarise() and group_by()
-- Construct and apply logical tests in context with dplyr pipelines
-- Understand and apply the additional verbs count(), drop_na(), View()
-- Combine dplyr verbs to form a data manipulation pipeline using the pipe %&gt;% operator
-- Decipher the components and functions hereof in a dplyr pipeline
+- Understand and apply the 6 basic dplyr verbs: `filter()`, `arrange()`, `select()`, `mutate()`, `summarise()` and `group_by()`
+- Construct and apply logical statements in context with `dplyr` pipelines
+- Understand and apply the additional verbs `count()`, `drop_na()`, `View()`
+- Combine dplyr verbs to form a data manipulation pipeline using the pipe `|>` operator
+- Decipher the components and functions hereof in a `dplyr` pipeline
+
+## Exercises {#sec-exercises}
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+library("tidyverse")
+diabetes_data <- read_csv(file = "data/diabetes.csv")
+```
+
+*Important: As we progress, avoid using black-box do-everything-with-one-command R-packages like e.g. `ggpubr` - I want you to learn the underlying technical bio data science! ...and why is that? Because if you use these type of packages, you will be limited to their functionality, whereas if you truly understand ggplot - The sky is the limit! Basically, it the cliché that "If you give a man a fish, you feed him for a day. If you teach a man to fish, you feed him for a lifetime"*
+
+### Getting Started
+
+Again, go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) session from last time and login and choose the project you created. First things first:
+
+- Create a new Quarto Document for todays exercises, e.g. `lab04_exercises.qmd`
+
+Note that:
+- The Quarto document MUST be placed together with your `.Rproj` file (defining, the project root - look in your `Files`-pane) and also there, the `data`-folder should be placed!
+
+*Understanding how paths and projects work is important. In case this is no entirely clear, a new chapter has been added on Paths and Projects.*
+
+### Brief refresh of Quarto so far
+
+Recall the syntax for a new code chunk, where all your `R` code goes any text and notes must be _outside_ the chunk tags:
+
+```{r}
+#| echo: fenced
+# Here the code goes
+1 + 1
+x <- c(1, 2, 3)
+mean(x)
+```
+
+Outside the code-chunks, go our markdown, e.g.:
+
+````
+  # Header level 1
+  ## Header level 2
+  ### Header level 3
+  *A text in italics*
+  **A text in bold**
+  Normal text describing and explaining
+````
+
+Now, in your new Quarto document, create a new `Header level 2`, e.g.:
+
+````
+  ## Load Libraries
+````
+
+and under your new header, add a new code chunk, like so
+
+
+```{r}
+#| echo: fenced
+#| message: false
+library("tidyverse")
+```
+
+And run the chunk. This will load our data science toolbox, including `dplyr` (and `ggplot`). But wait, what does the `#| message: false`-part do? 🤷️ 🤔
+
+**Try to structure your Rmarkdown document as your course notes, i.e. add notes while solving the exercises aiming at creating a revisitable reference for your final project work**
+
+Bonus info: We are engineers, so of course, we love equations, we can include standard $\LaTeX$ syntax, e.g.:
+
+````
+  $E(x) = \frac{1}{n} \cdot \sum_{i=1}^{n} x_{i}$
+````
+
+Try it!
+
+### A few handy short cuts
+
+Insert new code chunk:
+
+- Mac: CTRL + OPTION + i
+- Windows: CTRL + OPTION + i
+
+Render my Quarto document
+
+- Mac: CMD + SHIFT + k
+- Win: CTRL + SHIFT + k
+
+Run line in chunk
+
+- Mac: CMD + ENTER
+- Win: CTRL + ENTER
+
+Run entire chunk
+
+- Mac: CMD + SHIFT + ENTER
+- Win: CTRL + SHIFT + ENTER
+
+Insert the pipe symbol `|>`
+
+- Mac: CMD + SHIFT + m
+- Win: CTRL + SHIFT + m
+
+*Note, if you're trying this out and you see `%>%` instead of `|>`, then go to `Tools`, `Global Options...`, `Code` and check the box `Use native pipeoperator`*
+
+## A few initial questions
+
+First, if you don't feel completely comfortable with the `group_by |> summarise`-workflow, then no worries - Feel free to visit this short [R Tutorial: Grouping and summarizing](https://www.youtube.com/watch?v=zAlbrPozMHI)
+
+Then, in your groups, discuss the following primer questions. Note, when asked for _"what is the output"_, do not run the code in the console, instead try to **talk and think about it** and write your answers and notes in your Quarto document for the day:
+
+First, in a new chunk, run `tibble(x = c(4, 3, 5, 1, 2))`, so you understand what it does, then - Discuss in your group, what is the output of, remember first talk, then check understanding by running code:
+
+- **Q1: `tibble(x = c(4, 3, 5, 1, 2)) |> filter(x > 2)`?**
+
+- **Q2: `tibble(x = c(4, 3, 5, 1, 2)) |> arrange(x)`?**
+
+- **Q3: `tibble(x = c(4, 3, 5, 1, 2)) |> arrange(desc(x))`?**
+
+- **Q4: `tibble(x = c(4, 3, 5, 1, 2)) |> arrange(desc(desc(x)))`?**
+
+- **Q5: `tibble(x = c(4, 3, 5, 1, 2), y = c(2, 4, 3, 5, 1)) |> select(x)`?**
+
+- **Q6: `tibble(x = c(4, 3, 5, 1, 2), y = c(2, 4, 3, 5, 1)) |> select(y)`?**
+
+- **Q7: `tibble(x = c(4, 3, 5, 1, 2), y = c(2, 4, 3, 5, 1)) |> select(-x)`?**
+
+- **Q8: `tibble(x = c(4, 3, 5, 1, 2), y = c(2, 4, 3, 5, 1)) |> select(-x, -y)`?**
+
+- **Q9: `tibble(x = c(4, 3, 5, 1, 2)) |> mutate(x_dbl = 2*x)`?**
+
+- **Q10: `tibble(x = c(4, 3, 5, 1, 2)) |> mutate(x_dbl = 2 * x, x_qdr = 2*x_dbl)`?**
+
+- **Q11: `tibble(x = c(4, 3, 5, 1, 2)) |> summarise(x_mu = mean(x))`?**
+
+- **Q12: `tibble(x = c(4, 3, 5, 1, 2)) |> summarise(x_max = max(x))`?**
+
+- **Q13: `tibble(lbl = c("A", "A", "B", "B", "C"), x = c(4, NA, 5, 1, 2)) |> group_by(lbl) |> summarise(x_mu = mean(x), x_max = max(x))`?**
+
+- **Q14: `tibble(lbl = c("A", "A", "B", "B", "C"), x = c(4, 3, 5, 1, 2)) |> group_by(lbl) |> summarise(n = n())`?**
+
+- **Q15: `tibble(lbl = c("A", "A", "B", "B", "C"), x = c(4, 3, 5, 1, 2)) |> count(lbl)`?**
+
+In the following, return to these questions and your answers for reference on the `dplyr` verbs!
+
+## Load data
+
+Again, add a new header to your Quarto document, e.g. `## Load Data`, then:
+
+1. Go to the [Vanderbilt Biostatistics Datasets](https://hbiostat.org/data/) site
+1. Find **Diabetes data** and download the `diabetes.csv` file
+1. You should have a `data`-folder, if not, then in the `Files` pane, click the `New Folder` button, enter folder name `data` and click `ok`
+1. Now, click on the folder you created
+1. Click the ![](images/button_upload.png) `Upload`-button and navigate to the `diabetes.csv` file you downloaded
+1. Clicking the two dots `..` above the file you uploaded, look for ![](images/paths_dir_up.png) `..`, will take you one level up in your project path
+1. Insert a new code chunk in your Quarto document
+1. Add and then run the following code
+
+```{r}
+#| eval: false
+#| message: false
+diabetes_data <- read_csv(file = "data/diabetes.csv")
+diabetes_data
+```
+
+Then realise that we could simply have run the following code to do the exact same thing (Yes, `readr` is pretty nifty):
+
+```{r}
+#| echo: true
+#| eval: false
+# Create the data directory programmatically
+dir_create(path = "data")
+
+# Retrieve the data directly
+diabetes_data <- read_csv(file = "https://hbiostat.org/data/repo/diabetes.csv")
+
+# Write the data to disk
+write_csv(x = diabetes_data,
+          file = "data/diabetes.csv")
+```
+
+_Just remember the echo/eval trick from last session to avoid retrieving online data each time you render your Quarto document_
+
+## Work with the diabetes data set
+
+Use the pipe `|>` to use the `View()`-function to inspect the data set. Note, if you click the ![](images/button_view.png)-button, you will get a spreadsheet-like view of the data, allowing you to get an overview.
+
+- **Q1: How many observations and how many variables?**
+- **Q2: Is this a tidy data set? Which three rules must be satisfied?**
+- **Q3: When you run the chunk, then underneath each column name is stated `<chr>` and `<dbl>` what is that?**
+
+Before we continue
+
+- **T1: Change the `height`, `weight`, `waist` and `hip` from  inches/pounds to the metric system (cm/kg), rounding to 1 decimal**
+
+```{r}
+#| echo: false
+diabetes_data <- diabetes_data |>
+  mutate(height = round(height * 2.54, 1),
+         weight = round(weight * 0.453592, 1),
+         waist = round(waist * 2.54, 1),
+         hip = round(hip * 2.54, 1))
+```
+
+Let us try to take a closer look at the data by various subsetting (How many... is equal to the number of rows in the subset of the data you created):
+
+- **Q4: How many weigh less than 100kg?**
+- **Q5: How many weigh more than 100kg?**
+- **Q6: How many weigh more than 100kg and are less than 1.6m tall?**
+- **Q7: How many women are taller than 1.8m?**
+- **Q8: How many men are taller than 1.8m?**
+- **Q9: How many women in Louisa are older than 30?**
+- **Q10: How many men in Buckingham are younger than 30 and taller than 1.9m?**
+
+- **T2: Make a scatter plot of `weight` versus `height` and colour by sex for inhabitants of Louisa above the age of 40**
+- **T3: Make a boxplot of height versus location stratified on sex for people above the age of 50**
+
+Sorting columns can aid in getting an overview of variable ranges (don't use the summary function yet for this one)
+
+- **Q11: How old is the youngest person?**
+- **Q12: How old is the oldest person?**
+- **Q13: Of all the 20-year olds, what is the height of the tallest?**
+- **Q14: Of all the 20-year olds, what is the height of the shortest?**
+
+Choosing specific columns can be used to work with a subset of the data for a specific purpose
+
+- **Q15: How many columns (variables) `starts_with` a "b"?**
+- **Q16: How many columns (variables) `contains` the word "eight"?**
+
+Creating new variables is an integral part of data manipulation
+
+- **T4: Create a new variable, where you calculate the BMI**
+
+```{r}
+#| echo: false
+diabetes_data <- diabetes_data |> 
+  mutate(BMI = weight / (height / 100)^2)
+```
+
+- **T5: Create a `BMI_class` variable**
+
+*Take a look at the following code snippet to get you started:*
+
+```{r}
+#| echo: true
+#| eval: false
+tibble(x = rnorm(10)) |> 
+  mutate(trichotomised = case_when(x < -1 ~ "Less than -1",
+                                   -1 <= x & x < 1 ~ "larger than or equal to -1 and smaller than 1",
+                                   1 <= x ~ "Larger than or equal to 1"))
+```
+
+*and then go read about [BMI classification here](https://www.ncbi.nlm.nih.gov/books/NBK541070/) and discuss in your group how to extract classifications from the Definition/Introduction section*
+
+Note, the `cut()`-function could be used here, but you should try to use `case_when()` as illustrated in the example chunk above.
+
+```{r}
+#| echo: false
+diabetes_data <- diabetes_data |> 
+  mutate(BMI_class = case_when(BMI < 16.5 ~ "Severely underweight",
+                               16.5 <= BMI & BMI < 18.5 ~ "Underweight",
+                               18.5 <= BMI & BMI < 25.0 ~ "Normal weight",
+                               25.0 <= BMI & BMI < 30.0 ~ "Overweight",
+                               30.0 <= BMI & BMI < 35.0 ~ "Obesity class I",
+                               35.0 <= BMI & BMI < 40.0 ~ "Obesity class II",
+                               40.0 <= BMI ~ "Obesity class III"))
+```
+
+Once you have created the variable, you will need to convert it to a categorical variable, in `R`, these are called a `factor` and you can set the levels like so:
+
+```{r}
+diabetes_data <- diabetes_data |>
+  mutate(BMI_class = factor(BMI_class,
+                            levels =  c("my 1st category", "my 2nd category",
+                                        "my 3rd category", "my nth category")))
+```
+
+This is **very** important for plotting, as this will determine the order in which the categories appear on the plot!
+
+- **T6: Create a boxplot of `hdl` versus BMI_class**
+- **Q17: What do you see?**
+- **T7: Create a `BFP` (Body fat percentage) variable**
+
+<details>
+<p><summary>Click here for hint</summary></p>
+BFP can be calculated usin the below equation [source](https://www.nature.com/articles/0802006):
+
+$$BFP = 1.39 \cdot BMI + 0.16 \cdot age - 10.34 \cdot sex - 9$$
+
+Where $sex$ is defined as being $0$ for female and $1$ for male.
+</details>
+
+
+```{r}
+#| echo: false
+diabetes_data <- diabetes_data |> 
+  mutate(sex_class = case_when(gender == "female" ~ 0,
+                               gender == "male" ~ 1),
+         BFP = 1.39 * BMI + 0.16 * age - 10.34 * sex_class - 9,
+         WHR = waist / hip)
+```
+
+* **T8: Create a `WHR` (waist-to-hip ratio) variable**
+* **Q18: Which correlate better with `BMI`, `WHR` or `BFP`?** <span style="color: red;">GROUP ASSIGNMENT</span>
+
+<details>
+<p><summary>Click here for hint</summary></p>
+*Is there a certain plot-type, which can visualise if the relationship between two variables and give insights to if they are correlated? Can you perhaps use an `R`-function to compute the "correlation coefficient"?. Do not use e.g. `ggpubr`, use only `tidyverse` and `base`)*
+</details>
+ 
+Now, with this augmented data set, let us create some summary statistics
+
+- **Q19: How many women and men are there in the data set?**
+- **Q20: How many women and men are there from Buckingham and Louise respectively in the data set?**
+- **Q21: How many are in each of the `BMI_class` groups?**
+- **Q22: Given the code below, explain the difference between A and B?**
+
+```{r}
+#| eval: false
+# A
+diabetes_data |>
+  ggplot(aes(x = BMI_class)) +
+  geom_bar()
+
+# B
+diabetes_data |>
+  count(BMI_class) |>
+  ggplot(aes(x = BMI_class, y = n)) +
+  geom_col()
+```
+
+- **T9: For each `BMI_class` group, calculate the average weight and associated standard deviation**
+- **Q23: What was the average age of the women living in Buckingham in the study?**
+
+Finally, if you reach this point and there is still time left. Take some time to do some exploratory plots of the data set and see if you can find something interesting.

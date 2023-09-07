@@ -15,6 +15,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -56,6 +119,7 @@ ul.task-list{list-style: none;}
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -180,7 +244,7 @@ ul.task-list{list-style: none;}
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paths_and_projects.html" class="sidebar-item-text sidebar-link">Paths &amp; Projects</a>
+  <a href="./paths_and_projects.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Paths &amp; Projects</span></a>
   </div>
 </li>
       </ul>
@@ -218,6 +282,15 @@ ul.task-list{list-style: none;}
   <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
   <li><a href="#learning-materials" id="toc-learning-materials" class="nav-link" data-scroll-target="#learning-materials">Learning Materials</a></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#sec-exercises" id="toc-sec-exercises" class="nav-link" data-scroll-target="#sec-exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  <li><a href="#brief-refresh-of-quarto-so-far" id="toc-brief-refresh-of-quarto-so-far" class="nav-link" data-scroll-target="#brief-refresh-of-quarto-so-far">Brief refresh of Quarto so far</a></li>
+  <li><a href="#a-few-handy-short-cuts" id="toc-a-few-handy-short-cuts" class="nav-link" data-scroll-target="#a-few-handy-short-cuts">A few handy short cuts</a></li>
+  </ul></li>
+  <li><a href="#a-few-initial-questions" id="toc-a-few-initial-questions" class="nav-link" data-scroll-target="#a-few-initial-questions">A few initial questions</a></li>
+  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data">Load data</a></li>
+  <li><a href="#work-with-the-diabetes-data-set" id="toc-work-with-the-diabetes-data-set" class="nav-link" data-scroll-target="#work-with-the-diabetes-data-set">Work with the diabetes data set</a></li>
   </ul>
 </nav>
     </div>
@@ -249,18 +322,23 @@ ul.task-list{list-style: none;}
 <li><a href="https://dplyr.tidyverse.org">dplyr</a></li>
 <li><a href="https://readr.tidyverse.org">readr</a></li>
 <li><a href="https://tibble.tidyverse.org">tibble</a></li>
-<li><a href="https://magrittr.tidyverse.org">magrittr</a></li>
 </ul>
 </section>
 <section id="schedule" class="level2">
 <h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
-<p>08.00 - 08.15: Recap of Lab 3 08.15 - 08.30: Assignment 2 walk-through 08.30 - 09.00: Introduction to Lab 4 09.00 - 09.15: Break 09.00 - 12.00: Exercises</p>
+<ul>
+<li>08.00 - 08.15: Recap of Lab 3</li>
+<li>08.15 - 08.30: Assignment 2 walk-through</li>
+<li>08.30 - 09.00: Introduction to Lab 4</li>
+<li>09.00 - 09.15: Break</li>
+<li>09.00 - 12.00: <a href="#sec-exercises">Exercises</a></li>
+</ul>
 </section>
 <section id="learning-materials" class="level2">
 <h2 class="anchored" data-anchor-id="learning-materials">Learning Materials</h2>
 <p><em>Please prepare the following materials:</em></p>
 <ul>
-<li>Book: R4DS chapters 2, 7, 5, 9, 10, 11, 12.1-12.2</li>
+<li>R4DS2e book: <a href="https://r4ds.hadley.nz/data-transform">Chapter 4</a>, <a href="https://r4ds.hadley.nz/workflow-style">chapter 5</a>, <a href="https://r4ds.hadley.nz/data-import">chapter 8</a>, <a href="https://r4ds.hadley.nz/workflow-help">chapter 9</a></li>
 <li>Web: <a href="https://www.youtube.com/watch?v=jOd65mR1zfw">What is data wrangling? Intro, Motivation, Outline, Setup – Pt. 1 Data Wrangling Introduction</a></li>
 <li>Web: (NB! STOP at 7:45, i.e.&nbsp;skip tidyr) <a href="https://www.youtube.com/watch?v=1ELALQlO-yM">Tidy Data and tidyr – Pt 2 Intro to Data Wrangling with R and the Tidyverse</a></li>
 <li>Web: <a href="https://www.youtube.com/watch?v=Zc_ufg4uW4U">Data Manipulation Tools: dplyr – Pt 3 Intro to the Grammar of Data Manipulation with R</a></li>
@@ -270,12 +348,273 @@ ul.task-list{list-style: none;}
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 <p><em>A student who has met the objectives of the session will be able to:</em></p>
 <ul>
-<li>Understand and apply the 6 basic dplyr verbs: <code>filter()</code>, arrange(), select(), mutate(), summarise() and group_by()</li>
-<li>Construct and apply logical tests in context with dplyr pipelines</li>
-<li>Understand and apply the additional verbs count(), drop_na(), View()</li>
-<li>Combine dplyr verbs to form a data manipulation pipeline using the pipe %&gt;% operator</li>
-<li>Decipher the components and functions hereof in a dplyr pipeline</li>
+<li>Understand and apply the 6 basic dplyr verbs: <code>filter()</code>, <code>arrange()</code>, <code>select()</code>, <code>mutate()</code>, <code>summarise()</code> and <code>group_by()</code></li>
+<li>Construct and apply logical statements in context with <code>dplyr</code> pipelines</li>
+<li>Understand and apply the additional verbs <code>count()</code>, <code>drop_na()</code>, <code>View()</code></li>
+<li>Combine dplyr verbs to form a data manipulation pipeline using the pipe <code>|&gt;</code> operator</li>
+<li>Decipher the components and functions hereof in a <code>dplyr</code> pipeline</li>
 </ul>
+</section>
+<section id="sec-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="sec-exercises">Exercises</h2>
+<div class="cell">
+
+</div>
+<p><em>Important: As we progress, avoid using black-box do-everything-with-one-command R-packages like e.g.&nbsp;<code>ggpubr</code> - I want you to learn the underlying technical bio data science! …and why is that? Because if you use these type of packages, you will be limited to their functionality, whereas if you truly understand ggplot - The sky is the limit! Basically, it the cliché that “If you give a man a fish, you feed him for a day. If you teach a man to fish, you feed him for a lifetime”</em></p>
+<section id="getting-started" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started">Getting Started</h3>
+<p>Again, go to the <a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science RStudio Cloud Server</a> session from last time and login and choose the project you created. First things first:</p>
+<ul>
+<li>Create a new Quarto Document for todays exercises, e.g.&nbsp;<code>lab04_exercises.qmd</code></li>
+</ul>
+<p>Note that: - The Quarto document MUST be placed together with your <code>.Rproj</code> file (defining, the project root - look in your <code>Files</code>-pane) and also there, the <code>data</code>-folder should be placed!</p>
+<p><em>Understanding how paths and projects work is important. In case this is no entirely clear, a new chapter has been added on Paths and Projects.</em></p>
+</section>
+<section id="brief-refresh-of-quarto-so-far" class="level3">
+<h3 class="anchored" data-anchor-id="brief-refresh-of-quarto-so-far">Brief refresh of Quarto so far</h3>
+<p>Recall the syntax for a new code chunk, where all your <code>R</code> code goes any text and notes must be <em>outside</em> the chunk tags:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Here the code goes</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2
+[1] 2</code></pre>
+</div>
+</div>
+<p>Outside the code-chunks, go our markdown, e.g.:</p>
+<pre><code>  # Header level 1
+  ## Header level 2
+  ### Header level 3
+  *A text in italics*
+  **A text in bold**
+  Normal text describing and explaining</code></pre>
+<p>Now, in your new Quarto document, create a new <code>Header level 2</code>, e.g.:</p>
+<pre><code>  ## Load Libraries</code></pre>
+<p>and under your new header, add a new code chunk, like so</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And run the chunk. This will load our data science toolbox, including <code>dplyr</code> (and <code>ggplot</code>). But wait, what does the <code>#| message: false</code>-part do? 🤷️ 🤔</p>
+<p><strong>Try to structure your Rmarkdown document as your course notes, i.e.&nbsp;add notes while solving the exercises aiming at creating a revisitable reference for your final project work</strong></p>
+<p>Bonus info: We are engineers, so of course, we love equations, we can include standard <span class="math inline">\(\LaTeX\)</span> syntax, e.g.:</p>
+<pre><code>  $E(x) = \frac{1}{n} \cdot \sum_{i=1}^{n} x_{i}$</code></pre>
+<p>Try it!</p>
+</section>
+<section id="a-few-handy-short-cuts" class="level3">
+<h3 class="anchored" data-anchor-id="a-few-handy-short-cuts">A few handy short cuts</h3>
+<p>Insert new code chunk:</p>
+<ul>
+<li>Mac: CTRL + OPTION + i</li>
+<li>Windows: CTRL + OPTION + i</li>
+</ul>
+<p>Render my Quarto document</p>
+<ul>
+<li>Mac: CMD + SHIFT + k</li>
+<li>Win: CTRL + SHIFT + k</li>
+</ul>
+<p>Run line in chunk</p>
+<ul>
+<li>Mac: CMD + ENTER</li>
+<li>Win: CTRL + ENTER</li>
+</ul>
+<p>Run entire chunk</p>
+<ul>
+<li>Mac: CMD + SHIFT + ENTER</li>
+<li>Win: CTRL + SHIFT + ENTER</li>
+</ul>
+<p>Insert the pipe symbol <code>|&gt;</code></p>
+<ul>
+<li>Mac: CMD + SHIFT + m</li>
+<li>Win: CTRL + SHIFT + m</li>
+</ul>
+<p><em>Note, if you’re trying this out and you see <code>%&gt;%</code> instead of <code>|&gt;</code>, then go to <code>Tools</code>, <code>Global Options...</code>, <code>Code</code> and check the box <code>Use native pipeoperator</code></em></p>
+</section>
+</section>
+<section id="a-few-initial-questions" class="level2">
+<h2 class="anchored" data-anchor-id="a-few-initial-questions">A few initial questions</h2>
+<p>First, if you don’t feel completely comfortable with the <code>group_by |&gt; summarise</code>-workflow, then no worries - Feel free to visit this short <a href="https://www.youtube.com/watch?v=zAlbrPozMHI">R Tutorial: Grouping and summarizing</a></p>
+<p>Then, in your groups, discuss the following primer questions. Note, when asked for <em>“what is the output”</em>, do not run the code in the console, instead try to <strong>talk and think about it</strong> and write your answers and notes in your Quarto document for the day:</p>
+<p>First, in a new chunk, run <code>tibble(x = c(4, 3, 5, 1, 2))</code>, so you understand what it does, then - Discuss in your group, what is the output of, remember first talk, then check understanding by running code:</p>
+<ul>
+<li><p><strong>Q1: <code>tibble(x = c(4, 3, 5, 1, 2)) |&gt; filter(x &gt; 2)</code>?</strong></p></li>
+<li><p><strong>Q2: <code>tibble(x = c(4, 3, 5, 1, 2)) |&gt; arrange(x)</code>?</strong></p></li>
+<li><p><strong>Q3: <code>tibble(x = c(4, 3, 5, 1, 2)) |&gt; arrange(desc(x))</code>?</strong></p></li>
+<li><p><strong>Q4: <code>tibble(x = c(4, 3, 5, 1, 2)) |&gt; arrange(desc(desc(x)))</code>?</strong></p></li>
+<li><p><strong>Q5: <code>tibble(x = c(4, 3, 5, 1, 2), y = c(2, 4, 3, 5, 1)) |&gt; select(x)</code>?</strong></p></li>
+<li><p><strong>Q6: <code>tibble(x = c(4, 3, 5, 1, 2), y = c(2, 4, 3, 5, 1)) |&gt; select(y)</code>?</strong></p></li>
+<li><p><strong>Q7: <code>tibble(x = c(4, 3, 5, 1, 2), y = c(2, 4, 3, 5, 1)) |&gt; select(-x)</code>?</strong></p></li>
+<li><p><strong>Q8: <code>tibble(x = c(4, 3, 5, 1, 2), y = c(2, 4, 3, 5, 1)) |&gt; select(-x, -y)</code>?</strong></p></li>
+<li><p><strong>Q9: <code>tibble(x = c(4, 3, 5, 1, 2)) |&gt; mutate(x_dbl = 2*x)</code>?</strong></p></li>
+<li><p><strong>Q10: <code>tibble(x = c(4, 3, 5, 1, 2)) |&gt; mutate(x_dbl = 2 * x, x_qdr = 2*x_dbl)</code>?</strong></p></li>
+<li><p><strong>Q11: <code>tibble(x = c(4, 3, 5, 1, 2)) |&gt; summarise(x_mu = mean(x))</code>?</strong></p></li>
+<li><p><strong>Q12: <code>tibble(x = c(4, 3, 5, 1, 2)) |&gt; summarise(x_max = max(x))</code>?</strong></p></li>
+<li><p><strong>Q13: <code>tibble(lbl = c("A", "A", "B", "B", "C"), x = c(4, NA, 5, 1, 2)) |&gt; group_by(lbl) |&gt; summarise(x_mu = mean(x), x_max = max(x))</code>?</strong></p></li>
+<li><p><strong>Q14: <code>tibble(lbl = c("A", "A", "B", "B", "C"), x = c(4, 3, 5, 1, 2)) |&gt; group_by(lbl) |&gt; summarise(n = n())</code>?</strong></p></li>
+<li><p><strong>Q15: <code>tibble(lbl = c("A", "A", "B", "B", "C"), x = c(4, 3, 5, 1, 2)) |&gt; count(lbl)</code>?</strong></p></li>
+</ul>
+<p>In the following, return to these questions and your answers for reference on the <code>dplyr</code> verbs!</p>
+</section>
+<section id="load-data" class="level2">
+<h2 class="anchored" data-anchor-id="load-data">Load data</h2>
+<p>Again, add a new header to your Quarto document, e.g.&nbsp;<code>## Load Data</code>, then:</p>
+<ol type="1">
+<li>Go to the <a href="https://hbiostat.org/data/">Vanderbilt Biostatistics Datasets</a> site</li>
+<li>Find <strong>Diabetes data</strong> and download the <code>diabetes.csv</code> file</li>
+<li>You should have a <code>data</code>-folder, if not, then in the <code>Files</code> pane, click the <code>New Folder</code> button, enter folder name <code>data</code> and click <code>ok</code></li>
+<li>Now, click on the folder you created</li>
+<li>Click the <img src="images/button_upload.png" class="img-fluid"> <code>Upload</code>-button and navigate to the <code>diabetes.csv</code> file you downloaded</li>
+<li>Clicking the two dots <code>..</code> above the file you uploaded, look for <img src="images/paths_dir_up.png" class="img-fluid"> <code>..</code>, will take you one level up in your project path</li>
+<li>Insert a new code chunk in your Quarto document</li>
+<li>Add and then run the following code</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>diabetes_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/diabetes.csv"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>diabetes_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then realise that we could simply have run the following code to do the exact same thing (Yes, <code>readr</code> is pretty nifty):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the data directory programmatically</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="at">path =</span> <span class="st">"data"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve the data directly</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>diabetes_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"https://hbiostat.org/data/repo/diabetes.csv"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the data to disk</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="at">x =</span> diabetes_data,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">file =</span> <span class="st">"data/diabetes.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Just remember the echo/eval trick from last session to avoid retrieving online data each time you render your Quarto document</em></p>
+</section>
+<section id="work-with-the-diabetes-data-set" class="level2">
+<h2 class="anchored" data-anchor-id="work-with-the-diabetes-data-set">Work with the diabetes data set</h2>
+<p>Use the pipe <code>|&gt;</code> to use the <code>View()</code>-function to inspect the data set. Note, if you click the <img src="images/button_view.png" class="img-fluid">-button, you will get a spreadsheet-like view of the data, allowing you to get an overview.</p>
+<ul>
+<li><strong>Q1: How many observations and how many variables?</strong></li>
+<li><strong>Q2: Is this a tidy data set? Which three rules must be satisfied?</strong></li>
+<li><strong>Q3: When you run the chunk, then underneath each column name is stated <code>&lt;chr&gt;</code> and <code>&lt;dbl&gt;</code> what is that?</strong></li>
+</ul>
+<p>Before we continue</p>
+<ul>
+<li><strong>T1: Change the <code>height</code>, <code>weight</code>, <code>waist</code> and <code>hip</code> from inches/pounds to the metric system (cm/kg), rounding to 1 decimal</strong></li>
+</ul>
+<div class="cell">
+
+</div>
+<p>Let us try to take a closer look at the data by various subsetting (How many… is equal to the number of rows in the subset of the data you created):</p>
+<ul>
+<li><p><strong>Q4: How many weigh less than 100kg?</strong></p></li>
+<li><p><strong>Q5: How many weigh more than 100kg?</strong></p></li>
+<li><p><strong>Q6: How many weigh more than 100kg and are less than 1.6m tall?</strong></p></li>
+<li><p><strong>Q7: How many women are taller than 1.8m?</strong></p></li>
+<li><p><strong>Q8: How many men are taller than 1.8m?</strong></p></li>
+<li><p><strong>Q9: How many women in Louisa are older than 30?</strong></p></li>
+<li><p><strong>Q10: How many men in Buckingham are younger than 30 and taller than 1.9m?</strong></p></li>
+<li><p><strong>T2: Make a scatter plot of <code>weight</code> versus <code>height</code> and colour by sex for inhabitants of Louisa above the age of 40</strong></p></li>
+<li><p><strong>T3: Make a boxplot of height versus location stratified on sex for people above the age of 50</strong></p></li>
+</ul>
+<p>Sorting columns can aid in getting an overview of variable ranges (don’t use the summary function yet for this one)</p>
+<ul>
+<li><strong>Q11: How old is the youngest person?</strong></li>
+<li><strong>Q12: How old is the oldest person?</strong></li>
+<li><strong>Q13: Of all the 20-year olds, what is the height of the tallest?</strong></li>
+<li><strong>Q14: Of all the 20-year olds, what is the height of the shortest?</strong></li>
+</ul>
+<p>Choosing specific columns can be used to work with a subset of the data for a specific purpose</p>
+<ul>
+<li><strong>Q15: How many columns (variables) <code>starts_with</code> a “b”?</strong></li>
+<li><strong>Q16: How many columns (variables) <code>contains</code> the word “eight”?</strong></li>
+</ul>
+<p>Creating new variables is an integral part of data manipulation</p>
+<ul>
+<li><strong>T4: Create a new variable, where you calculate the BMI</strong></li>
+</ul>
+<div class="cell">
+
+</div>
+<ul>
+<li><strong>T5: Create a <code>BMI_class</code> variable</strong></li>
+</ul>
+<p><em>Take a look at the following code snippet to get you started:</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trichotomised =</span> <span class="fu">case_when</span>(x <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">"Less than -1"</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="sc">-</span><span class="dv">1</span> <span class="sc">&lt;=</span> x <span class="sc">&amp;</span> x <span class="sc">&lt;</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"larger than or equal to -1 and smaller than 1"</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                                   <span class="dv">1</span> <span class="sc">&lt;=</span> x <span class="sc">~</span> <span class="st">"Larger than or equal to 1"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>and then go read about <a href="https://www.ncbi.nlm.nih.gov/books/NBK541070/">BMI classification here</a> and discuss in your group how to extract classifications from the Definition/Introduction section</em></p>
+<p>Note, the <code>cut()</code>-function could be used here, but you should try to use <code>case_when()</code> as illustrated in the example chunk above.</p>
+<div class="cell">
+
+</div>
+<p>Once you have created the variable, you will need to convert it to a categorical variable, in <code>R</code>, these are called a <code>factor</code> and you can set the levels like so:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>diabetes_data <span class="ot">&lt;-</span> diabetes_data <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">BMI_class =</span> <span class="fu">factor</span>(BMI_class,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">levels =</span>  <span class="fu">c</span>(<span class="st">"my 1st category"</span>, <span class="st">"my 2nd category"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"my 3rd category"</span>, <span class="st">"my nth category"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This is <strong>very</strong> important for plotting, as this will determine the order in which the categories appear on the plot!</p>
+<ul>
+<li><strong>T6: Create a boxplot of <code>hdl</code> versus BMI_class</strong></li>
+<li><strong>Q17: What do you see?</strong></li>
+<li><strong>T7: Create a <code>BFP</code> (Body fat percentage) variable</strong></li>
+</ul>
+<details>
+<p>
+</p><summary>
+Click here for hint
+</summary>
+<p></p>
+<p>BFP can be calculated usin the below equation <a href="https://www.nature.com/articles/0802006">source</a>:</p>
+<p><span class="math display">\[BFP = 1.39 \cdot BMI + 0.16 \cdot age - 10.34 \cdot sex - 9\]</span></p>
+Where <span class="math inline">\(sex\)</span> is defined as being <span class="math inline">\(0\)</span> for female and <span class="math inline">\(1\)</span> for male.
+</details>
+<div class="cell">
+
+</div>
+<ul>
+<li><strong>T8: Create a <code>WHR</code> (waist-to-hip ratio) variable</strong></li>
+<li><strong>Q18: Which correlate better with <code>BMI</code>, <code>WHR</code> or <code>BFP</code>?</strong> <span style="color: red;">GROUP ASSIGNMENT</span></li>
+</ul>
+<details>
+<p>
+</p><summary>
+Click here for hint
+</summary>
+<p></p>
+<em>Is there a certain plot-type, which can visualise if the relationship between two variables and give insights to if they are correlated? Can you perhaps use an <code>R</code>-function to compute the “correlation coefficient”?. Do not use e.g.&nbsp;<code>ggpubr</code>, use only <code>tidyverse</code> and <code>base</code>)</em>
+</details>
+<p>Now, with this augmented data set, let us create some summary statistics</p>
+<ul>
+<li><strong>Q19: How many women and men are there in the data set?</strong></li>
+<li><strong>Q20: How many women and men are there from Buckingham and Louise respectively in the data set?</strong></li>
+<li><strong>Q21: How many are in each of the <code>BMI_class</code> groups?</strong></li>
+<li><strong>Q22: Given the code below, explain the difference between A and B?</strong></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>diabetes_data <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> BMI_class)) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># B</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>diabetes_data <span class="sc">|&gt;</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(BMI_class) <span class="sc">|&gt;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> BMI_class, <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><strong>T9: For each <code>BMI_class</code> group, calculate the average weight and associated standard deviation</strong></li>
+<li><strong>Q23: What was the average age of the women living in Buckingham in the study?</strong></li>
+</ul>
+<p>Finally, if you reach this point and there is still time left. Take some time to do some exploratory plots of the data set and see if you can find something interesting.</p>
 
 
 </section>
