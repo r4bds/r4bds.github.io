@@ -41,11 +41,13 @@ curl_download(url = str_c(base_url,
 
 **Principles:**
 
+- Quote the packages you load using the `library`-function
 - Use the proper variable assignment in `R`, namely `<-`
 - Stay within 80 characters width. Note, you can set a "help line": `Tools` $\rightarrow$ `Global Options...` $\rightarrow$ `Code` $\rightarrow$ `Display` $\rightarrow$ `Show margin` $\rightarrow$ `Margin column: 80`
 - Use double quotes. This is for consistency with other languages
 - Tab out parameters of functions
 - Do line breaks after commas
+- Do one space on each side of `=`, when assigning arguments to parameters, e.g. `my_function(parameter_1 = argument_1)`, etc.
 - Match indentations, this RStudio will do for you in most cases
 
 Ok, a bit of data wrangling:

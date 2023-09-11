@@ -215,7 +215,15 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#assignment-instructions" id="toc-assignment-instructions" class="nav-link active" data-scroll-target="#assignment-instructions">Assignment Instructions</a></li>
+  <li><a href="#how-to-hand-in" id="toc-how-to-hand-in" class="nav-link" data-scroll-target="#how-to-hand-in">How to hand in</a></li>
+  <li><a href="#assignment-checklist" id="toc-assignment-checklist" class="nav-link" data-scroll-target="#assignment-checklist">Assignment Checklist</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -236,13 +244,23 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<p>As part of this course, starting from Lab 2, there will be a weekly hand in. The assignment will be noted with red in the exercises. In your group, you are to prepare a answer to just this one question. Think about reproducibility from the get-go, so include in the answer, what is needed to re-create the small report, e.g.&nbsp;if you’re using external data, from where and how did you get it? You will then receive group feedback on your answer, which you should make sure to go over in your group.</p>
-<ul>
+<p><em>As part of this course, starting from Lab 2, there will be a weekly hand in. Here, follows the instructions for creating and handing in course assignments.</em></p>
+<section id="assignment-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-instructions">Assignment Instructions</h2>
+<p>The assignment will be marked “Group Assignment” with red font in the exercises. In your group, you are to prepare an answer to <strong>just this one question</strong>. Think about reproducibility from the get-go, so include in your assignment, what is needed to re-create your micro-report, e.g.&nbsp;if you’re using external data, from where and how did you get it? You will then receive group feedback on your assignment, which you should make sure to go over in your group.</p>
+</section>
+<section id="how-to-hand-in" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-hand-in">How to hand in</h2>
+<ol type="1">
+<li>Check that your assignment conforms to the assignment checklist, as defined in the next section</li>
 <li>Go to <a href="http://learn.inside.dtu.dk">DTU Learn</a></li>
-<li>Find and click in on the <code>R for Bio Data Science</code> course</li>
-</ul>
-<p>Here, you will need to enroll in appropriate groups as defined by the Group Formation Sheet, see the Getting Started Section. In case groups consists of a mix of BSc. and MSc. students, then enroll under your respective courses. Please note, that the google sheet defines the group numbers!</p>
-<p>You should hand in the rendered html file. Please note, that in order to include all elements in a self-contained html file, you will have to use the following YAML-header in your Quarto document:</p>
+<li>Find and click your <code>R for Bio Data Science</code> course</li>
+<li>Make sure you are enrolled in the correct group, as defined by the Group Formation Sheet (see the <a href="./getting_started.html">Getting Started Section</a>)</li>
+<li>In case groups consists of a mix of BSc. and MSc. students, then enroll under your respective courses</li>
+<li>Only hand in <strong>one</strong> assignment, meaning either under the BSc. or the MSc. course, <strong>not</strong> both</li>
+<li>You should hand in the rendered html file, make sure to compress your html file prior to upload</li>
+</ol>
+<p><em>Please note, that in order to include all elements in a self-contained html file, you will have to use the following YAML-header in your Quarto document:</em></p>
 <pre><code>---
 title: "Lab 2 Assignment: Group 02"
 format:
@@ -250,11 +268,28 @@ format:
     embed-resources: true
 editor: visual
 ---</code></pre>
-<p>Or at least one similar, format title and other elements as you see fit, key here is the <code>html</code>-format with embedded resources.</p>
-<p>Lastly, make sure to compress your html file prior to upload! DTU Learn does “something” to the <code>html</code>-file, but we can bypass this by compressing.</p>
-<p>Enjoy!</p>
+<p><em>Or at least one similar, format title and other elements as you see fit, key here is the <code>html</code>-format with embedded resources.</em></p>
+</section>
+<section id="assignment-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-checklist">Assignment Checklist</h2>
+<p>Did you?</p>
+<ul>
+<li>Just answer the one task marked as “Group Assignment”</li>
+<li>Create the assignment using Quarto</li>
+<li>Modify the YAML-header to ensure encapsulation</li>
+<li>Include Group number, names and student ids</li>
+<li>Use proper markdown headers as defined by <code>#</code>, <code>##</code>, <code>###</code></li>
+<li>Write a few sentences under each section</li>
+<li>Separate text clearly from code chunks</li>
+<li>Follow <a href="./code_styling.html">course code styling</a></li>
+<li>Think about reproducibility with respect to data and libraries?</li>
+<li>Render til html</li>
+<li>Compress before upload to DTU Learn</li>
+<li>Match your group number with DTU Learn groups</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

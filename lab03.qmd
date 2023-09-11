@@ -75,10 +75,12 @@ Add a new code chunk and add the following code (Never mind the details, we will
 base_url <- "http://userweb.eng.gla.ac.uk/umer.ijaz/bioinformatics/ecological/"
 
 SPE <- read_csv(file = str_c(base_url, "SPE_pitlatrine.csv"))
-write_csv(x = SPE, file = "data/SPE_pitlatrine.csv")
+write_csv(x = SPE,
+          file = "data/SPE_pitlatrine.csv")
 
 ENV <- read_csv(file = str_c(base_url, "ENV_pitlatrine.csv"))
-write_csv(x = ENV, file = "data/ENV_pitlatrine.csv")
+write_csv(x = ENV,
+          file = "data/ENV_pitlatrine.csv")
 ```
 
 Add the chunk settings `#| echo: true` and `#| eval: true`, then run the block and change the latter to `#| eval: false`.
