@@ -1,9 +1,3 @@
 # Resources {.unnumbered}
 
-*Here, you will find various valuable resources, to aid your bio data science workflow*
-
-- A very handy `ggplot` cheat-sheet can be found [here](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
-- So which plot to choose? Check this handy [guide](https://www.data-to-viz.com/)
-- Explore ways of plotting [here](https://www.r-graph-gallery.com/)
-- There is a nice tool to aid in choosing colours for visualisations [here](https://www.sessions.edu/color-calculator/)
-- The [Posit community](https://community.rstudio.com) pages is a very nice place to get help if you're stuck
+Various resources pertaining to the course

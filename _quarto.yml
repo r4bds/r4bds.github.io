@@ -32,15 +32,18 @@ book:
         - lab08.qmd
         - lab09.qmd
         - lab10.qmd
-    - part: background.qmd
+
+    - part: resources.qmd
       chapters: 
         - paths_and_projects.qmd
         - code_styling.qmd
-        
-    - assignments.qmd
-    - project_faq.qmd
-    - exam.qmd
-    - resources.qmd
+        - external_resources.qmd
+
+    - part: course_elements.qmd
+      chapters: 
+        - assignments.qmd
+        - project_faq.qmd
+        - exam.qmd
 
 format:
   html:

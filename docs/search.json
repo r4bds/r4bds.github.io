@@ -420,11 +420,11 @@
     "text": "Mini Symposium: Applications of R for Bio Data Science in Industry\nThis mini symposium on Applications of R for Bio Data Science in Industry aims to give students a glimpse into how modern data science is transforming value creation in the pharmaceutical industry and healthcare sector.\n\n2023\n\nCompanies Represented\n\nTBA\n\n\n\nSpeaker List\n\nTBA\n\n\n\n\n2022\n\nCompanies Represented\n\nAbzu\nBristol Myers Squibb\nClinical Microbiomics\nNovo Nordisk Bioinformatics\nNovo Nordisk Biostatistics\nSteno Diabetes Center Copenhagen\n\n\n\nSpeaker List\n\nAndrea Marquard, Head of Data Science and Automation, Clinical Microbiomics: “How we use internal R packages, and why you should learn to make one”\nAnders Gorst-Rasmussen, Statistical Director, Novo Nordisk Biostatistics, Novo Nordisk: “How we use R in Novo Nordisk Biostatistics”\nAnne-Mette Bjerregaard, Senior Scientist in Computational Biology, Novo Nordisk: “The Evolution of a Computational Biologist”\nSam Demharter, Bioinformatics Specialist, Abzu: “Explainable AI in Precision Medicine - Closing the Loop from Patient to Drug”\nLykke Pedersen, Head of RNA Therapeutics, Abzu: “Explainable AI in Precision Medicine - Closing the Loop from Patient to Drug”\nSimon Papillon-Cavanagh, Principal Scientist, Bristol Myers Squibb (USA): “A Career Built on Mistakes”\nSofie Olund Villumsen, Bioinformatician, Steno Diabetes Center Copenhagen: “Using R for Data Analysis in Clinical Studies”\nTarun Veer Singh Ahluwalia, Assoc. Prof., Steno Diabetes Center Copenhagen: “Using R for Data Analysis in Clinical Studies”\n\n\n\n\n2021\n\nCompanies Represented\n\nAbzu\nALK\nChr. Hansen\nLundbeck\nNovozymes\nTeraData\n\n\n\nSpeaker List\n\nSamuel Demharter, Senior Bioinformatician, Abzu\nLykke Pedersen, Senior Bioinformatician, Abzu\nMarie-Catherine Le Bihan, Senior Data Scientist, Chr. Hansen\nThomas Strantzl, Head of Bioinformatics, ALK\nMaria Dalby, Postdoctoral Researcher, Lundbeck\nThomas Poulsen, Science Manager, Novozymes\nMikkel Freltoft Krogsholm, Team lead, Senior Data Scientist, TeraData"
   },
   {
-    "objectID": "background.html",
-    "href": "background.html",
-    "title": "Background",
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
     "section": "",
-    "text": "This chapter provides additional background information"
+    "text": "Various resources pertaining to the course"
   },
   {
     "objectID": "paths_and_projects.html",
@@ -502,6 +502,62 @@
     "title": "Code Styling",
     "section": "So, how should we style the code?",
     "text": "So, how should we style the code?\nIn this course, we will use principles from the The tidyverse style guide. At first, it may seem constraining, but you will quickly get used to it and then it will be easier moving forward. Note, for your project, being able to review consistant code, will save you valuable time!\nRecall the cancer_data (gravier) dataset, we worked with:\n\nlibrary(\"tidyverse\")\nlibrary(\"curl\")\nbase_url <- \"https://github.com/\"\ntarget_file <- \"ramhiser/datamicroarray/raw/master/data/gravier.RData\"\noutput_file <- \"data/gravier.RData\"\ncurl_download(url = str_c(base_url,\n                          target_file),\n              destfile = output_file)\n\nPrinciples:\n\nQuote the packages you load using the library-function\nUse the proper variable assignment in R, namely <-\nStay within 80 characters width. Note, you can set a “help line”: Tools \\(\\rightarrow\\) Global Options... \\(\\rightarrow\\) Code \\(\\rightarrow\\) Display \\(\\rightarrow\\) Show margin \\(\\rightarrow\\) Margin column: 80\nUse double quotes. This is for consistency with other languages\nTab out parameters of functions\nDo line breaks after commas\nDo one space on each side of =, when assigning arguments to parameters, e.g. my_function(parameter_1 = argument_1), etc.\nMatch indentations, this RStudio will do for you in most cases\n\nOk, a bit of data wrangling:\n\nload(file = \"data/gravier.RData\")\ncancer_data <- gravier |> \n  bind_cols() |> \n  rename(early_metastasis = y) |> \n  mutate(pt_id = str_c(\"pt_\", row_number()),\n         pt_has_early_metastasis = case_when(\n    early_metastasis == \"good\" ~ \"No\",\n    early_metastasis == \"poor\" ~ \"Yes\"))\n\nPrinciples:\n\nLine break after each pipe |>, recall we prononuce the pipe as “then”\nLine break after commas inside functions, such as here with mutate()\nIf the line in mutate() becomes wide, then consider using a single linebreak after opening the function call\nuse proper descriptive variable names in snake case like pt_has_early_metastasis, there is no overhead in understanding what this variable means\n\nLet’s do a simple plot:\n\ncancer_data |>\n  ggplot(aes(x = early_metastasis,\n             y = g8A08)) +\n  geom_hline(yintercept = 0,\n             linetype = \"dashed\") +\n  geom_boxplot() +\n  scale_y_continuous(limits = c(-0.5, 0.5)) +\n  theme_bw() +\n  labs(x = \"Early Metastasis\")\n\n\n\n\nPrinciples:\n\nLinebreak after +, just like with the pipe\nSpace after comma inside a vector, like when we define the limits\n\nDo it - It’ll be fun and it does not take a long time to adapt!"
+  },
+  {
+    "objectID": "external_resources.html",
+    "href": "external_resources.html",
+    "title": "External Resources",
+    "section": "",
+    "text": "Here, you will find various valuable resources, to aid your bio data science workflow"
+  },
+  {
+    "objectID": "external_resources.html#a-few-quick-ones",
+    "href": "external_resources.html#a-few-quick-ones",
+    "title": "External Resources",
+    "section": "A few quick ones…",
+    "text": "A few quick ones…\n\nA very handy ggplot cheat-sheet can be found here\nSo which plot to choose? Check this handy guide\nExplore ways of plotting here\nThere is a nice tool to aid in choosing colours for visualisations here\nThe Posit community pages is a very nice place to get help if you’re stuck"
+  },
+  {
+    "objectID": "external_resources.html#open-source-data-science-books",
+    "href": "external_resources.html#open-source-data-science-books",
+    "title": "External Resources",
+    "section": "Open source data science books",
+    "text": "Open source data science books\n\nHands-On Programming with R by Garrett Grolemund\nStatistical Inference via Data Science - A moderndive into R and the tidyverse by Chester Ismay and Albert Y. Kim\nIntroduction to Data Science, Data Analysis and Prediction Algorithms with R by Rafael A. Irizarry\nMastering Shiny by Hadley Wickham\nAn Introduction to Statistical Learning with Applications in R by Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani\nSTAT 545 - Data wrangling, exploration, and analysis with R by Jenny Bryan\nHappy Git and GitHub for the useR by Jenny Bryan, the STAT 545 TAs, Jim Hester"
+  },
+  {
+    "objectID": "external_resources.html#software-links",
+    "href": "external_resources.html#software-links",
+    "title": "External Resources",
+    "section": "Software Links",
+    "text": "Software Links\n\nThe R Project for Statistical Computing\nRStudio - Open Source and Enterprise-ready professional software for R\nTidyverse website"
+  },
+  {
+    "objectID": "external_resources.html#some-useful-links",
+    "href": "external_resources.html#some-useful-links",
+    "title": "External Resources",
+    "section": "Some Useful Links",
+    "text": "Some Useful Links\n\nFrom data to Viz: Find the graphic you need\nR for Data Science: Exercise Solutions\nR colour guide by Tian Zheng\nThe tidyverse style guide - By Hadley Wickham\nRStudio Primers - Learn data science basics with the interactive tutorials\nThe tidyverse style guide\nswirl - Learn R, in R\nRStudio Cheat Sheets\nRStudio Community - Stuck? Ask a question and get help moving on\nHarvardX Biomedical Data Science Open Online Training\nData Analysis Playlist"
+  },
+  {
+    "objectID": "external_resources.html#on-data-science",
+    "href": "external_resources.html#on-data-science",
+    "title": "External Resources",
+    "section": "On Data Science",
+    "text": "On Data Science\n\nThe Role of Academia in Data Science Education"
+  },
+  {
+    "objectID": "external_resources.html#guides-on-good-data-practices",
+    "href": "external_resources.html#guides-on-good-data-practices",
+    "title": "External Resources",
+    "section": "Guides on Good Data Practices",
+    "text": "Guides on Good Data Practices\n\nA Guide to Reproducible Code by the British Ecology Society\nA Quick Guide to Organizing Computational Biology Projects\nHow to pick more beautiful colors for your data visualizations\nTalk: Steps toward reproducible research by Karl Broman"
+  },
+  {
+    "objectID": "course_elements.html",
+    "href": "course_elements.html",
+    "title": "Course Elements",
+    "section": "",
+    "text": "Various elements central to the course"
   },
   {
     "objectID": "assignments.html",
@@ -593,12 +649,5 @@
     "title": "Exam",
     "section": "",
     "text": "The exam consists of 3 components:\n\nA group project, where all members are responsible for all parts of the project. This is handed in as a code base on GitHub\nAn oral group presentation of the project, also to be handed in on GitHub\n2 hour MCQ exam, where general course learning objectives are examined, see course description\n\nDeadline for completing the project code base and presentation is 23:59 on the day before lab 13\nPlease note that active participation in the group work and timely submission of project and code base are both indispensable prerequisites for exam participation. The final grade is based on an overall assessment of all three components.\n\n\n\nBe sure that everyone understands ALL code in the project as all group members are responsible for ALL code\nThe point of the project is to cover more or less the entire course cycle, so if you have decided to leave out some parts, then you are also expected to be able to answer questions relating to these\nExpect a few overall questions regarding the decisions you have made throughout your project\nBe sure to read Project FAQ\n\n\n\n\n\nThe format is a 10-slides-in-10-mins and everyone in the group must present a part\nThe group presentations will be on the last day of the course, i.e. lab 13\n\n\n\n\n\nA 2-hour individual multiple choice exam\nIn 2022 the exam contained 60 questions, expect a similar number of questions\nAll aids are allowed, but no open internet\nEach question will have 4 possible answers and only 1 is the right one and you can only choose one answer per question"
-  },
-  {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Resources",
-    "section": "",
-    "text": "A very handy ggplot cheat-sheet can be found here\nSo which plot to choose? Check this handy guide\nExplore ways of plotting here\nThere is a nice tool to aid in choosing colours for visualisations here\nThe Posit community pages is a very nice place to get help if you’re stuck"
   }
 ]

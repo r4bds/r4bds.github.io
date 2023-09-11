@@ -1,0 +1,52 @@
+# External Resources {.unnumbered}
+
+*Here, you will find various valuable resources, to aid your bio data science workflow*
+
+## A few quick ones...
+
+- A very handy `ggplot` cheat-sheet can be found [here](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
+- So which plot to choose? Check this handy [guide](https://www.data-to-viz.com/)
+- Explore ways of plotting [here](https://www.r-graph-gallery.com/)
+- There is a nice tool to aid in choosing colours for visualisations [here](https://www.sessions.edu/color-calculator/)
+- The [Posit community](https://community.rstudio.com) pages is a very nice place to get help if you're stuck
+
+## Open source data science books
+
+- [Hands-On Programming with R by Garrett Grolemund](https://rstudio-education.github.io/hopr/)
+- [Statistical Inference via Data Science - A moderndive into R and the tidyverse by Chester Ismay and Albert Y. Kim](https://moderndive.com/)
+- [Introduction to Data Science, Data Analysis and Prediction Algorithms with R by Rafael A. Irizarry](https://rafalab.github.io/dsbook/)
+- [Mastering Shiny by Hadley Wickham](https://mastering-shiny.org/)
+- [An Introduction to Statistical Learning with Applications in R by Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani](http://faculty.marshall.usc.edu/gareth-james/ISL/)
+- [STAT 545 - Data wrangling, exploration, and analysis with R by Jenny Bryan](https://stat545.com/)
+- [Happy Git and GitHub for the useR by Jenny Bryan, the STAT 545 TAs, Jim Hester](https://happygitwithr.com)
+
+## Software Links
+
+- [The R Project for Statistical Computing](https://www.r-project.org/)
+- [RStudio - Open Source and Enterprise-ready professional software for R](https://rstudio.com/products/rstudio/download/?utm_source=downloadrstudio)
+- [Tidyverse website](https://www.tidyverse.org/)
+
+## Some Useful Links
+
+- [From data to Viz: Find the graphic you need](https://www.data-to-viz.com)
+- [R for Data Science: Exercise Solutions](https://jrnold.github.io/r4ds-exercise-solutions/)
+- [R colour guide by Tian Zheng](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
+- [The tidyverse style guide - By Hadley Wickham](https://style.tidyverse.org/)
+- [RStudio Primers - Learn data science basics with the interactive tutorials](https://rstudio.cloud/learn/primers)
+- [The tidyverse style guide](https://style.tidyverse.org/documentation.html)
+- [swirl - Learn R, in R](http://swirlstats.com/)
+- [RStudio Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/)
+- [RStudio Community - Stuck? Ask a question and get help moving on](https://community.rstudio.com/)
+- [HarvardX Biomedical Data Science Open Online Training](https://rafalab.github.io/pages/harvardx.html)
+- [Data Analysis Playlist](https://www.youtube.com/playlist?list=PLzH6n4zXuckpfMu_4Ff8E7Z1behQks5ba)
+
+## On Data Science
+
+- [The Role of Academia in Data Science Education](https://hdsr.mitpress.mit.edu/pub/gg6swfqh/)
+
+## Guides on Good Data Practices
+
+- [A Guide to Reproducible Code by the British Ecology Society](https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf)
+- [A Quick Guide to Organizing Computational Biology Projects](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
+- [How to pick more beautiful colors for your data visualizations](https://blog.datawrapper.de/beautifulcolors/)
+- [Talk: Steps toward reproducible research by Karl Broman](https://www.youtube.com/watch?v=rNQ-RlG3JnQ)
