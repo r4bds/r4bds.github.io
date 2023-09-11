@@ -1,0 +1,661 @@
+---
+title: "Lecture Lab 4"
+author: "Leon Eyrich Jessen"
+format:
+  revealjs:
+    embed-resources: true
+    theme: moon
+    slide-number: c/t
+    width: 1600
+    height: 900
+    mainfont: avenir
+    logo: images/r4bds_logo_small.png
+    footer: "R for Bio Data Science"
+---
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## What is this?
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+library("tidyverse")
+```
+
+
+```{r}
+#| echo: true
+load(file = "data/gravier.RData")
+set.seed(676571)
+cancer_data=mutate(as_tibble(pluck(gravier,"x")),y=pluck(gravier,"y"),pt_id=1:length(pluck(gravier, "y")),age=round(rnorm(length(pluck(gravier,"y")),mean=55,sd=10),1))
+cancer_data=rename(cancer_data,event_label=y)
+cancer_data$age_group=cut(cancer_data$age,breaks=seq(10,100,by=10))
+cancer_data=relocate(cancer_data,c(pt_id,age,age_group,pt_id,event_label))
+cancer_data
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## In Plenum
+
+- Take 2 minutes to discuss with the person next to you:
+  - _"What does this code actually do?"_
+
+```{r}
+#| echo: true
+#| eval: false
+load(file = "data/gravier.RData")
+set.seed(676571)
+cancer_data=mutate(as_tibble(pluck(gravier,"x")),y=pluck(gravier,"y"),pt_id=1:length(pluck(gravier, "y")),
+                   age=round(rnorm(length(pluck(gravier,"y")),mean=55,sd=10),1))
+cancer_data=rename(cancer_data,event_label=y)
+cancer_data$age_group=cut(cancer_data$age,breaks=seq(10,100,by=10))
+cancer_data=relocate(cancer_data,c(pt_id,age,age_group,pt_id,event_label))
+```
+
+*Like... Try to decipher what is going on...*
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## So what is it? Basically unreadable is what it is!
+
+- So `dplyr` to the rescue
+
+- Let us fix this code using `dplyr` verbs, so that we (and others) may read what is actually going on
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## But first
+
+:::: {.columns}
+
+::: {.column width="50%"}
+The 6 basic verbs you prepared for today:
+
+1. `filter()`
+1. `arrange()`
+1. `select()`
+1. `mutate()`
+1. `summarise()`
+1. `group_by()`
+
+...and then there is:
+
+- `count()`
+- `View()`
+- `|>`
+:::
+
+::: {.column width="50%"}
+### Self-check
+
+- Based on what you prepared for today, check yourself:
+- *Take 2 min. and see if you can remember what each of these verbs do?*
+- *Explain it to the person next to you*
+:::
+
+::::
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The 6 basic verbs and then some...
+
+1. `filter()` $\rightarrow$ subsets rows based on logical tests
+1. `arrange()`
+1. `select()`
+1. `mutate()`
+1. `summarise()`
+1. `group_by()`
+
+...and then there is:
+
+- `count()`
+- `View()`
+- `|>`
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The 6 basic verbs and then some...
+
+1. `filter()`
+1. `arrange()` $\rightarrow$ sorts the data based on one or more variables
+1. `select()`
+1. `mutate()`
+1. `summarise()`
+1. `group_by()`
+
+...and then there is:
+
+- `count()`
+- `View()`
+- `|>`
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The 6 basic verbs and then some...
+
+1. `filter()`
+1. `arrange()`
+1. `select()` $\rightarrow$ subsets the variables
+1. `mutate()`
+1. `summarise()`
+1. `group_by()`
+
+...and then there is:
+
+- `count()`
+- `View()`
+- `|>`
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The 6 basic verbs and then some...
+
+1. `filter()`
+1. `arrange()`
+1. `select()`
+1. `mutate()` $\rightarrow$ creates new variables
+1. `summarise()`
+1. `group_by()`
+
+...and then there is:
+
+- `count()`
+- `View()`
+- `|>`
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The 6 basic verbs and then some...
+
+1. `filter()`
+1. `arrange()`
+1. `select()`
+1. `mutate()`
+1. `summarise()` $\rightarrow$ does exactly that, summarises the data
+1. `group_by()`
+
+...and then there is:
+
+- `count()`
+- `View()`
+- `|>`
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The 6 basic verbs and then some...
+
+1. `filter()`
+1. `arrange()`
+1. `select()`
+1. `mutate()`
+1. `summarise()`
+1. `group_by()` $\rightarrow$ adds group attributes to the data, so no looping! (Like... EVER!)
+
+...and then there is:
+
+- `count()`
+- `View()`
+- `|>`
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The 6 basic verbs and then some...
+
+1. `filter()`
+1. `arrange()`
+1. `select()`
+1. `mutate()`
+1. `summarise()`
+1. `group_by()`
+
+...and then there is:
+
+- `count()` $\rightarrow$ Again, does exactly that, counts i.e. number of elements in a group
+- `View()`
+- `|>`
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The 6 basic verbs and then some...
+
+1. `filter()`
+1. `arrange()`
+1. `select()`
+1. `mutate()`
+1. `summarise()`
+1. `group_by()`
+
+...and then there is:
+
+- `count()`
+- `View()` $\rightarrow$ yields a handy "excel-like" (over)view of the data
+- `|>`
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The 6 basic verbs and then some...
+
+1. `filter()`
+1. `arrange()`
+1. `select()`
+1. `mutate()`
+1. `summarise()`
+1. `group_by()`
+
+...and then there is:
+
+- `count()`
+- `View()`
+- `|>` $\rightarrow$ eq. to `|` in *nix systems, more on this later...
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## _"I kinda wanna start with the caveat"_
+
+- *"The bad news is, whenever you're learning a new tool, for a long time, you're going to suck! It's gonna be very frustrating! But the good news is that that is typical and something that happens to everyone and it's only temporary! Unfortunately, there is no way to going from knowing nothing about the subject to knowing something about a subject and being an expert in it without going through a period of great frustration and much suckiness! Keep pushing through!"* - H. Wickham [(dplyr tutorial at useR 2014, 4:10 - 4:48)](https://www.youtube.com/watch?v=8SGif63VW6E)
+
+- Expect to be frustrated, it's a prerequisite for learning!
+
+- Learn the difference between **constructive** and **destructive** frustration!
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The pipe
+
+Completely utterly central to create human readable code! Consider
+
+```{r}
+#| echo: true
+#| eval: true
+v = c(55, 96, 56, 74, 21, 31, 64, 34, 100, 75)
+```
+
+Calculate the mean
+```{r}
+#| echo: true
+#| eval: true
+mean(v)
+```
+
+Round to nearest integer (whole-number / natural number)
+
+```{r}
+#| echo: true
+#| eval: true
+round(mean(v), 0)
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Now, the same thing, but using a pipe
+
+```{r}
+#| echo: true
+#| eval: true
+v |> mean() |> round(digits = 0)
+```
+
+`|>` = `then`: "Take `v`, `then` calculate the `mean`, `then` `round` to `0` digits"
+
+Same result as below, but which is more readable?
+
+```{r}
+#| echo: true
+#| eval: true
+round(mean(v), 0)
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The idea is to approach natural language
+
+*"Programs must be written for people to read, and only incidentally for machines to execute"* - Harold Abelson
+
+## Let us fix the `gravier`-data generation
+
+Load the data
+```{r}
+#| echo: true
+#| eval: true
+load(file = "data/gravier.RData")
+```
+
+This gives us the `gravier` data. Let's see the structure
+
+```{r}
+#| echo: true
+#| eval: true
+str(gravier)
+```
+
+*The `str()`-function is really nice to understand the content of an object*
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Code fixing
+
+Take the `gravier` data
+
+```{r}
+#| echo: true
+#| eval: true
+gravier
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Code fixing
+
+Take the `gravier` data, `then` `pluck` out the `x` matrix
+
+```{r}
+#| echo: true
+#| eval: true
+gravier |> 
+  pluck("x")
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Code fixing
+
+Take the `gravier` data, `then` `pluck` out the `x` matrix, `then` convert to a `tibble`
+
+```{r}
+#| echo: true
+#| eval: true
+gravier |> 
+  pluck("x") |> 
+  as_tibble()
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Code fixing
+
+Take the `gravier` data, `then` `pluck` out the `x` matrix, `then` convert to a `tibble`, `then` add the `y` response variable
+
+```{r}
+#| echo: true
+#| eval: true
+gravier |> 
+  pluck("x") |> 
+  as_tibble() |> 
+  mutate(y = pluck(gravier, "y"))
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Code fixing
+
+Take the `gravier` data, `then` `pluck` out the `x` matrix, `then` convert to a `tibble`, `then` add the `y` response variable and a `pt_id` variable
+
+```{r}
+#| echo: true
+#| eval: true
+gravier |> 
+  pluck("x") |> 
+  as_tibble() |> 
+  mutate(y = pluck(gravier, "y"),
+         pt_id = row_number())
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Code fixing
+
+```{r}
+#| echo: false
+#| eval: true
+set.seed(676571)
+```
+
+Take the `gravier` data, `then` `pluck` out the `x` matrix, `then` convert to a `tibble`, `then` add the `y` response variable and a `pt_id` variable and an normal distributed $age \sim \mathcal{N}(\mu = 55,\,\sigma^{2} = 10)\,.$ variable (Note: $\LaTeX$ eqn in Quarto!)
+
+```{r}
+#| echo: true
+#| eval: true
+gravier |> 
+  pluck("x") |> 
+  as_tibble() |> 
+  mutate(y = pluck(gravier, "y"),
+         pt_id = row_number(),
+         age = round(rnorm(n = n(), mean = 55, sd = 10), digits = 1))
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Code fixing
+
+```{r}
+#| echo: false
+#| eval: true
+set.seed(676571)
+```
+
+Take the `gravier` data, `then` `pluck` out the `x` matrix, `then` convert to a `tibble`, `then` add the `y` response variable and a `pt_id` variable and an normal distributed $age \sim \mathcal{N}(\mu = 55,\,\sigma^{2} = 10)\,.$ variable, `then` create `age_group`
+
+```{r}
+#| echo: true
+#| eval: true
+gravier |> 
+  pluck("x") |> 
+  as_tibble() |> 
+  mutate(y = pluck(gravier, "y"),
+         pt_id = row_number(),
+         age = round(rnorm(n = n(), mean = 55, sd = 10), digits = 1),
+         age_group = cut(age, breaks = seq(10, 100, by = 10)))
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Code fixing
+
+```{r}
+#| echo: false
+#| eval: true
+set.seed(676571)
+```
+
+Take the `gravier` data, `then` `pluck` out the `x` matrix, `then` convert to a `tibble`, `then` add the `y` response variable and a `pt_id` variable and an normal distributed $age \sim \mathcal{N}(\mu = 55,\,\sigma^{2} = 10)\,.$ variable, `then` create `age_group`, `then` `rename` the `y` response to `event_label`
+
+```{r}
+#| echo: true
+#| eval: true
+gravier |> 
+  pluck("x") |> 
+  as_tibble() |> 
+  mutate(y = pluck(gravier, "y"),
+         pt_id = row_number(),
+         age = round(rnorm(n = n(), mean = 55, sd = 10), digits = 1),
+         age_group = cut(age, breaks = seq(10, 100, by = 10))) |> 
+  rename(event_label = y)
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Code fixing - Compare
+
+```{r}
+#| echo: false
+#| eval: true
+load(file = "data/gravier.Rdata")
+set.seed(676571)
+```
+
+### Before
+
+```{r}
+#| echo: true
+#| eval: true
+cancer_data=mutate(as_tibble(pluck(gravier,"x")),y=pluck(gravier,"y"),
+                   pt_id=1:length(pluck(gravier, "y")),age=round(rnorm(length(pluck(gravier,"y")),
+                                                                       mean=55,sd=10),1))
+cancer_data=rename(cancer_data,event_label=y)
+cancer_data$age_group=cut(cancer_data$age,breaks=seq(10,100,by=10))
+```
+
+### After
+
+```{r}
+#| echo: true
+#| eval: true
+cancer_data <- gravier |> 
+  pluck("x") |> 
+  as_tibble() |> 
+  mutate(y = pluck(gravier, "y"), # eqv. gravier |> pluck("y")
+         pt_id = row_number(),
+         age = round(rnorm(n = n(), mean = 55, sd = 10), digits = 1),
+         age_group = cut(age, breaks = seq(10, 100, by = 10))) |> 
+  rename(event_label = y)
+```
+
+- Literate programming: Verbose, but virtually self-explanatory
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## A `dplyr` pipeline, created we have - Lets `style` it!
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+cancer_data <- gravier |> 
+  pluck("x") |> 
+  as_tibble() |> 
+  mutate(y = pluck(gravier, "y"),
+         pt_id = row_number(),
+         age = round(rnorm(n = n(),
+                           mean = 55,
+                           sd = 10),
+                     digits = 1),
+         age_group = cut(age,
+                         breaks = seq(from = 10,
+                                      to = 100,
+                                      by = 10))) |> 
+  rename(event_label = y)
+```
+:::
+
+::: {.column width="50%"}
+- Commas and spaces like in natural language
+- State function parameters
+- One line per pipe, increases readability
+- Create one variable per line
+- Focus on code readability, not minimising verbosity
+- Using pipe in variable creation is a taste matter, convoluting 1-2 functions is ok
+:::
+
+::::
+
+**Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread!**
+
+*Psstt... Get used to it, we will point non-styled code from now!*
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Briefly on tidy data
+
+There are three interrelated rules which make a dataset tidy:
+
+1. Each variable must have its own column.
+1. Each observation must have its own row.
+1. Each value must have its own cell.
+
+![](images/tidy_data_illustration.png){fig-align="center"}
+
+- Spend your time on getting the data into this format and _then_ the entire plethora of `tidyverse`-tools is your oyster!
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Your turn
+
+Proceed to the exercises!

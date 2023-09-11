@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R for Bio Data Science - 1&nbsp; Paths &amp; Projects</title>
+<title>R for Bio Data Science - Paths &amp; Projects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -88,7 +88,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./assignments.html" rel="next">
+<link href="./code_styling.html" rel="next">
 <link href="./background.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -128,7 +128,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Paths &amp; Projects</span></h1>
+      <h1 class="quarto-secondary-nav-title">Paths &amp; Projects</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -243,7 +243,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paths_and_projects.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Paths &amp; Projects</span></a>
+  <a href="./paths_and_projects.html" class="sidebar-item-text sidebar-link active">Paths &amp; Projects</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./code_styling.html" class="sidebar-item-text sidebar-link">Code Styling</a>
   </div>
 </li>
       </ul>
@@ -277,13 +282,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#getting-familiar-with-paths-in-rstudio" id="toc-getting-familiar-with-paths-in-rstudio" class="nav-link active" data-scroll-target="#getting-familiar-with-paths-in-rstudio"> <span class="header-section-number">1.1</span> Getting Familiar with Paths in RStudio</a></li>
-  <li><a href="#intermezzo-creating-a-project" id="toc-intermezzo-creating-a-project" class="nav-link" data-scroll-target="#intermezzo-creating-a-project"> <span class="header-section-number">1.2</span> Intermezzo: Creating a Project</a></li>
-  <li><a href="#locating-data" id="toc-locating-data" class="nav-link" data-scroll-target="#locating-data"> <span class="header-section-number">1.3</span> Locating Data</a></li>
-  <li><a href="#absolute-versus-relative-paths" id="toc-absolute-versus-relative-paths" class="nav-link" data-scroll-target="#absolute-versus-relative-paths"> <span class="header-section-number">1.4</span> Absolute versus Relative Paths</a></li>
-  <li><a href="#working-in-multiple-projects" id="toc-working-in-multiple-projects" class="nav-link" data-scroll-target="#working-in-multiple-projects"> <span class="header-section-number">1.5</span> Working in Multiple Projects</a></li>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives"> <span class="header-section-number">1.6</span> Learning Objectives</a></li>
-  <li><a href="#epilogue" id="toc-epilogue" class="nav-link" data-scroll-target="#epilogue"> <span class="header-section-number">1.7</span> Epilogue</a></li>
+  <li><a href="#getting-familiar-with-paths-in-rstudio" id="toc-getting-familiar-with-paths-in-rstudio" class="nav-link active" data-scroll-target="#getting-familiar-with-paths-in-rstudio">Getting Familiar with Paths in RStudio</a></li>
+  <li><a href="#intermezzo-creating-a-project" id="toc-intermezzo-creating-a-project" class="nav-link" data-scroll-target="#intermezzo-creating-a-project">Intermezzo: Creating a Project</a></li>
+  <li><a href="#locating-data" id="toc-locating-data" class="nav-link" data-scroll-target="#locating-data">Locating Data</a></li>
+  <li><a href="#absolute-versus-relative-paths" id="toc-absolute-versus-relative-paths" class="nav-link" data-scroll-target="#absolute-versus-relative-paths">Absolute versus Relative Paths</a></li>
+  <li><a href="#working-in-multiple-projects" id="toc-working-in-multiple-projects" class="nav-link" data-scroll-target="#working-in-multiple-projects">Working in Multiple Projects</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#epilogue" id="toc-epilogue" class="nav-link" data-scroll-target="#epilogue">Epilogue</a></li>
   </ul>
 </nav>
     </div>
@@ -292,7 +297,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-pathsandprojects" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Paths &amp; Projects</span></span></h1>
+<h1 class="title d-none d-lg-block">Paths &amp; Projects</h1>
 </div>
 
 
@@ -309,8 +314,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><em>You step onto the road, and if you don’t keep your feet, there’s no knowing where you might be swept off to</em></p>
 <p><img src="images/paths.png" class="img-fluid"></p>
 <p>In context of <code>R</code>, a path is a way to tell <code>R</code>, where to look for a file. First, let us familiarise us a bit with paths in RStudio.</p>
-<section id="getting-familiar-with-paths-in-rstudio" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="getting-familiar-with-paths-in-rstudio"><span class="header-section-number">1.1</span> Getting Familiar with Paths in RStudio</h2>
+<section id="getting-familiar-with-paths-in-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="getting-familiar-with-paths-in-rstudio">Getting Familiar with Paths in RStudio</h2>
 <p>Log on to the RStudio Cloud Server and in case you do so for the first time, your <code>files</code>-pane should look something like:</p>
 <p><img src="images/paths_01.png" class="img-fluid"> Here, <img src="images/paths_home.png" class="img-fluid"> <code>Home</code> defines your home, that is where you “live” on the server. Now, click the button <img src="images/paths_new_folder.png" class="img-fluid"> <code>New Folder</code> and create a new folder called <code>projects</code>. Hereafter, your <code>files</code>-pane should look something like:</p>
 <p><img src="images/paths_02.png" class="img-fluid"></p>
@@ -321,8 +326,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/paths_02.png" class="img-fluid"></p>
 <p>Note, that you are now back in <img src="images/paths_home.png" class="img-fluid"> <code>Home</code></p>
 </section>
-<section id="intermezzo-creating-a-project" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="intermezzo-creating-a-project"><span class="header-section-number">1.2</span> Intermezzo: Creating a Project</h2>
+<section id="intermezzo-creating-a-project" class="level2">
+<h2 class="anchored" data-anchor-id="intermezzo-creating-a-project">Intermezzo: Creating a Project</h2>
 <p>Ok, so far so good. Now again click into <code>projects</code> and click <img src="images/paths_new_proj.png" class="img-fluid"> <code>Project: (None)</code> and from here select <img src="images/paths_new_proj_plus.png" class="img-fluid"> <code>New Project...</code>. Now you will se a dialogue window open, i.e.&nbsp;RStudio requires input from you:</p>
 <p><img src="images/paths_04.png" class="img-fluid"></p>
 <p>Click <img src="images/paths_new_proj.png" class="img-fluid"> <code>New Directory</code> and you should see:</p>
@@ -339,8 +344,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now, back to folders and paths - note how you now see <img src="images/paths_home.png" class="img-fluid"> <code>Home &gt; projects &gt; r_for_bio_data_science</code>, this means that you are now in the <code>r_for_bio_data_science</code> folder, which is inside the <code>projects</code> folder which in turn is inside the <code>Home</code> folder. If you take a look at the <img src="images/paths_home.png" class="img-fluid"> <code>Home &gt; projects &gt; r_for_bio_data_science</code>, you can in fact also click directly on e.g.&nbsp;<code>projects</code> - Try it!</p>
 <p><em>But why? Don’t worry, we will return to why RStudio Projects are indispensable when working with reproducible Bio Data Science</em></p>
 </section>
-<section id="locating-data" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="locating-data"><span class="header-section-number">1.3</span> Locating Data</h2>
+<section id="locating-data" class="level2">
+<h2 class="anchored" data-anchor-id="locating-data">Locating Data</h2>
 <p>Let’s move on. Now, again click the <img src="images/paths_new_folder.png" class="img-fluid"> <code>New Folder</code>-button and create a <code>data</code>-folder, make sure it ends up in the <code>r_for_bio_data_science</code>-folder. This should result in:</p>
 <p><img src="images/paths_09.png" class="img-fluid"></p>
 <p>Note here how we now have <img src="images/paths_folder.png" class="img-fluid"> <code>data</code> and <img src="images/paths_new_proj.png" class="img-fluid"> <code>r_for_bio_data_science.Rproj</code>. These are different, one is a folder, <code>data</code>, and the other is a file, <code>r_for_bio_data_science.Rproj</code>, containing settings for your RStudio Project.</p>
@@ -369,8 +374,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This <code>data/puromycin.tsv</code> is the <strong>path</strong> to the file and now, that we have got that correct, you will see no error message and furthermore, you will see in the environment-pane, that we now have an object called <code>my_data</code>, containing <code>23 obs. of 3 varibles</code>, i.e.&nbsp;a data set with 23 rows and 3 columns.</p>
 <p><img src="images/paths_13.png" class="img-fluid"></p>
 </section>
-<section id="absolute-versus-relative-paths" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="absolute-versus-relative-paths"><span class="header-section-number">1.4</span> Absolute versus Relative Paths</h2>
+<section id="absolute-versus-relative-paths" class="level2">
+<h2 class="anchored" data-anchor-id="absolute-versus-relative-paths">Absolute versus Relative Paths</h2>
 <p>Let us get back to why we <strong>have</strong> to work using RStudio Projects, recall we created the <code>r_for_bio_data_science.Rproj</code>-file, defining out project. You can verify, that we are indeed working in that project, by looking in the upper right corner of the RStudio IDE and you should see <img src="images/paths_new_proj.png" class="img-fluid"> <code>r_for_bio_data_science</code>.</p>
 <p>Good, now in the console, enter the command:</p>
 <div class="cell">
@@ -392,8 +397,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This is why we work in RStudio Projects! RStudio Projects allows us to specifiy where <strong>everything</strong> is located relative to where the <code>.Rproj</code>-file is. So in our case, the <code>r_for_bio_data_science.Rproj</code>-file is located in the same place as the <code>data</code>-folder, namely in the folder containing our <strong>entire</strong> project, the <code>r_for_bio_data_science</code>-folder, which in turn is located in the <code>projects</code>-folder.</p>
 <p>This means, that <strong>all</strong> paths in the analysis project, can be stated relative to the location of the <code>.Rproj</code>-file and hence we have <strong>relative paths</strong>, meaning that anyone can receive the project and run it straight-out-of-the-box!</p>
 </section>
-<section id="working-in-multiple-projects" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="working-in-multiple-projects"><span class="header-section-number">1.5</span> Working in Multiple Projects</h2>
+<section id="working-in-multiple-projects" class="level2">
+<h2 class="anchored" data-anchor-id="working-in-multiple-projects">Working in Multiple Projects</h2>
 <p>Now, we did add that plural <code>s</code>, when we created the <code>projects</code>-folder. When you have completed this course, perhaps you want to attend the “Introduction to Systems Biology”-course. In that case, we would setup a new project, so use the <code>Files</code>-pane to navigate to the <code>projects</code>-folder:</p>
 <p><img src="images/paths_14.png" class="img-fluid"></p>
 <p>Then, we simply repeat the proces: Click <img src="images/paths_new_proj.png" class="img-fluid"> <code>r_for_bio_data_science</code> in the upper right corner and from here select <img src="images/paths_new_proj_plus.png" class="img-fluid"> <code>New Project...</code>. Now you will se a dialogue window open, i.e.&nbsp;RStudio requires input from you:</p>
@@ -412,8 +417,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This is now your two project folders and you can add others, such as yet another course or e.g.&nbsp;<code>special_course</code>, <code>bachelor_thesis</code> or <code>master_thesis</code>.</p>
 <p>Now, we can easily switch between different projects. In the upper right corner you will see, that you are currently in the <code>introduction_to_systems_biology</code> project, meaning that <code>R</code> will look for all files relative to the <code>introduction_to_systems_biology.Rproj</code>-file. Naturally, we would want to switch back to the project, we created for the “R for Bio Data Science”-course. To do this, we simply click <img src="images/paths_new_proj.png" class="img-fluid"> <code>introduction_to_systems_biology</code> and if you look at the drop-down menu, you should see <code>r_for_bio_data_science</code> - Click it! Notice how <code>R</code> automatically restarts and you are moved to the correct folder for this project.</p>
 </section>
-<section id="learning-objectives" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">1.6</span> Learning Objectives</h2>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 <p><em>If you made it this far, you should now be able to:</em></p>
 <ul>
 <li>Navigate the RStudio IDE in context of folders and projects</li>
@@ -426,8 +431,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Explain why RStudio Projects are an essential part of doing reproducible bio data science</li>
 </ul>
 </section>
-<section id="epilogue" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="epilogue"><span class="header-section-number">1.7</span> Epilogue</h2>
+<section id="epilogue" class="level2">
+<h2 class="anchored" data-anchor-id="epilogue">Epilogue</h2>
 <p>That’s all folks! I hope this cleared up some things - Please feel free to revisit this chapter, as needed!</p>
 <p>Remember - Have fun! No one ever got really good at something they didn’t think was fun!</p>
 
@@ -539,8 +544,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./assignments.html" class="pagination-link">
-        <span class="nav-page-text">Assignments</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./code_styling.html" class="pagination-link">
+        <span class="nav-page-text">Code Styling</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

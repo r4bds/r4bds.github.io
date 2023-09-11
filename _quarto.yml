@@ -35,6 +35,7 @@ book:
     - part: background.qmd
       chapters: 
         - paths_and_projects.qmd
+        - code_styling.qmd
         
     - assignments.qmd
     - project_faq.qmd

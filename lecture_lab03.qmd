@@ -49,7 +49,7 @@ top10_pharma <- tribble(
 <!--# ---------------------------------------------------------------------- -->
 ## What is wrong with this visualisation?
 
-![](images/bad_viz_11.png)
+![](images/bad_viz_11.png){fig-align="center"}
 
 
 
@@ -71,7 +71,7 @@ top10_pharma %>%
 :::
 
 ::: {.column width="50%"}
-![](images/bad_viz_11.png)
+![](images/bad_viz_11.png){fig-align="center"}
 :::
 
 ::::
@@ -121,7 +121,7 @@ ggplot(data = my_data,
   geom_point()
 ```
 
-![](images/vis_ggplot_components.png)
+![](images/vis_ggplot_components.png){fig-align="center"}
 
 
 
@@ -929,7 +929,7 @@ my_plot <- ggplot(data = cancer_data,
                                 fill = event_label)) +
   geom_hline(yintercept = 0,
              linetype = "dashed") +
-  geom_boxplot(alpha = 0.5) +
+  geom_boxplot() +
   scale_fill_manual(labels = c("No", "Yes"),
                     values = c("green", "red")) +
   labs(x = "Patient Age Group",

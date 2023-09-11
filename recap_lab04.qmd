@@ -1,0 +1,355 @@
+---
+title: "Recap Lab 4"
+author: "Leon Eyrich Jessen"
+format:
+  revealjs:
+    embed-resources: true
+    theme: moon
+    slide-number: c/t
+    width: 1600
+    height: 900
+    mainfont: avenir
+    logo: images/r4bds_logo_small.png
+    footer: "R for Bio Data Science"
+---
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# A Few Meta Points...
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Paths
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+![](images/paths_19.png)
+:::
+
+::: {.column width="50%"}
+![](images/paths_20.png)
+:::
+
+::::
+
+Recall
+
+- The `.Rproj`-file defines your project root, i.e. everything is relative to where this file is located
+- In your `.Qmd`-file you need to think about where files you need are
+- To load something from `data`, you need to specify `data/my_data.csv`
+- To load something from `_raw` in `data`, you need to specify `data/_raw/my_raw_data.xlsx`
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Qmd 
+
+- Load libraries *before* calling needed functions
+- Do a `Run All` check (Menu above Quarto doc $\rightarrow$ `Run` $\rightarrow$ `Run All`)
+- When getting errors, make sure *read* the error message
+
+![](images/paths_21.png)
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Group work
+
+- Each course participant _must_ have a project in RStudio Cloud
+
+- Each student _has_ to actively write code (no one has ever gotten good at football by watching others play $\rightarrow$ Learning by doing)
+
+- Make sure to talk together in your groups, you _will_ learn something by explaining
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Recap
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Task 1 - Recreate the following plot
+
+```{r echo=FALSE, message=FALSE}
+SPE_ENV = read_tsv(file = "data/SPE_ENV.tsv")
+```
+
+<div style="float: left; width: 60%;">
+```{r echo=FALSE, eval=TRUE, fig.width=5.5, fig.height=5.5, message=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = OTU_Count,
+                     y = Taxa,
+                     fill = site)) +
+  geom_boxplot()
+```
+</div>
+
+<div style="float: right; width: 40%;">
+```{r echo=TRUE, eval=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = OTU_Count,
+                     y = Taxa,
+                     fill = site)) +
+  geom_boxplot()
+```
+</div>
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Task 2 - Recreate the following plot
+
+<div style="float: left; width: 60%;">
+```{r echo=FALSE, eval=TRUE, fig.width=5.5, fig.height=5.5, message=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = site,
+                     y = Temp)) +
+  geom_boxplot()
+```
+</div>
+
+<div style="float: right; width: 40%;">
+```{r echo=TRUE, eval=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = site,
+                     y = Temp)) +
+  geom_boxplot()
+```
+</div>
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Task 3 - Recreate the following plot
+
+<div style="float: left; width: 60%;">
+```{r echo=FALSE, eval=TRUE, fig.width=5.5, fig.height=5.5, message=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = Temp,
+                     y = pH,
+                     colour = site)) +
+  geom_point()
+```
+</div>
+
+<div style="float: right; width: 40%;">
+```{r echo=TRUE, eval=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = Temp,
+                     y = pH,
+                     colour = site)) +
+  geom_point()
+```
+</div>
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Task 4 - Recreate the following plot
+
+<div style="float: left; width: 60%;">
+```{r echo=FALSE, eval=TRUE, fig.width=5.5, fig.height=5.5, message=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = Temp,
+                     y = pH,
+                     colour = site,
+                     label = Samples)) +
+  geom_label(size = 3)
+```
+</div>
+
+<div style="float: right; width: 40%;">
+```{r echo=TRUE, eval=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = Temp,
+                     y = pH,
+                     colour = site,
+                     label = Samples)) +
+  geom_label(size = 3)
+```
+</div>
+
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Task 5 - Recreate the following plot
+
+<div style="float: left; width: 60%;">
+```{r echo=FALSE, eval=TRUE, fig.width=5.5, fig.height=5.5, message=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = NH4,
+                     fill = site)) +
+  geom_density()
+```
+</div>
+
+<div style="float: right; width: 40%;">
+```{r echo=TRUE, eval=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = NH4,
+                     fill = site)) +
+  geom_density()
+```
+</div>
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Task 6 - Recreate the following plot
+
+<div style="float: left; width: 60%;">
+```{r echo=FALSE, eval=TRUE, fig.width=5.5, fig.height=5.5, message=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = CODt,
+                     y = CODs,
+                     colour = site)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+</div>
+
+<div style="float: right; width: 40%;">
+```{r echo=TRUE, eval=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = CODt,
+                     y = CODs,
+                     colour = site)) +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+</div>
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Task 7 - Recreate the following plot
+
+<div style="float: left; width: 60%;">
+```{r echo=FALSE, eval=TRUE, fig.width=5.5, fig.height=5.5, message=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = Taxa,
+                     y = Samples,
+                     fill = OTU_Count)) +
+  geom_tile(alpha = 0.5) +
+  scale_fill_gradient2(midpoint = 10000,
+                       low = "blue",
+                       mid = "white",
+                       high = "red") +
+  theme_classic(base_size = 8) +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text(angle = 45,
+                                   hjust = 1))
+```
+</div>
+
+<div style="float: right; width: 40%;">
+```{r echo=TRUE, eval=FALSE}
+ggplot(data = SPE_ENV,
+       mapping = aes(x = Taxa,
+                     y = Samples,
+                     fill = OTU_Count)) +
+  geom_tile(alpha = 0.5) +
+  scale_fill_gradient2(midpoint = 10000,
+                       low = "blue",
+                       mid = "white",
+                       high = "red") +
+  theme_classic(base_size = 8) +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text(angle = 45,
+                                   hjust = 1))
+```
+</div>
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Task 8 - Recreate the following plot
+
+```{r echo=FALSE}
+targets = c("Methanobacteria", "Clostridia", "Actinobacteria",
+            "Sphingobacteria", "Anaerolineae")
+SPE_ENV_targets = filter(SPE_ENV, Taxa %in% targets)
+```
+
+<div style="float: left; width: 60%;">
+```{r echo=FALSE, eval=TRUE, fig.width=5.5, fig.height=5.5, message=FALSE}
+library("ggridges")
+ggplot(data = SPE_ENV_targets,
+       mapping = aes(x = OTU_Count,
+                     y = Taxa,
+                     fill = Taxa)) +
+  geom_density_ridges(alpha = 0.5) +
+  scale_fill_viridis_d() +
+  labs(x = "OTU Count",
+       y = "Taxa Identified",
+       title = "OTU Count Distribution for 5 Taxa Stratified on Site",
+       caption = "Data from doi.org/10.1111/1751-7915.12334") +
+  theme_minimal(base_family = "Avenir",
+                base_size = 12) +
+  theme(legend.position = "bottom") +
+  facet_wrap(vars(site),
+             ncol = 2)
+```
+</div>
+
+<div style="float: right; width: 40%;">
+```{r echo=TRUE, eval=FALSE}
+library("ggridges")
+ggplot(data = SPE_ENV_targets,
+       mapping = aes(x = OTU_Count,
+                     y = Taxa,
+                     fill = Taxa)) +
+  geom_density_ridges(alpha = 0.5) +
+  scale_fill_viridis_d() +
+  labs(x = "OTU Count",
+       y = "Taxa Identified",
+       title = "OTU Count Distribution for 5 Taxa Stratified on Site",
+       caption = "Data from doi.org/10.1111/1751-7915.12334") +
+  theme_minimal(base_family = "Avenir",
+                base_size = 12) +
+  theme(legend.position = "bottom") +
+  facet_wrap(vars(site),
+             ncol = 2)
+```
+</div>
+
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Task 9 - <span style="color: red;">GROUP ASSIGNMENT</span>
+
+Let us take a look at this years submissions...

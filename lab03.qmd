@@ -267,14 +267,15 @@ ggplot(data = SPE_ENV,
        mapping = aes(x = Taxa,
                      y = Samples,
                      fill = OTU_Count)) +
-  geom_tile(alpha = 0.5) +
+  geom_tile() +
   scale_fill_gradient2(midpoint = 10000,
                        low = "blue",
                        mid = "white",
                        high = "red") +
   theme_classic(base_size = 8) +
   theme(legend.position = "bottom",
-        axis.text.x = element_text(angle = 45, hjust = 1))
+        axis.text.x = element_text(angle = 45,
+                                   hjust = 1))
 ```
 
 <details>
