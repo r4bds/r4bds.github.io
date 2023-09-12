@@ -14,7 +14,7 @@ The assignment will be marked "Group Assignment" with red font in the exercises.
 1. Make sure you are enrolled in the correct group, as defined by the Group Formation Sheet (see the [Getting Started Section](getting_started.qmd))
 1. In case groups consists of a mix of BSc. and MSc. students, then enroll under your respective courses
 1. Only hand in **one** assignment, meaning either under the BSc. or the MSc. course, **not** both
-1. You should hand in the rendered html file, make sure to compress your html file prior to upload
+1. You should hand in the rendered html-file, make sure to compress it to a zip-file prior to upload
 
 *Please note, that in order to include all elements in a self-contained html file, you will have to use the following YAML-header in your Quarto document:*
 
@@ -44,5 +44,5 @@ Did you?
 - Follow [course code styling](code_styling.qmd)
 - Think about reproducibility with respect to data and libraries?
 - Render til html
-- Compress before upload to DTU Learn
+- Compress the html-file to a zip-file, **before** upload to DTU Learn
 - Match your group number with DTU Learn groups
