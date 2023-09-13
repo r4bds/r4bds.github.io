@@ -18,7 +18,7 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## What is this?
+## Recall this chunk - What is "it"?
 
 ```{r}
 #| echo: false
@@ -68,11 +68,23 @@ cancer_data=relocate(cancer_data,c(pt_id,age,age_group,pt_id,event_label))
 <!--# ---------------------------------------------------------------------- -->
 ## So what is it? Basically unreadable is what it is!
 
+:::: {.columns}
+
+::: {.column width="50%"}
+
 - So `dplyr` to the rescue
 
 - Let us fix this code using `dplyr` verbs, so that we (and others) may read what is actually going on
 
+:::
 
+::: {.column width="50%"}
+
+![](images/unreadable_code_meme.png){width=80% fig-align="center"}
+
+:::
+
+::::
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -292,14 +304,46 @@ The 6 basic verbs you prepared for today:
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## _"I kinda wanna start with the caveat"_
+## *"I kinda wanna start with the caveat"*
+
+:::: {.columns}
+
+::: {.column width="50%"}
 
 - *"The bad news is, whenever you're learning a new tool, for a long time, you're going to suck! It's gonna be very frustrating! But the good news is that that is typical and something that happens to everyone and it's only temporary! Unfortunately, there is no way to going from knowing nothing about the subject to knowing something about a subject and being an expert in it without going through a period of great frustration and much suckiness! Keep pushing through!"* - H. Wickham [(dplyr tutorial at useR 2014, 4:10 - 4:48)](https://www.youtube.com/watch?v=8SGif63VW6E)
 
+:::
+
+::: {.column width="50%"}
+
+![](images/hows_your_semester_going_meme.png){width=90% fig-align="center"}
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## *"I kinda wanna start with the caveat"*
+
+:::: {.columns}
+
+::: {.column width="50%"}
 - Expect to be frustrated, it's a prerequisite for learning!
 
 - Learn the difference between **constructive** and **destructive** frustration!
+:::
 
+::: {.column width="50%"}
+
+![](images/how_its_going_meme.png){width=100% fig-align="center"}
+
+:::
+
+::::
 
 
 <!--# ---------------------------------------------------------------------- -->
@@ -307,29 +351,44 @@ The 6 basic verbs you prepared for today:
 <!--# ---------------------------------------------------------------------- -->
 ## The pipe
 
-Completely utterly central to create human readable code! Consider
+Completely utterly central to create human readable code! Consider:
+
+```{r}
+#| echo: true
+#| eval: false
+replicate(n = 10, expr = paste0(sample(c("a", "c", "g", "t"), size = 100, replace = TRUE), collapse = ""))
+```
+
+Define the nucleotides
+```{r}
+#| echo: true
+#| eval: false
+c("a", "c", "g", "t")
+```
+
+Sample the nucleotides 100 times with replacement
+
+```{r}
+#| echo: true
+#| eval: false
+sample(c("a", "c", "g", "t"), size = 100, replace = TRUE)
+```
+
+Collapse the sample of characters into a string
+
+```{r}
+#| echo: true
+#| eval: false
+paste0(sample(c("a", "c", "g", "t"), size = 100, replace = TRUE), collapse = "")
+```
+
+Replicate the proces 10 times
 
 ```{r}
 #| echo: true
 #| eval: true
-v = c(55, 96, 56, 74, 21, 31, 64, 34, 100, 75)
+replicate(n = 10, expr = paste0(sample(c("a", "c", "g", "t"), size = 100, replace = TRUE), collapse = ""))
 ```
-
-Calculate the mean
-```{r}
-#| echo: true
-#| eval: true
-mean(v)
-```
-
-Round to nearest integer (whole-number / natural number)
-
-```{r}
-#| echo: true
-#| eval: true
-round(mean(v), 0)
-```
-
 
 
 <!--# ---------------------------------------------------------------------- -->
@@ -340,18 +399,113 @@ round(mean(v), 0)
 ```{r}
 #| echo: true
 #| eval: true
-v |> mean() |> round(digits = 0)
+
+c("a", "c", "g", "t") |> 
+  sample(size = 100, replace = TRUE) |> 
+  paste0(collapse = "") |> 
+  replicate(n = 10, expr = _)
 ```
 
-`|>` = `then`: "Take `v`, `then` calculate the `mean`, `then` `round` to `0` digits"
+We read the pipe `|>` as `then`, so:
 
-Same result as below, but which is more readable?
+1. Define the nucleotides, `then`
+1. Sample the nucleotides 100 times with replacement, `then`
+1. Collapse the sample of characters into a string, `then`
+1. Replicate the proces 10 times
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Same result, but which is more legible?
+
+### Before, no piping:
 
 ```{r}
 #| echo: true
-#| eval: true
-round(mean(v), 0)
+#| eval: false
+
+replicate(n = 10, expr = paste0(sample(c("a", "c", "g", "t"), size = 100, replace = TRUE), collapse = ""))
 ```
+
+### After, with piping:
+
+```{r}
+#| echo: true
+#| eval: false
+
+c("a", "c", "g", "t") |> 
+  sample(size = 100, replace = TRUE) |> 
+  paste0(collapse = "") |> 
+  replicate(n = 10, expr = _)
+```
+
+*Important: Note how the code literally becomes the comments! We strive for literate programming!*
+
+*Also, note how we are here are solving the task using functional programming, i.e. no loops!*
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Rehash: Functional vs. imperative programming
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+Functional Programming 👍
+
+```{r}
+#| echo: true
+#| eval: false
+
+c("a", "c", "g", "t") |> 
+  sample(size = 100, replace = TRUE) |> 
+  paste0(collapse = "") |> 
+  replicate(n = 10, expr = _)
+```
+
+:::
+
+::: {.column width="50%"}
+
+Imperative Programming 👎
+
+```{r}
+#| echo: true
+#| eval: false
+
+my_nucleotides = c("a", "c", "g", "t")
+n = 100
+k = 10
+my_dna_vec = c()
+for( i in 1:k ){
+  my_dna = ""
+  for( j in 1:n ){
+    ran_int = sample(1:length(my_nucleotides), size = 1)
+    my_base = my_nucleotides[ran_int]
+    my_dna = paste0(my_dna, my_base)
+  }
+  my_dna_vec[i] = my_dna
+}
+```
+
+
+:::
+
+::::
+
+**So, if you find your self thinking in terms of loops...**
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## STOP! In this course, we don't loop, we func!
+
+![](images/nedry.gif){width=100px fig-align="center"}
 
 
 
@@ -360,7 +514,9 @@ round(mean(v), 0)
 <!--# ---------------------------------------------------------------------- -->
 ## The idea is to approach natural language
 
-*"Programs must be written for people to read, and only incidentally for machines to execute"* - Harold Abelson
+- *"Programs must be written for people to read, and only incidentally for machines to execute"* - Harold Abelson
+
+- *In Tidyverse, the code becomes the comments!*
 
 ## Let us fix the `gravier`-data generation
 
@@ -633,7 +789,7 @@ cancer_data <- gravier |>
 
 **Good coding style is like correct punctuation: you can manage without it, butitsuremakesthingseasiertoread!**
 
-*Psstt... Get used to it, we will point non-styled code from now!*
+*Psstt... Get used to it, we will point out non-styled code from now!*
 
 
 <!--# ---------------------------------------------------------------------- -->
@@ -643,9 +799,9 @@ cancer_data <- gravier |>
 
 There are three interrelated rules which make a dataset tidy:
 
-1. Each variable must have its own column.
-1. Each observation must have its own row.
-1. Each value must have its own cell.
+1. Each variable must have its own column
+1. Each observation must have its own row
+1. Each value must have its own cell
 
 ![](images/tidy_data_illustration.png){fig-align="center"}
 
@@ -656,6 +812,8 @@ There are three interrelated rules which make a dataset tidy:
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Your turn
+## Your turn! Proceed to the exercises!
 
-Proceed to the exercises!
+![](images/group_work_meme.png){fig-align="center"}
+
+*Psstt... Everything you need to solve the exercises are in these slides and/or the preparation materials!*

@@ -1,7 +1,5 @@
 # Lab 4: Data Wrangling I {.unnumbered}
 
-#### STOP: Section not yet completed!
-
 ## Package(s)
 
 - [dplyr](https://dplyr.tidyverse.org)
@@ -10,9 +8,9 @@
 
 ## Schedule
 
-- 08.00 - 08.15: Recap of Lab 3
+- 08.00 - 08.15: [Recap of Lab 3](https://raw.githack.com/r4bds/r4bds.github.io/main/recap_lab04.html)
 - 08.15 - 08.30: Assignment 2 walk-through
-- 08.30 - 09.00: Introduction to Lab 4
+- 08.30 - 09.00: [Lecture](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab04.html)
 - 09.00 - 09.15: Break
 - 09.00 - 12.00: [Exercises](#sec-exercises)
 
@@ -56,7 +54,7 @@ Again, go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.
 Note that:
 - The Quarto document MUST be placed together with your `.Rproj` file (defining, the project root - look in your `Files`-pane) and also there, the `data`-folder should be placed!
 
-*Understanding how paths and projects work is important. In case this is no entirely clear, a new chapter has been added on Paths and Projects.*
+*Understanding how paths and projects work is important. In case this is no entirely clear, a new chapter has been added on [Paths and Projects](paths_and_projects.qmd).*
 
 ### Brief refresh of Quarto so far
 
