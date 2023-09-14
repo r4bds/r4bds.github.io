@@ -277,9 +277,10 @@ diabetes_data <- diabetes_data |>
 #| echo: true
 #| eval: false
 tibble(x = rnorm(10)) |> 
-  mutate(trichotomised = case_when(x < -1 ~ "Less than -1",
-                                   -1 <= x & x < 1 ~ "larger than or equal to -1 and smaller than 1",
-                                   1 <= x ~ "Larger than or equal to 1"))
+  mutate(trichotomised = case_when(
+    x < -1 ~ "Less than -1",
+    -1 <= x & x < 1 ~ "larger than or equal to -1 and smaller than 1",
+    1 <= x ~ "Larger than or equal to 1"))
 ```
 
 *and then go read about [BMI classification here](https://www.ncbi.nlm.nih.gov/books/NBK541070/) and discuss in your group how to extract classifications from the Definition/Introduction section*

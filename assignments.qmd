@@ -6,16 +6,6 @@
 
 The assignment will be marked "Group Assignment" with red font in the exercises. In your group, you are to prepare an answer to **just this one question**. Think about reproducibility from the get-go, so include in your assignment, what is needed to re-create your micro-report, e.g. if you're using external data, from where and how did you get it? You will then receive group feedback on your assignment, which you should make sure to go over in your group.
 
-## How to hand in
-
-1. Check that your assignment conforms to the assignment checklist, as defined in the next section
-1. Go to [DTU Learn](http://learn.inside.dtu.dk)
-1. Find and click your `R for Bio Data Science` course
-1. Make sure you are enrolled in the correct group, as defined by the Group Formation Sheet (see the [Getting Started Section](getting_started.qmd))
-1. In case groups consists of a mix of BSc. and MSc. students, then enroll under your respective courses
-1. Only hand in **one** assignment, meaning either under the BSc. or the MSc. course, **not** both
-1. You should hand in the rendered html-file, make sure to compress it to a zip-file prior to upload
-
 *Please note, that in order to include all elements in a self-contained html file, you will have to use the following YAML-header in your Quarto document:*
 
 ````
@@ -30,10 +20,21 @@ editor: visual
 
 *Or at least one similar, format title and other elements as you see fit, key here is the `html`-format with embedded resources.*
 
+## How to hand in
+
+1. Check that your assignment conforms to the assignment checklist, as defined in the next section
+1. Go to [DTU Learn](http://learn.inside.dtu.dk)
+1. Find and click your `R for Bio Data Science` course
+1. Make sure you are enrolled in the correct group, as defined by the Group Formation Sheet (see the [Getting Started Section](getting_started.qmd))
+1. In case groups consists of a mix of BSc. and MSc. students, then enroll under your respective courses
+1. Only hand in **one** assignment, meaning either under the BSc. or the MSc. course, **not** both
+1. You should hand in the rendered html-file, make sure to compress it to a zip-file prior to upload
+
 ## Assignment Checklist
 
 Did you?
 
+- Match your group number with DTU Learn groups
 - Just answer the one task marked as "Group Assignment"
 - Create the assignment using Quarto
 - Modify the YAML-header to ensure encapsulation
@@ -45,4 +46,4 @@ Did you?
 - Think about reproducibility with respect to data and libraries?
 - Render til html
 - Compress the html-file to a zip-file, **before** upload to DTU Learn
-- Match your group number with DTU Learn groups
+- Make sure to download the upload'ed zip-file and check that everything looks right?

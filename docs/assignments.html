@@ -258,6 +258,15 @@ ul.task-list{list-style: none;}
 <section id="assignment-instructions" class="level2">
 <h2 class="anchored" data-anchor-id="assignment-instructions">Assignment Instructions</h2>
 <p>The assignment will be marked “Group Assignment” with red font in the exercises. In your group, you are to prepare an answer to <strong>just this one question</strong>. Think about reproducibility from the get-go, so include in your assignment, what is needed to re-create your micro-report, e.g.&nbsp;if you’re using external data, from where and how did you get it? You will then receive group feedback on your assignment, which you should make sure to go over in your group.</p>
+<p><em>Please note, that in order to include all elements in a self-contained html file, you will have to use the following YAML-header in your Quarto document:</em></p>
+<pre><code>---
+title: "Lab 2 Assignment: Group 02"
+format:
+  html:
+    embed-resources: true
+editor: visual
+---</code></pre>
+<p><em>Or at least one similar, format title and other elements as you see fit, key here is the <code>html</code>-format with embedded resources.</em></p>
 </section>
 <section id="how-to-hand-in" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-hand-in">How to hand in</h2>
@@ -270,20 +279,12 @@ ul.task-list{list-style: none;}
 <li>Only hand in <strong>one</strong> assignment, meaning either under the BSc. or the MSc. course, <strong>not</strong> both</li>
 <li>You should hand in the rendered html-file, make sure to compress it to a zip-file prior to upload</li>
 </ol>
-<p><em>Please note, that in order to include all elements in a self-contained html file, you will have to use the following YAML-header in your Quarto document:</em></p>
-<pre><code>---
-title: "Lab 2 Assignment: Group 02"
-format:
-  html:
-    embed-resources: true
-editor: visual
----</code></pre>
-<p><em>Or at least one similar, format title and other elements as you see fit, key here is the <code>html</code>-format with embedded resources.</em></p>
 </section>
 <section id="assignment-checklist" class="level2">
 <h2 class="anchored" data-anchor-id="assignment-checklist">Assignment Checklist</h2>
 <p>Did you?</p>
 <ul>
+<li>Match your group number with DTU Learn groups</li>
 <li>Just answer the one task marked as “Group Assignment”</li>
 <li>Create the assignment using Quarto</li>
 <li>Modify the YAML-header to ensure encapsulation</li>
@@ -295,7 +296,7 @@ editor: visual
 <li>Think about reproducibility with respect to data and libraries?</li>
 <li>Render til html</li>
 <li>Compress the html-file to a zip-file, <strong>before</strong> upload to DTU Learn</li>
-<li>Match your group number with DTU Learn groups</li>
+<li>Make sure to download the upload’ed zip-file and check that everything looks right?</li>
 </ul>
 
 
