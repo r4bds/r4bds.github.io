@@ -1,0 +1,113 @@
+---
+title: "Lecture Lab 7"
+title: "Lecture Lab 1"
+author: "Nils Hofmann"
+format:
+  revealjs:
+    embed-resources: true
+    theme: moon
+    slide-number: c/t
+    width: 1600
+    height: 900
+    mainfont: avenir
+    logo: images/r4bds_logo_small.png
+    footer: "R for Bio Data Science"
+---
+
+## Which questions you will answer after todays lecture?
+
+-   What does version control mean?
+
+-   
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## Things that happen without version control
+
+![](images/memes_lab07.png){fig-align="center"}
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## Version Control - What and why
+
+Think about your own a experiences with coding and how a system could remove these issues. Also what should this system have if you work with others on one project
+
+Collect your ideas at the course [Padlet](https://padlet.com/s2206721/what-could-version-control-mean-yj6uerzlld8eu3rg)
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## Git - An open source version control system
+
+-   installed locally on your device
+
+-   keeps track of your file changes
+
+    -   Indexes each change, so you can revert it
+
+-   You interact with it via command line
+
+![](images/Git_logo.jpg){fig-align="center"}
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## Git - The basics
+
+-   git init - initialize a new repository (
+
+-   git clone - create and copy an existing repository in your directory
+
+-   git add - tell git to include certain updates in the next commit
+
+-   git commit - creates a new copy of the repository with the given changes and assigns an index
+
+-   git push - checked in changes (commit) will be pushed to remote repository (GitHub)
+
+-   git pull - update your local repository
+
+![](images/git_workflow.jpeg)
+
+## 
+
+## Git vs GitHub
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## Git and GitHub together
+
+-   GitHub allows you to have the project repository remotely
+
+-   Multiple people who have git installed can then access this repository and create a copy
+
+-   GitHub introduces visual features and eases the project management
+
+![](images/git_github_basic_workflow.png){fig-align="center"}
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## Git - Potential Issues
+
+## A few words on branching
