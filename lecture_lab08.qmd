@@ -1,0 +1,678 @@
+---
+title: "Lecture Lab 8"
+author: "Søren Helweg Dam"
+format:
+  revealjs:
+    embed-resources: true
+    theme: moon
+    slide-number: c/t
+    width: 1600
+    height: 900
+    mainfont: avenir
+    logo: images/r4bds_logo_small.png
+    footer: "R for Bio Data Science"
+---
+
+
+# R packages
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Lab 8 Learning Objectives
+
+- Prepare a simple R package for distributing documented functions
+
+- Explain the terms `Repository`, `Dependency`, and `Namespace`
+
+- Implement testing in an R package
+
+- Collaboratively work on an R package on GitHub
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The Importance of R Packages
+
+Imagine you are analyzing some *bio data*.
+You have written some nifty scripts that have sped up your analysis significantly.
+Wouldn't it be great if:
+
+- You could easily share these with your colleagues?
+- Document them for your future self?
+- Make them accessible to the entire scientific community?
+
+Welcome to the world of R packages!
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Today's lab 
+
+- What is an R package?
+- Using an R package
+- Building an R package
+- Namespace
+- Dependencies
+- Repositories
+- R package in 1-2-3
+- The exercises
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## What is an R package?
+  
+- A `shareable` collection of `documented` code and/or data
+
+![](images/L08_pkgdir.png){fig-align="center" width="65%"}
+
+</br>
+- [source](https://raw.githubusercontent.com/rstudio/cheatsheets/main/package-development.pdf)
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## R package examples
+
+Some examples you might be familiar with:
+
+- `Tidyverse`
+  - `dplyr`
+  - `tibble`
+  - `tidyr`
+  - `ggplot2`
+  - ...
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Using an R Package
+:::: {.columns}
+
+::: {.column width="45%"}
+### Loading
+
+:::
+::: {.column width="10%"}
+:::
+::: {.column width="45%"}
+
+### Attaching
+
+:::
+
+::::
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Using an R Package
+:::: {.columns}
+
+::: {.column width="45%"}
+### Loading
+
+- Makes functions/objects available.
+
+- Requires prefixing function/object with the package name: `::`.
+
+```{r}
+#| echo: true
+#| eval: false
+dplyr::mutate()
+```
+
+:::
+::: {.column width="10%"}
+:::
+::: {.column width="45%"}
+
+### Attaching
+
+
+:::
+
+::::
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Using an R Package
+:::: {.columns}
+
+::: {.column width="45%"}
+### Loading
+
+- Makes functions/objects available.
+
+- Requires prefixing function/object with the package name: `::`.
+
+```{r}
+#| echo: true
+#| eval: false
+dplyr::mutate()
+```
+
+:::
+::: {.column width="10%"}
+:::
+::: {.column width="45%"}
+
+### Attaching
+
+- Adds the package to the R search path.
+
+- Functions/objects can be used directly without using `::`.
+
+
+```{r}
+#| echo: true
+#| eval: false
+library("dplyr")
+mutate()
+```
+
+:::
+
+::::
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Using an R Package
+:::: {.columns}
+
+::: {.column width="45%"}
+### Loading
+
+- Makes functions/objects available.
+
+- Requires prefixing function/object with the package name: `::`.
+
+```{r}
+#| echo: true
+#| eval: false
+dplyr::mutate()
+```
+
+:::
+::: {.column width="10%"}
+:::
+::: {.column width="45%"}
+
+### Attaching
+
+- Adds the package to the R search path.
+
+- Functions/objects can be used directly without using `::`.
+
+
+```{r}
+#| echo: true
+#| eval: false
+library("dplyr")
+```
+
+:::
+
+::::
+<br> 
+
+**Key Point:** Attaching makes calling functions easy but risks conflicts with function names from other packages. Using `::` is explicit and safer.
+
+**OBS! Never use `library()` inside your package!** Because it can lead to unexpected behavior.
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Building an R package
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## R package benefits
+
+- `Reusable Code`: Avoid rewriting the same code for different projects.
+
+- `Standardized Work`: Organize your analysis and code neatly.
+
+- `Easy Documentation`: Maintain detailed documentation for every function and dataset.
+
+- `Sharing & Collaboration`: Share your tools, analysis, and workflows seamlessly with peers.
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Building an R package
+
+At its core, an `R package` is essentially a collection of `functions`.
+
+*And/or data*
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Introduction to Functions
+
+
+- Functions are `reusable blocks of code` designed to perform a specific task.
+
+- They accept `inputs` (arguments) and, after processing, return an `output`.
+
+- Properly defined functions `enhance code clarity`, facilitate `debugging`, and foster `modularity`.
+
+
+```{r}
+#| echo: true
+fun_name <- function(input1, input2 = 2){
+  # Do stuff
+  output <- paste(input1, input2)
+  # Return stuff
+  return(output)
+}
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Using functions in a package
+
+- Explicit arguments (improves clarity):
+
+```{r}
+#| echo: true
+# Good practice
+fun_name(input1 = "something",
+         input2 = 2)
+```
+
+- Using default arguments:
+
+```{r}
+#| echo: true
+# Often fine practice
+# Here input1 = "something_else" and input2 = 2
+fun_name("something_else")
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Caution with function names
+
+
+_Avoid using common function names_
+
+```{r}
+#| echo: true
+mean(1:5)
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Caution with function names
+
+
+_Avoid using common function names_
+
+```{r}
+#| echo: true
+mean(1:5)
+```
+
+```{r}
+#| echo: true
+mean <- function(vector){
+  result <- sum(vector)
+  return(result)
+}
+
+```
+
+```{r}
+#| echo: true
+mean(1:5)
+```
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Caution with function names
+
+
+_Avoid overwriting other function names_
+
+```{r}
+#| echo: true
+mean(1:5)
+```
+
+```{r}
+#| echo: true
+mean <- function(vector){
+  result <- sum(vector)
+  return(result)
+}
+
+```
+
+```{r}
+#| echo: true
+mean(1:5)
+```
+
+To resolve naming conflicts, utilize `namespaces`.
+
+```{r}
+#| echo: true
+base::mean(1:5)
+# Use namespaces with package::function()
+# Note that "base" is an R package
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Namespace
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Namespace: An Introduction
+
+- **Definition**: 
+  - A namespace in R defines a `scoped environment` where each package's functions, data, and other objects reside. 
+  
+- **Purpose**: 
+  - `Avoid Clashes:` Ensures that functions or objects from one package won't accidentally reference or override those from another package.
+  - `Isolation:` Each package's contributions are isolated, ensuring they work as intended.
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Seeing Namespace in action
+
+Using `library()` lets R know which package's tools you intend to use.
+
+However, if multiple packages have tools with the same name, the most recently loaded package takes precedence.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| eval: false
+#| echo: true
+library("lubridate")
+library("here")
+here() # here::here()
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| eval: false
+#| echo: true
+library("here")
+library("lubridate")
+here() # lubridate::here()
+```
+
+:::
+
+::::
+
+To prevent such overlaps, explicitly call functions using their namespaces:
+
+```{r}
+#| eval: false
+#| echo: true
+lubridate::here()
+here::here()
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The Namespace Search Path
+
+See how R's environment changes when packages are attached.
+
+```{r, echo=TRUE}
+# Initial search path
+search()
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The Namespace Search Path
+
+See how R's environment changes when packages are attached.
+
+```{r, echo=TRUE}
+# Initial search path
+search()
+
+# Attach the 'here' package
+library("here")
+
+# Attach the 'lubridate' package
+library("lubridate")
+
+# Search path after attaching packages
+search()
+```
+
+**Observation:** As you load packages, they get added to the search path, affecting how R finds functions and objects.
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## So why is Namespace Important?
+
+1. `Avoids Conflicts`: Multiple packages might have functions with the same name. Namespaces ensure there's no confusion.
+
+2. `Explicit Code`: Clearly indicates the origin of functions, enhancing readability and clarity.
+
+3. `Ensures Stability`: Your code behaves as expected, even if you load multiple packages.
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Specifying Namespace in your package
+
+`Roxygen skeleton`
+
+```{r}
+#| echo: true
+#| eval: false
+#' Title
+#'
+#' @param input1 
+#' @param input2 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+fun_name <- function(input1, input2 = 2){
+  # Do stuff
+  output <- stringr::str_c(input1, input2, sep  = " ")
+  # Return stuff
+  return(output)
+}
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Specifying Namespace in your package
+
+`Roxygen skeleton`
+
+```{r}
+#| echo: true
+#' Title
+#'
+#' @param input1 
+#' @param input2 
+#' @importFrom stringr str_c
+#'
+#' @return string
+#' @export
+fun_name <- function(input1, input2 = 2){
+  # Do stuff
+  output <- stringr::str_c(input1, input2, sep  = " ")
+  # Return stuff
+  return(output)
+}
+```
+
+
+R now knows that `stringr` is a `dependency` in your package.
+
+Including ```@importFrom stringr str_c``` in the function description lets you use `str_c` in your package with no issues. But keep `stringr::` for explicit code.
+
+Now what exactly is a `dependency`?
+
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Dependencies
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Dependencies: Why They Matter
+
+- A `Dependency` is a package that another package relies on, ensuring all functions and features run as expected.
+
+- They help `maintain` the `integrity` of a package when sharing or collaborating.
+  - They are installed with your package.
+  
+- Don't build what is already built!
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Dependencies: A word of caution
+
+As stated, `all dependencies` are installed with your package.
+This can lead to `bloating`. 
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Dependency network - Tidyverse
+
+```{r dep_network}
+#| include: false
+#| eval: false
+library("pkgnet")
+library("htmlwidgets")
+package <- "tidyverse"
+report <- CreatePackageReport(package)
+
+saveWidget(report$DependencyReporter$graph_viz,
+           file = "images/L08_dependency_network.html",
+           selfcontained = TRUE,
+           background = "#002b36")
+```
+
+<iframe src="images/L08_dependency_network.html" width="100%" height="800"></iframe>
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Repositories
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Repositories: A Brief Overview
+
+- `Repositories` are storage locations for packages.
+
+- The two main repositories for R packages are `CRAN` (Comprehensive R Archive Network) and `Bioconductor`.
+
+- Many developers also use `GitHub` as a platform to host and share their development versions of packages.
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Repositories: Installing packages
+
+```{r install}
+#| echo: true
+#| eval: false
+install.packages("devtools")          # CRAN: The Comprehensive R Archive Network
+devtools::install_bioc("pairedGSEA")  # Bioconductor
+devtools::install_github("cyCombine") # GitHub
+devtools::install_cran("dplyr")       # CRAN again
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Building an R package as easy as 1-2-3
+
+## The 1-2-3 of R packages
+
+```{r}
+#| echo: true
+#| eval: false
+# Create the package
+devtools::create("package name")
+# Create function script
+usethis::use_r("function name")
+# Include dependencies
+usethis::use_package("package name")
+# Include data in your package
+usethis::use_data(object) # set internal = TRUE if data should be internal
+usethis::use_data_raw("object", open = TRUE) # describe how it was cleaned
+# Create test for your function
+usethis::use_test("function name")
+# Automatically write package documentation
+devtools::document()
+# Simulate library("your package")
+devtools::load_all()
+# Check that your package is installable
+devtools::check()
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Exercises
+
+## Build your own R package
+
+The central dogma of molecular biology
+
+![](images/L08_dogma.png){fig-align="center" width="50%"}
+
+
+</br>
+- [source](https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology)
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Break, then exercises!
