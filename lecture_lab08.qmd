@@ -449,7 +449,8 @@ here::here()
 
 See how R's environment changes when packages are attached.
 
-```{r, echo=TRUE}
+```{r}
+#| echo: true
 # Initial search path
 search()
 ```
@@ -461,7 +462,8 @@ search()
 
 See how R's environment changes when packages are attached.
 
-```{r, echo=TRUE}
+```{r}
+#| echo: true
 # Initial search path
 search()
 

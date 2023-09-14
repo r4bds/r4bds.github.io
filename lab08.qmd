@@ -97,7 +97,8 @@ Create an roxygen skeleton by clicking somewhere in your function. Go to the 'Co
 
 This will look something like this:
 
-```{r eval=FALSE}
+```{r}
+#| eval: false
 #' Title
 #'
 #' @param foo 
@@ -195,7 +196,8 @@ RStudio will now create an R project for you that contains all necessary files a
 
 5. Open the `DESCRIPTION` file and write a title for your package, a small description, and add authors.
   - When adding authors, the format is:
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 Author@R:
   c(person(given = "firstname",
            family = "lastname",
@@ -311,7 +313,8 @@ The rest should follow along.
 
 
 1. Below is a standard codon table. Store it in an object with a name of your own choosing.
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 c("UUU" = "F", "UCU" = "S", "UAU" = "Y", "UGU" = "C",
   "UUC" = "F", "UCC" = "S", "UAC" = "Y", "UGC" = "C",
   "UUA" = "L", "UCA" = "S", "UAA" = "_", "UGA" = "_",
@@ -336,7 +339,8 @@ c("UUU" = "F", "UCU" = "S", "UAU" = "Y", "UGU" = "C",
     - All non-internal data should be documented in a `data.R` file in the `R` folder. Create it with `usethis::use_r("data")`
     - Add the following scaffold and write a *very* brief description of the data (see an example [here](https://r-pkgs.org/data.html#documenting-data)). Don't spend a lot of time here.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 #' Title
 #' 
 #' Description
@@ -383,7 +387,8 @@ For each function, complete the following steps:
     - Examples can span multiple lines and what you write will be run.
     - **Important!** Either fill out everything or delete what you don't describe. Otherwise, the package check will fail (Do **not** delete `@export` for these functions).
 6. Run the three lines of codes from [The Package Workflow](#pkgwf) section
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 rstudioapi::documentSaveAll()  # Saves all you files
 devtools::document()  # Writes all your manuals for you
 devtools::load_all()  # Simulates library("your package"), allowing you to use your functions
@@ -408,7 +413,8 @@ If there are any errors, fix those. Warnings and notes are also good to address.
 
 <details> <summary>Function one</summary>
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 name_me1 <- function(name_me2){
   name_me3 <- sample(c("A", "T", "G", "C"), size = name_me2, replace = TRUE)
   name_me4 <- paste0(name_me3, collapse = "")
@@ -422,7 +428,8 @@ name_me1 <- function(name_me2){
 <details> <summary>Function two</summary>
 
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 name_me1 <- function(name_me2){
   name_me3 <- gsub("T", "U", name_me2)
   return(name_me3)
@@ -433,7 +440,8 @@ name_me1 <- function(name_me2){
 
 <details> <summary>Function three</summary>
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 name_me1 <- function(name_me2, start = 1){
   name_me3 <- nchar(name_me2)
   codons <- substring(name_me2,
@@ -448,7 +456,8 @@ name_me1 <- function(name_me2, start = 1){
 
 `name_of_your_object` refers to the codon table you stored in Task 2.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 name_me <- function(codons){
   name_me2 <- paste0(name_of_your_object[codons], collapse = "")
   return(name_me2)
@@ -468,20 +477,21 @@ Do that with all three.
 For `magrittr` it is a good idea to add the Tidyverse pipe `%>%` to your package namespace. When writing your function documentation, add a line with `@importFrom magrittr %>%`.
 For the `ggplot2` functions, we will use `ggplot2::function_name` everywhere a `ggplot2` function is used. Also add `@import ggplot2` to the function description. The same applies for `stringr`, but since we only use a few functions, add `@importFrom stringr str_split boundary str_count` to the function description.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 name_me1 <- function(name_me2){
-  name_me3 <- name_me2 %>% 
+  name_me3 <- name_me2 |>  
     stringr::str_split(pattern = stringr::boundary("character"), simplify = TRUE) %>%
-    as.character() %>%
+    as.character() |> 
     unique()
   
-  counts <- sapply(name_me3, function(amino_acid) stringr::str_count(string = name_me2, pattern =  amino_acid)) %>% 
+  counts <- sapply(name_me3, function(amino_acid) stringr::str_count(string = name_me2, pattern =  amino_acid)) |>  
     as.data.frame()
   
   colnames(counts) <- c("Counts")
   counts[["Name_me2"]] <- rownames(counts)
   
-  name_me4 <- counts %>% 
+  name_me4 <- counts |>  
     ggplot2::ggplot(ggplot2::aes(x = Name_me2, y = Counts, fill = Name_me2)) +
     ggplot2::geom_col() +
     ggplot2::theme_bw() +
