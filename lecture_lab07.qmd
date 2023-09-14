@@ -96,7 +96,11 @@ Collect your ideas at the course [Padlet](https://padlet.com/s2206721/what-could
 
 -   GitHub allows you to have the project repository remotely
 
+<<<<<<< HEAD
     -   Multiple people who have git installed can then access this repository and create a copy
+=======
+-   Multiple people who have git installed can then access this repository and create a copy
+>>>>>>> 978dc6d (upload of memes and start with presentation)
 
 -   GitHub introduces visual features and eases the project management
 
