@@ -13,7 +13,7 @@
 
 - 08.00 - 08.15: Recap of exercises from last lab
 - 08.15 - 08.30: Assignment walk-through
-- 08.30 - 09.00: Introduction to Lab
+- 08.30 - 09.00: [Lecture](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab08.html)
 - 09.00 - 09.15: Break
 - 09.00 - 12.00: [Exercises](#sec-exercises)
 
@@ -381,7 +381,7 @@ For each function, complete the following steps:
     - The parameters should have the format: `@param param_name description of parameter`
     - The return has the format: `@return description of function output`
     - Examples can span multiple lines and what you write will be run.
-    - It is important you either fill out everything or delete what you don't describe (Do not delete `@export` for these functions)
+    - **Important!** Either fill out everything or delete what you don't describe. Otherwise, the package check will fail (Do **not** delete `@export` for these functions).
 6. Run the three lines of codes from [The Package Workflow](#pkgwf) section
 ```{r, eval=FALSE}
 rstudioapi::documentSaveAll()  # Saves all you files
