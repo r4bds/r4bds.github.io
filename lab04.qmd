@@ -47,7 +47,9 @@ diabetes_data <- read_csv(file = "data/diabetes.csv")
 
 ### Getting Started
 
-Again, go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) session from last time and login and choose the project you created. First things first:
+Use this link to go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php)
+
+First things first:
 
 - Create a new Quarto Document for todays exercises, e.g. `lab04_exercises.qmd`
 
