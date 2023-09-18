@@ -201,7 +201,7 @@ Then realise that we could simply have run the following code to do the exact sa
 #| echo: true
 #| eval: false
 # Create the data directory programmatically
-dir_create(path = "data")
+dir_create(x = "data")
 
 # Retrieve the data directly
 diabetes_data <- read_csv(file = "https://hbiostat.org/data/repo/diabetes.csv")
@@ -344,7 +344,7 @@ diabetes_data <- diabetes_data |>
 Now, with this augmented data set, let us create some summary statistics
 
 - **Q19: How many women and men are there in the data set?**
-- **Q20: How many women and men are there from Buckingham and Louise respectively in the data set?**
+- **Q20: How many women and men are there from Buckingham and Louisa respectively in the data set?**
 - **Q21: How many are in each of the `BMI_class` groups?**
 - **Q22: Given the code below, explain the difference between A and B?**
 
