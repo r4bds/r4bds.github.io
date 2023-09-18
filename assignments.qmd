@@ -44,6 +44,6 @@ Did you?
 - Separate text clearly from code chunks
 - Follow [course code styling](code_styling.qmd)
 - Think about reproducibility with respect to data and libraries?
-- Render til html
+- Render to html
 - Compress the html-file to a zip-file, **before** upload to DTU Learn
 - Make sure to download the upload'ed zip-file and check that everything looks right?

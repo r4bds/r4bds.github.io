@@ -1,0 +1,332 @@
+---
+title: "Recap Lab 5"
+author: "Leon Eyrich Jessen"
+format:
+  revealjs:
+    embed-resources: true
+    theme: moon
+    slide-number: c/t
+    width: 1600
+    height: 900
+    mainfont: avenir
+    logo: images/r4bds_logo_small.png
+    footer: "R for Bio Data Science"
+---
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# A Few Meta Points...
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+
+library("tidyverse")
+SPE_ENV <- read_tsv(file = "data/SPE_ENV.tsv")
+targets <- c("Methanobacteria", "Clostridia", "Actinobacteria",
+             "Sphingobacteria", "Anaerolineae")
+SPE_ENV_targets <- filter(SPE_ENV, Taxa %in% targets)
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load Libraries
+```{r}
+library("tidyverse")
+library("fs")
+```
+
+## Load Data
+
+### Create the data directory programmatically
+```{r eval=FALSE}
+dir_create(path = "data")
+```
+
+### Retrieve the data directly
+```{r eval=FALSE}
+diabetes_data <- read_csv(file = "https://hbiostat.org/data/repo/diabetes.csv")
+```
+
+### Write the data to disk
+```{r eval=FALSE}
+write_csv(x = diabetes_data, file = "data/diabetes.csv")
+```
+
+### Read the data back in
+```{r message=FALSE}
+diabetes_data <- read_csv(file = "data/diabetes.csv")
+```
+
+- Remember to set the `eval=FALSE` flag in the chunk header to avoid retrieving the data every time you hit `knit`
+
+## Look at data
+
+```{r}
+diabetes_data
+```
+
+- `<chr>`: character
+- `<dbl>`: double
+
+## `mutate()`
+
+- Change the height, weight, waist and hip from inches/pounds to the metric system (cm/kg), rounding to 1 decimal
+
+```{r}
+diabetes_data <- diabetes_data %>%
+  mutate(height_cm = round(height * 2.54, digits = 1),
+         weight_kg = round(weight * 0.454, digits = 1),
+         hip_cm = round(hip * 2.54, digits = 1),
+         waist_cm = round(waist * 2.54, digits = 1))
+diabetes_data %>% 
+  select(matches("height|weight|hip|waist")) # Note: Selecting using a regex()
+```
+
+## `filter()`
+
+- How many men in Buckingham are younger than 30 and taller than 1.9m?
+
+```{r}
+diabetes_data %>%
+  filter(location == "Buckingham",
+         age < 30,
+         height_cm > 190)
+```
+
+## `filter()`
+
+- Make a scatter plot of weight versus height and colour by gender for inhabitants of Louisa above the age of 40
+
+```{r fig.align="center", fig.width=10, fig.height=3, warning=FALSE}
+diabetes_data %>%
+  filter(location == "Louisa",
+         age > 40) %>% 
+  ggplot(aes(x = height_cm, y = weight_kg, colour = gender)) +
+  geom_point()
+```
+
+## `filter()`
+
+- Make a scatter plot of weight versus height and colour by gender for inhabitants of Louisa above the age of 40
+
+```{r fig.align="center", fig.width=10, fig.height=3, warning=FALSE}
+diabetes_data %>%
+  mutate(subject = case_when(location == "Louisa" & age > 40 ~ gender,
+                             TRUE ~ "Not incl")) %>% # Create needed attribute BEFORE plotting
+  ggplot(aes(x = height_cm, y = weight_kg, colour = subject)) +
+  geom_point(alpha = 0.5)
+```
+
+
+## `arrange()`
+
+- How old is the youngest person
+```{r}
+diabetes_data %>% arrange(age) %>% slice(1)
+```
+
+- How old is the oldest person
+```{r}
+diabetes_data %>% arrange(desc(age)) %>% slice(1)
+```
+
+## `mutate()`
+
+- Create a new variable, where you calculate the BMI
+
+```{r}
+diabetes_data <- diabetes_data %>% 
+  mutate(BMI = weight_kg / (height_cm / 100)^2)
+```
+
+## `case_when()`
+
+- Create a BMI_class variable
+
+```{r}
+diabetes_data <- diabetes_data %>% 
+  mutate(BMI_class = case_when(BMI < 18.5 ~ "underweight",
+                               18.5 <= BMI & BMI < 25.0 ~ "normal weight",
+                               25.0 <= BMI & BMI < 30.0 ~ "overweight",
+                               30.0 <= BMI & BMI < 35.0 ~ "obese",
+                               35.0 <= BMI & BMI < 40.0 ~ "severe obesity",
+                               40.0 <= BMI & BMI < 50.0 ~ "morbid obesity",
+                               50.0 <= BMI ~ "super obese"))
+```
+
+## Factor levels
+
+```{r fig.align="center", fig.width=10, fig.height=3, warning=FALSE}
+diabetes_data %>%
+  count(BMI_class) %>%
+  drop_na(BMI_class) %>% 
+  mutate(pct = n / sum(n) * 100) %>%
+  ggplot(aes(x = BMI_class, y = pct)) +
+  geom_col()
+```
+
+- Columns order is nonsensical
+
+## Factor levels
+
+```{r}
+diabetes_data <- diabetes_data %>%
+  mutate(BMI_class = factor(BMI_class,
+                            levels =  c("underweight", "normal weight",
+                                        "overweight", "obese",
+                                        "severe obesity", "morbid obesity",
+                                        "super obese")))
+```
+
+## Factor levels
+
+```{r fig.align="center", fig.width=10, fig.height=3, warning=FALSE}
+diabetes_data %>%
+  count(BMI_class) %>%
+  drop_na(BMI_class) %>% 
+  mutate(pct = n / sum(n) * 100) %>%
+  ggplot(aes(x = BMI_class, y = pct)) +
+  geom_col()
+```
+
+- Columns order is now sensical
+
+## `group_by() %>% summarise()`
+
+- For each BMI_class group, calculate the average weight and associated standard deviation
+
+```{r}
+diabetes_data %>% 
+  group_by(BMI_class) %>% 
+  summarise(n = n(),
+            mu_weight_kg = mean(weight_kg),
+            sigma_weight_kg = sd(weight_kg))
+```
+
+- `<fct>` = a factor variable, i.e. a category!
+
+```{r echo=FALSE}
+write_tsv(x = diabetes_data, file = "data/diabetes_data_augmented.tsv")
+```
+
+# Assignment
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("tidyverse")
+library("patchwork")
+diabetes_data <- read_tsv(file = "data/diabetes_data_augmented.tsv")
+```
+
+## Data augmentation
+
+- Create a BFP (Body fat percentage) variable
+- Create a WHR (waist-to-hip ratio) variable
+
+```{r}
+diabetes_data <- diabetes_data %>% 
+  mutate(gender_class = case_when(gender == "female" ~ 0,
+                                  gender == "male" ~ 1),
+         BFP = 1.39 * BMI + 0.16 * age - 10.34 * gender_class - 9,
+         WHR = waist / hip)
+diabetes_data %>% sample_n(3)
+```
+
+## Which correlate better with BMI, WHR or BFP?
+
+```{r fig.align="center", fig.width=10, fig.height=3, warning=FALSE}
+pl1 <- diabetes_data %>% 
+  ggplot(aes(x = BMI, y = WHR)) +
+  geom_point()
+pl2 <- diabetes_data %>% 
+  ggplot(aes(x = BMI, y = BFP)) +
+  geom_point()
+pl1 + pl2
+```
+
+## Which correlate better with BMI, WHR or BFP?
+
+<div style="float: left; width: 50%;">
+```{r}
+diabetes_data %>%
+  select(BMI, WHR, BFP) %>%
+  pivot_longer(cols = c(WHR, BFP),
+               names_to = "metric",
+               values_to = "value")
+```
+</div>
+
+<div style="float: right; width: 50%;">
+```{r}
+corrs <- diabetes_data %>%
+  select(BMI, WHR, BFP) %>%
+  pivot_longer(cols = c(WHR, BFP),
+               names_to = "metric",
+               values_to = "value") %>%
+  drop_na %>%
+  group_by(metric) %>%
+  summarise(PCC = cor(x = BMI,
+                      y = value,
+                      use = "complete.obs",
+                      method = "pearson"))
+corrs
+```
+</div>
+
+## Which correlate better with BMI, WHR or BFP?
+
+```{r fig.align="center", fig.width=10, fig.height=3, warning=FALSE}
+pl1 <- pl1 +
+  labs(subtitle = str_c("PCC = ", corrs %>% filter(metric == "WHR") %>% pull(PCC) %>% round(3)))
+pl2 <- pl2 +
+  labs(subtitle = str_c("PCC = ", corrs %>% filter(metric == "BFP") %>% pull(PCC) %>% round(3)))
+pl1 + pl2
+```
+
+## A Better Way?
+
+```{r}
+corrs <- corrs %>% 
+  mutate(R2 = round(PCC^2, digits = 3),
+         label = str_c("R2 = ", R2))
+corrs
+```
+
+## Which correlate better with BMI, WHR or BFP?
+
+<div style="float: left; width: 50%;">
+```{r}
+s1 <- corrs %>%
+  filter(metric == "WHR") %>%
+  pull(label)
+
+s2 <- corrs %>%
+  filter(metric == "BFP") %>%
+  pull(label)
+
+pl1 <- pl1 +
+  labs(subtitle = s1) +
+  geom_smooth(method = "lm") +
+  theme_minimal()
+
+pl2 <- pl2 +
+  labs(subtitle = s2) +
+  geom_smooth(method = "lm") +
+  theme_minimal()
+```
+</div>
+
+<div style="float: right; width: 50%;">
+```{r fig.align="center", fig.width=5, fig.height=5, warning=FALSE, message=FALSE}
+pl1 / pl2
+```
+</div>
+
+_NB! "Tim Toady" (TIMTOWTDI) and - As much as possible, prepare your data to contain what you need before plotting!_

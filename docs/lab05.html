@@ -233,6 +233,16 @@ ul.task-list{list-style: none;}
   <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
   <li><a href="#learning-materials" id="toc-learning-materials" class="nav-link" data-scroll-target="#learning-materials">Learning Materials</a></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  <li><a href="#creating-one-data-set-from-two-data-sets" id="toc-creating-one-data-set-from-two-data-sets" class="nav-link" data-scroll-target="#creating-one-data-set-from-two-data-sets">Creating one data set from two data sets</a></li>
+  <li><a href="#exploraty-data-analysis-i---the-meta-data" id="toc-exploraty-data-analysis-i---the-meta-data" class="nav-link" data-scroll-target="#exploraty-data-analysis-i---the-meta-data">Exploraty Data Analysis I - The meta data</a></li>
+  <li><a href="#exploraty-data-analysis-ii---the-sequence-data" id="toc-exploraty-data-analysis-ii---the-sequence-data" class="nav-link" data-scroll-target="#exploraty-data-analysis-ii---the-sequence-data">Exploraty Data Analysis II - The Sequence Data</a>
+  <ul class="collapse">
+  <li><a href="#part-i" id="toc-part-i" class="nav-link" data-scroll-target="#part-i">Part I</a></li>
+  <li><a href="#part-ii" id="toc-part-ii" class="nav-link" data-scroll-target="#part-ii">Part II</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -265,6 +275,8 @@ ul.task-list{list-style: none;}
 <li><a href="https://stringr.tidyverse.org">stringr</a></li>
 <li><a href="https://tidyr.tidyverse.org">tidyr</a></li>
 <li><a href="https://forcats.tidyverse.org">forcats</a></li>
+<li><a href="https://patchwork.data-imaginist.com/index.html">patchwork</a></li>
+<li><a href="https://omarwagih.github.io/ggseqlogo/">ggseqlogo</a></li>
 </ul>
 </section>
 <section id="schedule" class="level2">
@@ -274,15 +286,15 @@ ul.task-list{list-style: none;}
 <li>08.15 - 08.30: Assignment walk-through</li>
 <li>08.30 - 09.00: Introduction to Lab</li>
 <li>09.00 - 09.15: Break</li>
-<li>09.00 - 12.00: Exercises, (Do not use this unless you are told to: data_files)</li>
+<li>09.00 - 12.00: Exercises</li>
 </ul>
 </section>
 <section id="learning-materials" class="level2">
 <h2 class="anchored" data-anchor-id="learning-materials">Learning Materials</h2>
 <p><em>Please prepare the following materials</em></p>
 <ul>
-<li>Book: R4DS: 12.3-12.7: “Tidy Data”, 13: “Relational Data”, 14: “Strings”, 15: “Factors”</li>
-<li>Video: <a href="https://youtu.be/1ELALQlO-yM?t=465">Tidy Data and tidyr</a> - NB! Start at 7:45 and please note: gather() is now pivot_longer() and spread() is now pivot_wider()</li>
+<li>R4DS2e book: <a href="https://r4ds.hadley.nz/data-tidy">Chapter 6: Data Tidying</a>, <a href="https://r4ds.hadley.nz/strings">Chapter 15: Strings</a>, <a href="https://r4ds.hadley.nz/factors">Chapter 17: Factors</a>, <a href="https://r4ds.hadley.nz/joins">Chapter 20: Joins</a></li>
+<li>Video: <a href="https://youtu.be/1ELALQlO-yM?t=465">Tidy Data and tidyr</a> - NB! Start at 7:45 and please note: <code>gather()</code> is now <code>pivot_longer()</code> and <code>spread()</code> is now <code>pivot_wider()</code></li>
 <li>Video: <a href="https://www.youtube.com/watch?v=AuBgYDCg1Cg">Working with Two Datasets: Binds, Set Operations, and Joins</a></li>
 <li>Video: <a href="https://www.youtube.com/watch?v=oIu5jK8DeX8&amp;list=PLiC1doDIe9rDwsUhd3FtN1XGCV2ES1xZ2">stringr</a> (Playlist with 7 short videos)</li>
 </ul>
@@ -291,13 +303,220 @@ ul.task-list{list-style: none;}
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 <p><em>A student who has met the objectives of the session will be able to:</em></p>
 <ul>
-<li>Understand and apply the various str_*() functions for string manipulation</li>
-<li>Understand and apply the family of *_join() functions for combining data sets</li>
-<li>Understand and apply pivot_wider() and pivot_longer()</li>
-<li>Use factors in conjugation with plotting categorical data using ggplot</li>
+<li>Understand and apply the various <code>str_*()</code>-functions for string manipulation</li>
+<li>Understand and apply the family of <code>*_join()</code>-functions for combining data sets</li>
+<li>Understand and apply <code>pivot_wider()</code> and <code>pivot_longer()</code></li>
+<li>Use factors in conjugation with plotting categorical data using <code>ggplot</code></li>
 </ul>
+</section>
+<section id="exercises" class="level2">
+<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
+</section>
+<section id="intro" class="level2">
+<h2 class="anchored" data-anchor-id="intro">Intro</h2>
+<p><em>We are upping the game here, so expect to get stuck at some of the questions. Remember - Discuss with your group how to solve the task, try to use google and naturally, the TAs and I are happy to nudge you in the right direction. Finally, remember… Have fun!</em></p>
+<p>Remember what you have worked on so far:</p>
+<ul>
+<li>RStudio</li>
+<li>rmarkdown</li>
+<li>ggplot</li>
+<li>filter</li>
+<li>arrange</li>
+<li>select</li>
+<li>mutate</li>
+<li>group_by</li>
+<li>summarise</li>
+<li>The pipe and creating pipelines</li>
+<li>stringr</li>
+<li>joining data</li>
+<li>pivotting data</li>
+</ul>
+<p><em>Think about this in the following as we will synthesise the above into an analysis below!</em></p>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<p>Today, we will work with data from a recent study of T-cell receptors and SARS-CoV-2:</p>
+<ul>
+<li><a href="https://www.researchsquare.com/article/rs-51964/v1">A large-scale database of T-cell receptor beta (TCRβ) sequences and binding associations from natural and synthetic exposure to SARS-CoV-2</a></li>
+</ul>
+<p><em>Briefly, the virus invades the cells and takes over the intra-cellular machinery. Viral proteins are produced this way and small fragments of these called peptides are displayed on the surface of the cells by the Human Leukocyte Antigen (HLA). Here, they can be recognised by Cytotoxic T-Lymphocytes (CTLs) via the T-cell Receptor (TCR). This data contains cohort data on sequenced T-cell receptors (CDR3beta), viral antigens, HLA-haplotypes and clinical meta data.</em></p>
+<p>Now:</p>
+<ol type="1">
+<li>Click on the link above, to go to the manuscript. Download the PDF and find the link to the data</li>
+<li>Go to the data site (you may have to create and account, shouldn’t take long)</li>
+<li>Find and download the file <code>ImmuneCODE-MIRA-Release002.1.zip</code> (<em>CAREFUL, do not download the superseded files</em>)</li>
+<li>Unpack, find the files <code>peptide-detail-ci.csv</code> and <code>subject-metadata.csv</code> and upload them to your <code>data</code>-folder in your <a href="https://rstudio.cloud">RStudio Cloud</a> session</li>
+<li>Finally, create yet another rmarkdown document for todays exercises</li>
+</ol>
+</section>
+<section id="creating-one-data-set-from-two-data-sets" class="level2">
+<h2 class="anchored" data-anchor-id="creating-one-data-set-from-two-data-sets">Creating one data set from two data sets</h2>
+<p>Remember to load libraries first and then load the two data sets into variables <code>peptide_data</code> and <code>meta_data</code></p>
+<div class="cell">
+
+</div>
+<ul>
+<li><strong>Q1: What are the dimensions of the <code>peptide_data</code> and <code>meta_data</code> respectively?</strong></li>
+<li><strong>Q2: Which variable is shared between the two data sets?</strong></li>
+</ul>
+<p>Now, join the two data sets into to one data set called <code>peptide_meta_data</code> using the variable from Q2 and create a pipeline, including your joining code and this bit-of-code <code>select(-matches("D[RQP]"))</code> - Discuss in your group what this code actually does?</p>
+<p><em>Hint: play around with the code and change it to see what happens</em></p>
+<div class="cell">
+
+</div>
+<ul>
+<li><strong>Q3: What are the dimensions of the joined data and how does this compare with Q1?</strong></li>
+</ul>
+</section>
+<section id="exploraty-data-analysis-i---the-meta-data" class="level2">
+<h2 class="anchored" data-anchor-id="exploraty-data-analysis-i---the-meta-data">Exploraty Data Analysis I - The meta data</h2>
+<p>Let us ask the joined data (<code>peptide_meta_data</code>) some questions:</p>
+<ul>
+<li><strong>Q4: How many study participants are denoted <code>Healthy</code>?</strong></li>
+</ul>
+<p><em>Hint: First find out which variable identifies the study participants</em></p>
+<ul>
+<li><strong>Q5: Actually, what are the study participants cohort groups and how many are in each?</strong></li>
+</ul>
+<p>Now, create a histogram of the age of the study participants (<em>Remember to read any error-messages you may get</em>)</p>
+<ul>
+<li><strong>Q6: Take a look at the age variable to understand what happened?</strong></li>
+<li><strong>Q7: How are <code>NA</code>s denoted in the data?</strong></li>
+</ul>
+<p>Remember you can get help on ANY R-function by typing <code>?function_name</code> in the console. Now, go back to where you read the data and see if you can fix the <code>NA</code>-problem. Once you have done that, re-create the histogram of the age of the study participants and play around with and understand the <code>binwidth</code></p>
+<div class="cell">
+
+</div>
+<ul>
+<li><strong>Q8: From the histogram, approximately how many are participants are 33 years old?</strong></li>
+<li><strong>Q9: Compare this number to the dimensions of the <code>meta_data</code> (see Q1), what happened?</strong></li>
+</ul>
+<p>Using the dplyr verbs <code>select</code> and <code>distinct</code>, re-re-create the histogram of the age of the study participants and again, play around with and understand the <code>binwidth</code></p>
+<div class="cell">
+
+</div>
+<ul>
+<li><strong>Q10: From the histogram, how many are participants are 33 years old?</strong></li>
+<li><strong>Q11: How many of the participants are women? Men?</strong></li>
+</ul>
+<p>Recreate the below visualisation</p>
+<div class="cell">
+
+</div>
+<p><em>Before continuing to the next sections - Take some time to do some EDA, understand what is in the data, do some summaries, make some plots.</em></p>
+</section>
+<section id="exploraty-data-analysis-ii---the-sequence-data" class="level2">
+<h2 class="anchored" data-anchor-id="exploraty-data-analysis-ii---the-sequence-data">Exploraty Data Analysis II - The Sequence Data</h2>
+<section id="part-i" class="level3">
+<h3 class="anchored" data-anchor-id="part-i">Part I</h3>
+<p>The first thing we will take a look at here, is how the <code>Subject</code> <code>HLA</code>-alleles are distributed.</p>
+<p>Subset the <code>peptide_meta_data</code> to the variables <code>Subject</code>, <code>HLA-X</code> and save it into <code>allele_data</code>, like so:</p>
+<div class="cell">
+
+</div>
+<p>Then convert the data and save it a new variable <code>allele_data_long</code> like so:</p>
+<div class="cell">
+
+</div>
+<ul>
+<li><strong>Q12: How many unique alleles are there?</strong></li>
+</ul>
+<div class="cell">
+
+</div>
+<p>Using the <code>View()</code>-function, look at the unique alleles - Notice something? Some alleles are e.g.&nbsp;<code>A*11:01</code>, whereas others are <code>B*51:01:02</code>. You can find information on why, by visiting <a href="http://hla.alleles.org/nomenclature/naming.html">Nomenclature for Factors of the HLA System</a>.</p>
+<p>Long story short, we only want to include <code>Field 1</code> (allele group) and <code>Field 2</code> (Specific HLA protein). You have prepared the <code>stringr</code>-package for today. See if you can find a way to reduce e.g.&nbsp;<code>B*51:01:02</code> to <code>B*51:01</code> and then create a new variable <code>Allele_F_1_2</code> accordingly, while also removing the <code>...x</code> (where <code>x</code> is a number) subscripts from the <code>Gene</code>-variable (It is an artifact from having the data in a wide format, where you cannot have two variables with the same name) and removing any <code>NA</code>s</p>
+<div class="cell">
+
+</div>
+<ul>
+<li><strong>Q13: How many unique alleles are there now?</strong></li>
+</ul>
+<div class="cell">
+
+</div>
+<p>Try to run this <code>allele_data_long %&gt;% group_by(Allele_F_1_2) %&gt;% summarise(n = n())</code></p>
+<ul>
+<li><strong>Q14: What are the top 3 alleles in terms of counts in the data?</strong></li>
+</ul>
+<p>Now, run this code <code>allele_data_long %&gt;% count(Allele_F_1_2)</code> and compare the output</p>
+<ul>
+<li><strong>Q15: <em>Per gene</em> and in terms of percent, what are the 3 top alleles?</strong> Recreate this plot to answer the question <span style="color: red;">GROUP ASSIGNMENT</span>:</li>
+</ul>
+<div class="cell" data-layout-align="center">
+
+</div>
+<p><em>Hint: What does `fct_reorder()´do?</em></p>
+</section>
+<section id="part-ii" class="level3">
+<h3 class="anchored" data-anchor-id="part-ii">Part II</h3>
+<p>Now, we will take a look into how the peptides bind to the HLA alleles.</p>
+<p>First, create this data set from your <code>peptide_meta_data</code> data set and save in a new variable <code>sequence_data</code> (drop ANY rows contaning <code>NA</code>s ):</p>
+<div class="cell">
+
+</div>
+<ul>
+<li><strong>Q16: How many rows contained <code>NA</code>s?</strong></li>
+<li><strong>Q17: Is this data tidy? Explain why you answered yes or no</strong></li>
+</ul>
+<p>Now, google <code>tidyr separate</code> and figure out how this works. Then fix the <code>TCR BioIdentity</code>-variable like so:</p>
+<div class="cell">
+
+</div>
+<ul>
+<li><strong>Q18: Is this data tidy now? Explain why you answered yes or no</strong></li>
+</ul>
+<p>Add a new variable <code>n_peptides</code> to your data set, which counts how many peptides are listed in <code>Amino Acids</code> variable</p>
+<p><em>Hint: Is there a package designed specifically for working with strings? If so perhaps it can be used for some trickery</em></p>
+<div class="cell">
+
+</div>
+<p>Create a histogram of distribution of the <code>n_peptides</code> variable</p>
+<div class="cell">
+
+</div>
+<ul>
+<li><strong>Q19: What is the maximum number of peptides seen for one observation?</strong></li>
+</ul>
+<p>Now, Using <code>str_c()</code> and <code>seq()</code>, see if you can re-create this:</p>
+<div class="cell">
+
+</div>
+<p>Then use the above to fix the <code>Amino Acids</code>-variable, like so:</p>
+<div class="cell">
+
+</div>
+<p>and convert the data and save it into <code>sequence_data_long</code>, like so:</p>
+<div class="cell">
+
+</div>
+<ul>
+<li><strong>Q20: How many observations are now in <code>sequence_data_long</code>?</strong></li>
+</ul>
+<p>Remove <code>NA</code>s, fix the <code>HLA</code>-alleles, remove redundant columns and observations, like so:</p>
+<div class="cell">
+
+</div>
+<ul>
+<li><strong>Q21: How many obserations now? Is this data tidy now?</strong></li>
+</ul>
+<p>Finally, let us create a binding motif using the package <code>ggseqlogo</code> (<a href="https://omarwagih.github.io/ggseqlogo/">More info here</a>). Subset the final <code>sequence_data_long</code>-data to <code>A*02:01</code> and unique observations of peptides of length 9</p>
+<p><em>Hint: You can pipe a vector of peptides into ggseqlogo, but perhaps you first need to <code>pull</code> that vector from your tibble?</em></p>
+<div class="cell" data-layout-align="center">
+
+</div>
+<ul>
+<li><strong>Q22: Which positions in the peptide determines binding to HLA?</strong></li>
+</ul>
+<p><em>Hint: Recall your Introduction to Bioinformatics course</em></p>
+<p>Re-create this logo using the <code>CDR3b</code>-sequences and A*02:01-alleles:</p>
+<div class="cell" data-layout-align="center">
+
+</div>
+<p>That’s it for today - I know this overwhelming now, but commit to it and you WILL be plenty rewarded! I hope today was at least a glimpse into the flexibility and capabilities of using <code>tidyverse</code> for applied Bio Data Science</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

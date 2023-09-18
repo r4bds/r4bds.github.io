@@ -493,7 +493,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Then realise that we could simply have run the following code to do the exact same thing (Yes, <code>readr</code> is pretty nifty):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the data directory programmatically</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="at">path =</span> <span class="st">"data"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="at">x =</span> <span class="st">"data"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve the data directly</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>diabetes_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"https://hbiostat.org/data/repo/diabetes.csv"</span>)</span>
@@ -607,7 +607,7 @@ Click here for hint
 <p>Now, with this augmented data set, let us create some summary statistics</p>
 <ul>
 <li><strong>Q19: How many women and men are there in the data set?</strong></li>
-<li><strong>Q20: How many women and men are there from Buckingham and Louise respectively in the data set?</strong></li>
+<li><strong>Q20: How many women and men are there from Buckingham and Louisa respectively in the data set?</strong></li>
 <li><strong>Q21: How many are in each of the <code>BMI_class</code> groups?</strong></li>
 <li><strong>Q22: Given the code below, explain the difference between A and B?</strong></li>
 </ul>

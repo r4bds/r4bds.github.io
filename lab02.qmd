@@ -27,7 +27,7 @@ _Please prepare the following materials:_
 _A student who has met the objectives of the session will be able to:_
 
 * Explains the basic theory of data visualisation
-* Decipher the components of a ggplot
+* Decipher the components of a simple ggplot
 * Use ggplot to do basic data visualisation
 
 ## Exercises {#sec-exercises}
