@@ -8,7 +8,9 @@ The assignment will be marked "Group Assignment" with red font in the exercises.
 
 *Please note, that in order to include all elements in a self-contained html file, you will have to use the following YAML-header in your Quarto document:*
 
-````
+```{r}
+#| eval: false
+#| echo: true
 ---
 title: "Lab 2 Assignment: Group 02"
 format:
@@ -16,7 +18,7 @@ format:
     embed-resources: true
 editor: visual
 ---
-````
+```
 
 *Or at least one similar, format title and other elements as you see fit, key here is the `html`-format with embedded resources.*
 
