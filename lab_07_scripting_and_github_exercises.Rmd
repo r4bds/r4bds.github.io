@@ -1,0 +1,368 @@
+---
+title: "22100 - R for Bio Data Science"
+subtitle: "Lab 7 - Scripting in a Reproducible and Collaborative Framework using GitHub via RStudio: Exercises"
+output:
+   html_document:
+      toc: true
+      toc_depth: 2
+      toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, echo=FALSE, warning=FALSE)
+library("tidyverse")
+```
+
+# How to organise a project
+
+Recall this figure? It is inspired by the [Josh Reich](https://twitter.com/i2pi)'s [Load-clean-func-do](https://stackoverflow.com/questions/1429907/workflow-for-statistical-analysis-and-report-writing/1434424#1434424)-thought and this [2009 paper](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424) by [William Stafford Noble](https://twitter.com/thabangh) 
+
+```{r echo=FALSE, out.width="80%", fig.align="center"}
+knitr::include_graphics(path = "images/vis_project_org.png")
+```
+
+Let us use it as a point of reference in the following _excluding the `doc`-part with collecting in an rmarkdown for now._
+
+## Visit GitHub
+
+* __T1:__ Go to [https://github.com/tidyverse/dplyr](https://github.com/tidyverse/dplyr) $\rightarrow$ How many contributers are there? $\rightarrow$ Click the `Insights`-tab $\rightarrow$ Click `Contributors` who are the top3 contributors and how many "commits" do they have? $\rightarrow$ Click the `<> Issues`-tab $\rightarrow$ How many issues are there? Click on one issue of your choice and read it and think about what is an "issue"? $\rightarrow$ Click the `<> Code`-tab, find and click `LICENSE.md` $\rightarrow$ Which license is `dplyr` released under? Read the license - Is it open source?
+
+## Getting started
+
+If you go to this [GitHub](https://github.com/rforbiodatascience21) site, you will find the official R-for-Bio-Data-Science GitHub site. Before we continue, if you do not have a GitHub account, go [create your own account](https://github.com/join?source=header-home). Then, go to [this google sheet and enter your GitHub username](https://docs.google.com/spreadsheets/d/1oxJVuKoKOqZKG8oDcJpKxgUvz85UKck5so2u9eL48z0/edit?usp=sharing) I will then invite you to the `rforbiodatascience21` organisation.
+
+## Setup Project Directory
+
+* Log on to your [RStudio Cloud](https://rstudio.cloud/) session
+* Create a __BRAND NEW__ project, i.e. _do not_ do these exercises in your session with all your rmarkdown documents
+* Note, this also means, that you will have to reinstall `tidyverse` and any other packages you may need
+* __T2:__ In your new project, create the below directory structure
+
+```{text echo=TRUE}
+project_root
+  |
+  + data
+    |
+    + _raw
+  |
+  + doc
+  |
+  + R
+  |
+  + results
+```
+
+_Make sure you understand this - Discuss with your group and compare with the graphical illustration of the project organisation shown as the first thing in these exercises_
+
+## Setup Project Script Files
+
+Now, we need to add some files. Note, for now we will leave the rmarkdown and instead turn to scripting. Think of it like condensing the rmarkdown, so that it only contains code. This format is useful for execution on [HPC-systems](https://en.wikipedia.org/wiki/Supercomputer). The following is a general (recommended) layout of an R-script. Note, how anything, which is not code has to be preceded by an `#`
+
+### General (recommended) layout of an R-script
+
+```{r echo=TRUE, eval=FALSE}
+# Clear workspace ---------------------------------------------------------
+rm(list = ls())
+
+
+# Load libraries ----------------------------------------------------------
+library("tidyverse")
+
+
+# Define functions --------------------------------------------------------
+foo <- function(x){
+  return("bar")
+}
+
+
+# Load data ---------------------------------------------------------------
+my_data <- read_tsv(file = "path/to/my/data.tsv")
+
+
+# Wrangle data ------------------------------------------------------------
+my_data_subset <- my_data %>% 
+  filter(...) %>% 
+  select(...) %>% 
+  mutate(...) %>% 
+  arrange(...)
+
+
+# Visualise data ----------------------------------------------------------
+pl1 <- my_data_subset %>% 
+  ggplot(aes(x = var_1, y = var_2)) +
+  geom_point() +
+  theme_bw()
+
+
+# Write data --------------------------------------------------------------
+ggsave(filename = "path/to/my/results/plot.png",
+       plot = pl1,
+       width = 10,
+       height = 6)
+write_tsv(x = my_data_subset,
+          file = "path/to/my/data_subset.tsv")
+```
+
+With respect to the formatting of scripts, it is highly recommended to follow the [The tidyverse style guide](https://style.tidyverse.org/).
+
+* __T3:__ Add the following _rscript_ files to your project (Note, the file-suffix is `.R` and _not_ `.Rmd`)
+
+```{text echo=TRUE}
+project_root
+  |
+  + data
+    |
+    + _raw
+  |
+  + doc
+  |
+  + R
+    + 00_doit.R
+    + 01_load.R
+    + 02_clean.R
+    + 03_augment.R
+    + 04_analysis_i.R
+    + 99_project_functions.R
+  |
+  + results
+```
+
+_Make sure you understand this - Discuss with your group and compare with the graphical illustration of the project organisation shown as the first thing in these exercises_
+
+* __T4:__ Now, add the following content to each script
+
+### 00_doit.R
+```{r echo=TRUE, eval=FALSE}
+# Run all scripts ---------------------------------------------------------
+source(file = "R/01_load.R")
+source(file = "R/02_clean.R")
+source(file = "R/03_augment.R")
+source(file = "R/04_analysis_i.R")
+```
+
+### 01_load.R
+```{r echo=TRUE, eval=FALSE}
+# Clear workspace ---------------------------------------------------------
+rm(list = ls())
+
+
+# Load libraries ----------------------------------------------------------
+library("tidyverse")
+
+
+# Define functions --------------------------------------------------------
+source(file = "R/99_project_functions.R")
+
+
+# Load data ---------------------------------------------------------------
+my_data_raw <- read_tsv(file = "data/_raw/my_raw_data.tsv")
+
+
+# Wrangle data ------------------------------------------------------------
+my_data <- my_data_raw # %>% ...
+
+
+# Write data --------------------------------------------------------------
+write_tsv(x = my_data,
+          file = "data/01_my_data.tsv")
+```
+
+### 02_clean.R
+```{r echo=TRUE, eval=FALSE}
+# Clear workspace ---------------------------------------------------------
+rm(list = ls())
+
+
+# Load libraries ----------------------------------------------------------
+library("tidyverse")
+
+
+# Define functions --------------------------------------------------------
+source(file = "R/99_project_functions.R")
+
+
+# Load data ---------------------------------------------------------------
+my_data <- read_tsv(file = "data/01_my_data.tsv")
+
+
+# Wrangle data ------------------------------------------------------------
+my_data_clean <- my_data # %>% ...
+
+
+# Write data --------------------------------------------------------------
+write_tsv(x = my_data_clean,
+          file = "data/02_my_data_clean.tsv")
+```
+
+### 03_augment.R
+```{r echo=TRUE, eval=FALSE}
+# Clear workspace ---------------------------------------------------------
+rm(list = ls())
+
+
+# Load libraries ----------------------------------------------------------
+library("tidyverse")
+
+
+# Define functions --------------------------------------------------------
+source(file = "R/99_project_functions.R")
+
+
+# Load data ---------------------------------------------------------------
+my_data_clean <- read_tsv(file = "data/02_my_data_clean.tsv")
+
+
+# Wrangle data ------------------------------------------------------------
+my_data_clean_aug <- my_data_clean # %>% ...
+
+
+# Write data --------------------------------------------------------------
+write_tsv(x = my_data_clean_aug,
+          file = "data/03_my_data_clean_aug.tsv")
+```
+
+### 04_analysis_i.R
+```{r echo=TRUE, eval=FALSE}
+# Clear workspace ---------------------------------------------------------
+rm(list = ls())
+
+
+# Load libraries ----------------------------------------------------------
+library("tidyverse")
+
+
+# Define functions --------------------------------------------------------
+source(file = "R/99_project_functions.R")
+
+
+# Load data ---------------------------------------------------------------
+my_data_clean_aug <- read_tsv(file = "data/03_my_data_clean_aug.tsv")
+
+
+# Wrangle data ------------------------------------------------------------
+my_data_clean_aug %>% ...
+
+
+# Model data
+my_data_clean_aug %>% ...
+
+
+# Visualise data ----------------------------------------------------------
+my_data_clean_aug %>% ...
+
+
+# Write data --------------------------------------------------------------
+write_tsv(...)
+ggsave(...)
+```
+
+### 99_project_functions.R
+```{r echo=TRUE, eval=FALSE}
+# Define project functions ------------------------------------------------
+foo <- function(x){
+  return(2*x)
+}
+bar <- function(x){
+  return(x^2)
+}
+...
+```
+
+Now, this is as generalised as possible (Note how the `tsv`-file names are suffixed). The next step is to fill in some data in `"data/_raw/"` and then commence with setting up your analysis
+
+* __T5:__ In the last exercise, you were supposed to make a PCA/clustering analysis. Now, refit that code into the above framework:
+  1. Download the `gravier`-data from [here](https://github.com/ramhiser/datamicroarray/tree/master/data)) and then place that in your `data/_raw`-dir
+  1. Modify your `R/01_load.R` to `load` the gravier `rdata`-object and then write out `tsv`-files `gravier_x` and `gravier_y` to your `data`-dir (Remember prefixing!). __PROTIP:__ naming the files `gravier_x.tsv.gz` and `gravier_y.tsv.gz` will automatically compress the files, so go ahead and do that
+  1. Now, modify your `R/02_clean.R` to load the `tsv.gz`-files and create ONE `tsv`, which you then write to your `data`-dir (Remember prefixing and compressing!) - __Question:__ Discuss in your group why `bind_cols()` "dangerous" is?
+  1. Then read in the unified `tsv.gz`-file you just created in your `R/03_augment.R` and add a new variable based on the `<fct>`-response variable (the original `y` in the `gravier`-data) with either `0` or `1` as we have done before and again... You guessed it - Write to disk (Remember prefixing and compressing!)
+  1. Finally, in your `R/04_analysis_i.R`, do your PCA-analysis and remember to save your plots to file using e.g. `ggsave(filename = "results/04_PCA_plot.png", width = 16, height = 9, dpi = 72)` (If you forgot how to do the PCA-analysis, then revisit [PCA tidyverse style](https://clauswilke.com/blog/2020/09/07/pca-tidyverse-style/))
+
+When the project has been setup correctly, you should be able to delete everything _except_ the raw data and your script-files (See visualisation at the start of these exercises) and then run the _entire_ project by opening `00_doit.R` and sourcing `cmd/ctrl+shift+s`. You can also run this in the commandline allowing automation and integration into HPC environment. Simply switch to the terminal tab in the console pane and issue the command `Rscript R/00_doit.R`. Remember, you may need to know the absolute location of `Rscript` in an HPC environment, you can get this by running `which Rscript` in the terminal.
+
+* __T6:__ Make sure you can run `00_doit.R` i.e. your entire project without errors, then delete and re-run as described above.
+
+# Using RStudio with git
+
+The following will be quite cook-book like, but stay tuned! I can guarantee you that if you get into industry as a data scientist, you _will_ encounter git!
+
+## Connecting RStudio Cloud with git
+
+1. Go to the [R-for-Bio-Data-Science GitHub site](https://github.com/rforbiodatascience21)
+1. Click the green `New` button in the upper right corner 
+1. Name your repository like so: `2021_your_github_username` (_Make sure, that the owner of the repo is `rforbiodatascience21`_ and _not_ your own GitHub profile)
+1. Leave anything else as is (default)
+1. Click `Create repository` at the bottom of the page
+1. Now, leave the page you are at open
+1. Return to your RStudio Cloud session and the project framework you worked with previously
+1. Find the console pane and click the `Terminal` tab in your console pane, this will present you with a full shell (Find more information [here](https://support.rstudio.com/hc/en-us/articles/115010737148-Using-the-RStudio-Terminal))
+1. Run each line from the code box below separately by copy/pasting into the `Terminal` pane __IMPORTANT: Be sure to exchange my example credentials (your_github_...) for your own__
+1. Now return to the github page, on the top it'll say `rforbiodatascience21 / 2021_username`, click on `2021_username`
+1. Inspect your new GitHub repository, which should hold one file `README.md` and the header `2021_username`
+1. If so - Congratulations, you have now successfully connected your RStudio cloud session with your GitHub repository!
+1. Return to your RStudio cloud session
+1. Now, we need to restart session in order for the changes to take place, in the upper right corner your name will be in grey and to the left of that are three dots in a circle - Click on the dots
+1. Click `Relunch Project`
+1. Click `OK`
+1. In the `environment` pane, you should now see a new tab `Git` and in your files pane, you should see a new file appear: `.gitignore`, we will get back to both of these later (Note, you may have to relaunch the project for the update to take effect)
+
+```{bash eval=FALSE, echo=TRUE}
+# Codebox for setting up git:
+git init
+git config user.email "your_github_email_address"
+git config user.name "your_github_user_name"
+echo "# 2021_your_github_user_name" > README.md
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/rforbiodatascience21/2021_your_github_user_name.git
+git push -u origin master
+Username for 'https://github.com': your_github_user_name # You will be prompted here
+Password for 'https://your_github_user_name@github.com': #  Use your own user/pass
+git config --global credential.helper 'cache --timeout 3600' # Extend credential cache time
+```
+
+_Ignore the error: `error: cannot run rpostback-askpass: No such file or directory` if you get it and make sure, that your email, username and password match __your__ github credentials_
+
+## Adding content to GitHub using `git`
+
+1. Click the green plus in the upper left corner and choose `R Markdown...`
+1. It will prompt you to install a bunch of packages, just click `Yes`
+1. You will then see the dialogue `New R Markdown`, fill in the title `Reproducible Data Analysis Framework Exercise` and author and click `OK`
+1. In the header of the rmarkdown-document you just created, make sure to change `output: html_document` to `output: github_document`
+1. Start by saving the document as `README.Rmd` placing it in your project root (remember your `.Rproj`-file defines the project root)
+1. Now, delete everything below `## R Markdown` and replace the auto-header `## R Markdown` with `## Description`
+1. Below `## Description` add a few lines to descripe what is in the repository
+1. Knit the document
+1. In your RStudio cloud session, find the `Environment` pane. Here, you should have a new tab you have not seen before `Git` - Go ahead and click it
+1. Now you will see what is called the staging area
+1. Find the button saying `Commit` just above the list of files and click it
+1. A new dialogue opens and now, you will see the files in your project directory, which are different from your files in your github repo
+1. Find `README.md`, it should have a blue `M` to the left of it and further on the left under `Staged` there is a tick-box - Tick it
+1. Inspect the changes below "old" is in red and "new" is in green
+1. In the box saying `Commit message` write e.g. `Update README` and click the button `Commit` just below the box
+1. This will yield some `Git Commit` messages, just click `Close`
+1. In the upper right corner, click `pull`, this should result in a `Git Pull` message saying `Already up-to-date`, click `Close` once again (`pull` = pull stuff down from the GitHub server) __PROTIP:__ ALWAYS `pull` before a `push`!
+1. In the upper right corner, click `push` and enter your `username` and `password`. This should result in a `Git Push` message saying something along the lines of `HEAD -> master`, click `Close` once again (`push` = push stuff up to the GitHub server)
+1. Close the dialogue window
+1. Close the commit window
+1. Go to your GitHub repo and refresh the page, now you should see the new `README` you created
+1. Go back to your RStudio Cloud session and find the file `.gitignore`, click it and add the lines `.gitignore` and `project.Rproj`, when you save this file, you should see the files corresponding to the lines you entered disappear from the staging area (This is how you control which files should end up in your GitHub repo). Note, you may have to relaunch the project for the update to take effect
+1. Now, add ALL the files in the staging area (either use the gui or use the terminal and the command `git add .`)
+1. Commit the files with the message `first full project commit` and then repeat the aforementioned `pull/push`
+1. Go to your GitHub repo and check, that everything went as planned
+1. Go back to RStudio, choose one of your files and change something (e.g. add a comment), then `pull/push` and again check if you can see your change in your GitHub repo.
+
+Warning: Git merge conflicts can get complicated, one remedy is to _always_ `pull` _before_ you push `push`
+
+That's it for today!
+
+## <span style="color: red;">GROUP ASSIGNMENT</span>
+
+Create a GitHub repository for your group as described above. Name it using you group number like so: `2021_group_13`. Collaborate in your group on creating a joined group mini-project on the PCA-analysis we have worked with using GitHub for collaborating on the code.
+
+1. 
+
+Your hand-in this week will be a link to this repository.
+
+## More
+
+It is a HUGE topic, so if you are interested in more, then [Let’s Git started](https://happygitwithr.com)
