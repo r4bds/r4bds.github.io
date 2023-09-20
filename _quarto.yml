@@ -36,6 +36,7 @@ book:
     - part: resources.qmd
       chapters: 
         - paths_and_projects.qmd
+        - variable_assignment_in_r.qmd
         - code_styling.qmd
         - external_resources.qmd
 

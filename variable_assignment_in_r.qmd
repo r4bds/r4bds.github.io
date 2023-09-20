@@ -1,0 +1,209 @@
+# Variable Assignment in `R` {.unnumbered}
+
+In `R` we operate with variables. A variable can be seen as a container for a value. To get a better conceptual understanding of this, you can go through the following and code-along in your own `R`-session.
+
+## Assigning a Value to a Variable
+
+- In `R`, we state values directly in the chunk or the console, e.g.:
+
+```{r}
+#| echo: true
+#| eval: true
+3
+```
+
+- Here, we just state `3`, so `R` simply "throws" that right back at you!
+
+- Now, if want to "catch" that `3` we have to assign it to a variable, e.g.:
+
+```{r}
+#| echo: true
+#| eval: true
+x <- 3
+```
+
+- Notice how now we "catch" the `3` and nothing is "thrown" back to you, because we now have the `3` stored in `x`:
+
+```{r}
+#| echo: true
+#| eval: true
+x
+```
+
+## Updating the Value of a Variable
+
+- Now, we can of course use `x` moving forward, e.g. by adding `2`:
+
+```{r}
+#| echo: true
+#| eval: true
+x + 2
+```
+
+- Notice how this does **not** change `x` and the result is simply "thrown" right-back-at-ya
+
+```{r}
+#| echo: true
+#| eval: true
+x
+```
+
+- If we wanted to update `x` by adding `2`, we would have to "catch" the result as before:
+
+```{r}
+#| echo: true
+#| eval: true
+x <- x + 2
+```
+
+- Now, we have updated `x`:
+
+```{r}
+#| echo: true
+#| eval: true
+x
+```
+
+## Use one Variable in the Creation of Another
+
+- Analogue, we can create a new variable using x:
+
+```{r}
+#| echo: true
+#| eval: true
+y <- x + 3
+```
+
+- Again, this does **not** change `x`
+
+```{r}
+#| echo: true
+#| eval: true
+x
+```
+
+- But rather the result is now stored in `y`
+
+```{r}
+#| echo: true
+#| eval: true
+y
+```
+
+
+## Summary
+
+- In `R`, we use the assignment operator `<-` to perform assignment
+- Variables are not change in place, but needs to be stored
+- Note, this also applies to running e.g. a `dplyr`-pipeline, where we do not change the dataset by running the pipeline, but we must store the result of the pipeline
+
+*Before continuing, make sure that you are on track with the above concepts!*
+
+- Create a new variable `my_age` containing... You guessed it!
+- Add `0.5` to the variable (I.e. your age, when you're done with this course)
+- Check the value of `my_age`, did you remember to assign, thereby updating?
+
+
+## Pipeline Example
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+library("tidyverse")
+set.seed(779868)
+my_dna_data <- tibble(
+  sequence = replicate(
+    n = 10,
+    expr = paste0(
+      x = sample(x = c("a", "c", "g", "t"),
+                 size = sample(x = seq(3, 21, by = 3), size = 1, replace = TRUE),
+                 replace = TRUE),
+      collapse = "")))
+```
+
+- Let us create some example sequence data:
+
+```{r}
+#| echo: true
+#| eval: true
+
+
+tibble(sequence = c("aggtgtgag", "tggaatgaaccgcctacc",
+                    "aagaatgga", "tct", "tgtatt", "tgg",
+                    "accttcaacgagtcccactgt", "cgt",
+                    "gaggctgagctggttgta", "ggggaacag"))
+```
+
+- Notice, that our data creation is just "thrown" back at us, we forgot something!
+
+```{r}
+#| echo: true
+#| eval: true
+
+
+my_dna_data <- tibble(sequence = c("aggtgtgag", "tggaatgaaccgcctacc",
+                                   "aagaatgga", "tct", "tgtatt", "tgg",
+                                   "accttcaacgagtcccactgt", "cgt",
+                                   "gaggctgagctggttgta", "ggggaacag"))
+```
+
+- Now, we have stored the data in the variable `my_dna_data`
+
+```{r}
+#| echo: true
+#| eval: true
+
+
+my_dna_data
+```
+
+- Note here, that a variable can as we saw before with `x` and `y` store a single value, e.g. `2`, but here, we are storing a `tibble`-object in the variable `my_dna_data` and in that `tibble`-object, we have a variable `sequence`, which contains some randomly generated dna.
+
+- But what if we wanted to add a new variable to the `tibble`-object, which is the lenght of each of the dna-sequences?
+
+```{r}
+#| echo: true
+#| eval: true
+
+
+my_dna_data |>
+  mutate(dna_length = str_length(sequence))
+```
+
+Nice! Let's see that data again then:
+
+```{r}
+#| echo: true
+#| eval: true
+
+
+my_dna_data
+```
+
+- Wait! What? Where is the variable we literally just created?
+
+- We forgot something... We did not update the `my_dna_data`, let's fix that:
+
+```{r}
+#| echo: true
+#| eval: true
+
+
+my_dna_data <- my_dna_data |>
+  mutate(dna_length = str_length(sequence))
+```
+
+- Note, nothing is "trown" back at us! Let's verify, that we did indeed update the `my_dna_data`:
+
+```{r}
+#| echo: true
+#| eval: true
+
+
+my_dna_data
+```
+
+Did it make sense? Check yourself, add a new variable to `my_dna_data` called `sequence_capital` by using the function `str_to_upper()`
+
+That's it - Hope it helped and remember... Bio data science in R is really fun!

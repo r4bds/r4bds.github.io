@@ -532,6 +532,48 @@
     "text": "Epilogue\nThat’s all folks! I hope this cleared up some things - Please feel free to revisit this chapter, as needed!\nRemember - Have fun! No one ever got really good at something they didn’t think was fun!"
   },
   {
+    "objectID": "variable_assignment_in_r.html",
+    "href": "variable_assignment_in_r.html",
+    "title": "Variable Assignment in R",
+    "section": "",
+    "text": "In R we operate with variables. A variable can be seen as a container for a value. To get a better conceptual understanding of this, you can go through the following and code-along in your own R-session."
+  },
+  {
+    "objectID": "variable_assignment_in_r.html#assigning-a-value-to-a-variable",
+    "href": "variable_assignment_in_r.html#assigning-a-value-to-a-variable",
+    "title": "Variable Assignment in R",
+    "section": "Assigning a Value to a Variable",
+    "text": "Assigning a Value to a Variable\n\nIn R, we state values directly in the chunk or the console, e.g.:\n\n\n3\n\n[1] 3\n\n\n\nHere, we just state 3, so R simply “throws” that right back at you!\nNow, if want to “catch” that 3 we have to assign it to a variable, e.g.:\n\n\nx <- 3\n\n\nNotice how now we “catch” the 3 and nothing is “thrown” back to you, because we now have the 3 stored in x:\n\n\nx\n\n[1] 3"
+  },
+  {
+    "objectID": "variable_assignment_in_r.html#updating-the-value-of-a-variable",
+    "href": "variable_assignment_in_r.html#updating-the-value-of-a-variable",
+    "title": "Variable Assignment in R",
+    "section": "Updating the Value of a Variable",
+    "text": "Updating the Value of a Variable\n\nNow, we can of course use x moving forward, e.g. by adding 2:\n\n\nx + 2\n\n[1] 5\n\n\n\nNotice how this does not change x and the result is simply “thrown” right-back-at-ya\n\n\nx\n\n[1] 3\n\n\n\nIf we wanted to update x by adding 2, we would have to “catch” the result as before:\n\n\nx <- x + 2\n\n\nNow, we have updated x:\n\n\nx\n\n[1] 5"
+  },
+  {
+    "objectID": "variable_assignment_in_r.html#use-one-variable-in-the-creation-of-another",
+    "href": "variable_assignment_in_r.html#use-one-variable-in-the-creation-of-another",
+    "title": "Variable Assignment in R",
+    "section": "Use one Variable in the Creation of Another",
+    "text": "Use one Variable in the Creation of Another\n\nAnalogue, we can create a new variable using x:\n\n\ny <- x + 3\n\n\nAgain, this does not change x\n\n\nx\n\n[1] 5\n\n\n\nBut rather the result is now stored in y\n\n\ny\n\n[1] 8"
+  },
+  {
+    "objectID": "variable_assignment_in_r.html#summary",
+    "href": "variable_assignment_in_r.html#summary",
+    "title": "Variable Assignment in R",
+    "section": "Summary",
+    "text": "Summary\n\nIn R, we use the assignment operator <- to perform assignment\nVariables are not change in place, but needs to be stored\nNote, this also applies to running e.g. a dplyr-pipeline, where we do not change the dataset by running the pipeline, but we must store the result of the pipeline\n\nBefore continuing, make sure that you are on track with the above concepts!\n\nCreate a new variable my_age containing… You guessed it!\nAdd 0.5 to the variable (I.e. your age, when you’re done with this course)\nCheck the value of my_age, did you remember to assign, thereby updating?"
+  },
+  {
+    "objectID": "variable_assignment_in_r.html#pipeline-example",
+    "href": "variable_assignment_in_r.html#pipeline-example",
+    "title": "Variable Assignment in R",
+    "section": "Pipeline Example",
+    "text": "Pipeline Example\n\n\n\n\nLet us create some example sequence data:\n\n\ntibble(sequence = c(\"aggtgtgag\", \"tggaatgaaccgcctacc\",\n                    \"aagaatgga\", \"tct\", \"tgtatt\", \"tgg\",\n                    \"accttcaacgagtcccactgt\", \"cgt\",\n                    \"gaggctgagctggttgta\", \"ggggaacag\"))\n\n# A tibble: 10 × 1\n   sequence             \n   <chr>                \n 1 aggtgtgag            \n 2 tggaatgaaccgcctacc   \n 3 aagaatgga            \n 4 tct                  \n 5 tgtatt               \n 6 tgg                  \n 7 accttcaacgagtcccactgt\n 8 cgt                  \n 9 gaggctgagctggttgta   \n10 ggggaacag            \n\n\n\nNotice, that our data creation is just “thrown” back at us, we forgot something!\n\n\nmy_dna_data <- tibble(sequence = c(\"aggtgtgag\", \"tggaatgaaccgcctacc\",\n                                   \"aagaatgga\", \"tct\", \"tgtatt\", \"tgg\",\n                                   \"accttcaacgagtcccactgt\", \"cgt\",\n                                   \"gaggctgagctggttgta\", \"ggggaacag\"))\n\n\nNow, we have stored the data in the variable my_dna_data\n\n\nmy_dna_data\n\n# A tibble: 10 × 1\n   sequence             \n   <chr>                \n 1 aggtgtgag            \n 2 tggaatgaaccgcctacc   \n 3 aagaatgga            \n 4 tct                  \n 5 tgtatt               \n 6 tgg                  \n 7 accttcaacgagtcccactgt\n 8 cgt                  \n 9 gaggctgagctggttgta   \n10 ggggaacag            \n\n\n\nNote here, that a variable can as we saw before with x and y store a single value, e.g. 2, but here, we are storing a tibble-object in the variable my_dna_data and in that tibble-object, we have a variable sequence, which contains some randomly generated dna.\nBut what if we wanted to add a new variable to the tibble-object, which is the lenght of each of the dna-sequences?\n\n\nmy_dna_data |>\n  mutate(dna_length = str_length(sequence))\n\n# A tibble: 10 × 2\n   sequence              dna_length\n   <chr>                      <int>\n 1 aggtgtgag                      9\n 2 tggaatgaaccgcctacc            18\n 3 aagaatgga                      9\n 4 tct                            3\n 5 tgtatt                         6\n 6 tgg                            3\n 7 accttcaacgagtcccactgt         21\n 8 cgt                            3\n 9 gaggctgagctggttgta            18\n10 ggggaacag                      9\n\n\nNice! Let’s see that data again then:\n\nmy_dna_data\n\n# A tibble: 10 × 1\n   sequence             \n   <chr>                \n 1 aggtgtgag            \n 2 tggaatgaaccgcctacc   \n 3 aagaatgga            \n 4 tct                  \n 5 tgtatt               \n 6 tgg                  \n 7 accttcaacgagtcccactgt\n 8 cgt                  \n 9 gaggctgagctggttgta   \n10 ggggaacag            \n\n\n\nWait! What? Where is the variable we literally just created?\nWe forgot something… We did not update the my_dna_data, let’s fix that:\n\n\nmy_dna_data <- my_dna_data |>\n  mutate(dna_length = str_length(sequence))\n\n\nNote, nothing is “trown” back at us! Let’s verify, that we did indeed update the my_dna_data:\n\n\nmy_dna_data\n\n# A tibble: 10 × 2\n   sequence              dna_length\n   <chr>                      <int>\n 1 aggtgtgag                      9\n 2 tggaatgaaccgcctacc            18\n 3 aagaatgga                      9\n 4 tct                            3\n 5 tgtatt                         6\n 6 tgg                            3\n 7 accttcaacgagtcccactgt         21\n 8 cgt                            3\n 9 gaggctgagctggttgta            18\n10 ggggaacag                      9\n\n\nDid it make sense? Check yourself, add a new variable to my_dna_data called sequence_capital by using the function str_to_upper()\nThat’s it - Hope it helped and remember… Bio data science in R is really fun!"
+  },
+  {
     "objectID": "code_styling.html",
     "href": "code_styling.html",
     "title": "Code Styling",
