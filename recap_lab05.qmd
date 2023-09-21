@@ -33,8 +33,6 @@ targets <- c("Methanobacteria", "Clostridia", "Actinobacteria",
 SPE_ENV_targets <- filter(SPE_ENV, Taxa %in% targets)
 ```
 
-
-
 ## Load Libraries
 ```{r}
 #| echo: true
@@ -43,9 +41,10 @@ SPE_ENV_targets <- filter(SPE_ENV, Taxa %in% targets)
 
 
 library("tidyverse")
+library("fs")
 ```
 
-*Remember to load libraires first! You cannot use tools from a toolbox you have not yet "picked up"*
+*Remember to load libraries first! You cannot use tools from a toolbox you have not yet "picked up"*
 
 ## Load Data
 
@@ -159,58 +158,232 @@ diabetes_data |>
          height_cm > 190)
 ```
 
+*Note, that `,` is equivalent to `&`*
+
 ## `filter()`
 
 - Make a scatter plot of weight versus height and colour by gender for inhabitants of Louisa above the age of 40
 
+:::: {.columns}
+
+::: {.column width="40%"}
 ```{r}
 #| echo: true
 #| eval: true
 #| message: false
 #| warning: false
-diabetes_data |>
+pl <- diabetes_data |>
   filter(location == "Louisa",
          age > 40) |> 
-  ggplot(aes(x = height_cm, y = weight_kg, colour = gender)) +
-  geom_point()
+  ggplot(aes(x = height_cm,
+             y = weight_kg,
+             colour = gender)) +
+  geom_point() +
+  theme_minimal(base_size = 26)
 ```
+:::
 
-## `filter()`
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 7
+pl
+```
+:::
+
+::::
+
+## `filter()` OR
 
 - Make a scatter plot of weight versus height and colour by gender for inhabitants of Louisa above the age of 40
 
+:::: {.columns}
+
+::: {.column width="40%"}
 ```{r}
 #| echo: true
 #| eval: true
 #| message: false
 #| warning: false
-diabetes_data |>
-  mutate(subject = case_when(location == "Louisa" & age > 40 ~ gender,
-                             TRUE ~ "Not incl")) |> # Create needed attribute BEFORE plotting
-  ggplot(aes(x = height_cm, y = weight_kg, colour = subject)) +
-  geom_point(alpha = 0.5)
+pl <- diabetes_data |>
+  filter(location == "Louisa",
+         age > 40) |> 
+  ggplot(aes(x = height_cm,
+             y = weight_kg,
+             colour = gender)) +
+  geom_point(size = 5,
+             alpha = 0.5) +
+  geom_smooth(method = "lm") +
+  scale_colour_manual(
+    values = c("salmon", "cornflowerblue")) +
+  theme_minimal(base_size = 26)
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 7
+pl
+```
+:::
+
+::::
+
+
+## `filter()`
+
+- Make a scatter plot of weight versus height and colour by gender for inhabitants of Louisa above the age of 40
+
+:::: {.columns}
+
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+pl <- diabetes_data |>
+  mutate(
+    subject = case_when(
+      location == "Louisa" & age > 40 ~ gender,
+      TRUE ~ "Not incl")) |>
+  ggplot(aes(x = height_cm,
+             y = weight_kg,
+             colour = subject,
+             size = subject)) +
+  geom_point(alpha = 0.5) +
+  scale_size_manual(values = c(5, 5, 1)) +
+  theme_minimal(base_size = 26) +
+  theme(legend.position = "bottom")
 ```
 
+- *Note how we're creating needed attribute **before** plotting*
+
+- *Always modify data **Before** plotting!*
+
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 7
+pl
+```
+:::
+
+::::
 
 ## `arrange()`
 
+:::: {.columns}
+
+::: {.column width="50%"}
 - How old is the youngest person
 ```{r}
-diabetes_data |> arrange(age) |> slice(1)
+#| echo: true
+#| eval: true
+diabetes_data |>
+  arrange(age) |>
+  slice(1) |> 
+  select(age)
 ```
+:::
 
+::: {.column width="50%"}
 - How old is the oldest person
 ```{r}
-diabetes_data |> arrange(desc(age)) |> slice(1)
+#| echo: true
+#| eval: true
+diabetes_data |>
+  arrange(desc(age)) |>
+  slice(1) |> 
+  select(age)
 ```
+:::
+
+::::
+
+## `arrange()` OR
+
+:::: {.columns}
+
+::: {.column width="50%"}
+- How old is the youngest person
+```{r}
+#| echo: true
+#| eval: true
+diabetes_data |>
+  filter(age == min(age)) |> 
+  select(age)
+```
+:::
+
+::: {.column width="50%"}
+- How old is the oldest person
+```{r}
+#| echo: true
+#| eval: true
+diabetes_data |>
+  filter(age == max(age)) |> 
+  select(age)
+```
+:::
+
+::::
+
+## `arrange()` OR
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+diabetes_data |>
+  summarise(min_age = min(age),
+            max_age = max(age))
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+diabetes_data |>
+  group_by(location) |> 
+  summarise(min_age = min(age),
+            max_age = max(age))
+```
+:::
+
+::::
+
+*OR, OR, OR, OR, OR, OR, OR, etc.*
 
 ## `mutate()`
 
 - Create a new variable, where you calculate the BMI
 
 ```{r}
+#| echo: true
+#| eval: true
 diabetes_data <- diabetes_data |> 
   mutate(BMI = weight_kg / (height_cm / 100)^2)
+diabetes_data |> 
+  select(BMI)
 ```
 
 ## `case_when()`
@@ -218,6 +391,8 @@ diabetes_data <- diabetes_data |>
 - Create a BMI_class variable
 
 ```{r}
+#| echo: true
+#| eval: true
 diabetes_data <- diabetes_data |> 
   mutate(BMI_class = case_when(BMI < 16.5 ~ "Severely underweight",
                                16.5 <= BMI & BMI < 18.5 ~ "Underweight",
@@ -226,29 +401,59 @@ diabetes_data <- diabetes_data |>
                                30.0 <= BMI & BMI < 35.0 ~ "Obesity class I",
                                35.0 <= BMI & BMI < 40.0 ~ "Obesity class II",
                                40.0 <= BMI ~ "Obesity class III"))
+diabetes_data |> 
+  select(BMI, BMI_class)
 ```
 
+
+## Factor levels
+
+:::: {.columns}
+
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+pl <- diabetes_data |>
+  count(BMI_class) |>
+  drop_na(BMI_class) |> 
+  mutate(pct = n / sum(n) * 100) |>
+  ggplot(aes(x = BMI_class,
+             y = pct)) +
+  geom_col() +
+  geom_hline(yintercept = 0) +
+  theme_minimal(base_size = 26) +
+  theme(axis.text.x = element_text(
+    angle = 45,
+    hjust = 1)) +
+  labs(x = "",
+       y = "Percent")
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 7
+pl
+```
+:::
+
+::::
+
+- Columns order is nonsensical, we know there is an order
 
 ## Factor levels
 
 ```{r}
 #| echo: true
 #| eval: true
-#| message: false
-#| warning: false
-diabetes_data |>
-  count(BMI_class) |>
-  drop_na(BMI_class) |> 
-  mutate(pct = n / sum(n) * 100) |>
-  ggplot(aes(x = BMI_class, y = pct)) +
-  geom_col()
-```
-
-- Columns order is nonsensical
-
-## Factor levels
-
-```{r}
 diabetes_data <- diabetes_data |>
   mutate(BMI_class = factor(BMI_class,
                             levels =  c("Severely underweight", "Underweight",
@@ -259,26 +464,103 @@ diabetes_data <- diabetes_data |>
 
 ## Factor levels
 
+:::: {.columns}
+
+::: {.column width="40%"}
 ```{r}
 #| echo: true
 #| eval: true
 #| message: false
 #| warning: false
-diabetes_data |>
+pl <- diabetes_data |>
   count(BMI_class) |>
   drop_na(BMI_class) |> 
   mutate(pct = n / sum(n) * 100) |>
-  ggplot(aes(x = BMI_class, y = pct)) +
-  geom_col()
+  ggplot(aes(x = BMI_class,
+             y = pct)) +
+  geom_col() +
+  geom_hline(yintercept = 0) +
+  theme_minimal(base_size = 26) +
+  theme(axis.text.x = element_text(
+    angle = 45,
+    hjust = 1)) +
+  labs(x = "",
+       y = "Percent")
 ```
+:::
 
-- Columns order is now sensical
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 7
+pl
+```
+:::
+
+::::
+
+- Columns order is now sensical, following known order!
+
+## Factor levels
+
+:::: {.columns}
+
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+pl <- diabetes_data |>
+  count(BMI_class) |>
+  drop_na(BMI_class) |> 
+  mutate(pct = n / sum(n) * 100) |>
+  ggplot(aes(x = BMI_class,
+             y = pct)) +
+  geom_col(colour = "green",
+           fill = "lightgreen",
+           alpha = 0.5) +
+  geom_hline(yintercept = 0) +
+  theme_minimal(base_size = 26) +
+  theme(axis.text.x = element_text(
+    angle = 45,
+    hjust = 1)) +
+  labs(x = "",
+       y = "Percent") +
+  theme(plot.margin = unit(
+    c(1, 0.5, 0.5, 1), "cm"),
+    panel.grid.major.x = element_blank())
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 7
+pl
+```
+:::
+
+::::
+
+- Columns order is now sensical, following known order!
+
 
 ## `group_by() |> summarise()`
 
 - For each BMI_class group, calculate the average weight and associated standard deviation
 
 ```{r}
+#| echo: true
+#| eval: true
 diabetes_data |> 
   group_by(BMI_class) |> 
   summarise(n = n(),
@@ -290,7 +572,7 @@ diabetes_data |>
 
 ```{r}
 #| echo: false
-#| eval: true
+#| eval: false
 #| message: false
 #| warning: false
 write_tsv(x = diabetes_data,
@@ -300,6 +582,10 @@ write_tsv(x = diabetes_data,
 # Assignment
 
 ```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
 library("tidyverse")
 library("patchwork")
 diabetes_data <- read_tsv(file = "data/diabetes_data_augmented.tsv")
@@ -311,25 +597,53 @@ diabetes_data <- read_tsv(file = "data/diabetes_data_augmented.tsv")
 - Create a WHR (waist-to-hip ratio) variable
 
 ```{r}
+#| echo: true
+#| eval: true
 diabetes_data <- diabetes_data |> 
   mutate(gender_class = case_when(gender == "female" ~ 0,
                                   gender == "male" ~ 1),
          BFP = 1.39 * BMI + 0.16 * age - 10.34 * gender_class - 9,
          WHR = waist / hip)
-diabetes_data |> sample_n(3)
+diabetes_data
 ```
 
 ## Which correlate better with BMI, WHR or BFP?
 
+First look at the data
+
+:::: {.columns}
+
+::: {.column width="50%"}
 ```{r}
+#| echo: true
+#| eval: true
+#| fig-align: center
 pl1 <- diabetes_data |> 
-  ggplot(aes(x = BMI, y = WHR)) +
-  geom_point()
-pl2 <- diabetes_data |> 
-  ggplot(aes(x = BMI, y = BFP)) +
-  geom_point()
-pl1 + pl2
+  ggplot(aes(x = BMI,
+             y = WHR)) +
+  geom_point() +
+  theme_minimal(base_size = 26)
+pl1
 ```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+#| fig-align: center
+pl2 <- diabetes_data |> 
+  ggplot(aes(x = BMI,
+             y = BFP)) +
+  geom_point() +
+  theme_minimal(base_size = 26)
+pl2
+```
+:::
+
+::::
+
+*Well, there does seem to be a tendency...*
 
 ## Which correlate better with BMI, WHR or BFP?
 
@@ -337,6 +651,8 @@ pl1 + pl2
 
 ::: {.column width="50%"}
 ```{r}
+#| echo: true
+#| eval: true
 diabetes_data |>
   select(BMI, WHR, BFP) |>
   pivot_longer(cols = c(WHR, BFP),
@@ -347,6 +663,8 @@ diabetes_data |>
 
 ::: {.column width="50%"}
 ```{r}
+#| echo: true
+#| eval: true
 corrs <- diabetes_data |>
   select(BMI, WHR, BFP) |>
   pivot_longer(cols = c(WHR, BFP),
@@ -368,6 +686,8 @@ corrs
 ## Which correlate better with BMI, WHR or BFP?
 
 ```{r}
+#| echo: true
+#| eval: true
 pl1 <- pl1 +
   labs(subtitle = str_c("PCC = ", corrs |> filter(metric == "WHR") |> pull(PCC) |> round(3)))
 pl2 <- pl2 +
@@ -378,6 +698,8 @@ pl1 + pl2
 ## A Better Way?
 
 ```{r}
+#| echo: true
+#| eval: true
 corrs <- corrs |> 
   mutate(R2 = round(PCC^2, digits = 3),
          label = str_c("R2 = ", R2))
@@ -390,6 +712,8 @@ corrs
 
 ::: {.column width="50%"}
 ```{r}
+#| echo: true
+#| eval: true
 s1 <- corrs |>
   filter(metric == "WHR") |>
   pull(label)
@@ -412,6 +736,8 @@ pl2 <- pl2 +
 
 ::: {.column width="50%"}
 ```{r}
+#| echo: true
+#| eval: true
 pl1 / pl2
 ```
 
@@ -420,3 +746,5 @@ pl1 / pl2
 ::::
 
 _NB! "Tim Toady" (TIMTOWTDI) and - As much as possible, prepare your data to contain what you need before plotting!_
+
+# Lastly, why does BFP evidently correlate much better with BMI than WHR?
