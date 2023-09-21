@@ -415,9 +415,9 @@ sequence_data |>
 
 * __Q19: What is the maximum number of peptides seen for one observation?__
 
-**Important: Now you can choose one of two paths in the exercises and either is fine! Either you proceed to `A` (a bit more difficult) or scroll down to `B` (a bit less difficult)!**
+**Important: Now you can choose one of two paths in the exercises and either is fine! Either you proceed to `Route A` (a bit more difficult and with a larger dataset) or scroll down to `Route B` (a bit less difficult and with a smaller dataset)!**
 
-#### A
+#### **Route A**
 
 Now, Using `str_c()` and `seq()`, see if you can re-create this:
 
@@ -472,7 +472,7 @@ sequence_data_A_long
 
 * __Q21: How many observations now? Is this data tidy now?__
 
-#### B
+#### **Route B**
 
 Now, let us proceed with the observations, where we just have **a single** peptide annotated, so subset your data accordingly, using the `n_peptides` variable you created, like so:
 
