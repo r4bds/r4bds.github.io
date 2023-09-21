@@ -179,7 +179,7 @@ peptide_meta_data |>
   geom_histogram(binwidth = 1)
 ```
 
-* __Q8: From the histogram, approximately how many are study participants are 33 years old?__
+* __Q8: Use the histogram to answer the question: "Approximately how many study participants are 33 years old?"__
 * __Q9: Compare this number to the dimensions of the `meta_data` (see Q1), what happened?__
 
 Using the dplyr verbs `select` and `distinct`, re-re-create the histogram of the age of the study participants and again, play around with and understand the `binwidth`
@@ -195,7 +195,7 @@ peptide_meta_data |>
   geom_histogram(binwidth = 1)
 ```
 
-* __Q10: From the histogram, how many are participants are now 33 years old?__
+* __Q10: Use the histogram to answer the question: "How many are participants are now 33 years old?"__
 * __Q11: How many of the participants are women? Men?__
 
 Recreate the below visualisation, it does not have to be 100% identical, just make sure to discuss which `ggplot`-components carry the plot and get those replicated.
@@ -248,7 +248,8 @@ Now, create subset the `peptide_meta_data` to the variables `Subject`, `HLA-` an
 #| eval: true
 #| echo: false
 allele_data <- peptide_meta_data |>
-  select(Subject, contains("HLA")) |>
+  select(Subject,
+         contains("HLA")) |>
   distinct()
 allele_data
 ```
