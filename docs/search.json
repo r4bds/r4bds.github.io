@@ -298,7 +298,7 @@
     "href": "lab05.html#exercises",
     "title": "Lab 5: Data Wrangling II",
     "section": "Exercises",
-    "text": "Exercises"
+    "text": "Exercises\n\nPrologue\nToday will not be easy! But please try to remember Hadley’s word-of-advise:\n\n“The bad news is, whenever you’re learning a new tool, for a long time, you’re going to suck! It’s gonna be very frustrating! But the good news is that that is typical and something that happens to everyone and it’s only temporary! Unfortunately, there is no way to going from knowing nothing about the subject to knowing something about a subject and being an expert in it without going through a period of great frustration and much suckiness! Keep pushing through!” - H. Wickham (dplyr tutorial at useR 2014, 4:10 - 4:48)"
   },
   {
     "objectID": "lab05.html#intro",

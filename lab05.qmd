@@ -36,6 +36,13 @@ _A student who has met the objectives of the session will be able to:_
 
 ## Exercises
 
+### Prologue
+
+Today will not be easy! But please try to remember Hadley's word-of-advise:
+
+- *"The bad news is, whenever you're learning a new tool, for a long time, you're going to suck! It's gonna be very frustrating! But the good news is that that is typical and something that happens to everyone and it's only temporary! Unfortunately, there is no way to going from knowing nothing about the subject to knowing something about a subject and being an expert in it without going through a period of great frustration and much suckiness! Keep pushing through!"* - H. Wickham [(dplyr tutorial at useR 2014, 4:10 - 4:48)](https://www.youtube.com/watch?v=8SGif63VW6E)
+
+
 ```{r}
 #| echo: false
 #| message: false
@@ -602,3 +609,4 @@ plA + plB
 ## Epilogue
 
 That's it for today - I know this overwhelming now, but commit to it and you WILL be plenty rewarded! I hope today was at least a glimpse into the flexibility and capabilities of using `tidyverse` for applied Bio Data Science
+
