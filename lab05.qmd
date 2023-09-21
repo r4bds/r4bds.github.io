@@ -118,7 +118,7 @@ peptide_data <- read_csv(file = "data/peptide-detail-ci.csv.gz", na = "N/A")
 meta_data <- read_csv(file = "data/subject-metadata.csv", na = "N/A")
 ```
 
-* __Q1: What are the dimensions of the `peptide_data` and `meta_data` respectively?, I.e. how many rows and columns corresponding to observations and varialbes?__
+* __Q1: What are the dimensions of the `peptide_data` and `meta_data` respectively?, I.e. how many rows and columns corresponding to observations and variables?__
 * __Q2: Which variable is shared between the two data sets?__
 
 Now, join the two data sets into to one data set called `peptide_meta_data` using the variable from Q2 and create a pipeline, including your joining code and this bit-of-code `select(-matches("D[RQP]"))` - Make sure to discuss in your group what this bit-of-code actually does?
