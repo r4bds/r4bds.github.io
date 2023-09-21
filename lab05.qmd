@@ -14,7 +14,7 @@
 - 08.00 - 08.30: [Recap of Lab 4](https://raw.githack.com/r4bds/r4bds.github.io/main/recap_lab05.html)
 - 08.30 - 09.00: Introduction to Lab
 - 09.00 - 09.15: Break
-- 09.15 - 12.00: Exercises
+- 09.15 - 12.00: [Exercises](#sec-exercises)
 
 ## Learning Materials
 
@@ -34,7 +34,7 @@ _A student who has met the objectives of the session will be able to:_
 - Understand and apply `pivot_wider()` and `pivot_longer()`
 - Use factors in context with plotting categorical data using `ggplot`
 
-## Exercises
+## Exercises {#sec-exercises}
 
 ### Prologue
 
@@ -93,7 +93,9 @@ Now:
 1. Open the PDF and find the link to the data
 1. Go to the data site (*Note, you may have to create and account to download, shouldn't take too long*)
 1. Find and download the file `ImmuneCODE-MIRA-Release002.1.zip` (_CAREFUL, do not download the superseded files_)
-1. Unpack, find the files `peptide-detail-ci.csv` and `subject-metadata.csv` and upload them to your `data`-folder in your RStudio Cloud session
+1. Unpack the downloaded file and
+1. Find the files `peptide-detail-ci.csv` and `subject-metadata.csv` and compress to `.zip`-files
+1. Upload the compressed `peptide-detail-ci.csv.zip`- and `subject-metadata.csv.zip`-files to your `data`-folder in your RStudio Cloud session
 1. Finally, once again, create a new Quarto document for todays exercises
 
 ## Creating one data set from two data sets
