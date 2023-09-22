@@ -244,6 +244,7 @@ ul.task-list{list-style: none;}
   <li><a href="#prologue" id="toc-prologue" class="nav-link" data-scroll-target="#prologue">Prologue</a></li>
   </ul></li>
   <li><a href="#intro" id="toc-intro" class="nav-link" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
   <li><a href="#creating-one-data-set-from-two-data-sets" id="toc-creating-one-data-set-from-two-data-sets" class="nav-link" data-scroll-target="#creating-one-data-set-from-two-data-sets">Creating one data set from two data sets</a></li>
   <li><a href="#eda-exploraty-data-analysis-i---the-meta-data" id="toc-eda-exploraty-data-analysis-i---the-meta-data" class="nav-link" data-scroll-target="#eda-exploraty-data-analysis-i---the-meta-data">EDA: Exploraty Data Analysis I - The meta data</a></li>
@@ -349,8 +350,8 @@ ul.task-list{list-style: none;}
 </ul>
 <p><em>Well done! Remember to think about this in the following as we will synthesise the above into an analysis below!</em></p>
 </section>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
 <p>Today, we will work with data from a recent study of T-cell receptors and SARS-CoV-2:</p>
 <ul>
 <li><a href="https://www.researchsquare.com/article/rs-51964/v1">A large-scale database of T-cell receptor beta (TCR<span class="math inline">\(\beta\)</span>) sequences and binding associations from natural and synthetic exposure to SARS-CoV-2</a></li>
@@ -362,7 +363,9 @@ ul.task-list{list-style: none;}
 </figure>
 </div>
 <p><em>Image source: <a href="https://pubmed.ncbi.nlm.nih.gov/25688236/">10.3389/fmicb.2015.00021</a></em></p>
-<p>Now:</p>
+</section>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
 <ol type="1">
 <li>Make sure you are in your <code>r_for_bio_data_science</code>-project, you can verify this in the upper right corner</li>
 <li>In the same place as your <code>r_for_bio_data_science.Rproj</code>-file and existing <code>data</code>-folder, create a new folder and name it <code>doc</code></li>
@@ -440,7 +443,7 @@ Click here for hint
 <li><strong>Q6: Take a look at the age variable to understand what happened?</strong></li>
 <li><strong>Q7: How are <code>NA</code>s denoted in the data?</strong></li>
 </ul>
-<p>Something’s off… Remember you can get help on ANY R-function by typing <code>?function_name</code> in the console. Now, let’s fix that from get-go. Go back and find the chunk, where you read the data into your session and see if you can fix the <code>NA</code>-problem, when you call the <code>read_csv</code>.</p>
+<p>Something’s off… Remember you can get help on ANY <code>R</code>-function by typing <code>?function_name</code> in the console. Now, let’s fix that from get-go. Go back and find the chunk, where you read the data into your session and see if you can fix the <code>NA</code>-problem, when you call the <code>read_csv</code>.</p>
 <p>Once you have done that, re-create the histogram of the age of the study participants and play around with and understand the <code>binwidth</code>-parameter.</p>
 <div class="cell">
 
@@ -570,6 +573,17 @@ Click here for hint
 <li><p><strong>Q14: What are the top 3 alleles in terms of counts in the data?</strong></p></li>
 <li><p><strong>Q15: <em>Per gene</em> and in terms of percent, what are the 10 top alleles?</strong> Recreate this plot to answer the question <span style="color: red;">GROUP ASSIGNMENT</span>:</p></li>
 </ul>
+<details>
+<p>
+</p><summary>
+Click here for hint
+</summary>
+<p></p>
+<p>For this plot, you will need to first think about how to prepare your data, so that it contains what you need, so:</p>
+<ol type="1">
+<li>Per unique element in <code>Gene</code>, i.e.&nbsp;either <code>HLA-A</code>, <code>HLA-B</code> or <code>HLA-C</code></li>
+</ol>
+</details>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="lab05_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>

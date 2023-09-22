@@ -73,7 +73,7 @@ Remember what you have worked on so far:
 
 _Well done! Remember to think about this in the following as we will synthesise the above into an analysis below!_
 
-## Getting Started
+## Background
 
 Today, we will work with data from a recent study of T-cell receptors and SARS-CoV-2:
 
@@ -85,7 +85,7 @@ _Briefly, the virus invades the cells and takes over the intra-cellular machiner
 
 *Image source: [10.3389/fmicb.2015.00021](https://pubmed.ncbi.nlm.nih.gov/25688236/)*
 
-Now:
+## Getting Started
 
 1. Make sure you are in your `r_for_bio_data_science`-project, you can verify this in the upper right corner
 1. In the same place as your `r_for_bio_data_science.Rproj`-file and existing `data`-folder, create a new folder and name it `doc`
@@ -167,7 +167,7 @@ Now, create a histogram of the age of the study participants (Make sure to read 
 * __Q6: Take a look at the age variable to understand what happened?__
 * __Q7: How are `NA`s denoted in the data?__
 
-Something's off... Remember you can get help on ANY R-function by typing `?function_name` in the console. Now, let's fix that from get-go. Go back and find the chunk, where you read the data into your session and see if you can fix the `NA`-problem, when you call the `read_csv`.
+Something's off... Remember you can get help on ANY `R`-function by typing `?function_name` in the console. Now, let's fix that from get-go. Go back and find the chunk, where you read the data into your session and see if you can fix the `NA`-problem, when you call the `read_csv`.
 
 Once you have done that, re-create the histogram of the age of the study participants and play around with and understand the `binwidth`-parameter.
 
@@ -204,9 +204,13 @@ Recreate the below visualisation, it does not have to be 100% identical, just ma
 #| eval: true
 #| echo: false
 pl1 <- peptide_meta_data |>
-  select(Subject, Cohort, Age, Gender) |>
+  select(Subject,
+         Cohort,
+         Age,
+         Gender) |>
   distinct() |>
-  drop_na(Age, Gender) |>
+  drop_na(Age,
+          Gender) |>
   ggplot(aes(x = Age,
              y = Cohort,
              fill = Gender)) +
@@ -218,15 +222,21 @@ pl1 <- peptide_meta_data |>
   theme(legend.position = "none",
         plot.title = element_text(hjust = 1.3))
 pl2 <- peptide_meta_data |>
-  select(Subject, Cohort, Age, Gender) |>
+  select(Subject,
+         Cohort,
+         Age,
+         Gender) |>
   distinct() |>
-  drop_na(Age, Gender) |>
-  count(Cohort, Gender) |> 
+  drop_na(Age,
+          Gender) |>
+  count(Cohort,
+        Gender) |> 
   ggplot(aes(x = n,
              y = Cohort,
              fill = Gender)) +
   geom_col(position = "dodge",
-           alpha = 0.5) +
+           alpha = 0.5,
+           colour = "black") +
   labs(y = "") +
   theme_classic(base_family = "Avenir",
                 base_size = 12) +
@@ -328,6 +338,14 @@ allele_data_long |>
 
 * __Q15: *Per gene* and in terms of percent, what are the 10 top alleles?__ Recreate this plot to answer the question <span style="color: red;">GROUP ASSIGNMENT</span>: 
 
+<details>
+<p><summary>Click here for hint</summary></p>
+For this plot, you will need to first think about how to prepare your data, so that it contains what you need, so:
+
+1. Per unique element in `Gene`, i.e. either `HLA-A`, `HLA-B` or `HLA-C`
+
+</details>
+
 ```{r}
 #| eval: true
 #| echo: false
@@ -340,7 +358,10 @@ allele_data_long |>
   ungroup() |>
   ggplot(aes(x = pct,
              y = fct_reorder(Allele_F_1_2, pct))) +
-  geom_col(width = 0.2) +
+  geom_col(width = 0.2,
+           fill = "white",
+           colour = "black") +
+  geom_vline(xintercept = 0) +
   facet_wrap(vars(Gene),
              scales = "free_y",
              ncol = 3) +
