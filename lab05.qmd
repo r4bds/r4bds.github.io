@@ -2,19 +2,20 @@
 
 ## Package(s)
 
--   [dplyr](https://dplyr.tidyverse.org)
--   [stringr](https://stringr.tidyverse.org)
--   [tidyr](https://tidyr.tidyverse.org)
--   [forcats](https://forcats.tidyverse.org)
--   [patchwork](https://patchwork.data-imaginist.com/index.html)
--   [ggseqlogo](https://omarwagih.github.io/ggseqlogo/)
+- [dplyr](https://dplyr.tidyverse.org)
+- [stringr](https://stringr.tidyverse.org)
+- [tidyr](https://tidyr.tidyverse.org)
+- [forcats](https://forcats.tidyverse.org)
+- [patchwork](https://patchwork.data-imaginist.com/index.html)
+- [ggseqlogo](https://omarwagih.github.io/ggseqlogo/)
+- [table1](https://cran.r-project.org/web/packages/table1/vignettes/table1-examples.html)
 
 ## Schedule
 
--   08.00 - 08.30: [Recap of Lab 4](https://raw.githack.com/r4bds/r4bds.github.io/main/recap_lab05.html)
--   08.30 - 09.00: Introduction to Lab
--   09.00 - 09.15: Break
--   09.15 - 12.00: [Exercises](#sec-exercises)
+- 08.00 - 08.30: [Recap of Lab 4](https://raw.githack.com/r4bds/r4bds.github.io/main/recap_lab05.html)
+- 08.30 - 08.35: [Lecture](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab05.html)
+- 08.35 - 08.45: Break
+- 08.45 - 12.00: [Exercises](#sec-exercises)
 
 ## Learning Materials
 
