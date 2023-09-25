@@ -211,7 +211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lab06.html" class="sidebar-item-text sidebar-link">Lab 6: (a bit on) Modelling in the Tidyverse</a>
+  <a href="./lab06.html" class="sidebar-item-text sidebar-link">Lab 6: Functional Programming Purrr</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -418,7 +418,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>joining data</li>
 <li>pivotting data</li>
 </ul>
-<p><em>Well done - You’ve come quite far already! Remember to think about the above tools in the following as we will synthesise your learnings so far into an analysis!</em></p>
+<p><em>That’s quite a lot! Well done - You’ve come quite far already! Remember to think about the above tools in the following as we will synthesise your learnings so far into an analysis!</em></p>
 </section>
 <section id="sec-background" class="level2">
 <h2 class="anchored" data-anchor-id="sec-background">Background</h2>
@@ -511,16 +511,16 @@ Click here for hint
 <pre><code># A tibble: 10 × 30
    Experiment Subject `Cell Type` `Target Type` Cohort          Age Gender Race 
    &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;
- 1 eOX49        10943 naive_CD8   C19_cI        Healthy (No …    21 M      White
- 2 eEE226       19617 naive_CD8   C19_cI        Healthy (No …    21 F      White
- 3 eEE224       19830 naive_CD8   C19_cI        Healthy (No …    24 M      White
- 4 ePD85         5869 naive_CD8   C19_cI        Healthy (No …    27 F      &lt;NA&gt; 
- 5 eDH107        1684 PBMC        C19_cI        COVID-19-Con…    72 F      &lt;NA&gt; 
- 6 eHO127        7143 PBMC        C19_cI        COVID-19-Con…    28 M      &lt;NA&gt; 
- 7 eJL158         466 PBMC        C19_cI        COVID-19-Acu…    33 M      White
- 8 ePD91          169 PBMC        C19_cI        COVID-19-Con…    52 M      White
- 9 eHO128        3422 PBMC        C19_cI        COVID-19-Con…    49 M      &lt;NA&gt; 
-10 ePD73         4423 naive_CD8   minigene_Set1 Healthy (No …    37 F      White
+ 1 eJL148        3211 PBMC        C19_cI        COVID-19-Con…    41 F      &lt;NA&gt; 
+ 2 eGK111        4445 PBMC        C19_cI        COVID-19-Con…    50 F      &lt;NA&gt; 
+ 3 ePD87          412 PBMC        C19_cI        COVID-19-Con…    47 M      White
+ 4 ePD83        19931 naive_CD8   C19_cI        Healthy (No …    29 F      Asian
+ 5 eJL147        1780 PBMC        C19_cI        Healthy (No …    40 M      Mixe…
+ 6 eDH107        1684 PBMC        C19_cI        COVID-19-Con…    72 F      &lt;NA&gt; 
+ 7 eQD120        6499 PBMC        C19_cI        COVID-19-Con…    62 F      &lt;NA&gt; 
+ 8 eQD128        1499 PBMC        C19_cI        COVID-19-Con…    53 F      Asian
+ 9 eHH169       20014 naive_CD8   C19_cI        Healthy (No …    24 F      Blac…
+10 eEE217        2060 naive_CD8   minigene_Set2 Healthy (No …    32 F      White
 # ℹ 22 more variables: `HLA-A...9` &lt;chr&gt;, `HLA-A...10` &lt;chr&gt;,
 #   `HLA-B...11` &lt;chr&gt;, `HLA-B...12` &lt;chr&gt;, `HLA-C...13` &lt;chr&gt;,
 #   `HLA-C...14` &lt;chr&gt;, DPA1...15 &lt;chr&gt;, DPA1...16 &lt;chr&gt;, DPB1...17 &lt;chr&gt;,
@@ -556,17 +556,53 @@ Click here for hint
 <p><img src="lab05_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<details>
+<p>
+</p><summary>
+Click here for hint
+</summary>
+<p></p>
+<em>Perhaps there is a function, which can <code>cut</code> continuous observations into a set of bins?</em>
+</details>
 <ul>
-<li><strong>T3: Look at the data and create yet another plot as you see fit</strong></li>
+<li><strong>T3: Look at the data and create yet another plot as you see fit. Also skip the redundant variables <code>Subject</code>, <code>Cell Type</code> and <code>Target Type</code></strong></li>
 </ul>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>meta_data <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 27
+   Experiment Cohort      Age Gender Race  `HLA-A...9` `HLA-A...10` `HLA-B...11`
+   &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;        &lt;chr&gt;       
+ 1 eQD111     COVID-19…    51 M      &lt;NA&gt;  "A*01:01:0… "A*11:01:01" "B*07:02:01"
+ 2 eLH57      COVID-19…    NA &lt;NA&gt;   &lt;NA&gt;  "A*01:01:0… "A*03:01:01" "B*07:02:01"
+ 3 eLH45      COVID-19…    53 M      &lt;NA&gt;  "A*02:01:0… "A*03:01:01" "B*07:02:01"
+ 4 eJL158     COVID-19…    33 M      White "A*02:01:0… "A*24:02:01" "B*15:01:01"
+ 5 ePD91      COVID-19…    52 M      White ""          ""           ""          
+ 6 eDH105     COVID-19…    32 F      &lt;NA&gt;  "A*24:02:0… "A*24:02:01" "B*40:01:02"
+ 7 eQD108     COVID-19…    NA &lt;NA&gt;   &lt;NA&gt;  "A*11:01:0… "A*68:01:02" "B*08:01:01"
+ 8 eJL152     COVID-19…    41 F      &lt;NA&gt;  "A*24:02:0… "A*33:03:01" "B*15:35"   
+ 9 eQD109     COVID-19…    61 M      &lt;NA&gt;  "A*03:01:0… "A*69:01:01" "B*07:02:01"
+10 eAV91      Healthy …    31 M      White "A*03:01"   "A*68:01"    "B*07:02"   
+# ℹ 19 more variables: `HLA-B...12` &lt;chr&gt;, `HLA-C...13` &lt;chr&gt;,
+#   `HLA-C...14` &lt;chr&gt;, DPA1...15 &lt;chr&gt;, DPA1...16 &lt;chr&gt;, DPB1...17 &lt;chr&gt;,
+#   DPB1...18 &lt;chr&gt;, DQA1...19 &lt;chr&gt;, DQA1...20 &lt;chr&gt;, DQB1...21 &lt;chr&gt;,
+#   DQB1...22 &lt;chr&gt;, DRB1...23 &lt;chr&gt;, DRB1...24 &lt;chr&gt;, DRB3...25 &lt;chr&gt;,
+#   DRB3...26 &lt;chr&gt;, DRB4...27 &lt;chr&gt;, DRB4...28 &lt;chr&gt;, DRB5...29 &lt;chr&gt;,
+#   DRB5...30 &lt;chr&gt;</code></pre>
+</div>
+</div>
 <p>Now, a classic way of describing a cohort, i.e.&nbsp;the group of subjects used for the study, is the so-called <code>table1</code> and while we could build this ourselves, this one time, in the interest of exercise focus and time, we are going to “cheat” and use an R-package, like so:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"table1"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>meta_data <span class="sc">|&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gender =</span> <span class="fu">factor</span>(Gender),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Cohort =</span> <span class="fu">factor</span>(Cohort)) <span class="sc">|&gt;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table1</span>(<span class="at">x =</span> <span class="fu">formula</span>(<span class="sc">~</span> Gender <span class="sc">+</span> Age <span class="sc">+</span> Race <span class="sc">|</span> Cohort),</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> _)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"table1"</span>) <span class="co"># &lt;= Yes, this should normally go at the beginning!</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>meta_data <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gender =</span> <span class="fu">factor</span>(Gender),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Cohort =</span> <span class="fu">factor</span>(Cohort)) <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table1</span>(<span class="at">x =</span> <span class="fu">formula</span>(<span class="sc">~</span> Gender <span class="sc">+</span> Age <span class="sc">+</span> Race <span class="sc">|</span> Cohort),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">data =</span> _)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div class="Rtable1"><table class="Rtable1">
@@ -740,7 +776,7 @@ Click here for hint
 </div>
 </div>
 </div>
-<p><em>Note: This may look a bit odd initially, but if you render your document, you should be all good!</em></p>
+<p><em>Note: This may look a bit odd initially, but if you render your document, you should be all good! Also, note how good this looks! If you have ever done a “Table 1” before, you know how painful they can be and especially if something changes in your cohort - Dynamic reporting to the rescue!</em></p>
 <p>Lastly, before we proceed, the <code>meta_data</code> contains HLA data for both class I and class II (see background), but here we are only interested in class I, recall these are denoted <code>HLA-A</code>, <code>HLA-B</code> and <code>HLA-C</code>.</p>
 <ul>
 <li><strong>T4: Create a new version of the <code>meta_data</code>, which with respect to allele-data only contains information on class I and also fix the odd naming. Remember to assign this new data to the same <code>meta_data</code>-variable</strong></li>
@@ -758,23 +794,22 @@ Click here for hint
 </div>
 <p>Before we proceed, this is the data we will carry on with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>meta_data <span class="sc">|&gt;</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>meta_data <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 14
-   Experiment Subject `Cell Type` `Target Type` Cohort    Age Gender Race  A1   
-   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;
- 1 eTH332        2685 B-CD8-_PBMC C19_cII       COVID-…    NA &lt;NA&gt;   &lt;NA&gt;  ""   
- 2 eHH173       19829 naive_CD8   C19_cI        Health…    50 M      White "A*0…
- 3 eQD116        6123 PBMC        C19_cI        COVID-…    66 F      &lt;NA&gt;  "A*0…
- 4 eLH54         1326 PBMC        C19_cI        COVID-…    NA &lt;NA&gt;   &lt;NA&gt;  "A*0…
- 5 eOX46        19943 naive_CD8   C19_cI        Health…    45 M      White "A*0…
- 6 eAV88        19830 naive_CD8   C19_cI        Health…    24 M      White "A*0…
- 7 ePD85         5869 naive_CD8   C19_cI        Health…    27 F      &lt;NA&gt;  "A*0…
- 8 eQD121        3646 PBMC        C19_cI        COVID-…    38 M      &lt;NA&gt;  "A*0…
- 9 eHO133     1005699 PBMC        C19_cI        COVID-…    67 M      White "A*3…
-10 eJL152        7842 PBMC        C19_cI        COVID-…    41 F      &lt;NA&gt;  "A*2…
-# ℹ 5 more variables: A2 &lt;chr&gt;, B1 &lt;chr&gt;, B2 &lt;chr&gt;, C1 &lt;chr&gt;, C2 &lt;chr&gt;</code></pre>
+<pre><code># A tibble: 10 × 11
+   Experiment Cohort        Age Gender Race  A1    A2    B1    B2    C1    C2   
+   &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+ 1 eQD134     COVID-19-C…    NA &lt;NA&gt;   &lt;NA&gt;  A*24… A*34… B*15… B*15… C*04… C*08…
+ 2 eHO127     COVID-19-C…    28 M      &lt;NA&gt;  A*24… A*24… B*40… B*51… C*04… C*15…
+ 3 eMR15      COVID-19-C…    NA &lt;NA&gt;   &lt;NA&gt;  A*03… A*32… B*07… B*07… C*07… C*07…
+ 4 eHO134     COVID-19-C…    36 M      White A*01… A*24… B*49… B*57… C*06… C*07…
+ 5 eMR18      COVID-19-B…    52 F      White A*02… A*68… B*14… B*18… C*07… C*08…
+ 6 eQD125     COVID-19-C…    44 M      &lt;NA&gt;  A*01… A*11… B*15… B*55… C*01… C*08…
+ 7 eQD113     COVID-19-C…    36 M      &lt;NA&gt;  A*03… A*11… B*51… B*55… C*03… C*15…
+ 8 eQD138     COVID-19-C…    NA &lt;NA&gt;   &lt;NA&gt;  A*01… A*02… B*37… B*44… C*06… C*16…
+ 9 eDH113     Healthy (N…    56 &lt;NA&gt;   &lt;NA&gt;  A*02… A*29… B*18… B*44… C*07… C*16…
+10 eQD115     COVID-19-C…    48 M      &lt;NA&gt;  A*02… A*03… B*07… B*44… C*05… C*07…</code></pre>
 </div>
 </div>
 <p>Now, we have a beautiful <code>tidy</code>-dataset, recall that this entails, that each row is an observation, each column is a variable and each cell holds one value.</p>
@@ -783,22 +818,22 @@ Click here for hint
 <h4 class="anchored" data-anchor-id="the-peptide-details-data">The Peptide Details Data</h4>
 <p>Let’s start with simply having a look see:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 7
    `TCR BioIdentity`            TCR Nucleotide Seque…¹ Experiment `ORF Coverage`
    &lt;chr&gt;                        &lt;chr&gt;                  &lt;chr&gt;      &lt;chr&gt;         
- 1 CASSYLSPGQGGNEQFF+TCRBV28-0… GCCAGCACCAACCAGACATCT… eXL27      ORF1ab        
- 2 CASSVVERTAEQYF+TCRBV19-01+T… GTGACATCGGCCCAAAAGAAC… eHO134     ORF1ab        
- 3 CASSLESSAYNEQFF+TCRBV11-02+… CAACCTGCAAAGCTTGAGGAC… eOX46      ORF7b         
- 4 CASSYQAGAMDEQYF+TCRBV06-05+… NTGTCGGCTGCTCCCTCCCAG… eAM23      ORF7b         
- 5 CASSQGLAGGLRNEQFF+TCRBV06-X… GCTGCTCCCTCCCAGACATCT… eOX52      ORF1ab        
- 6 CASSWGPINYGYTF+TCRBV27-01+T… CTGGAGTCGCCCAGCCCCAAC… eXL30      ORF1ab        
- 7 CASSFAGSTEAFF+TCRBV27-01+TC… ATCCTGGAGTCGCCCAGCCCC… eOX52      ORF7a         
- 8 unproductive+TCRBV10-01+TCR… CCTCCCAGACATCTGTATATT… eMR12      nucleocapsid …
- 9 CASRTDGYEQYF+TCRBV05-01+TCR… ATGAATGTGAGCACCTTGGAG… eXL27      ORF7b         
-10 CSVGLAEAGETQYF+TCRBV29-01+T… GTGAGCAACATGAGCCCTGAA… eJL147     ORF1ab        
+ 1 CASSQGLAPNEQYF+TCRBV04-02+T… CTACACACCCTGCAGCCAGAA… eHH175     ORF3a         
+ 2 CASSPWTSGLYEQYF+TCRBV07-09+… CAGCGCACAGAGCAGGGGGAC… eEE226     surface glyco…
+ 3 CASSSTGVSTDTQYF+TCRBV07-03+… CAGCGCACAGAGCGGGGGGAC… eEE228     ORF1ab        
+ 4 CASSYTQLYNEQFF+TCRBV06-02/0… NNNNTGTCGGCTGCTCCCTCC… eXL37      ORF7b         
+ 5 CASSPAGQLNQPQHF+TCRBV04-01+… CACGCCCTGCAGCCAGAAGAC… eXL30      nucleocapsid …
+ 6 CASSSDFRSEQFF+TCRBV05-06+TC… AATGTGAACGCCTTGTTGCTG… eXL30      ORF7b         
+ 7 CASSQDRTLDEQFF+TCRBV04-03+T… CTACACACCCTGCAGCCAGAA… eOX52      ORF3a         
+ 8 CASSIVGGTGELFF+TCRBV19-01+T… GTGACATCGGCCCAAAAGAAC… eOX54      ORF1ab        
+ 9 CASRANTEAFF+TCRBV10-02+TCRB… CCCCTCACTCTGGAGTCAGCT… eXL30      ORF7b         
+10 CASSPGLGSSYEQYF+TCRBV19-01+… ACATCGGCCCAAAAGAACCCG… ePD83      ORF3a         
 # ℹ abbreviated name: ¹​`TCR Nucleotide Sequence`
 # ℹ 3 more variables: `Amino Acids` &lt;chr&gt;, `Start Index in Genome` &lt;dbl&gt;,
 #   `End Index in Genome` &lt;dbl&gt;</code></pre>
@@ -811,33 +846,41 @@ Click here for hint
 <ol type="1">
 <li><em>Write the data back into your <code>data</code>-folder, using the filename <code>peptide-detail-ci.csv.gz</code>, note the appending of <code>.gz</code>, which is automatically recognised and results in gz-compression</em></li>
 <li><em>Now, check in your data folder, that you have two files <code>peptide-detail-ci.csv</code> and <code>peptide-detail-ci.csv.gz</code>, delete the former</em></li>
-<li><em>Adjust your reading-the-data-code, to now read in the <code>peptide-detail-ci.csv.gz</code>-file</em></li>
+<li><em>Adjust your reading-the-data-code in the “Load Data”-section, to now read in the <code>peptide-detail-ci.csv.gz</code>-file</em></li>
 </ol>
+<details>
+<p>
+</p><summary>
+Click here for hint
+</summary>
+<p></p>
+<em>Just as you can <code>read</code> a file, you can of course also <code>write</code> a file. Note the filetype we want to write here is <code>csv</code>. If you in the console type e.g.&nbsp;<code>readr::wr</code> and then hit the <code>tab</code>-button, you will see the different functions for writing different filetypes</em>
+</details>
 <p>Then:</p>
 <ul>
-<li><strong>T5: As before, let’s immediately subset the <code>peptide_data</code> to the variables of interest: TCR BioIdentity, Experiment and Amino Acids. Remember to assign this new data to the same <code>peptide_data</code>-variable</strong></li>
+<li><strong>T5: As before, let’s immediately subset the <code>peptide_data</code> to the variables of interest: <code>TCR BioIdentity</code>, <code>Experiment</code> and <code>Amino Acids</code>. Remember to assign this new data to the same <code>peptide_data</code>-variable to avoid cluttering your environment with redundant variables. Bonus: Did you know you can click the <code>Environment</code> pane and see which variables you have?</strong></li>
 </ul>
 <div class="cell">
 
 </div>
 <p>Once again, before we proceed, this is the data we will carry on with:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 3
-   Experiment `TCR BioIdentity`                            `Amino Acids`        
-   &lt;chr&gt;      &lt;chr&gt;                                        &lt;chr&gt;                
- 1 eXL30      CASSQDSPYLNYGYTF+TCRBV03-01/03-02+TCRBJ01-02 KLPDDFTGCV           
- 2 eEE240     CASSFLPGESSYNEQFF+TCRBV27-01+TCRBJ02-01      AFLLFLVLI,FLAFLLFLV,…
- 3 eAV88      CASSGRGITYEQYF+TCRBV06-X+TCRBJ02-07          DGVYFASTEK,GVYFASTEK…
- 4 eQD121     CSARDGTGNLYEQYF+TCRBV20-X+TCRBJ02-07         KAYNVTQAF            
- 5 eXL27      CASRPLVGTDSNQPQHF+TCRBV28-01+TCRBJ01-05      FLQSINFVR,FLQSINFVRI…
- 6 eQD137     CASSLLTGGNEQFF+TCRBV28-01+TCRBJ02-01         HTTDPSFLGRY          
- 7 eQD114     CASSLGDSYEQYF+TCRBV05-08+TCRBJ02-07          HTTDPSFLGRY          
- 8 eXL30      CASSPQNKGDRPYEQYF+TCRBV12-X+TCRBJ02-07       FLWLLWPVT,FLWLLWPVTL…
- 9 eEE224     CASTGLAAHQETQYF+TCRBV06-05+TCRBJ02-05        MVMCGGSLYV,VMCGGSLYV 
-10 eXL27      CASSLGQGSIEQYF+TCRBV07-09+TCRBJ02-07         AFLLFLVLI,FLAFLLFLV,…</code></pre>
+   Experiment `TCR BioIdentity`                           `Amino Acids`         
+   &lt;chr&gt;      &lt;chr&gt;                                       &lt;chr&gt;                 
+ 1 eOX52      CASSHLSEQFF+TCRBV03-01/03-02+TCRBJ02-01     AFPFTIYSL,GYINVFAFPF,…
+ 2 eXL31      CASSLAGVDEQFF+TCRBV07-08+TCRBJ02-01         AFLLFLVLI,FLAFLLFLV,F…
+ 3 eMR16      CATSRDRRELETQYF+TCRBV15-01+TCRBJ02-05       FLQSINFVR,FLQSINFVRI,…
+ 4 eOX54      CASSLEEGGLADNEQFF+TCRBV11-02+TCRBJ02-01     FLNGSCGSV             
+ 5 eQD128     CASSLGVGRARNEQFF+TCRBV11-01+TCRBJ02-01      ALALLLLDR,GDAALALLLL,…
+ 6 eXL31      CASSFGGAQQETQYF+TCRBV12-X+TCRBJ02-05        AFLLFLVLI,FLAFLLFLV,F…
+ 7 eMR16      CATSDLTNTGELFF+TCRBV24-01+TCRBJ02-02        FLQSINFVR,FLQSINFVRI,…
+ 8 eGK120     CASSQDWLSTDTQYF+TCRBV03-01/03-02+TCRBJ02-03 KAYNVTQAF             
+ 9 eOX49      CSADSEGSAVEQYF+TCRBV20-X+TCRBJ02-07         AFLLFLVLI,FLAFLLFLV,F…
+10 eOX52      CASRSDITADTQYF+TCRBV27-01+TCRBJ02-03        GMEVTPSGTWL,MEVTPSGTW…</code></pre>
 </div>
 </div>
 <ul>
@@ -848,22 +891,22 @@ Click here for hint
 
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 5
    Experiment CDR3b            V_gene           J_gene     `Amino Acids`        
    &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;                
- 1 eEE240     CASSPRQLPYEQYF   TCRBV07-09       TCRBJ02-07 RQLLFVVEV            
- 2 ePD83      CASSEAGGTYEQYF   TCRBV06-01       TCRBJ02-07 SEHDYQIGGYTEKW,YQIGG…
- 3 eAV88      CASSYWEGRVGTEAFF TCRBV06-05       TCRBJ01-01 FLQSINFVR,FLQSINFVRI…
- 4 eQD108     CASSLASPDTEAFF   TCRBV05-04       TCRBJ01-01 KAYNVTQAF            
- 5 eXL27      CASRTGQASTDTQYF  TCRBV05-01       TCRBJ02-03 KPLEFGATSAAL         
- 6 eXL30      CASSLAGTEEETQYF  TCRBV07-03       TCRBJ02-05 KLSYGIATV            
- 7 eEE240     CATSRDWGQGAIEQFF TCRBV15-01       TCRBJ02-01 KLSYGIATV            
- 8 eOX49      CASSLGGTVYEQYF   TCRBV05-06       TCRBJ02-07 IMLIIFWFSL,MLIIFWFSL 
- 9 eMR13      CASSFRATNEKLFF   TCRBV27-01       TCRBJ01-04 HTTDPSFLGRY          
-10 eEE226     CASSLWTAMNTEAFF  TCRBV03-01/03-02 TCRBJ01-01 APKEIIFL,KEIIFLEGETL </code></pre>
+ 1 eHH175     CASSESLAGSFSTQYF TCRBV02-01       TCRBJ02-05 MPASWVMRI            
+ 2 eEE240     CASSLTGPYEQYF    TCRBV27-01       TCRBJ02-07 FLNGSCGSV            
+ 3 eXL27      CASS*GHCANTGELFF TCRBV11-03       TCRBJ02-02 ELYSPIFLI,LYSPIFLIV,…
+ 4 eMR16      CASSLPGDYEQYF    TCRBV07-08       TCRBJ02-07 ELYSPIFLI,LYSPIFLIV,…
+ 5 eOX52      CASTLPGQPQHF     TCRBV07-09       TCRBJ01-05 APKEIIFL,KEIIFLEGETL 
+ 6 eOX54      CASSLTGTGRTQYF   TCRBV27-01       TCRBJ02-05 TLVPQEHYV            
+ 7 eEE228     CASLTFPGNEQFF    TCRBV12-03/12-04 TCRBJ02-01 AFPFTIYSL,GYINVFAFPF…
+ 8 eDH105     CARGMTGESGELFF   TCRBV02-01       TCRBJ02-02 SEVGPEHSLAEY         
+ 9 eEE226     CASSGGQGTSYEQYF  TCRBV12-X        TCRBJ02-07 LLDDFVEII,LLLDDFVEI  
+10 eOX43      CASSPSGGNTEAFF   TCRBV03-01/03-02 TCRBJ01-01 FLNGSCGSV            </code></pre>
 </div>
 </div>
 <details>
@@ -872,10 +915,10 @@ Click here for hint
 Click here for hint
 </summary>
 <p></p>
-<em>Ok, so this is a bit tricky, but perhaps there is a function to <code>separate</code> a composit (untidy) <code>col</code>umn <code>into</code> a set of new variables based on a <code>sep</code>arator? But what is a <code>sep</code>arator? Just like when you read a file with <code>C</code>omma <code>S</code>eparated <code>V</code>alues, a separator denotes how a composite string is divided into fields. So look for such a repeated values, which seem to indeed separate such fields. Also, be aware, that character, which can mean more than one thing, may need to be “escaped” using an initial two backslashed, i.e.&nbsp;“\x”, where x denotes the character needing to be “escaped”</em>
+<em>First: Compare the two datasets and identify what happened? Did any variables “dissappear” and did any “appear”? Ok, so this is a bit tricky, but perhaps there is a function to <code>separate</code> a composit (untidy) <code>col</code>umn <code>into</code> a set of new variables based on a <code>sep</code>arator? But what is a <code>sep</code>arator? Just like when you read a file with <code>C</code>omma <code>S</code>eparated <code>V</code>alues, a separator denotes how a composite string is divided into fields. So look for such a repeated values, which seem to indeed separate such fields. Also, be aware, that character, which can mean more than one thing, may need to be “escaped” using an initial two backslashed, i.e.&nbsp;“\x”, where x denotes the character needing to be “escaped”</em>
 </details>
 <ul>
-<li><strong>T6: Add a variable, which counts how many peptides are in each observation of <code>Amino Acids</code></strong></li>
+<li><strong>T7: Add a variable, which counts how many peptides are in each observation of <code>Amino Acids</code></strong></li>
 </ul>
 <div class="cell">
 
@@ -886,80 +929,83 @@ Click here for hint
 Click here for hint
 </summary>
 <p></p>
-<em>We have been working with the <code>stringr</code>-package, perhaps the contains a function to somehow count the number of occurrences of a given character in a string?</em>
+<em>We have been working with the <code>stringr</code>-package, perhaps the contains a function to somehow count the number of occurrences of a given character in a string? Again, remember you can type e.g.&nbsp;<code>stringr::str_</code> and then hit the <code>tab</code>-button to see relevant functions</em>
 </details>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 6
-   Experiment CDR3b            V_gene           J_gene  `Amino Acids` n_peptides
-   &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;
- 1 eXL31      CASSRPGELFF      TCRBV19-01       TCRBJ0… YIFFASFYY              1
- 2 eOX52      CASSQDRAYGVYGYTF TCRBV04-01       TCRBJ0… SELVIGAVI,SE…          2
- 3 eEE224     CASSFVTGGAHNEQFF TCRBV28-01       TCRBJ0… FLWLLWPVT,FL…          7
- 4 eOX46      CASSLAGDSYNEQFF  TCRBV27-01       TCRBJ0… FVCNLLLLFV,L…          3
- 5 eOX52      CASSQDTETRRYGYTF TCRBV03-01/03-02 TCRBJ0… APKEIIFL,KEI…          2
- 6 eQD124     CASSPRGFADTQYF   TCRBV27-01       TCRBJ0… HTTDPSFLGRY            1
- 7 eOX54      CASRTGGWNSPLHF   TCRBV06-05       TCRBJ0… KLNVGDYFV              1
- 8 eQD120     CASSPRDSYNEQFF   TCRBV27-01       TCRBJ0… HTTDPSFLGRY            1
- 9 eJL161     CAISELEDTPFF     TCRBV10-03       TCRBJ0… HTTDPSFLGRY            1
-10 ePD83      CASGRNSEQYF      TCRBV10-01       TCRBJ0… SEHDYQIGGYTE…          3</code></pre>
+   Experiment CDR3b            V_gene     J_gene     `Amino Acids`    n_peptides
+   &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;                 &lt;dbl&gt;
+ 1 eOX52      CASSPRDTLGYEQYF  TCRBV09-01 TCRBJ02-07 AFLLFLVLI,FLAFL…         11
+ 2 eXL31      CASSQDLVSLHEQYF  TCRBV04-02 TCRBJ02-07 MPASWVMRI                 1
+ 3 eOX49      CASIGRGGGETQYF   TCRBV13-01 TCRBJ02-05 FLWLLWPVT,FLWLL…          7
+ 4 eMR12      CASSYRDSYTDTQYF  TCRBV27-01 TCRBJ02-03 HTTDPSFLGRY               1
+ 5 eXL31      CASSLSRTDTQYF    TCRBV27-01 TCRBJ02-03 QLMCQPILL,QLMCQ…          2
+ 6 eHH175     CASSLGYREAFF     TCRBV07-09 TCRBJ01-01 AIPTNFTISV,AYSN…          4
+ 7 eMR23      CASSLAGANEQFF    TCRBV05-01 TCRBJ02-01 LSPRWYFYY,SPRWY…          2
+ 8 eEE228     CATSSGGSTEAFF    TCRBV09-01 TCRBJ01-01 VLWAHGFEL                 1
+ 9 eHO128     CASSQQRDEQFF     TCRBV28-01 TCRBJ02-01 ELIRQGTDY,QELIR…          3
+10 eAV88      CASSIITGQGVYEQYF TCRBV05-04 TCRBJ02-07 SELVIGAVI,SELVI…          2</code></pre>
 </div>
 </div>
 <ul>
-<li><strong>T7: Re-create the following plot</strong></li>
+<li><strong>T8: Re-create the following plot</strong></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> n_peptides)) <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>,</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">colour =</span> <span class="st">"black"</span>,</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">13</span>) <span class="sc">+</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.minor.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of peptides per observation"</span>,</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Counts"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="lab05_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+<p><img src="lab05_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ul>
 <li><p><strong>Q4: What is the maximum number of peptides assigned to one observation?</strong></p></li>
-<li><p><strong>T8: Using the <code>str_c</code>- and the <code>seq</code>-functions, re-create the below</strong></p></li>
+<li><p><strong>T9: Using the <code>str_c</code>- and the <code>seq</code>-functions, re-create the below</strong></p></li>
 </ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "peptide_1" "peptide_2" "peptide_3" "peptide_4" "peptide_5"</code></pre>
 </div>
 </div>
+<details>
+<p>
+</p><summary>
+Click here for hint
+</summary>
+<p></p>
+<em>If you’re uncertain on how a function works, try going into the console and in this case e.g.&nbsp;type <code>str_c("a", "b")</code> and <code>seq(from = 1, to = 3)</code> and see if you combine these?</em>
+</details>
 <ul>
-<li><strong>T9: Use, what you learned about separating in T6 and the vector-of-strings you created in T8 adjusted to the number from Q4 to create the below data</strong></li>
+<li><strong>T10: Use, what you learned about separating in T6 and the vector-of-strings you created in T9 adjusted to the number from Q4 to create the below data</strong></li>
 </ul>
 <div class="cell">
 
 </div>
+<details>
+<p>
+</p><summary>
+Click here for hint
+</summary>
+<p></p>
+<em>In the console, write <code>?separate</code> and think about how you used it earlier. Perhaps you can not only specify a vector to separate <code>into</code>, but also specify a function, which returns a vector?</em>
+</details>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 18
    Experiment CDR3b        V_gene J_gene peptide_1 peptide_2 peptide_3 peptide_4
    &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;    
- 1 eOX54      CASSLGGIEQFF TCRBV… TCRBJ… MWSFNPET… SFNPETNIL SMWSFNPET &lt;NA&gt;     
- 2 ePD76      CASSFWTEGTD… TCRBV… TCRBJ… GYQPYRVV… PYRVVVLSF QPYRVVVL  QPYRVVVL…
- 3 eMR25      CSVVTFDRREA… TCRBV… TCRBJ… FPRGQGVPI KFPRGQGV… &lt;NA&gt;      &lt;NA&gt;     
- 4 eHO133     CASSGAYNEQFF TCRBV… TCRBJ… KAYNVTQAF &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
- 5 eEE243     CSVEKLEGSGE… TCRBV… TCRBJ… YLDAYNMMI &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
- 6 eJL154     CSASPGSSYEQ… TCRBV… TCRBJ… STQDLFLP… TQDLFLPFF &lt;NA&gt;      &lt;NA&gt;     
- 7 eEE240     CATSSELTGTG… TCRBV… TCRBJ… ILGLPTQTV &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
- 8 eEE226     CASSLTGYLLE… TCRBV… TCRBJ… AIPTNFTI… AYSNNSIA… IPTNFTISV NSIAIPTNF
- 9 eHO140     CASSLPDRSPY… TCRBV… TCRBJ… FLWLLWPVT FLWLLWPV… LWLLWPVTL LWPVTLACF
-10 eOX49      CASSQVMARNT… TCRBV… TCRBJ… AFLLFLVLI FLAFLLFLV FYLCFLAFL FYLCFLAF…
+ 1 eEE228     CASSIVQSSTD… TCRBV… TCRBJ… YLNTLTLAV &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
+ 2 eMR18      CASGNPTASGY… TCRBV… TCRBJ… LLDDFVEII LLLDDFVEI &lt;NA&gt;      &lt;NA&gt;     
+ 3 eOX54      CSANPLGGTYS… TCRBV… TCRBJ… DFLEYHDVR EDFLEYHD… LEYHDVRVV LEYHDVRV…
+ 4 eXL30      CASSMSQGNEQ… TCRBV… TCRBJ… FPNITNLC… QPTESIVRF RFPNITNL… TESIVRFP…
+ 5 eJL151     CASSDDQVGTA… TCRBV… TCRBJ… YYRRATRR… &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
+ 6 eQD124     CASSSRTSGTS… TCRBV… TCRBJ… SYFTSDYY… VLHSYFTS… YFTSDYYQ… &lt;NA&gt;     
+ 7 eJL148     CASSLGTEAFF  TCRBV… TCRBJ… KVFRSSVLH VYYPDKVFR YPDKVFRSS YPDKVFRS…
+ 8 eEE226     CASSFGETF    TCRBV… TCRBJ… AFPFTIYSL GYINVFAF… INVFAFPF… MGYINVFAF
+ 9 eXL30      CASSSSDRKAFF TCRBV… TCRBJ… AFLLFLVLI FLAFLLFLV FYLCFLAFL FYLCFLAF…
+10 eQD110     CASSLSGLNEK… TCRBV… TCRBJ… HTTDPSFL… &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
 # ℹ 10 more variables: peptide_5 &lt;chr&gt;, peptide_6 &lt;chr&gt;, peptide_7 &lt;chr&gt;,
 #   peptide_8 &lt;chr&gt;, peptide_9 &lt;chr&gt;, peptide_10 &lt;chr&gt;, peptide_11 &lt;chr&gt;,
 #   peptide_12 &lt;chr&gt;, peptide_13 &lt;chr&gt;, n_peptides &lt;dbl&gt;</code></pre>
@@ -971,70 +1017,51 @@ Click here for hint
 </ul>
 <p>Now, finally we will use the what we prepared for today, data-pivotting. There are two functions, namely <code>pivot_wider()</code> and <code>pivot_longer()</code>. Also, now, we will use a trick when developing ones data pipeline, while working with new functions, that on might not be completely comfortable with. You have seen the <code>sample_n()</code>-function several times above and we can use that to randomly sample <code>n</code>-observations from data. This we can utilise to work with a smaller data set in the development face and once we are ready, we can increase this <code>n</code> gradually to see if everything continues to work as anticipated.</p>
 <ul>
-<li><p><strong>T9: Using the <code>peptide_data</code>, run a few <code>sample_n()</code>-calls with varying degree of <code>n</code> to make sure, that you get a feeling for what is going on</strong></p></li>
-<li><p><strong>T10: From the <code>peptide_data</code> data above, with peptide_1, peptide_2, etc. create this data set using one of the data-pivotting functions. Remember to start initially with sampling a smaller data set and then work on that first! Also, once you’re sure you’re good to go, reuse the <code>peptide_data</code>-variable as we don’t want huge redundant data sets floating around in our environment</strong></p></li>
+<li><p><strong>T11: Using the <code>peptide_data</code>, run a few <code>sample_n()</code>-calls with varying degree of <code>n</code> to make sure, that you get a feeling for what is going on</strong></p></li>
+<li><p><strong>T12: From the <code>peptide_data</code> data above, with peptide_1, peptide_2, etc. create this data set using one of the data-pivotting functions. Remember to start initially with sampling a smaller data set and then work on that first! Also, once you’re sure you’re good to go, reuse the <code>peptide_data</code>-variable as we don’t want huge redundant data sets floating around in our environment</strong></p></li>
 </ul>
 <div class="cell">
 
 </div>
+<details>
+<p>
+</p><summary>
+Click here for hint
+</summary>
+<p></p>
+<p>If the pivotting is not clear at all, then do what I do, create some example data:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="fu">str_c</span>(<span class="st">"id_"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>),</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">var_1 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">10</span>),<span class="dv">1</span>),</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">var_2 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">10</span>),<span class="dv">1</span>),</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">var_3 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">10</span>),<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>…and then play around with that. A small set like the one above is easy to handle, so perhaps start with that and then pivot back and forth a few times using the <code>pivot_wider()</code>-/<code>pivot_longer()</code>-functions. Use the <code>View()</code>-function to inspect and get a better overview of the results of pivotting.</p>
+</details>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 7
-   Experiment CDR3b             V_gene     J_gene   n_peptides peptide_n peptide
-   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;      &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;  
- 1 eEE240     CSAEGQGNTDTQYF    TCRBV20-X  TCRBJ02…         11 peptide_6 IELSLI…
- 2 eXL27      CSVVSPLGVSSYNEQFF TCRBV29-01 TCRBJ02…         11 peptide_8 LLFLVL…
- 3 eOX52      CASSQGGLGQGLYEQYF TCRBV04-02 TCRBJ02…          1 peptide_… &lt;NA&gt;   
- 4 eMR17      CASSAGGGDGYTF     TCRBV09-01 TCRBJ01…          1 peptide_… &lt;NA&gt;   
- 5 eEE226     CASSVNSGGDTDTQYF  TCRBV09-01 TCRBJ02…          1 peptide_8 &lt;NA&gt;   
- 6 eXL27      CAWTPLGGGGELFF    TCRBV30-01 TCRBJ02…         10 peptide_6 LIIMRT…
- 7 eHO130     CASSEMGQGSYGYTF   TCRBV06-01 TCRBJ01…          1 peptide_… &lt;NA&gt;   
- 8 eAM23      CATSTTRYNEQFF     TCRBV10-01 TCRBJ02…          1 peptide_6 &lt;NA&gt;   
- 9 eOX52      CAWSVGTGSYEQYF    TCRBV30-01 TCRBJ02…          2 peptide_7 &lt;NA&gt;   
-10 eQD120     CASSQEGSGSPLHF    TCRBV06-05 TCRBJ01…          2 peptide_4 &lt;NA&gt;   </code></pre>
+   Experiment CDR3b             V_gene       J_gene n_peptides peptide_n peptide
+   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;  
+ 1 eQD111     CASWTGEYSNQPQHF   TCRBV10-02   TCRBJ…          1 peptide_6 &lt;NA&gt;   
+ 2 eXL30      CASSTRGYEQYF      TCRBV11-02   TCRBJ…         11 peptide_… &lt;NA&gt;   
+ 3 eEE226     CASSLPTGTLNTGELFF TCRBV09-01   TCRBJ…          1 peptide_… &lt;NA&gt;   
+ 4 eEE224     CASSMGGSPYEQYF    TCRBV27-01   TCRBJ…          4 peptide_… &lt;NA&gt;   
+ 5 eAV93      CSARVRYGYGYTF     TCRBV20-X    TCRBJ…          6 peptide_… &lt;NA&gt;   
+ 6 eQD125     CASSYEAAGFTDTQYF  TCRBV06-02/… TCRBJ…          1 peptide_2 &lt;NA&gt;   
+ 7 eQD126     CASSLVHPSTDTQYF   TCRBV27-01   TCRBJ…          1 peptide_… &lt;NA&gt;   
+ 8 eQD121     CATSARETNQPQHF    TCRBV24-01   TCRBJ…          3 peptide_3 YFTSDY…
+ 9 eMR12      CASSVPTSGGFGEQYF  TCRBV05-06   TCRBJ…          1 peptide_7 &lt;NA&gt;   
+10 eXL31      CASSFGRVNQPQHF    TCRBV28-01   TCRBJ…          1 peptide_9 &lt;NA&gt;   </code></pre>
 </div>
 </div>
 <ul>
 <li><p><strong>Q7: You will see some <code>NA</code>s in the <code>peptide</code>-variable, discuss in your group from where these arise?</strong></p></li>
 <li><p><strong>Q8: How many rows and columns now and how does this compare with Q3? Discuss why/why not it is different?</strong></p></li>
-<li><p><strong>T11: Now, loose the redundant variables <code>n_peptides</code> and <code>peptide_n</code> and also get rid of the <code>NA</code>s in the <code>peptide</code>-column and make sure, that we only have unique observations, i.e.&nbsp;there are no repeated rows/observations</strong></p></li>
-</ul>
-<div class="cell">
-
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 5
-   Experiment CDR3b            V_gene     J_gene     peptide    
-   &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;      
- 1 eXL30      CSASKVDTEAFF     TCRBV20-01 TCRBJ01-01 MIELSLIDFY 
- 2 eOX46      CASSPTTGSPYEQYF  TCRBV18-01 TCRBJ02-07 VQPTESIVRF 
- 3 eEE240     CASSLGGNAKNIQYF  TCRBV07-03 TCRBJ02-04 MGYINVFAF  
- 4 eXL31      CASSLGFDEQFF     TCRBV11-02 TCRBJ02-01 AFLLFLVLI  
- 5 eAV88      CASSLELAVYEQYF   TCRBV07-09 TCRBJ02-07 RQLLFVVEV  
- 6 eOX46      CAISEGGGAFDEQYF  TCRBV10-03 TCRBJ02-07 RFPNITNLCPF
- 7 eXL37      CASLGLWGQYGYTF   TCRBV30-01 TCRBJ01-02 LIVNSVLLFL 
- 8 eXL30      CASSYWDGFTGELFF  TCRBV06-05 TCRBJ02-02 IELSLIDFYL 
- 9 eXL27      CASSPLAGGNNEQFF  TCRBV14-01 TCRBJ02-01 AFLLFLVLI  
-10 eOX52      CASSPLAGGPYNEQFF TCRBV09-01 TCRBJ02-01 FVDGVPFVV  </code></pre>
-</div>
-</div>
-<ul>
-<li><strong>Q8: Now, is this data tidy? Discuss in your group why/why not?</strong></li>
-</ul>
-<p>Again, we turn to the <code>stringr</code>-package, as we need to make sure that the sequence data does indeed only contain valid characters. There are a total of 20 protegenic amino acids, which we symbolise using <code>ARNDCQEGHILKMFPSTWYV</code>.</p>
-<ul>
-<li><strong>T12: Use the <code>str_detect()</code>-function to <code>filter</code> the <code>CDR3b</code> and <code>peptide</code> variables using a <code>pattern</code> of <code>[^ARNDCQEGHILKMFPSTWYV]</code> and then play with the <code>negate</code>-parameter so see what happens</strong></li>
-</ul>
-<div class="cell">
-
-</div>
-<ul>
-<li><strong>T13: Add two new variables to the data, <code>k_CDR3b</code> and <code>k_peptide</code> each signifying the length of the respective sequences</strong></li>
+<li><p><strong>T13: Now, loose the redundant variables <code>n_peptides</code> and <code>peptide_n</code> and also get rid of the <code>NA</code>s in the <code>peptide</code>-column and make sure, that we only have unique observations, i.e.&nbsp;there are no repeated rows/observations</strong></p></li>
 </ul>
 <div class="cell">
 
@@ -1042,81 +1069,164 @@ Click here for hint
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 5
+   Experiment CDR3b            V_gene     J_gene     peptide    
+   &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;      
+ 1 eEE228     CSASSSGTGTYNEQFF TCRBV20-01 TCRBJ02-01 LLFLVLIML  
+ 2 eXL30      CASSQYGTDTQYF    TCRBV13-01 TCRBJ02-03 YLCFLAFLL  
+ 3 eHO141     CSVRTLAGVNTGELFF TCRBV29-01 TCRBJ02-02 YYVGYLQPRTF
+ 4 eEE240     CASSPEVLLDTEAFF  TCRBV09-01 TCRBJ01-01 KLSYGIATV  
+ 5 eEE243     CASSQFSVSSYEQYF  TCRBV04-01 TCRBJ02-07 YEQYIKWPWY 
+ 6 eXL37      CASSIVAAMGRAEAFF TCRBV19-01 TCRBJ01-01 LLFLAFVVFL 
+ 7 eEE226     CSVLGGDTEAFF     TCRBV29-01 TCRBJ01-01 FYLCFLAFL  
+ 8 eEE228     CASSGTGNTEAFF    TCRBV02-01 TCRBJ01-01 MIELSLIDFY 
+ 9 eXL30      CASSELFGTLTYEQYF TCRBV06-01 TCRBJ02-07 FEYVSQPFL  
+10 eMR17      CASSLEAAYNEQFF   TCRBV11-02 TCRBJ02-01 ASQSIIAYTM </code></pre>
+</div>
 </div>
 <ul>
-<li><strong>T14: Re-create this plot</strong></li>
+<li><strong>Q8: Now how many rows and columns and is this data tidy? Discuss in your group why/why not?</strong></li>
+</ul>
+<p>Again, we turn to the <code>stringr</code>-package, as we need to make sure that the sequence data does indeed only contain valid characters. There are a total of 20 proteogenic amino acids, which we symbolise using <code>ARNDCQEGHILKMFPSTWYV</code>.</p>
+<ul>
+<li><strong>T14: Use the <code>str_detect()</code>-function to <code>filter</code> the <code>CDR3b</code> and <code>peptide</code> variables using a <code>pattern</code> of <code>[^ARNDCQEGHILKMFPSTWYV]</code> and then play with the <code>negate</code>-parameter so see what happens</strong></li>
+</ul>
+<div class="cell">
+
+</div>
+<details>
+<p>
+</p><summary>
+Click here for hint
+</summary>
+<p></p>
+<em>Again, try to play a bit around with the function in the console, type e.g.&nbsp;<code>str_detect(string = "ARND", pattern = "A")</code> and <code>str_detect(string = "ARND", pattern = "C")</code> and then recall, that the <code>filter</code>-function requires a logical vector, i.e.&nbsp;a vector of <code>TRUE</code> and <code>FALSE</code> to filter the rows</em>
+</details>
+<ul>
+<li><strong>T15: Add two new variables to the data, <code>k_CDR3b</code> and <code>k_peptide</code> each signifying the length of the respective sequences</strong></li>
+</ul>
+<div class="cell">
+
+</div>
+<details>
+<p>
+</p><summary>
+Click here for hint
+</summary>
+<p></p>
+<em>Again, we’re working with strings, so perhaps there is a package of interest and perhaps in that package, there is a function, which can get the length of a string?</em>
+</details>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 7
+   Experiment CDR3b              V_gene     J_gene     peptide k_CDR3b k_peptide
+   &lt;chr&gt;      &lt;chr&gt;              &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;     &lt;int&gt;     &lt;int&gt;
+ 1 eOX54      CASSGFVNTEAFF      TCRBV27-01 TCRBJ01-01 CFTNVY…      13        10
+ 2 eOX56      CSANMEGQGTDTQYF    TCRBV20-X  TCRBJ02-03 SLIDFY…      15        10
+ 3 eHO130     CASIPSDEGWAETQYF   TCRBV06-X  TCRBJ02-05 GLEAPF…      16        10
+ 4 eQD125     CASSPEPGTTGELFF    TCRBV27-01 TCRBJ02-02 HTTDPS…      15        11
+ 5 eEE240     CASRRAGVAFF        TCRBV06-05 TCRBJ01-01 LIDFYL…      11         9
+ 6 eXL31      CSANTGTSGRPVGYEQYF TCRBV20-X  TCRBJ02-07 MIELSL…      18        10
+ 7 eXL30      CASSEAGGSYEQYF     TCRBV06-01 TCRBJ02-07 LLLLDR…      14         9
+ 8 eOX49      CASSLSNVLTF        TCRBV28-01 TCRBJ02-06 LWLLWP…      11         9
+ 9 eEE240     CASSQGTSGTYEQYF    TCRBV04-03 TCRBJ02-07 LLFNKV…      15         9
+10 eHO136     CASSLGGSTEAFF      TCRBV11-02 TCRBJ01-01 YLCFLA…      13         9</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>T16: Re-create this plot</strong></li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="lab05_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+<p><img src="lab05_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ul>
 <li><p><strong>Q9: What is the most predominant length of the CDR3b-sequences?</strong></p></li>
-<li><p><strong>T15: Re-create this plot</strong></p></li>
+<li><p><strong>T17: Re-create this plot</strong></p></li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="lab05_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
+<p><img src="lab05_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <ul>
 <li><p><strong>Q10: What is the most predominant length of the peptide-sequences?</strong></p></li>
 <li><p><strong>Q11: Discuss in your group, if this data set is tidy or not?</strong></p></li>
 </ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 7
+   Experiment CDR3b            V_gene           J_gene peptide k_CDR3b k_peptide
+   &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt;     &lt;int&gt;
+ 1 eOX52      CATRRSRATEAFF    TCRBV19-01       TCRBJ… VQELYS…      13         9
+ 2 eXL31      CASSKTDRLGPYEQYF TCRBV28-01       TCRBJ… GLEAPF…      16        10
+ 3 eAV93      CASSLSIGAPEAFF   TCRBV27-01       TCRBJ… AYSNNS…      14        13
+ 4 eOX52      CASSETSGYEQYF    TCRBV09-01       TCRBJ… AEVQID…      13        10
+ 5 eXL30      CASSQAGEADTQYF   TCRBV04-01       TCRBJ… QLMCQP…      14        10
+ 6 eXL31      CATSNDRVLNQPQHF  TCRBV15-01       TCRBJ… LLFLVL…      15         9
+ 7 eEE226     CASSPTGVGYTF     TCRBV12-03/12-04 TCRBJ… YINVFA…      12         9
+ 8 eMR17      CASSLDEVEAFF     TCRBV19-01       TCRBJ… HTTDPS…      12        11
+ 9 eLH46      CAWRRDPNTGELFF   TCRBV30-01       TCRBJ… YYVGYL…      14        11
+10 eXL37      CASSLPISYEQYF    TCRBV07-09       TCRBJ… YEDFLE…      13        14</code></pre>
+</div>
+</div>
 </section>
 <section id="creating-one-data-set-from-two-data-sets" class="level4">
 <h4 class="anchored" data-anchor-id="creating-one-data-set-from-two-data-sets">Creating one data set from two data sets</h4>
 <p>Before we move onto using the family of <code>*_join</code>-functions you prepared for today, we will just take a quick peek at the meta data again:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>meta_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>meta_data <span class="sc">|&gt;</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 144 × 14
-   Experiment Subject `Cell Type` `Target Type` Cohort    Age Gender Race  A1   
-   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;
- 1 eAM13          844 PBMC        C19_cI        COVID-…    34 F      White A*02…
- 2 eAM23         5422 PBMC        C19_cI        COVID-…    48 M      &lt;NA&gt;  A*11…
- 3 eAV100        1995 PBMC        C19_cII       COVID-…    29 F      &lt;NA&gt;  A*02…
- 4 eAV105        1995 PBMC        C19_cII       COVID-…    29 F      &lt;NA&gt;  A*02…
- 5 eAV88        19830 naive_CD8   C19_cI        Health…    24 M      White A*02…
- 6 eAV91        19855 naive_CD8   C19_cI        Health…    31 M      White A*03…
- 7 eAV93        20655 naive_CD8   C19_cI        Health…    41 M      White A*11…
- 8 eDH105        3533 PBMC        C19_cI        COVID-…    32 F      &lt;NA&gt;  A*24…
- 9 eDH107        1684 PBMC        C19_cI        COVID-…    72 F      &lt;NA&gt;  A*03…
-10 eDH113     1327414 PBMC        C19_cI        Health…    56 &lt;NA&gt;   &lt;NA&gt;  A*02…
-# ℹ 134 more rows
-# ℹ 5 more variables: A2 &lt;chr&gt;, B1 &lt;chr&gt;, B2 &lt;chr&gt;, C1 &lt;chr&gt;, C2 &lt;chr&gt;</code></pre>
+<pre><code># A tibble: 10 × 11
+   Experiment Cohort        Age Gender Race  A1    A2    B1    B2    C1    C2   
+   &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
+ 1 eEE226     Healthy (N…    21 F      White "A*0… "A*0… "B*3… "B*3… "C*0… "C*0…
+ 2 eLH59      COVID-19-C…    NA &lt;NA&gt;   &lt;NA&gt;  "A*0… "A*0… "B*4… "B*5… "C*0… "C*1…
+ 3 eJL164     COVID-19-B…    33 M      White "A*0… "A*2… "B*1… "B*4… "C*0… "C*1…
+ 4 eHO138     COVID-19-B…    NA &lt;NA&gt;   &lt;NA&gt;  ""    ""    ""    ""    ""    ""   
+ 5 eAM13      COVID-19-C…    34 F      White "A*0… "A*0… "B*0… "B*4… "C*0… "C*0…
+ 6 eXL43      Healthy (N…    36 F      White "A*3… "A*3… "B*0… "B*1… "C*0… "C*0…
+ 7 ePD79      COVID-19-C…    79 F      &lt;NA&gt;  "A*0… "A*0… "B*0… "B*4… "C*0… "C*1…
+ 8 eNL187     COVID-19-C…    NA &lt;NA&gt;   &lt;NA&gt;  ""    ""    ""    ""    ""    ""   
+ 9 ePD84      Healthy (N…    29 F      Asian "A*0… "A*0… "B*1… "B*4… "C*0… "C*0…
+10 ePD76      Healthy (N…    33 M      White "A*0… "A*0… "B*3… "B*4… "C*0… "C*0…</code></pre>
 </div>
 </div>
-<p>Remember you can click the small triangle in the upper right corner of the table to have a look at more columns.</p>
+<p>Remember you can scroll in the data.</p>
 <ul>
 <li><strong>Q12: Discuss in your group, if this data with respect to the <code>A1</code>-, <code>A2</code>-, <code>B1</code>-, <code>B2</code>-, <code>C1-</code> and <code>C2</code>-variables is a wide- or a long-data format?</strong></li>
 </ul>
 <p>As with the <code>peptide_data</code>, we will now have to use data-pivotting again. I.e.:</p>
 <ul>
-<li><strong>T16: use either the <code>pivot_wider</code>- or <code>pivot_longer</code>-function to create the following data:</strong></li>
+<li><strong>T18: use either the <code>pivot_wider</code>- or <code>pivot_longer</code>-function to create the following data:</strong></li>
 </ul>
 <div class="cell">
 
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>meta_data <span class="sc">|&gt;</span> </span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>meta_data <span class="sc">|&gt;</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 10 × 10
-   Experiment Subject `Cell Type` `Target Type` Cohort    Age Gender Race  Gene 
-   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;
- 1 eHH175       20300 naive_CD8   C19_cI        Health…    28 M      White B2   
- 2 eHO130        9541 PBMC        C19_cI        Health…    28 F      White C1   
- 3 eQD108      500001 PBMC        C19_cI        COVID-…    NA &lt;NA&gt;   &lt;NA&gt;  C2   
- 4 ePD100        1811 PBMC        C19_cI        COVID-…    66 M      &lt;NA&gt;  C1   
- 5 ePD84        19931 naive_CD8   C19_cI        Health…    29 F      Asian C1   
- 6 ePD86           92 PBMC        C19_cI        COVID-…    58 M      White B1   
- 7 eHO132          26 PBMC        C19_cI        COVID-…    65 F      White C1   
- 8 eLH46          359 PBMC        C19_cI        COVID-…    57 F      White A1   
- 9 eHO140        1809 PBMC        C19_cI        COVID-…    NA &lt;NA&gt;   &lt;NA&gt;  C1   
-10 ePD85         5869 naive_CD8   C19_cI        Health…    27 F      &lt;NA&gt;  A1   
-# ℹ 1 more variable: Allele &lt;chr&gt;</code></pre>
+<pre><code># A tibble: 10 × 7
+   Experiment Cohort                        Age Gender Race         Gene  Allele
+   &lt;chr&gt;      &lt;chr&gt;                       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; 
+ 1 eJL160     COVID-19-Acute                 52 F      African Ame… C1    C*05:…
+ 2 eDH113     Healthy (No known exposure)    56 &lt;NA&gt;   &lt;NA&gt;         C2    C*16:…
+ 3 eOX43      Healthy (No known exposure)    24 M      White        B1    B*27:…
+ 4 eMR20      COVID-19-B-Non-Acute           37 M      White        B2    B*14:…
+ 5 eXL32      Healthy (No known exposure)    37 F      White        C2    C*04:…
+ 6 eQD113     COVID-19-Convalescent          36 M      &lt;NA&gt;         B2    B*55:…
+ 7 eMR14      COVID-19-Convalescent          NA &lt;NA&gt;   &lt;NA&gt;         B2    B*57:…
+ 8 eQD113     COVID-19-Convalescent          36 M      &lt;NA&gt;         A1    A*03:…
+ 9 eHO134     COVID-19-Convalescent          36 M      White        B1    B*49:…
+10 ePD81      COVID-19-Convalescent          64 M      &lt;NA&gt;         B2    B*46:…</code></pre>
 </div>
 </div>
 <p>Remember, what we are aiming for here, is to create one data set from two. So:</p>
@@ -1128,26 +1238,26 @@ Click here for hint
 
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>meta_data <span class="sc">|&gt;</span> </span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>meta_data <span class="sc">|&gt;</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 2
    Experiment Allele      
    &lt;chr&gt;      &lt;chr&gt;       
- 1 eHH174     "A*02:01"   
- 2 eLH45      "A*02:01:01"
- 3 eQD136     "B*08:01:01"
- 4 eHO128     "C*07:01:01"
- 5 eAM23      "B*15:01:01"
- 6 ePD90      ""          
- 7 eEE240     "C*03:04"   
- 8 eJL143     "B*14:01"   
- 9 ePD91      ""          
-10 eQD110     "A*01:01:01"</code></pre>
+ 1 eLH42      "B*18:01:01"
+ 2 eJL151     "A*24:02:01"
+ 3 eQD137     "B*37:01:01"
+ 4 eJL148     "B*15:01:01"
+ 5 eDH96      "B*57:01"   
+ 6 eQD126     "A*01:01:01"
+ 7 eHO140     ""          
+ 8 eEE228     "A*02:01"   
+ 9 eQD113     "C*15:02:01"
+10 eJL157     "C*07:01:01"</code></pre>
 </div>
 </div>
 <p>Use the <code>View()</code>-function again, to look at the <code>meta_data</code> - Notice something? Some alleles are e.g.&nbsp;<code>A*11:01</code>, whereas others are <code>B*51:01:02</code>. You can find information on why, by visiting <a href="http://hla.alleles.org/nomenclature/naming.html">Nomenclature for Factors of the HLA System</a>.</p>
-<p>Long story short, we only want to include <code>Field 1</code> (allele group) and <code>Field 2</code> (Specific HLA protein). You have prepared the <code>stringr</code>-package for today. See if you can find a way to reduce e.g.&nbsp;<code>B*51:01:02</code> to <code>B*51:01</code> and then create a new variable <code>Allele_F_1_2</code> accordingly, while also removing the <code>...x</code> (where <code>x</code> is a number) subscripts from the <code>Gene</code>-variable (It is an artifact from having the data in a wide format, where you cannot have two variables with the same name) and also, remove any <code>NA</code>s</p>
+<p>Long story short, we only want to include <code>Field 1</code> (allele group) and <code>Field 2</code> (Specific HLA protein). You have prepared the <code>stringr</code>-package for today. See if you can find a way to reduce e.g.&nbsp;<code>B*51:01:02</code> to <code>B*51:01</code> and then create a new variable <code>Allele_F_1_2</code> accordingly, while also removing the <code>...x</code> (where <code>x</code> is a number) subscripts from the <code>Gene</code>-variable (It is an artifact from having the data in a wide format, where you cannot have two variables with the same name) and also, remove any <code>NA</code>s and <code>""</code>s, denoting empty entries.</p>
 <details>
 <p>
 </p><summary>
@@ -1160,51 +1270,51 @@ Click here for hint
 
 </div>
 <ul>
-<li><strong>T17: Create the following data, according to specifications above:</strong></li>
+<li><strong>T19: Create the following data, according to specifications above:</strong></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>meta_data <span class="sc">|&gt;</span> </span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>meta_data <span class="sc">|&gt;</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 3
    Experiment Allele     Allele_F_1_2
    &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;       
- 1 ePD83      A*02:01    A*02:01     
- 2 eLH57      C*06:02:01 C*06:02     
- 3 eLH54      C*07:02:01 C*07:02     
- 4 eMR18      B*18:01:01 B*18:01     
- 5 eHH174     B*08:01    B*08:01     
- 6 eHO130     C*07:02    C*07:02     
- 7 eOX52      C*07:01    C*07:01     
- 8 eJL151     C*03:04:01 C*03:04     
- 9 eDH105     B*40:01:02 B*40:01     
-10 eXL31      C*16:01    C*16:01     </code></pre>
+ 1 eLH51      C*07:02:01 C*07:02     
+ 2 eMR15      B*07:02:01 B*07:02     
+ 3 ePD73      C*04:01    C*04:01     
+ 4 eLH59      A*01:01:01 A*01:01     
+ 5 eXL30      B*35:02    B*35:02     
+ 6 eHO124     C*07:04    C*07:04     
+ 7 eHH170     A*74:01    A*74:01     
+ 8 eXL37      C*03:04    C*03:04     
+ 9 eHO132     B*35:03:01 B*35:03     
+10 ePD79      B*07:02:01 B*07:02     </code></pre>
 </div>
 </div>
 <p>The asterix, i.e.&nbsp;<code>*</code> is a rather annoying character because of ambiguity, so:</p>
 <ul>
-<li><strong>T18: Clean the data a bit more, by removing the asterix and redundant variables:</strong></li>
+<li><strong>T20: Clean the data a bit more, by removing the asterix and redundant variables:</strong></li>
 </ul>
 <div class="cell">
 
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>meta_data <span class="sc">|&gt;</span> </span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>meta_data <span class="sc">|&gt;</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 2
    Experiment Allele
    &lt;chr&gt;      &lt;chr&gt; 
- 1 eQD132     A02:03
- 2 eOX46      A02:01
- 3 ePD73      B40:01
- 4 eQD117     B35:02
- 5 eJL160     B44:02
- 6 eXL27      C07:04
- 7 eAM13      B08:01
- 8 ePD83      B13:01
- 9 eJL146     B14:02
-10 eXL32      C03:04</code></pre>
+ 1 eQD120     C03:04
+ 2 eEE217     B44:02
+ 3 eGK111     B15:01
+ 4 eQD116     B35:01
+ 5 eHH169     B35:12
+ 6 eGK120     C12:02
+ 7 eLH45      C07:02
+ 8 eHO134     B57:01
+ 9 eHO128     A01:01
+10 eLH54      C07:02</code></pre>
 </div>
 </div>
 <details>
@@ -1225,26 +1335,26 @@ Click here for hint 2
 </details>
 <p>Recall the <code>peptide_data</code>?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>peptide_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>peptide_data <span class="sc">|&gt;</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 578,357 × 7
-   Experiment CDR3b            V_gene     J_gene     peptide   k_CDR3b k_peptide
-   &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt;     &lt;int&gt;
- 1 eAV93      CASSAQGTGDRGYTF  TCRBV27-01 TCRBJ01-02 ADAGFIKQY      15         9
- 2 eAV93      CASSAQGTGDRGYTF  TCRBV27-01 TCRBJ01-02 AELEGIQY       15         8
- 3 eAV93      CASSAQGTGDRGYTF  TCRBV27-01 TCRBJ01-02 LADAGFIK…      15        10
- 4 eAV93      CASSAQGTGDRGYTF  TCRBV27-01 TCRBJ01-02 TLADAGFIK      15         9
- 5 eOX56      CASSLVATGNTGELFF TCRBV07-09 TCRBJ02-02 ADAGFIKQY      16         9
- 6 eOX56      CASSLVATGNTGELFF TCRBV07-09 TCRBJ02-02 AELEGIQY       16         8
- 7 eOX56      CASSLVATGNTGELFF TCRBV07-09 TCRBJ02-02 LADAGFIK…      16        10
- 8 eOX56      CASSLVATGNTGELFF TCRBV07-09 TCRBJ02-02 TLADAGFIK      16         9
- 9 eAV93      CASSKGTVSGLSG    TCRBV21-01 TCRBJ02-07 ADAGFIKQY      13         9
-10 eAV93      CASSKGTVSGLSG    TCRBV21-01 TCRBJ02-07 AELEGIQY       13         8
-# ℹ 578,347 more rows</code></pre>
+<pre><code># A tibble: 10 × 7
+   Experiment CDR3b             V_gene          J_gene peptide k_CDR3b k_peptide
+   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;           &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt;     &lt;int&gt;
+ 1 eXL27      CASRGPSSNLLSYEQYF TCRBV06-X       TCRBJ… FLAFLL…      17         9
+ 2 eEE228     CASSRIGASTGELFF   TCRBV04-01      TCRBJ… LTDEMI…      15         9
+ 3 eEE240     CSATWEQGGSLEQYF   TCRBV20-X       TCRBJ… IDFYLC…      15        10
+ 4 eEE224     CATSSGPPLEDEQFF   TCRBV12-X       TCRBJ… WLLWPV…      15         9
+ 5 eXL30      CSVVEGGNEQFF      TCRBV29-01      TCRBJ… YFLQSI…      12        10
+ 6 eEE240     CASSLSYEQYF       TCRBV12-03/12-… TCRBJ… NVFAFP…      11         9
+ 7 eMR16      CASSQEYGSAYEQYF   TCRBV04-01      TCRBJ… FLQSIN…      15        10
+ 8 eQD137     CASSTGMSNQPQHF    TCRBV28-01      TCRBJ… HTTDPS…      14        11
+ 9 eHO141     CASSMSGVNSPLHF    TCRBV19-01      TCRBJ… KTFPPT…      14         9
+10 eOX46      CASSPSGTQYF       TCRBV11-02      TCRBJ… YLYALV…      11         9</code></pre>
 </div>
 </div>
 <ul>
-<li><strong>T19: Create a <code>dplyr</code>-pipeline, starting with the <code>peptide_data</code>, which joins it with the <code>meta_data</code> and remember to make sure that you get only unqiue observations of rows. Save this data into a new variable names <code>peptide_meta_data</code> (If you get a warning, discuss in your group what it means?)</strong></li>
+<li><strong>T21: Create a <code>dplyr</code>-pipeline, starting with the <code>peptide_data</code>, which joins it with the <code>meta_data</code> and remember to make sure that you get only unqiue observations of rows. Save this data into a new variable names <code>peptide_meta_data</code> (If you get a warning, discuss in your group what it means?)</strong></li>
 </ul>
 <div class="cell">
 
@@ -1252,28 +1362,36 @@ Click here for hint 2
 <details>
 <p>
 </p><summary>
-Click here for hint
+Click here for hint 1
 </summary>
 <p></p>
 <em>Which family of functions do we use to join data? Also, perhaps here it would be prudent to start with working on a smaller data set, recall we could sample a number of rows yielding a smaller development data set</em>
 </details>
+<details>
+<p>
+</p><summary>
+Click here for hint 2
+</summary>
+<p></p>
+<em>You should get a data set of around +3.000.000, <strong>take a moment to consider how that would have been to work with in Excel?</strong> Also, in case the servers are not liking this, you can consider subsetting the <code>peptide_data</code> prior to joining to e.g.&nbsp;100,000 or 10,000 rows.</em>
+</details>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>peptide_meta_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>peptide_meta_data <span class="sc">|&gt;</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3,268,217 × 8
-   Experiment CDR3b           V_gene     J_gene peptide k_CDR3b k_peptide Allele
-   &lt;chr&gt;      &lt;chr&gt;           &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt;     &lt;int&gt; &lt;chr&gt; 
- 1 eAV93      CASSAQGTGDRGYTF TCRBV27-01 TCRBJ… ADAGFI…      15         9 A11:01
- 2 eAV93      CASSAQGTGDRGYTF TCRBV27-01 TCRBJ… ADAGFI…      15         9 A68:01
- 3 eAV93      CASSAQGTGDRGYTF TCRBV27-01 TCRBJ… ADAGFI…      15         9 B35:01
- 4 eAV93      CASSAQGTGDRGYTF TCRBV27-01 TCRBJ… ADAGFI…      15         9 B35:03
- 5 eAV93      CASSAQGTGDRGYTF TCRBV27-01 TCRBJ… ADAGFI…      15         9 C03:03
- 6 eAV93      CASSAQGTGDRGYTF TCRBV27-01 TCRBJ… ADAGFI…      15         9 C04:01
- 7 eAV93      CASSAQGTGDRGYTF TCRBV27-01 TCRBJ… AELEGI…      15         8 A11:01
- 8 eAV93      CASSAQGTGDRGYTF TCRBV27-01 TCRBJ… AELEGI…      15         8 A68:01
- 9 eAV93      CASSAQGTGDRGYTF TCRBV27-01 TCRBJ… AELEGI…      15         8 B35:01
-10 eAV93      CASSAQGTGDRGYTF TCRBV27-01 TCRBJ… AELEGI…      15         8 B35:03
-# ℹ 3,268,207 more rows</code></pre>
+<pre><code># A tibble: 10 × 8
+   Experiment CDR3b            V_gene    J_gene peptide k_CDR3b k_peptide Allele
+   &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt;     &lt;int&gt; &lt;chr&gt; 
+ 1 ePD84      CASRTGVPSNQPQHF  TCRBV28-… TCRBJ… VYFLQS…      15        10 C07:06
+ 2 eOX49      CSVAGTSDYNEQFF   TCRBV29-… TCRBJ… TLACFV…      14        10 B52:01
+ 3 eOX52      CSARWASGGDNEQFF  TCRBV20-X TCRBJ… YLCFLA…      15         9 A24:02
+ 4 eQD124     CASSKRGSTQYF     TCRBV21-… TCRBJ… IDFYLC…      12        10 A01:01
+ 5 eEE226     CASSGQERVETQYF   TCRBV04-… TCRBJ… KLSYGI…      14         9 B35:02
+ 6 eOX43      CASSYGTSGYNEQFF  TCRBV07-… TCRBJ… IELSLI…      15        10 B27:05
+ 7 eEE224     CASSPLGEGYEQYF   TCRBV07-… TCRBJ… NVFAFP…      14        10 A02:01
+ 8 eOX54      CASSSGAGGGTDTQYF TCRBV07-… TCRBJ… YEQYIK…      16         9 C14:03
+ 9 eAV93      CASSAGLIGELFF    TCRBV21-… TCRBJ… FCNDPF…      13        10 A11:01
+10 eJL148     CASSLDTHEQYF     TCRBV06-… TCRBJ… QSINFV…      12         9 A02:01</code></pre>
 </div>
 </div>
 </section>
@@ -1289,7 +1407,7 @@ Click here for hint
 <h4 class="anchored" data-anchor-id="peptides-binding-to-hla">Peptides binding to HLA</h4>
 <p>As we have touched upon multiple times, <code>R</code> is <em>very</em> flexible and naturally you can also create sequence logos. Finally, let us create a binding motif using the package <code>ggseqlogo</code> (<a href="https://omarwagih.github.io/ggseqlogo/">More info here</a>).</p>
 <ul>
-<li><strong>T20: Subset the final <code>peptide_meta_data</code>-data to <code>A*02:01</code> and unique observations of peptides of length 9 and re-create the below sequence logo</strong></li>
+<li><strong>T22: Subset the final <code>peptide_meta_data</code>-data to <code>A02:01</code> and unique observations of peptides of length 9 and re-create the below sequence logo</strong></li>
 </ul>
 <details>
 <p>
@@ -1303,13 +1421,13 @@ Click here for hint
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lab05_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="lab05_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <ul>
-<li><strong>T21: Repeat for e.g.&nbsp;<code>B07:02</code> or another of your favorite alleles</strong></li>
+<li><strong>T23: Repeat for e.g.&nbsp;<code>B07:02</code> or another of your favorite alleles</strong></li>
 </ul>
 <p>Now, let’s take a closer look at the sequence logo:</p>
 <ul>
@@ -1327,21 +1445,22 @@ Click here for hint
 <section id="cdr3b-sequences-binding-to-pmhc" class="level4">
 <h4 class="anchored" data-anchor-id="cdr3b-sequences-binding-to-pmhc">CDR3b-sequences binding to pMHC</h4>
 <ul>
-<li><strong>T22: Subset the <code>peptide_meta_data</code>, such that the length of the CDR3b is 15, the allele is A02:01 and the peptide is LLFLVLIML and re-create the below sequence logo of the CDR3b sequences:</strong></li>
+<li><strong>T24: Subset the <code>peptide_meta_data</code>, such that the length of the CDR3b is 15, the allele is A02:01 and the peptide is LLFLVLIML and re-create the below sequence logo of the CDR3b sequences:</strong></li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lab05_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="lab05_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <ul>
 <li><p><strong>Q15: In your group, discuss what you see?</strong></p></li>
-<li><p><strong>T23: Play around with other combinations of <code>k_CDR3b</code>, <code>Allele</code>, and <code>peptide</code> and inspect how the logo changes</strong></p></li>
+<li><p><strong>T25: Play around with other combinations of <code>k_CDR3b</code>, <code>Allele</code>, and <code>peptide</code> and inspect how the logo changes</strong></p></li>
 </ul>
+<p><em>Disclaimer: In this data set, we only get: A given CDR3b was found to recognise a given peptide in a given subject and that subject had a given haplotype - Something’s missing… Perhaps if you have had immunology, then you can spot it? There is a trick to get around this missing information, but that’s beyond scope of what we’re working with here.</em></p>
 </section>
 </section>
 </section>
@@ -1352,7 +1471,7 @@ Click here for hint
 </section>
 <section id="todays-assignment" class="level2">
 <h2 class="anchored" data-anchor-id="todays-assignment"><span style="color: red;">Today’s Assignment</span></h2>
-<p>Your group assignment today is to condense the exercises into a micro-report!</p>
+<p>Your group assignment today is to condense the exercises into a group micro-report! Talk together and figure out how to paste your exercises from today into one small end-to-end runable reproducible micro-report.</p>
 <p>After today, we are halfway through the labs of the course, so now is a good time to spend some time recalling what we have been over and practising writing a reproducible Quarto-report.</p>
 <p>Include the steps necessary to arrive at the final sequence logos, but be as concise as possible.</p>
 <p><strong>IMPORTANT:</strong> Remember to check the <a href="https://r4bds.github.io/assignments.html">ASSIGNMENT GUIDELINES</a></p>
@@ -1467,7 +1586,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./lab06.html" class="pagination-link">
-        <span class="nav-page-text">Lab 6: (a bit on) Modelling in the Tidyverse</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Lab 6: Functional Programming Purrr</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
