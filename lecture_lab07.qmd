@@ -276,7 +276,7 @@ Collect your ideas at the course [Padlet](https://padlet.com/s2206721/what-could
 
 -   Why F in merged target branch?
 
-    = new commit index
+    = new commit hash (index)
 
 ![](images/git_merge.png){fig-align="center"}
 
