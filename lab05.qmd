@@ -692,8 +692,9 @@ As we have touched upon multiple times, `R` is *very* flexible and naturally you
 </details>
 
 ```{r}
-#| eval: true
 #| echo: false
+#| eval: true
+#| fig-align: center
 peptide_meta_data |>
   filter(Allele == "A02:01",
          str_length(peptide) == 9) |>
@@ -718,6 +719,9 @@ Now, let's take a closer look at the sequence logo:
 - **T22: Subset the `peptide_meta_data`, such that the length of the CDR3b is 15, the allele is A02:01 and the peptide is LLFLVLIML and re-create the below sequence logo of the CDR3b sequences:**
 
 ```{r}
+#| echo: false
+#| eval: true
+#| fig-align: center
 peptide_meta_data |>
   filter(k_CDR3b == 15,
          Allele == "A02:01",
@@ -733,6 +737,8 @@ peptide_meta_data |>
 ## Epilogue
 
 That's it for today - I know this overwhelming now, but commit to it and you WILL be plenty rewarded! I hope today was at least a glimpse into the flexibility and capabilities of using `tidyverse` for applied Bio Data Science
+
+...also, noticed something? We spend maybe 80% of the time here on dealing with data-wrangling and then once we're good to go, the analysis wasn't that time consuming - That's often the way it ends up going, you'll spend a lot of time on data handling and getting the tidyverse toolbox in your toolbelt, will allow you to be so much more effecient in your data wrangling, so you can get to the fun part as quick as possible!
 
 ## [Today's Assignment]{style="color: red;"}
 
