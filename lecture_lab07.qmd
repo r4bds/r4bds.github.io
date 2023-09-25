@@ -306,7 +306,7 @@ Collect your ideas at the course [Padlet](https://padlet.com/s2206721/what-could
 
 -   GitHub and reproducible data science go hand in hand
 
--   There will be the moment when git will safe either a lot of time or your a\*\* in a big project
+-   There will be the moment when git will safe a lot of time in a big project
 
 -   Nearly all data science jobs will require knowledge with version control systems
 
