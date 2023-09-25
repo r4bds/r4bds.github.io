@@ -1,6 +1,6 @@
 ---
 title: "Lecture Lab 7"
-title: "Lecture Lab 1"
+
 author: "Nils Hofmann"
 format:
   revealjs:
@@ -14,11 +14,15 @@ format:
     footer: "R for Bio Data Science"
 ---
 
-## Which questions you will answer after todays lecture?
+## Which questions you can answer after today's lecture?
 
 -   What does version control mean?
 
--   
+    -   How does Git and GitHub relate to this and what is their difference?
+
+-   Why do Git and teamwork go hand in hand in data science?
+
+-   How to use Git in a team
 
 <!--# ---------------------------------------------------------------------- -->
 
@@ -48,15 +52,25 @@ Collect your ideas at the course [Padlet](https://padlet.com/s2206721/what-could
 
 <!--# ---------------------------------------------------------------------- -->
 
+## Version Control - Definition
+
+*Version control is like a special "undo" button for your work. It remembers all the changes you make, so you can always go back to an older version if needed. It also lets you and your friends work on the same project without mixing up each other's changes.*
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
 ## Git - An open source version control system
 
 -   installed locally on your device
 
 -   keeps track of your file changes
 
-    -   Indexes each change, so you can revert it
+    -   each change is indexed, so you can revert your current state
 
--   You interact with it via command line
+-   You interact with it via the terminal
 
 ![](images/Git_logo.jpg){fig-align="center"}
 
@@ -66,25 +80,17 @@ Collect your ideas at the course [Padlet](https://padlet.com/s2206721/what-could
 
 <!--# ---------------------------------------------------------------------- -->
 
-## Git - The basics
+## GitHub
 
--   git init - initialize a new repository (
+-   Hub = Server where you can find, store and manage repositories
 
--   git clone - create and copy an existing repository in your directory
+    -   everything is remote
 
--   git add - tell git to include certain updates in the next commit
+-   GitHub is **NOT** a version control system but a platform which provides a GUI for your repository and enables users to share code easily
 
--   git commit - creates a new copy of the repository with the given changes and assigns an index
+-   you interact with it via an application or a web browser
 
--   git push - checked in changes (commit) will be pushed to remote repository (GitHub)
-
--   git pull - update your local repository
-
-![](images/git_workflow.jpeg)
-
-## 
-
-## Git vs GitHub
+![](images/github_logo.jpg){fig-align="center"}
 
 <!--# ---------------------------------------------------------------------- -->
 
@@ -96,11 +102,7 @@ Collect your ideas at the course [Padlet](https://padlet.com/s2206721/what-could
 
 -   GitHub allows you to have the project repository remotely
 
-<<<<<<< HEAD
-    -   Multiple people who have git installed can then access this repository and create a copy
-=======
 -   Multiple people who have git installed can then access this repository and create a copy
->>>>>>> 978dc6d (upload of memes and start with presentation)
 
 -   GitHub introduces visual features and eases the project management
 
@@ -112,6 +114,206 @@ Collect your ideas at the course [Padlet](https://padlet.com/s2206721/what-could
 
 <!--# ---------------------------------------------------------------------- -->
 
-## Git - Potential Issues
+## Git - The basics
 
-## A few words on branching
+![](images/git_workflow.jpeg)
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## Git - simple workflow when working together
+
+![](images/workflow_git_simple.png){fig-align="center"}
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## If you forget to pull...
+
+-   if you and your teammate work on the same codeline and both push the results to the remote repository, git will detect a merge conflict
+
+![](images/no_pulling_conflict.png){fig-align="center"}
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## A popular but not recommended solution - git push --force
+
+-   Person A will be ignored and its changes will be overwritten
+
+    -   But commit of Person A still exists
+
+![](images/meme_git_push_force.png){fig-align="center"}
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## Git in RStudio - Buttons are Terminal commands
+
+![](images/git_gui_rstudio.png){fig-align="center"}
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## Git in RStudio - Commit in GUI
+
+![](images/git_gui_commiting.png){fig-align="center"}
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## Git in RStudio - Version Control in GUI
+
+![](images/git_gui_version_control.png){fig-align="center"}
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## GitHub - Overview
+
+![](images/github_overview.png){fig-align="center"}
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## GitHub - Use the README!
+
+-   README.md is a markdown document which you create to provide a short instruction or overview of your software
+
+-   **MUST** be in the root directory
+
+![](images/readme_github.png){fig-align="center"}
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## Git - working together with clone or fork
+
+-   people involved in one project need to have a copy of the current project state in their local system
+
+    -   there are two ways of getting this: cloning and forking
+
+![](images/fork%20and%20clone(2).png){fig-align="center"}
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## Git - When should I use clone and fork now?
+
+-   it is a question of:
+
+    -   How much control do I want?
+
+    -   How do I want to continue with the project as a collaborator?
+
+-   If you fork, you will have complete control over the repository and will not directly influence the target repository with git commands
+
+    -   **BUT** your collaborators will not be able to directly apply and use your changes
+
+-   If you **plan to contribute** to a target repository you typically **clone it**
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## Git - Branches
+
+-   branch: new **separate** and **isolated** version of the mother branch
+
+    -   useful for: experimenting, bug fixing, adding features
+
+    -   see it as a structural component for **organizing a project**
+
+-   *git checkout -b* : command for switching to another branch
+
+![](images/git_branch_example.png){fig-align="center"}
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## Git - Merge
+
+-   helps to combine changes from two branches into a single branch
+
+-   **current branch**: The branch to be merged
+
+-   **target branch**: The branch in which we want to merge the current branch
+
+-   Why F in merged target branch?
+
+    = new commit index
+
+![](images/git_merge.png){fig-align="center"}
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## Git - Merge conflicts
+
+-   happens mostly if you make changes in two branches in the same line of a file
+
+    -   git will not know what you want
+
+![](images/git_merge_conflicts.png)
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
+
+## Git/GitHub - Why you should care
+
+-   Teamwork and Git belong together in Data Science/Computer Science
+
+-   GitHub and reproducible data science go hand in hand
+
+-   There will be the moment when git will safe either a lot of time or your a\*\* in a big project
+
+-   Nearly all data science jobs will require knowledge with version control systems
+
+    -   Also recruiters can see your projects and skills via GitHub
+
+<!--# ---------------------------------------------------------------------- -->
+
+<!--# SLIDE ---------------------------------------------------------------- -->
+
+<!--# ---------------------------------------------------------------------- -->
