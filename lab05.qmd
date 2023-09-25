@@ -2,37 +2,37 @@
 
 ## Package(s)
 
-- [dplyr](https://dplyr.tidyverse.org)
-- [stringr](https://stringr.tidyverse.org)
-- [tidyr](https://tidyr.tidyverse.org)
-- [forcats](https://forcats.tidyverse.org)
-- [patchwork](https://patchwork.data-imaginist.com/index.html)
-- [ggseqlogo](https://omarwagih.github.io/ggseqlogo/)
+-   [dplyr](https://dplyr.tidyverse.org)
+-   [stringr](https://stringr.tidyverse.org)
+-   [tidyr](https://tidyr.tidyverse.org)
+-   [forcats](https://forcats.tidyverse.org)
+-   [patchwork](https://patchwork.data-imaginist.com/index.html)
+-   [ggseqlogo](https://omarwagih.github.io/ggseqlogo/)
 
 ## Schedule
 
-- 08.00 - 08.30: [Recap of Lab 4](https://raw.githack.com/r4bds/r4bds.github.io/main/recap_lab05.html)
-- 08.30 - 09.00: Introduction to Lab
-- 09.00 - 09.15: Break
-- 09.15 - 12.00: [Exercises](#sec-exercises)
+-   08.00 - 08.30: [Recap of Lab 4](https://raw.githack.com/r4bds/r4bds.github.io/main/recap_lab05.html)
+-   08.30 - 09.00: Introduction to Lab
+-   09.00 - 09.15: Break
+-   09.15 - 12.00: [Exercises](#sec-exercises)
 
 ## Learning Materials
 
-_Please prepare the following materials_
+*Please prepare the following materials*
 
-- R4DS2e book: [Chapter 6: Data Tidying](https://r4ds.hadley.nz/data-tidy), [Chapter 15: Strings](https://r4ds.hadley.nz/strings), [Chapter 17: Factors](https://r4ds.hadley.nz/factors), [Chapter 20: Joins](https://r4ds.hadley.nz/joins)
-- Video: [Tidy Data and tidyr](https://youtu.be/1ELALQlO-yM?t=465) - NB! Start at 7:45 and please note: `gather()` is now `pivot_longer()` and `spread()` is now `pivot_wider()`
-- Video: [Working with Two Datasets: Binds, Set Operations, and Joins](https://www.youtube.com/watch?v=AuBgYDCg1Cg)
-- Video: [stringr](https://www.youtube.com/watch?v=oIu5jK8DeX8&list=PLiC1doDIe9rDwsUhd3FtN1XGCV2ES1xZ2) (Playlist with 7 short videos)
+-   R4DS2e book: [Chapter 6: Data Tidying](https://r4ds.hadley.nz/data-tidy), [Chapter 15: Strings](https://r4ds.hadley.nz/strings), [Chapter 17: Factors](https://r4ds.hadley.nz/factors), [Chapter 20: Joins](https://r4ds.hadley.nz/joins)
+-   Video: [Tidy Data and tidyr](https://youtu.be/1ELALQlO-yM?t=465) - NB! Start at 7:45 and please note: `gather()` is now `pivot_longer()` and `spread()` is now `pivot_wider()`
+-   Video: [Working with Two Datasets: Binds, Set Operations, and Joins](https://www.youtube.com/watch?v=AuBgYDCg1Cg)
+-   Video: [stringr](https://www.youtube.com/watch?v=oIu5jK8DeX8&list=PLiC1doDIe9rDwsUhd3FtN1XGCV2ES1xZ2) (Playlist with 7 short videos)
 
 ## Learning Objectives
 
-_A student who has met the objectives of the session will be able to:_
+*A student who has met the objectives of the session will be able to:*
 
-- Understand and apply the various `str_*()`-functions for string manipulation
-- Understand and apply the family of `*_join()`-functions for combining data sets
-- Understand and apply `pivot_wider()` and `pivot_longer()`
-- Use factors in context with plotting categorical data using `ggplot`
+-   Understand and apply the various `str_*()`-functions for string manipulation
+-   Understand and apply the family of `*_join()`-functions for combining data sets
+-   Understand and apply `pivot_wider()` and `pivot_longer()`
+-   Use factors in context with plotting categorical data using `ggplot`
 
 ## Exercises {#sec-exercises}
 
@@ -40,8 +40,7 @@ _A student who has met the objectives of the session will be able to:_
 
 Today will not be easy! But please try to remember Hadley's word-of-advise:
 
-- *"The bad news is, whenever you're learning a new tool, for a long time, you're going to suck! It's gonna be very frustrating! But the good news is that that is typical and something that happens to everyone and it's only temporary! Unfortunately, there is no way to going from knowing nothing about the subject to knowing something about a subject and being an expert in it without going through a period of great frustration and much suckiness! Keep pushing through!"* - H. Wickham [(dplyr tutorial at useR 2014, 4:10 - 4:48)](https://www.youtube.com/watch?v=8SGif63VW6E)
-
+-   *"The bad news is, whenever you're learning a new tool, for a long time, you're going to suck! It's gonna be very frustrating! But the good news is that that is typical and something that happens to everyone and it's only temporary! Unfortunately, there is no way to going from knowing nothing about the subject to knowing something about a subject and being an expert in it without going through a period of great frustration and much suckiness! Keep pushing through!"* - H. Wickham [(dplyr tutorial at useR 2014, 4:10 - 4:48)](https://www.youtube.com/watch?v=8SGif63VW6E)
 
 ```{r}
 #| echo: false
@@ -53,57 +52,95 @@ library("ggseqlogo")
 
 ## Intro
 
-_We are upping the game here, so expect to get stuck at some of the questions. Remember - Discuss with your group how to solve the task, revisit the materials you prepared for today and naturally, the TAs and I are happy to nudge you in the right direction. Finally, remember... Have fun!_
+*We are upping the game here, so expect to get stuck at some of the questions. Remember - Discuss with your group how to solve the task, revisit the materials you prepared for today and naturally, the TAs and I are happy to nudge you in the right direction. Finally, remember... Have fun!*
 
 Remember what you have worked on so far:
 
-- RStudio
-- Quarto
-- ggplot
-- filter
-- arrange
-- select
-- mutate
-- group_by
-- summarise
-- The pipe and creating pipelines
-- stringr
-- joining data
-- pivotting data
+-   RStudio
+-   Quarto
+-   ggplot
+-   filter
+-   arrange
+-   select
+-   mutate
+-   group_by
+-   summarise
+-   The pipe and creating pipelines
+-   stringr
+-   joining data
+-   pivotting data
 
-_Well done! Remember to think about this in the following as we will synthesise the above into an analysis below!_
+*Well done - You've come quite far already! Remember to think about the above tools in the following as we will synthesise your learnings so far into an analysis!*
 
-## Background
+## Background {#sec-background}
 
-Today, we will work with data from a recent study of T-cell receptors and SARS-CoV-2:
+In the early 20s, the world was hit by the coronavirus disease 2019 (COVID-19) pandemic. The pandemic was caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). In Denmark the virus first confirmed case was on 27 February 2020.
 
-- [A large-scale database of T-cell receptor beta (TCR$\beta$) sequences and binding associations from natural and synthetic exposure to SARS-CoV-2](https://www.researchsquare.com/article/rs-51964/v1)
+While initially very little was known about the SARS-CoV-2 virus, we did know the general pathology of vira. Briefly, the virus invades the cells and hijacks the intra-cellular machinery. Using the hijacked machinery, components for new virus particles are produced, eventually being packed into the viral envelope and released from the infected cell. Some of these components, viral proteins, is broken down into smaller fragments called peptides by the proteasome. These peptides are transported into the endoplasmatic reticulum by the Transporter Associated with antigen Processing (TAP) protein complex. Here, they are aided by chaperones bound to the Major Histocompatilibty Complex class I (MHCI) and then across the Golgi Aparatus they finally get displayed on the surface of the cells. Note, in humans, MHC is also called Human Leukocyte Antigen (HLA) and represents the most diverse genes. Each of us have a total of 6 HLA-alleles, 3 from the maternal and 3 from the paternal side. These are further divided into 3 classes HLA-A, HLA-B and HLA-C and the combination of these constitute the HLA-haplotype for an individual. Once the peptide is bound to the MHC Class I at the cell surface and exposed, the MHCI-peptide complex can be recognised by CD8+ Cytotoxic T-Lymphocytes (CTLs) via the T-cell Receptor (TCR). If a cell displays peptides of viral origin, the CTL gets activated and via a cascade induces apoptosis (programmed cell death) of the infected cell. The proces is summarised in the figure below.
 
-_Briefly, the virus invades the cells and takes over the intra-cellular machinery. Viral proteins are produced this way and the proteasome breaks down some of the proteins into smaller fragments called peptides. These peptides are transported into the endoplasmatic reticulum by the Transporter Associated with antigen Processing (TAP) protein complex. Here, they are aided by chaperones bound to the Major Histocompatilibty Complex class I (MHCI) and then across the Golgi Aparatus they finally get displayed on the surface of the cells. Note, in humans, MHC is also called Human Leukocyte Antigen (HLA). Once at the cell surface and exposed, the MHC-peptide complex can be recognised by CD8+ Cytotoxic T-Lymphocytes (CTLs) via the T-cell Receptor (TCR). The proces is summarised in the figure below. The data we will be working with today contains cohort data on sequenced T-cell receptors, viral antigens, HLA-haplotypes and clinical meta data._
-
-![](images/mhc_class_I_antigen_presentation_pathway.png){fig-align="center" width=60%}
+![](images/mhc_class_I_antigen_presentation_pathway.png){fig-align="center" width="60%"}
 
 *Image source: [10.3389/fmicb.2015.00021](https://pubmed.ncbi.nlm.nih.gov/25688236/)*
 
+The data we will be working with today contains data on sequenced T-cell receptors, viral antigens, HLA-haplotypes and clinical meta data for a cohort:
+
+-   [A large-scale database of T-cell receptor beta (TCR$\beta$) sequences and binding associations from natural and synthetic exposure to SARS-CoV-2](https://www.researchsquare.com/article/rs-51964/v1)
+
+## Your Task Today
+
+Today, we will emulate the situation, where you are working as a Bioinformatician / Bio Data Scientist and you have been given the data and the task of answering these two burning questions:
+
+1.  What characterises the peptides binding to the HLAs?
+1.  What characterises T-cell Receptors binding to the pMHC-complexes?
+
+[GROUP ASSIGNMENT: Today, your assignment will be to create a micro-report on these 2 questions!]{style="color: red;"}
+
 ## Getting Started
 
-1. Make sure you are in your `r_for_bio_data_science`-project, you can verify this in the upper right corner
-1. In the same place as your `r_for_bio_data_science.Rproj`-file and existing `data`-folder, create a new folder and name it `doc`
-1. Go to the aforementioned [manuscript](https://www.researchsquare.com/article/rs-51964/v1). Download the PDF and upload it to your new `doc`-folder
-1. Open the PDF and find the link to the data
-1. Go to the data site (*Note, you may have to create and account to download, shouldn't take too long*)
-1. Find and download the file `ImmuneCODE-MIRA-Release002.1.zip` (_CAREFUL, do not download the superseded files_)
-1. Unpack the downloaded file and
-1. Find the files `peptide-detail-ci.csv` and `subject-metadata.csv` and compress to `.zip`-files
-1. Upload the compressed `peptide-detail-ci.csv.zip`- and `subject-metadata.csv.zip`-files to your `data`-folder in your RStudio Cloud session
-1. Finally, once again, create a new Quarto document for todays exercises
+1.  Make sure you are in your `r_for_bio_data_science`-project, you can verify this in the upper right corner
+1.  In the same place as your `r_for_bio_data_science.Rproj`-file and existing `data`-folder, create a new folder and name it `doc`
+1.  Go to the aforementioned [manuscript](https://www.researchsquare.com/article/rs-51964/v1). Download the PDF and upload it to your new `doc`-folder
+1.  Open the PDF and find the link to the data
+1.  Go to the data site (*Note, you may have to create and account to download, shouldn't take too long*)
+.  Find and download the file `ImmuneCODE-MIRA-Release002.1.zip` (*CAREFUL, do not download the superseded files*)
+1.  Unpack the downloaded file
+1.  Find the files `peptide-detail-ci.csv` and `subject-metadata.csv` and compress to `.zip`-files
+1.  Upload the compressed `peptide-detail-ci.csv.zip`- and `subject-metadata.csv.zip`-files to your `data`-folder in your RStudio Cloud session
+1. Finally, once again, create a new Quarto document for today's exercises, containing the sections:
+    1. Background
+    1. Aim
+    1. Load Libraries
+    1. Load Data
+    1. Data Description
+    1. Analysis
 
-## Creating one data set from two data sets
+## Creating the Micro-Report
 
-Remember to load libraries first and then read the two data sets into variables `peptide_data` and `meta_data`.
+### Background
 
-<details>
-<p><summary>Click here for hint</summary></p>
+*Feel free to copy paste the one stated in the [background](#sec-background)-section above*
+
+### Aim
+
+*State the aim of the micro-report, i.e. what are the questions you are addressing?*
+
+### Load Libraries
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+
+library("tidyverse")
+```
+
+*Load the libraries needed*
+
+### Load Data
+
+Read the two data sets into variables `peptide_data` and `meta_data`.
+
+<details><p><summary>Click here for hint</summary></p>
 *Think about which Tidyverse package deals with reading data and what are the file types we want to read here?*
 </details>
 
@@ -113,524 +150,598 @@ Remember to load libraries first and then read the two data sets into variables 
 #| message: false
 #| warning: false
 
-
-peptide_data <- read_csv(file = "data/peptide-detail-ci.csv.gz", na = "N/A")
-meta_data <- read_csv(file = "data/subject-metadata.csv", na = "N/A")
+peptide_data <- read_csv(file = "data/peptide-detail-ci.csv.gz")
+meta_data <- read_csv(file = "data/subject-metadata.csv",
+                      na = "N/A")
 ```
 
-* __Q1: What are the dimensions of the `peptide_data` and `meta_data` respectively?, I.e. how many rows and columns corresponding to observations and variables?__
-* __Q2: Which variable is shared between the two data sets?__
+### Data Description
 
-Now, join the two data sets into to one data set called `peptide_meta_data` using the variable from Q2 and create a pipeline, including your joining code and this bit-of-code `select(-matches("D[RQP]"))` - Make sure to discuss in your group what this bit-of-code actually does?
+*It is customary to include a description of the data, helping the reader if the report, i.e. your stakeholder, to get an easy overview*
 
-<details>
-<p><summary>Click here for hint</summary></p>
-*Play around with the bit-of-code, e.g. change it to `select(-matches("D[RQ]"))` and see what happens*
-</details>
+#### The Subject Meta Data
 
+Let's take a look at the meta data:
+
+```{r}
+meta_data |> 
+  sample_n(10)
+```
+
+- **Q1: How many observations of how many variables are in the data?**
+
+- **Q2: Are there groupings in the variables, i.e. do certain variables "go together" somehow?**
+
+- **T1: Re-create this plot**
 
 ```{r}
 #| echo: false
+#| eval: true
+meta_data |> 
+  drop_na(Cohort, Gender) |> 
+  count(Cohort, Gender) |> 
+  ggplot(aes(x = Cohort,
+             y = n,
+             fill = Gender)) +
+  geom_col(position = position_dodge(preserve = "single"),
+           colour = "black",
+           alpha = 0.5) +
+  geom_hline(yintercept = 0) +
+  theme_minimal() +
+  theme(legend.position = "bottom",
+        panel.grid.major.x = element_blank(),
+        axis.text.x = element_text(angle = 10,
+                                   hjust = 1,
+                                   vjust = 1.5))
+```
+
+<details><p><summary>Click here for hint</summary></p>
+*Does your plot look different somehow? Perhaps not everyone agrees on how to denote `NA`s in data and perhaps this can be dealt with in the instance we read the data from the file? How could we get information on the parameters of a `?function`*
+</details>
+
+- **T2: Re-create this plot**
+
+```{r}
+#| echo: false
+#| eval: true
+meta_data |> 
+  mutate(Age_group = cut(Age,
+                         breaks = seq(from = 0,
+                                      to = 100,
+                                      by = 10))) |> 
+  drop_na(Gender, Age_group) |> 
+  count(Gender, Age_group) |> 
+  ggplot(aes(x = Age_group,
+             y = n,
+             fill = Gender)) +
+  geom_col(position = position_dodge(preserve = "single"),
+           colour = "black",
+           alpha = 0.5) +
+  geom_hline(yintercept = 0) +
+  theme_minimal() +
+  theme(legend.position = "bottom",
+        panel.grid.major.x = element_blank(),
+        axis.text.x = element_text(vjust = 5))
+```
+
+- **T3: Look at the data and create yet another plot as you see fit**
+
+Now, a classic way of describing a cohort, i.e. the group of subjects used for the study, is the so-called `table1` and while we could build this ourselves, this one time, in the interest of exercise focus and time, we are going to "cheat" and use an R-package, like so:
+
+```{r}
+#| echo: true
 #| eval: true
 #| message: false
-#| warning: false
-
-
-peptide_meta_data <- peptide_data |> 
-  full_join(meta_data,
-            by = "Experiment") |>
-  select(-matches("D[RQP]"))
+library("table1")
+meta_data |>
+  mutate(Gender = factor(Gender),
+         Cohort = factor(Cohort)) |>
+  table1(x = formula(~ Gender + Age + Race | Cohort),
+         data = _)
 ```
 
-* __Q3: What are the dimensions of the joined data and how does this compare with Q1?__
+*Note: This may look a bit odd initially, but if you render your document, you should be all good!*
 
-## EDA: Exploraty Data Analysis I - The meta data
+Lastly, before we proceed, the `meta_data` contains HLA data for both class I and class II (see background), but here we are only interested in class I, recall these are denoted `HLA-A`, `HLA-B` and `HLA-C`. 
 
-Let us ask the joined data (`peptide_meta_data`) some questions:
+- **T4: Create a new version of the `meta_data`, which with respect to allele-data only contains information on class I and also fix the odd naming. Remember to assign this new data to the same `meta_data`-variable**
 
-* __Q4: How many study participants are denoted `Healthy`?__
-
-<details>
-<p><summary>Click here for hint</summary></p>
-*First find out which variable identifies the study participants*
-</details>
-
-* __Q5: Actually, what are the study participants cohort groups and how many are in each?__
-
-<details>
-<p><summary>Click here for hint</summary></p>
-*Perhaps there is a way to `count` the cohort groups?*
-</details>
-
-Now, create a histogram of the age of the study participants (Make sure to read any error-/warning-messages you may get_)
-
-* __Q6: Take a look at the age variable to understand what happened?__
-* __Q7: How are `NA`s denoted in the data?__
-
-Something's off... Remember you can get help on ANY `R`-function by typing `?function_name` in the console. Now, let's fix that from get-go. Go back and find the chunk, where you read the data into your session and see if you can fix the `NA`-problem, when you call the `read_csv`.
-
-Once you have done that, re-create the histogram of the age of the study participants and play around with and understand the `binwidth`-parameter.
-
-```{r}
-#| eval: false
-#| echo: false
-peptide_meta_data |>
-  ggplot(aes(x = Age)) +
-  geom_histogram(binwidth = 1)
-```
-
-* __Q8: Use the histogram to answer the question: "Approximately how many study participants are 33 years old?"__
-* __Q9: Compare this number to the dimensions of the `meta_data` (see Q1), what happened?__
-
-Using the dplyr verbs `select` and `distinct`, re-re-create the histogram of the age of the study participants and again, play around with and understand the `binwidth`
-
-```{r}
-#| eval: false
-#| echo: false
-peptide_meta_data |>
-  select(Experiment, Age) |>
-  distinct() |> 
-  drop_na() |> 
-  ggplot(aes(x = Age)) +
-  geom_histogram(binwidth = 1)
-```
-
-* __Q10: Use the histogram to answer the question: "How many are participants are now 33 years old?"__
-* __Q11: How many of the participants are women? Men?__
-
-Recreate the below visualisation, it does not have to be 100% identical, just make sure to discuss which `ggplot`-components carry the plot and get those replicated.
-
-```{r}
-#| eval: true
-#| echo: false
-pl1 <- peptide_meta_data |>
-  select(Subject,
-         Cohort,
-         Age,
-         Gender) |>
-  distinct() |>
-  drop_na(Age,
-          Gender) |>
-  ggplot(aes(x = Age,
-             y = Cohort,
-             fill = Gender)) +
-  geom_boxplot(alpha = 0.5) +
-  labs(title = "Age and Number of Participants for COVID Study Groups",
-       y = "") +
-  theme_classic(base_family = "Avenir",
-                base_size = 12) +
-  theme(legend.position = "none",
-        plot.title = element_text(hjust = 1.3))
-pl2 <- peptide_meta_data |>
-  select(Subject,
-         Cohort,
-         Age,
-         Gender) |>
-  distinct() |>
-  drop_na(Age,
-          Gender) |>
-  count(Cohort,
-        Gender) |> 
-  ggplot(aes(x = n,
-             y = Cohort,
-             fill = Gender)) +
-  geom_col(position = "dodge",
-           alpha = 0.5,
-           colour = "black") +
-  labs(y = "") +
-  theme_classic(base_family = "Avenir",
-                base_size = 12) +
-  theme(legend.position = "bottom")
-pl1/pl2
-```
-
-_Take some time to do some EDA, understand what is in the data, do some summaries, make some plots. Basically, you **have** to **know** the data you are working with_
-
-## EDA: Exploraty Data Analysis II - The Sequence Data
-
-### Part I
-
-The first thing we will take a look at here, is how the `Subject` `HLA`-alleles are distributed. But wait, discuss in your group, what are `HLA`-alleles?
-
-Now, create subset the `peptide_meta_data` to the variables `Subject`, `HLA-` and save it into `allele_data`, like so:
-
-```{r}
-#| eval: true
-#| echo: false
-allele_data <- peptide_meta_data |>
-  select(Subject,
-         contains("HLA")) |>
-  distinct()
-allele_data
-```
-
-<details>
-<p><summary>Click here for hint</summary></p>
-*The `select()`-verb can be combined with so-called **selection helpers**. In the console, enter `?select` and perhaps you can find a helper, which selects variables, which `starts_with` or `contains` something? Also, make sure that you only have `distinct` observations of `Subject`*
-</details>
-
-Before continuing, how many rows/observations do you see in the `allele_data`? Compare with the number of rows in the original `meta_data`, are they different and if so why?
-
-<details>
-<p><summary>Click here for hint</summary></p>
-*Use the `View()`-function to inspect the `meta_data`, click the  ![](images/button_view.png)-button and scroll through the data*
-</details>
-
-Then convert the data to long format and save it a new variable `allele_data_long` like so:
-
-```{r}
-#| eval: true
-#| echo: false
-allele_data_long <- allele_data |>
-  select(Subject, contains("HLA")) |>
-  distinct() |>
-  pivot_longer(cols = contains("HLA"),
-               names_to = "Gene",
-               values_to = "Allele")
-allele_data_long
-```
-
-* __Q12: How many unique alleles are there?__
-
-```{r}
-#| eval: false
-#| echo: false
-allele_data_long |>
-  select(Allele) |> 
-  distinct() |> 
-  nrow()
-```
-
-Using the `View()`-function again, look at the unique alleles - Notice something? Some alleles are e.g. `A*11:01`, whereas others are `B*51:01:02`. You can find information on why, by visiting [Nomenclature for Factors of the HLA System](http://hla.alleles.org/nomenclature/naming.html).
-
-Long story short, we only want to include `Field 1` (allele group) and `Field 2` (Specific HLA protein). You have prepared the `stringr`-package for today. See if you can find a way to reduce e.g. `B*51:01:02` to `B*51:01` and then create a new variable `Allele_F_1_2` accordingly, while also removing the `...x` (where `x` is a number) subscripts from the `Gene`-variable (It is an artifact from having the data in a wide format, where you cannot have two variables with the same name) and also, remove any `NA`s
-
-<details>
-<p><summary>Click here for hint</summary></p>
-*There are several ways this can be achieved, the easiest being to consider if perhaps a part of the string based on indices could be of interest. This term "a part of a string" is called a substring, perhaps the `stringr`-package contains a function work with substring? In the console, type `stringr::` and hit `tab`. This will display the functions available in the `stringr`-package. Scroll down and find the functionst starting with `str_` and look for on, which might be relevant and remember you can use `?function_name` to get more information on how a given function works.*
-</details>
-
-
-```{r}
-#| eval: true
-#| echo: false
-allele_data_long <- allele_data_long |>
-  mutate(Allele_F_1_2 = str_extract(Allele,
-                                    pattern = "[ABC]\\*\\d+\\:\\d+"),
-         Gene = str_remove(Gene,
-                           pattern = "\\.{3}\\d+$")) |> 
-  drop_na()
-allele_data_long
-```
-
-* __Q13: How many unique alleles are there now?__
-
-```{r}
-#| eval: false
-#| echo: false
-allele_data_long |> 
-  select(Allele_F_1_2) |> 
-  distinct |> 
-  nrow
-```
-
-* __Q14: What are the top 3 alleles in terms of counts in the data?__
-
-* __Q15: *Per gene* and in terms of percent, what are the 10 top alleles?__ Recreate this plot to answer the question <span style="color: red;">GROUP ASSIGNMENT</span>: 
-
-<details>
-<p><summary>Click here for hint</summary></p>
-For this plot, you will need to first think about how to prepare your data, so that it contains what you need, so:
-
-1. Per unique element in `Gene`, i.e. either `HLA-A`, `HLA-B` or `HLA-C`
-
+<details><p><summary>Click here for hint</summary></p>
+*Which `tidyverse` function subsets variables? Perhaps there is a function, which somehow `matches` a set of variables? And perhaps for the initiated this is compatible with regular expressions (If you don't know what this means - No worries! If you do, see if you utilise this to simplify your variable selection)*
 </details>
 
 ```{r}
-#| eval: true
 #| echo: false
-allele_data_long |>
-  count(Gene, Allele_F_1_2) |>
-  group_by(Gene) |>
-  mutate(pct = n / sum(n) * 100) |>
-  arrange(desc(pct)) |> 
-  slice(1:10) |> 
-  ungroup() |>
-  ggplot(aes(x = pct,
-             y = fct_reorder(Allele_F_1_2, pct))) +
-  geom_col(width = 0.2,
-           fill = "white",
-           colour = "black") +
-  geom_vline(xintercept = 0) +
-  facet_wrap(vars(Gene),
-             scales = "free_y",
-             ncol = 3) +
-  theme_minimal(base_family = "Avenir",
-                base_size = 9) +
-  theme(panel.grid.major.y = element_blank(),
-        panel.grid.minor.y = element_blank()) +
-  labs(x = "Per Gene Observed Allele Frequency [%]",
-       y = "",
-       caption = "Data from https://doi.org/10.21203/rs.3.rs-51964/v1")
+#| eval: true
+meta_data <- meta_data |>
+  select(-matches(match = "D[PQR]")) |> 
+  rename("A1" = `HLA-A...9`,
+         "A2" = `HLA-A...10`,
+         "B1" = `HLA-B...11`,
+         "B2" = `HLA-B...12`,
+         "C1" = `HLA-C...13`,
+         "C2" = `HLA-C...14`)
 ```
 
-<details>
-<p><summary>Click here for hint</summary></p>
-*What does `fct_reorder()´do? Also, consider when working per gene, you will probably have to include that grouping in your pipeline - Remember we don't loop, we func! Also, you can use a combination of the `arrange()`- and `slice()`-functions to get top or bottom something observations.*
-</details>
-
-### Part II
-
-**This last part is rather tricky and therefore optional. It will take some time and trial-and-error to complete, so if you're up for it, feel free to take on the challenge to test and expand your skills!**
-
-Now, that we have worked with the HLA-alleles, we will take a look into how the peptides bind to the HLA-alleles.
-
-First, create this data set from your `peptide_meta_data` data set and save in a new variable `sequence_data` (drop ANY rows contaning `NA`s ):
+Before we proceed, this is the data we will carry on with:
 
 ```{r}
+#| echo: true
 #| eval: true
-#| echo: false
-sequence_data <- peptide_meta_data |> 
-  select(`TCR BioIdentity`, `Amino Acids`, contains("HLA")) |> 
-  distinct() |> 
-  drop_na()
-sequence_data
+meta_data |> 
+  sample_n(10)
 ```
 
-* __Q16: How many rows contained `NA`s?__
-* __Q17: Is this data tidy? Explain why you answered yes or no__
+Now, we have a beautiful `tidy`-dataset, recall that this entails, that each row is an observation, each column is a variable and each cell holds one value.
 
-Now, google `tidyr separate` and figure out how this works. Then fix the `TCR BioIdentity`-variable like so:
+#### The Peptide Details Data
+
+Let's start with simply having a look see:
 
 ```{r}
+#| echo: true
 #| eval: true
+peptide_data |> 
+  sample_n(10)
+```
+
+- **Q3: How many observations of how many variables are in the data?**
+
+This is a rather big data set, so let us start with two "tricks" to handle this, first:
+
+1. *Write the data back into your `data`-folder, using the filename `peptide-detail-ci.csv.gz`, note the appending of `.gz`, which is automatically recognised and results in gz-compression*
+1. *Now, check in your data folder, that you have two files `peptide-detail-ci.csv` and `peptide-detail-ci.csv.gz`, delete the former*
+1. *Adjust your reading-the-data-code, to now read in the `peptide-detail-ci.csv.gz`-file*
+
+Then:
+
+- **T5: As before, let's immediately subset the `peptide_data` to the variables of interest: TCR BioIdentity, Experiment and Amino Acids. Remember to assign this new data to the same `peptide_data`-variable**
+
+```{r}
 #| echo: false
-sequence_data <- sequence_data |> 
-  separate(`TCR BioIdentity`,
-           into = c("CDR3b", "v_gene", "j_gene"),
+#| eval: true
+peptide_data <- peptide_data |>
+  select(Experiment, `TCR BioIdentity`, `Amino Acids`)
+```
+
+Once again, before we proceed, this is the data we will carry on with:
+
+```{r}
+#| echo: true
+#| eval: true
+peptide_data |> 
+  sample_n(10)
+```
+
+- **Q4: Is this tidy data? Why/why not?**
+
+- **T6: See if you can find a way to create the below data, from the above**
+
+```{r}
+#| echo: false
+#| eval: true
+peptide_data <- peptide_data |> 
+  separate(col = `TCR BioIdentity`,
+           into = c("CDR3b", "V_gene", "J_gene"),
            sep = "\\+")
-sequence_data
 ```
 
-<details>
-<p><summary>Click here for hint</summary></p>
-*What character seems to be separating the sequence from the TCRB-v-gene and TCRB-j-gene? Also, sometimes when you want to separate on characters, that can mean more than one thing, you will have to do what is called an escape, which is done using a double back-slash `\\x`, where `x` here denotes the aforementioned character with double meaning*
+```{r}
+#| echo: true
+#| eval: true
+peptide_data |> 
+  sample_n(size = 10)
+```
+
+<details><p><summary>Click here for hint</summary></p>
+*Ok, so this is a bit tricky, but perhaps there is a function to `separate` a composit (untidy) `col`umn `into` a set of new variables based on a `sep`arator? But what is a `sep`arator? Just like when you read a file with `C`omma `S`eparated `V`alues, a separator denotes how a composite string is divided into fields. So look for such a repeated values, which seem to indeed separate such fields. Also, be aware, that character, which can mean more than one thing, may need to be "escaped" using an initial two backslashed, i.e. "\\x", where x denotes the character needing to be "escaped"*
 </details>
 
-* __Q18: Is this data tidy now? Explain why you answered yes or no__
+- **T6: Add a variable, which counts how many peptides are in each observation of `Amino Acids`**
 
-Add a new variable `n_peptides` to your data set, which counts how many peptides are listed in `Amino Acids` variable
+```{r}
+#| echo: false
+#| eval: true
+peptide_data <- peptide_data |> 
+  mutate(n_peptides = str_count(`Amino Acids`,
+                                pattern = ",") + 1)
+```
 
-<details>
-<p><summary>Click here for hint</summary></p>
-*Is there a package designed specifically for working with strings? If so perhaps it can be used for some trickery in connection with counting how many times "something" appears in a string?*
+<details><p><summary>Click here for hint</summary></p>
+*We have been working with the `stringr`-package, perhaps the contains a function to somehow count the number of occurrences of a given character in a string?*
 </details>
 
 ```{r}
+#| echo: true
 #| eval: true
-#| echo: false
-sequence_data <- sequence_data |>
-  mutate(n_peptides = str_count(`Amino Acids`, ",") + 1)
+peptide_data |> 
+  sample_n(size = 10)
 ```
 
-Create a histogram of distribution of the `n_peptides` variable
+- **T7: Re-create the following plot**
 
 ```{r}
+#| echo: true
 #| eval: true
-#| echo: false
-sequence_data |> 
+
+peptide_data |> 
   ggplot(aes(x = n_peptides)) +
-  geom_histogram(binwidth = 1) +
+  geom_histogram(binwidth = 1,
+                 colour = "black",
+                 alpha = 0.5) + 
+  geom_hline(yintercept = 0) +
+  scale_x_continuous(breaks = 1:13) +
+  theme_minimal() +
+  theme(panel.grid.minor.x = element_blank(),
+        panel.grid.major.x = element_blank(),
+        axis.text.x = element_text(vjust = 5)) +
+  labs(x = "Number of peptides per observation",
+       y = "Counts")
+```
+
+- **Q4: What is the maximum number of peptides assigned to one observation?**
+
+- **T8: Using the `str_c`- and the `seq`-functions, re-create the below**
+
+```{r}
+#| echo: false
+#| eval: true
+str_c("peptide_", seq(1:5))
+```
+
+- **T9: Use, what you learned about separating in T6 and the vector-of-strings you created in T8 adjusted to the number from Q4 to create the below data**
+
+```{r}
+#| echo: false
+#| eval: true
+#| warning: false
+peptide_data <- peptide_data |> 
+  separate(col = `Amino Acids`,
+           into = str_c("peptide_", 1:13),
+           sep = ",")
+```
+
+```{r}
+#| echo: true
+#| eval: true
+peptide_data |> 
+  sample_n(size = 10)
+```
+
+- **Q5: Now, presumable you got a warning, discuss in your group why that is?**
+
+- **Q6: With respect to `peptide_n`, discuss in your group, if this is wide- or long-data?**
+
+Now, finally we will use the what we prepared for today, data-pivotting. There are two functions, namely `pivot_wider()` and `pivot_longer()`. Also, now, we will use a trick when developing ones data pipeline, while working with new functions, that on might not be completely comfortable with. You have seen the `sample_n()`-function several times above and we can use that to randomly sample `n`-observations from data. This we can utilise to work with a smaller data set in the development face and once we are ready, we can increase this `n` gradually to see if everything continues to work as anticipated.
+
+- **T9: Using the `peptide_data`, run a few `sample_n()`-calls with varying degree of `n` to make sure, that you get a feeling for what is going on**
+
+- **T10: From the `peptide_data` data above, with peptide_1, peptide_2, etc. create this data set using one of the data-pivotting functions. Remember to start initially with sampling a smaller data set and then work on that first! Also, once you're sure you're good to go, reuse the `peptide_data`-variable as we don't want huge redundant data sets floating around in our environment**
+
+```{r}
+#| echo: false
+#| eval: true
+
+peptide_data <- peptide_data |> 
+  pivot_longer(cols = contains("peptide_"),
+               names_to = "peptide_n",
+               values_to = "peptide")
+```
+
+```{r}
+#| echo: true
+#| eval: true
+peptide_data |> 
+  sample_n(10)
+```
+
+- **Q7: You will see some `NA`s in the `peptide`-variable, discuss in your group from where these arise?**
+
+- **Q8: How many rows and columns now and how does this compare with Q3? Discuss why/why not it is different?**
+
+- **T11: Now, loose the redundant variables `n_peptides` and `peptide_n` and also get rid of the `NA`s in the `peptide`-column and make sure, that we only have unique observations, i.e. there are no repeated rows/observations**
+
+```{r}
+#| echo: false
+#| eval: true
+
+peptide_data <- peptide_data |> 
+  select(-n_peptides, -peptide_n) |> 
+  drop_na(peptide) |> 
+  distinct()
+```
+
+
+```{r}
+#| echo: true
+#| eval: true
+
+peptide_data |> 
+  sample_n(10)
+```
+
+- **Q8: Now, is this data tidy? Discuss in your group why/why not?**
+
+Again, we turn to the `stringr`-package, as we need to make sure that the sequence data does indeed only contain valid characters. There are a total of 20 protegenic amino acids, which we symbolise using `ARNDCQEGHILKMFPSTWYV`.
+
+- **T12: Use the `str_detect()`-function to `filter` the `CDR3b` and `peptide` variables using a `pattern` of `[^ARNDCQEGHILKMFPSTWYV]` and then play with the `negate`-parameter so see what happens**
+
+```{r}
+#| echo: false
+#| eval: true
+
+peptide_data <- peptide_data |> 
+  filter(str_detect(CDR3b, pattern = "[^ARNDCQEGHILKMFPSTWYV]", negate = TRUE),
+         str_detect(peptide, pattern = "[^ARNDCQEGHILKMFPSTWYV]", negate = TRUE))
+```
+
+- **T13: Add two new variables to the data, `k_CDR3b` and `k_peptide` each signifying the length of the respective sequences**
+
+```{r}
+#| echo: false
+#| eval: true
+
+peptide_data <- peptide_data |> 
+  mutate(k_CDR3b = str_length(CDR3b),
+         k_peptide = str_length(peptide))
+```
+
+```{r}
+#| echo: true
+#| eval: false
+
+peptide_data |> 
+  sample_n(10)
+```
+
+- **T14: Re-create this plot**
+
+```{r}
+#| echo: false
+#| eval: true
+
+peptide_data |> 
+  ggplot(aes(x = k_CDR3b)) +
+  geom_histogram(binwidth = 1,
+                 colour = "black",
+                 alpha = 0.5) +
+  geom_hline(yintercept = 0) +
   theme_minimal()
 ```
 
-* __Q19: What is the maximum number of peptides seen for one observation?__
+- **Q9: What is the most predominant length of the CDR3b-sequences?**
 
-**Important: Now you can choose one of two paths in the exercises and either is fine! Either you proceed to `Route A` (a bit more difficult and with a larger dataset) or scroll down to `Route B` (a bit less difficult and with a smaller dataset)!**
-
-#### **Route A**
-
-Now, Using `str_c()` and `seq()`, see if you can re-create this:
+- **T15: Re-create this plot**
 
 ```{r}
-#| eval: true
 #| echo: false
+#| eval: true
 
-str_c("peptide_", seq(from = 1, to = 5))
+peptide_data |> 
+  ggplot(aes(x = k_peptide)) +
+  geom_histogram(binwidth = 1,
+                 colour = "black",
+                 alpha = 0.5) +
+  geom_hline(yintercept = 0) +
+  theme_minimal()
 ```
 
-But changing the last `peptide_n`, such that `n` is the maximum number of peptides from **Q19**, 5 won't do. Then use that to fix the `Amino Acids`-variable, like so:
+- **Q10: What is the most predominant length of the peptide-sequences?**
+
+- **Q11: Discuss in your group, if this data set is tidy or not?**
+
+#### Creating one data set from two data sets
+
+Before we move onto using the family of `*_join`-functions you prepared for today, we will just take a quick peek at the meta data again:
 
 ```{r}
+#| echo: true
 #| eval: true
-#| echo: false
-#| message: false
-sequence_data_A <- sequence_data |>
-  separate(`Amino Acids`,
-           into = str_c("peptide_", 1:13),
-           sep = ",")
-sequence_data_A
+
+meta_data
 ```
 
-and convert the data and save it into `sequence_data_long`, like so:
+Remember you can click the small triangle in the upper right corner of the table to have a look at more columns.
+
+- **Q12: Discuss in your group, if this data with respect to the `A1`-, `A2`-, `B1`-, `B2`-, `C1-` and `C2`-variables is a wide- or a long-data format?**
+
+As with the `peptide_data`, we will now have to use data-pivotting again. I.e.:
+
+- **T16: use either the `pivot_wider`- or `pivot_longer`-function to create the following data:**
 
 ```{r}
-#| eval: true
 #| echo: false
-sequence_data_A_long <- sequence_data_A |>
-  pivot_longer(contains("peptide_"),
-               names_to = "peptide_n",
-               values_to = "peptide")
-sequence_data_A_long
+#| eval: true
+
+meta_data <- meta_data |> 
+  pivot_longer(cols = c("A1", "A2", "B1", "B2", "C1", "C2"),
+               names_to = "Gene",
+               values_to = "Allele")
 ```
-
-* __Q20: How many observations are now in `sequence_data_long`?__
-
-Remove `NA`s, fix the `HLA`-alleles, remove redundant columns and observations, like so:
 
 ```{r}
+#| echo: true
 #| eval: true
-#| echo: false
-sequence_data_A_long <- sequence_data_A_long |>
-  drop_na() |>
-  pivot_longer(contains("HLA"),
-               names_to = "tmp",
-               values_to = "allele") |>
-  select(-n_peptides, -peptide_n, -tmp) |>
-  distinct()
-sequence_data_A_long
+
+meta_data |> 
+  sample_n(10)
 ```
 
-* __Q21: How many observations now? Is this data tidy now?__
+Remember, what we are aiming for here, is to create one data set from two. So:
 
-#### **Route B**
+- **Q13: Discuss in your group, which variable(s?) define the same observations between the `peptide_data` and the `meta_data`?**
 
-Now, let us proceed with the observations, where we just have **a single** peptide annotated, so subset your data accordingly, using the `n_peptides` variable you created, like so:
+Once you have agreed upon `Experiment`, then use that knowledge to subset the `meta_data` to the variables-of-interest:
 
 ```{r}
-#| eval: true
 #| echo: false
-sequence_data_B <- sequence_data |>
-  filter(n_peptides == 1)
-sequence_data_B
+#| eval: true
+meta_data <- meta_data |> 
+  select(Experiment, Allele)
 ```
-
-Then collect all the alleles in one variable, like so:
 
 ```{r}
+#| echo: true
 #| eval: true
-#| echo: false
-sequence_data_B_long <- sequence_data_B |>
-  drop_na() |>
-  pivot_longer(contains("HLA"),
-               names_to = "tmp",
-               values_to = "allele") |>
-  select(-n_peptides, -tmp) |>
-  distinct()
-sequence_data_B_long
+meta_data |> 
+  sample_n(10)
 ```
-<details>
-<p><summary>Click here for hint</summary></p>
-*Think about the format of the data, is it wide or is it long? How do we convert between these formats?*
+
+Use the `View()`-function again, to look at the `meta_data` - Notice something? Some alleles are e.g. `A*11:01`, whereas others are `B*51:01:02`. You can find information on why, by visiting [Nomenclature for Factors of the HLA System](http://hla.alleles.org/nomenclature/naming.html).
+
+Long story short, we only want to include `Field 1` (allele group) and `Field 2` (Specific HLA protein). You have prepared the `stringr`-package for today. See if you can find a way to reduce e.g. `B*51:01:02` to `B*51:01` and then create a new variable `Allele_F_1_2` accordingly, while also removing the `...x` (where `x` is a number) subscripts from the `Gene`-variable (It is an artifact from having the data in a wide format, where you cannot have two variables with the same name) and also, remove any `NA`s
+
+<details><p><summary>Click here for hint</summary></p>
+*There are several ways this can be achieved, the easiest being to consider if perhaps a part of the string based on indices could be of interest. This term "a part of a string" is called a substring, perhaps the `stringr`-package contains a function work with substring? In the console, type `stringr::` and hit `tab`. This will display the functions available in the `stringr`-package. Scroll down and find the functionst starting with `str_` and look for on, which might be relevant and remember you can use `?function_name` to get more information on how a given function works.*
 </details>
 
-...and let's also go ahead and change the name of the `Amino Acids`-variable to `peptide`
+```{r}
+#| eval: true
+#| echo: false
+meta_data <- meta_data |>
+  mutate(Allele_F_1_2 = str_extract(Allele,
+                                    pattern = "[ABC]\\*\\d+\\:\\d+")) |> 
+  drop_na()
+```
+
+- **T17: Create the following data, according to specifications above:**
+
+```{r}
+#| echo: true
+#| eval: true
+meta_data |> 
+  sample_n(10)
+```
+
+The asterix, i.e. `*` is a rather annoying character because of ambiguity, so:
+
+- **T18: Clean the data a bit more, by removing the asterix and redundant variables:**
 
 ```{r}
 #| echo: false
 #| eval: true
-sequence_data_B_long <- sequence_data_B_long |> 
-  rename(peptide = `Amino Acids`)
+meta_data <- meta_data |> 
+  mutate(Allele = str_remove(Allele_F_1_2, "\\*")) |> 
+  select(-Allele_F_1_2) |> 
+  distinct()
 ```
 
-#### Creating Sequence Logos
+```{r}
+#| echo: true
+#| eval: true
+meta_data |> 
+  sample_n(size = 10)
+```
 
-Before we continue, let's just re-fix the alleles, such that e.g. `A*02:01:01` becomes `A*02:01`, recall we did this earlier in today's exercises. Also, this might create some multiplicates, so make sure to throw in a `distinct()` and finally add to your pipeline a new variable `k_peptide`, which determines the length of the `peptide` and a `k_CDR3B` likewise.
+<details><p><summary>Click here for hint 1</summary></p>
+*Again, the `stringr`-package may come in handy. Perhaps there is a function `remove`, one or more such pesky characters?*
+</details>
+
+<details><p><summary>Click here for hint 2</summary></p>
+*Getting a weird error? Recall, that character ambiguity needs to be "escaped", you did this somehow earlier on...*
+</details>
+
+Recall the `peptide_data`?
+
+```{r}
+#| echo: true
+#| eval: true
+
+peptide_data
+```
+
+- **T19: Create a `dplyr`-pipeline, starting with the `peptide_data`, which joins it with the `meta_data` and remember to make sure that you get only unqiue observations of rows. Save this data into a new variable names `peptide_meta_data` (If you get a warning, discuss in your group what it means?)**
 
 ```{r}
 #| echo: false
 #| eval: true
-sequence_data_A_long <- sequence_data_A_long |> 
-  mutate(allele = str_sub(allele, 1, 7),
-         k_peptide = str_length(peptide),
-         k_CDR3B = str_length(CDR3b)) |> 
-  distinct()
-sequence_data_B_long <- sequence_data_B_long |> 
-  mutate(allele = str_sub(allele, 1, 7),
-         k_peptide = str_length(peptide),
-         k_CDR3B = str_length(CDR3b)) |> 
+
+peptide_meta_data <- peptide_data |> 
+  full_join(meta_data,
+            by = "Experiment",
+            relationship = "many-to-many") |> 
   distinct()
 ```
 
-As we have touched upon multiple times, `R` is *very* flexible and naturally you can also create sequence logos. Finally, let us create a binding motif using the package `ggseqlogo` ([More info here](https://omarwagih.github.io/ggseqlogo/)). Subset the final `sequence_data_long`-data to `A*02:01` and unique observations of peptides of length 9
+<details><p><summary>Click here for hint</summary></p>
+*Which family of functions do we use to join data? Also, perhaps here it would be prudent to start with working on a smaller data set, recall we could sample a number of rows yielding a smaller development data set*
+</details>
 
-<details>
-<p><summary>Click here for hint</summary></p>
+```{r}
+#| echo: true
+#| eval: true
+
+peptide_meta_data
+```
+
+### Analysis
+
+Now, that we have the data in a prepared and ready-to-analyse format, let us return to the two burning questions we had:
+
+1.  What characterises the peptides binding to the HLAs?
+1.  What characterises T-cell Receptors binding to the pMHC-complexes?
+
+#### Peptides binding to HLA
+
+As we have touched upon multiple times, `R` is *very* flexible and naturally you can also create sequence logos. Finally, let us create a binding motif using the package `ggseqlogo` ([More info here](https://omarwagih.github.io/ggseqlogo/)).
+
+- **T20: Subset the final `peptide_meta_data`-data to `A*02:01` and unique observations of peptides of length 9 and re-create the below sequence logo**
+
+<details><p><summary>Click here for hint</summary></p>
 *You can pipe a vector of peptides into ggseqlogo, but perhaps you first need to `pull` that vector from the relevant variable in your tibble? Also, consider before that, that you'll need to make sure, you are only looking at peptides of length 9*
 </details>
 
 ```{r}
 #| eval: true
 #| echo: false
-plA <- sequence_data_A_long |>
-  filter(allele == "A*02:01",
+peptide_meta_data |>
+  filter(Allele == "A02:01",
          str_length(peptide) == 9) |>
   select(peptide) |>
   distinct() |>
   pull(peptide) |>
-  ggseqlogo() +
-  labs(title = "A") +
-  theme(legend.position = "none")
-plB <- sequence_data_B_long |>
-  filter(allele == "A*02:01",
-         str_length(peptide) == 9) |>
-  select(peptide) |>
-  distinct() |>
-  pull(peptide) |>
-  ggseqlogo() +
-  labs(title = "B") +
-  theme(legend.position = "right")
-plA + plB
+  ggseqlogo()
 ```
 
-*Note: Here, the `A` and `B` denote either route A or B through this last part*
+- **T21: Repeat for e.g. `B07:02` or another of your favorite alleles**
 
-If you fancy, repeat for the most prevalent B-allele, see Q15
+Now, let's take a closer look at the sequence logo:
 
-* __Q22: Which positions in the peptide determines binding to HLA?__
+- **Q14: Which positions in the peptide determines binding to HLA?**
 
-<details>
-<p><summary>Click here for hint</summary></p>
-*Recall your Introduction to Bioinformatics course?*
+<details><p><summary>Click here for hint</summary></p>
+*Recall your Introduction to Bioinformatics course? And/or perhaps ask your fellow group members if they know?*
 </details>
 
-Now finally, re-create this logo using the `CDR3B`-sequences and `A*02:01`-alleles:
+#### CDR3b-sequences binding to pMHC
+
+- **T22: Subset the `peptide_meta_data`, such that the length of the CDR3b is 15, the allele is A02:01 and the peptide is LLFLVLIML and re-create the below sequence logo of the CDR3b sequences:**
 
 ```{r}
-#| eval: true
-#| echo: false
-plA <- sequence_data_A_long |>
-  filter(allele == "A*02:01",
-         str_length(CDR3b) == 15) |>
-  select(CDR3b) |>
-  distinct() |>
-  pull(CDR3b) |>
-  ggseqlogo() +
-  labs(title = "A") +
-  theme(legend.position = "none")
-plB <- sequence_data_B_long |>
-  filter(allele == "A*02:01",
-         str_length(CDR3b) == 15) |>
-  select(CDR3b) |>
-  distinct() |>
-  pull(CDR3b) |>
-  ggseqlogo() +
-  labs(title = "B") +
-  theme(legend.position = "right")
-plA + plB
+peptide_meta_data |>
+  filter(k_CDR3b == 15,
+         Allele == "A02:01",
+         peptide == "LLFLVLIML") |> 
+  pull(CDR3b) |> 
+  ggseqlogo()
 ```
+
+- **Q15: In your group, discuss what you see?**
+
+- **T23: Play around with other combinations of `k_CDR3b`,  `Allele`, and `peptide` and inspect how the logo changes**
 
 ## Epilogue
 
 That's it for today - I know this overwhelming now, but commit to it and you WILL be plenty rewarded! I hope today was at least a glimpse into the flexibility and capabilities of using `tidyverse` for applied Bio Data Science
 
+## [Today's Assignment]{style="color: red;"}
+
+Your group assignment today is to condense the exercises into a micro-report!
+
+After today, we are halfway through the labs of the course, so now is a good time to spend some time recalling what we have been over and practising writing a reproducible Quarto-report.
+
+Include the steps necessary to arrive at the final sequence logos, but be as concise as possible. 
+
+**IMPORTANT:** Remember to check the [ASSIGNMENT GUIDELINES](https://r4bds.github.io/assignments.html)
+
+...and as always - Have fun!
