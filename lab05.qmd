@@ -198,8 +198,10 @@ meta_data |>
                                    vjust = 1.5))
 ```
 
+Does your plot look different somehow? Consider peeking at the hint...
+
 <details><p><summary>Click here for hint</summary></p>
-*Does your plot look different somehow? Perhaps not everyone agrees on how to denote `NA`s in data and perhaps this can be dealt with in the instance we read the data from the file? How could we get information on the parameters of a `?function`*
+*Perhaps not everyone agrees on how to denote `NA`s in data and perhaps this can be dealt with in the instance we read the data from the file? How could we get information on the parameters of a `?function`*
 </details>
 
 - **T2: Re-create this plot**
