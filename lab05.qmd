@@ -831,7 +831,7 @@ That's it for today - I know this overwhelming now, but commit to it and you WIL
 
 After today, we are halfway through the labs of the course, so now is a good time to spend some time recalling what we have been over and practising writing a reproducible Quarto-report.
 
-Your group assignment today is to condense the exercises into a group micro-report! Talk together and figure out how to destill the exercises from today into one small end-to-end runable reproducible micro-report. DO NOT include ALL of the exercises, but rather include as few steps as possible and necessary to arrive at the final sequence logos. Be vey consise!
+Your group assignment today is to condense the exercises into a group micro-report! Talk together and figure out how to destill the exercises from today into one small end-to-end runable reproducible micro-report. DO NOT include ALL of the exercises, but rather include as few steps as possible to arrive at your results. Be vey consise!
 
 But WHY? WHY are you not specifying exactly what we need to hand in? *Because we are training taking independent decisions, which is crucial in applied bio data science, so take a look at the combined group code, select relevant sections and condense - If you don't make it all the way through the exercises, then condense and present what you were able to arrive at! What do you think is central/important/indispensable? Also, these hand ins are NOT for us to evaluate you, but for you to train creating products and the get feedback on your progress!*
 
