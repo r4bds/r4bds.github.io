@@ -272,7 +272,7 @@ meta_data |>
 
 Lastly, before we proceed, the `meta_data` contains HLA data for both class I and class II (see background), but here we are **only** interested in class I, recall these are denoted `HLA-A`, `HLA-B` and `HLA-C`, so make sure to remove any non-class I, i.e. the one after, denoted `D`-something.
 
-- **T4: Create a new version of the `meta_data`, which with respect to allele-data only contains information on class I and also fix the odd naming, e.g. `HLA-A...9` becomes `A1` oand `HLA-A...10` becomes `A2` and so on for `B1`, `B2`, `C1` and `C2`. Remember to assign this new data to the same `meta_data`-variable**
+- **T4: Create a new version of the `meta_data`, which with respect to allele-data only contains information on class I and also fix the odd naming, e.g. `HLA-A...9` becomes `A1` oand `HLA-A...10` becomes `A2` and so on for `B1`, `B2`, `C1` and `C2` (Think: How can we `rename` variables?). Remember to assign this new data to the same `meta_data`-variable**
 
 <details><p><summary>Click here for hint</summary></p>
 *Which `tidyverse` function subsets variables? Perhaps there is a function, which somehow `matches` a set of variables? And perhaps for the initiated this is compatible with regular expressions (If you don't know what this means - No worries! If you do, see if you utilise this to simplify your variable selection)*
