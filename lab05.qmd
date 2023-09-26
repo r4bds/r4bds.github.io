@@ -258,6 +258,8 @@ meta_data |>
 
 Now, a classic way of describing a cohort, i.e. the group of subjects used for the study, is the so-called `table1` and while we could build this ourselves, this one time, in the interest of exercise focus and time, we are going to "cheat" and use an R-package, like so:
 
+*NB!: This may look a bit odd initially, but if you render your document, you should be all good!*
+
 ```{r}
 #| echo: true
 #| eval: true
@@ -270,7 +272,7 @@ meta_data |>
          data = _)
 ```
 
-*Note: This may look a bit odd initially, but if you render your document, you should be all good! Also, note how good this looks! If you have ever done a "Table 1" before, you know how painful they can be and especially if something changes in your cohort - Dynamic reporting to the rescue!*
+*Note how good this looks! If you have ever done a "Table 1" before, you know how painful they can be and especially if something changes in your cohort - Dynamic reporting to the rescue!*
 
 Lastly, before we proceed, the `meta_data` contains HLA data for both class I and class II (see background), but here we are **only** interested in class I, recall these are denoted `HLA-A`, `HLA-B` and `HLA-C`, so make sure to remove any non-class I, i.e. the one after, denoted `D`-something.
 
