@@ -201,7 +201,7 @@ meta_data |>
 Does your plot look different somehow? Consider peeking at the hint...
 
 <details><p><summary>Click here for hint</summary></p>
-*Perhaps not everyone agrees on how to denote `NA`s in data and perhaps this can be dealt with in the instance we read the data from the file? How could we get information on the parameters of a `?function`*
+*Perhaps not everyone agrees on how to denote `NA`s in data. I have seen `-99`, `-11`, `_` and so on... Perhaps this can be dealt with in the instance we read the data from the file? I.e. in the actual function call to your `read`-function. Recall, how can we get information on the parameters of a `?function`*
 </details>
 
 - **T2: Re-create this plot**
@@ -232,6 +232,8 @@ meta_data |>
 <details><p><summary>Click here for hint</summary></p>
 *Perhaps there is a function, which can `cut` continuous observations into a set of bins?*
 </details>
+
+##### **STOP! Make sure you handled how `NA`s are denoted in the data before proceeding, see previous hint**
 
 - **T3: Look at the data and create yet another plot as you see fit. Also skip the redundant variables `Subject`, `Cell Type` and `Target Type`**
 
