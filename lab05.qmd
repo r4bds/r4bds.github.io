@@ -177,6 +177,10 @@ meta_data |>
 
 - **T1: Re-create this plot**
 
+Read this first:
+
+- *Think about: What is on the x-axis? What is on the y-axis? And also, it looks like we need to do some counting. Recall, that we can stick together a `dplyr`-pipeline with a call to `ggplot`, so here we will have to `count` of `Cohort` and `Gender` before plotting*
+
 ```{r}
 #| echo: false
 #| eval: true
@@ -233,7 +237,7 @@ meta_data |>
 *Perhaps there is a function, which can `cut` continuous observations into a set of bins?*
 </details>
 
-##### **STOP! Make sure you handled how `NA`s are denoted in the data before proceeding, see previous hint**
+##### **STOP! Make sure you handled how `NA`s are denoted in the data before proceeding, see hint below T1**
 
 - **T3: Look at the data and create yet another plot as you see fit. Also skip the redundant variables `Subject`, `Cell Type` and `Target Type`**
 
@@ -266,9 +270,9 @@ meta_data |>
 
 *Note: This may look a bit odd initially, but if you render your document, you should be all good! Also, note how good this looks! If you have ever done a "Table 1" before, you know how painful they can be and especially if something changes in your cohort - Dynamic reporting to the rescue!*
 
-Lastly, before we proceed, the `meta_data` contains HLA data for both class I and class II (see background), but here we are only interested in class I, recall these are denoted `HLA-A`, `HLA-B` and `HLA-C`. 
+Lastly, before we proceed, the `meta_data` contains HLA data for both class I and class II (see background), but here we are **only** interested in class I, recall these are denoted `HLA-A`, `HLA-B` and `HLA-C`, so make sure to remove any non-class I, i.e. the one after, denoted `D`-something.
 
-- **T4: Create a new version of the `meta_data`, which with respect to allele-data only contains information on class I and also fix the odd naming. Remember to assign this new data to the same `meta_data`-variable**
+- **T4: Create a new version of the `meta_data`, which with respect to allele-data only contains information on class I and also fix the odd naming, e.g. `HLA-A...9` becomes `A1` oand `HLA-A...10` becomes `A2` and so on for `B1`, `B2`, `C1` and `C2`. Remember to assign this new data to the same `meta_data`-variable**
 
 <details><p><summary>Click here for hint</summary></p>
 *Which `tidyverse` function subsets variables? Perhaps there is a function, which somehow `matches` a set of variables? And perhaps for the initiated this is compatible with regular expressions (If you don't know what this means - No worries! If you do, see if you utilise this to simplify your variable selection)*
