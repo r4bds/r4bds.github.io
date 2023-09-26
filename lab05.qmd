@@ -97,6 +97,8 @@ Today, we will emulate the situation, where you are working as a Bioinformaticia
 
 [GROUP ASSIGNMENT: Today, your assignment will be to create a micro-report on these 2 questions!]{style="color: red;"}
 
+[MAKE SURE TO READ THE LAST SECTION ON THE ASSIGNMENT](#sec-assignment)
+
 ## Getting Started
 
 1.  [Click here](https://teaching.healthtech.dtu.dk/22100/rstudio.php) to go to the course RStudio cloud server and login
@@ -823,13 +825,13 @@ That's it for today - I know this overwhelming now, but commit to it and you WIL
 
 ...also, noticed something? We spend maybe 80% of the time here on dealing with data-wrangling and then once we're good to go, the analysis wasn't that time consuming - That's often the way it ends up going, you'll spend a lot of time on data handling and getting the tidyverse toolbox in your toolbelt, will allow you to be so much more effecient in your data wrangling, so you can get to the fun part as quick as possible!
 
-## [Today's Assignment]{style="color: red;"}
-
-Your group assignment today is to condense the exercises into a group micro-report! Talk together and figure out how to paste your exercises from today into one small end-to-end runable reproducible micro-report.
+## [Today's Assignment]{style="color: red;"} {#sec-assignment}
 
 After today, we are halfway through the labs of the course, so now is a good time to spend some time recalling what we have been over and practising writing a reproducible Quarto-report.
 
-Include the steps necessary to arrive at the final sequence logos, but be as concise as possible. 
+Your group assignment today is to condense the exercises into a group micro-report! Talk together and figure out how to destill the exercises from today into one small end-to-end runable reproducible micro-report. DO NOT include ALL of the exercises, but rather include as few steps as possible and necessary to arrive at the final sequence logos. Be vey consise!
+
+But WHY? WHY are you not specifying exactly what we need to hand in? *Because we are training taking independent decisions, which is crucial in applied bio data science, so take a look at the combined group code, select relevant sections and condense - If you don't make it all the way through the exercises, then condense and present what you were able to arrive at! What do you think is central/important/indispensable? Also, these hand ins are NOT for us to evaluate you, but for you to train creating products and the get feedback on your progress!*
 
 **IMPORTANT:** Remember to check the [ASSIGNMENT GUIDELINES](https://r4bds.github.io/assignments.html)
 
