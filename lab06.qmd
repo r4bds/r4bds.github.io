@@ -1,7 +1,5 @@
 # Lab 6: Functional Programming Purrr {.unnumbered}
 
-#### STOP: Section not yet completed!
-
 ## Package(s)
 
 - [broom](https://broom.tidymodels.org)
@@ -9,9 +7,8 @@
 
 ## Schedule
 
-- 08.00 - 08.10: Course midway evaluation
-- 08.10 - 08.30: Recap of exercises from last lab (Incl. assignment)
-- 08.30 - 09.00: Introduction to Lab
+- 08.00 - 08.30: Recap of lab 5
+- 08.30 - 09.00: Lecture
 - 09.00 - 09.15: Break
 - 09.00 - 12.00: [Exercises](#sec-exercises)
 
@@ -19,7 +16,8 @@
 
 _Please prepare the following materials:_
 
-- Book: R4DS chapters 22 Introduction, 23 Model basics, 24 Model building, 25 Many models
+- Questionnaire (brief, 5-10 min): [Course Midway Evaluation](https://docs.google.com/forms/d/e/1FAIpQLSe9nDaUs1OfZ6YHA2gNKeSye0rCN1KambBEYYwYU-E7G5dDLQ/viewform?usp=sf_link)
+- R4DS Book (Note, this is intentionally 1.ed.): [Chapter 22: Introduction](https://r4ds.had.co.nz/model-intro.html), [Chapter 23: Model Basics](https://r4ds.had.co.nz/model-basics.html), [Chapter 24: Model Building](https://r4ds.had.co.nz/model-building.html), [Chapter 25: Many models](https://r4ds.had.co.nz/many-models.html)
 - Video: [Broom: Converting Statistical Models to Tidy Data Frames](https://www.youtube.com/watch?v=7VGPUBWGv6g)
 - Video: [Alex Hayes | Solving the model representation problem with broom | RStudio (2019)](https://www.youtube.com/watch?v=gLZyvY5_kWQ)
 - Video: ["The Joy of Functional Programming (for Data Science)" with Hadley Wickham](https://www.youtube.com/watch?v=bzUmK0Y07ck)
@@ -33,6 +31,8 @@ _A student who has met the objectives of the session will be able to:_
 - Understand and apply the broom-functions for tidying various model objects
 - Perform a basic principal component analysis for dimension reduction of high dimensional data
 - Perform a basic unsupervised k-means clustering of high dimensional data
+
+#### STOP: The following is not yet completed!
 
 ## Exercises {#sec-exercises}
 
@@ -49,9 +49,9 @@ Also... If you still need to be convinced of the flexibility of ggplot, try runn
 #| eval: false
 xy <- seq(from = -3,
           to = 3, 
-          by = 0.01) |>
-  expand.grid(x = xy,
-              y = xy) |>
+          by = 0.01)
+expand.grid(x = xy,
+            y = xy) |>
   ggplot(mapping = aes(
     x = (1 - x - sin(y^2)),
     y = (1 + y - cos(x^2)))) +
@@ -63,6 +63,47 @@ xy <- seq(from = -3,
 ```
 
 If you are curious about what is going on here, try googling "Generative art"... Anyhoo... Let us move on...
+
+## Prologue
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+
+library("tidyverse")
+library("broom")
+```
+
+
+Let's start today with a quick refresh of linear models.
+
+```{r}
+f <- function(x){
+  return( 2*x + 3 + rnorm(length(x)) )
+}
+set.seed(867406)
+my_data <- tibble(
+  x = rnorm(n = 100, mean = 3),
+  y = f(x)
+)
+my_data |>
+  ggplot(aes(x = x,
+             y = y)) +
+  geom_vline(xintercept = 0) +
+  geom_hline(yintercept = 0) +
+  geom_point(shape = "o",
+             size = 3,
+             colour = "red") +
+  geom_smooth(method = "lm",
+              se = FALSE,
+              colour = "black",
+              linetype = "dashed") +
+  theme_minimal()
+```
+
+
+
 
 ## Data
 
