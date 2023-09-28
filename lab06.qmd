@@ -75,15 +75,14 @@ library("tidyverse")
 library("broom")
 ```
 
-
-## Data
-
 So far, we have worked on
 
 - Lab 2: Gene Expression Data, the `gravier`-data from [A prognostic DNA signature for T1T2 node-negative breast cancer patients](https://pubmed.ncbi.nlm.nih.gov/20842727/)
 - Lab 3: Metagenomics, the `pitlatrine`-data from [“Assessment of the influence of intrinsic environmental and geographical factors on the bacterial ecology of pit latrines”](https://sfamjournals.onlinelibrary.wiley.com/doi/full/10.1111/1751-7915.12334)
 - Lab 4: Clinical data, the `diabetes`-data from [Prevalence of coronary heart disease risk factors among rural blacks: a community-based study](https://pubmed.ncbi.nlm.nih.gov/9258308/) and [A trial of church-based smoking cessation interventions for rural African Americans](https://pubmed.ncbi.nlm.nih.gov/9010903/)
 - Lab 5: High throughput data, the `SARS-CoV-2`-data [A large-scale database of T-cell receptor beta (TCRβ) sequences and binding associations from natural and synthetic exposure to SARS-CoV-2](https://www.researchsquare.com/article/rs-51964/v1)
+
+Today, we will be continue
 
 Now, inside your `data` directory in your RStudio Cloud project, create a new directory called `_raw` and using the RStudio G(raphical)U(ser)I(nterface), move any raw data into that directory.
 
