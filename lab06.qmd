@@ -21,6 +21,7 @@ _Please prepare the following materials:_
 - Video: [Broom: Converting Statistical Models to Tidy Data Frames](https://www.youtube.com/watch?v=7VGPUBWGv6g)
 - Video: [Alex Hayes | Solving the model representation problem with broom | RStudio (2019)](https://www.youtube.com/watch?v=gLZyvY5_kWQ)
 - Video: ["The Joy of Functional Programming (for Data Science)" with Hadley Wickham](https://www.youtube.com/watch?v=bzUmK0Y07ck)
+- Optional: If you are completely new to statistical modelling, then [click here for a primer](primer_on_linear_models_in_r.qmd)
 
 ## Learning Objectives
 
