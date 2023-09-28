@@ -1,0 +1,42 @@
+# Primer on Linear Models in `R` {.unnumbered}
+
+In a fundamental linear regression model used in bioinformatics, one independent (predictor) variable and one dependent (response) variable are involved. This method calculates the slope and intercept of the optimal fit line, illustrating the interaction between the biological variables.
+
+## Example, let's say we wanted to study the mechanisms protecting a plant from heat shock, then:
+
+- **Dependent / response Variable:** Environmental Condition (temperature)
+- **Independent / predictor / explanatory Variable:** Gene Expression Level (related to heat shock protection)
+
+So, we keep plants under different temperatures and collect samples, where we run a transcriptomics analysis and thus now we have collected the above data.
+
+
+
+### Linear Regression Model:
+You can create a simple linear regression model to estimate the relationship between temperature and gene expression levels. By inputting different temperatures, the model can predict the corresponding gene expression levels, based on the slope and intercept of the line of best fit derived from the observed data.
+
+### Conclusion:
+In this scenario, a simple linear regression model can help biologists and data scientists understand how environmental conditions, like temperature, can impact the expression of specific genes in organisms, which is a fundamental aspect of studying biological systems in bioinformatics.
+
+```{r}
+f <- function(x){
+  return( 2*x + 3 + rnorm(length(x)) )
+}
+set.seed(867406)
+my_data <- tibble(
+  x = rnorm(n = 100, mean = 3),
+  y = f(x)
+)
+my_data |>
+  ggplot(aes(x = x,
+             y = y)) +
+  geom_vline(xintercept = 0) +
+  geom_hline(yintercept = 0) +
+  geom_point(shape = "o",
+             size = 3,
+             colour = "red") +
+  geom_smooth(method = "lm",
+              se = FALSE,
+              colour = "black",
+              linetype = "dashed") +
+  theme_minimal()
+```

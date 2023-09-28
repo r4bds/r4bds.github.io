@@ -1,4 +1,4 @@
-# Lab 6: Functional Programming Purrr {.unnumbered}
+# Lab 6: Applying Functional Programming with Purrr to Models {.unnumbered}
 
 ## Package(s)
 
@@ -74,35 +74,6 @@ If you are curious about what is going on here, try googling "Generative art"...
 library("tidyverse")
 library("broom")
 ```
-
-
-Let's start today with a quick refresh of linear models.
-
-```{r}
-f <- function(x){
-  return( 2*x + 3 + rnorm(length(x)) )
-}
-set.seed(867406)
-my_data <- tibble(
-  x = rnorm(n = 100, mean = 3),
-  y = f(x)
-)
-my_data |>
-  ggplot(aes(x = x,
-             y = y)) +
-  geom_vline(xintercept = 0) +
-  geom_hline(yintercept = 0) +
-  geom_point(shape = "o",
-             size = 3,
-             colour = "red") +
-  geom_smooth(method = "lm",
-              se = FALSE,
-              colour = "black",
-              linetype = "dashed") +
-  theme_minimal()
-```
-
-
 
 
 ## Data
