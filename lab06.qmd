@@ -31,10 +31,8 @@ _A student who has met the objectives of the session will be able to:_
 - Understand and apply simple purrr-functions for element-wise function application
 - Understand and apply grouped supervised models to form nested model objects
 - Understand and apply the broom-functions for tidying various model objects
-- Perform a basic principal component analysis for dimension reduction of high dimensional data
-- Perform a basic unsupervised k-means clustering of high dimensional data
-
-#### STOP: The following is not yet completed!
+- Optional LO: Perform a basic principal component analysis for dimension reduction of high dimensional data
+- Optional LO: Perform a basic unsupervised k-means clustering of high dimensional data
 
 ## Exercises {#sec-exercises}
 
