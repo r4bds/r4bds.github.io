@@ -27,6 +27,7 @@ _Please prepare the following materials:_
 
 _A student who has met the objectives of the session will be able to:_
 
+- Fit a simple linear model and interpret model parameters
 - Understand and apply simple purrr-functions for element-wise function application
 - Understand and apply grouped supervised models to form nested model objects
 - Understand and apply the broom-functions for tidying various model objects
@@ -53,9 +54,10 @@ xy <- seq(from = -3,
           by = 0.01)
 expand.grid(x = xy,
             y = xy) |>
-  ggplot(mapping = aes(
-    x = (1 - x - sin(y^2)),
-    y = (1 + y - cos(x^2)))) +
+  ggplot(
+    mapping = aes(
+      x = (1 - x - sin(y^2)),
+      y = (1 + y - cos(x^2)))) +
   geom_point(alpha = 0.05,
              shape = 20,
              size = 0) +
@@ -78,421 +80,519 @@ library("broom")
 
 So far, we have worked on
 
-- Lab 2: Gene Expression Data, the `gravier`-data from [A prognostic DNA signature for T1T2 node-negative breast cancer patients](https://pubmed.ncbi.nlm.nih.gov/20842727/)
+- Lab 2: Genomis, the `gravier`-data from [A prognostic DNA signature for T1T2 node-negative breast cancer patients](https://pubmed.ncbi.nlm.nih.gov/20842727/)
 - Lab 3: Metagenomics, the `pitlatrine`-data from [“Assessment of the influence of intrinsic environmental and geographical factors on the bacterial ecology of pit latrines”](https://sfamjournals.onlinelibrary.wiley.com/doi/full/10.1111/1751-7915.12334)
 - Lab 4: Clinical data, the `diabetes`-data from [Prevalence of coronary heart disease risk factors among rural blacks: a community-based study](https://pubmed.ncbi.nlm.nih.gov/9258308/) and [A trial of church-based smoking cessation interventions for rural African Americans](https://pubmed.ncbi.nlm.nih.gov/9010903/)
-- Lab 5: High throughput data, the `SARS-CoV-2`-data [A large-scale database of T-cell receptor beta (TCRβ) sequences and binding associations from natural and synthetic exposure to SARS-CoV-2](https://www.researchsquare.com/article/rs-51964/v1)
+- Lab 5: High throughput immunoinformatics data, the `SARS-CoV-2`-data [A large-scale database of T-cell receptor beta (TCRβ) sequences and binding associations from natural and synthetic exposure to SARS-CoV-2](https://www.researchsquare.com/article/rs-51964/v1)
 
-Today, we will be continue
+## Getting Started
 
-Now, inside your `data` directory in your RStudio Cloud project, create a new directory called `_raw` and using the RStudio G(raphical)U(ser)I(nterface), move any raw data into that directory.
+1. Once again, please [go to the course cloud RStudio server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) and login
+1. Create a **new** Quarto document and remember to save it
 
-- **Q1: In your group, discuss, what is `raw` data?**
+Today, we will re-examine the data acquired in Lab 2 to further explore the research question:
 
-Now, make sure, that you have the raw versions of the 4 data sets.
+- **What genes are significantly up-/down-regulated between the patients with- and without early metastasis?"**
 
-### Example Work Flow: The `Gravier` Data
+## Load Data
 
-_As inspiration, here a data work flow could look for the `gravier`-data_
+Recall, so far we have adjusted the chunk setting to `#| eval: true` first time we get some data from an online repository and then subsequently set `#| eval: false`.
 
-1. Go to the GitHub site for the [datamicroarray package](https://github.com/ramhiser/datamicroarray)
-1. Click the `data`-directory
-1. Find and click the `gravier.RData`-file
-1. In the upper right corner, click the `Download`-button
-1. This will download the `gravier.RData`-file to your local computer
-1. Once again, start your rstudio.cloud and upload the `gravier.RData`-file to your `_raw`-directory
+Let's do that in a bit nicer way.
 
-```{r eval=FALSE, echo=TRUE}
-#| eval: false
-# Load raw data from Lab 2
-gravier_raw <- read_rds(file = "data/_raw/gravier.RData")
-
-# Note: If this does not work, simply click the file
-# and "Confirm Load data" but then the data will be "gravier"
-
-# Clean data
-gravier_clean <- gravier_raw |>
-  bind_cols |>
-  as_tibble |>
-  relocate(y) |>
-  rename(outcome = y) |>
-  mutate(outcome = case_when(outcome == "good" ~ 0,
-                             outcome == "poor" ~ 1))
-
-# Write data
-write_tsv(gravier_clean,
-          file = "data/01_gravier_clean.tsv.gz")
-```
-
-* __Q2:__ In your group, discuss, what each step of the above work flow does incl. the specifics of the `dplyr`-pipeline and also why can `bind_cols` by _very_ dangerous to use?
-
-* __Q3:__ What is the difference between using the file extensions `*.tsv` and `*.tsv.gz`?
-
-* __Q4:__ See if you can create __a plain text file__ called `gravier.README` and information on how you retrieved the data - Discuss in your group, what is the purpose of this and in which directory would you place it?
-
-_Hint: Perhaps RStudio has the ability to create other file types than just .Rmd and .R?_
-
-## Modelling
-
-```{r echo=FALSE, message=FALSE, eval=FALSE}
-#| eval: false
-
-# Set base URL
-base_url = "http://userweb.eng.gla.ac.uk/umer.ijaz/bioinformatics/ecological/"
-
-# Retrieve raw data from Lab 3
-SPE = read_csv(file = str_c(base_url, "SPE_pitlatrine.csv"),
-               show_col_types = FALSE)
-ENV = read_csv(file = str_c(base_url, "ENV_pitlatrine.csv"),
-               show_col_types = FALSE)
-
-# Clean data
-SPE_ENV = SPE |>
-  pivot_longer(cols = -Taxa,
-               names_to = "Samples",
-               values_to = "OTU_Count") |>
-  full_join(ENV, by = "Samples") |>
-  mutate(site = case_when(str_detect(Samples, "^T") ~ "Tanzania",
-                          str_detect(Samples, "^V") ~ "Vietnam"))
-
-# Write data to file
-write_tsv(SPE,
-          file = "data/_raw/SPE_pitlatrine.csv")
-write_csv(ENV,
-          file = "data/_raw/ENV_pitlatrine.csv")
-write_tsv(SPE_ENV,
-          file = "data/01_SPE_ENV.tsv.gz")
-```
-
-```{r echo=FALSE, message=FALSE, eval=FALSE}
-#| eval: false
-# Retrieve the raw data from Lab 4
-diabetes_data = read_csv(file = "https://hbiostat.org/data/repo/diabetes.csv",
-                         show_col_types = FALSE)
-
-# Write the data to disk
-write_tsv(diabetes_data,
-          file = "data/_raw/diabetes.csv")
-write_tsv(diabetes_data,
-          file = "data/01_diabetes.tsv.gz")
-```
-  
-```{r echo=FALSE, message=FALSE, eval=FALSE}
-#| eval: false
-# Load the raw data from Lab 4
-peptide_detail_ci = read_csv(
-  file = "data/_raw/ImmuneCODE-MIRA-Release002.1/peptide-detail-ci.csv",
-  na = c("", "NA", "N/A"),
-  show_col_types = FALSE)
-subject_metadata = read_csv(
-  file = "data/_raw/ImmuneCODE-MIRA-Release002.1/subject-metadata.csv",
-  na = c("", "NA", "N/A"),
-  show_col_types = FALSE)
-
-# Clean data
-vars_shared = intersect(colnames(peptide_detail_ci),
-                        colnames(subject_metadata))
-peptide_meta_data = peptide_detail_ci |> 
-  full_join(subject_metadata,
-            by = "Experiment") |> 
-  select(-matches("D[RQP]"))
-
-# Write data to file
-write_tsv(peptide_meta_data, file = "data/01_peptide_meta_data.tsv.gz")
-```
-
-### Primer
-
-First, the recent couple of years have seen an immense development in unifying the modelling interface in `R`, which is notoriously inconsistent. You may be familar with the `caret`-package, the developer of which has created [tidymodels](https://www.tidymodels.org), which I really wish we had time to explore this in details. In the following we will work with some of the principles for tidying model object using `broom`, having object nested in tibbles and working with these using `purrr`.
-
-### Getting started
-
-For the data you have so nicely created, the outcome is either `0` or `1`, meaning, that we will need a logistic regression to model the data. If you need a refresh on this, then [go to this condensed primer](https://rpubs.com/OmaymaS/182726), The general model syntax in R is as follows:
-
-```{r eval=FALSE, echo=TRUE}
-#| eval: false
-my_data |> 
-  glm(y ~ x1 + x2 + ... + xn,
-      data = .,
-      family = binomial(link = "logit"))
-```
-
-Where `y ~ x1 + x2 + ... xn` is called a `formula` and is read like: "Modelling $y$ as a function of $x_1$ plus $x_2$ plus $...$ plus $x_n$".
-
-### First steps...
-
-Using the data you have created, choose your favourite gene, and make a model of the outcome modelled as a function of __that one gene__ 
-
-* __Q1: What are the coefficients for the intercept and your gene?__
-
-```{r eval=FALSE}
-#| eval: false
-gravier_data |>
-  glm(outcome ~ g2E09,
-      data = .,
-      family = binomial(link="logit"))
-```
-
-* __Q2: What is the p-value for your gene? Mine is:__
+- **T1: Create a new "Load Data" header in your document and add the below chunk:**
 
 ```{r}
-#| eval: false
-gravier_data |>
-  glm(outcome ~ g2E09,
-      data = .,
-      family = binomial(link="logit")) |> 
-  tidy |>
-  filter(term == "g2E09") |> 
-  select(term, p.value)
+#| eval: true
+#| echo: true
+
+raw_dir <- "data/_raw/"
+data_file <- "gravier.RData"
+data_loc <- "https://github.com/ramhiser/datamicroarray/raw/master/data/"
+
+if( !dir.exists(raw_dir) ){
+  dir.create(path = raw_dir)
+}
+if( !file.exists(str_c(raw_dir, data_file)) ){
+  download.file(
+    url = str_c(data_loc, data_file),
+    destfile = str_c(raw_dir, data_file))
+}
+load(file = str_c(raw_dir, data_file))
 ```
+
+- **Q1: In your group, discuss, what is going on here? Make sure you follow the difference between the first time you run this and the second!**
+
+<details><p><summary>Click here for hint</summary></p>
+We have used the `str_c()`-function before, try running e.g.:
+
+```{r}
+#| echo: true
+#| eval: false
+
+x <- "a"
+y <- "b"
+str_c(x, y)
+```
+
+For the functions `dir.exists()` and `file.exists()`, the hint is in the title, they return logicals. To get a better understanding of this, try running e.g.:
+
+```{r}
+#| echo: true
+#| eval: false
+
+x <- 2
+x == 2
+if( x == 2 ){
+  print("Yes!")
+}
+```
+
+Then change `x == 2` to `x != 2`, re-run the code and see what happens
+
+</details>
+
+
+## Clean Data
+
+The next step is to clean up the data:
+
+1. Use the `ls()`-function to see what objects you have in your environment
+1. Use the `str()`-function on the gravier data you retrieved to answer:
+
+- **Q2: Discuss in your group if this is tidy data?**
+
+- **T2: Create a new "Clean Data" header in your document and add the below chunk:**
+
+```{r}
+#| echo: true
+#| eval: true
+
+gravier_clean <- gravier |>
+  bind_cols() |>
+  as_tibble()
+```
+
+- **Q3: Discuss in your group if this is tidy data?**
+
+- **Q4: In fact, specifically state what are the "rules" for tidy data?**
+
+- **Q5: In your group, discuss why `bind_cols` can by _very very_ dangerous to use?**
+
+Now, moving on, let's write the clean data to disk:
+
+- **T3: In your "Clean Data"-section, add a new chunk, where you write a tab-separated-values gzipped (i.e. compressed) file called "02_gravier_clean" (with the correct filetype specification) into your "data"-folder**
+
+<details><p><summary>Click here for hint</summary></p>
+*Just as you can `read` a file, you can of course also `write` a file. Note the filetype we want to write here is tab-separated-values. If you in the console type e.g. `readr::wr` and then hit the `tab`-button, you will see the different functions for writing different filetypes. We previously did a trick to automatically gzip (compress) files?*
+</details>
+
+## Augment Data
+
+- **T4: Create a new "Augment Data" header in your document and add the below chunk:**
+
+```{r}
+gravier_clean_aug <- gravier_clean |>
+  mutate(y = case_when(y == "poor" ~ 1,
+                       y == "good" ~ 0)) |> 
+  relocate(early_metastasis = y)
+```
+
+- **Q6: In your group, discuss, what each step of the above work flow does, i.e. what are the specifics of the `dplyr`-pipeline?**
+
+- **T5: In your "Augment Data"-section, add a new chunk, where you write a tab-separated-values gzipped (i.e. compressed) file called "03_gravier_clean_aug" (with the correct filetype specification) into your "data"-folder**
+
+## Analysis
+
+### One Gene, one model
+
+- **T6: Create a new "Analysis" header in your document**
+
+Recall, in the second lab, we were looking at "our favourite gene". In the following either look back to what was your favourite gene or choose a new.
+
+Let's fit our first model! If the concept of models and linear regression is unfamiliar, consider checking out the [primer on linear models in R](primer_on_linear_models_in_r.qmd) before proceeding.
+
+- **T7: Use the `lm`-function to create your first model and save it to a new variable e.g. "my_first_model"**
+
+<details><p><summary>Click here for hint</summary></p>
+*Use the formula `my_favourite_gene ~ early_metastasis` and remember when you pipe into the `lm`-function, you have to specify `data = _`*
+</details>
+
+- **Q7: What are your coefficients? Mine are:**
+
+```{r}
+#| eval: true
+#| echo: false
+my_first_model <- gravier_clean_aug |> 
+  lm(formula = g2E09 ~ early_metastasis,
+     data = _)
+my_first_model |> pluck("coefficients")
+```
+
+- **T8: Use the `group_by()` $\rightarrow$ `summarise()`-workflow to calculate the mean values of the gene expression for your favourite gene stratified on `early_metastasis`**
+
+- **Q8: What are your mean values? Mine are:**
+
+```{r}
+#| eval: true
+#| echo: false
+gravier_clean_aug |>
+  group_by(early_metastasis) |>
+  summarise(mu = mean(g2E09))
+```
+
+- **Q9: Discuss in your group: How are your coefficients related to your mean expression values?**
+
+<details><p><summary>Click here for hint</summary></p>
+*Recall, we have two terms here, `intercept` and `slope`. The intercept is the `y`-value at `x = 0` and the `slope` is the change in `y`-value, for one unit change in `x`*
+</details>
+
+- **Q10: Discuss in your group: Is your gene up- or down-regulated from `early_metastasis = 0` to `early_metastasis = 1` and use the `summary()`-function to see if is it statistically significant at a level of significance of $\alpha = 0.05$?**
+
+<details><p><summary>Click here for hint</summary></p>
+*Try to run `my_first_model |> summary()` and look at the estimate for `early_metastasis`, i.e. the slope and also see if you can find the `p-value` somewhere in this summary...*
+</details>
+
+Excellent! Now we have a feeling for working with the `lm()`-functions and a basic understanding of the meaning of the coefficients, when we are using linear regression to model a binary outcome. The reason that we use a linear regression model in this case is, that for these exercises, we want to investigate the relationship between variables rather than obtaining probability predictions, i.e.
+
+- **What genes are significantly up-/down-regulated between the patients with- and without early metastasis?**
+
+*So, without further ado, let's dive in!*
+
+### All the Genes, all the models
+
+First, the recent couple of years have seen an immense development in unifying the modelling interface in `R`, which is notoriously inconsistent. You may be familiar with the `caret`-package, the developer of which has created [tidymodels](https://www.tidymodels.org), (which I really wish we had time to explore in details). In the following we will work with some of the principles for tidying model object using `broom`, having object nested in tibbles and working with these using `purrr`.
+
+Now, you saw above how we could fit *one* model for *one* gene. So, we could repeat the procedure you worked through for each gene:
+
+- **Q11: For how many genes, do we have data in the gravier data set?**
+
+Now, we just have to make one model for each gene!
+
+![](images/statistical_models_everywhere.png){fig-align="center" width=90%}
+
+Honestly, **let's not!** Also, recall: *"We don't loop, we func!"*, so let's see how that would work.
 
 ### Models, models everywhere...
 
-Now, make one model for each of the ! In principle, you could do that, but that would require a lot code and a lot of hard coding. So do not do that for now, but let us instead see if we can come up with something just a tad more clever.
+In principle, you could overflow your environment with individual model objects, but that would require a lot code and a lot of hard coding. But let us instead see if we can come up with something just a tad more clever.
 
-Create this long version of your data and save it in `gravier_data_long`:
+#### Preparing the Data
+
+First:
+
+- **Q12: Discuss in your group, if the `gravier_clean_aug` is a "wide" or a "long" dataset?**
+
+Once you have agreed upon and understood why, this is a *wide* data set, proceed and:
+
+- **T9: Create this long version of your `gravier_clean_aug` data and save it in `gravier_clean_aug_long`**
 
 ```{r}
-#| eval: false
-gravier_data_long = gravier_data |>
-  pivot_longer(cols = -outcome,
+#| eval: true
+#| echo: false
+
+gravier_clean_aug_long <- gravier_clean_aug |>
+  pivot_longer(cols = starts_with("g"),
                names_to = "gene",
                values_to = "log2_expr_level")
-gravier_data_long
+gravier_clean_aug_long
 ```
 
-Using the `group_by()`-`nest()`-`ungroup()` work-flow, create this nested tibble:
+<details><p><summary>Click here for hint</summary></p>
+*Recall which function took a dataset from "wide"- to "long"-format and also the three parameters of interest for that function is `cols`, `names_to` and `values_to`. If you look at my example, you will see that the columns we have pivotted have types `<chr>` and `<dbl>`, these will map to the `names_to`- and `values_to`-parameters respectively. The `cols` can be used with the so-called "helper-functions", that we have previously talked about. If you look at the gene-columns in the data, all the genes starts with a "g", so we can use the helper functions `starts_with()` and then give the argument "g" to the `match`-parameter*
+</details>
+
+The reason we want the "long" version of the data set is, that now we have ALL the genes defined in ONE `gene`-column. This means that we can use the `group_by()`-function to work *per* gene without looping (Recall: No looping, only func!).
+
+Now:
+
+- **T10: Create a `dplyr`-pipeline, use the `group_by()`-function to group your `gravier_clean_aug_long`-dataset by `gene` and then add the `nest()`- and `ungroup()`-functions to your pipeline**
 
 ```{r}
-#| eval: false
-gravier_data_long_nested = gravier_data_long |>
+#| eval: true
+#| echo: false
+gravier_clean_aug_long_nested <- gravier_clean_aug_long |>
   group_by(gene) |>
-  nest |> 
-  ungroup
-gravier_data_long_nested
+  nest() |> 
+  ungroup()
+gravier_clean_aug_long_nested
 ```
 
-Note, this is conceptually a _super-tricky data structure_, so please do make sure to discuss in your group, what is going on here!
+Note, this is conceptually a **super-tricky data structure!**
 
-Then use `sample_n()` to randomly select 100 genes for further analysis. Remember you may want to use the `set.seed()` function to create a reproducible random draw
+- **Q13: Discuss in your group, what happened to the data?**
+
+<details><p><summary>Click here for hint</summary></p>
+*Try to run each of the following code chunks and examine what happens at each step:*
+
+```{r}
+#| echo: true
+#| eval: false
+gravier_clean_aug_long_nested
+```
+
+```{r}
+#| echo: true
+#| eval: false
+gravier_clean_aug_long_nested |> filter(gene == "g2E09")
+```
+
+```{r}
+#| echo: true
+#| eval: false
+gravier_clean_aug_long_nested |> filter(gene == "g2E09") |> pull(data)
+```
+
+</details>
+
+- **Q14: Moreover, discuss in your group, what does `<tibble [168 × 2]>` mean?**
+
+Now, **if** you experiencing, that the server seems slow, consider if you want to proceed now with ALL the genes or just a subset. If you just want a subset, then use `sample_n()` to randomly select 100 genes for further analysis. Remember you may want to use the `set.seed()` function to create a reproducible work flow even when sampling
 
 ```{r}
 #| eval: false
+#| echo: false
 set.seed(934485)
 gravier_data_long_nested = gravier_data_long_nested |>
   sample_n(100)
 gravier_data_long_nested
 ```
 
-Now, we want to fit a logisic regression model to each of the per-gene data sets in the nested tibble. We do this by using `mutate()`, `map()` and the _"The general model syntax"_ as defined previously. Remember you are mapping a model to each of the nested data sets, so you will need to include the variable names in your `formula` and also remember the `receipe` Hadley mentioned. This is quite tricky initially, so here is a bit of example code, to get you started. Here, we are fitting a standard ordinary least squares linear model on random data:
+#### Fitting Models
 
-```{r echo=TRUE}
-#| eval: false
-tibble(x = rnorm(100),
-       y = rnorm(100),
-       g = sample(seq(1, 4),
-                  size = 100,
-                  replace = TRUE)) |>
-  group_by(g) |>
-  nest |>
-  ungroup |>
-  mutate(mu_group = map(data, ~lm(y ~ x, data = .x)))
-```
+Now, recall our research question:
 
-_Think about this and as I have mentioned previously - Copy/paste bits and bops of the code into the console and play around with it until you understand what is going on._
+- **What genes are significantly up-/down-regulated between the patients with- and without early metastasis?**
 
-Return to your `gravier_data_long_nested`-dataset and create the below, still saving it into your `gravier_data_long_nested` and remembering, that we here need a logistic regression
+To investigate this, we want to fit a linear model to each gene, i.e. as you did initially for your favourite gene, we want to do in a clever way *per* gene for ALL genes.
+
+- **T11: Use the `group_by()`-function to let `R` know, that we want to work *per* gene**
 
 ```{r}
-#| eval: false
-gravier_data_long_nested = gravier_data_long_nested |>
-  mutate(mdl = map(data, ~glm(outcome ~ log2_expr_level,
-                              data = .x,
-                              family = binomial(link = "logit"))))
-gravier_data_long_nested
+#| echo: false
+#| eval: true
+gravier_clean_aug_long_nested |> 
+  group_by(gene)
 ```
 
-Note, once again, this is conceptually a _super-tricky data structure_, not only do we have a nested tibble, but now we also have a nested model object - So please do make sure to discuss in your group, what is going on here!
+- **T12: Then add a new line to your pipeline, where you add a new variable `model_object` to your `gravier_clean_aug_long_nested`-dataset, which `R` will compute *per* gene**
 
-Ok, now we have model for each of our 100 genes. Let us use the `broom`-package to extract some information from each of the models
-
-_Hint: broom has a very useful function, which helps "cleaning up" model objects. Also, you may want to include `conf.int = TRUE` in your `map()`-call_
+*To do this you will need the following syntax and then wrap that inside the relevant tidyverse-function for creating a new variable:*
 
 ```{r}
+#| echo: true
 #| eval: false
-gravier_data_long_nested = gravier_data_long_nested |>
-  mutate(mdl_tidy = map(mdl, tidy, conf.int = TRUE)) |> # OR map(mdl, ~tidy(.x, conf.int = TRUE))
-  unnest(mdl_tidy)
-gravier_data_long_nested
+model_object = map(.x = data,
+                   .f = ~lm(formula = log2_expr_level ~ early_metastasis,
+                            data = .x))
 ```
-
-Now, we are only interested in the terms for the genes, so remove the `(Intercept)`-rows:
-
-_Hint: Check, that your dimensions should go from 200 to 100, corresponding to the 100 random genes you selected for further analysis!_
 
 ```{r}
-#| eval: false
-gravier_data_long_nested = gravier_data_long_nested |> 
-  filter(str_detect(term, "log2"))
-gravier_data_long_nested
+#| echo: false
+#| eval: true
+gravier_clean_aug_long_nested <- gravier_clean_aug_long_nested |> 
+  group_by(gene) |> 
+  mutate(model_object = map(.x = data,
+                            .f = ~lm(formula = log2_expr_level ~ early_metastasis,
+                                     data = .x)))
 ```
 
-Add an indicator variable, denoing if a given term for a given gene is significant i.e. $p < 0.05$
+Make sure to understand the `map()`-function here, it is central to functional programming with `purrr`:
+
+- `.x` to what exising (nested) variable are we mapping?
+- `.f` which function do we want to map to each element in the existing (nested) variable?
+
+Note, once again, this is conceptually a _super-tricky data structure_, not only do we have a *per gene* nested tibble, but now we also have a *per gene* nested model object - So please do make sure to discuss in your group, what is going on here, e.g. try running this and discuss what you see:
 
 ```{r}
+#| echo: true
 #| eval: false
-gravier_data_long_nested = gravier_data_long_nested |> 
-  mutate(identified_as = case_when(p.value < 0.05 ~ "Significant",
-                                   TRUE ~ "Non-significant"))
-gravier_data_long_nested
+gravier_clean_aug_long_nested |>
+  filter(gene == "g2E09") |>
+  pull(model_object)
 ```
 
-### Visualise Associations
+#### Tidying Models
 
-A Useful way of illustrating p-values for gene association is the so-called Manhattan-plot. For this we need to calculate the negative log10 of the p-values, so do that like so:
+Excellent! Now we have a *per gene* model. Let us use the `broom`-package to extract some information from each of the models. First, to get a better understanding of what is going on when calling the `tidy()`-function, try running this:
 
 ```{r}
+#| echo: true
 #| eval: false
-gravier_data_long_nested = gravier_data_long_nested |> 
-  mutate(neg_log10_p = -log10(p.value))
-gravier_data_long_nested
+gravier_clean_aug_long_nested |>
+  filter(gene == "g2E09") |>
+  pull(model_object) |>
+  pluck(1) |>
+  tidy(conf.int = TRUE,
+       conf.level = 0.95)
 ```
 
-Now, using your data visualisations skills, re-create this Manhattan-plot:
+Now, we want to apply this `tidy()`-function *per `model_object`*:
 
-```{r fig.align="center", fig.width=8, fig.height=3}
-#| eval: false
-gravier_data_long_nested |> 
-  ggplot(aes(x = fct_reorder(gene, desc(neg_log10_p)),
-             y = neg_log10_p,
-             colour = identified_as)) + 
-  geom_point() +
-  geom_hline(yintercept = -log10(0.05),
-             linetype = "dashed") +
-  theme_classic(base_family = "Avenir", base_size = 8) +
-  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1),
-        legend.position = "bottom") +
-  labs(x = "Gene", y = "Minus log10(p)")
+- **T13: Scroll a bit back to where we created the `model_object` and see if you translate that into mapping the `tidy()`-function to the `model_object`-variable, thereby creating a new variable `model_object_tidy`.**
+
+*Remember the parameters to the `tidy()`-functions, which gives us the confidence intervals and defines corresponding level.*
+
+```{r}
+#| echo: false
+#| eval: true
+gravier_clean_aug_long_nested <- gravier_clean_aug_long_nested |> 
+  mutate(model_object_tidy = map(.x = model_object,
+                                 .f = ~tidy(x = .x,
+                                            conf.int = TRUE,
+                                            conf.level = 0.95)))
+gravier_clean_aug_long_nested
 ```
-Congratulations! You have just done a what is equivalent of a GWAS! However, a more interesting visualisation is a confidence interval plot with effect directions, so let us create that and by us, I mean you
 
-```{r fig.align="center", fig.width=8, fig.height=8}
+Note, once again, this is conceptually a _super-tricky data structure_, not only do we have a *per gene* nested tibble, but now we also have a *per gene* nested model object and now also a nested tibble of tidyed objects - So please again do make sure to discuss in your group, what is going on here, e.g. try running this and discuss what you see:
+
+```{r}
+#| echo: true
 #| eval: false
-gravier_data_long_nested |> 
+gravier_clean_aug_long_nested |>
+  filter(gene == "g2E09") |>
+  pull(model_object_tidy)
+```
+
+#### Wrangling
+
+We're almost there - Just a bit of wrangling to go!
+
+Just as you saw that we could `nest()` on a variable (recall we did that for the `gene`-variable), you can do the opposite and lo and behold, that is the `unnest()`-function. Before we continue:
+
+- **T14: Create a `dplyr`-pipeline and save the result in a new variable called `gravier_estimates`: Use the `unnest()`-function to unpack the `model_object_tidy`**
+
+```{r}
+#| echo: false
+#| eval: true
+
+gravier_estimates <- gravier_clean_aug_long_nested |>
+  unnest(model_object_tidy)
+gravier_estimates
+```
+
+- **T15: The again, create a `dplyr`-pipeline and save the result in a the same `gravier_estimates`-variable: Subset the rows to only get the slope term and then choose variables as displayed below, finally end with un-grouping your data, as we no longer need the groups**
+
+```{r}
+#| echo: false
+#| eval: true
+
+gravier_estimates <- gravier_estimates |> 
+  filter(term == "early_metastasis") |> 
+  select(gene, p.value, estimate, conf.low, conf.high) |> 
+  ungroup()
+gravier_estimates
+```
+
+- **T16: To your `gravier_estimates`-dataset, add a variable `q.value`, which is the result of calling the `p.adjust()`-function on your `p.value`-variable and also add an indicator variable denoting if a given gene is significant or not**
+
+```{r}
+#| echo: false
+#| eval: true
+
+gravier_estimates <- gravier_estimates |>
+  mutate(q.value = p.adjust(p.value),
+         is_significant = case_when(q.value <= 0.05 ~ "yes",
+                                    q.value > 0.05 ~ "no"))
+gravier_estimates
+```
+
+*But... `q.value`??? What are you on about??? Here is a nice primer on ["How does multiple testing correction work?"](https://www.nature.com/articles/nbt1209-1135)*
+
+#### Recap
+
+If you understandbly by now, have lost a bit of overview of what is going on, let's just re-iterate.
+
+1. We have the `gravier`-dataset, with the log2-expression levels for 2,905 genes of 168 patients of whom 111 did *not* have early metastasis and 57 who did
+1. We are interested in investigating what genes are significantly up-/down-regulated between the patients with- and without early metastasis
+1. First we retrieved the data from the data repository, cleaned and augmented it and saved it to disk
+1. Then pivotted the data, so we could work *per gene* (The  `gene`-variable)
+1. Next, we grouped *per gene* and nested the data (The `data`-variable)
+1. Then, we fitted a linear model to each gene (The `model_object`-variable)
+1. Next, we used the `broom`-package to tidy the fitted model incl. getting confidence intervals (The `model_object_tidy`-variable)
+1. Lastly, we extracted the model parameters, corrected for multiple testing and added and indicator for significant findings
+
+Now, we actually have everything we need to answer:
+
+- **What genes are significantly up-/down-regulated between the patients with- and without early metastasis?"**
+
+In the following, we will use a level of significance of $\alpha = 0.05$ to provide this answer.
+
+#### Visualise
+
+Right, let's get to it!
+
+- **T17: Re-create this `forest-plot` to finally reveal the results of your analysis** <span style="color: red;">GROUP ASSIGNMENT part I</span>
+
+```{r}
+#| echo: false
+#| eval: true
+
+gravier_estimates |> 
+  filter(is_significant == "yes") |> 
   ggplot(aes(x = estimate,
-             y = fct_reorder(gene, desc(estimate)),
-             colour = identified_as)) +
-  geom_vline(xintercept = 0, linetype = "dashed") +
+             y = fct_reorder(gene, estimate),
+             xmin = conf.low,
+             xmax = conf.high)) +
+  geom_vline(xintercept = 0) +
+  geom_errorbarh() +
   geom_point() +
-  geom_errorbarh(aes(xmin = conf.low, xmax = conf.high, height = 0.2)) +
-  theme_classic(base_family = "Avenir", base_size = 8) +
-  theme(legend.position = "bottom") +
-  labs(y = "",
-       title = "",
-       caption = "The 111 patients with no event after diagnosis were labelled good (0), and the 57 patients with early metastasis were labelled poor (1).") 
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 1)) +
+  labs(x = "Estimates (95%CIs)",
+       y = "",
+       title = "Genes Associated with Early Metastasis in Small Node-Negative Breast Carcinoma",
+       caption = "Data from DOI: 10.1002/gcc.20820")
 ```
 
-In the first plot, we coloured by whether or not a give gene had as signficant association - Notice something about how this colour maps to the this plot?
+<details><p><summary>Click here for hint</summary></p>
+*Here, you will have to use your indicator variable to identify significant genes **before** plotting and then it would probably be prudent to take a look at the `fct_reorder()`-function and `geom_errorbarh()`-representation*
+</details>
 
-Now, do the same plot, but now only including genes with a significant association:
+- **T18: Re-create this `volcano-plot` to finally reveal the results of your analysis** <span style="color: red;">GROUP ASSIGNMENT part II</span>
 
-```{r fig.align="center", fig.width=8, fig.height=8}
-#| eval: false
-gravier_data_long_nested |> 
-  filter(identified_as == "Significant") |> 
+```{r}
+#| echo: false
+#| eval: true
+
+library("ggrepel")
+gravier_estimates |>
+  mutate(lbl = case_when(is_significant == "yes" ~ gene,
+                         is_significant == "no" ~ "")) |> 
   ggplot(aes(x = estimate,
-             y = fct_reorder(gene, desc(estimate)))) +
-  geom_vline(xintercept = 0, linetype = "dashed") +
-  geom_point() +
-  geom_errorbarh(aes(xmin = conf.low, xmax = conf.high, height = 0.2)) +
-  theme_classic(base_family = "Avenir", base_size = 12) +
-  theme(legend.position = "bottom") +
-  labs(y = "",
-       title = "",
-       caption = "The 111 patients with no event after diagnosis were labelled good (0), and the 57 patients with early metastasis were labelled poor (1).") 
+             y = -log10(p.value),
+             colour = is_significant,
+             label = lbl)) +
+  geom_point(size = 1,
+             alpha = 0.5) +
+  geom_text_repel(size = 2,
+                  max.overlaps = 20) +
+  geom_hline(yintercept = 0) +
+  theme_minimal() +
+  theme(plot.title = element_text(hjust = 1),
+        plot.subtitle = element_text(hjust = 1),
+        legend.position = "none") +
+  labs(x = "Estimates",
+       y = "-log10(p)",
+       title = "Genes Associated with Early Metastasis in Small Node-Negative Breast Carcinoma",
+       subtitle = "Genes highlighted in turquoise were significant after multiple testing correction",
+       caption = "Data from DOI: 10.1002/gcc.20820")
 ```
 
-_Note, we have not taken multiple testing into account. If you have the time, you could redo the above with adjust p-values. See `?p.adjust`_
+<details><p><summary>Click here for hint</summary></p>
+*Here,**before** plotting you will have to create a new label-variable which takes value `gene` for significant genes and otherwise is simply an empty string, which we denote by `""`. Also, perhaps the `ggrepel`-package would be relevant for adding text/labels*
+</details>
 
-## PCA
+## Optional
 
-Now, let us play around with around with a little PCA, first add and run this little chunk, allowing us to continue our work on the 100 genes we previously selected:
+*The following is only if you can find the time! But, perhaps this would be something interesting to revisit during the project period*
 
-```{r echo=TRUE}
-#| eval: false
-gravier_data_wide = gravier_data |>
-  select(outcome, pull(gravier_data_long_nested, gene))
-```
+### PCA
 
-Then go and visit this blog post by [Claus O. Wilke, Professor of Integrative Biology](https://clauswilke.com/blog/2020/09/07/pca-tidyverse-style/).
+- Go and visit this blog post by [Claus O. Wilke, Professor of Integrative Biology](https://clauswilke.com/blog/2020/09/07/pca-tidyverse-style/).
+- Your task is to work through the blog post using the `gravier`-dataset to crate a PCA-analysis
 
-Your task is to work through the blog post using your `gravier_data_wide`-dataset to crate a PCA-analysis    <span style="color: red;">GROUP ASSIGNMENT</span>
+### K-means
 
-__NOTE: THIS TIME, MAKE A MICRO-GROUP-REPORT AND HANDIN THE KNITTED PDF-FILE__
-
-My plots look like this, how about yours?
-
-```{r}
-#| eval: false
-pca_fit = gravier_data_wide |> 
-  select(-outcome) |> 
-  prcomp(scale = TRUE)
-```
-
-
-```{r}
-#| eval: false
-pca_fit |>
-  augment(gravier_data_wide) |>
-  mutate(outcome = factor(outcome)) |> 
-  ggplot(aes(x = .fittedPC1,
-             y = .fittedPC2,
-             colour = outcome)) + 
-  geom_point(size = 1.5) +
-  theme_classic(base_family = "Avenir",
-                base_size = 12) +
-  theme(legend.position = "bottom")
-```
-
-```{r}
-#| eval: false
-# define arrow style for plotting
-arrow_style <- arrow(
-  angle = 20, ends = "first", type = "closed", length = grid::unit(8, "pt")
-)
-
-# plot rotation matrix
-pca_fit |>
-  tidy(matrix = "rotation") |>
-  pivot_wider(names_from = "PC", names_prefix = "PC", values_from = "value") |>
-  ggplot(aes(PC1, PC2)) +
-  geom_segment(xend = 0, yend = 0, arrow = arrow_style) +
-  geom_text(
-    aes(label = column),
-    hjust = 1, nudge_x = -0.02, 
-    color = "#904C2F"
-  ) +
-  #xlim(-1.25, .5) +
-  #ylim(-.5, 1) +
-  coord_fixed() + # fix aspect ratio to 1:1
-  theme_minimal(12)
-```
-
-```{r}
-#| eval: false
-pca_fit |>
-  tidy(matrix = "eigenvalues") |>
-  filter(PC <= 10) |> 
-  ggplot(aes(PC, percent)) +
-  geom_col(fill = "#56B4E9", alpha = 0.8) +
-  scale_x_continuous(breaks = 1:9) +
-  scale_y_continuous(
-    labels = scales::percent_format(),
-    expand = expansion(mult = c(0, 0.01))
-  ) +
-  theme_minimal(12)
-```
-
-## K-means
-
-Again, use your `gravier_data_wide` and then go and visit this [K-means clustering with tidy data principles](https://www.tidymodels.org/learn/statistics/k-means/) post and work through the example.
+- Go and visit this [K-means clustering with tidy data principles](https://www.tidymodels.org/learn/statistics/k-means/) post
+- Your task is to work through the blog post using the `gravier`-dataset to crate a kmeans-analysis
