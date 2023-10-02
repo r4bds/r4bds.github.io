@@ -38,7 +38,7 @@ Did you?
 
 - Match your group number with DTU Learn groups
 - Add Group number, names and student ids?
-- Just answer the one task marked as "Group Assignment"
+- Only answer what is defined as "Group Assignment"
 - Create the assignment using Quarto
 - Modify the YAML-header to ensure encapsulation
 - Include Group number, names and student ids

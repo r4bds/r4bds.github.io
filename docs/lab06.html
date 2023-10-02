@@ -320,6 +320,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#all-the-genes-all-the-models" id="toc-all-the-genes-all-the-models" class="nav-link" data-scroll-target="#all-the-genes-all-the-models">All the Genes, all the models</a></li>
   <li><a href="#models-models-everywhere" id="toc-models-models-everywhere" class="nav-link" data-scroll-target="#models-models-everywhere">Models, models everywhere…</a></li>
   </ul></li>
+  <li><a href="#group-assignment" id="toc-group-assignment" class="nav-link" data-scroll-target="#group-assignment"><span style="color: red;">GROUP ASSIGNMENT</span></a></li>
   <li><a href="#optional" id="toc-optional" class="nav-link" data-scroll-target="#optional">Optional</a>
   <ul class="collapse">
   <li><a href="#pca" id="toc-pca" class="nav-link" data-scroll-target="#pca">PCA</a></li>
@@ -367,7 +368,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="learning-materials">Learning Materials</h2>
 <p><em>Please prepare the following materials:</em></p>
 <ul>
-<li>Questionnaire (brief, 5-10 min): <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9nDaUs1OfZ6YHA2gNKeSye0rCN1KambBEYYwYU-E7G5dDLQ/viewform?usp=sf_link">Course Midway Evaluation</a></li>
+<li><strong>Important:</strong> Questionnaire (brief, 5-10 min): <a href="https://docs.google.com/forms/d/e/1FAIpQLSe9nDaUs1OfZ6YHA2gNKeSye0rCN1KambBEYYwYU-E7G5dDLQ/viewform?usp=sf_link">Course Midway Evaluation</a></li>
 <li>R4DS Book (Note, this is intentionally 1.ed.): <a href="https://r4ds.had.co.nz/model-intro.html">Chapter 22: Introduction</a>, <a href="https://r4ds.had.co.nz/model-basics.html">Chapter 23: Model Basics</a>, <a href="https://r4ds.had.co.nz/model-building.html">Chapter 24: Model Building</a>, <a href="https://r4ds.had.co.nz/many-models.html">Chapter 25: Many models</a></li>
 <li>Video: <a href="https://www.youtube.com/watch?v=7VGPUBWGv6g">Broom: Converting Statistical Models to Tidy Data Frames</a></li>
 <li>Video: <a href="https://www.youtube.com/watch?v=gLZyvY5_kWQ">Alex Hayes | Solving the model representation problem with broom | RStudio (2019)</a></li>
@@ -546,7 +547,7 @@ Click here for hint
 <ul>
 <li><strong>T6: Create a new “Analysis” header in your document</strong></li>
 </ul>
-<p>Recall, in the second lab, we were looking at “our favourite gene”. In the following either look back to what was your favourite gene or choose a new.</p>
+<p>Recall, in the second lab, we were looking at “our favourite gene”. In the following either look back to what was your favourite gene or choose a new 🤷️</p>
 <p>Let’s fit our first model! If the concept of models and linear regression is unfamiliar, consider checking out the <a href="./primer_on_linear_models_in_r.html">primer on linear models in R</a> before proceeding.</p>
 <ul>
 <li><strong>T7: Use the <code>lm</code>-function to create your first model and save it to a new variable e.g.&nbsp;“my_first_model”</strong></li>
@@ -626,7 +627,7 @@ Click here for hint
 </section>
 <section id="models-models-everywhere" class="level3">
 <h3 class="anchored" data-anchor-id="models-models-everywhere">Models, models everywhere…</h3>
-<p>In principle, you could overflow your environment with individual model objects, but that would require a lot code and a lot of hard coding. But let us instead see if we can come up with something just a tad more clever.</p>
+<p>In principle, you could overflow your environment with individual model objects, but that would require <strong>a lot</strong> of code-lines and <strong>a lot</strong> of hard-coding. But let us instead see if we can come up with something just a tad more clever.</p>
 <section id="preparing-the-data" class="level4">
 <h4 class="anchored" data-anchor-id="preparing-the-data">Preparing the Data</h4>
 <p>First:</p>
@@ -663,7 +664,7 @@ Click here for hint
 <p></p>
 <em>Recall which function took a dataset from “wide”- to “long”-format and also the three parameters of interest for that function is <code>cols</code>, <code>names_to</code> and <code>values_to</code>. If you look at my example, you will see that the columns we have pivotted have types <code>&lt;chr&gt;</code> and <code>&lt;dbl&gt;</code>, these will map to the <code>names_to</code>- and <code>values_to</code>-parameters respectively. The <code>cols</code> can be used with the so-called “helper-functions”, that we have previously talked about. If you look at the gene-columns in the data, all the genes starts with a “g”, so we can use the helper functions <code>starts_with()</code> and then give the argument “g” to the <code>match</code>-parameter</em>
 </details>
-<p>The reason we want the “long” version of the data set is, that now we have ALL the genes defined in ONE <code>gene</code>-column. This means that we can use the <code>group_by()</code>-function to work <em>per</em> gene without looping (Recall: No looping, only func!).</p>
+<p>The reason we want the “long” version of the data set is, that now we have ALL the genes defined in ONE <code>gene</code>-column. This means that we can use the <code>group_by()</code>-function to work <em>per</em> gene without looping (<em>Recall: Don’t loop, only func!</em>).</p>
 <p>Now:</p>
 <ul>
 <li><strong>T10: Create a <code>dplyr</code>-pipeline, use the <code>group_by()</code>-function to group your <code>gravier_clean_aug_long</code>-dataset by <code>gene</code> and then add the <code>nest()</code>- and <code>ungroup()</code>-functions to your pipeline</strong></li>
@@ -713,7 +714,7 @@ Click here for hint
 <ul>
 <li><strong>Q14: Moreover, discuss in your group, what does <code>&lt;tibble [168 × 2]&gt;</code> mean?</strong></li>
 </ul>
-<p>Now, <strong>if</strong> you experiencing, that the server seems slow, consider if you want to proceed now with ALL the genes or just a subset. If you just want a subset, then use <code>sample_n()</code> to randomly select 100 genes for further analysis. Remember you may want to use the <code>set.seed()</code> function to create a reproducible work flow even when sampling</p>
+<p>Now, <strong>if</strong> you experiencing, that the server seems slow, consider if you want to proceed now with ALL the genes or just a subset. If you just want a subset, then use <code>sample_n()</code> to randomly select e.g.&nbsp;100 genes for further analysis. Remember you may want to use the <code>set.seed()</code> function to create a reproducible work flow even when sampling.</p>
 <div class="cell">
 
 </div>
@@ -762,7 +763,7 @@ Click here for hint
 <p>Make sure to <strong>understand</strong> the <code>map()</code>-function here, it is <strong>completely central</strong> to functional programming with <code>purrr</code>:</p>
 <ul>
 <li>We need the <code>group_by()</code> to define which variable holds the elements to each of which we want to map</li>
-<li><code>model_object</code> is a <strong>new</strong> variable, we are creating inside the <code>mutate()</code>-function, which will contain the result of our call to the <code>map()</code>-function</li>
+<li><code>model_object</code> is a <strong>new</strong> variable, we are creating, which will contain the result of our call to the <code>map()</code>-function</li>
 <li><code>.x</code> to what <strong>exising</strong> (nested) variable are we mapping?</li>
 <li><code>.f</code> which function do we want to map to each element in the <strong>existing</strong> (nested) variable?</li>
 <li>Note that <code>log2_expr_level</code> and <code>early_metastasis</code> are variables “inside” the nested <code>data</code>-variable</li>
@@ -783,21 +784,31 @@ Click here for hint
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Here, you should replace "g2E09" with whatever was YOUR favourite gene!</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gene <span class="sc">==</span> <span class="st">"g2E09"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pull() on tibbles: This pulls out the model_object variable. Note! This is a list, because we nested!</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(model_object) <span class="sc">|&gt;</span> </span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pluck() on lists: From the list we got from the last step, we "pluck" the first element</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># The result of pluck, is a model object, upon which we can call the tidy function</span></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">conf.int =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pull() on tibbles: This pulls out the model_object variable.</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="co">#   Note! This is a list, because we nested!</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(model_object) <span class="sc">|&gt;</span> </span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pluck() on lists: From the list we got from the last step,</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">#   we "pluck" the first element</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># The result of pluck, is a model object,</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">#   upon which we can call the tidy function</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">conf.int =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, we want to apply this <code>tidy()</code>-function <em>per <code>model_object</code></em>:</p>
 <ul>
 <li><strong>T13: Scroll a bit back to where we created the <code>model_object</code> and see if you can translate that into mapping the <code>tidy()</code>-function to the <code>model_object</code>-variable, thereby creating a new variable <code>model_object_tidy</code> - This is tricky, so do make sure to discuss in your group how this can be done!</strong></li>
 </ul>
-<p><em>Remember the parameters to the <code>tidy()</code>-functions, which gives us the confidence intervals and defines corresponding level.</em></p>
+<details>
+<p>
+</p><summary>
+Click here for hint
+</summary>
+<p></p>
+<em>Remember the parameters to the <code>tidy()</code>-functions, which gives us the confidence intervals and defines corresponding level. Also, everything you need is in the previous layout of the <code>map()</code>-function. Note, that the calls to the <code>pull()</code>- and <code>pluck()</code>-functions above, pertains to <strong>extracting</strong> from a tibble, which we do <strong>not</strong> want, on the contrary, we want <strong>all</strong> objects to be contained in our <code>gravier_clean_aug_long_nested</code> data</em>
+</details>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2,905 × 4
@@ -947,10 +958,18 @@ Click here for hint
 Click here for hint
 </summary>
 <p></p>
-<em>Here,<strong>before</strong> plotting you will have to create a new label-variable which takes value <code>gene</code> for significant genes and otherwise is simply an empty string, which we denote by <code>""</code>. Also, perhaps the <code>ggrepel</code>-package would be relevant for adding text/labels</em>
+<em>Here,<strong>before</strong> plotting you will have to create a new label-variable which takes value <code>gene</code> for significant genes and otherwise is simply an empty string, which we denote by <code>""</code>. Also, perhaps the <code>ggrepel</code>-package would be relevant for somehow adding text/labels</em>
 </details>
 </section>
 </section>
+</section>
+<section id="group-assignment" class="level2">
+<h2 class="anchored" data-anchor-id="group-assignment"><span style="color: red;">GROUP ASSIGNMENT</span></h2>
+<p>For the group assignment this time, you will use <strong>T17</strong> and <strong>T18</strong> to again create a reproducible micro-report and make sure to:</p>
+<ul>
+<li><a href="https://r4bds.github.io/assignments.html">Read the assignment instructions</a></li>
+<li><a href="https://r4bds.github.io/code_styling.html">Read and follow the code styling guidelines</a></li>
+</ul>
 </section>
 <section id="optional" class="level2">
 <h2 class="anchored" data-anchor-id="optional">Optional</h2>
