@@ -424,9 +424,17 @@ Excellent! Now we have a *per gene* model. Let us use the `broom`-package to ext
 #| echo: true
 #| eval: false
 gravier_clean_aug_long_nested |>
-  filter(gene == "g2E09") |> # Replace "g2E09" with whatever was YOUR favourite gene!
-  pull(model_object) |>
+  
+  # Here, you should replace "g2E09" with whatever was YOUR favourite gene!
+  filter(gene == "g2E09") |> 
+  
+  # Pull() on tibbles: This pulls out the model_object variable. Note! This is a list, because we nested!
+  pull(model_object) |> 
+  
+  # Pluck() on lists: From the list we got from the last step, we "pluck" the first element
   pluck(1) |>
+  
+  # The result of pluck, is a model object, upon which we can call the tidy function
   tidy(conf.int = TRUE,
        conf.level = 0.95)
 ```
