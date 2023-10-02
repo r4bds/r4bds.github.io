@@ -7,8 +7,8 @@
 
 ## Schedule
 
-- 08.00 - 08.30: Recap of lab 5
-- 08.30 - 09.00: Lecture
+- 08.00 - 08.45: [Recap of Lab 5](https://raw.githack.com/r4bds/r4bds.github.io/main/recap_lab06.html)
+- 08.45 - 09.00: [Lecture](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab06.html)
 - 09.00 - 09.15: Break
 - 09.00 - 12.00: [Exercises](#sec-exercises)
 

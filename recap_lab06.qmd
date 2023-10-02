@@ -1,0 +1,1557 @@
+---
+title: "Recap Lab 6"
+author: "Leon Eyrich Jessen"
+format:
+  revealjs:
+    embed-resources: true
+    theme: moon
+    slide-number: c/t
+    width: 1600
+    height: 900
+    mainfont: avenir
+    logo: images/r4bds_logo_small.png
+    footer: "R for Bio Data Science"
+---
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Joins
+
+```{r}
+#| eval: true
+#| echo: false
+#| message: false
+
+library("tidyverse")
+```
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| eval: true
+#| echo: true
+
+X <- tibble(
+  id = c("blue_1", "blue_2", "red_3", "red_4"),
+  var_x = c(27, 42, 33, 64))
+X
+```
+
+```{r}
+#| eval: true
+#| echo: true
+
+Y <- tibble(
+  id = c("blue_1", "blue_2", "green_5", "green_6"),
+  var_x = c(63, 17, 8, 95))
+Y
+```
+
+:::
+
+::: {.column width="50%"}
+
+![](images/vis_joins.png){fig-align="center" width=90%}
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Joins
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+### `full_join()`
+
+```{r}
+#| eval: true
+#| echo: true
+
+full_join(X, Y, by = "id")
+```
+
+:::
+
+::: {.column width="50%"}
+
+![](images/vis_joins.png){fig-align="center" width=90%}
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Joins
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+### `inner_join()`
+
+```{r}
+#| eval: true
+#| echo: true
+
+inner_join(X, Y, by = "id")
+```
+
+:::
+
+::: {.column width="50%"}
+
+![](images/vis_joins.png){fig-align="center" width=90%}
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Joins
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+### `left_join()`
+
+```{r}
+#| eval: true
+#| echo: true
+
+left_join(X, Y, by = "id")
+```
+
+:::
+
+::: {.column width="50%"}
+
+![](images/vis_joins.png){fig-align="center" width=90%}
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Joins
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+### `right_join()`
+
+```{r}
+#| eval: true
+#| echo: true
+
+right_join(X, Y, by = "id")
+```
+
+:::
+
+::: {.column width="50%"}
+
+![](images/vis_joins.png){fig-align="center" width=90%}
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Joins
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+### `anti_join()`
+
+```{r}
+#| eval: true
+#| echo: true
+
+anti_join(X, Y, by = "id")
+```
+
+:::
+
+::: {.column width="50%"}
+
+![](images/vis_joins.png){fig-align="center" width=90%}
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Pivotting
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| eval: true
+#| echo: true
+
+my_data <- tibble(
+  id = c(1, 2),
+  X = c("a", "d"),
+  Y = c("b", "e"),
+  Z = c("c", "f"))
+my_data
+```
+
+:::
+
+::: {.column width="50%"}
+![](images/vis_wide_long_pivot.png){fig-align="center" width=90%}
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Pivotting
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| eval: true
+#| echo: true
+
+my_data_long <- my_data |> 
+  pivot_longer(
+    cols = c(X, Y, Z),    # Equiv.: -id
+    names_to = "names",   # Quoted: New variable
+    values_to = "values") # Quoted: New variable
+my_data_long
+```
+
+:::
+
+::: {.column width="50%"}
+![](images/vis_wide_long_pivot.png){fig-align="center" width=90%}
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Pivotting
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| eval: true
+#| echo: true
+
+my_data_wide <- my_data_long |> 
+  pivot_wider(
+    id_cols = id,
+    names_from = names,   # Un-quoted: Existing variable
+    values_from = values) # Un-quoted: Existing variable
+my_data_wide
+```
+
+:::
+
+::: {.column width="50%"}
+![](images/vis_wide_long_pivot.png){fig-align="center" width=90%}
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Lab 5 Exercises
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+### Load libraries
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+library("tidyverse")
+```
+
+:::
+
+::: {.column width="50%"}
+
+![](images/meme_surprise.png){fig-align="center" width=90%}
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Lab 5 Exercises
+
+### Load `meta` data
+
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+
+meta_data <- read_csv(file = "data/subject-metadata.csv")
+meta_data
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Lab 5 Exercises
+
+### Load `meta` data
+
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+
+meta_data <- read_csv(file = "data/subject-metadata.csv",
+                      na = "N/A")
+meta_data
+```
+
+- Important to fix `NA`s
+- Can be: `-99`, `N/A`, `-11`, `_`, `""` etc.
+- Data specific - Check!!!
+- If you're lucky: Data documentation?
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Lab 5 Exercises
+
+### Load `peptide` data
+
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+
+peptide_data <- read_csv(file = "data/peptide-detail-ci.csv.gz")
+peptide_data
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Lab 5 Exercises
+
+- **Q1: How many observations of how many variables are in the data?**
+
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+
+meta_data |>
+  dim()
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Lab 5 Exercises
+
+- **Q2: Are there groupings in the variables, i.e. do certain variables "go together" somehow?**
+
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+
+meta_data |> 
+  colnames()
+```
+
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Lab 5 Exercises
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- **T1: Re-create this plot**
+
+```{r}
+#| echo: true
+#| eval: true
+pl <- meta_data |> 
+  drop_na(Cohort, Gender) |> 
+  count(Cohort, Gender) |> 
+  ggplot(aes(x = Cohort,
+             y = n,
+             fill = Gender)) +
+  geom_col(position = position_dodge(
+    preserve = "single"),
+    colour = "black",
+    alpha = 0.5) +
+  geom_hline(yintercept = 0) +
+  theme_minimal(base_size = 20) +
+  theme(legend.position = "bottom",
+        panel.grid.major.x = element_blank(),
+        axis.text.x = element_text(angle = 10,
+                                   hjust = 1,
+                                   vjust = 1.5))
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 7
+#| fig-align: center
+
+pl
+```
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Lab 5 Exercises
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- **T2: Re-create this plot**
+
+```{r}
+#| echo: true
+#| eval: true
+
+pl <- meta_data |> 
+  mutate(Age_group = cut(
+    x = Age,
+    breaks = seq(from = 0,
+                 to = 100,
+                 by = 10))) |> 
+  drop_na(Gender, Age_group) |> 
+  count(Gender, Age_group) |> 
+  ggplot(aes(x = Age_group,
+             y = n,
+             fill = Gender)) +
+  geom_col(position = position_dodge(
+    preserve = "single"),
+    colour = "black",
+    alpha = 0.5) +
+  geom_hline(yintercept = 0) +
+  theme_minimal(base_size = 20) +
+  theme(legend.position = "bottom",
+        panel.grid.major.x = element_blank(),
+        axis.text.x = element_text(vjust = 5))
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 7
+#| #| fig-align: center
+
+pl
+```
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Lab 5 Exercises
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- **T3: Look at the data and create yet another plot as you see fit. Also skip the redundant variables `Subject`, `Cell Type` and `Target Type`**
+
+```{r}
+#| echo: true
+#| eval: true
+
+pl <- meta_data |>
+  ggplot(aes(x = Cohort,
+             y = Age,
+             fill = Gender)) +
+  geom_boxplot(position = position_dodge(
+    preserve = "single")) +
+  theme_minimal(base_size = 20) +
+  theme(legend.position = "bottom",
+        axis.text.x = element_text(angle = 10,
+                                   hjust = 1,
+                                   vjust = 1.5))
+meta_data <- meta_data |> 
+  select(-Subject, -`Cell Type`, -`Target Type`)
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 7
+#| #| fig-align: center
+
+pl
+```
+
+:::
+
+::::
+
+*Note the backticks in selecting variables, which contain spaces!*
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+library("table1") # <= Yes, this should normally go at the beginning!
+meta_data |>
+  mutate(Gender = factor(Gender),
+         Cohort = factor(Cohort)) |>
+  table1(x = formula(~ Gender + Age + Race | Cohort),
+         data = _)
+```
+
+*Super nice way to quickly get an overview of the data!*
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **T4: Create a new version of the `meta_data`, which with respect to allele-data only contains information on class I and also fix the odd naming, e.g. `HLA-A...9` becomes `A1` oand `HLA-A...10` becomes `A2` and so on for `B1`, `B2`, `C1` and `C2`**
+
+```{r}
+#| echo: true
+#| eval: true
+
+meta_data <- meta_data |>
+  select(-matches(match = "D[PQR]")) |> # Regex: D and-then-any-of P or Q or R
+  rename("A1" = `HLA-A...9`,
+         "A2" = `HLA-A...10`,
+         "B1" = `HLA-B...11`,
+         "B2" = `HLA-B...12`,
+         "C1" = `HLA-C...13`,
+         "C2" = `HLA-C...14`)
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+#### The Peptide Details Data
+
+- **Q3: How many observations of how many variables are in the data?**
+
+```{r}
+#| echo: true
+#| eval: true
+
+peptide_data |> 
+  dim()
+```
+
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **T5: As before, let's immediately subset the `peptide_data` to the variables of interest: `TCR BioIdentity`, `Experiment` and `Amino Acids`**
+
+```{r}
+#| echo: true
+#| eval: true
+
+peptide_data <- peptide_data |>
+  select(Experiment,
+         `TCR BioIdentity`,
+         `Amino Acids`)
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **Q4: Is this tidy data? Why/why not?**
+
+```{r}
+#| echo: true
+#| eval: true
+
+peptide_data
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **T6: See if you can find a way to create the below data, from the above**
+
+```{r}
+#| echo: true
+#| eval: true
+peptide_data <- peptide_data |> 
+  separate(col = `TCR BioIdentity`,
+           into = c("CDR3b", "V_gene", "J_gene"),
+           sep = "\\+") # Note the escape
+peptide_data
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **T7: Add a variable, which counts how many peptides are in each observation of `Amino Acids`**
+
+```{r}
+#| echo: true
+#| eval: true
+peptide_data <- peptide_data |> 
+  mutate(n_peptides = str_count(`Amino Acids`,
+                                pattern = ",") + 1)
+peptide_data
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- **T8: Re-create the following plot**
+
+```{r}
+#| echo: true
+#| eval: true
+
+pl <- peptide_data |> 
+  ggplot(aes(x = n_peptides)) +
+  geom_histogram(binwidth = 1,
+                 colour = "black",
+                 alpha = 0.5) + 
+  geom_hline(yintercept = 0) +
+  scale_x_continuous(breaks = 1:13) +
+  theme_minimal(base_size = 20) +
+  theme(panel.grid.minor.x = element_blank(),
+        panel.grid.major.x = element_blank(),
+        axis.text.x = element_text(vjust = 5)) +
+  labs(x = "Number of peptides per observation",
+       y = "Counts")
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 7
+#| #| fig-align: center
+
+pl
+```
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **Q4: What is the maximum number of peptides assigned to one observation?**
+
+```{r}
+#| echo: true
+#| eval: true
+max_n_peptides <- peptide_data |>
+  pull(n_peptides) |>
+  max()
+max_n_peptides
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **T9: Using the `str_c`- and the `seq`-functions, re-create the below**
+
+```{r}
+#| echo: true
+#| eval: true
+str_c("peptide_", seq(from = 1, to = 5, by = 1)) # 1:5
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **T10: Use, what you learned about separating in T6 and the vector-of-strings you created in T9 adjusted to the number from Q4 to create the below data**
+
+```{r}
+#| echo: true
+#| eval: true
+#| warning: false
+
+peptide_data <- peptide_data |> 
+  separate(col = `Amino Acids`,
+           into = str_c("peptide_", 1:max_n_peptides),
+           sep = ",")
+peptide_data |> 
+  sample_n(10)
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **Q5: Now, presumable you got a warning, discuss in your group why that is?**
+
+*Not all have 13, so `R` lets you know this! Thank you `R`* 🙏 
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **Q6: With respect to `peptide_n`, discuss in your group, if this is wide- or long-data?**
+
+```{r}
+#| echo: true
+#| eval: true
+
+peptide_data
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **T12: From the `peptide_data` data above, with peptide_1, peptide_2, etc. create this data set using one of the data-pivotting functions**
+
+```{r}
+#| echo: true
+#| eval: true
+
+peptide_data <- peptide_data |> 
+  pivot_longer(cols = contains("peptide_"),
+               names_to = "peptide_n",
+               values_to = "peptide")
+peptide_data
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **T13: Now, loose the redundant variables `n_peptides` and `peptide_n` and also get rid of the `NA`s in the `peptide`-column and make sure, that we only have unique observations, i.e. there are no repeated rows/observations**
+
+```{r}
+#| echo: true
+#| eval: true
+
+peptide_data <- peptide_data |> 
+  select(-n_peptides, -peptide_n) |> 
+  drop_na(peptide) |> 
+  distinct()
+peptide_data
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **Q8: Now how many rows and columns and is this data tidy? Discuss in your group why/why not?**
+
+Super duper tidy!
+
+- Each row is an observation
+- Each column is a variable
+- Each cell is a value
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **T14: Use the `str_detect()`-function to `filter` the `CDR3b` and `peptide` variables using a `pattern` of `[^ARNDCQEGHILKMFPSTWYV]` and then play with the `negate`-parameter so see what happens**
+
+```{r}
+#| echo: true
+#| eval: true
+
+peptide_data <- peptide_data |> 
+  filter(str_detect(CDR3b, pattern = "[^ARNDCQEGHILKMFPSTWYV]", negate = TRUE),
+         str_detect(peptide, pattern = "[^ARNDCQEGHILKMFPSTWYV]", negate = TRUE))
+peptide_data
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **T14: Use the `str_detect()`-function to `filter` the `CDR3b` and `peptide` variables**
+
+```{r}
+#| echo: true
+#| eval: true
+
+clean_amino_acids <- function(x){
+  # str_detect(x, pattern = "^[ARNDCQEGHILKMFPSTWYV]+$") will also work
+  return( str_detect(x, pattern = "[^ARNDCQEGHILKMFPSTWYV]", negate = TRUE) )
+}
+peptide_data <- peptide_data |> 
+  filter(clean_amino_acids(CDR3b),
+         clean_amino_acids(peptide))
+peptide_data
+```
+
+### DRY
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **T15: Add two new variables to the data, `k_CDR3b` and `k_peptide` each signifying the length of the respective sequences**
+
+```{r}
+#| echo: true
+#| eval: true
+
+peptide_data <- peptide_data |> 
+  mutate(k_CDR3b = str_length(CDR3b),
+         k_peptide = str_length(peptide))
+peptide_data
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- **T16: Re-create this plot**
+
+```{r}
+#| echo: true
+#| eval: true
+
+pl <- peptide_data |> 
+  ggplot(aes(x = k_CDR3b)) +
+  geom_histogram(binwidth = 1,
+                 colour = "black",
+                 alpha = 0.5) +
+  geom_hline(yintercept = 0) +
+  theme_minimal(base_size = 20)
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 7
+#| #| fig-align: center
+
+pl
+```
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- **T17: Re-create this plot**
+
+```{r}
+#| echo: true
+#| eval: true
+
+pl <- peptide_data |> 
+  ggplot(aes(x = k_peptide)) +
+  geom_histogram(binwidth = 1,
+                 colour = "black",
+                 alpha = 0.5) +
+  geom_hline(yintercept = 0) +
+  theme_minimal(base_size = 20)
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 7
+#| #| fig-align: center
+
+pl
+```
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **Q9: What is the most predominant length of the CDR3b-sequences?**
+
+- **Q10: What is the most predominant length of the peptide-sequences?**
+
+- **Q11: Discuss in your group, if this data set is tidy or not?**
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+#### Creating one data set from two data sets
+
+Before we move onto using the family of `*_join`-functions you prepared for today, we will just take a quick peek at the meta data again:
+
+```{r}
+#| echo: true
+#| eval: true
+
+meta_data |> 
+  sample_n(10)
+```
+
+- **Q12: Discuss in your group, if this data with respect to the `A1`-, `A2`-, `B1`-, `B2`-, `C1-` and `C2`-variables is a wide- or a long-data format?**
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **T18: use either the `pivot_wider`- or `pivot_longer`-function to create the following data:**
+
+```{r}
+#| echo: true
+#| eval: true
+
+meta_data <- meta_data |> 
+  pivot_longer(cols = c("A1", "A2", "B1", "B2", "C1", "C2"),
+               names_to = "Gene",
+               values_to = "Allele")
+meta_data
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **Q13: Discuss in your group, which variable(s?) define the same observations between the `peptide_data` and the `meta_data`?**
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| eval: true
+meta_data
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| eval: true
+peptide_data
+```
+
+:::
+
+::::
+
+```{r}
+#| echo: true
+#| eval: true
+intersect(colnames(meta_data), colnames(peptide_data))
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- Once you have agreed upon `Experiment`, then use that knowledge to subset the `meta_data` to the variables-of-interest:
+
+```{r}
+#| echo: true
+#| eval: true
+
+meta_data <- meta_data |> 
+  select(Experiment, Allele) |> 
+  distinct()
+meta_data
+```
+
+*Here, we are interested in capturing the `Allele`-information*
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- Some alleles are e.g. `A*11:01`, whereas others are `B*51:01:02`, let's snatch the first two fields:
+
+- **T19: Create the following data, according to specifications above:**
+
+```{r}
+#| eval: true
+#| echo: true
+meta_data <- meta_data |>
+  mutate(Allele_F_1_2 = str_extract(Allele,
+                                    # Regex: You're NOT expected to know this!
+                                    pattern = "^[ABC]\\*\\d+\\:\\d+")) |>
+  filter(Allele_F_1_2 != "") |> 
+  drop_na()
+meta_data
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- Some alleles are e.g. `A*11:01`, whereas others are `B*51:01:02`, let's snatch the first two fields:
+
+- **T19: Create the following data, according to specifications above:**
+
+```{r}
+#| eval: true
+#| echo: true
+meta_data <- meta_data |>
+  # This will work as well, but think about caveats!
+  mutate(Allele_F_1_2 = str_sub(Allele, start = 1, end = 7)) |>
+  filter(Allele_F_1_2 != "") |> 
+  drop_na()
+meta_data
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+The asterix, i.e. `*` is a rather annoying character because of ambiguity, so:
+
+- **T20: Clean the data a bit more, by removing the asterix and redundant variables:**
+
+```{r}
+#| echo: true
+#| eval: true
+meta_data <- meta_data |> 
+  mutate(Allele_F_1_2 = str_remove(Allele_F_1_2, "\\*")) |> 
+  select(-Allele) |>
+  rename(Allele = Allele_F_1_2) |> 
+  distinct()
+meta_data
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+#| eval: true
+
+peptide_data
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+#| eval: true
+
+meta_data
+```
+
+:::
+
+::::
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+- **T21: Create a `dplyr`-pipeline, starting with the `peptide_data`, which joins it with the `meta_data` and remember to make sure that you get only unqiue observations of rows. Save this data into a new variable names `peptide_meta_data` (If you get a warning, discuss in your group what it means?)**
+
+```{r}
+#| echo: true
+#| eval: true
+
+peptide_meta_data <- peptide_data |> 
+  full_join(meta_data,
+            by = "Experiment",
+            relationship = "many-to-many") |> 
+  distinct()
+peptide_meta_data |>
+  sample_n(10)
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+### Analysis
+
+Now, that we have the data in a prepared and ready-to-analyse format, let us return to the two burning questions we had:
+
+1.  What characterises the peptides binding to the HLAs?
+1.  What characterises T-cell Receptors binding to the pMHC-complexes?
+
+:::
+
+::: {.column width="50%"}
+
+![](images/meme_omg_finally.png)
+
+:::
+
+::::
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+#### Peptides binding to HLA
+
+- **T22: Subset the final `peptide_meta_data`-data to `A02:01` and unique observations of peptides of length 9 and re-create the below sequence logo**
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+#| eval: true
+library("ggseqlogo")
+pl <- peptide_meta_data |>
+  filter(Allele == "A02:01",
+         str_length(peptide) == 9) |>
+  select(peptide) |>
+  distinct() |>
+  pull(peptide) |>
+  ggseqlogo()
+
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 7
+#| #| fig-align: center
+
+pl
+```
+
+:::
+
+::::
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+#### Peptides binding to HLA - Rinse-and-Repeat!
+
+- **T23: Repeat for e.g. `B07:02` or another of your favorite alleles**
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+#| eval: true
+pl <- peptide_meta_data |>
+  filter(Allele == "B07:02",
+         str_length(peptide) == 9) |>
+  select(peptide) |>
+  distinct() |>
+  pull(peptide) |>
+  ggseqlogo()
+
+```
+
+*The reason, that the logo is actually not correct, is that we're missing something...*
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 7
+#| #| fig-align: center
+
+pl
+```
+
+:::
+
+::::
+
+- **Q14: Which positions in the peptide determines binding to HLA?**
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Lab 5 Exercises
+
+#### CDR3b-sequences binding to pMHC
+
+- **T24: Subset the `peptide_meta_data`, such that the length of the CDR3b is 15, the allele is A02:01 and the peptide is LLFLVLIML and re-create the below sequence logo of the CDR3b sequences:**
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+#| eval: true
+#| fig-align: center
+pl <- peptide_meta_data |>
+  filter(k_CDR3b == 15,
+         Allele == "A02:01",
+         peptide == "LLFLVLIML") |> 
+  pull(CDR3b) |> 
+  ggseqlogo()
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 7
+#| #| fig-align: center
+
+pl
+```
+
+:::
+
+::::
+
+
+## Epilogue
+
+- I know this overwhelming now, but commit to it and you WILL be plenty rewarded!
+- I hope this was at least a glimpse into the flexibility and capabilities of using `tidyverse` for applied Bio Data Science
+- ...also, noticed something?
+- We spend maybe 80% of the time here on dealing with data-wrangling and then once we're good to go, the analysis wasn't that time consuming!
+
+*That's often the way it ends up going, you'll spend a lot of time on data handling and getting the tidyverse toolbox in your toolbelt, will allow you to be so much more effecient in your data wrangling, so you can get to the fun part as quick as possible!*
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Secret slide: How to succeed in this course!
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+1. Prepare assigned materials for class
+1. Show up for class
+1. Pay attention during lectures
+1. Do the group exercises
+1. Do the assignments
+1. Use the assignment feedback
+1. ...and $\rightarrow$
+
+:::
+
+::: {.column width="50%"}
+
+![](images/meme_keep_fighting.png){fig-align="center"}
+
+:::
+
+::::
