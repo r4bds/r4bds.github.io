@@ -261,9 +261,9 @@ Excellent! Now we have a feeling for working with the `lm()`-functions and a bas
 
 First, the recent couple of years have seen an immense development in unifying the modelling interface in `R`, which is notoriously inconsistent. You may be familiar with the `caret`-package, the developer of which has created [tidymodels](https://www.tidymodels.org), (which I really wish we had time to explore in details). In the following we will work with some of the principles for tidying model object using `broom`, having object nested in tibbles and working with these using `purrr`.
 
-Now, you saw above how we could fit *one* model for *one* gene. So, we could repeat the procedure you worked through for each gene:
+Now, you saw above how we could fit *one* model for *one* gene. So, we could repeat the procedure you worked through for each gene, but first consider:
 
-- **Q11: For how many genes, do we have data in the gravier data set?**
+- **Q11: How many genes are there in the gravier data set?**
 
 Now, we just have to make one model for each gene!
 
@@ -332,13 +332,16 @@ gravier_clean_aug_long_nested
 ```{r}
 #| echo: true
 #| eval: false
-gravier_clean_aug_long_nested |> filter(gene == "g2E09")
+gravier_clean_aug_long_nested |>
+  filter(gene == "g2E09") # Replace "g2E09" with whatever was YOUR favourite gene!
 ```
 
 ```{r}
 #| echo: true
 #| eval: false
-gravier_clean_aug_long_nested |> filter(gene == "g2E09") |> pull(data)
+gravier_clean_aug_long_nested |>
+  filter(gene == "g2E09") |> # Replace "g2E09" with whatever was YOUR favourite gene!
+  pull(data)
 ```
 
 </details>
@@ -395,10 +398,13 @@ gravier_clean_aug_long_nested <- gravier_clean_aug_long_nested |>
                                      data = .x)))
 ```
 
-Make sure to understand the `map()`-function here, it is central to functional programming with `purrr`:
+Make sure to **understand** the `map()`-function here, it is **completely central** to functional programming with `purrr`:
 
-- `.x` to what exising (nested) variable are we mapping?
-- `.f` which function do we want to map to each element in the existing (nested) variable?
+- We need the `group_by()` to define which variable holds the elements to each of which we want to map
+- `model_object` is a **new** variable, we are creating inside the `mutate()`-function, which will contain the result of our call to the `map()`-function
+- `.x` to what **exising** (nested) variable are we mapping?
+- `.f` which function do we want to map to each element in the **existing** (nested) variable?
+- Note that `log2_expr_level` and `early_metastasis` are variables "inside" the nested `data`-variable
 
 Note, once again, this is conceptually a _super-tricky data structure_, not only do we have a *per gene* nested tibble, but now we also have a *per gene* nested model object - So please do make sure to discuss in your group, what is going on here, e.g. try running this and discuss what you see:
 
@@ -406,7 +412,7 @@ Note, once again, this is conceptually a _super-tricky data structure_, not only
 #| echo: true
 #| eval: false
 gravier_clean_aug_long_nested |>
-  filter(gene == "g2E09") |>
+  filter(gene == "g2E09") |> # Replace "g2E09" with whatever was YOUR favourite gene!
   pull(model_object)
 ```
 
@@ -418,7 +424,7 @@ Excellent! Now we have a *per gene* model. Let us use the `broom`-package to ext
 #| echo: true
 #| eval: false
 gravier_clean_aug_long_nested |>
-  filter(gene == "g2E09") |>
+  filter(gene == "g2E09") |> # Replace "g2E09" with whatever was YOUR favourite gene!
   pull(model_object) |>
   pluck(1) |>
   tidy(conf.int = TRUE,
@@ -427,7 +433,7 @@ gravier_clean_aug_long_nested |>
 
 Now, we want to apply this `tidy()`-function *per `model_object`*:
 
-- **T13: Scroll a bit back to where we created the `model_object` and see if you translate that into mapping the `tidy()`-function to the `model_object`-variable, thereby creating a new variable `model_object_tidy`.**
+- **T13: Scroll a bit back to where we created the `model_object` and see if you can translate that into mapping the `tidy()`-function to the `model_object`-variable, thereby creating a new variable `model_object_tidy` - This is tricky, so do make sure to discuss in your group how this can be done!**
 
 *Remember the parameters to the `tidy()`-functions, which gives us the confidence intervals and defines corresponding level.*
 
@@ -448,7 +454,7 @@ Note, once again, this is conceptually a _super-tricky data structure_, not only
 #| echo: true
 #| eval: false
 gravier_clean_aug_long_nested |>
-  filter(gene == "g2E09") |>
+  filter(gene == "g2E09") |> # Replace "g2E09" with whatever was YOUR favourite gene!
   pull(model_object_tidy)
 ```
 

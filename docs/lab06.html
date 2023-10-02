@@ -612,9 +612,9 @@ Click here for hint
 <section id="all-the-genes-all-the-models" class="level3">
 <h3 class="anchored" data-anchor-id="all-the-genes-all-the-models">All the Genes, all the models</h3>
 <p>First, the recent couple of years have seen an immense development in unifying the modelling interface in <code>R</code>, which is notoriously inconsistent. You may be familiar with the <code>caret</code>-package, the developer of which has created <a href="https://www.tidymodels.org">tidymodels</a>, (which I really wish we had time to explore in details). In the following we will work with some of the principles for tidying model object using <code>broom</code>, having object nested in tibbles and working with these using <code>purrr</code>.</p>
-<p>Now, you saw above how we could fit <em>one</em> model for <em>one</em> gene. So, we could repeat the procedure you worked through for each gene:</p>
+<p>Now, you saw above how we could fit <em>one</em> model for <em>one</em> gene. So, we could repeat the procedure you worked through for each gene, but first consider:</p>
 <ul>
-<li><strong>Q11: For how many genes, do we have data in the gravier data set?</strong></li>
+<li><strong>Q11: How many genes are there in the gravier data set?</strong></li>
 </ul>
 <p>Now, we just have to make one model for each gene!</p>
 <div class="quarto-figure quarto-figure-center">
@@ -701,10 +701,13 @@ Click here for hint
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>gravier_clean_aug_long_nested</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>gravier_clean_aug_long_nested <span class="sc">|&gt;</span> <span class="fu">filter</span>(gene <span class="sc">==</span> <span class="st">"g2E09"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>gravier_clean_aug_long_nested <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gene <span class="sc">==</span> <span class="st">"g2E09"</span>) <span class="co"># Replace "g2E09" with whatever was YOUR favourite gene!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>gravier_clean_aug_long_nested <span class="sc">|&gt;</span> <span class="fu">filter</span>(gene <span class="sc">==</span> <span class="st">"g2E09"</span>) <span class="sc">|&gt;</span> <span class="fu">pull</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>gravier_clean_aug_long_nested <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gene <span class="sc">==</span> <span class="st">"g2E09"</span>) <span class="sc">|&gt;</span> <span class="co"># Replace "g2E09" with whatever was YOUR favourite gene!</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <ul>
@@ -756,15 +759,18 @@ Click here for hint
 <div class="cell">
 
 </div>
-<p>Make sure to understand the <code>map()</code>-function here, it is central to functional programming with <code>purrr</code>:</p>
+<p>Make sure to <strong>understand</strong> the <code>map()</code>-function here, it is <strong>completely central</strong> to functional programming with <code>purrr</code>:</p>
 <ul>
-<li><code>.x</code> to what exising (nested) variable are we mapping?</li>
-<li><code>.f</code> which function do we want to map to each element in the existing (nested) variable?</li>
+<li>We need the <code>group_by()</code> to define which variable holds the elements to each of which we want to map</li>
+<li><code>model_object</code> is a <strong>new</strong> variable, we are creating inside the <code>mutate()</code>-function, which will contain the result of our call to the <code>map()</code>-function</li>
+<li><code>.x</code> to what <strong>exising</strong> (nested) variable are we mapping?</li>
+<li><code>.f</code> which function do we want to map to each element in the <strong>existing</strong> (nested) variable?</li>
+<li>Note that <code>log2_expr_level</code> and <code>early_metastasis</code> are variables “inside” the nested <code>data</code>-variable</li>
 </ul>
 <p>Note, once again, this is conceptually a <em>super-tricky data structure</em>, not only do we have a <em>per gene</em> nested tibble, but now we also have a <em>per gene</em> nested model object - So please do make sure to discuss in your group, what is going on here, e.g.&nbsp;try running this and discuss what you see:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>gravier_clean_aug_long_nested <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gene <span class="sc">==</span> <span class="st">"g2E09"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gene <span class="sc">==</span> <span class="st">"g2E09"</span>) <span class="sc">|&gt;</span> <span class="co"># Replace "g2E09" with whatever was YOUR favourite gene!</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(model_object)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -773,7 +779,7 @@ Click here for hint
 <p>Excellent! Now we have a <em>per gene</em> model. Let us use the <code>broom</code>-package to extract some information from each of the models. First, to get a better understanding of what is going on when calling the <code>tidy()</code>-function, try running this:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>gravier_clean_aug_long_nested <span class="sc">|&gt;</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gene <span class="sc">==</span> <span class="st">"g2E09"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gene <span class="sc">==</span> <span class="st">"g2E09"</span>) <span class="sc">|&gt;</span> <span class="co"># Replace "g2E09" with whatever was YOUR favourite gene!</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(model_object) <span class="sc">|&gt;</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">conf.int =</span> <span class="cn">TRUE</span>,</span>
@@ -781,7 +787,7 @@ Click here for hint
 </div>
 <p>Now, we want to apply this <code>tidy()</code>-function <em>per <code>model_object</code></em>:</p>
 <ul>
-<li><strong>T13: Scroll a bit back to where we created the <code>model_object</code> and see if you translate that into mapping the <code>tidy()</code>-function to the <code>model_object</code>-variable, thereby creating a new variable <code>model_object_tidy</code>.</strong></li>
+<li><strong>T13: Scroll a bit back to where we created the <code>model_object</code> and see if you can translate that into mapping the <code>tidy()</code>-function to the <code>model_object</code>-variable, thereby creating a new variable <code>model_object_tidy</code> - This is tricky, so do make sure to discuss in your group how this can be done!</strong></li>
 </ul>
 <p><em>Remember the parameters to the <code>tidy()</code>-functions, which gives us the confidence intervals and defines corresponding level.</em></p>
 <div class="cell">
@@ -806,7 +812,7 @@ Click here for hint
 <p>Note, once again, this is conceptually a <em>super-tricky data structure</em>, not only do we have a <em>per gene</em> nested tibble, but now we also have a <em>per gene</em> nested model object and now also a nested tibble of tidyed objects - So please again do make sure to discuss in your group, what is going on here, e.g.&nbsp;try running this and discuss what you see:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>gravier_clean_aug_long_nested <span class="sc">|&gt;</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gene <span class="sc">==</span> <span class="st">"g2E09"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gene <span class="sc">==</span> <span class="st">"g2E09"</span>) <span class="sc">|&gt;</span> <span class="co"># Replace "g2E09" with whatever was YOUR favourite gene!</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(model_object_tidy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
