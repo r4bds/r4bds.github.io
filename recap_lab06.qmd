@@ -15,6 +15,33 @@ format:
 
 
 
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Prologue: Process vs. Product
+
+- This course is `all about` the process
+
+- Bio Data Science is `the process` by which you create analysis results (products)
+
+- Therefore, yes you can do, e.g.:
+
+```{r}
+#| echo: true
+#| eval: false
+my_data$new_var <- some_calculation()
+my_data[my_data == "N/A"] <- NA
+```
+
+- And it will create the right `product`, but in the context of `this` course, it is `wrong`, it is the wrong `process`!
+
+- For your project, regardless of your `product`, the use of the `wrong process`, will get you `points deducted`, so you might as well get used to it!
+
+- This course is on tidyverse `R`, *not* base `R` (different dialect)
+
+*I understand you are used to thinking in products, if helpful consider in this course, that the process IS the product!*
+
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
