@@ -4,32 +4,358 @@
 
 Package(s)
 
-- [usethis](https://usethis.r-lib.org)
-- [git](https://git-scm.com/) (Actually not an R-package this time)
+-   [usethis](https://usethis.r-lib.org)
+-   [git](https://git-scm.com/) (Actually not an R-package this time)
 
 ## Schedule
 
-- 08.00 - 08.15: Recap of midway evaluation and exercises from last lab
-- 08.15 - 08.30: Assignment walk-through
-- 08.30 - 09.00: Introduction to Lab
-- 09.00 - 09.15: Break
-- 09.00 - 12.00: Exercises
+-   08.00 - 08.15: Recap of midway evaluation and exercises from last lab
+-   08.15 - 08.30: Assignment walk-through
+-   08.30 - 09.00: Introduction to Lab
+-   09.00 - 09.15: Break
+-   09.00 - 12.00: Exercises
 
 ## Learning Materials
 
-_Please prepare the following materials_
+*Please prepare the following materials*
 
-- Book: [Happy Git and GitHub for the useR](https://happygitwithr.com/) -- Read chapters 1 (intro), 20 (basic terms), 22 (branching), 23 (remotes). Do not pay much attention to syntax of specific commands, because we are not going to use them during the exercises, focus on the idea.
-- Book: [Introduction to Data Science - Data Analysis and Prediction Algorithms with R by Rafael A. Irizarry: Chapter 40 Git and GitHub](https://rafalab.github.io/dsbook/git.html) -- Some of the information here is redundant with the previous book, but very important thing is a visualization of basic git actions and screenshots of how to perform them using RStudio.
-- Video: [RStudio and Git - an Overview (Part 1)](https://www.youtube.com/watch?v=KjLycV1IWqc) -- Basic git concepts, for those who prefer listen rather than read. Books, however, contain more information.
-- Video: [How to use Git and GitHub with R](https://www.youtube.com/watch?v=kL6L2MNqPHg) -- Basic operating on git in RStudio. Complementary to second book. You can skip to 2:50, we are not going to link to git manually either way.
+-   Book: [Happy Git and GitHub for the useR](https://happygitwithr.com/) -- Read chapters 1 (intro), 20 (basic terms), 22 (branching), 23 (remotes). Do not pay much attention to syntax of specific commands, because we are not going to use them during the exercises, focus on the idea.
+-   Book: [Introduction to Data Science - Data Analysis and Prediction Algorithms with R by Rafael A. Irizarry: Chapter 40 Git and GitHub](https://rafalab.github.io/dsbook/git.html) -- Some of the information here is redundant with the previous book, but very important thing is a visualization of basic git actions and screenshots of how to perform them using RStudio.
+-   Video: [RStudio and Git - an Overview (Part 1)](https://www.youtube.com/watch?v=KjLycV1IWqc) -- Basic git concepts, for those who prefer listen rather than read. Books, however, contain more information.
+-   Video: [How to use Git and GitHub with R](https://www.youtube.com/watch?v=kL6L2MNqPHg) -- Basic operating on git in RStudio. Complementary to second book. You can skip to 2:50, we are not going to link to git manually either way.
 
 ## Learning Objectives
 
-_A student who has met the objectives of the session will be able to:_
+*A student who has met the objectives of the session will be able to:*
 
-- Explain why reproducible data analysis is important
-- Identify associated relevant challenges
-- Explain replicability versus reproducibility
-- Describe the components of a reproducible data analysis
-- Use RStudio and GitHub (git) for collaborative bio data science projects
+-   Explain why reproducible data analysis is important
+-   Identify associated relevant challenges
+-   Explain replicability versus reproducibility
+-   Describe the components of a reproducible data analysis
+-   Use RStudio and GitHub (git) for collaborative bio data science projects
+
+## Task 1.1 Set up a repository on GitHub
+
+1.  Go to the [GitHub website](https://github.com/).
+
+2.  **One team member:** create a new repository. Select ***r4bds*** as the owner -- in this way the repository will become assigned to our course organization (If some of you haven't got assigned to the organization yet, inform us immediately!). Name the repo `group-X-git-tutorial` where *X* is your group number. Select the *public* option. Select to *initialize it with README.md*. After hitting *Create repository* you will see your new repo with initial file and initial commit.
+
+3.  **The same team member:** Go to repository *Settings* (bar above the files), select *Access -\> Collaborators* and hit *Add people*. Here add names of your teammates. Each of the other team members should get an email with an invitation to be a collaborator.
+
+4.  **All other team members:** Go to your email account and accept the invitation.
+
+Right now all of you should have access to commit to this repository.
+
+## Task 1.2 Clone a repository to RStudio Cloud
+
+**This task and the three following are meant only for one team member**, but others will do similar steps later, so you should all pay attention (but don't steal each other passwords ;) )!
+
+Go to the `RStudio Cloud` and in upper right corner select *New Project \> New Project from Git Repository*. Paste the URL of your repo (should look like: [*https://github.com/REPO-OWNER-USERNAME/REPO-USERNAME*](https://github.com/REPO-OWNER-USERNAME/REPO-USERNAME)). Congrats! You all have a copy of a repository in your project! This action of setting up a copy of a repository is called **cloning**. Now it's time, to set up some settings.
+
+## Task 1.3 Configure your environment
+
+This task is only for **one team member, the same as in the previous task**, but others will do similar steps later, so you should all pay attention.
+
+**This should be done every time you set up a new project in RStudio cloud**.
+
+Setup your `GitHub` name and email for the project. You do it by typing in the console `usethis::use_git_config(user.name = "USERNAME", user.email = "USEREMAIL@EXAMPLE.ORG")` replacing *USERNAME* with your `GiHub` username and `USEREMAIL@EXAMPLE.ORG` with your `GitHub` email.
+
+## Task 1.4 Set up PAT
+
+This task is only for **one team member, the same as in the previous task**, but others will do similar steps later, so you should all pay attention.
+
+When using `GitHub` with `RStudio`, you should either configure `SSH` connections or use `Personal Access Token` (`PAT`). We're going to use the latter one, as it is recommended by `RStudio`.
+
+`PAT` is like a password, but meant to be used when interacting with `GitHub` via some third-party tool -- in your case: `RStudio Cloud`. You need to generate it via `GitHub` page. Once you generate it, you will never be able to see it again, you need to store it securely. It also has expiration date, after which you need to generate a new `PAT`.
+
+In order to get `PAT`, perform those actions:
+
+1.  Type in the console `usethis::create_github_token()`. You're going to be redirected to `GitHub` website.
+
+2.  You need to type your password. Don't change the default settings of creating the token except for the description -- set 'RStudio Cloud' or something similar. Then hit *Generate token*.
+
+3.  Copy the generated token (should start with *ghp\_*) and **store it securely** (e.g. in password manager). Do not keep it in a plain file.
+
+**You will need to repeat those actions every 30 days or when you lose your PAT.**
+
+Right now, when you have your `PAT` created, you can use it. You will be asked for it when trying to pull or push from remote repository (as a password). If you don't want to wait for it, you can set it up for your session. **Either way, PAT is kept in memory for 15 minutes or until restart of R session, so you need to type PAT every time**.
+
+Manual setting up the `PAT`: 1. Type in the console `gitcreds::gitcreds_set()`. 2. Paste the `PAT`
+
+If you want to know more about credentials or need any help, look [here](https://usethis.r-lib.org/articles/git-credentials.html).
+
+## Task 1.5 Commit first files
+
+This task is only for **one team member, the same as in the previous task**.
+
+1.  Open *git* tab in your `RStudio` project (by default located at top-right panel), stage two files present here: a file called *.gitignore* and a file with an extension *.Rproj*.
+
+2.  Commit the files, adding some commit message (e.g. *My first commit*). After commiting, the state of the repository should look like this:
+
+    ![](images/git_commit(1).png)
+
+3.  Push the changes. Your repos state should be like in the figure:
+
+    ![](images/git_commit(2).png)
+
+Now, some explanations: **.gitignore** is a special file, which states which other files of the project shouldn't be considered as potential candidates to be commited (we're going to discuss it later). **.Rproj** is a project configuration file. We are commiting them right now, because they are created automatically, when creating new project in `RStudio` from `git` repository. If all the team members have had created project from `git` repository first, you would have different `.Rproj` files and that would create conflicts. So now, all others should be ready to clone the repository.
+
+## Task 1.6 Sync the repository for other team members
+
+This task is for all the **other team members** that were not doing anything in the previous tasks.
+
+You simply do everything from **Task 1.2., 1.3. and 1.4.**.
+
+After this task, your repositories state should look similar to this:
+
+![](images/clone_repo_all.png)
+
+# Basic commiting and synchronizing
+
+## Task 2.1 Create and commit a file
+
+From now I will be using only *commit*, when referring to *staging* and *commiting*. You always need to stage before commiting.
+
+1.  **Each team member:** Create any file in your `RStudio`, it can be a simple text file with or without any extension. Fill the file with any content. Save it with a **unique name among your team**, e.g. your name.
+
+2.  **Each team member, one by one:** Pull from the remote repository, stage and commit the file, push the changes.
+
+3.  **Each team member:** Browse through the commit history (don't mistake it with R commands history located in *History* tab), compare it with each other and with remote repository history (can be found on `GitHub` webpage). Make sure you understand what has happened.
+
+## Task 2.2 Concurrent modifications
+
+This is the simplest workflow of using `git`: **pull, add (tick boxes in RStudio), commit, push**. As long as you don't modify the same file you can use it to synchronize your work. Try mastering that now!
+
+1.  **Each team member, one by one:** Pull, modify one or two of the files (e.g. add a line, remove a line, modify a line; it doesn't have to be the same file as in the previous task), commit and push.
+
+2.  **Each team member, one by one:** Pull, rename one file, commit and push.
+
+3.  **Each team member, one by one:** Pull, delete one file, push.
+
+## Task 2.3 Ignorance
+
+***.gitignore*** is a very special file for your `git` repository. It states which files in the repository **shouldn't be commited**. You can, for example, exclude files including passwords (**DON'T EVER DARE COMMITING ANY PASSWORDS/KEYS**) which you want to have locally but not in commit history. A very common practice is also excluding your pdf result files (if they don't take too long to compile). If you have a reproducible workflow, which at the end knits some pdf from `rmarkdown` document, you should definitely commit the ".Rmd" file, but consider ignoring the ".pdf", as anyone can rerun it and get the same result.
+
+[This website](https://www.atlassian.com/git/tutorials/saving-changes/gitignore) shows a nice table showing how what you can write in your ".gitignore" file.
+
+1.  **One team member:** Create a file named "stupid_file.txt", but don't commit it.
+
+2.  **The same team member:** Add a line "stupid_file.txt" to your ".gitignore" file. Commit it, push it. Right now you should not see an option to stage the "stupid_file.txt" anymore.
+
+3.  **All team members:** Pull. Create your own "stupid_file.txt".
+
+4.  **One team member:** Create a "document" directory. Create an ".Rmd" document with any content (may be the default) in the "document" directory, but don't knit it. Commit it.
+
+5.  **The same team member:** Knit the document. Ignore the resulting file by adding an appropriate line in the ".gitignore". Commit changes in the ".gitignore". Push it.
+
+6.  **One team member:** Pull.
+
+## Task 2.4 Guardians of the directory
+
+Another special file is ***.gitkeep***.
+
+You can check what happens, if you create a directory in your local repository. You cannot stage it, as you could do with regular files.
+
+Sometimes you really want to keep a folder, but don't keep the content -- for example, your workflow assumes downloading really big files which you don't want to push to remote repository, but you want to keep a folder for the sake of synchronization.
+
+1.  **One team member:** Create a folder called "abc". Inside create an empty file called ".gitkeep". Commit and push it.
+
+2.  **All team members:** Pull.
+
+3.  **One team member:** In the directory "abc" create a file called "XYZ.csv" with any content inside (it can stay empty). Don't commit the file, but add it to ".gitignore" regarding the path (it should be "abs/XYZ.csv"). Commit the ".gitignore" and push.
+
+4.  **All team members:** Pull.
+
+Right now you could write code that, e.g. downloads a file called "XYZ.csv" to a folder "abc" and you are sure that the folder exists and the file itself won't get commited.
+
+## Task 2.5 Readme
+
+Very common file for a repository is ***README.md***. This file is usually a showcase of your repo and `GitHub` (as you might have noticed it) displays it on its website. **One team member (or, if you like, each of you, one by one, like you've learnt):** Modify it right now so that it informs others why the repo exists and who contributes to it.
+
+## Task 2.6 Modify the same file. [**GROUP ASSIGNMENT**]{style="color: red;"}
+
+This task is meant to show you that in fact you can modify one file at the same time.
+
+1.  **One team member:** Pull. Create a new file consisting of 10 empty lines. Commit and push.
+
+2.  **Each team member, simultaneously:** Pull. Modify one line of the file. **Make sure that each of you modifies a distinct line**.
+
+3.  **Each team member, simultaneously:** Commit the changes without pulling. Compare each other histories.
+
+4.  **Each team member, one by one:** Pull and push. Notice the message you got when pulling (except for the first one of you).
+
+5.  **Each team member:** Pull to make sure to have the same state of the repository.
+
+Your **GROUP ASSIGNMENT** is any written document (might be even a simple \".txt\" file) containing the link to your repository and name of the file used in this exercise. We can inspect it by using **blame** feature, which shows who commited and what was commited.
+
+# Conflict Solving
+
+## Task 3.1 Create a basic conflict
+
+1.  **One team member:** Create a new file consisting of three identical lines, each containing single \"A\" letter. Commit and push.
+
+2.  **Each team member, simultaneously:** Pull. Replace the second line of the file with some other letter. **Make sure that each of you uses a distinct letter**.
+
+3.  **Each team member, simultaneously:** Commit the changes without pulling.
+
+4.  **One team member:** Push. You shouldn\'t have any conflict.
+
+5.  **Every other team member, one by one:**
+
+-   Pull. That should cause a merge conflict with a message like this:
+
+```         
+Auto-merging FILENAME CONFLICT 
+(content): Merge conflict in FILENAME
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+But don\'t worry, that\'s okay!
+
+-   Solve the conflict. Right now in the conflicting file you should have an information where conflict starts (`<<<<<<< HEAD`), what is your version of the file (`HEAD` indicates that it is your local version), the separator (`=======`), what is the central repo version and where conflict ends (`>>>>>>>` followed by some hexadecimal number, which is a commit hash). It should look simillar to this:
+
+```         
+A 
+<<<<<<< HEAD
+C 
+======= 
+B
+>>>>>>> 58c9456390ba7d075cbb110c4ff9eee5491158e4
+A
+```
+
+You need to decide how the final version should look like by simply editing the file. You can, for example, concatenate the letters from your version and from repo version. After those changes it migh look like this:
+
+```         
+A 
+C
+B
+A
+```
+
+-   Commit and push.
+
+6.  **Each team member:** Pull to make sure to have the same state of the repository.
+
+## Task 3.2 More Conflicts!
+
+If you\'re gonna work with git, conflicts are gonna happen, definitely. You need to learn how to deal with them. Try creating some conflicts and dealing with them! Conflicting situations are, for example:
+
+-   First commit modifies a line, the other modifies the same line (that\'s example from the previous task).
+
+-   First commit modifies a line, the other deletes a line.
+
+-   First commit modifies a file, the other deletes a file.
+
+-   First commit creates a file, the other creates a file of the same name.
+
+Conflicts may also be a combination of those and span across multiple commits and multiple files. Play with it!
+
+Make sure that each of you understand how to deal with conflicts (that\'s very important for group work, both in `git` and real life). Make sure that you know hot to browse through commit history and understand, what\'s going on there.
+
+# Basic Branching
+
+Now, we\'re gonna learn how to do basic branching, which allows you all to work on different stuff while still staying in sync and avoiding conflicts. And also -- keping the difference between your official version and the version under development.
+
+**Note:** Preparation materials for this class did not show how to create, checkout and merge branches using GUI. Worry not! I\'m including some screenshots to show you where to look for those options.
+
+## Task 4.1 Create a branch
+
+1.  **Each group member:** Create a branch in your `RStudio`. You do it by clicking a button shown in an image below. Name the branch with your student id number. Make sure that option *Sync branch with remote* is checked.
+
+![](images/create_branch.png){fig-align="center"}
+
+**Checkouting** means stwiching the branch which is currently displayed in your working directory. If you have some work commited on one branch and then you checkout to the other branch, where there are no those commits, those changes will disappear from your working directory and only stuff commited on the other branch will be displayed.
+
+If you want to checkout using `RStudio`, use the button marked at the image above. After creating a branch you\'re automatically checkouted to this branch.
+
+2.  **Each group member:** Go to your repository at the `GitHub` website and switch between different branch display. You can do it by clicking a button shown in an image below.
+
+![](images/see_branches_github.png){fig-align="center"}
+
+You can checkout branches on the website to browse through the files. You can also commit changes via the website, but **it is not recommended**. The `GitHub` has a lot of other really useful features beyond the scope of this class.
+
+## Task 4.2 Commit, synchronize and compare branches
+
+1.  **Each team member, simultaneously:** Make sure you have checkouted your branch in `RStudio`.
+
+2.  **Each team member, simultaneously:** Create a file named with your student id. Commit it. Push it. Wait for others.
+
+3.  **Each team member, simultaneously:** Checkout some other branch of your teammate (may require pulling previously and also after switching). Your file should disappear and instead their file should appear. Isn\'t that nice?
+
+4.  **Each team member, simultaneously:** Browse through this changes using also `GitHub` interface. Get familiar with it.
+
+5.  **Each team member, simultaneously:** Go back to `RStudio`. Checkout your own branch.
+
+## Task 4.3 Merge all branches into main
+
+Right now we have a few different branches containing different work. The situation is similar to what we have previously. Previously all of you had distinct changes locally, each local and the remote repository was slightly different. Right now all local and remote repositories are exactly the same, but there are some differences between branches.
+
+The advantage of using branches is very simple: we can still have synchronized work without any merge conflicts during development. When I am working on their own branch, there is no need to constantly worry that somebody will push to main branch before I do!
+
+But at some point you need to merge the changes either way...
+
+You can do it locally using `command line interface (CLI)`, but we won\'t do it within this class. `RStudio` doesn\'t have a GUI suited for merging local changes. So we need to do it using a **pull request** `GitHub` feature.
+
+A **pull request** is -- as the name indicates -- a request to pull changes from one branch to the other. (It is actually more powerful, as it allows to pull branches between different repositories, but again -- that\'s out of scope.) In this case all of you have both **pull** and **push** access, so you can both open and accept pull requests. Accepting pull request means merging changes from one branch into the other. It\'s time to merge all newly created branches into main!
+
+1.  **Each team member, simultaneously:** Go to the `GitHub` website. Select *Pull requests* (PR) tab. Create a new PR (shown below).
+
+![](images/pull_request_1.png){fig-align="center"}
+
+2.  **Each team member, simultaneously:** Select *main* branch as a *base*. Select your branch as a *compare*. Hit the creation button (image below).
+
+![](images/pull_request_2.png){fig-align="center"}
+
+3.  **Each team member, simultaneously:** Provide some descriptive PR title. Hit another green button. Wait for all the others.
+
+![](images/pull_request_3.png){fig-align="center"}
+
+4.  **Each team member, simultaneously:** Go to the *Pull requests* tab once again. You should be able to see all the PR created by you and others. Since you all have *pull* access, you all can accept all pull requests. Select your PR by clicking it.
+5.  **Each team member, one by one:** Accept your pull request, by clicking *Merge* and then *Confirm merge*. After that other PRs need to refresh, because you\'re all merging into the same branch and GH needs time to process it.
+
+Yay!
+
+Notice that right now *main* contains all the work (you can browse through the history using `RStudio` GUI or `GitHub` to verify it), but all other branches do not! You can merge *main* into all other branches now, but it is not necessary, might be even excessive. You can instead delete the other branch. You have a button to do so on your `GitHub` website, under your closed pull request.
+
+Deleting a branch is deleting some specific view of the repository, not the commits itself -- since all commits are now merged into main. You should not bond with branches, they are just names referring to some commits and their ancestors. As it was said during the lecture -- it is a common practice to create a lot of branches during the development.
+
+## Task 4.4 Recreate merge conflict between different branches
+
+Now, it\'s time to do some conflicts! As I\'ve mentioned, branches allow us to avoid conflicts during development within the branch (if each branch is developed by one person -- cause you can also work on one branch just as you did with main.). However, branching probably won\'t save you from conflicts when merging them.
+
+You are going to reproduce the conflict from **Task 3.1.**, but using branches instead.
+
+1.  **Each team member, simultaneously:** Checkout *main* branch.
+
+2.  **One team member:** Create a new file consisting of three identical lines, each containing single \"A\" letter. Commit and push.
+
+3.  **Each team member, simultaneously:** Pull. Create a new branch called `feature/X` where `X` is your student id. Remember to select *Sync branch with remote* option.
+
+4.  **Each team member, simultaneously:** Replace the second line of the recently created file with some other letter. Commit and push.
+
+5.  **Every other team member, one by one:** Now merge your branch into *main*, just like in the **Task 4.3.**. The first person to merge shouldn\'t have any conflict. All others will stumble across a conflict. There are some notes:
+
+-   When creating a pull request between conflicting branches, you will get an information about it like in a screenshot below. Create a PR despite this red, terryfying message.
+
+![](images/merge_conflict_1.png){fig-align="center"}
+
+-   Find a button to resolve conflicts after creating a PR.
+
+![](images/merge_conflict_2.png){fig-align="center"}
+
+-   An editor should open where you can resolve the conflict just like you did previously. Then select *Mark as resolved* and *Commit merge*. After that you can accept a PR!
+
+## The next steps and further reading
+
+This isn\'t actually a task, but a suggestion for you. I hope that you\'ve already realized that `git` is a very powerful tool, useful way beyond the scope of this course and learning it may bring a lot of profit. However, at this point functionality of `RStudio GUI` ends and you need to learn how to use it from the command line. I\'d like to recommend you a few resources.
+
+[There](https://learngitbranching.js.org/) is a wonderful interactive guide on learning `git` commands, including advanced branching. That\'s how I learned most of the `git`, definitely worth it!
+
+[Here](http://git-cheatsheet.com/) you have a simple cheatsheet with the most useful commands.
+
+[Ultimate and comprehensive free book on git](https://git-scm.com/book/en/v2) is also available.
+
+Advanced `GitHub` features (although, not actually *very* advanced) may be very useful for future, especially if you want to contribute to some open source project. I recommend you to look at the website, look at some other repos (e.g. [ggplot2 official repo](https://github.com/tidyverse/ggplot2)) and browse through issues, pull request, organizations, projects, GH actions, etc. -- all this stuff is actually quite intuitive and easy to learn by simply working with it. If you want some tutorials [there is a GitHub organization for it](https://github.com/githubtraining).
+
+Hope you\'ve had fun!
