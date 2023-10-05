@@ -1,8 +1,9 @@
 # Lab 7: Collaborative Bio Data Science using GitHub via RStudio {.unnumbered}
 
-Package(s)
+## Package(s)
 
 - [usethis](https://usethis.r-lib.org)
+- [gitcreds](https://gitcreds.r-lib.org/reference/gitcreds_get.html)
 - [git](https://git-scm.com/) (Actually not an R-package this time)
 
 ## Schedule
@@ -17,10 +18,10 @@ Package(s)
 
 _Please prepare the following materials_
 
-- Book: [Happy Git and GitHub for the useR](https://happygitwithr.com/) -- Read chapters 1 (intro), 20 (basic terms), 22 (branching), 23 (remotes). Do not pay much attention to syntax of specific commands, because we are not going to use them during the exercises, focus on the idea.
-- Book: [Introduction to Data Science - Data Analysis and Prediction Algorithms with R by Rafael A. Irizarry: Chapter 40 Git and GitHub](https://rafalab.github.io/dsbook/git.html) -- Some of the information here is redundant with the previous book, but very important thing is a visualization of basic git actions and screenshots of how to perform them using RStudio.
-- Video: [RStudio and Git - an Overview (Part 1)](https://www.youtube.com/watch?v=KjLycV1IWqc) -- Basic git concepts, for those who prefer listen rather than read. Books, however, contain more information.
-- Video: [How to use Git and GitHub with R](https://www.youtube.com/watch?v=kL6L2MNqPHg) -- Basic operating on git in RStudio. Complementary to second book. You can skip to 2:50, we are not going to link to git manually either way.
+- Book: [Happy Git and GitHub for the useR](https://happygitwithr.com/) -- Read chapters 1 (intro), 20 (basic terms), 22 (branching), 23 (remotes). Do not pay much attention to syntax of specific commands, because we are not going to use them during the exercises, focus on the idea
+- Book: [Introduction to Data Science - Data Analysis and Prediction Algorithms with R by Rafael A. Irizarry: Chapter 40 Git and GitHub](https://rafalab.github.io/dsbook/git.html) -- Some of the information here is redundant with the previous book, but very important thing is a visualization of basic git actions and screenshots of how to perform them using RStudio
+- Video: [RStudio and Git - an Overview (Part 1)](https://www.youtube.com/watch?v=KjLycV1IWqc) -- Basic git concepts, for those who prefer listen rather than read. Books, however, contain more information
+- Video: [How to use Git and GitHub with R](https://www.youtube.com/watch?v=kL6L2MNqPHg) -- Basic operating on git in RStudio. Complementary to second book. You can skip to 2:50, we are not going to link to git manually either way
 
 ## Learning Objectives
 
@@ -379,4 +380,4 @@ Your assignment this time, will be to:
 1. Make sure to check the [Assignment Guidelines](https://r4bds.github.io/assignments.html)
 1. And also follow the [Course Code Styling](https://r4bds.github.io/code_styling.html)
 
-*Note, focus here is on the `git` learning objectives, so focus on those while reproducing the post into a nice concise micro-report!*
+*Note, focus here is on the `git` learning objectives, so focus less on fancy plots and more on `git`, while reproducing the post into a nice concise tidy micro-report!*
