@@ -1,6 +1,4 @@
-# Lab 7: Scripting in a Reproducible and Collaborative Framework using GitHub via RStudio {.unnumbered}
-
-#### STOP: Section not yet completed!
+# Lab 7: Collaborative Bio Data Science using GitHub via RStudio {.unnumbered}
 
 Package(s)
 
@@ -30,9 +28,10 @@ _A student who has met the objectives of the session will be able to:_
 
 - Explain why reproducible data analysis is important
 - Identify associated relevant challenges
-- Explain replicability versus reproducibility
 - Describe the components of a reproducible data analysis
 - Use RStudio and GitHub (git) for collaborative bio data science projects
+
+#### STOP: The following is not yet completed!
 
 ## Exercises {#sec-exercises}
 
@@ -374,10 +373,10 @@ First of all, here we have just scratched the surface. You can [read much more h
 Your assignment this time, will be to:
 
 1. Go to [this post](https://clauswilke.com/blog/2020/09/07/pca-tidyverse-style/) on "PCA tidyverse style" by Claus O. Wilke, Professor of Integrative Biology
-1. Again, create a micro-report, this time, where you do a code-along
+1. Again, create a reproducible micro-report, this time, where you do a code-along
 1. Use your GitHub group repository to collaborate
 1. Your hand in will be a link to your micro-report in your GitHub group repository
 1. Make sure to check the [Assignment Guidelines](https://r4bds.github.io/assignments.html)
 1. And also follow the [Course Code Styling](https://r4bds.github.io/code_styling.html)
 
-*Note, focus here is on the `git` learning objectives, so focus on those while reproducing the post into a nice micro-report!*
+*Note, focus here is on the `git` learning objectives, so focus on those while reproducing the post into a nice concise micro-report!*
