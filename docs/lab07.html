@@ -311,6 +311,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
   <li><a href="#your-first-collaboration" id="toc-your-first-collaboration" class="nav-link" data-scroll-target="#your-first-collaboration">Your first collaboration</a></li>
   <li><a href="#your-next-collaboration" id="toc-your-next-collaboration" class="nav-link" data-scroll-target="#your-next-collaboration">Your next collaboration</a></li>
+  <li><a href="#your-first-branching" id="toc-your-first-branching" class="nav-link" data-scroll-target="#your-first-branching">Your first branching</a></li>
+  <li><a href="#your-first-branch-merging" id="toc-your-first-branch-merging" class="nav-link" data-scroll-target="#your-first-branch-merging">Your first branch merging</a></li>
+  <li><a href="#your-first-merge-conflict" id="toc-your-first-merge-conflict" class="nav-link" data-scroll-target="#your-first-merge-conflict">Your first merge conflict</a></li>
+  <li><a href="#the-.gitignore-file" id="toc-the-.gitignore-file" class="nav-link" data-scroll-target="#the-.gitignore-file">The .gitignore file</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -573,6 +577,137 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Go to the group GitHub, find the <code>group_document.qmd</code> and click it, do you see your changes?</li>
 </ol>
 <p>Once <strong>everyone</strong> has added to their assigned section, <strong>everyone</strong> should do a pull/push, so <strong>everyone</strong> has the complete version of the <code>group_document.qmd</code>.</p>
+</section>
+</section>
+<section id="your-first-branching" class="level3">
+<h3 class="anchored" data-anchor-id="your-first-branching">Your first branching</h3>
+<p>Ok that’s pretty great so far - Right? The thing is… Consider, the <code>ggplot2</code> repository, that you found in <em>T1</em>. Thousands of companies and even more thousands of people rely on <code>ggplot</code> for advanced data visualisation. What would happen, if you wanted to add a new feature or wanted to optimise an existing one, while people were actively installing your package? They would get what stage your code was in, which may or may not be functional - Enter branching!</p>
+<p>Below here, is an illustration, consider the <strong><span style="color:green;">Master</span></strong> the stable version people can download and use and then <strong><span style="color:blue;">Your Work</span></strong> will be the feature or update that you personally are working on. <strong><span style="color:orange;">Someone Else’s Work</span></strong> will be another team and that persons work on a new feature or update. Before the last <strong><span style="color:green;">green</span></strong> circle, note how both the <strong><span style="color:blue;">Your Work</span></strong>- and <strong><span style="color:orange;">Someone Else’s Work</span></strong>-branches are merged onto the <strong><span style="color:green;">Master</span></strong>-branch.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/git_branching_merging.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+<p><em>There can be even more branches</em></p>
+<ul>
+<li><strong>Q4:</strong> Again, find the <code>ggplot</code> GitHub site and see if you can find how many branches there are?</li>
+</ul>
+<section id="team-3" class="level4">
+<h4 class="anchored" data-anchor-id="team-3"><strong><span style="color:darkgreen;">Team</span></strong></h4>
+<ol type="1">
+<li>Go to your RStudio session and in the <code>git</code>-tab of the <code>Environment</code>-pane, click <img src="images/git_new_branch.png" class="img-fluid"> <code>New Branch</code></li>
+<li>In branch name, enter your student id</li>
+<li>You should see a pop-up <code>Branch 'STUDENT_ID' set up to track remote branch 'STUDENT_ID' from 'origin'.</code>, go ahead and click <code>Close</code></li>
+<li>Next to where you clicked <code>New Branch</code> just before, it should now say <code>STUDENT_ID</code>, click it and confirm that you see <code>STUDENT_ID</code> and <code>Main</code></li>
+<li>Look at the illustration above and make sure you are on par with that from the original branch <code>main</code>, which is equivalent with <strong><span style="color:green;">Master</span></strong>, you have created a new branch <code>STUDENT_ID</code>, which is equivalent to <strong><span style="color:blue;">Your Work</span></strong></li>
+<li>Click <code>STUDENT_ID</code> and you will get a confirmation that you are already on that branch and that you are up-to-date, click <code>Close</code></li>
+<li>In the <code>group_document.qmd</code> under your section, using markdown, enter a new sub-header and name it e.g.&nbsp;<code>New feature</code> or <code>New analysis</code></li>
+<li>Enter some text, a few code chunks with a bit of <code>R</code>-code of your choosing and save the document</li>
+<li>Again, in the <code>git</code>-tab, tick the box under staged and click <code>Commit</code></li>
+<li>Add a commit message, e.g.&nbsp;<code>New feature from STUDENT_ID</code> and click <code>Commit</code></li>
+<li>Click <code>Close</code>, <code>Pull</code>, <code>Close</code>, <code>Push</code> and <code>Close</code> and then close the commit window</li>
+<li>Go to your group GitHub and confirm that you now have at least 2 branches</li>
+<li>Make sure you are in the main branch and then click the <code>group_document.qmd</code>, you should now <strong>not</strong> see your new feature/analysis that you added</li>
+<li>On the left, where it says <code>main</code>, click and select your <code>STUDENT_ID</code>, you <strong>should</strong> now see your new feature/analysis that you added</li>
+</ol>
+<p><em>Congratulations! You have now succesfully done your first branching!</em></p>
+</section>
+</section>
+<section id="your-first-branch-merging" class="level3">
+<h3 class="anchored" data-anchor-id="your-first-branch-merging">Your first branch merging</h3>
+<ol type="1">
+<li>Go to your groups GitHub page, at the top it should say <code>STUDENT_ID had recent pushes...</code>, click the <code>Compare &amp; pull request</code></li>
+<li>Your commit message will appear and where it says <code>Leave a comment</code>, add a comment like e.g.&nbsp;<code>I'm done, all seems to be working now!</code> or similar</li>
+<li>Click <code>Create pull request</code></li>
+<li>It should now say <code>This branch have no conflicts with the base branch</code>, confirm and click <code>Merge pull request</code></li>
+<li>Click <code>Confirm merge</code> after which it should now say <code>Pull request successfully merged and closed</code></li>
+<li>You have now fully merged, so go ahead and click <code>Delete branch</code></li>
+<li>Revisit the previous illustration and compare with your branch workflow, make sure that everyone in the groups are on par here</li>
+<li>Finally return to your RStudio session and make sure you switch to the <code>main</code>-branch</li>
+</ol>
+<p><em>Congratulations! You have now succesfully done your first branch merge!</em></p>
+<p>But wait, what was this <code>Pull request</code>??? What you actually did, was: 1. Created a new branch 1. Completed a new feature/analysis 1. Push’ed the new feature/analysis to GitHub 1. Created a <code>Pull request</code> for merging your branch <code>STUDENT_ID</code> into the <code>main</code> branch 1. Approved and completed the <code>Pull request</code></p>
+<p>Think about e.g.&nbsp;again the <code>ggplot2</code>-repo, if anyone could create a new branch and then do as described above, then there would be no way of making quality control. Therefore, typically such pull requests will have to be approved by someone. This can either be someone who is close-to-the-code e.g.&nbsp;in the case of <code>ggplot2</code>, that’d be someone like Hadley. In a company, then that might be some senior developer approving junior developers pull requests. At one point you might have seen something like “The min branch is unprotected”, this is exactly that!</p>
+</section>
+<section id="your-first-merge-conflict" class="level3">
+<h3 class="anchored" data-anchor-id="your-first-merge-conflict">Your first merge conflict</h3>
+<p>Okay, that’s all good an well. Seems easy and straight forward, right? Well, that is as long as we don’t have a <code>conflict</code>. A conflict is when two or more changes to one file are not compatible, consider:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Top <span class="dv">10</span> Data Science Languages of ALL Time<span class="sc">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fl">10.</span> It is </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fl">9.</span> Impossible</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fl">8.</span> to rank them</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fl">7.</span> Because</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fl">6.</span> programming is subjective</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fl">5.</span> and everyone</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fl">4.</span> has</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> different</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> tastes</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In fact, let’s screw things up!</p>
+<section id="captain-2" class="level4">
+<h4 class="anchored" data-anchor-id="captain-2"><strong><span style="color:darkgreen;">Captain</span></strong></h4>
+<ol type="1">
+<li>Go to the RStudio session and where you usually click <code>Quarto Document...</code>, this time let’s just create a simple <code>Text File</code></li>
+<li>Copy/paste the <code>Top 10 Data Science Languages of ALL Time</code> into the file</li>
+<li>Save the file as <code>best_ds_langs.txt</code></li>
+<li>Make sure you are in the <code>main</code>-branch</li>
+<li>Do a commit/pull/push and check the file ended at your group github</li>
+</ol>
+</section>
+<section id="crew-2" class="level4">
+<h4 class="anchored" data-anchor-id="crew-2"><strong><span style="color:darkgreen;">Crew</span></strong></h4>
+<p>Let’s commit mutiny! (pun intended)</p>
+<ol type="1">
+<li>Make sure you are in the <code>main</code>-branch and then hit <code>Pull</code></li>
+<li>Open the <code>best_ds_langs.txt</code></li>
+<li>Each of you separatly (wrongfully) replace <code>R</code> with an (inferior) data science language of your choice (you can really write anything)</li>
+<li>Now, this time <strong>we do not pull first</strong>, simply commit and then push</li>
+<li>Now you can <code>pull</code></li>
+<li>You will now get notified about a <code>merge conflict</code></li>
+<li>Close and re-open the <code>best_ds_langs.txt</code>-file, it should look something like:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Top <span class="dv">10</span> Data Science Languages of ALL Time<span class="sc">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fl">10.</span> It is </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fl">9.</span> Impossible</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fl">8.</span> to rank them</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fl">7.</span> Because</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fl">6.</span> programming is subjective</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fl">5.</span> and everyone</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fl">4.</span> has</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> different</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> tastes</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> C<span class="sc">++</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="er">=======</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> Python</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span><span class="er">&gt;&gt;&gt;&gt;&gt;&gt;</span> 85283ca3246b7f7462ab633085f92ac5f173d3e7</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="captain-3" class="level4">
+<h4 class="anchored" data-anchor-id="captain-3"><strong><span style="color:darkgreen;">Captain</span></strong></h4>
+<p>Get your <strong><span style="color:darkgreen;">Crew</span></strong> in order!</p>
+<ol type="1">
+<li>Simply edit the file so that you delete everything below 2. and add the final line, which emphasises that <code>1. R is superiour!</code></li>
+<li>The box under <code>Staged</code> looks a bit odd right, just click it</li>
+<li>Click <code>Commit</code> and add a commit message, e.g.&nbsp;<code>Fixed merge conflict, got crew back in order!</code></li>
+<li>Click <code>Commit</code>, <code>Close</code>, <code>Pull</code>, <code>Close</code>, <code>Push</code>, <code>Close</code> and close the commit window</li>
+<li>Return to your GitHub group and confirm all is in order and you can continue with confidence knowing that <code>R is superiour!</code> (Check the file to make sure)</li>
+</ol>
+<p><em>Congratulations! You have now fixed your first merge conflict!</em></p>
+</section>
+</section>
+<section id="the-.gitignore-file" class="level3">
+<h3 class="anchored" data-anchor-id="the-.gitignore-file">The .gitignore file</h3>
+<p>You may have noticed the <code>.gitignore</code>-file?</p>
+<section id="team-4" class="level4">
+<h4 class="anchored" data-anchor-id="team-4"><strong><span style="color:darkgreen;">Team</span></strong></h4>
+<ol type="1">
+<li>Go to your RStudio session, find the <code>.gitignore</code>-file and click it</li>
+</ol>
+<p>It contains a list of files and folders, which should <strong>not</strong> end up at your <code>git</code>-repo, i.e.&nbsp;files which should be ignored.</p>
 
 
 </section>
