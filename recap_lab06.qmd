@@ -1,5 +1,5 @@
 ---
-title: "Recap Lab 6"
+title: "Recap Lab 5"
 author: "Leon Eyrich Jessen"
 format:
   revealjs:

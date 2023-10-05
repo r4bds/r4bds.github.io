@@ -13,7 +13,7 @@ Package(s)
 - 08.15 - 08.30: Assignment walk-through
 - 08.30 - 09.00: Introduction to Lab
 - 09.00 - 09.15: Break
-- 09.00 - 12.00: Exercises
+- 09.00 - 12.00: [Exercises](#sec-exercises)
 
 ## Learning Materials
 
@@ -33,3 +33,196 @@ _A student who has met the objectives of the session will be able to:_
 - Explain replicability versus reproducibility
 - Describe the components of a reproducible data analysis
 - Use RStudio and GitHub (git) for collaborative bio data science projects
+
+## Exercises {#sec-exercises}
+
+### Prologue
+
+![](images/git_collab.gif){fig-align="center" width=80%}
+
+*Using `git` is completely central for collaborative bio data science. You can use `git` not only for `R`, but for any code-based collaboration. All bioinformatics departments in major players in Danish Pharma, are using `git` - Learning `git` is a key bio data science skill! Today, you will take your first steps - Happy Learning!*
+
+- **T1:** Find the `GitHub` repository for the `ggplot2` R-package
+- **Q1:** How many Contributors are there?
+- **T1:** Find the `GitHub` repository for the `Linux kernel`
+- **Q2:** How many Contributors are there?
+- **Q3:** Discuss in your group why having an organised approach to version control is central? And consider the simple contrast of the challenges you were facing when doing the course assignments.
+
+### Getting Started
+
+**The following exercises have to be done in your groups! You must move at the same pace and progress together as a team through the exercises!**
+
+*GitHub is **the** place for collaborative coding and different group members will have to do different tasks in a specific order, to make it through the exercises together, so... Team Up and don't rush it!*
+
+First, select a team **<span style="color:darkgreen;">Captain</span>**, that person will have to carry out specific tasks. If **<span style="color:darkgreen;">Team</span>** is stated, then that refers to all group members and lastly if **<span style="color:darkgreen;">Crew</span>** is stated, then that is everyone but the **<span style="color:darkgreen;">Captain</span>**. Please note, that tasks are sequential, so if a task is assigned to the **<span style="color:darkgreen;">Captain</span>**, then the **<span style="color:darkgreen;">Crew</span>** has to await completion before proceeding!
+
+#### **<span style="color:darkgreen;">Team</span>**
+
+1. Go to [GitHub](https://github.com) and login
+1. In the upper left corner, click your username and select `rforbiodatascience23`
+1. In the upper left corner, click `Repositories`
+
+#### **<span style="color:darkgreen;">Captain</span>**
+
+1. Click `Create a new repository`
+1. Select `Owner` as `rforbiodatascience23`
+1. Name the repository `groupXX`, where `XX` is your group number, e.g. `02`
+1. Select `Public`
+1. Tick `Add a README file`
+1. Click `Create repository`
+1. Click `Settings` in the menu line starting with `<> Code`
+1. Under `Access`, click `Collaborators and teams`
+1. Click `Add people`
+1. Write a group members username
+1. Click the correct suggestion
+1. Select `Admin` as role
+1. Select `Add username to this repository`
+1. Repeat for all group members
+
+#### **<span style="color:darkgreen;">Crew</span>**
+
+1. Check your mail and accept your invitation to join the repository
+
+#### **<span style="color:darkgreen;">Team</span>**
+
+1. [Click here](https://teaching.healthtech.dtu.dk/22100/rstudio.php) to go to the course RStudio cloud server and login
+1. In the upper right corner, where it should say ![](images/paths_new_proj.png)`r_for_bio_data_science`, click
+1. Choose ![](images/paths_new_proj_plus.png) `New Project...`
+1. Select ![](images/icon_version_control.png) **Version Control**
+1. Select ![](images/icon_git.png) **Git**
+1. Under `Repository URL:`, enter `https://github.com/rforbiodatascience23/groupXX`, where again you replace `XX` with your group number, e.g. `02`
+1. Under `Project directory name:`, enter `lab07_git_exercises`
+1. Under `Create project as a subdirectory of:`, make sure that is says `~/projects`
+1. Click `Create Project`
+
+*Congratulations! You have just cloned your first GitHub repository!*
+
+In your `Files`-pane, you should now see:
+
+![](images/git_first_files.png){fig-align="center" width=40%}
+
+...and now in your `Environment`-pane, you should see a new `git`-tab:
+
+![](images/git_environment_pane.png){fig-align="center" width=50%}
+
+If you click the `git`-tab, you should see:
+
+![](images/environment_pane_git_tab.png){fig-align="center" width=50%}
+
+### Your first collaboration
+
+#### **<span style="color:darkgreen;">Team</span>**
+
+1. Create a new Quarto document, title it `student_id` and save id as `student_id.qmd`, where `student_id` is your... You guessed it!
+1. In the `environment`-pane, click the `git`-tab
+1. Tick the 3 boxes under `staged`
+1. Click `commit`
+1. In the upper right corner, add a `Commit message`, e.g "First commit by student_id"
+1. Click the `Commit`-button
+1. A pop-up, will give you details on your commit, look through them and then click `Close`
+1. Now, very important **ALWAYS** click the ![](images/pull.png) `Pull`-button **BEFORE** clicking the ![](images/push.png) `Push`-button
+1. Clicking `Pull`, you should see "Already up to date."
+1. Then click `Push`
+
+- **Q4:** Discuss in your group, what happened and why? Try copying the message and paste it into google, did you get any hits?
+
+*Do not start solving this issue just yet, simply realise, that `git` is being used by literally millions of people on a daily basis, the chance that you will encounter a unique error, that no one else have ever seen is slim-to-nothing! So if you end up in trouble, googl'ing the message, is not a bad initial stab at the problem!*
+
+#### Setting up your Credentials and Personal Access Token (**<span style="color:darkgreen;">Team</span>**)
+
+*GitHub doesn't know who you are, you're just someone who cloned your first GitHub repository and now you want to do all sorts of stuff! We can't have that, so let's fix that GitHub doesn't know who you are!*
+
+1. In the `Console`, run the command:
+
+```{r}
+#| echo: true
+#| eval: false
+usethis::use_git_config(user.name = "YOUR_GITHUB_USERNAME", user.email = "THE_EMAIL_YOU_USED_TO_CREATE_YOUR_GITHUB_ACCOUNT")
+```
+
+2. In the `Console`, run the command:
+
+```{r}
+#| echo: true
+#| eval: false
+usethis::create_github_token()
+```
+
+3. Login
+4. Under `Note`, where it says `DESCRIBE THE TOKEN'S USE CASE`, delete the text and write e.g.`R for Bio Data Science lab 7 git exercises`
+5. Under `Expiration`, where it says `30 days`, change that to `90 days`
+6. Do not change any other setting, but simply scroll down and click `Generate token`
+7. A new `Personal access tokens (classic)`-page will appear, stating your personal access token, which starts with `ghp_`, go ahead and copy it
+8. Store the `PAT` somewhere save, e.g. in a password management tool
+9. Again in the console, run the below command and enter your `PAT` when prompted:
+
+```{r}
+#| echo: true
+#| eval: false
+gitcreds::gitcreds_set()
+```
+
+10. In the `Environment`-pane, make sure you are in the `git`-tab and again click `Pull` (We *always* pull before push)
+11. Click `Push`
+12. Go to your groups `GitHub`-project page `https://github.com/rforbiodatascience23/groupXX`
+13. Confirm, that you see your files
+
+*Congratulations! You just took your first step towards true collaborative bio data science!*
+
+Stop, wait a minute and make sure, that **ALL** group members are at this stage of the exercises.
+
+#### Making your Credentials and Personal Access Token stick around (**<span style="color:darkgreen;">Team</span>**)
+
+*The thing is, we're actually working on a Linux server her, this entails a that you're credentials and PAT exists in a cache, which is cleared every 15 minutes. This. Is. Annoying! So let's fix it!*
+
+First of all RStudio is a (G)raphical (U)ser (I)nterface, meaning, that it allows you to do pointy-clicky stuff, but at the end of the day, everything happens at the commandline. That also goes for git, so your button-pushing simply gets converted into commands, which are executed at the commandline. If you are not comfortable with the commandline, don't worry, the pointy-clicky stuff will be sufficient for now! If you are comfortable with the commandline, I advice to get comfortable with git on the commandline as well, you do get some extra bang-for-the-buck!
+
+Now, a brief visit of the commandline:
+
+1. In the `Console`-pane, click the `Terminal`-tab, which gains you access to the system underlying RStudio
+1. You should see something like `user@pupilX:/net/pupilX/home/people/user/projects/lab07_git_exercises$`
+1. Enter `ls -a`, this will `l`ist `a`ll the files, compare with your `Files`-pane, you will see that RStudio is "hiding" something from you, namely the `.git` folder
+1. Enter `ls -a .git` and you will see the content of the folder, this is where all the git-magic happens
+1. See the config file? That holds the configuration, enter `git config --global --list`
+1. Recall you entered your GitHub username and mail? This is where it ended up! Note the `credential.helper=cache`, which tells us, that the credentials are being cached. Now, enter `git config --global credential.helper 'cache --timeout=86400'`
+1. Re-run the command `git config --global --list` and confirm the change
+1. Go back to your `Console` and run the command `gitcreds::gitcreds_set()` and re-enter your PAT
+
+*Congratulations! You have now used the commandline and you will forever be part of an elite few, who know that everything you see in hacker-movies is BS, except perhaps for Wargames and Mr. Robot! Also, your PAT will now be good for 24h* 
+
+### Your next collaboration
+
+*That first collaboration was easy right!? Well, you were all working on different files...*
+
+#### **<span style="color:darkgreen;">Captain</span>**
+
+1. Create a new Quarto Document, title it "Group Document" and save it as `group_document.qmd`
+1. Using markdown headers, create one section for each group member, incl. yourself. Here, you can use your names, student ids or whatever you deem appropriate
+1. Again in the `Environment`-pane, make sure you are in the `git`-tab and then tick the box next to `group_document.qmd`
+1. Click `Commit`
+1. Add a commit message, e.g. "Add group document"
+1. Click the `Commit`-button
+1. Click `Pull` (You should be "Already up to date.")
+1. Click `Push`
+1. Click `Close`
+1. Again, go to the group GitHub and confirm that you see the new document you just created
+
+#### **<span style="color:darkgreen;">Crew</span>**
+
+1. Click `Pull` and confirm that you now also have the file `group_document.qmd`
+1. Open `group_document.qmd` and find your assigned section
+1. In your section and your section only, enter some text, add a few code chunks with some `R`-code
+1. Make sure to save the document
+1. Now again, find the `group_document.qmd` in the `git`-tab of the `Environment`-pane and tick the box under `Staged`
+1. Click `Commit`
+1. Note how your changes to the document are highlighted in green
+1. Add a commit message, e.g. "Update the STUDENT_ID section" and click `Commit`
+1. Click `Close`
+1. Click `Pull`
+1. Click `Push`
+1. Go to the group GitHub, find the `group_document.qmd` and click it, do you see your changes?
+
+Once **everyone** has added to their assigned section, **everyone** should do a pull/push, so **everyone** has the complete version of the `group_document.qmd`.
+
+
+

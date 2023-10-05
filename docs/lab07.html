@@ -15,6 +15,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -242,6 +305,13 @@ ul.task-list{list-style: none;}
   <li><a href="#schedule" id="toc-schedule" class="nav-link active" data-scroll-target="#schedule">Schedule</a></li>
   <li><a href="#learning-materials" id="toc-learning-materials" class="nav-link" data-scroll-target="#learning-materials">Learning Materials</a></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#sec-exercises" id="toc-sec-exercises" class="nav-link" data-scroll-target="#sec-exercises">Exercises</a>
+  <ul class="collapse">
+  <li><a href="#prologue" id="toc-prologue" class="nav-link" data-scroll-target="#prologue">Prologue</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  <li><a href="#your-first-collaboration" id="toc-your-first-collaboration" class="nav-link" data-scroll-target="#your-first-collaboration">Your first collaboration</a></li>
+  <li><a href="#your-next-collaboration" id="toc-your-next-collaboration" class="nav-link" data-scroll-target="#your-next-collaboration">Your next collaboration</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -279,7 +349,7 @@ ul.task-list{list-style: none;}
 <li>08.15 - 08.30: Assignment walk-through</li>
 <li>08.30 - 09.00: Introduction to Lab</li>
 <li>09.00 - 09.15: Break</li>
-<li>09.00 - 12.00: Exercises</li>
+<li>09.00 - 12.00: <a href="#sec-exercises">Exercises</a></li>
 </ul>
 </section>
 <section id="learning-materials" class="level2">
@@ -302,8 +372,211 @@ ul.task-list{list-style: none;}
 <li>Describe the components of a reproducible data analysis</li>
 <li>Use RStudio and GitHub (git) for collaborative bio data science projects</li>
 </ul>
+</section>
+<section id="sec-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="sec-exercises">Exercises</h2>
+<section id="prologue" class="level3">
+<h3 class="anchored" data-anchor-id="prologue">Prologue</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/git_collab.gif" class="img-fluid figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<p><em>Using <code>git</code> is completely central for collaborative bio data science. You can use <code>git</code> not only for <code>R</code>, but for any code-based collaboration. All bioinformatics departments in major players in Danish Pharma, are using <code>git</code> - Learning <code>git</code> is a key bio data science skill! Today, you will take your first steps - Happy Learning!</em></p>
+<ul>
+<li><strong>T1:</strong> Find the <code>GitHub</code> repository for the <code>ggplot2</code> R-package</li>
+<li><strong>Q1:</strong> How many Contributors are there?</li>
+<li><strong>T1:</strong> Find the <code>GitHub</code> repository for the <code>Linux kernel</code></li>
+<li><strong>Q2:</strong> How many Contributors are there?</li>
+<li><strong>Q3:</strong> Discuss in your group why having an organised approach to version control is central? And consider the simple contrast of the challenges you were facing when doing the course assignments.</li>
+</ul>
+</section>
+<section id="getting-started" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started">Getting Started</h3>
+<p><strong>The following exercises have to be done in your groups! You must move at the same pace and progress together as a team through the exercises!</strong></p>
+<p><em>GitHub is <strong>the</strong> place for collaborative coding and different group members will have to do different tasks in a specific order, to make it through the exercises together, so… Team Up and don’t rush it!</em></p>
+<p>First, select a team <strong><span style="color:darkgreen;">Captain</span></strong>, that person will have to carry out specific tasks. If <strong><span style="color:darkgreen;">Team</span></strong> is stated, then that refers to all group members and lastly if <strong><span style="color:darkgreen;">Crew</span></strong> is stated, then that is everyone but the <strong><span style="color:darkgreen;">Captain</span></strong>. Please note, that tasks are sequential, so if a task is assigned to the <strong><span style="color:darkgreen;">Captain</span></strong>, then the <strong><span style="color:darkgreen;">Crew</span></strong> has to await completion before proceeding!</p>
+<section id="team" class="level4">
+<h4 class="anchored" data-anchor-id="team"><strong><span style="color:darkgreen;">Team</span></strong></h4>
+<ol type="1">
+<li>Go to <a href="https://github.com">GitHub</a> and login</li>
+<li>In the upper left corner, click your username and select <code>rforbiodatascience23</code></li>
+<li>In the upper left corner, click <code>Repositories</code></li>
+</ol>
+</section>
+<section id="captain" class="level4">
+<h4 class="anchored" data-anchor-id="captain"><strong><span style="color:darkgreen;">Captain</span></strong></h4>
+<ol type="1">
+<li>Click <code>Create a new repository</code></li>
+<li>Select <code>Owner</code> as <code>rforbiodatascience23</code></li>
+<li>Name the repository <code>groupXX</code>, where <code>XX</code> is your group number, e.g.&nbsp;<code>02</code></li>
+<li>Select <code>Public</code></li>
+<li>Tick <code>Add a README file</code></li>
+<li>Click <code>Create repository</code></li>
+<li>Click <code>Settings</code> in the menu line starting with <code>&lt;&gt; Code</code></li>
+<li>Under <code>Access</code>, click <code>Collaborators and teams</code></li>
+<li>Click <code>Add people</code></li>
+<li>Write a group members username</li>
+<li>Click the correct suggestion</li>
+<li>Select <code>Admin</code> as role</li>
+<li>Select <code>Add username to this repository</code></li>
+<li>Repeat for all group members</li>
+</ol>
+</section>
+<section id="crew" class="level4">
+<h4 class="anchored" data-anchor-id="crew"><strong><span style="color:darkgreen;">Crew</span></strong></h4>
+<ol type="1">
+<li>Check your mail and accept your invitation to join the repository</li>
+</ol>
+</section>
+<section id="team-1" class="level4">
+<h4 class="anchored" data-anchor-id="team-1"><strong><span style="color:darkgreen;">Team</span></strong></h4>
+<ol type="1">
+<li><a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">Click here</a> to go to the course RStudio cloud server and login</li>
+<li>In the upper right corner, where it should say <img src="images/paths_new_proj.png" class="img-fluid"><code>r_for_bio_data_science</code>, click</li>
+<li>Choose <img src="images/paths_new_proj_plus.png" class="img-fluid"> <code>New Project...</code></li>
+<li>Select <img src="images/icon_version_control.png" class="img-fluid"> <strong>Version Control</strong></li>
+<li>Select <img src="images/icon_git.png" class="img-fluid"> <strong>Git</strong></li>
+<li>Under <code>Repository URL:</code>, enter <code>https://github.com/rforbiodatascience23/groupXX</code>, where again you replace <code>XX</code> with your group number, e.g.&nbsp;<code>02</code></li>
+<li>Under <code>Project directory name:</code>, enter <code>lab07_git_exercises</code></li>
+<li>Under <code>Create project as a subdirectory of:</code>, make sure that is says <code>~/projects</code></li>
+<li>Click <code>Create Project</code></li>
+</ol>
+<p><em>Congratulations! You have just cloned your first GitHub repository!</em></p>
+<p>In your <code>Files</code>-pane, you should now see:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/git_first_files.png" class="img-fluid figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+<p>…and now in your <code>Environment</code>-pane, you should see a new <code>git</code>-tab:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/git_environment_pane.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p>If you click the <code>git</code>-tab, you should see:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/environment_pane_git_tab.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="your-first-collaboration" class="level3">
+<h3 class="anchored" data-anchor-id="your-first-collaboration">Your first collaboration</h3>
+<section id="team-2" class="level4">
+<h4 class="anchored" data-anchor-id="team-2"><strong><span style="color:darkgreen;">Team</span></strong></h4>
+<ol type="1">
+<li>Create a new Quarto document, title it <code>student_id</code> and save id as <code>student_id.qmd</code>, where <code>student_id</code> is your… You guessed it!</li>
+<li>In the <code>environment</code>-pane, click the <code>git</code>-tab</li>
+<li>Tick the 3 boxes under <code>staged</code></li>
+<li>Click <code>commit</code></li>
+<li>In the upper right corner, add a <code>Commit message</code>, e.g “First commit by student_id”</li>
+<li>Click the <code>Commit</code>-button</li>
+<li>A pop-up, will give you details on your commit, look through them and then click <code>Close</code></li>
+<li>Now, very important <strong>ALWAYS</strong> click the <img src="images/pull.png" class="img-fluid"> <code>Pull</code>-button <strong>BEFORE</strong> clicking the <img src="images/push.png" class="img-fluid"> <code>Push</code>-button</li>
+<li>Clicking <code>Pull</code>, you should see “Already up to date.”</li>
+<li>Then click <code>Push</code></li>
+</ol>
+<ul>
+<li><strong>Q4:</strong> Discuss in your group, what happened and why? Try copying the message and paste it into google, did you get any hits?</li>
+</ul>
+<p><em>Do not start solving this issue just yet, simply realise, that <code>git</code> is being used by literally millions of people on a daily basis, the chance that you will encounter a unique error, that no one else have ever seen is slim-to-nothing! So if you end up in trouble, googl’ing the message, is not a bad initial stab at the problem!</em></p>
+</section>
+<section id="setting-up-your-credentials-and-personal-access-token-team" class="level4">
+<h4 class="anchored" data-anchor-id="setting-up-your-credentials-and-personal-access-token-team">Setting up your Credentials and Personal Access Token (<strong><span style="color:darkgreen;">Team</span></strong>)</h4>
+<p><em>GitHub doesn’t know who you are, you’re just someone who cloned your first GitHub repository and now you want to do all sorts of stuff! We can’t have that, so let’s fix that GitHub doesn’t know who you are!</em></p>
+<ol type="1">
+<li>In the <code>Console</code>, run the command:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"YOUR_GITHUB_USERNAME"</span>, <span class="at">user.email =</span> <span class="st">"THE_EMAIL_YOU_USED_TO_CREATE_YOUR_GITHUB_ACCOUNT"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>In the <code>Console</code>, run the command:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Login</li>
+<li>Under <code>Note</code>, where it says <code>DESCRIBE THE TOKEN'S USE CASE</code>, delete the text and write e.g.<code>R for Bio Data Science lab 7 git exercises</code></li>
+<li>Under <code>Expiration</code>, where it says <code>30 days</code>, change that to <code>90 days</code></li>
+<li>Do not change any other setting, but simply scroll down and click <code>Generate token</code></li>
+<li>A new <code>Personal access tokens (classic)</code>-page will appear, stating your personal access token, which starts with <code>ghp_</code>, go ahead and copy it</li>
+<li>Store the <code>PAT</code> somewhere save, e.g.&nbsp;in a password management tool</li>
+<li>Again in the console, run the below command and enter your <code>PAT</code> when prompted:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="10" type="1">
+<li>In the <code>Environment</code>-pane, make sure you are in the <code>git</code>-tab and again click <code>Pull</code> (We <em>always</em> pull before push)</li>
+<li>Click <code>Push</code></li>
+<li>Go to your groups <code>GitHub</code>-project page <code>https://github.com/rforbiodatascience23/groupXX</code></li>
+<li>Confirm, that you see your files</li>
+</ol>
+<p><em>Congratulations! You just took your first step towards true collaborative bio data science!</em></p>
+<p>Stop, wait a minute and make sure, that <strong>ALL</strong> group members are at this stage of the exercises.</p>
+</section>
+<section id="making-your-credentials-and-personal-access-token-stick-around-team" class="level4">
+<h4 class="anchored" data-anchor-id="making-your-credentials-and-personal-access-token-stick-around-team">Making your Credentials and Personal Access Token stick around (<strong><span style="color:darkgreen;">Team</span></strong>)</h4>
+<p><em>The thing is, we’re actually working on a Linux server her, this entails a that you’re credentials and PAT exists in a cache, which is cleared every 15 minutes. This. Is. Annoying! So let’s fix it!</em></p>
+<p>First of all RStudio is a (G)raphical (U)ser (I)nterface, meaning, that it allows you to do pointy-clicky stuff, but at the end of the day, everything happens at the commandline. That also goes for git, so your button-pushing simply gets converted into commands, which are executed at the commandline. If you are not comfortable with the commandline, don’t worry, the pointy-clicky stuff will be sufficient for now! If you are comfortable with the commandline, I advice to get comfortable with git on the commandline as well, you do get some extra bang-for-the-buck!</p>
+<p>Now, a brief visit of the commandline:</p>
+<ol type="1">
+<li>In the <code>Console</code>-pane, click the <code>Terminal</code>-tab, which gains you access to the system underlying RStudio</li>
+<li>You should see something like <code>user@pupilX:/net/pupilX/home/people/user/projects/lab07_git_exercises$</code></li>
+<li>Enter <code>ls -a</code>, this will <code>l</code>ist <code>a</code>ll the files, compare with your <code>Files</code>-pane, you will see that RStudio is “hiding” something from you, namely the <code>.git</code> folder</li>
+<li>Enter <code>ls -a .git</code> and you will see the content of the folder, this is where all the git-magic happens</li>
+<li>See the config file? That holds the configuration, enter <code>git config --global --list</code></li>
+<li>Recall you entered your GitHub username and mail? This is where it ended up! Note the <code>credential.helper=cache</code>, which tells us, that the credentials are being cached. Now, enter <code>git config --global credential.helper 'cache --timeout=86400'</code></li>
+<li>Re-run the command <code>git config --global --list</code> and confirm the change</li>
+<li>Go back to your <code>Console</code> and run the command <code>gitcreds::gitcreds_set()</code> and re-enter your PAT</li>
+</ol>
+<p><em>Congratulations! You have now used the commandline and you will forever be part of an elite few, who know that everything you see in hacker-movies is BS, except perhaps for Wargames and Mr.&nbsp;Robot! Also, your PAT will now be good for 24h</em></p>
+</section>
+</section>
+<section id="your-next-collaboration" class="level3">
+<h3 class="anchored" data-anchor-id="your-next-collaboration">Your next collaboration</h3>
+<p><em>That first collaboration was easy right!? Well, you were all working on different files…</em></p>
+<section id="captain-1" class="level4">
+<h4 class="anchored" data-anchor-id="captain-1"><strong><span style="color:darkgreen;">Captain</span></strong></h4>
+<ol type="1">
+<li>Create a new Quarto Document, title it “Group Document” and save it as <code>group_document.qmd</code></li>
+<li>Using markdown headers, create one section for each group member, incl.&nbsp;yourself. Here, you can use your names, student ids or whatever you deem appropriate</li>
+<li>Again in the <code>Environment</code>-pane, make sure you are in the <code>git</code>-tab and then tick the box next to <code>group_document.qmd</code></li>
+<li>Click <code>Commit</code></li>
+<li>Add a commit message, e.g.&nbsp;“Add group document”</li>
+<li>Click the <code>Commit</code>-button</li>
+<li>Click <code>Pull</code> (You should be “Already up to date.”)</li>
+<li>Click <code>Push</code></li>
+<li>Click <code>Close</code></li>
+<li>Again, go to the group GitHub and confirm that you see the new document you just created</li>
+</ol>
+</section>
+<section id="crew-1" class="level4">
+<h4 class="anchored" data-anchor-id="crew-1"><strong><span style="color:darkgreen;">Crew</span></strong></h4>
+<ol type="1">
+<li>Click <code>Pull</code> and confirm that you now also have the file <code>group_document.qmd</code></li>
+<li>Open <code>group_document.qmd</code> and find your assigned section</li>
+<li>In your section and your section only, enter some text, add a few code chunks with some <code>R</code>-code</li>
+<li>Make sure to save the document</li>
+<li>Now again, find the <code>group_document.qmd</code> in the <code>git</code>-tab of the <code>Environment</code>-pane and tick the box under <code>Staged</code></li>
+<li>Click <code>Commit</code></li>
+<li>Note how your changes to the document are highlighted in green</li>
+<li>Add a commit message, e.g.&nbsp;“Update the STUDENT_ID section” and click <code>Commit</code></li>
+<li>Click <code>Close</code></li>
+<li>Click <code>Pull</code></li>
+<li>Click <code>Push</code></li>
+<li>Go to the group GitHub, find the <code>group_document.qmd</code> and click it, do you see your changes?</li>
+</ol>
+<p>Once <strong>everyone</strong> has added to their assigned section, <strong>everyone</strong> should do a pull/push, so <strong>everyone</strong> has the complete version of the <code>group_document.qmd</code>.</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
