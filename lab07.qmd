@@ -8,9 +8,9 @@
 
 ## Schedule
 
-- 08.00 - 08.10: Midway evaluation
-- 08.10 - 08.30: [Recap of Lab 6](https://raw.githack.com/r4bds/r4bds.github.io/main/recap_lab06.html)
-- 08.30 - 09.00: [Lecture](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab06.html)
+- 08.00 - 08.10: [Midway evaluation](https://raw.githack.com/r4bds/r4bds.github.io/main/midway_eval_lab07.html)
+- 08.10 - 08.30: [Recap of Lab 6](https://raw.githack.com/r4bds/r4bds.github.io/main/recap_lab07.html)
+- 08.30 - 09.00: [Lecture](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab07.html)
 - 09.00 - 09.15: Break
 - 09.00 - 12.00: [Exercises](#sec-exercises)
 

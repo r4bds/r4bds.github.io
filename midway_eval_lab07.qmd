@@ -1,0 +1,122 @@
+---
+title: "Midway Evalutation"
+author: "Leon Eyrich Jessen"
+format:
+  revealjs:
+    embed-resources: true
+    theme: moon
+    slide-number: c/t
+    width: 1600
+    height: 900
+    mainfont: avenir
+    logo: images/r4bds_logo_small.png
+    footer: "R for Bio Data Science"
+---
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Midway Evaluation
+
+-   Our opportunity to understand if the course elements works as intended
+-   Your opportunity to let us know, how the course looks on the students side
+-   Super important to align
+-   Roughly half the students answered this year
+-   THANK YOU for your important contribution
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Highlights: What's Working Well in the Course
+
+-   Practical Emphasis: Students value hands-on coding, exercises, and real-world application
+-   Course Resources: The course website, online book, and videos stand out as comprehensive and user-friendly tools
+-   Group Dynamics: Collaborative group work fosters discussion, problem-solving, and reinforces learning
+-   Instructor & TA Engagement: The availability, responsiveness, and teaching approach of the TAs and lecturer are highly appreciated
+-   Optimal Structure: Short, focused lectures coupled with ample exercise time enhance the learning experience
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Highlights: What could be better
+
+-   Course Pacing: Many found the course rushed, suggesting a more gradual increase in assignment difficulty and clearer priority setting for reading materials
+-   Assignments: Students called for clearer instructions, better group assignment structures, and improved matching of skill levels within groups
+-   Tools & Platform: Frequent issues with the server and mixed reviews on the use of Piazza. Calls for earlier upload of materials
+-   Lecture Content: Desire for more in-depth explanations and possibly recorded lectures. Some found morning lectures unnecessary
+-   General Structure: Balancing in-depth lectures and hands-on exercises is a challenge. Concerns about the volume and clarity of assignments
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Highlights: Group Assignment Element
+
+-   Group Size & Dynamics: Majority appreciate group work but some concerns on size and coordination, especially when members have varying skills
+-   Assignment Pacing: Mixed views on weekly deadlines; some find it stressful while others value the consistency
+-   Feedback Quality: Generally positive, but a few didn't realize feedback was given or wanted more detail
+-   Task Nature: Some assignments perceived more suitable for individual work rather than group-focused
+-   Group vs. Individual Learning: Recognition of group learning benefits, but some prefer individual pace due to task nature
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Highlights: Open input and feedback
+
+-   General Positivity: Students appreciate the course structure, content, and real-data exercises
+-   Course Timing: Some prefer a later start time and more consistent pacing
+-   Technical Concerns: Issues with R-server speed and reliability
+-   Flexibility in Coding: Desire for more coding method options beyond dplyr/tidyverse
+-   Additional Support: Interest in clearer assignments, an introduction to GitHub, and more TA availability
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## 
+
+![](images/midway_01.png){fig-align="center" width=100%}
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## 
+
+![](images/midway_02.png){fig-align="center" width=100%}
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## 
+
+![](images/midway_03.png){fig-align="center" width=100%}
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## 
+
+![](images/midway_04.png){fig-align="center" width=100%}
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## 
+
+![](images/midway_05.png){fig-align="center" width=100%}
