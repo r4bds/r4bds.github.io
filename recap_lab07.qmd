@@ -1,0 +1,582 @@
+---
+title: "Recap Lab 7"
+author: "Leon Eyrich Jessen"
+format:
+  revealjs:
+    embed-resources: true
+    theme: moon
+    slide-number: c/t
+    width: 1600
+    height: 900
+    mainfont: avenir
+    logo: images/r4bds_logo_small.png
+    footer: "R for Bio Data Science"
+---
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Functional Programming with `Purrr`
+
+### No loop - Pure `func`!
+
+![](images/advr_map.png){fig-align="center" width=60%}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Aim
+
+- Lab 2: Genomics, the `gravier`-data from [A prognostic DNA signature for T1T2 node-negative breast cancer patients](https://pubmed.ncbi.nlm.nih.gov/20842727/)
+
+*Today, we will re-examine the data acquired in Lab 2 to investigate the research question:*
+
+- **What genes are significantly up-/down-regulated between the patients with- and without early metastasis?"**
+
+## Load Data
+
+```{r}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+
+library("tidyverse")
+library("broom")
+```
+
+
+```{r}
+#| eval: true
+#| echo: true
+
+load(file = "data/_raw/gravier.RData")
+```
+
+## Inspect Data
+
+```{r}
+#| eval: true
+#| echo: true
+
+gravier |> names()
+```
+
+```{r}
+#| eval: true
+#| echo: true
+
+gravier |> pluck("x") |> head()
+```
+
+```{r}
+#| eval: true
+#| echo: true
+
+gravier |> pluck("y") |> head()
+```
+
+## Clean Data
+
+```{r}
+#| echo: true
+#| eval: true
+
+gravier_clean <- gravier |>
+  bind_cols() |>
+  as_tibble()
+gravier_clean
+```
+
+- **Q3: Discuss in your group if this is tidy data?**
+
+- **Q4: In fact, specifically state what are the "rules" for tidy data?**
+
+- **Q5: In your group, discuss why `bind_cols` can by _very very_ dangerous to use?**
+
+## Write the clean data to disk
+
+- **T3: In your "Clean Data"-section, add a new chunk, where you write a tab-separated-values gzipped (i.e. compressed) file called "02_gravier_clean" (with the correct filetype specification) into your "data"-folder**
+
+```{r}
+#| echo: true
+#| eval: true
+
+gravier_clean  |> 
+  write_tsv(file = "data/02_gravier_clean.tsv.gz")
+```
+
+## Augment Data
+
+- **T4: Create a new "Augment Data" header in your document and add the below chunk:**
+
+```{r}
+#| echo: true
+#| eval: true
+
+gravier_clean_aug <- gravier_clean |>
+  mutate(y = case_when(y == "poor" ~ 1,
+                       y == "good" ~ 0)) |> 
+  relocate(early_metastasis = y)
+```
+
+## Augment Data
+
+- **T4: Create a new "Augment Data" header in your document and add the below chunk:**
+
+```{r}
+#| echo: true
+#| eval: true
+
+gravier_clean_aug <- gravier_clean |>
+  mutate(y = case_when(y == "poor" ~ 1,
+                       y == "good" ~ 0)) |> 
+  relocate(y) |> 
+  rename(early_metastasis = y)
+```
+
+## Write the augmented data to disk
+
+- **T5: In your "Augment Data"-section, add a new chunk, where you write a tab-separated-values gzipped (i.e. compressed) file called "03_gravier_clean_aug" (with the correct filetype specification) into your "data"-folder**
+
+```{r}
+#| echo: true
+#| eval: true
+
+gravier_clean_aug  |> 
+  write_tsv(file = "data/03_gravier_clean_aug.tsv.gz")
+```
+
+## Analysis
+
+### One Gene, one model - Let's fit our first model!
+- **T7: Use the `lm`-function to create your first model and save it to a new variable e.g. "my_first_model"**
+
+```{r}
+#| eval: true
+#| echo: true
+
+my_first_model <- gravier_clean_aug |> 
+  lm(formula = g2E09 ~ early_metastasis,
+     data = _)
+```
+
+- **Q7: What are your coefficients? Mine are:**
+
+```{r}
+#| eval: true
+#| echo: true
+
+my_first_model |>
+  pluck("coefficients")
+```
+
+## Analysis
+
+- **T8: Use the `group_by()` $\rightarrow$ `summarise()`-workflow to calculate the mean values of the gene expression for your favourite gene stratified on `early_metastasis`**
+
+- **Q8: What are your mean values? Mine are:**
+
+```{r}
+#| eval: true
+#| echo: true
+gravier_clean_aug |>
+  group_by(early_metastasis) |>
+  summarise(mu = mean(g2E09))
+```
+
+## Analysis
+
+- **Q9: Discuss in your group: How are your coefficients related to your mean expression values?**
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| eval: true
+#| echo: true
+
+my_first_model |>
+  summary()
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| eval: true
+#| echo: true
+gravier_clean_aug |>
+  group_by(early_metastasis) |>
+  summarise(mu = mean(g2E09))
+```
+:::
+
+::::
+
+- **Q10: Discuss in your group: Is your gene up- or down-regulated from `early_metastasis = 0` to `early_metastasis = 1` and use the `summary()`-function to see if is it statistically significant at a level of significance of $\alpha = 0.05$?**
+
+## All the Genes, all the models
+
+- **Q11: How many genes are there in the gravier data set?**
+
+```{r}
+#| eval: true
+#| echo: true
+
+gravier_clean_aug
+```
+
+- Now, we just have to make one model for each gene!
+
+- In principle, you could overflow your environment with individual model objects
+
+- Honestly, **let's not!** Also, recall: *"We don't loop, we func!"*, so let's see how that would work.
+
+## Models, models everywhere... Data Preparation...
+
+- **Q12: Discuss in your group, if the `gravier_clean_aug` is a "wide" or a "long" dataset?**
+
+- **T9: Create this long version of your `gravier_clean_aug` data and save it in `gravier_clean_aug_long`**
+
+```{r}
+#| eval: true
+#| echo: true
+
+gravier_clean_aug_long <- gravier_clean_aug |>
+  pivot_longer(cols = starts_with("g"),
+               names_to = "gene",
+               values_to = "log2_expr_level")
+gravier_clean_aug_long
+```
+
+## Models, models everywhere... Data Preparation...
+
+- **T10: Create a `dplyr`-pipeline, use the `group_by()`-function to group your `gravier_clean_aug_long`-dataset by `gene` and then add the `nest()`- and `ungroup()`-functions to your pipeline**
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| eval: true
+#| echo: true
+
+gravier_clean_aug_long_nested <- gravier_clean_aug_long |>
+  group_by(gene) |>
+  nest() |> 
+  ungroup()
+gravier_clean_aug_long_nested
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+
+gravier_clean_aug_long_nested |>
+  filter(gene == "g2E09") |> 
+  pull(data)
+```
+:::
+
+::::
+
+## Fitting Models
+
+- **T11: Use the `group_by()`-function to let `R` know, that we want to work *per* gene**
+- **T12: Then add a new line to your pipeline, where you add a new variable `model_object` to your `gravier_clean_aug_long_nested`-dataset, which `R` will compute *per* gene**
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+
+gravier_clean_aug_long_nested <- gravier_clean_aug_long_nested |> 
+  group_by(gene) |> 
+  mutate(model_object = map(.x = data,
+                   .f = ~lm(formula = log2_expr_level ~ early_metastasis,
+                            data = .x)))
+gravier_clean_aug_long_nested
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+
+gravier_clean_aug_long_nested |> 
+  filter(gene == "g2E09") |> 
+  pull(model_object)
+```
+:::
+
+::::
+
+## First use of the `map()`-function
+
+```{r}
+#| echo: true
+#| eval: false
+model_object = map(.x = data,
+                   .f = ~lm(formula = log2_expr_level ~ early_metastasis,
+                            data = .x))
+```
+
+- `model_object` is a `new` variable, we are creating
+- `.x` to what `existing` (nested) variable are we mapping?
+- `.f` which function do we want to map to each element in the `existing` (nested) variable?
+- *NB! The `log2_expr_level` and `early_metastasis` are variables "inside" the nested `data`-variable*
+
+## Tidying Models with the `broom`-package
+
+```{r}
+#| echo: true
+#| eval: true
+
+my_first_model
+```
+
+```{r}
+#| echo: true
+#| eval: true
+
+tidy(x = my_first_model)
+```
+
+```{r}
+#| echo: true
+#| eval: true
+
+tidy(x = my_first_model,
+     conf.int = TRUE,
+     conf.level = 0.95)
+```
+
+## Now, we want to apply this `tidy()`-function *per `model_object`*
+
+- **T13: Scroll a bit back to where we created the `model_object` and see if you can translate that into mapping the `tidy()`-function to the `model_object`-variable**
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+
+gravier_clean_aug_long_nested <- gravier_clean_aug_long_nested |> 
+  mutate(model_object_tidy = map(.x = model_object,
+                                 .f = ~tidy(x = .x,
+                                            conf.int = TRUE,
+                                            conf.level = 0.95)))
+gravier_clean_aug_long_nested
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+
+gravier_clean_aug_long_nested |> 
+  filter(gene == "g2E09") |> 
+  pull(model_object_tidy)
+```
+:::
+
+::::
+
+## We're almost there - Just a bit of wrangling to go!
+
+- **T14: Create a `dplyr`-pipeline and save the result in a new variable called `gravier_estimates`: Use the `unnest()`-function to unpack the `model_object_tidy`**
+
+```{r}
+#| echo: true
+#| eval: true
+
+gravier_estimates <- gravier_clean_aug_long_nested |>
+  unnest(model_object_tidy)
+gravier_estimates
+```
+
+## We're almost there - Just a bit more of wrangling to go!
+
+- **T15: The again, create a `dplyr`-pipeline and save the result in a the same `gravier_estimates`-variable: Subset the rows to only get the slope term and then choose variables as displayed below, finally end with un-grouping your data, as we no longer need the groups**
+
+```{r}
+#| echo: true
+#| eval: true
+
+gravier_estimates <- gravier_estimates |> 
+  filter(term == "early_metastasis") |> 
+  select(gene, p.value, estimate, conf.low, conf.high) |> 
+  ungroup()
+gravier_estimates
+```
+
+## We're almost there - Just a tiny bit more of wrangling to go!
+
+- **T16: To your `gravier_estimates`-dataset, add a variable `q.value`, which is the result of calling the `p.adjust()`-function on your `p.value`-variable and also add an indicator variable denoting if a given gene is significant or not**
+
+```{r}
+#| echo: true
+#| eval: true
+
+gravier_estimates <- gravier_estimates |>
+  mutate(q.value = p.adjust(p.value),
+         is_significant = case_when(q.value <= 0.05 ~ "yes",
+                                    q.value > 0.05 ~ "no"))
+gravier_estimates
+```
+
+## Recap - What happened?
+
+1. We have the `gravier`-dataset, with the log2-expression levels for 2,905 genes of 168 patients of whom 111 did *not* have early metastasis and 57 who did
+1. We are interested in investigating what genes are significantly up-/down-regulated between the patients with- and without early metastasis
+1. First we retrieved the data from the data repository, cleaned and augmented it and saved it to disk
+1. Then pivotted the data, so we could work *per gene* (The  `gene`-variable)
+1. Next, we grouped *per gene* and nested the data (The `data`-variable)
+1. Then, we fitted a linear model to each gene (The `model_object`-variable)
+1. Next, we used the `broom`-package to tidy the fitted model incl. getting confidence intervals (The `model_object_tidy`-variable)
+1. Lastly, we extracted the model parameters, corrected for multiple testing and added and indicator for significant findings
+
+## Awesome!
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Now, we actually have everything we need to answer:
+
+- **What genes are significantly up-/down-regulated between the patients with- and without early metastasis?"**
+:::
+
+::: {.column width="50%"}
+![](images/meme_well_done.gif){fig-align="center" width=80%}
+:::
+
+::::
+
+In the following, we will use a level of significance of $\alpha = 0.05$ to provide this answer.
+
+## First, was anything actually significant?
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: true
+
+gravier_estimates |>
+  filter(is_significant == "yes") |> 
+  select(gene, p.value, q.value)
+```
+
+:::
+
+::: {.column width="50%"}
+![](images/meme_p_less_than_alpha.jpg){fig-align="center" width=80%}
+:::
+
+::::
+
+Done science we has!
+
+## Forest Plot <span style="color: red;">GROUP ASSIGNMENT part I</span>
+
+:::: {.columns}
+
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: true
+
+pl <- gravier_estimates |> 
+  filter(is_significant == "yes") |> 
+  ggplot(aes(x = estimate,
+             y = fct_reorder(gene, estimate),
+             xmin = conf.low,
+             xmax = conf.high)) +
+  geom_vline(xintercept = 0) +
+  geom_errorbarh() +
+  geom_point() +
+  theme_minimal(base_size = 16) +
+  theme(plot.title = element_text(hjust = 1)) +
+  labs(x = "Estimates (95%CIs)",
+       y = "",
+       title = "Genes Associated with Early Metastasis in Small Node-Negative Breast Carcinoma",
+       caption = "Data from DOI: 10.1002/gcc.20820")
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 8
+#| fig-align: center
+
+pl
+```
+:::
+
+::::
+
+## Volcano Plot <span style="color: red;">GROUP ASSIGNMENT part II</span>
+
+:::: {.columns}
+
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| eval: true
+
+library("ggrepel")
+pl <- gravier_estimates |>
+  mutate(lbl = case_when(
+    is_significant == "yes" ~ gene,
+    is_significant == "no" ~ "")) |> 
+  ggplot(aes(x = estimate,
+             y = -log10(p.value),
+             colour = is_significant,
+             label = lbl)) +
+  geom_point(size = 1,
+             alpha = 0.5) +
+  geom_text_repel(size = 4,
+                  max.overlaps = 20) +
+  geom_hline(yintercept = 0) +
+  theme_minimal(base_size = 16) +
+  theme(
+    plot.title = element_text(hjust = 1),
+    plot.subtitle = element_text(hjust = 1),
+    legend.position = "none") +
+  labs(
+    x = "Estimates",
+    y = "-log10(p)",
+    title = "Genes Associated with Early Metastasis in Small Node-Negative Breast Carcinoma",
+    subtitle = "Genes highlighted in turquoise were significant after multiple testing correction",
+    caption = "Data from DOI: 10.1002/gcc.20820")
+```
+:::
+
+::: {.column width="60%"}
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 10
+#| fig-height: 8
+#| fig-align: center
+
+pl
+```
+:::
+
+::::

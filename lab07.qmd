@@ -8,9 +8,9 @@
 
 ## Schedule
 
-- 08.00 - 08.15: Recap of midway evaluation and exercises from last lab
-- 08.15 - 08.30: Assignment walk-through
-- 08.30 - 09.00: Introduction to Lab
+- 08.00 - 08.10: Midway evaluation
+- 08.10 - 08.30: [Recap of Lab 6](https://raw.githack.com/r4bds/r4bds.github.io/main/recap_lab06.html)
+- 08.30 - 09.00: [Lecture](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab06.html)
 - 09.00 - 09.15: Break
 - 09.00 - 12.00: [Exercises](#sec-exercises)
 
@@ -31,8 +31,6 @@ _A student who has met the objectives of the session will be able to:_
 - Identify associated relevant challenges
 - Describe the components of a reproducible data analysis
 - Use RStudio and GitHub (git) for collaborative bio data science projects
-
-#### STOP: The following is not yet completed!
 
 ## Exercises {#sec-exercises}
 
