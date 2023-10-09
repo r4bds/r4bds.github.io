@@ -365,6 +365,12 @@ It contains a list of files and folders, which should **not** end up at your `gi
 
 1. Update the `.gitignore`-file and get the updated version to GitHub
 
+### Summary
+
+You have not gotten to play around with collaborative coding using `git` - Well done!
+
+If you are more curious for more, please feel free to play around with a new file, edit commit/pull/push etc. Perhaps also take an extra look at the GitHub, explore and learn more 👍
+
 ### **<span style="color:red;">GROUP ASSIGNMENT</span>**
 
 First of all, here we have just scratched the surface. You can [read much more here](https://happygitwithr.com).
@@ -372,7 +378,7 @@ First of all, here we have just scratched the surface. You can [read much more h
 Your assignment this time, will be to:
 
 1. Go to [this post](https://clauswilke.com/blog/2020/09/07/pca-tidyverse-style/) on "PCA tidyverse style" by Claus O. Wilke, Professor of Integrative Biology
-1. Again, create a reproducible micro-report, this time, where you do a code-along
+1. Again, create a reproducible micro-report, this time, where you do a code-along with either the data in the post or e.g. the `gravier`-data or ?
 1. Use your GitHub group repository to collaborate
 1. Your hand in will be a link to your micro-report in your GitHub group repository
 1. Make sure to check the [Assignment Guidelines](https://r4bds.github.io/assignments.html)
