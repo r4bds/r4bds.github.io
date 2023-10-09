@@ -384,4 +384,4 @@ Your assignment this time, will be to:
 1. Make sure to check the [Assignment Guidelines](https://r4bds.github.io/assignments.html)
 1. And also follow the [Course Code Styling](https://r4bds.github.io/code_styling.html)
 
-*Note, focus here is on the `git` learning objectives, so focus less on fancy plots and more on `git`, while reproducing the post into a nice concise tidy micro-report!*
+*Note, focus here is on the `git` learning objectives and doing a code-along, which is not a copy/paste of the code, but using it as inspiration to create your own nice concise **tidy** micro-report!*
