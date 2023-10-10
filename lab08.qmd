@@ -8,6 +8,7 @@
 - [usethis](https://devtools.r-lib.org)
 - [roxygen2](https://roxygen2.r-lib.org)
 - [testthat](https://testthat.r-lib.org)
+- [gert](https://rdrr.io/cran/gert/)
 
 ## Schedule
 
@@ -61,7 +62,7 @@ If you feel confident in the realm of R packages, feel free to skip ahead, but d
 
 #### Dependencies
 
-<details> <summary>The one strict rule is <b>Never use library("package") within a package! </b></summary>
+<details> <summary>The one strict rule is <b>Never use `library("package")` within a package! </b></summary>
 Instead, add the packages your are going to use to the `DESCRIPTION` file and in the function descriptions.
 This is done by running `usethis::use_package("packageName")` in the console and adding `@import package` (OK) or `@importFrom package function1 function2 ...` (Best). Using the functions in your package is then done with `package::function()` (e.g., `dplyr::mutate()`) or omitting the `package::`.
 
@@ -229,10 +230,10 @@ Author@R:
 
 **Still only the first team member**
 
-1. Go to [https://github.com/rforbiodatascience22](https://github.com/rforbiodatascience22)
+1. Go to [https://github.com/rforbiodatascience23](https://github.com/rforbiodatascience23)
 2. Click the green `New`-button
 3. Create a new repository called `group_X_package`. Remember to replace the **X**
-4. Select `rforbiodatascience22` as owner
+4. Select `rforbiodatascience23` as owner
 5. Make the repository `Public`
 6. Click the green `Create repository`-button
 7. In this new repository, click the `settings` tab
@@ -259,7 +260,7 @@ Author@R:
 4. Stage all files (in the `git` window in the top right) by ticking all boxes under `Staged`
 5. Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the **X**.
 ```{r, eval = FALSE}
-usethis::use_git_remote(name = "origin", "https://github.com/rforbiodatascience22/group_X_package.git", overwrite = TRUE)
+usethis::use_git_remote(name = "origin", "https://github.com/rforbiodatascience23/group_X_package.git", overwrite = TRUE)
 usethis::use_git_config(user.name = "USERNAME", user.email = "USEREMAIL@EXAMPLE.ORG")
 gert::git_commit_all("Package setup")
 gert::git_push("origin")
@@ -272,7 +273,7 @@ _After your teammate has pushed to GitHub._
 1. In the RStudio Server, create a new project based on the GitHub Repository just created by your teammate.
     - Click `Create a project`![](images/L08_create.png){width="5%"} in the top left.
     - Choose `Version Control` and then `Git`.
-    - Paste in the repository URL: `"https://github.com/rforbiodatascience22/group_X_package.git"`. Remember to replace the **X**.
+    - Paste in the repository URL: `"https://github.com/rforbiodatascience23/group_X_package.git"`. Remember to replace the **X**.
     - Give the directory a fitting name and click `Create Project`.
 2. Find your `PAT` key or create a new
   <details> <summary>How to create a new one</summary>
@@ -474,14 +475,13 @@ In this case, it will be `magrittr`, `stringr`, and `ggplot2`. They are already 
 The best way to add these packages to your own is to first add them to your package dependencies with `usethis::use_package("package_name")`.
 Do that with all three.
 
-For `magrittr` it is a good idea to add the Tidyverse pipe `%>%` to your package namespace. When writing your function documentation, add a line with `@importFrom magrittr %>%`.
 For the `ggplot2` functions, we will use `ggplot2::function_name` everywhere a `ggplot2` function is used. Also add `@import ggplot2` to the function description. The same applies for `stringr`, but since we only use a few functions, add `@importFrom stringr str_split boundary str_count` to the function description.
 
 ```{r}
 #| eval: false
 name_me1 <- function(name_me2){
   name_me3 <- name_me2 |>  
-    stringr::str_split(pattern = stringr::boundary("character"), simplify = TRUE) %>%
+    stringr::str_split(pattern = stringr::boundary("character"), simplify = TRUE) |>
     as.character() |> 
     unique()
   

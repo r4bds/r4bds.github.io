@@ -32,15 +32,15 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## The Importance of R Packages
+## Why R Packages?
 
 Imagine you are analyzing some *bio data*.
 You have written some nifty scripts that have sped up your analysis significantly.
 Wouldn't it be great if:
 
-- You could easily share these with your colleagues?
-- Document them for your future self?
-- Make them accessible to the entire scientific community?
+- You could easily `share` these with your colleagues?
+- `Document` them for your future self?
+- Make them `accessible` to the entire scientific community?
 
 Welcome to the world of R packages!
 
@@ -243,6 +243,15 @@ library("dplyr")
 
 - `Sharing & Collaboration`: Share your tools, analysis, and workflows seamlessly with peers.
 
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## R package structure
+  
+![](images/L08_pkgdir.png){fig-align="center" width="65%"}
+
+</br>
+- [source](https://raw.githubusercontent.com/rstudio/cheatsheets/main/package-development.pdf)
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -628,14 +637,89 @@ install.packages("devtools")          # CRAN: The Comprehensive R Archive Networ
 devtools::install_bioc("pairedGSEA")  # Bioconductor
 devtools::install_github("cyCombine") # GitHub
 devtools::install_cran("dplyr")       # CRAN again
+# Side note: devtools uses the "remotes" package, i.e., remotes::install_<repo> does the same
 ```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## Integrating Python and C++ in Your R Package
+
+In R, you can integrate other programming languages to take advantage of their specific capabilities and packages.
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Python in R
+
+```{r reticulate}
+#| echo: true
+library("reticulate")
+
+py_run_string("import numpy as np")
+
+py_run_string("result = np.mean([1, 2, 3, 4, 5])")
+
+py_run_string("print('Mean:', result)")
+```
+
+:::
+::: {.column width="5%"}
+:::
+::: {.column width="45%"}
+
+### C++ in R
+```{r Rcpp}
+#| echo: true
+library("Rcpp")
+cppFunction('
+  int sumC(int a, int b) {
+    return a + b;
+  }
+')
+sumC(5, 6)
+```
+:::
+
+::::
+
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
 # Building an R package as easy as 1-2-3
 
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Standing on the shoulder of giants
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+![](images/L08_giant.jpeg){fig-align="center" width="100%"}
+:::
+::: {.column width="5%"}
+:::
+::: {.column width="45%"}
+
+Building packages with 
+
+- `devtools`
+- `usethis`
+- `roxygen2`
+- `testthat`
+
+:::
+
+::::
+
 ## The 1-2-3 of R packages
+
 
 ```{r}
 #| echo: true
