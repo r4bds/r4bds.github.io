@@ -71,7 +71,6 @@ First, select a team **<span style="color:darkgreen;">Captain</span>**, that per
 1. Click `Add people`
 1. Write a group members username
 1. Click the correct suggestion
-1. Select `Admin` as role
 1. Select `Add username to this repository`
 1. Repeat for all group members
 
