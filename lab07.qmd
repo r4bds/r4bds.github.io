@@ -381,5 +381,6 @@ Your assignment this time, will be to:
 1. Your hand in will be a link to your micro-report in your GitHub group repository
 1. Make sure to check the [Assignment Guidelines](https://r4bds.github.io/assignments.html)
 1. And also follow the [Course Code Styling](https://r4bds.github.io/code_styling.html)
+1. **HOW TO HAND IN**: Go to `https://github.com/CAPTAIN_USERNAME/groupXX`, copy the link and paste it into an empty text (.txt) file. Hand in this text file.
 
 *Note, focus here is on the `git` learning objectives and doing a code-along, which is not a copy/paste of the code, but using it as inspiration to create your own nice concise **tidy** micro-report!*
