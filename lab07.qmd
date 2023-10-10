@@ -57,13 +57,11 @@ First, select a team **<span style="color:darkgreen;">Captain</span>**, that per
 #### **<span style="color:darkgreen;">Team</span>**
 
 1. Go to [GitHub](https://github.com) and login
-1. In the upper left corner, click your username and select `rforbiodatascience23`
 1. In the upper left corner, click `Repositories`
 
 #### **<span style="color:darkgreen;">Captain</span>**
 
-1. Click `Create a new repository`
-1. Select `Owner` as `rforbiodatascience23`
+1. The default owner of the repository should be your GitHub username. Keep that, please.
 1. Name the repository `groupXX`, where `XX` is your group number, e.g. `02`
 1. Select `Public`
 1. Tick `Add a README file`
@@ -88,7 +86,7 @@ First, select a team **<span style="color:darkgreen;">Captain</span>**, that per
 1. Choose ![](images/paths_new_proj_plus.png) `New Project...`
 1. Select ![](images/icon_version_control.png) **Version Control**
 1. Select ![](images/icon_git.png) **Git**
-1. Under `Repository URL:`, enter `https://github.com/rforbiodatascience23/groupXX`, where again you replace `XX` with your group number, e.g. `02`
+1. Under `Repository URL:`, enter `https://github.com/CAPTAIN_USERNAME/groupXX`, where again you replace `XX` with your group number, e.g. `02`. **NOTE**: Replace CAPTAIN_USERNAME with the captain's GitHub username.
 1. Under `Project directory name:`, enter `lab07_git_exercises`
 1. Under `Create project as a subdirectory of:`, make sure that is says `~/projects`
 1. Click `Create Project`
@@ -162,7 +160,7 @@ gitcreds::gitcreds_set()
 
 10. In the `Environment`-pane, make sure you are in the `git`-tab and again click `Pull` (We *always* pull before push)
 11. Click `Push`
-12. Go to your groups `GitHub`-project page `https://github.com/rforbiodatascience23/groupXX`
+12. Go to your groups `GitHub`-project page `https://github.com/CAPTAIN_USERNAME/groupXX`
 13. Confirm, that you see your files
 
 *Congratulations! You just took your first step towards true collaborative bio data science!*
