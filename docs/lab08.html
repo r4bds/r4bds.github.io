@@ -346,6 +346,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="https://devtools.r-lib.org">usethis</a></li>
 <li><a href="https://roxygen2.r-lib.org">roxygen2</a></li>
 <li><a href="https://testthat.r-lib.org">testthat</a></li>
+<li><a href="https://rdrr.io/cran/gert/">gert</a></li>
 </ul>
 </section>
 <section id="schedule" class="level2">
@@ -395,7 +396,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4 class="anchored" data-anchor-id="dependencies">Dependencies</h4>
 <details>
 <summary>
-The one strict rule is <b>Never use library(“package”) within a package! </b>
+The one strict rule is <b>Never use <code>library("package")</code> within a package! </b>
 </summary>
 <p>Instead, add the packages your are going to use to the <code>DESCRIPTION</code> file and in the function descriptions. This is done by running <code>usethis::use_package("packageName")</code> in the console and adding <code>@import package</code> (OK) or <code>@importFrom package function1 function2 ...</code> (Best). Using the functions in your package is then done with <code>package::function()</code> (e.g., <code>dplyr::mutate()</code>) or omitting the <code>package::</code>.</p>
 <p>This way, it is easy to read what functions are from your package, and your package namespace does not get cluttered. Read more in the Namespace section.</p>
@@ -573,10 +574,10 @@ Add a Readme file <code>usethis::use_readme_rmd( open = FALSE )</code>. You will
 <h5 class="anchored" data-anchor-id="task-1.2---setup-github-repository-for-your-groups-r-package">Task 1.2 - Setup GitHub Repository for your group’s R package</h5>
 <p><strong>Still only the first team member</strong></p>
 <ol type="1">
-<li>Go to <a href="https://github.com/rforbiodatascience22">https://github.com/rforbiodatascience22</a></li>
+<li>Go to <a href="https://github.com/rforbiodatascience23">https://github.com/rforbiodatascience23</a></li>
 <li>Click the green <code>New</code>-button</li>
 <li>Create a new repository called <code>group_X_package</code>. Remember to replace the <strong>X</strong></li>
-<li>Select <code>rforbiodatascience22</code> as owner</li>
+<li>Select <code>rforbiodatascience23</code> as owner</li>
 <li>Make the repository <code>Public</code></li>
 <li>Click the green <code>Create repository</code>-button</li>
 <li>In this new repository, click the <code>settings</code> tab</li>
@@ -612,7 +613,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g., i
 <li>Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the <strong>X</strong>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_remote</span>(<span class="at">name =</span> <span class="st">"origin"</span>, <span class="st">"https://github.com/rforbiodatascience22/group_X_package.git"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_remote</span>(<span class="at">name =</span> <span class="st">"origin"</span>, <span class="st">"https://github.com/rforbiodatascience23/group_X_package.git"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"USERNAME"</span>, <span class="at">user.email =</span> <span class="st">"USEREMAIL@EXAMPLE.ORG"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_commit_all</span>(<span class="st">"Package setup"</span>)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_push</span>(<span class="st">"origin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -624,7 +625,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g., i
 <ul>
 <li>Click <code>Create a project</code><img src="images/L08_create.png" class="img-fluid" style="width:5.0%"> in the top left.</li>
 <li>Choose <code>Version Control</code> and then <code>Git</code>.</li>
-<li>Paste in the repository URL: <code>"https://github.com/rforbiodatascience22/group_X_package.git"</code>. Remember to replace the <strong>X</strong>.</li>
+<li>Paste in the repository URL: <code>"https://github.com/rforbiodatascience23/group_X_package.git"</code>. Remember to replace the <strong>X</strong>.</li>
 <li>Give the directory a fitting name and click <code>Create Project</code>.</li>
 </ul></li>
 <li>Find your <code>PAT</code> key or create a new
@@ -815,11 +816,11 @@ Function four
 Function five
 </summary>
 <p>This function will be the first to use dependencies. As a reminder, a dependency is a package that your package depends on. In this case, it will be <code>magrittr</code>, <code>stringr</code>, and <code>ggplot2</code>. They are already installed, so you don’t need to do that. The best way to add these packages to your own is to first add them to your package dependencies with <code>usethis::use_package("package_name")</code>. Do that with all three.</p>
-<p>For <code>magrittr</code> it is a good idea to add the Tidyverse pipe <code>%&gt;%</code> to your package namespace. When writing your function documentation, add a line with <code>@importFrom magrittr %&gt;%</code>. For the <code>ggplot2</code> functions, we will use <code>ggplot2::function_name</code> everywhere a <code>ggplot2</code> function is used. Also add <code>@import ggplot2</code> to the function description. The same applies for <code>stringr</code>, but since we only use a few functions, add <code>@importFrom stringr str_split boundary str_count</code> to the function description.</p>
+<p>For the <code>ggplot2</code> functions, we will use <code>ggplot2::function_name</code> everywhere a <code>ggplot2</code> function is used. Also add <code>@import ggplot2</code> to the function description. The same applies for <code>stringr</code>, but since we only use a few functions, add <code>@importFrom stringr str_split boundary str_count</code> to the function description.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2){</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> name_me2 <span class="sc">|&gt;</span>  </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    stringr<span class="sc">::</span><span class="fu">str_split</span>(<span class="at">pattern =</span> stringr<span class="sc">::</span><span class="fu">boundary</span>(<span class="st">"character"</span>), <span class="at">simplify =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    stringr<span class="sc">::</span><span class="fu">str_split</span>(<span class="at">pattern =</span> stringr<span class="sc">::</span><span class="fu">boundary</span>(<span class="st">"character"</span>), <span class="at">simplify =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.character</span>() <span class="sc">|&gt;</span> </span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unique</span>()</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  </span>
