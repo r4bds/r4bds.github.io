@@ -28,9 +28,7 @@ _Bio Data Science is a collaborative effort, which is reflected in the design of
 
 - Using the tools you have learned in the course, the aim is to _"Design and execute a bio data science project focusing on reproducibility, incl. independently using online resources to seek information about application and technical details of state-of-the-art data science tools"_ based on the below data science cycle
 
-```{r echo=FALSE, out.width="50%", fig.align="center"}
-knitr::include_graphics(path = "images/data_science_cycle.png")
-```
+![](images/data_science_cycle.png){fig-align="center" width=90%}
 
 - Basically, tie all the ends of the course into one product encompassing all/most learning objectives!
 
