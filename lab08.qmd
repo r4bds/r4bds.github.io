@@ -26,7 +26,7 @@ _Please prepare the following materials:_
 - Web: [R Packages: A Beginner's Tutorial](https://www.datacamp.com/community/tutorials/r-packages-guide) -- Read this before class
 - Web: [Developing Packages with RStudio](https://support.rstudio.com/hc/en-us/articles/200486488-Developing-Packages-with-RStudio) -- Creating an R Package with RStudio
 - Web: [R package primer a minimal tutorial](https://kbroman.org/pkg_primer/) -- Brief but comprehensive R Package tutorial
-- Book: [R Packages - 1 Introduction](https://r-pkgs.org/intro.html) -- Everything you need to know about R Packages
+- Book: [R Packages - 1 Introduction](https://r-pkgs.org/introduction.html) -- Everything you need to know about R Packages
 
 ## Learning Objectives
 
@@ -189,7 +189,7 @@ In the first task, **one team member** (you decide who) will initiate a package 
 2. Click `Create a project`![](images/L08_create.png){width="5%"} in the top left and choose `New Directory`.
 3. Select `R Package` and pick a fitting Package name.
     - The package you will create will replicate the central dogma of molecular biology. Let that inspire you
-    - Look up naming rules [here](https://r-pkgs.org/workflows101.html#naming)
+    - Look up naming rules [here](https://r-pkgs.org/workflow101.html#name-your-package)
     - The most important rule: `_`, `-`, and `'` are not allowed.
 4. Click "Create project".
 
@@ -210,7 +210,7 @@ Author@R:
            email = "your@email.com"))
 ```
 
-6. Create an MIT license `usethis::use_mit_license("Group name")`
+6. Create an MIT license (from the console) `usethis::use_mit_license("Group name")`
 7. <details>
   <summary>**Optional** setup steps (generally good, but not essential for this course)</summary>
   <ul>
@@ -220,9 +220,9 @@ Author@R:
     <li>To use GitHub, you create an empty repository there and link the account with `gert::git_remote_add("link")` and `gert::git_push("origin")`</li>
     <li>`git push` will now push your committed changes to the GitHub repository</li>
     </ul>
+  <li>Add a Readme file `usethis::use_readme_rmd( open = FALSE )`. You will do that in the Group Assignment later </li>
   <li>Add a lifecycle badge: `usethis::use_lifecycle_badge( "Experimental" )`</li>
   <li>Write vignettes: `usethis::use_vignette("Vignette name")`</li>
-  <li>Add a Readme file `usethis::use_readme_rmd( open = FALSE )`. You will do that in the Group Assignment later </li>
   </ul>
   </details>
 
@@ -260,7 +260,7 @@ Author@R:
 4. Stage all files (in the `git` window in the top right) by ticking all boxes under `Staged`
 5. Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the **X**.
 ```{r, eval = FALSE}
-usethis::use_git_remote(name = "origin", "https://github.com/rforbiodatascience23/group_X_package.git", overwrite = TRUE)
+usethis::use_git_remote(name = "origin", "https://github.com/rforbiodatascience23/group_X_package.git", overwrite = TRUE) # Remember to replace the X
 usethis::use_git_config(user.name = "USERNAME", user.email = "USEREMAIL@EXAMPLE.ORG")
 gert::git_commit_all("Package setup")
 gert::git_push("origin")
@@ -333,12 +333,12 @@ c("UUU" = "F", "UCU" = "S", "UAU" = "Y", "UGU" = "C",
   "GUA" = "V", "GCA" = "A", "GAA" = "E", "GGA" = "G",
   "GUG" = "V", "GCG" = "A", "GAG" = "E", "GGG" = "G")
 ```
-2. Run `usethis::use_data(name_of_object, overwrite = TRUE, internal = TRUE)`
+2. Run `usethis::use_data(NAME_OF_YOUR_OBJECT, overwrite = TRUE, internal = TRUE)`
 3. You have now made the data available to our functions, but we also want to make it visible for our users.
-    - Run `usethis::use_data(name_of_object, overwrite = TRUE)`.
+    - Run `usethis::use_data(NAME_OF_YOUR_OBJECT, overwrite = TRUE)`.
 4. Write a data manual (document the data).
     - All non-internal data should be documented in a `data.R` file in the `R` folder. Create it with `usethis::use_r("data")`
-    - Add the following scaffold and write a *very* brief description of the data (see an example [here](https://r-pkgs.org/data.html#documenting-data)). Don't spend a lot of time here.
+    - Add the following scaffold to `R/data.R` and write a *very* brief description of the data (see an example [here](https://r-pkgs.org/data.html#documenting-data)). Don't spend a lot of time here.
 
 ```{r}
 #| eval: false
@@ -348,13 +348,13 @@ c("UUU" = "F", "UCU" = "S", "UAU" = "Y", "UGU" = "C",
 #' 
 #' 
 #' @source \url{https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi?chapter=tgencodes#SG1}
-"name_of_object"
+"NAME_OF_YOUR_OBJECT"
 ```
-Normally, you should also describe how the raw data was cleaned. You would do that in the file that opens after running `usethis::use_data_raw( name = "name_of_object", open = TRUE )`, but that is less relevant here, so we will skip that part.
+Normally, you should also describe how the raw data was cleaned. You would do that in the file that opens after running `usethis::use_data_raw( name = "NAME_OF_YOUR_OBJECT", open = TRUE )`, but that is less relevant here, so we will skip that part.
 
 Your package now includes some data.
 
-Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from [The Package Workflow](#pkgwf) section, and run `?name_of_object`. Your manual should pop up. Try printing the object as well to see what it looks like `print(name_of_object)`.
+Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from [The Package Workflow](#pkgwf) section, and run `?NAME_OF_YOUR_OBJECT`. Your manual should pop up. Try printing the object as well to see what it looks like `print(NAME_OF_YOUR_OBJECT)`.
 
 Push your changes to GitHub.
 **The other team members** pull the changes to have the data available to you as well.
@@ -366,7 +366,7 @@ Push your changes to GitHub.
 In this task you will be working individually to implement a function each.
 If you are fewer in the team than the number of functions. The quickest to finish can implement the remaining, or separate them out as you see fit.
 
-If you want an additional challenge, each team member can create their own Git branch `gert::git_branch_checkout("branch_name")` and work there. When done, merge your branch with the main branch.
+If you want an additional challenge, each team member can create their own Git branch `gert::git_branch_checkout("NAME_OF_BRANCH")` and work there. When done, merge your branch with the main branch.
 That is a more clean and 'proper' workflow, but completely optional.
 
 If you are in doubt what the underlying functions do, run `?function_name` to get a hint about their purpose.
@@ -374,7 +374,7 @@ Also, remember the functions are replicating the central dogma. Let that inspire
 
 Function five is a bit more involved. Do it together or help your teammate out if it causes problems.
 
-For each function, complete the following steps:
+For each function (found below), complete the following steps:
 
 1. Look carefully at your function. Choose a fitting name for it
 2. Run `usethis::use_r("function_name")` to create an `.R` file for the function
@@ -455,12 +455,12 @@ name_me1 <- function(name_me2, start = 1){
 
 <details> <summary>Function four</summary>
 
-`name_of_your_object` refers to the codon table you stored in Task 2.
+`NAME_OF_YOUR_OBJECT` refers to the codon table you stored in Task 2.
 
 ```{r}
 #| eval: false
 name_me <- function(codons){
-  name_me2 <- paste0(name_of_your_object[codons], collapse = "")
+  name_me2 <- paste0(NAME_OF_YOUR_OBJECT[codons], collapse = "")
   return(name_me2)
 }
 ```
@@ -471,11 +471,13 @@ name_me <- function(codons){
 
 This function will be the first to use dependencies.
 As a reminder, a dependency is a package that your package depends on.
-In this case, it will be `magrittr`, `stringr`, and `ggplot2`. They are already installed, so you don't need to do that.
+In this case, it will be `stringr` and `ggplot2`. They are already installed, so you don't need to do that.
 The best way to add these packages to your own is to first add them to your package dependencies with `usethis::use_package("package_name")`.
 Do that with all three.
 
-For the `ggplot2` functions, we will use `ggplot2::function_name` everywhere a `ggplot2` function is used. Also add `@import ggplot2` to the function description. The same applies for `stringr`, but since we only use a few functions, add `@importFrom stringr str_split boundary str_count` to the function description.
+For the `ggplot2` functions, we will use `ggplot2::function_name` everywhere a `ggplot2` function is used. Also add `@import ggplot2` to the function description (this is often done with `ggplot2` because it has a lot of useful plotting functions with only rare name overlaps). 
+If you want to be more precise, add `@importFrom ggplot2 ggplot aes geom_col theme_bw theme` instead.
+The same applies for `stringr`, but since we only use a few functions, add `@importFrom stringr str_split boundary str_count` to the function description.
 
 ```{r}
 #| eval: false
@@ -546,7 +548,7 @@ However, I personally also use it to quickly get going with packages.
 
 When starting out with an R package, it may seem complicated with a lot of things to remember.
 `golem` remembers these things for you.
-When setting up your package / Shiny app with `golem::create_golem("Your awesome package/app name")`, it creates a `dev` folder with a few files listing all you need to get started with an R package.
+When setting up your package / Shiny app with `golem::create_golem("Name of your awesome package/app")`, it creates a `dev` folder with a few files listing all you need to get started with an R package.
 
 It does also give you a lot of other things that you will rarely use, and it also sets up some basic structures for Shiny apps. These can simply be deleted if you are not also building a Shiny app.
 
