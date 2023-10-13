@@ -367,7 +367,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Web: <a href="https://www.datacamp.com/community/tutorials/r-packages-guide">R Packages: A Beginner’s Tutorial</a> – Read this before class</li>
 <li>Web: <a href="https://support.rstudio.com/hc/en-us/articles/200486488-Developing-Packages-with-RStudio">Developing Packages with RStudio</a> – Creating an R Package with RStudio</li>
 <li>Web: <a href="https://kbroman.org/pkg_primer/">R package primer a minimal tutorial</a> – Brief but comprehensive R Package tutorial</li>
-<li>Book: <a href="https://r-pkgs.org/intro.html">R Packages - 1 Introduction</a> – Everything you need to know about R Packages</li>
+<li>Book: <a href="https://r-pkgs.org/introduction.html">R Packages - 1 Introduction</a> – Everything you need to know about R Packages</li>
 </ul>
 </section>
 <section id="learning-objectives" class="level2">
@@ -513,7 +513,7 @@ You can do that in many ways, but I recommend the following workflow:
 <li>Select <code>R Package</code> and pick a fitting Package name.
 <ul>
 <li>The package you will create will replicate the central dogma of molecular biology. Let that inspire you</li>
-<li>Look up naming rules <a href="https://r-pkgs.org/workflows101.html#naming">here</a></li>
+<li>Look up naming rules <a href="https://r-pkgs.org/workflow101.html#name-your-package">here</a></li>
 <li>The most important rule: <code>_</code>, <code>-</code>, and <code>'</code> are not allowed.</li>
 </ul></li>
 <li>Click “Create project”.</li>
@@ -537,7 +537,7 @@ You can do that in many ways, but I recommend the following workflow:
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">email =</span> <span class="st">"your@email.com"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="6" type="1">
-<li>Create an MIT license <code>usethis::use_mit_license("Group name")</code></li>
+<li>Create an MIT license (from the console) <code>usethis::use_mit_license("Group name")</code></li>
 <li><details>
 <summary>
 <strong>Optional</strong> setup steps (generally good, but not essential for this course)
@@ -558,13 +558,13 @@ To use GitHub, you create an empty repository there and link the account with <c
 </li>
 </ul>
 <li>
+Add a Readme file <code>usethis::use_readme_rmd( open = FALSE )</code>. You will do that in the Group Assignment later
+</li>
+<li>
 Add a lifecycle badge: <code>usethis::use_lifecycle_badge( "Experimental" )</code>
 </li>
 <li>
 Write vignettes: <code>usethis::use_vignette("Vignette name")</code>
-</li>
-<li>
-Add a Readme file <code>usethis::use_readme_rmd( open = FALSE )</code>. You will do that in the Group Assignment later
 </li>
 </ul>
 </details></li>
@@ -613,7 +613,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g., i
 <li>Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the <strong>X</strong>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_remote</span>(<span class="at">name =</span> <span class="st">"origin"</span>, <span class="st">"https://github.com/rforbiodatascience23/group_X_package.git"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_remote</span>(<span class="at">name =</span> <span class="st">"origin"</span>, <span class="st">"https://github.com/rforbiodatascience23/group_X_package.git"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>) <span class="co"># Remember to replace the X</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"USERNAME"</span>, <span class="at">user.email =</span> <span class="st">"USEREMAIL@EXAMPLE.ORG"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_commit_all</span>(<span class="st">"Package setup"</span>)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_push</span>(<span class="st">"origin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -686,15 +686,15 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GUG"</span> <span class="ot">=</span> <span class="st">"V"</span>, <span class="st">"GCG"</span> <span class="ot">=</span> <span class="st">"A"</span>, <span class="st">"GAG"</span> <span class="ot">=</span> <span class="st">"E"</span>, <span class="st">"GGG"</span> <span class="ot">=</span> <span class="st">"G"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
-<li>Run <code>usethis::use_data(name_of_object, overwrite = TRUE, internal = TRUE)</code></li>
+<li>Run <code>usethis::use_data(NAME_OF_YOUR_OBJECT, overwrite = TRUE, internal = TRUE)</code></li>
 <li>You have now made the data available to our functions, but we also want to make it visible for our users.
 <ul>
-<li>Run <code>usethis::use_data(name_of_object, overwrite = TRUE)</code>.</li>
+<li>Run <code>usethis::use_data(NAME_OF_YOUR_OBJECT, overwrite = TRUE)</code>.</li>
 </ul></li>
 <li>Write a data manual (document the data).
 <ul>
 <li>All non-internal data should be documented in a <code>data.R</code> file in the <code>R</code> folder. Create it with <code>usethis::use_r("data")</code></li>
-<li>Add the following scaffold and write a <em>very</em> brief description of the data (see an example <a href="https://r-pkgs.org/data.html#documenting-data">here</a>). Don’t spend a lot of time here.</li>
+<li>Add the following scaffold to <code>R/data.R</code> and write a <em>very</em> brief description of the data (see an example <a href="https://r-pkgs.org/data.html#documenting-data">here</a>). Don’t spend a lot of time here.</li>
 </ul></li>
 </ol>
 <div class="cell">
@@ -704,21 +704,21 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @source \url{https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi?chapter=tgencodes#SG1}</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="st">"name_of_object"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="st">"NAME_OF_YOUR_OBJECT"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Normally, you should also describe how the raw data was cleaned. You would do that in the file that opens after running <code>usethis::use_data_raw( name = "name_of_object", open = TRUE )</code>, but that is less relevant here, so we will skip that part.</p>
+<p>Normally, you should also describe how the raw data was cleaned. You would do that in the file that opens after running <code>usethis::use_data_raw( name = "NAME_OF_YOUR_OBJECT", open = TRUE )</code>, but that is less relevant here, so we will skip that part.</p>
 <p>Your package now includes some data.</p>
-<p>Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from <a href="#pkgwf">The Package Workflow</a> section, and run <code>?name_of_object</code>. Your manual should pop up. Try printing the object as well to see what it looks like <code>print(name_of_object)</code>.</p>
+<p>Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from <a href="#pkgwf">The Package Workflow</a> section, and run <code>?NAME_OF_YOUR_OBJECT</code>. Your manual should pop up. Try printing the object as well to see what it looks like <code>print(NAME_OF_YOUR_OBJECT)</code>.</p>
 <p>Push your changes to GitHub. <strong>The other team members</strong> pull the changes to have the data available to you as well.</p>
 <p><br></p>
 </section>
 <section id="task-2.2---implement-functions" class="level5">
 <h5 class="anchored" data-anchor-id="task-2.2---implement-functions">Task 2.2 - Implement functions</h5>
 <p>In this task you will be working individually to implement a function each. If you are fewer in the team than the number of functions. The quickest to finish can implement the remaining, or separate them out as you see fit.</p>
-<p>If you want an additional challenge, each team member can create their own Git branch <code>gert::git_branch_checkout("branch_name")</code> and work there. When done, merge your branch with the main branch. That is a more clean and ‘proper’ workflow, but completely optional.</p>
+<p>If you want an additional challenge, each team member can create their own Git branch <code>gert::git_branch_checkout("NAME_OF_BRANCH")</code> and work there. When done, merge your branch with the main branch. That is a more clean and ‘proper’ workflow, but completely optional.</p>
 <p>If you are in doubt what the underlying functions do, run <code>?function_name</code> to get a hint about their purpose. Also, remember the functions are replicating the central dogma. Let that inspire you, when naming the functions and variables. If you get stuck, ask your teammates about their functions.</p>
 <p>Function five is a bit more involved. Do it together or help your teammate out if it causes problems.</p>
-<p>For each function, complete the following steps:</p>
+<p>For each function (found below), complete the following steps:</p>
 <ol type="1">
 <li>Look carefully at your function. Choose a fitting name for it</li>
 <li>Run <code>usethis::use_r("function_name")</code> to create an <code>.R</code> file for the function</li>
@@ -803,10 +803,10 @@ Function three
 <summary>
 Function four
 </summary>
-<p><code>name_of_your_object</code> refers to the codon table you stored in Task 2.</p>
+<p><code>NAME_OF_YOUR_OBJECT</code> refers to the codon table you stored in Task 2.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>name_me <span class="ot">&lt;-</span> <span class="cf">function</span>(codons){</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  name_me2 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(name_of_your_object[codons], <span class="at">collapse =</span> <span class="st">""</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  name_me2 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(NAME_OF_YOUR_OBJECT[codons], <span class="at">collapse =</span> <span class="st">""</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me2)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -815,8 +815,8 @@ Function four
 <summary>
 Function five
 </summary>
-<p>This function will be the first to use dependencies. As a reminder, a dependency is a package that your package depends on. In this case, it will be <code>magrittr</code>, <code>stringr</code>, and <code>ggplot2</code>. They are already installed, so you don’t need to do that. The best way to add these packages to your own is to first add them to your package dependencies with <code>usethis::use_package("package_name")</code>. Do that with all three.</p>
-<p>For the <code>ggplot2</code> functions, we will use <code>ggplot2::function_name</code> everywhere a <code>ggplot2</code> function is used. Also add <code>@import ggplot2</code> to the function description. The same applies for <code>stringr</code>, but since we only use a few functions, add <code>@importFrom stringr str_split boundary str_count</code> to the function description.</p>
+<p>This function will be the first to use dependencies. As a reminder, a dependency is a package that your package depends on. In this case, it will be <code>stringr</code> and <code>ggplot2</code>. They are already installed, so you don’t need to do that. The best way to add these packages to your own is to first add them to your package dependencies with <code>usethis::use_package("package_name")</code>. Do that with all three.</p>
+<p>For the <code>ggplot2</code> functions, we will use <code>ggplot2::function_name</code> everywhere a <code>ggplot2</code> function is used. Also add <code>@import ggplot2</code> to the function description (this is often done with <code>ggplot2</code> because it has a lot of useful plotting functions with only rare name overlaps). If you want to be more precise, add <code>@importFrom ggplot2 ggplot aes geom_col theme_bw theme</code> instead. The same applies for <code>stringr</code>, but since we only use a few functions, add <code>@importFrom stringr str_split boundary str_count</code> to the function description.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2){</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> name_me2 <span class="sc">|&gt;</span>  </span>
@@ -876,7 +876,7 @@ Function five
 <h3 class="anchored" data-anchor-id="last-tip-on-packages">Last tip on packages</h3>
 <hr>
 <p>Next week, I will introduce the <code>golem</code> package for building <a href="https://engineering-shiny.org/index.html">production-grade Shiny apps</a>. However, I personally also use it to quickly get going with packages.</p>
-<p>When starting out with an R package, it may seem complicated with a lot of things to remember. <code>golem</code> remembers these things for you. When setting up your package / Shiny app with <code>golem::create_golem("Your awesome package/app name")</code>, it creates a <code>dev</code> folder with a few files listing all you need to get started with an R package.</p>
+<p>When starting out with an R package, it may seem complicated with a lot of things to remember. <code>golem</code> remembers these things for you. When setting up your package / Shiny app with <code>golem::create_golem("Name of your awesome package/app")</code>, it creates a <code>dev</code> folder with a few files listing all you need to get started with an R package.</p>
 <p>It does also give you a lot of other things that you will rarely use, and it also sets up some basic structures for Shiny apps. These can simply be deleted if you are not also building a Shiny app.</p>
 
 

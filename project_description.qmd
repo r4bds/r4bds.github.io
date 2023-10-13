@@ -1,9 +1,5 @@
 # Project Description {.unnumbered}
 
-## Aim
-
-The aim with the Project module of the course is to allow you to independently work with the course elements, you have been exposed to during the first 9 weeks of teaching. Here, you will synthesise the entire bio data science cycle.
-
 ## Project Groups
 
 You will be working in the groups assigned from the beginning of the course.
@@ -22,41 +18,36 @@ This means, that each group member is expected to:
 
 _Bio Data Science is a collaborative effort, which is reflected in the design of the project module of this course!_
 
+## Expected time usage
+
+As per the rules for the European Credit Transfer System (ECTS) points, 1 credit equals 28 hours. Therefore, for a 5-person group working for 3 weeks, the expected total project hours is ~150. Setup your collaborative project and this will be more than sufficient to create a full bio data science project. Note, for lab 13, you workload will be a ~10min. presentation therefore the hours for this lab is included.
+
 ## Project Description
 
 ### Aim
 
-- Using the tools you have learned in the course, the aim is to _"Design and execute a bio data science project focusing on reproducibility, incl. independently using online resources to seek information about application and technical details of state-of-the-art data science tools"_ based on the below data science cycle
+The aim with the Project module of the course is to allow you to independently work with the course elements, you have been exposed to during the first 9 weeks of teaching. Here, you will synthesise the entire bio data science cycle, thereby internalising the course elements. Moreover, you are to:
+
+- Use the tools you have learned in the course and _"design and execute a bio data science project focusing on collaborative coding and reproducibility, incl. independently using online resources to seek information about application and technical details of state-of-the-art data science tools"_
+
+Recall the "Data Science Cycle"
 
 ![](images/data_science_cycle.png){fig-align="center" width=90%}
 
-- Basically, tie all the ends of the course into one product encompassing all/most learning objectives!
+## Project Requirements
 
-### Your end-product will be
- - A presentation
- - A GitHub repository
+### Organisation
 
-## Project Organisation Overview
-
-```{r echo=FALSE, out.width="70%", fig.align="center"}
-knitr::include_graphics(path = "images/vis_project_org.png")
-```
+![](images/vis_project_org.png)
 
 - Note, since we are working with small data sets, we will put the entire project on `GitHub`
 
-## Project Requirements - Code
+ ### Code
+
+Strictly adhere to the [Code Styling Guide](code_styling.qmd)
 
 - Organised according to previous slide on "Project Organisation" including using `GitHub` (Each group must create a GitHub `2022_groupXX_final_project` repository on the course GitHub organisation
 
-- Be `tidyverse`-code as you have been taught during classes, i.e. _do not_ apply `base R` tools unless no `tidyverse` equivalent exists
-  
-- Follow [tidyverse code style guide](https://style.tidyverse.org/) which I have been using in all my examples, e.g.:
-  - End pipeline with `%>%`
-  - Tab out function parameters
-  - Use appropriate line breaks
-  - No `$` or `[]` or alike base artefacts
-  - Etc...
-  
 - Contain the entire data science cycle
   
 - Be end-to-end executable by running `00_doit.R`
@@ -65,13 +56,15 @@ knitr::include_graphics(path = "images/vis_project_org.png")
 
 ## Project Requirements - Data
 
-- Be based on a real __bio__ data set
-  
+- Be based on a new bio data set
+
 - Start out as "dirty" i.e. a completely clean and analysis-ready data set will not allow you to demonstrate, that you have met the course learning objectives
 
 - Be of limited size, so we can use GitHub for all parts of the project
 
 - Note, you should demonstrate ability to extract biological insights, but at the same time mind that the focus should be on demonstrating that you master the data science toolbox according to course aim and learning objectives
+
+- Remember, the proces is the product!
 
 - _Naturally, you cannot reuse the data we have worked with during the exercise labs_
 
