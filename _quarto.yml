@@ -44,6 +44,7 @@ book:
     - part: course_elements.qmd
       chapters: 
         - assignments.qmd
+        - project_description.qmd
         - project_faq.qmd
         - exam.qmd
 

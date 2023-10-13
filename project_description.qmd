@@ -2,7 +2,11 @@
 
 ## Project Groups
 
-You will be working in the groups assigned from the beginning of the course.
+- You will be working in the groups assigned from the beginning of the course.
+
+- IMPORTANT: _All groups members are responsible for all parts of the project!_
+
+- Note, completing the project is considered your exam preparation
 
 ## Project as a Collaborative effort
 
@@ -38,37 +42,33 @@ Recall the "Data Science Cycle"
 
 ### Organisation
 
-![](images/vis_project_org.png)
+Your project must strictly adhere to the organisation illustrated below:
 
-- Note, since we are working with small data sets, we will put the entire project on `GitHub`
+![](images/viz_bio_data_science_project_organisation_qmd.png){fig-align="center" width=90%}
 
- ### Code
+**Important: This entails, that the entire project as put on GitHub, can be cloned and then executed end-to-end**
 
-Strictly adhere to the [Code Styling Guide](code_styling.qmd)
+### Code
 
-- Organised according to previous slide on "Project Organisation" including using `GitHub` (Each group must create a GitHub `2022_groupXX_final_project` repository on the course GitHub organisation
+Your project must strictly adhere to the [Course Code Styling Guide](code_styling.qmd)
 
-- Contain the entire data science cycle
-  
-- Be end-to-end executable by running `00_doit.R`
+### Data
 
-- __IMPORTANT: See instructions on DTU Learn Lab 11-12-13 on how to set this up__
+*First and foremost, you must find a data set you can work with in the project!*
 
-## Project Requirements - Data
-
-- Be based on a new bio data set
+- It must be based on a bio data set
 
 - Start out as "dirty" i.e. a completely clean and analysis-ready data set will not allow you to demonstrate, that you have met the course learning objectives
 
-- Be of limited size, so we can use GitHub for all parts of the project
+- It is advisable, that the data is limited size, so you do not risk time waste due to long runtimes
 
 - Note, you should demonstrate ability to extract biological insights, but at the same time mind that the focus should be on demonstrating that you master the data science toolbox according to course aim and learning objectives
 
-- Remember, the proces is the product!
+- Remember, **the process is the product!**
 
-- _Naturally, you cannot reuse the data we have worked with during the exercise labs_
+- *Naturally, you cannot reuse the data we have worked with during the exercise labs*
 
-## Project Requirements - Presentation
+### Presentation
   
 - A 10-slides-in-10-mins presentation, possibly followed by a few questions
 
@@ -80,82 +80,22 @@ Strictly adhere to the [Code Styling Guide](code_styling.qmd)
   
 - With a technical focus, but minding to communicate which-ever biological insights you arrived at
 
-- Should not include all your code, but rather focus on the broader picture and include data summaries and visualisations
+- Should **not** include all your code, but rather focus on the broader picture and include data summaries and visualisations
   
-- Created using [`ioslides_presentation`](https://bookdown.org/yihui/rmarkdown/ioslides-presentation.html) rmarkdown (i.e. the right-most `doc` column in the project organisation will be a rmarkdown based presentation)
+- Created using [`Quarto Presentation`](https://quarto.org/docs/presentations/), just as the course slides are
 
-- IMPORTANT: _All groups members are responsible for all parts of the project!_
+- NOTE: This final presentation in HTML-format should be uploaded to DTU Learn before deadline, so we can check the GitHub version is identical
 
 ## Project Supervision
 
-- As a point of reference, this project is part of the overall assessment and you will therefore have limited access to input from me
+- As a point of reference, this project is part of the overall assessment and you will therefore have limited access to supervision
 
-- Think of it as a long take-home-assignment
+- Think of the project, as a long take-home-assignment
 
-- I will be available for answering questions in the class room from 8-9pm on course days (i.e. April 25th and May 2nd)
+- I **highly** encourage the use of Piazza for questions, which will be monitored by the teaching team
 
-- Please note, that these sessions are meant for high level input and not for solving specific code challenges you may face
+- Also, a rather comprehensive list of [frequently asked questions](project_faq.qmd) have been compiled, so be sure to check that out!
 
-- I recommend using your course rmarkdown notebooks and e.g. [https://community.rstudio.com](https://community.rstudio.com) for code input
+- I recommend using your course Quarto documents for reference 
 
-- Furthermore, see DTU Learn labs 11-12-13 under content to find the project FAQ
-
-## Exam details - From the DTU Course Base
-
-### Date of examination
-- F1A (May 10th)
-
-### Type of assessment
-- _Written examination and reports. The exam consists of 3 part exams: 1) A bio-data-science project prepared in groups where all members are responsible for all parts of the project. Active participation in the group work and handing in the project on time are prerequisites for attending the exam. 2) An oral group presentation of the project 3) 2 hours MCQ exam based on the general course learning objectives. The final grade is based on an overall assessment of all three part exams. The re-exam is a 4 hour written exam. The exam prerequisites do not apply for the re-exam._
-
-### Aid
-- Written works of reference are permitted
-
-### Evaluation
-- 7 step scale, internal examiner
-
-## Overview
-
-### Project hand-in
-
-- Sunday May 8th, 23:59
-
-### Group presentations
-
-- Monday May 9th, 8-12
-
-### Multiple choice exam
-
-- Tuesday May 10th, TBA
-
-## The multiple choice exam
-
-- Individual exam on May 10th, time will be announced
-
-- You will have two hours to complete the exam
-
-- Grades will be announced via DTU Inside as soon as possible after the exam
-
-- Please note: The final grade is based on an __overall assessment__ of all three part exams
-
-## Project Completion
-
-### Expected Project Hours
-
-  - 3 course labs have been set aside for the project, therefore:
-    -  9-10h per lab times the number of people `[p]` in the group =
-    - `[3labs x 9h x 3p,3labs x 10h x 5p] = [81,150]` [lower, upper] hours
-  - I suggest planing your time and distributing tasks, to form a collaborative data science team effort!
-  - You do not have much time, so stay focused
-
-### What about exam preparation time then?
-  - Completing the project _is_ your exam preparation!
-
-### Deadline
-
-- In order to make sure, that each group get a good start:
-  - I suggest you meet today after the talks and find a data set that you want to work on
-  - Information on selected data sets must be mailed to me tomorrow, __Tuesday April 5th__ at 17 / 5pm at the latest
-  
-
-# Questions?
+- Also, perhaps you can get input on the [Posit Community Pages](https://community.rstudio.com)
