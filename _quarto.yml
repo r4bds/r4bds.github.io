@@ -39,6 +39,7 @@ book:
         - variable_assignment_in_r.qmd
         - code_styling.qmd
         - primer_on_linear_models_in_r.qmd
+        - primer_on_r_packages.qmd
         - external_resources.qmd
 
     - part: course_elements.qmd

@@ -44,6 +44,10 @@ Wouldn't it be great if:
 
 Welcome to the world of R packages!
 
+</br>
+
+- In fact, R packages are an `industry-wide` practice for ensuring `reproducibility` and `consistency` in data analysis.
+
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -219,7 +223,7 @@ library("dplyr")
 :::
 
 ::::
-<br> 
+</br> 
 
 **Key Point:** Attaching makes calling functions easy but risks conflicts with function names from other packages. Using `::` is explicit and safer.
 
@@ -271,16 +275,16 @@ At its core, an `R package` is essentially a collection of `functions`.
 
 - Functions are `reusable blocks of code` designed to perform a specific task.
 
-- They accept `inputs` (arguments) and, after processing, return an `output`.
+- They accept `parameter inputs` (arguments) and, after processing, return an `output`.
 
 - Properly defined functions `enhance code clarity`, facilitate `debugging`, and foster `modularity`.
 
-
+## input -> param
 ```{r}
 #| echo: true
-fun_name <- function(input1, input2 = 2){
+fun_name <- function(param1, param2 = 2){
   # Do stuff
-  output <- paste(input1, input2)
+  output <- paste(param1, param2)
   # Return stuff
   return(output)
 }
@@ -291,13 +295,13 @@ fun_name <- function(input1, input2 = 2){
 <!--# ---------------------------------------------------------------------- -->
 ## Using functions in a package
 
-- Explicit arguments (improves clarity):
+- Explicit parameters and arguments `improves clarity`:
 
 ```{r}
 #| echo: true
 # Good practice
-fun_name(input1 = "something",
-         input2 = 2)
+fun_name(param1 = "something",
+         param2 = 2)
 ```
 
 - Using default arguments:
@@ -305,7 +309,7 @@ fun_name(input1 = "something",
 ```{r}
 #| echo: true
 # Often fine practice
-# Here input1 = "something_else" and input2 = 2
+# Here param1 = "something_else" and param2 = 2
 fun_name("something_else")
 ```
 
@@ -357,6 +361,11 @@ mean(1:5)
 
 
 _Avoid overwriting other function names_
+
+```{r}
+#| echo: false
+mean <- base::mean
+```
 
 ```{r}
 #| echo: true
@@ -512,16 +521,16 @@ search()
 #| eval: false
 #' Title
 #'
-#' @param input1 
-#' @param input2 
+#' @param param1 
+#' @param param2 
 #'
 #' @return
 #' @export
 #'
 #' @examples
-fun_name <- function(input1, input2 = 2){
+fun_name <- function(param1, param2 = 2){
   # Do stuff
-  output <- stringr::str_c(input1, input2, sep  = " ")
+  output <- stringr::str_c(param1, param2, sep  = " ")
   # Return stuff
   return(output)
 }
@@ -538,15 +547,15 @@ fun_name <- function(input1, input2 = 2){
 #| echo: true
 #' Title
 #'
-#' @param input1 
-#' @param input2 
+#' @param param1 
+#' @param param2 
 #' @importFrom stringr str_c
 #'
 #' @return string
 #' @export
-fun_name <- function(input1, input2 = 2){
+fun_name <- function(param1, param2 = 2){
   # Do stuff
-  output <- stringr::str_c(input1, input2, sep  = " ")
+  output <- stringr::str_c(param1, param2, sep  = " ")
   # Return stuff
   return(output)
 }
@@ -576,15 +585,28 @@ Now what exactly is a `dependency`?
 
 - They help `maintain` the `integrity` of a package when sharing or collaborating.
   - They are installed with your package.
+
+- Do not build what is already built!
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Dependencies: Why They Matter
+
+- A `Dependency` is a package that another package relies on. It ensures that all functions and features run as expected.
+
+- They help `maintain` the `integrity` of a package when sharing or collaborating.
+  - They are installed with your package.
   
-- Don't build what is already built!
+- Do not build what is already built!
+  - Unless...
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
 ## Dependencies: A word of caution
 
-As stated, `all dependencies` are installed with your package.
+`All dependencies` are installed with your package.
 This can lead to `bloating`. 
 
 <!--# ---------------------------------------------------------------------- -->
@@ -630,7 +652,7 @@ saveWidget(report$DependencyReporter$graph_viz,
 <!--# ---------------------------------------------------------------------- -->
 ## Repositories: Installing packages
 
-```{r install}
+```{r install1}
 #| echo: true
 #| eval: false
 install.packages("devtools")          # CRAN: The Comprehensive R Archive Network
@@ -639,6 +661,26 @@ devtools::install_github("cyCombine") # GitHub
 devtools::install_cran("dplyr")       # CRAN again
 # Side note: devtools uses the "remotes" package, i.e., remotes::install_<repo> does the same
 ```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Repositories: Installing packages
+
+```{r install2}
+#| echo: true
+#| eval: false
+install.packages("devtools")          # CRAN: The Comprehensive R Archive Network
+devtools::install_bioc("pairedGSEA")  # Bioconductor
+devtools::install_github("cyCombine") # GitHub
+devtools::install_cran("dplyr")       # CRAN again
+# Side note: devtools uses the "remotes" package, i.e., remotes::install_<repo> does the same
+```
+
+<br>
+
+What if you want to include `non-R` packages/code?
+
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->

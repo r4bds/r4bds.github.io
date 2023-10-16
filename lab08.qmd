@@ -1,6 +1,5 @@
 # Lab 8: Creating a Simple R-package  {.unnumbered}
 
-#### STOP: Section not yet completed!
 
 ## Package(s)
 
@@ -12,16 +11,16 @@
 
 ## Schedule
 
-- 08.00 - 08.15: Recap of exercises from last lab
-- 08.15 - 08.30: Assignment walk-through
-- 08.30 - 09.00: [Lecture](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab08.html)
-- 09.00 - 09.15: Break
+- 08.00 - 08.15: Assignment walk-through
+- 08.15 - 08.45: [Lecture](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab08.html)
+- 08.45 - 09.00: Break
 - 09.00 - 12.00: [Exercises](#sec-exercises)
 
 ## Learning Materials
 
 _Please prepare the following materials:_
 
+- [Primer on R Packages](primer_on_r_packages.qmd#pkgwf)
 - Cheatsheet: [Package development with devtools](https://raw.githubusercontent.com/rstudio/cheatsheets/main/package-development.pdf) -- When in doubt, check here first
 - Web: [R Packages: A Beginner's Tutorial](https://www.datacamp.com/community/tutorials/r-packages-guide) -- Read this before class
 - Web: [Developing Packages with RStudio](https://support.rstudio.com/hc/en-us/articles/200486488-Developing-Packages-with-RStudio) -- Creating an R Package with RStudio
@@ -45,139 +44,14 @@ _Read the steps of this exercises carefully while completing them_
 
 The aim of these exercises is to set up a collaborative coding project using GitHub and collaborate on creating a simple R package that replicates the central dogma of molecular biology.
 
-The exercises uses what you learned in [Lab 7](https://raw.githack.com/r4bds/r4bds.github.io/main/docs/lab07.html) and its [exercises](https://raw.githack.com/r4bds/r4bds.github.io/main/docs/lab07.html#sec-exercises).
+The exercises uses what you learned in [Lab 7](lab07.qmd) and its [exercises](lab07.qmd#sec-exercises).
 But don't worry too much, the setup steps will be given here as well.
-
-----
-
-### How to work with an R package
-
-
-There are a few things to know when creating a package before you jump in.
-These are not strict rules, but they make your life easier when bug-fixing and make the package much easier to use for the users.
-To learn about those, click the foldout sections in the following topics.
-If you feel confident in the realm of R packages, feel free to skip ahead, but don't leave your group too far behind.
-
-
-
-#### Dependencies
-
-<details> <summary>The one strict rule is <b>Never use `library("package")` within a package! </b></summary>
-Instead, add the packages your are going to use to the `DESCRIPTION` file and in the function descriptions.
-This is done by running `usethis::use_package("packageName")` in the console and adding `@import package` (OK) or `@importFrom package function1 function2 ...` (Best). Using the functions in your package is then done with `package::function()` (e.g., `dplyr::mutate()`) or omitting the `package::`.
-
-This way, it is easy to read what functions are from your package, and your package namespace does not get cluttered. Read more in the Namespace section.
-
-It should also be a goal to make your package depend on as few other packages as possible. The user will need to install all packages your package depends on, but then also every package those depends on - that list quickly become quite long if you are not careful.
-</details>
-
-#### Functions
-
-<details> <summary>A package is typically a collections of functions.</summary>
-These functions are stored in `.R` files in the R folder.
-A good starting point is to create an `.R` file for each function. But, as the package becomes bigger, it often makes sense to combine related functions into bigger files.
-
-You can quickly create a new `.R` file with `usethis::use_r("function_name")`.
-Or do it manually, as you are used to.
-</details>
-
-#### Documenting functions
-
-Try running `?mean` in the Console.
-<details> <summary> If you have every wondered how to write a manual like the one that pops up, please click here and read - if not, consider reading it anyway, as you will use it later.</summary>
-
-When you have made a function, or have at least defined one, you should describe what it does and how to use it.
-The manual you write for your function is the function documentation, and it should describe the purpose of the function and how to use it.
-
-You can read extensively about it [here](https://r-pkgs.org/man.html), but I will give you the most essential information to get you started.
-
-The R package `roxygen2` makes this easy as 1-2-3. It is part of `devtools` and is already installed.
-It uses `#'` comments above the function. `@` tags lets you add specific details to the function documentation.
-
-Create an roxygen skeleton by clicking somewhere in your function. Go to the 'Code' tab in the top of your window and select 'Insert Roxygen Skeleton'.
-
-This will look something like this:
-
-```{r}
-#| eval: false
-#' Title
-#'
-#' @param foo 
-#' @param bar 
-#'
-#' @return
-#' @export
-#'
-#' @examples
-myFunction <- function(foo, bar){
-  # Do stuff with foo and bar
-  foobar <- (foo * bar) / (foo + bar)
-  return(foobar)
-}
-```
-
-This allows you to add the most basic descriptions. To begin with, the Title, `@param`, and `@export` are the most important, you may remove the other tags for now. A more detailed example is given [here](https://r-pkgs.org/man.html#man-functions). There, you can also read about documenting datasets and other object types - even the package itself.
-
-</details>
-
-
-#### Namespace
-
-<details> <summary>Your package namespace can quickly become very cluttered, if you are not careful.</summary>
-
-Therefore, follow these rules:
-
-- Only `@export` the functions the users will use. Removing the tag makes the function internal and hides it from your package namespace. It can still be freely used within your package and accessed outside your package with `package:::internal_function()`
-- Make your code explicit with `package::function()`.
-  - This step is not mandatory, but makes reading the code easier.
-- Add your dependencies in the DESCRIPTION file with `usethis::use_package("packageName")`
-- Only very rarely use the `@import` tag. Aim to use the `@importFrom` tags in your function descriptions instead.
-
-You can read more extensively about namespace [here](https://r-pkgs.org/namespace.html).
-
-</details>
-
-
-#### Testing
-
-<details> <summary>Testing is essential</summary>to ensure your package runs smoothly and that no bugs are introduced when you make a seemingly minor change.
-It is handled with the `testthat` package, which is also installed with `devtools`.
-
-I will not go into too much detail here, but know that testing is an important, but often neglected, part of building a package.
-You can read more about it [here](https://r-pkgs.org/tests.html#tests).
-
-Every time you run the `usethis::use_r()` function to create a new script, the function encourages you to create a test alongside the new function. I recommend you follow that advise.
-
-You create a test by running `usethis::use_test("function name")`.
-
-The function creates a new folder `tests` and creates a test script for the function.
-The good R package creator writes a few tests for every function.
-
-The exercises will ask you to make a simple test for every function, introducing you to the concept.
-
-</details>
-
-#### The Package Workflow {#pkgwf}
-
-When creating a package, it is important to test your work along the way.
-<details> <summary>You can do that in many ways, but I recommend the following workflow:</summary>
-
-1. Write a function / make a change
-    - If it is a new function, document it
-2. Save your files: `rstudioapi::documentSaveAll()`
-3. Create package documentation: `devtools::document()`
-4. Load package: `devtools::load_all()`
-5. Your package is now loaded, and you can test that it works as intended.
-
-Optionally, you can save the three lines of code in `dev/load.R` and run the lines with `source("dev/load.R")`. If you do, add the `dev` folder to the `.Rbuildignore` file.
-
-</details>
 
 ----
 
 ### TASKS
 
-_Now you know the basics of creating a package. And you are ready to begin._
+If you haven't read the [Primer on R packages](primer_on_r_packages.qmd) yet, consider reading it now. 
 
 #### Task 1 - Setting up the R package
 
@@ -354,7 +228,7 @@ Normally, you should also describe how the raw data was cleaned. You would do th
 
 Your package now includes some data.
 
-Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from [The Package Workflow](#pkgwf) section, and run `?NAME_OF_YOUR_OBJECT`. Your manual should pop up. Try printing the object as well to see what it looks like `print(NAME_OF_YOUR_OBJECT)`.
+Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from [The Package Workflow](primer_on_r_packages.qmd#pkgwf) section, and run `?NAME_OF_YOUR_OBJECT`. Your manual should pop up. Try printing the object as well to see what it looks like `print(NAME_OF_YOUR_OBJECT)`.
 
 Push your changes to GitHub.
 **The other team members** pull the changes to have the data available to you as well.
@@ -387,7 +261,7 @@ For each function (found below), complete the following steps:
     - The return has the format: `@return description of function output`
     - Examples can span multiple lines and what you write will be run.
     - **Important!** Either fill out everything or delete what you don't describe. Otherwise, the package check will fail (Do **not** delete `@export` for these functions).
-6. Run the three lines of codes from [The Package Workflow](#pkgwf) section
+6. Run the three lines of codes from [The Package Workflow](primer_on_r_packages.qmd#pkgwf) section
 ```{r}
 #| eval: false
 rstudioapi::documentSaveAll()  # Saves all you files
@@ -524,7 +398,7 @@ For this week's group assignment, write a vignette (user guide) for your package
 As a final section, discuss use cases for the package and what other functions could be included.
 Also include the main points from your discussion in Task 3.
 
-Include a link to your group's GitHub repository at the top of the vignette. Hand it in as a pdf in DTU Learn, as you did the previous weeks.
+Include a link to your group's GitHub repository at the top of the vignette. Hand it in as a pdf in DTU Learn.
 
 1. Create a vignette with `usethis::use_vignette("package name")`.
 2. When you are done writing it, run `devtools::build_vignettes()`.
