@@ -263,6 +263,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./primer_on_r_packages.html" class="sidebar-item-text sidebar-link">Primer on R package development</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./external_resources.html" class="sidebar-item-text sidebar-link">External Resources</a>
   </div>
 </li>
@@ -314,8 +319,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#sec-exercises" id="toc-sec-exercises" class="nav-link" data-scroll-target="#sec-exercises">Exercises</a>
   <ul class="collapse">
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#how-to-work-with-an-r-package" id="toc-how-to-work-with-an-r-package" class="nav-link" data-scroll-target="#how-to-work-with-an-r-package">How to work with an R package</a></li>
   <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks">TASKS</a></li>
+  <li><a href="#task-1---setting-up-the-r-package" id="toc-task-1---setting-up-the-r-package" class="nav-link" data-scroll-target="#task-1---setting-up-the-r-package">Task 1 - Setting up the R package</a></li>
+  <li><a href="#task-2---build-the-package" id="toc-task-2---build-the-package" class="nav-link" data-scroll-target="#task-2---build-the-package">Task 2 - Build the package</a></li>
+  <li><a href="#task-3---group-discussion" id="toc-task-3---group-discussion" class="nav-link" data-scroll-target="#task-3---group-discussion">Task 3 - Group discussion</a></li>
   <li><a href="#group-assignment" id="toc-group-assignment" class="nav-link" data-scroll-target="#group-assignment"><span style="color: red;">GROUP ASSIGNMENT</span></a></li>
   <li><a href="#last-tip-on-packages" id="toc-last-tip-on-packages" class="nav-link" data-scroll-target="#last-tip-on-packages">Last tip on packages</a></li>
   </ul></li>
@@ -341,9 +348,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="stop-section-not-yet-completed" class="level4">
-<h4 class="anchored" data-anchor-id="stop-section-not-yet-completed">STOP: Section not yet completed!</h4>
-</section>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Package(s)</h2>
 <ul>
@@ -357,10 +361,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="schedule" class="level2">
 <h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
 <ul>
-<li>08.00 - 08.15: Recap of exercises from last lab</li>
-<li>08.15 - 08.30: Assignment walk-through</li>
-<li>08.30 - 09.00: <a href="https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab08.html">Lecture</a></li>
-<li>09.00 - 09.15: Break</li>
+<li>08.00 - 08.15: Assignment walk-through</li>
+<li>08.15 - 08.45: <a href="https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab08.html">Lecture</a></li>
+<li>08.45 - 09.00: Break</li>
 <li>09.00 - 12.00: <a href="#sec-exercises">Exercises</a></li>
 </ul>
 </section>
@@ -368,6 +371,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="learning-materials">Learning Materials</h2>
 <p><em>Please prepare the following materials:</em></p>
 <ul>
+<li><a href="./primer_on_r_packages.html#pkgwf">Primer on R Packages</a></li>
 <li>Cheatsheet: <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/package-development.pdf">Package development with devtools</a> – When in doubt, check here first</li>
 <li>Web: <a href="https://www.datacamp.com/community/tutorials/r-packages-guide">R Packages: A Beginner’s Tutorial</a> – Read this before class</li>
 <li>Web: <a href="https://support.rstudio.com/hc/en-us/articles/200486488-Developing-Packages-with-RStudio">Developing Packages with RStudio</a> – Creating an R Package with RStudio</li>
@@ -391,127 +395,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="introduction" class="level3">
 <h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
 <p>The aim of these exercises is to set up a collaborative coding project using GitHub and collaborate on creating a simple R package that replicates the central dogma of molecular biology.</p>
-<p>The exercises uses what you learned in <a href="https://raw.githack.com/r4bds/r4bds.github.io/main/docs/lab07.html">Lab 7</a> and its <a href="https://raw.githack.com/r4bds/r4bds.github.io/main/docs/lab07.html#sec-exercises">exercises</a>. But don’t worry too much, the setup steps will be given here as well.</p>
+<p>The exercises uses what you learned in <a href="./lab07.html">Lab 7</a> and its <a href="./lab07.html#sec-exercises">exercises</a>. But don’t worry too much, the setup steps will be given here as well.</p>
 <hr>
-</section>
-<section id="how-to-work-with-an-r-package" class="level3">
-<h3 class="anchored" data-anchor-id="how-to-work-with-an-r-package">How to work with an R package</h3>
-<p>There are a few things to know when creating a package before you jump in. These are not strict rules, but they make your life easier when bug-fixing and make the package much easier to use for the users. To learn about those, click the foldout sections in the following topics. If you feel confident in the realm of R packages, feel free to skip ahead, but don’t leave your group too far behind.</p>
-<section id="dependencies" class="level4">
-<h4 class="anchored" data-anchor-id="dependencies">Dependencies</h4>
-<details>
-<summary>
-The one strict rule is <b>Never use <code>library("package")</code> within a package! </b>
-</summary>
-<p>Instead, add the packages your are going to use to the <code>DESCRIPTION</code> file and in the function descriptions. This is done by running <code>usethis::use_package("packageName")</code> in the console and adding <code>@import package</code> (OK) or <code>@importFrom package function1 function2 ...</code> (Best). Using the functions in your package is then done with <code>package::function()</code> (e.g., <code>dplyr::mutate()</code>) or omitting the <code>package::</code>.</p>
-<p>This way, it is easy to read what functions are from your package, and your package namespace does not get cluttered. Read more in the Namespace section.</p>
-It should also be a goal to make your package depend on as few other packages as possible. The user will need to install all packages your package depends on, but then also every package those depends on - that list quickly become quite long if you are not careful.
-</details>
-</section>
-<section id="functions" class="level4">
-<h4 class="anchored" data-anchor-id="functions">Functions</h4>
-<details>
-<summary>
-A package is typically a collections of functions.
-</summary>
-<p>These functions are stored in <code>.R</code> files in the R folder. A good starting point is to create an <code>.R</code> file for each function. But, as the package becomes bigger, it often makes sense to combine related functions into bigger files.</p>
-You can quickly create a new <code>.R</code> file with <code>usethis::use_r("function_name")</code>. Or do it manually, as you are used to.
-</details>
-</section>
-<section id="documenting-functions" class="level4">
-<h4 class="anchored" data-anchor-id="documenting-functions">Documenting functions</h4>
-Try running <code>?mean</code> in the Console.
-<details>
-<summary>
-If you have every wondered how to write a manual like the one that pops up, please click here and read - if not, consider reading it anyway, as you will use it later.
-</summary>
-<p>When you have made a function, or have at least defined one, you should describe what it does and how to use it. The manual you write for your function is the function documentation, and it should describe the purpose of the function and how to use it.</p>
-<p>You can read extensively about it <a href="https://r-pkgs.org/man.html">here</a>, but I will give you the most essential information to get you started.</p>
-<p>The R package <code>roxygen2</code> makes this easy as 1-2-3. It is part of <code>devtools</code> and is already installed. It uses <code>#'</code> comments above the function. <code>@</code> tags lets you add specific details to the function documentation.</p>
-<p>Create an roxygen skeleton by clicking somewhere in your function. Go to the ‘Code’ tab in the top of your window and select ‘Insert Roxygen Skeleton’.</p>
-<p>This will look something like this:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Title</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param foo </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param bar </span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#' @examples</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>myFunction <span class="ot">&lt;-</span> <span class="cf">function</span>(foo, bar){</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Do stuff with foo and bar</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  foobar <span class="ot">&lt;-</span> (foo <span class="sc">*</span> bar) <span class="sc">/</span> (foo <span class="sc">+</span> bar)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(foobar)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>This allows you to add the most basic descriptions. To begin with, the Title, <code>@param</code>, and <code>@export</code> are the most important, you may remove the other tags for now. A more detailed example is given <a href="https://r-pkgs.org/man.html#man-functions">here</a>. There, you can also read about documenting datasets and other object types - even the package itself.</p>
-</details>
-</section>
-<section id="namespace" class="level4">
-<h4 class="anchored" data-anchor-id="namespace">Namespace</h4>
-<details>
-<summary>
-Your package namespace can quickly become very cluttered, if you are not careful.
-</summary>
-<p>Therefore, follow these rules:</p>
-<ul>
-<li>Only <code>@export</code> the functions the users will use. Removing the tag makes the function internal and hides it from your package namespace. It can still be freely used within your package and accessed outside your package with <code>package:::internal_function()</code></li>
-<li>Make your code explicit with <code>package::function()</code>.
-<ul>
-<li>This step is not mandatory, but makes reading the code easier.</li>
-</ul></li>
-<li>Add your dependencies in the DESCRIPTION file with <code>usethis::use_package("packageName")</code></li>
-<li>Only very rarely use the <code>@import</code> tag. Aim to use the <code>@importFrom</code> tags in your function descriptions instead.</li>
-</ul>
-<p>You can read more extensively about namespace <a href="https://r-pkgs.org/namespace.html">here</a>.</p>
-</details>
-</section>
-<section id="testing" class="level4">
-<h4 class="anchored" data-anchor-id="testing">Testing</h4>
-<details>
-<summary>
-Testing is essential
-</summary>
-<p>to ensure your package runs smoothly and that no bugs are introduced when you make a seemingly minor change. It is handled with the <code>testthat</code> package, which is also installed with <code>devtools</code>.</p>
-<p>I will not go into too much detail here, but know that testing is an important, but often neglected, part of building a package. You can read more about it <a href="https://r-pkgs.org/tests.html#tests">here</a>.</p>
-<p>Every time you run the <code>usethis::use_r()</code> function to create a new script, the function encourages you to create a test alongside the new function. I recommend you follow that advise.</p>
-<p>You create a test by running <code>usethis::use_test("function name")</code>.</p>
-<p>The function creates a new folder <code>tests</code> and creates a test script for the function. The good R package creator writes a few tests for every function.</p>
-<p>The exercises will ask you to make a simple test for every function, introducing you to the concept.</p>
-</details>
-</section>
-<section id="pkgwf" class="level4">
-<h4 class="anchored" data-anchor-id="pkgwf">The Package Workflow</h4>
-When creating a package, it is important to test your work along the way.
-<details>
-<summary>
-You can do that in many ways, but I recommend the following workflow:
-</summary>
-<ol type="1">
-<li>Write a function / make a change
-<ul>
-<li>If it is a new function, document it</li>
-</ul></li>
-<li>Save your files: <code>rstudioapi::documentSaveAll()</code></li>
-<li>Create package documentation: <code>devtools::document()</code></li>
-<li>Load package: <code>devtools::load_all()</code></li>
-<li>Your package is now loaded, and you can test that it works as intended.</li>
-</ol>
-<p>Optionally, you can save the three lines of code in <code>dev/load.R</code> and run the lines with <code>source("dev/load.R")</code>. If you do, add the <code>dev</code> folder to the <code>.Rbuildignore</code> file.</p>
-</details>
-<hr>
-</section>
 </section>
 <section id="tasks" class="level3">
 <h3 class="anchored" data-anchor-id="tasks">TASKS</h3>
-<p><em>Now you know the basics of creating a package. And you are ready to begin.</em></p>
-<section id="task-1---setting-up-the-r-package" class="level4">
-<h4 class="anchored" data-anchor-id="task-1---setting-up-the-r-package">Task 1 - Setting up the R package</h4>
+<p>If you haven’t read the <a href="./primer_on_r_packages.html">Primer on R packages</a> yet, consider reading it now.</p>
+</section>
+<section id="task-1---setting-up-the-r-package" class="level3">
+<h3 class="anchored" data-anchor-id="task-1---setting-up-the-r-package">Task 1 - Setting up the R package</h3>
 <p>In the first task, <strong>one team member</strong> (you decide who) will initiate a package project and push it to Github. Then, when instructed, the <strong>remaining group members</strong> will connect to that repository, and the real package building will begin.</p>
-<section id="task-1.1---create-r-package" class="level5">
-<h5 class="anchored" data-anchor-id="task-1.1---create-r-package">Task 1.1 - Create R Package</h5>
+<section id="task-1.1---create-r-package" class="level4">
+<h4 class="anchored" data-anchor-id="task-1.1---create-r-package">Task 1.1 - Create R Package</h4>
 <ol type="1">
 <li>Go to <a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science RStudio Cloud Server</a> and login.</li>
 <li>Click <code>Create a project</code><img src="images/L08_create.png" class="img-fluid" style="width:5.0%"> in the top left and choose <code>New Directory</code>.</li>
@@ -531,15 +426,15 @@ You can do that in many ways, but I recommend the following workflow:
 <li>When adding authors, the format is:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Author<span class="sc">@</span>R<span class="sc">:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fu">person</span>(<span class="at">given =</span> <span class="st">"firstname"</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">family =</span> <span class="st">"lastname"</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">role =</span> <span class="fu">c</span>(<span class="st">"aut"</span>, <span class="st">"cre"</span>), <span class="co"># There must be a "cre", but there can only be one</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">email =</span> <span class="st">"your@email.com"</span>), </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">person</span>(<span class="at">given =</span> <span class="st">"firstname"</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">family =</span> <span class="st">"lastname"</span>,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">role =</span> <span class="st">"aut"</span>,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">email =</span> <span class="st">"your@email.com"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Author<span class="sc">@</span>R<span class="sc">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fu">person</span>(<span class="at">given =</span> <span class="st">"firstname"</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">family =</span> <span class="st">"lastname"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">role =</span> <span class="fu">c</span>(<span class="st">"aut"</span>, <span class="st">"cre"</span>), <span class="co"># There must be a "cre", but there can only be one</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">email =</span> <span class="st">"your@email.com"</span>), </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">person</span>(<span class="at">given =</span> <span class="st">"firstname"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">family =</span> <span class="st">"lastname"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">role =</span> <span class="st">"aut"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">email =</span> <span class="st">"your@email.com"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="6" type="1">
 <li>Create an MIT license (from the console) <code>usethis::use_mit_license("Group name")</code></li>
@@ -575,8 +470,9 @@ Write vignettes: <code>usethis::use_vignette("Vignette name")</code>
 </details></li>
 </ol>
 </section>
-<section id="task-1.2---setup-github-repository-for-your-groups-r-package" class="level5">
-<h5 class="anchored" data-anchor-id="task-1.2---setup-github-repository-for-your-groups-r-package">Task 1.2 - Setup GitHub Repository for your group’s R package</h5>
+<section id="task-1.2---setup-github-repository-for-your-groups-r-package" class="level4">
+<h4 class="anchored" data-anchor-id="task-1.2---setup-github-repository-for-your-groups-r-package">Task 1.2 - Setup GitHub Repository for your group’s R package</h4>
+<p>During the previous class, you have been using a combination of console and terminal to set up GitHub. This week, you will solely be using the console.</p>
 <p><strong>Still only the first team member</strong></p>
 <ol type="1">
 <li>Go to <a href="https://github.com/rforbiodatascience23">https://github.com/rforbiodatascience23</a></li>
@@ -592,8 +488,8 @@ Write vignettes: <code>usethis::use_vignette("Vignette name")</code>
 <li>All other team members should now have access to the repository, <strong>but do not create your own project yet.</strong></li>
 </ol>
 </section>
-<section id="task-1.3---connect-your-rstudio-server-project-to-the-github-repository" class="level5">
-<h5 class="anchored" data-anchor-id="task-1.3---connect-your-rstudio-server-project-to-the-github-repository">Task 1.3 - Connect your RStudio Server Project to the GitHub Repository</h5>
+<section id="task-1.3---connect-your-rstudio-server-project-to-the-github-repository" class="level4">
+<h4 class="anchored" data-anchor-id="task-1.3---connect-your-rstudio-server-project-to-the-github-repository">Task 1.3 - Connect your RStudio Server Project to the GitHub Repository</h4>
 <p><strong>Still only the first team member</strong></p>
 <ol type="1">
 <li>Find your <code>PAT</code> key or create a new
@@ -607,7 +503,7 @@ Type in the console <code>usethis::create_github_token()</code>. You’re going 
 </li><li>
 In case you did that step manually, remember to give permission to access your repositories.
 </li><li>
-You need to type your password. Don’t change the default settings of creating the token except for the description – set ‘RStudio Cloud’ or something similar. Then hit Generate token.
+You need to type your password. Don’t change the default settings of creating the token except for the description – set ‘RStudio Server’ or something similar. Then hit Generate token.
 </li><li>
 Copy the generated token (should start with ghp_) and store it securely (e.g., in a password manager). Do not keep it in a plain file.
 </li></ul>
@@ -618,10 +514,10 @@ Copy the generated token (should start with ghp_) and store it securely (e.g., i
 <li>Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the <strong>X</strong>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_remote</span>(<span class="at">name =</span> <span class="st">"origin"</span>, <span class="st">"https://github.com/rforbiodatascience23/group_X_package.git"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>) <span class="co"># Remember to replace the X</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"USERNAME"</span>, <span class="at">user.email =</span> <span class="st">"USEREMAIL@EXAMPLE.ORG"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_commit_all</span>(<span class="st">"Package setup"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_push</span>(<span class="st">"origin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_remote</span>(<span class="at">name =</span> <span class="st">"origin"</span>, <span class="st">"https://github.com/rforbiodatascience23/group_X_package.git"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>) <span class="co"># Remember to replace the X</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"USERNAME"</span>, <span class="at">user.email =</span> <span class="st">"USEREMAIL@EXAMPLE.ORG"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_commit_all</span>(<span class="st">"Package setup"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_push</span>(<span class="st">"origin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>All other team members</strong></p>
 <p><em>After your teammate has pushed to GitHub.</em></p>
@@ -644,7 +540,7 @@ Type in the console <code>usethis::create_github_token()</code>. You’re going 
 </li><li>
 In case you did it manually, remember to give permission to access your repositories.
 </li><li>
-You need to type your password. Don’t change the default settings of creating the token except for the description – set ‘RStudio Cloud’ or something similar. Then hit Generate token.
+You need to type your password. Don’t change the default settings of creating the token except for the description – set ‘RStudio Server’ or something similar. Then hit Generate token.
 </li><li>
 Copy the generated token (should start with ghp_) and store it securely (e.g.&nbsp;in password manager). Do not keep it in a plain file.
 </li></ul>
@@ -654,41 +550,41 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <li>Still in the console, run the following commands. Replace your GitHub username and email.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"USERNAME"</span>, <span class="at">user.email =</span> <span class="st">"USEREMAIL@EXAMPLE.ORG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"USERNAME"</span>, <span class="at">user.email =</span> <span class="st">"USEREMAIL@EXAMPLE.ORG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>If RStudio at any point asks you to log in to GitHub, redo step 4 and 5.</strong></p>
 <p>Now you are ready to work on the R package.</p>
 </section>
 </section>
-<section id="task-2---build-the-package" class="level4">
-<h4 class="anchored" data-anchor-id="task-2---build-the-package">Task 2 - Build the package</h4>
+<section id="task-2---build-the-package" class="level3">
+<h3 class="anchored" data-anchor-id="task-2---build-the-package">Task 2 - Build the package</h3>
 <hr>
 <p>Each team member should build and implement their own function. The code will be given, but you will be asked to come up with a name for your function and many of the variables, so discuss in the team what naming convention you want to use. Do you want to use <code>snake_case</code> (common in tidyverse) or <code>camelCase</code> (common in Bioconductor)? It doesn’t really matter, but try to be consistent.</p>
 <p><br></p>
-<section id="task-2.1---incorporate-data" class="level5">
-<h5 class="anchored" data-anchor-id="task-2.1---incorporate-data">Task 2.1 - Incorporate data</h5>
+<section id="task-2.1---incorporate-data" class="level4">
+<h4 class="anchored" data-anchor-id="task-2.1---incorporate-data">Task 2.1 - Incorporate data</h4>
 <p>In this task you will include the following codon table in your package.</p>
 <p><strong>This task should be done by one team member</strong>. The rest should follow along.</p>
 <ol type="1">
 <li>Below is a standard codon table. Store it in an object with a name of your own choosing.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"UUU"</span> <span class="ot">=</span> <span class="st">"F"</span>, <span class="st">"UCU"</span> <span class="ot">=</span> <span class="st">"S"</span>, <span class="st">"UAU"</span> <span class="ot">=</span> <span class="st">"Y"</span>, <span class="st">"UGU"</span> <span class="ot">=</span> <span class="st">"C"</span>,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"UUC"</span> <span class="ot">=</span> <span class="st">"F"</span>, <span class="st">"UCC"</span> <span class="ot">=</span> <span class="st">"S"</span>, <span class="st">"UAC"</span> <span class="ot">=</span> <span class="st">"Y"</span>, <span class="st">"UGC"</span> <span class="ot">=</span> <span class="st">"C"</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"UUA"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"UCA"</span> <span class="ot">=</span> <span class="st">"S"</span>, <span class="st">"UAA"</span> <span class="ot">=</span> <span class="st">"_"</span>, <span class="st">"UGA"</span> <span class="ot">=</span> <span class="st">"_"</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"UUG"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"UCG"</span> <span class="ot">=</span> <span class="st">"S"</span>, <span class="st">"UAG"</span> <span class="ot">=</span> <span class="st">"_"</span>, <span class="st">"UGG"</span> <span class="ot">=</span> <span class="st">"W"</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"CUU"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"CCU"</span> <span class="ot">=</span> <span class="st">"P"</span>, <span class="st">"CAU"</span> <span class="ot">=</span> <span class="st">"H"</span>, <span class="st">"CGU"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"CUC"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"CCC"</span> <span class="ot">=</span> <span class="st">"P"</span>, <span class="st">"CAC"</span> <span class="ot">=</span> <span class="st">"H"</span>, <span class="st">"CGC"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"CUA"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"CCA"</span> <span class="ot">=</span> <span class="st">"P"</span>, <span class="st">"CAA"</span> <span class="ot">=</span> <span class="st">"Q"</span>, <span class="st">"CGA"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"CUG"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"CCG"</span> <span class="ot">=</span> <span class="st">"P"</span>, <span class="st">"CAG"</span> <span class="ot">=</span> <span class="st">"Q"</span>, <span class="st">"CGG"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"AUU"</span> <span class="ot">=</span> <span class="st">"I"</span>, <span class="st">"ACU"</span> <span class="ot">=</span> <span class="st">"T"</span>, <span class="st">"AAU"</span> <span class="ot">=</span> <span class="st">"N"</span>, <span class="st">"AGU"</span> <span class="ot">=</span> <span class="st">"S"</span>,</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"AUC"</span> <span class="ot">=</span> <span class="st">"I"</span>, <span class="st">"ACC"</span> <span class="ot">=</span> <span class="st">"T"</span>, <span class="st">"AAC"</span> <span class="ot">=</span> <span class="st">"N"</span>, <span class="st">"AGC"</span> <span class="ot">=</span> <span class="st">"S"</span>,</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"AUA"</span> <span class="ot">=</span> <span class="st">"I"</span>, <span class="st">"ACA"</span> <span class="ot">=</span> <span class="st">"T"</span>, <span class="st">"AAA"</span> <span class="ot">=</span> <span class="st">"K"</span>, <span class="st">"AGA"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"AUG"</span> <span class="ot">=</span> <span class="st">"M"</span>, <span class="st">"ACG"</span> <span class="ot">=</span> <span class="st">"T"</span>, <span class="st">"AAG"</span> <span class="ot">=</span> <span class="st">"K"</span>, <span class="st">"AGG"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GUU"</span> <span class="ot">=</span> <span class="st">"V"</span>, <span class="st">"GCU"</span> <span class="ot">=</span> <span class="st">"A"</span>, <span class="st">"GAU"</span> <span class="ot">=</span> <span class="st">"D"</span>, <span class="st">"GGU"</span> <span class="ot">=</span> <span class="st">"G"</span>,</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GUC"</span> <span class="ot">=</span> <span class="st">"V"</span>, <span class="st">"GCC"</span> <span class="ot">=</span> <span class="st">"A"</span>, <span class="st">"GAC"</span> <span class="ot">=</span> <span class="st">"D"</span>, <span class="st">"GGC"</span> <span class="ot">=</span> <span class="st">"G"</span>,</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GUA"</span> <span class="ot">=</span> <span class="st">"V"</span>, <span class="st">"GCA"</span> <span class="ot">=</span> <span class="st">"A"</span>, <span class="st">"GAA"</span> <span class="ot">=</span> <span class="st">"E"</span>, <span class="st">"GGA"</span> <span class="ot">=</span> <span class="st">"G"</span>,</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GUG"</span> <span class="ot">=</span> <span class="st">"V"</span>, <span class="st">"GCG"</span> <span class="ot">=</span> <span class="st">"A"</span>, <span class="st">"GAG"</span> <span class="ot">=</span> <span class="st">"E"</span>, <span class="st">"GGG"</span> <span class="ot">=</span> <span class="st">"G"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"UUU"</span> <span class="ot">=</span> <span class="st">"F"</span>, <span class="st">"UCU"</span> <span class="ot">=</span> <span class="st">"S"</span>, <span class="st">"UAU"</span> <span class="ot">=</span> <span class="st">"Y"</span>, <span class="st">"UGU"</span> <span class="ot">=</span> <span class="st">"C"</span>,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"UUC"</span> <span class="ot">=</span> <span class="st">"F"</span>, <span class="st">"UCC"</span> <span class="ot">=</span> <span class="st">"S"</span>, <span class="st">"UAC"</span> <span class="ot">=</span> <span class="st">"Y"</span>, <span class="st">"UGC"</span> <span class="ot">=</span> <span class="st">"C"</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"UUA"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"UCA"</span> <span class="ot">=</span> <span class="st">"S"</span>, <span class="st">"UAA"</span> <span class="ot">=</span> <span class="st">"_"</span>, <span class="st">"UGA"</span> <span class="ot">=</span> <span class="st">"_"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"UUG"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"UCG"</span> <span class="ot">=</span> <span class="st">"S"</span>, <span class="st">"UAG"</span> <span class="ot">=</span> <span class="st">"_"</span>, <span class="st">"UGG"</span> <span class="ot">=</span> <span class="st">"W"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"CUU"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"CCU"</span> <span class="ot">=</span> <span class="st">"P"</span>, <span class="st">"CAU"</span> <span class="ot">=</span> <span class="st">"H"</span>, <span class="st">"CGU"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"CUC"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"CCC"</span> <span class="ot">=</span> <span class="st">"P"</span>, <span class="st">"CAC"</span> <span class="ot">=</span> <span class="st">"H"</span>, <span class="st">"CGC"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"CUA"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"CCA"</span> <span class="ot">=</span> <span class="st">"P"</span>, <span class="st">"CAA"</span> <span class="ot">=</span> <span class="st">"Q"</span>, <span class="st">"CGA"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"CUG"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"CCG"</span> <span class="ot">=</span> <span class="st">"P"</span>, <span class="st">"CAG"</span> <span class="ot">=</span> <span class="st">"Q"</span>, <span class="st">"CGG"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"AUU"</span> <span class="ot">=</span> <span class="st">"I"</span>, <span class="st">"ACU"</span> <span class="ot">=</span> <span class="st">"T"</span>, <span class="st">"AAU"</span> <span class="ot">=</span> <span class="st">"N"</span>, <span class="st">"AGU"</span> <span class="ot">=</span> <span class="st">"S"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"AUC"</span> <span class="ot">=</span> <span class="st">"I"</span>, <span class="st">"ACC"</span> <span class="ot">=</span> <span class="st">"T"</span>, <span class="st">"AAC"</span> <span class="ot">=</span> <span class="st">"N"</span>, <span class="st">"AGC"</span> <span class="ot">=</span> <span class="st">"S"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"AUA"</span> <span class="ot">=</span> <span class="st">"I"</span>, <span class="st">"ACA"</span> <span class="ot">=</span> <span class="st">"T"</span>, <span class="st">"AAA"</span> <span class="ot">=</span> <span class="st">"K"</span>, <span class="st">"AGA"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"AUG"</span> <span class="ot">=</span> <span class="st">"M"</span>, <span class="st">"ACG"</span> <span class="ot">=</span> <span class="st">"T"</span>, <span class="st">"AAG"</span> <span class="ot">=</span> <span class="st">"K"</span>, <span class="st">"AGG"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GUU"</span> <span class="ot">=</span> <span class="st">"V"</span>, <span class="st">"GCU"</span> <span class="ot">=</span> <span class="st">"A"</span>, <span class="st">"GAU"</span> <span class="ot">=</span> <span class="st">"D"</span>, <span class="st">"GGU"</span> <span class="ot">=</span> <span class="st">"G"</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GUC"</span> <span class="ot">=</span> <span class="st">"V"</span>, <span class="st">"GCC"</span> <span class="ot">=</span> <span class="st">"A"</span>, <span class="st">"GAC"</span> <span class="ot">=</span> <span class="st">"D"</span>, <span class="st">"GGC"</span> <span class="ot">=</span> <span class="st">"G"</span>,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GUA"</span> <span class="ot">=</span> <span class="st">"V"</span>, <span class="st">"GCA"</span> <span class="ot">=</span> <span class="st">"A"</span>, <span class="st">"GAA"</span> <span class="ot">=</span> <span class="st">"E"</span>, <span class="st">"GGA"</span> <span class="ot">=</span> <span class="st">"G"</span>,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"GUG"</span> <span class="ot">=</span> <span class="st">"V"</span>, <span class="st">"GCG"</span> <span class="ot">=</span> <span class="st">"A"</span>, <span class="st">"GAG"</span> <span class="ot">=</span> <span class="st">"E"</span>, <span class="st">"GGG"</span> <span class="ot">=</span> <span class="st">"G"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Run <code>usethis::use_data(NAME_OF_YOUR_OBJECT, overwrite = TRUE, internal = TRUE)</code></li>
@@ -703,22 +599,22 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 </ul></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Title</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' Description</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @source \url{https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi?chapter=tgencodes#SG1}</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="st">"NAME_OF_YOUR_OBJECT"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Title</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' Description</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @source \url{https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi?chapter=tgencodes#SG1}</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="st">"NAME_OF_YOUR_OBJECT"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Normally, you should also describe how the raw data was cleaned. You would do that in the file that opens after running <code>usethis::use_data_raw( name = "NAME_OF_YOUR_OBJECT", open = TRUE )</code>, but that is less relevant here, so we will skip that part.</p>
 <p>Your package now includes some data.</p>
-<p>Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from <a href="#pkgwf">The Package Workflow</a> section, and run <code>?NAME_OF_YOUR_OBJECT</code>. Your manual should pop up. Try printing the object as well to see what it looks like <code>print(NAME_OF_YOUR_OBJECT)</code>.</p>
+<p>Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from <a href="./primer_on_r_packages.html#pkgwf">The Package Workflow</a> section, and run <code>?NAME_OF_YOUR_OBJECT</code>. Your manual should pop up. Try printing the object as well to see what it looks like <code>print(NAME_OF_YOUR_OBJECT)</code>.</p>
 <p>Push your changes to GitHub. <strong>The other team members</strong> pull the changes to have the data available to you as well.</p>
 <p><br></p>
 </section>
-<section id="task-2.2---implement-functions" class="level5">
-<h5 class="anchored" data-anchor-id="task-2.2---implement-functions">Task 2.2 - Implement functions</h5>
+<section id="task-2.2---implement-functions" class="level4">
+<h4 class="anchored" data-anchor-id="task-2.2---implement-functions">Task 2.2 - Implement functions</h4>
 <p>In this task you will be working individually to implement a function each. If you are fewer in the team than the number of functions. The quickest to finish can implement the remaining, or separate them out as you see fit.</p>
 <p>If you want an additional challenge, each team member can create their own Git branch <code>gert::git_branch_checkout("NAME_OF_BRANCH")</code> and work there. When done, merge your branch with the main branch. That is a more clean and ‘proper’ workflow, but completely optional.</p>
 <p>If you are in doubt what the underlying functions do, run <code>?function_name</code> to get a hint about their purpose. Also, remember the functions are replicating the central dogma. Let that inspire you, when naming the functions and variables. If you get stuck, ask your teammates about their functions.</p>
@@ -738,12 +634,12 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <li>Examples can span multiple lines and what you write will be run.</li>
 <li><strong>Important!</strong> Either fill out everything or delete what you don’t describe. Otherwise, the package check will fail (Do <strong>not</strong> delete <code>@export</code> for these functions).</li>
 </ul></li>
-<li>Run the three lines of codes from <a href="#pkgwf">The Package Workflow</a> section</li>
+<li>Run the three lines of codes from <a href="./primer_on_r_packages.html#pkgwf">The Package Workflow</a> section</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>rstudioapi<span class="sc">::</span><span class="fu">documentSaveAll</span>()  <span class="co"># Saves all you files</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()  <span class="co"># Writes all your manuals for you</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>()  <span class="co"># Simulates library("your package"), allowing you to use your functions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rstudioapi<span class="sc">::</span><span class="fu">documentSaveAll</span>()  <span class="co"># Saves all you files</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()  <span class="co"># Writes all your manuals for you</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>()  <span class="co"># Simulates library("your package"), allowing you to use your functions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="7" type="1">
 <li>View your function documentation with <code>?function_name</code></li>
@@ -772,11 +668,11 @@ Briefly about check
 Function one
 </summary>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2){</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>), <span class="at">size =</span> name_me2, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  name_me4 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(name_me3, <span class="at">collapse =</span> <span class="st">""</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me4)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2){</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>), <span class="at">size =</span> name_me2, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  name_me4 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(name_me3, <span class="at">collapse =</span> <span class="st">""</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me4)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <details>
@@ -784,10 +680,10 @@ Function one
 Function two
 </summary>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2){</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"T"</span>, <span class="st">"U"</span>, name_me2)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me3)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2){</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"T"</span>, <span class="st">"U"</span>, name_me2)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me3)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <details>
@@ -795,13 +691,13 @@ Function two
 Function three
 </summary>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2, <span class="at">start =</span> <span class="dv">1</span>){</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> <span class="fu">nchar</span>(name_me2)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  codons <span class="ot">&lt;-</span> <span class="fu">substring</span>(name_me2,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">first =</span> <span class="fu">seq</span>(<span class="at">from =</span> start, <span class="at">to =</span> name_me3<span class="dv">-3</span><span class="sc">+</span><span class="dv">1</span>, <span class="at">by =</span> <span class="dv">3</span>),</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">last =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">3</span><span class="sc">+</span>start<span class="dv">-1</span>, <span class="at">to =</span> name_me3, <span class="at">by =</span> <span class="dv">3</span>))</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(codons)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2, <span class="at">start =</span> <span class="dv">1</span>){</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> <span class="fu">nchar</span>(name_me2)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  codons <span class="ot">&lt;-</span> <span class="fu">substring</span>(name_me2,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">first =</span> <span class="fu">seq</span>(<span class="at">from =</span> start, <span class="at">to =</span> name_me3<span class="dv">-3</span><span class="sc">+</span><span class="dv">1</span>, <span class="at">by =</span> <span class="dv">3</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">last =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">3</span><span class="sc">+</span>start<span class="dv">-1</span>, <span class="at">to =</span> name_me3, <span class="at">by =</span> <span class="dv">3</span>))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(codons)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <details>
@@ -810,10 +706,10 @@ Function four
 </summary>
 <p><code>NAME_OF_YOUR_OBJECT</code> refers to the codon table you stored in Task 2.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>name_me <span class="ot">&lt;-</span> <span class="cf">function</span>(codons){</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  name_me2 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(NAME_OF_YOUR_OBJECT[codons], <span class="at">collapse =</span> <span class="st">""</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me2)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>name_me <span class="ot">&lt;-</span> <span class="cf">function</span>(codons){</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  name_me2 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(NAME_OF_YOUR_OBJECT[codons], <span class="at">collapse =</span> <span class="st">""</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me2)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <details>
@@ -823,33 +719,33 @@ Function five
 <p>This function will be the first to use dependencies. As a reminder, a dependency is a package that your package depends on. In this case, it will be <code>stringr</code> and <code>ggplot2</code>. They are already installed, so you don’t need to do that. The best way to add these packages to your own is to first add them to your package dependencies with <code>usethis::use_package("package_name")</code>. Do that with all three.</p>
 <p>For the <code>ggplot2</code> functions, we will use <code>ggplot2::function_name</code> everywhere a <code>ggplot2</code> function is used. Also add <code>@import ggplot2</code> to the function description (this is often done with <code>ggplot2</code> because it has a lot of useful plotting functions with only rare name overlaps). If you want to be more precise, add <code>@importFrom ggplot2 ggplot aes geom_col theme_bw theme</code> instead. The same applies for <code>stringr</code>, but since we only use a few functions, add <code>@importFrom stringr str_split boundary str_count</code> to the function description.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2){</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> name_me2 <span class="sc">|&gt;</span>  </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    stringr<span class="sc">::</span><span class="fu">str_split</span>(<span class="at">pattern =</span> stringr<span class="sc">::</span><span class="fu">boundary</span>(<span class="st">"character"</span>), <span class="at">simplify =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.character</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unique</span>()</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  counts <span class="ot">&lt;-</span> <span class="fu">sapply</span>(name_me3, <span class="cf">function</span>(amino_acid) stringr<span class="sc">::</span><span class="fu">str_count</span>(<span class="at">string =</span> name_me2, <span class="at">pattern =</span>  amino_acid)) <span class="sc">|&gt;</span>  </span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>()</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(counts) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Counts"</span>)</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  counts[[<span class="st">"Name_me2"</span>]] <span class="ot">&lt;-</span> <span class="fu">rownames</span>(counts)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  name_me4 <span class="ot">&lt;-</span> counts <span class="sc">|&gt;</span>  </span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> Name_me2, <span class="at">y =</span> Counts, <span class="at">fill =</span> Name_me2)) <span class="sc">+</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me4)</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2){</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> name_me2 <span class="sc">|&gt;</span>  </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    stringr<span class="sc">::</span><span class="fu">str_split</span>(<span class="at">pattern =</span> stringr<span class="sc">::</span><span class="fu">boundary</span>(<span class="st">"character"</span>), <span class="at">simplify =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.character</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unique</span>()</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  counts <span class="ot">&lt;-</span> <span class="fu">sapply</span>(name_me3, <span class="cf">function</span>(amino_acid) stringr<span class="sc">::</span><span class="fu">str_count</span>(<span class="at">string =</span> name_me2, <span class="at">pattern =</span>  amino_acid)) <span class="sc">|&gt;</span>  </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>()</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(counts) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Counts"</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  counts[[<span class="st">"Name_me2"</span>]] <span class="ot">&lt;-</span> <span class="fu">rownames</span>(counts)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  name_me4 <span class="ot">&lt;-</span> counts <span class="sc">|&gt;</span>  </span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> Name_me2, <span class="at">y =</span> Counts, <span class="at">fill =</span> Name_me2)) <span class="sc">+</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me4)</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <p><br></p>
 </section>
 </section>
-<section id="task-3---group-discussion" class="level4">
-<h4 class="anchored" data-anchor-id="task-3---group-discussion">Task 3 - Group discussion</h4>
+<section id="task-3---group-discussion" class="level3">
+<h3 class="anchored" data-anchor-id="task-3---group-discussion">Task 3 - Group discussion</h3>
 <ol type="1">
 <li>Describe each function to each other in order - both what it does and which names you gave them and their variables.</li>
 <li>The person(s) responsible for function five, describe how you added the three packages as dependencies and included the pipe in the package namespace.</li>
@@ -857,12 +753,11 @@ Function five
 <li>Discuss the difference between adding an <code>@importFrom package function</code> tag to a function description compared to using <code>package::function()</code>. Read <a href="https://r-pkgs.org/namespace.html#imports">this section</a> if you are not sure or just want to learn more.</li>
 </ol>
 </section>
-</section>
 <section id="group-assignment" class="level3">
 <h3 class="anchored" data-anchor-id="group-assignment"><span style="color: red;">GROUP ASSIGNMENT</span></h3>
 <hr>
 <p>For this week’s group assignment, write a vignette (user guide) for your package (<strong>max</strong> 2 pages). The vignette should include a brief description of what the package is about and demonstrate how each function in the package is used (individually and in conjunction with each other). As a final section, discuss use cases for the package and what other functions could be included. Also include the main points from your discussion in Task 3.</p>
-<p>Include a link to your group’s GitHub repository at the top of the vignette. Hand it in as a pdf in DTU Learn, as you did the previous weeks.</p>
+<p>Include a link to your group’s GitHub repository at the top of the vignette. Hand it in as a pdf in DTU Learn.</p>
 <ol type="1">
 <li>Create a vignette with <code>usethis::use_vignette("package name")</code>.</li>
 <li>When you are done writing it, run <code>devtools::build_vignettes()</code>.</li>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R for Bio Data Science - Exam</title>
+<title>R for Bio Data Science - Primer on R package development</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -15,6 +15,69 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -25,7 +88,8 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./project_faq.html" rel="prev">
+<link href="./external_resources.html" rel="next">
+<link href="./primer_on_linear_models_in_r.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -64,7 +128,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Exam</h1>
+      <h1 class="quarto-secondary-nav-title">Primer on R package development</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -199,7 +263,7 @@ ul.task-list{list-style: none;}
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./primer_on_r_packages.html" class="sidebar-item-text sidebar-link">Primer on R package development</a>
+  <a href="./primer_on_r_packages.html" class="sidebar-item-text sidebar-link active">Primer on R package development</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -234,7 +298,7 @@ ul.task-list{list-style: none;}
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exam.html" class="sidebar-item-text sidebar-link active">Exam</a>
+  <a href="./exam.html" class="sidebar-item-text sidebar-link">Exam</a>
   </div>
 </li>
       </ul>
@@ -248,13 +312,14 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#design" id="toc-design" class="nav-link active" data-scroll-target="#design">Design</a></li>
-  <li><a href="#deadlines-and-dates" id="toc-deadlines-and-dates" class="nav-link" data-scroll-target="#deadlines-and-dates">Deadlines and Dates</a></li>
-  <li><a href="#content" id="toc-content" class="nav-link" data-scroll-target="#content">Content</a>
+  <li><a href="#how-to-work-with-an-r-package" id="toc-how-to-work-with-an-r-package" class="nav-link active" data-scroll-target="#how-to-work-with-an-r-package">How to work with an R package</a>
   <ul class="collapse">
-  <li><a href="#the-group-project" id="toc-the-group-project" class="nav-link" data-scroll-target="#the-group-project">The Group Project</a></li>
-  <li><a href="#the-presentation" id="toc-the-presentation" class="nav-link" data-scroll-target="#the-presentation">The Presentation</a></li>
-  <li><a href="#the-mcq" id="toc-the-mcq" class="nav-link" data-scroll-target="#the-mcq">The MCQ</a></li>
+  <li><a href="#dependencies" id="toc-dependencies" class="nav-link" data-scroll-target="#dependencies">Dependencies</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
+  <li><a href="#documenting-functions" id="toc-documenting-functions" class="nav-link" data-scroll-target="#documenting-functions">Documenting functions</a></li>
+  <li><a href="#namespace" id="toc-namespace" class="nav-link" data-scroll-target="#namespace">Namespace</a></li>
+  <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">Testing</a></li>
+  <li><a href="#pkgwf" id="toc-pkgwf" class="nav-link" data-scroll-target="#pkgwf">The Package Workflow</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -264,7 +329,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Exam</h1>
+<h1 class="title d-none d-lg-block">Primer on R package development</h1>
 </div>
 
 
@@ -278,50 +343,91 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="design" class="level2">
-<h2 class="anchored" data-anchor-id="design">Design</h2>
-<p>The exam consists of 3 components:</p>
+<section id="how-to-work-with-an-r-package" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-work-with-an-r-package">How to work with an R package</h2>
+<p>There are a few things to know when creating a package before you jump in. These are not strict rules, but they make your life easier when bug-fixing and make the package much easier to use for the users. Learn about the dos and don’ts in the following.</p>
+<section id="dependencies" class="level3">
+<h3 class="anchored" data-anchor-id="dependencies">Dependencies</h3>
+<p>The one strict rule is <b>Never use <code>library("package")</code> within a package! </b></p>
+<p>Instead, add the packages your are going to use to the <code>DESCRIPTION</code> file and in the function descriptions. This is done by running <code>usethis::use_package("packageName")</code> in the console and adding <code>@import package</code> (OK) or <code>@importFrom package function1 function2 ...</code> (Best). Using the functions in your package is then done with <code>package::function()</code> (e.g., <code>dplyr::mutate()</code>) or omitting the <code>package::</code>.</p>
+<p>This way, it is easy to read what functions are from your package, and your package namespace does not get cluttered. Read more in the Namespace section.</p>
+<p>It should also be a goal to make your package depend on as few other packages as possible. The user will need to install all packages your package depends on, but then also every package those depends on - that list quickly becomes quite long if you are not careful.</p>
+</section>
+<section id="functions" class="level3">
+<h3 class="anchored" data-anchor-id="functions">Functions</h3>
+<p>A package is typically a collections of functions.</p>
+<p>These functions are stored in <code>.R</code> files in the R folder. A good starting point is to create an <code>.R</code> file for each function. But, as the package becomes bigger, it often makes sense to combine related functions into bigger files.</p>
+<p>You can quickly create a new <code>.R</code> file with <code>usethis::use_r("function_name")</code>. Or do it manually, as you are used to.</p>
+</section>
+<section id="documenting-functions" class="level3">
+<h3 class="anchored" data-anchor-id="documenting-functions">Documenting functions</h3>
+<p>Try running <code>?mean</code> in the Console.</p>
+<p>If you have every wondered how to write a manual like the one that pops up, please click here and read - if not, consider reading it anyway, as you will use it later.</p>
+<p>When you have made a function, or have at least defined one, you should describe what it does and how to use it. The manual you write for your function is the function documentation, and it should describe the purpose of the function and how to use it.</p>
+<p>You can read extensively about it <a href="https://r-pkgs.org/man.html">here</a>, but I will give you the most essential information to get you started.</p>
+<p>The R package <code>roxygen2</code> makes this easy as 1-2-3. It is part of <code>devtools</code> and is already installed. It uses <code>#'</code> comments above the function. <code>@</code> tags lets you add specific details to the function documentation.</p>
+<p>Create an roxygen skeleton by clicking somewhere in your function. Go to the ‘Code’ tab in the top of your window and select ‘Insert Roxygen Skeleton’.</p>
+<p>This will look something like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Title</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param foo </span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param bar </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @return</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#' @examples</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>myFunction <span class="ot">&lt;-</span> <span class="cf">function</span>(foo, bar){</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Do stuff with foo and bar</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  foobar <span class="ot">&lt;-</span> (foo <span class="sc">*</span> bar) <span class="sc">/</span> (foo <span class="sc">+</span> bar)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(foobar)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This allows you to add the most basic descriptions. To begin with, the Title, <code>@param</code>, and <code>@export</code> are the most important, you may remove the other tags for now. A more detailed example is given <a href="https://r-pkgs.org/man.html#man-functions">here</a>. There, you can also read about documenting datasets and other object types - even the package itself.</p>
+</section>
+<section id="namespace" class="level3">
+<h3 class="anchored" data-anchor-id="namespace">Namespace</h3>
+<p>Your package namespace can quickly become very cluttered, if you are not careful.</p>
+<p>Therefore, follow these rules:</p>
+<ul>
+<li>Only <code>@export</code> the functions the users will use. Removing the tag makes the function internal and hides it from your package namespace. It can still be freely used within your package and accessed outside your package with <code>package:::internal_function()</code></li>
+<li>Make your code explicit with <code>package::function()</code>.
+<ul>
+<li>This step is not mandatory, but makes reading the code easier.</li>
+</ul></li>
+<li>Add your dependencies in the DESCRIPTION file with <code>usethis::use_package("packageName")</code></li>
+<li>Only very rarely use the <code>@import</code> tag. Aim to use the <code>@importFrom</code> tags in your function descriptions instead.</li>
+</ul>
+<p>You can read more extensively about namespace <a href="https://r-pkgs.org/namespace.html">here</a>.</p>
+</section>
+<section id="testing" class="level3">
+<h3 class="anchored" data-anchor-id="testing">Testing</h3>
+Testing is essential
+
+<p>to ensure your package runs smoothly and that no bugs are introduced when you make a seemingly minor change. It is handled with the <code>testthat</code> package, which is also installed with <code>devtools</code>.</p>
+<p>I will not go into too much detail here, but know that testing is an important, but often neglected, part of building a package. You can read more about it <a href="https://r-pkgs.org/tests.html#tests">here</a>.</p>
+<p>Every time you run the <code>usethis::use_r()</code> function to create a new script, the function encourages you to create a test alongside the new function. I recommend you follow that advise.</p>
+<p>You create a test by running <code>usethis::use_test("function name")</code>.</p>
+<p>The function creates a new folder <code>tests</code> and creates a test script for the function. The good R package creator writes a few tests for every function.</p>
+<p>The exercises will ask you to make a simple test for every function, introducing you to the concept.</p>
+</section>
+<section id="pkgwf" class="level3">
+<h3 class="anchored" data-anchor-id="pkgwf">The Package Workflow</h3>
+<p>When creating a package, it is important to test your work along the way.</p>
+<p>You can do that in many ways, but I recommend the following workflow:</p>
 <ol type="1">
-<li>A group project, where all members are responsible for all parts of the project. This is handed in as a code base on the course GitHub repository</li>
-<li>An oral group presentation of the project, where all group members, as per DTU rules on oral exams, must be physically present</li>
-<li>A two hour multiple choice quiz (MCQ) exam, where general course learning objectives are examined, see course description</li>
+<li>Write a function / make a change
+<ul>
+<li>If it is a new function, document it</li>
+</ul></li>
+<li>Save your files: <code>rstudioapi::documentSaveAll()</code></li>
+<li>Create package documentation: <code>devtools::document()</code></li>
+<li>Load package: <code>devtools::load_all()</code></li>
+<li>Your package is now loaded, and you can test that it works as intended.</li>
 </ol>
-<p><em>Please note that active participation in the group work and timely submission of project and code base are both indispensable prerequisites for exam participation. The final grade is based on an overall assessment of all three components.</em></p>
-</section>
-<section id="deadlines-and-dates" class="level2">
-<h2 class="anchored" data-anchor-id="deadlines-and-dates">Deadlines and Dates</h2>
-<ol type="1">
-<li>Project code base and presentation must be completed at the latest 23:59 on the day before lab 13. Note, you <strong>cannot</strong> edit anything on the GitHub repository after this deadline!</li>
-<li>The oral presentation will be on lab 13 of the course, see DTU Learn calender for dates</li>
-<li>The MCQ is placed according to the DTU exam schedule</li>
-</ol>
-</section>
-<section id="content" class="level2">
-<h2 class="anchored" data-anchor-id="content">Content</h2>
-<section id="the-group-project" class="level3">
-<h3 class="anchored" data-anchor-id="the-group-project">The Group Project</h3>
-<ul>
-<li>Be sure that everyone understands ALL code in the project as all group members are responsible for ALL code</li>
-<li>The aim of the project is to cover the entire course cycle, so be sure to align your project</li>
-<li>Expect a few overall questions regarding the decisions you have made throughout your project</li>
-<li>Be sure to read <a href="project_faq.html">Project FAQ</a></li>
-</ul>
-</section>
-<section id="the-presentation" class="level3">
-<h3 class="anchored" data-anchor-id="the-presentation">The Presentation</h3>
-<ul>
-<li>The format is a 10-slides-in-10-mins and everyone in the group must present a part</li>
-<li>The group presentations will be on the last day of the course, i.e.&nbsp;lab 13</li>
-</ul>
-</section>
-<section id="the-mcq" class="level3">
-<h3 class="anchored" data-anchor-id="the-mcq">The MCQ</h3>
-<ul>
-<li>A 2-hour individual multiple choice exam</li>
-<li>In 2022 the exam contained 60 questions, expect a similar number of questions</li>
-<li>All aids are allowed, but no open internet</li>
-<li>Each question will have 4 possible answers and only 1 is the right one and you can only choose one answer per question</li>
-</ul>
+<p>Optionally, you can save the three lines of code in <code>dev/load.R</code> and run the lines with <code>source("dev/load.R")</code>. If you do, add the <code>dev</code> folder to the <code>.Rbuildignore</code> file.</p>
+<hr>
 
 
 </section>
@@ -427,11 +533,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./project_faq.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Project FAQ</span>
+      <a href="./primer_on_linear_models_in_r.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Primer on Linear Models in <code>R</code></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./external_resources.html" class="pagination-link">
+        <span class="nav-page-text">External Resources</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

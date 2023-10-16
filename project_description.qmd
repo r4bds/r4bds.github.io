@@ -84,7 +84,7 @@ Your project must strictly adhere to the [Course Code Styling Guide](code_stylin
   
 - Created using [`Quarto Presentation`](https://quarto.org/docs/presentations/), just as the course slides are
 
-- NOTE: This final presentation in HTML-format should be uploaded to DTU Learn before deadline, so we can check the GitHub version is identical
+- NOTE: This final presentation in HTML-format should be zipped and uploaded to DTU Learn before deadline, so we can check the GitHub version is identical
 
 ## Project Supervision
 
