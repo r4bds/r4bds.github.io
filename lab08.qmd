@@ -53,11 +53,11 @@ But don't worry too much, the setup steps will be given here as well.
 
 If you haven't read the [Primer on R packages](primer_on_r_packages.qmd) yet, consider reading it now. 
 
-#### Task 1 - Setting up the R package
+### Task 1 - Setting up the R package
 
 In the first task, **one team member** (you decide who) will initiate a package project and push it to Github. Then, when instructed, the **remaining group members** will connect to that repository, and the real package building will begin.
 
-##### Task 1.1 - Create R Package
+#### Task 1.1 - Create R Package
 
 1. Go to [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) and login.
 2. Click `Create a project`![](images/L08_create.png){width="5%"} in the top left and choose `New Directory`.
@@ -100,7 +100,9 @@ Author@R:
   </ul>
   </details>
 
-##### Task 1.2 - Setup GitHub Repository for your group's R package
+#### Task 1.2 - Setup GitHub Repository for your group's R package
+
+During the previous class, you have been using a combination of console and terminal to set up GitHub. This week, you will solely be using the console.
 
 **Still only the first team member**
 
@@ -117,7 +119,7 @@ Author@R:
 11. All other team members should now have access to the repository, **but do not create your own project yet.**
 
 
-##### Task 1.3 - Connect your RStudio Server Project to the GitHub Repository
+#### Task 1.3 - Connect your RStudio Server Project to the GitHub Repository
 
 **Still only the first team member**
 
@@ -126,7 +128,7 @@ Author@R:
   <ul>
   <li>Type in the console `usethis::create_github_token()`. You’re going to be redirected to GitHub website.
   <li>In case you did that step manually, remember to give permission to access your repositories.
-  <li>You need to type your password. Don’t change the default settings of creating the token except for the description – set ‘RStudio Cloud’ or something similar. Then hit Generate token.
+  <li>You need to type your password. Don’t change the default settings of creating the token except for the description – set ‘RStudio Server’ or something similar. Then hit Generate token.
   <li>Copy the generated token (should start with ghp_) and store it securely (e.g., in a password manager). Do not keep it in a plain file.
   </ul></details>
 2. Go back to the RStudio Server project
@@ -154,7 +156,7 @@ _After your teammate has pushed to GitHub._
   <ul>
   <li>Type in the console `usethis::create_github_token()`. You’re going to be redirected to GitHub website.
   <li> In case you did it manually, remember to give permission to access your repositories.
-  <li>You need to type your password. Don’t change the default settings of creating the token except for the description – set ‘RStudio Cloud’ or something similar. Then hit Generate token.
+  <li>You need to type your password. Don’t change the default settings of creating the token except for the description – set ‘RStudio Server’ or something similar. Then hit Generate token.
   <li>Copy the generated token (should start with ghp_) and store it securely (e.g. in password manager). Do not keep it in a plain file.
   </ul></details>
 3. Go back to the RStudio Server project
@@ -171,7 +173,7 @@ Now you are ready to work on the R package.
 
 
 
-#### Task 2 - Build the package
+### Task 2 - Build the package
 
 ----
 
@@ -179,7 +181,7 @@ Each team member should build and implement their own function. The code will be
 
 </br>
 
-##### Task 2.1 - Incorporate data
+#### Task 2.1 - Incorporate data
 
 In this task you will include the following codon table in your package.
 
@@ -235,7 +237,7 @@ Push your changes to GitHub.
 
 </br>
 
-##### Task 2.2 - Implement functions
+#### Task 2.2 - Implement functions
 
 In this task you will be working individually to implement a function each.
 If you are fewer in the team than the number of functions. The quickest to finish can implement the remaining, or separate them out as you see fit.
@@ -381,7 +383,7 @@ name_me1 <- function(name_me2){
 
 </br>
 
-#### Task 3 - Group discussion
+### Task 3 - Group discussion
 
 1. Describe each function to each other in order - both what it does and which names you gave them and their variables.
 2. The person(s) responsible for function five, describe how you added the three packages as dependencies and included the pipe in the package namespace.
