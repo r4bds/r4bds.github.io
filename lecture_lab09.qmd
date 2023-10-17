@@ -1,0 +1,327 @@
+---
+title: "Lecture Lab 9"
+author: "Søren Helweg Dam"
+format:
+  revealjs:
+    embed-resources: true
+    theme: moon
+    slide-number: c/t
+    width: 1600
+    height: 900
+    mainfont: avenir
+    logo: images/r4bds_logo_small.png
+    footer: "R for Bio Data Science"
+---
+
+```{r setup}
+#| include: false
+knitr::opts_chunk$set(echo = FALSE)
+# shinyUrl <- "http://127.0.0.1:1995"
+```
+
+# Creating a Simple Shiny App
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Lab 9 Learning Objectives
+
+_A student who has met the objectives of the session will be able to:_
+
+- Prepare a simple shiny application
+
+- Using relevant online resources to autonomously identify and obtain new and expand on existing knowledge of R
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Today's lab 
+
+- The two main components of a web application
+- The difference between imperative and declarative programming
+- Using `golem` and modules for shiny app development
+- How to create an R shiny app
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+##
+
+
+```{r}
+#| eval: TRUE
+#| echo: FALSE
+knitr::include_app("https://shdam.shinyapps.io/ShinyDogma/", height = 800)
+# knitr::include_url("https://shiny.rstudio.com/gallery/", height = 800)
+```
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## 
+
+```{r}
+#| eval: TRUE
+#| echo: FALSE
+knitr::include_app("https://shdam.shinyapps.io/ShinyDogma/", height = 800)
+# knitr::include_app(shinyUrl, height = 800)
+```
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Question
+
+
+### What are the two main components of a web application?
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Question
+
+
+### What are the two main components of a web application?
+
+- User Interface (Front end)
+
+- Server (Back end)
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The simplest Shiny App
+
+```{r}
+#| eval: false
+#| echo: true
+library(shiny)
+
+# User Interface (Front end)
+ui <- fluidPage(
+  "Hello World!"
+  )
+
+# Server (Back end)
+server <- function(input, output, session){}
+
+# Running the app
+shinyApp(ui, server)
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+
+## What is user interface?
+
+- *"The user interface (UI) is the point at which human users interact with a computer, website or application.*"
+
+- *"The goal of effective UI is to make the user's experience easy and intuitive, requiring minimum effort on the user's part to receive maximum desired outcome."*
+
+<!-- </br></br></br></br></br></br> -->
+
+</br></br></br></br></br></br></br>
+- [source](https://www.indeed.com/career-advice/career-development/user-interface) 
+<!-- & [source](https://www.productplan.com/glossary/user-experience/) -->
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## User Interface
+
+- When you know the purpose of your app, the first place to start is to think about the app layout.
+
+- For inspiration either use:
+- the [Shiny Layout Guide](https://shiny.posit.co/r/articles/build/layout-guide/)
+- Or the [Shiny Cheat Sheet](https://rstudio.github.io/cheatsheets/html/shiny.html)
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## 
+
+```{r}
+#| eval: TRUE
+#| echo: FALSE
+knitr::include_app("https://shdam.shinyapps.io/ShinyDogma/", height = 800)
+# knitr::include_app(shinyUrl, height = 800)
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Shiny Inputs
+
+```{r}
+#| eval: TRUE
+#| echo: FALSE
+knitr::include_app("https://gallery.shinyapps.io/081-widgets-gallery/", height = 800)
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## UI take-aways
+
+- Start with layout
+- Define/create your inputs
+- Use online resource for help and inspiration
+
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## UI take-aways
+
+- Start with layout
+- Define/create your inputs
+- Use online resource for help and inspiration
+
+</br>
+
+- **Now on to some programming**
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## 
+
+```{r, eval=TRUE,echo=FALSE}
+#| eval: TRUE
+#| echo: FALSE
+knitr::include_app("https://shdam.shinyapps.io/ShinyDogma/", height = 800)
+# knitr::include_app(shinyUrl, height = 800)
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Imperative vs declarative programming
+
+- `Imperative`: Issued commands are executed immediately
+- `Declarative`: You set a high-level goal or describe a set of constraints to be translated into actions later
+
+- *"With imperative code you say 'Make me a sandwich'."*
+- *"With declarative code you say 'Ensure there is a sandwich in the refrigerator whenever I look inside of it'"*
+
+</br></br></br></br></br>
+- [source](https://mastering-shiny.org/basic-reactivity.html#imperative-vs-declarative-programming)
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Shiny is declarative
+
+- Shiny translates your declared goals and constraints only when necessary.
+
+- *What are the benefits and issues with declarative programming?*
+    - You can have many actions ready, but only some are used
+    - You do not need to define when the action should take place
+    - But, initiating the action is strongly dependent on the name of the declaration
+
+
+
+</br></br></br></br></br></br></br></br></br>
+<!-- </br> -->
+- [source](https://mastering-shiny.org/basic-reactivity.html#imperative-vs-declarative-programming)
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Reactivity
+
+```{r, fig.align="center", out.width="95%"}
+knitr::include_graphics("images/L09_reactivity.png")
+```
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Questions?
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Introducing `golem`
+
+
+- A framework for building production-grade shiny applications.
+- It relies on the idea that every shiny application should be built as an R package
+- But what does that mean and why?
+
+</br></br></br></br></br></br></br></br>
+- [source](https://engineering-shiny.org/structuring-project.html)
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Why `golem`?
+
+- It has metadata
+- It handles dependencies
+- It’s split into functions
+- It has documentation
+- It’s tested
+- There is a native way to build and deploy it
+
+
+</br></br></br></br></br>
+- [source](https://engineering-shiny.org/structuring-project.html)
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Shiny modules
+
+
+- Breaks the application into bite size pieces
+
+- Helps you have a mental model of the application
+
+- But isn't it complicated?
+
+- Let me show you..
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## 
+
+```{r}
+#| eval: TRUE
+#| echo: FALSE
+knitr::include_app("https://shdam.shinyapps.io/ShinyDogma/", height = 800)
+# knitr::include_app(shinyUrl, height = 800)
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Questions?
+
+
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Break, then exercises!

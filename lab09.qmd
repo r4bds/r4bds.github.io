@@ -38,7 +38,7 @@ _Note: The following are suggested learning materials, i.e., do not go over ever
 _A student who has met the objectives of the session will be able to:_
 
 - Prepare a simple shiny application
-- Using relevant online ressources to autonomously identify and obtain new and expand on existing knowledge of R
+- Using relevant online resources to autonomously identify and obtain new and expand on existing knowledge of R
 
 
 ## Exercises {#sec-exercises}
@@ -69,7 +69,7 @@ Let the other team members follow along with what you are doing and do the follo
 #### Task 1.1 - Create the App
 
 
-1. Go to [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) and login.
+1. Go to [R for Bio Data Science RStudio Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) and login.
 2. Run `golem::create_golem("YOUR_APP_NAME")` in the console, putting in a name of your own choosing.
   - As last week, the theme is the central dogma of molecular biology. Let that inspire you
   - Look up naming rules [here](https://r-pkgs.org/workflow101.html#name-your-package)
@@ -104,11 +104,12 @@ Let the other team members follow along with what you are doing and do the follo
   <li>You need to type your password. Don’t change the default settings of creating the token except for the description – set ‘RStudio Server’ or something similar. Then hit Generate token.
   <li>Copy the generated token (should start with ghp_) and store it securely (e.g. in password manager). Do not keep it in a plain file.
   </ul></details>
-2. Go back to the RStudio Cloud project.
+2. Go back to the RStudio Server project.
 3. Type in the console `gitcreds::gitcreds_set()` and paste the `PAT` key.
 4. Stage all files (in the `git` window in the top right) by ticking all boxes under `Staged`.
 5. Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the **X**.
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 usethis::use_git_remote(name = "origin", "https://github.com/rforbiodatascience23/group_X_shiny.git", overwrite = TRUE)
 usethis::use_git_config(user.name = "USERNAME", user.email = "USEREMAIL@EXAMPLE.ORG")
 gert::git_commit_all("App setup")
@@ -131,10 +132,11 @@ gert::git_push("origin")
   <li>You need to type your password. Don’t change the default settings of creating the token except for the description – set ‘RStudio Server’ or something similar. Then hit Generate token.
   <li>Copy the generated token (should start with ghp_) and store it securely (e.g. in password manager). Do not keep it in a plain file.
   </ul></details>
-5. Go back to the RStudio Cloud project
+5. Go back to the RStudio Server project
 6. Type in the console `gitcreds::gitcreds_set()` and paste the `PAT` key
 7. Still in the console, run the following commands. Replace your GitHub username and email.
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 usethis::use_git_config(user.name = "USERNAME", user.email = "USEREMAIL@EXAMPLE.ORG")
 ```
 
@@ -157,8 +159,9 @@ Also take a look at the [golem cheatsheet](https://raw.githubusercontent.com/rst
     - Run them in order.
     - Everything on and above line 42 is recommended, everything else is optional. Feel free to see what they do. None of them should cause problems.
     - After running the function for modifying the `DESCRIPTION` file, add more authors to the `DESCRIPTION`-file using this layout:
-```{r, eval=FALSE}
-Author@R:
+```{r}
+#| eval: false
+Authors@R:
   c(person(given = "firstname",
            family = "lastname",
            role = c("aut", "cre"), # There must be a "cre", but there can only be one
@@ -195,8 +198,8 @@ I suggest, each time you create a module, to copy something like the following i
 
 ```{r, eval=FALSE, echo=TRUE}
 if(FALSE){ # Testing
-  golem::detach_all_attached
-  golem::document_and_reload
+  golem::detach_all_attached()
+  golem::document_and_reload()
   ui <- mod_name_ui("name_ui_1") # replace name here
   server <- function( input,output,session){
     mod_name_server("name_ui_1") # and here
@@ -252,7 +255,8 @@ If you make your own layout, make space for the two modules, as I did with the t
 
 1. Add a `tabsetPanel` with 2 panels in the `fluidPage()` function within the `app_ui` function definition in `R/app_ui.R`. The `tabsetPanel` should be inserted after the header (written as h1(“header”) ), separated by a comma.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 tabsetPanel(
   tabPanel(title = "panel1",
            "module1"),
@@ -274,14 +278,13 @@ Your plotting module should take in a peptide sequence and plot the relative abs
 
 1. Go to `dev/02_dev.R` and find the function to add a module. For now, set `with_test = FALSE` - you will not be creating tests for the app in this exercise. Remember to name the module something sensible related to the description above instead of just "module2". Run the function.
 2. Scroll to the bottom of the module and copy the commented out server function and add it to `R/app_server.R` inside the `app_server` function.
-3. While you are there, we will use the tidyverse pipe in the app. As you remember from building a package last week, we need to import that function to use it. Add a `@importFrom magrittr %>%` tag above the server function in `R/app_server.R`. I suggest adding app-wide import tags here, as you then have a single place to put them (you will not be adding more to this app).
-4. Run line 18 in `dev/02_dev.R` to see how dependencies are handled automatically.
-5. Redo step 2, but for the ui function. Importantly, place it in the second `tabPanel` in `R/app_ui.R`, instead of the "module2". Give it a sensible title. If you made your own layout, place the module where you imagine it should go.
-6. **Go back to the module script**. Use my suggested module layout below. If you want, you are more than welcome to design it yourself. See the layout guide [here](https://shiny.posit.co/r/articles/build/layout-guide/) or [cheat sheet](https://rstudio.github.io/cheatsheets/html/shiny.html) for inspiration.
+3. Redo step 2, but for the ui function. Importantly, place it in the second `tabPanel` in `R/app_ui.R`, instead of the "module2". Give it a sensible title. If you made your own layout, place the module where you imagine it should go.
+4. **Go back to the module script**. Use my suggested module layout below. If you want, you are more than welcome to design it yourself. See the layout guide [here](https://shiny.posit.co/r/articles/build/layout-guide/) or [cheat sheet](https://rstudio.github.io/cheatsheets/html/shiny.html) for inspiration.
     - Fill your desired layout in the `tagsList` of the `ui` function in the module.
 
 <details> <summary>If you want, draw inspiration for the layout I chose </summary>
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 sidebarLayout(
       sidebarPanel(
         "peptide_sequence"
@@ -295,13 +298,14 @@ The names in the example are not actual shiny stuff, just names I put in as a pl
 </details>
 </br>
 
-7. Run the app to see what it looks like.
+5. Run the app to see what it looks like.
 
-8. Add an input field for the `peptide_sequence`, replace the string with the input you are adding. Please try it out first.
+6. Add an input field for the `peptide_sequence`, replace the string with the input you are adding. Please try it out first.
   - Remember `ns()` around input/output IDs
 
 <details> <summary>Possible solution </summary>
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 textAreaInput(
           inputId = ns("peptide"),
           label = "Peptide sequence",
@@ -314,10 +318,11 @@ textAreaInput(
 </details>
 </br>
 
-9. Add an output field for the `plot`, replacing the placeholder string. Please try it out first.
+7. Add an output field for the `plot`, replacing the placeholder string. Please try it out first.
 
 <details> <summary>Possible solution </summary>
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 plotOutput(
           outputId = ns("abundance")
           )
@@ -326,7 +331,8 @@ plotOutput(
 </details>
 
 <details> <summary>Full possible solution </summary>
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 mod_abundance_ui <- function(id){
   ns <- NS(id)
   tagList(
@@ -364,7 +370,8 @@ Please try to make the server logic on your own. Also feel free to add an additi
   - It does not matter where in the module server function you put it, as long as you put it inside the function.
 
 <details> <summary>Possible solution </summary>
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 output$abundance <- renderPlot({
       if(input$peptide == ""){
         NULL
@@ -400,7 +407,8 @@ There should also be an option to create a random DNA strand, in case the user d
 3. Do the same for the ui function. Importantly, place it in the first `tabPanel` in `R/app_ui.R`, replacing the "module1" string. Give it a sensible title. If you made your own layout, place the module where you imagine it should go.
 4. Go back to the module script. Use my suggested module layout below. If you want, you are more than welcome to design it yourself. See the layout guide [here](https://shiny.posit.co/r/articles/build/layout-guide/) or [cheat sheet](https://rstudio.github.io/cheatsheets/html/shiny.html) for inspiration.
     - Fill your desired layout in the `tagsList` of the `ui` function in the module.
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 fluidRow(
   column(8, "DNA_sequence"),
   column(4, "random_dna_length", "generate_dna_button")
@@ -423,7 +431,8 @@ For the DNA input, I wanted the sequence to be updated when the user clicks the 
 
 <details> <summary>Hint for `random_dna_length` and `generate_dna_button` </summary> 
 I chose a numeric input for the "random_dna_length" and an actionButton for the "generate_dna_button". They look like:
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 numericInput(
     inputId = ns("dna_length"),
     value = 6000,
@@ -443,14 +452,16 @@ I added the style to adjust the position of the button. That is in no way requir
 <details> <summary>Hint for `peptide_sequence` </summary> 
 For "peptide_sequence", I chose a `verbatimTextOutput`. You may not have seen it before; it is in the shiny cheat sheet, but it simply allows for text output in a grey box.
 The `tagAppendAttributes` allow you to add CSS tags (you don't need to know what that means). In this case, I wanted the text to wrap. By googling a bit, I found the solution seen below (feel free to see how it looks with and without it - but remember you will first see something, when you have made the server logic in the next task).
-```{r, eval=FALSE}
-verbatimTextOutput(outputId = ns("peptide")) %>%
+```{r}
+#| eval: false
+verbatimTextOutput(outputId = ns("peptide")) |> 
   tagAppendAttributes(style = "white-space: pre-wrap;")
 ```
 </details>
 
 <details> <summary>Full possible solution</summary> 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 mod_dna_expression_ui <- function(id){
   ns <- NS(id)
   tagList(
@@ -469,7 +480,7 @@ mod_dna_expression_ui <- function(id){
         label = "Generate random DNA", style = "margin-top: 18px;"
       ))
     ),
-    shiny::verbatimTextOutput(outputId = ns("peptide")) %>%
+    shiny::verbatimTextOutput(outputId = ns("peptide")) |> 
       shiny::tagAppendAttributes(style = "white-space: pre-wrap;")
 
   )
@@ -491,7 +502,8 @@ Let me take you through this one step at a time.
     - Read more about reactive values [here](https://mastering-shiny.org/reactivity-objects.html?q=reactiveVal#reactive-values) if you like. The important thing to have in mind is that every time you want to get the value run `dna()`, and when you update it run `dna(new_value)` with your new value - you will see an example of this in a minute.
 2. If you, like me, wanted your DNA input strand to be updateable in the input field, add the following somewhere in the server:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 output$DNA <- renderUI({
       textAreaInput(
         inputId = ns("DNA"),
@@ -520,7 +532,8 @@ As an added note, notice that the input and output IDs can be the same, as with 
 3. The next step is to add a reaction when the "generate random DNA" button is clicked.
     - There are a few ways to handle this. My favorite is the following:
     
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 observeEvent(input$generate_dna, {
       dna(
         yourpackage::function_one(input$dna_length)
@@ -547,7 +560,8 @@ The reaction to a change then involves updating the dna value to the output of `
 
 This may not work as intended if you did not choose the `uiOutput` for the DNA input field. Then you may have to use `dna()` or add an `actionButton`. Ask if you run into issues. Please note that I am using `input$DNA` and *not* `dna()`. You will discuss why in a minute, but feel free to try it out both ways and see if you notice the difference.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 output$peptide <- renderText({
       # Ensure input is not NULL and is longer than 2 characters
       if(is.null(input$DNA)){

@@ -20,7 +20,7 @@
 
 _Please prepare the following materials:_
 
-- [Primer on R Packages](primer_on_r_packages.qmd#pkgwf)
+- [Primer on R Packages](primer_on_r_packages.qmd)
 - Cheatsheet: [Package development with devtools](https://raw.githubusercontent.com/rstudio/cheatsheets/main/package-development.pdf) -- When in doubt, check here first
 - Web: [R Packages: A Beginner's Tutorial](https://www.datacamp.com/community/tutorials/r-packages-guide) -- Read this before class
 - Web: [Developing Packages with RStudio](https://support.rstudio.com/hc/en-us/articles/200486488-Developing-Packages-with-RStudio) -- Creating an R Package with RStudio
@@ -44,7 +44,7 @@ _Read the steps of this exercises carefully while completing them_
 
 The aim of these exercises is to set up a collaborative coding project using GitHub and collaborate on creating a simple R package that replicates the central dogma of molecular biology.
 
-The exercises uses what you learned in [Lab 7](lab07.qmd) and its [exercises](lab07.qmd#sec-exercises).
+The exercises will build upon what you learned in [Lab 7](lab07.qmd) and its [exercises](lab07.qmd#sec-exercises).
 But don't worry too much, the setup steps will be given here as well.
 
 ----
@@ -59,7 +59,7 @@ In the first task, **one team member** (you decide who) will initiate a package 
 
 #### Task 1.1 - Create R Package
 
-1. Go to [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) and login.
+1. Go to [R for Bio Data Science RStudio Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) and login.
 2. Click `Create a project`![](images/L08_create.png){width="5%"} in the top left and choose `New Directory`.
 3. Select `R Package` and pick a fitting Package name.
     - The package you will create will replicate the central dogma of molecular biology. Let that inspire you
@@ -73,7 +73,7 @@ RStudio will now create an R project for you that contains all necessary files a
   - When adding authors, the format is:
 ```{r}
 #| eval: false
-Author@R:
+Authors@R:
   c(person(given = "firstname",
            family = "lastname",
            role = c("aut", "cre"), # There must be a "cre", but there can only be one
@@ -135,7 +135,8 @@ During the previous class, you have been using a combination of console and term
 3. Type in the console `gitcreds::gitcreds_set()` and paste the `PAT` key
 4. Stage all files (in the `git` window in the top right) by ticking all boxes under `Staged`
 5. Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the **X**.
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 usethis::use_git_remote(name = "origin", "https://github.com/rforbiodatascience23/group_X_package.git", overwrite = TRUE) # Remember to replace the X
 usethis::use_git_config(user.name = "USERNAME", user.email = "USEREMAIL@EXAMPLE.ORG")
 gert::git_commit_all("Package setup")
@@ -162,7 +163,8 @@ _After your teammate has pushed to GitHub._
 3. Go back to the RStudio Server project
 4. Type in the console `gitcreds::gitcreds_set()` and paste the `PAT` key
 5. Still in the console, run the following commands. Replace your GitHub username and email.
-```{r, eval = FALSE}
+```{r}
+#| eval: false
 usethis::use_git_config(user.name = "USERNAME", user.email = "USEREMAIL@EXAMPLE.ORG")
 ```
 
