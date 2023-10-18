@@ -11,7 +11,7 @@
 
 - 08.00 - 08.15: Recap of exercises from last lab
 - 08.15 - 08.30: Assignment walk-through
-- 08.30 - 09.00: Slides
+- 08.30 - 09.00: [Lecture](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab09.html)
 - 09.00 - 09.15: Break
 - 09.00 - 12.00: [Exercises](#sec-exercises)
 
@@ -123,8 +123,7 @@ gert::git_push("origin")
 
 1. In the RStudio server, create a new project based on the GitHub Repository just created by your teammate.
 2. Remember to change the project name to `group_X_shiny`. Remember to replace the **X**
-3. Install `devtools` and `golem`
-4. Find your `PAT` key or create a new
+3. Find your `PAT` key or create a new
   <details> <summary>How to create a new one</summary>
   <ul>
   <li>Type in the console `usethis::create_github_token()`. You’re going to be redirected to GitHub website.
@@ -132,9 +131,9 @@ gert::git_push("origin")
   <li>You need to type your password. Don’t change the default settings of creating the token except for the description – set ‘RStudio Server’ or something similar. Then hit Generate token.
   <li>Copy the generated token (should start with ghp_) and store it securely (e.g. in password manager). Do not keep it in a plain file.
   </ul></details>
-5. Go back to the RStudio Server project
-6. Type in the console `gitcreds::gitcreds_set()` and paste the `PAT` key
-7. Still in the console, run the following commands. Replace your GitHub username and email.
+4. Go back to the RStudio Server project
+5. Type in the console `gitcreds::gitcreds_set()` and paste the `PAT` key
+6. Still in the console, run the following commands. Replace your GitHub username and email.
 ```{r}
 #| eval: false
 usethis::use_git_config(user.name = "USERNAME", user.email = "USEREMAIL@EXAMPLE.ORG")
@@ -179,7 +178,7 @@ Authors@R:
 
 `golem` sets up a framework for your Shiny app.
 This framework is probably a little different from what you normally see when reading/watching guides on Shiny Apps.
-It may look overly complicated, and perhaps it is for your purpose. But it is a robust framework that makes maintaining even large apps easy. Building a small app is very easy as well.
+It may look overly complicated, and perhaps it is for this exercise. But it is a robust framework that makes maintaining even large apps easy(ier). Building a small app is very easy as well.
 
 You are welcome to ignore the `R/run_app.R` and `R/app_config.R` for now.
 
@@ -200,9 +199,9 @@ I suggest, each time you create a module, to copy something like the following i
 if(FALSE){ # Testing
   golem::detach_all_attached()
   golem::document_and_reload()
-  ui <- mod_name_ui("name_ui_1") # replace name here
+  ui <- mod_NAME_ui("NAME_ui_1") # replace name here
   server <- function( input,output,session){
-    mod_name_server("name_ui_1") # and here
+    mod_NAME_server("NAME_ui_1") # and here
   }
   shinyApp(ui, server)
 }
@@ -232,7 +231,7 @@ Today, you will use that package to create an app around it.
 
 **Please only use this if your own package does not work!**
 
-Install it with: `devtools::install_github("rforbiodatascience22/centralDogma")`
+Install it with: `devtools::install_github("shdam/centralDogma")`
 
 The function names are as follows:
 
@@ -522,10 +521,10 @@ output$DNA <- renderUI({
 The `output$DNA` informs shiny to update the output with DNA as ID from the UI. In this case the `uiOutput` you added earlier.
 The `renderUI` creates a UI field. This function is specific to the `uiOutput`.
 `textAreaInput` is a large text input field - suitable for large text inputs, such as DNA.
-The `ns()` should always be called when adding input/output fields in modules. Note that it is not necessary when defining outputs, such as `output$DNA`.
-The `dna()` adds the DNA strand as the value in the field, this ensures that the updated DNA value is displayed in the input field.
+The `ns()` should always be called when adding input/output fields in modules. Note that it is not necessary when assigning to outputs, such as `output$DNA`.
+The `dna()` adds the DNA strand as the value in the field, this ensures that the updated DNA value is displayed in the input field, when it is generated with the 'random DNA' function.
 
-As an added note, notice that the input and output IDs can be the same, as with the `ns("DNA")` ID for both `uiOutput` and `textAreaInput` in this case. I find it handy to name them the same, so I know which input and output interacts.
+As an added note, notice that the input and output IDs can be the same, as with the `ns("DNA")` ID for both `uiOutput` and `textAreaInput` in this case. I find it handy to name them the same, so I know which input and output interacts. If you find it confusing, you can name them something else.
 </details>
 </br>
 
@@ -571,9 +570,9 @@ output$peptide <- renderText({
       } else{
         input$DNA |> 
           toupper() |> 
-          centralDogma::transcribe() |> 
-          centralDogma::codon_split() |> 
-          centralDogma::translate()
+          yourpackage::function_two() |> 
+          yourpackage::function_three() |> 
+          yourpackage::function_four()
       }
     })
 ```
@@ -584,7 +583,7 @@ output$peptide <- renderText({
 6. Regardless if you used my solution or not, **discuss in your group what goes on in my solution**
 
 <details> <summary>Answer </summary> 
-With a direct `renderText` on the `input$DNA`, the output will update whenever the input field changes, without causing the nuisance described above, which would be introduced with a `observeEvent` without an associated `actionButton`. Recall `input$DNA` gets updated when `generate_dna` is clicked.
+With a direct `renderText` on the `input$DNA`, the output will update whenever the input field changes, without causing the nuisance described above, which would be introduced with an `observeEvent` without an associated `actionButton`. Recall `input$DNA` gets updated when `generate_dna` is clicked.
 The first test checks that the input is not `NULL`, which it is upon loading the app, causing an error message in the console, but doesn't necessarily crash the app. An output of `NULL` renders nothing.
 The second test ensures an output is only generated when there is more than 3 characters to interpret.
 The `toupper()` function ensures the input is upper case, which is required for the codon table.
@@ -600,7 +599,7 @@ This peptide sequence is then stored in the peptide output, which links to the `
 10. Push it to GitHub
 
 
-
+</br>
 
 Awesomely done! You have now created a fully functional R shiny application that takes in a DNA strand or creates a random one, converts it into a peptide sequence, and then is able to plot the abundance of each amino acid in the sequence.
 

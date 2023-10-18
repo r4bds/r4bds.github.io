@@ -85,15 +85,10 @@ Authors@R:
 ```
 
 6. Create an MIT license (from the console) `usethis::use_mit_license("Group name")`
+7. Run `usethis::use_git()`. _If the "Git" tab is not in the lower left panel_: reopen the R project.
 7. <details>
   <summary>**Optional** setup steps (generally good, but not essential for this course)</summary>
   <ul>
-  <li> _If the "Git" tab is not in the lower left panel_:</li>
-    <ul>
-    <li>Run `usethis::use_git()` and reopen the project to have it appear</li>
-    <li>To use GitHub, you create an empty repository there and link the account with `gert::git_remote_add("link")` and `gert::git_push("origin")`</li>
-    <li>`git push` will now push your committed changes to the GitHub repository</li>
-    </ul>
   <li>Add a Readme file `usethis::use_readme_rmd( open = FALSE )`. You will do that in the Group Assignment later </li>
   <li>Add a lifecycle badge: `usethis::use_lifecycle_badge( "Experimental" )`</li>
   <li>Write vignettes: `usethis::use_vignette("Vignette name")`</li>
@@ -179,7 +174,7 @@ Now you are ready to work on the R package.
 
 ----
 
-Each team member should build and implement their own function. The code will be given, but you will be asked to come up with a name for your function and many of the variables, so discuss in the team what naming convention you want to use. Do you want to use `snake_case` (common in tidyverse) or `camelCase` (common in Bioconductor)? It doesn't really matter, but try to be consistent.
+Each team member should build and implement their own function. The code will be given, but you will be asked to come up with a name for your function and many of the variables, so discuss in the team what naming convention you want to use. Do you want to use `snake_case` (common in tidyverse) or `camelCase` (common in Bioconductor)? It doesn't really matter, but be consistent.
 
 </br>
 
@@ -394,7 +389,7 @@ name_me1 <- function(name_me2){
 
 
 
-### <span style="color: red;">GROUP ASSIGNMENT</span>
+## <span style="color: red;">GROUP ASSIGNMENT</span>
 
 ----
 
@@ -428,5 +423,5 @@ When starting out with an R package, it may seem complicated with a lot of thing
 `golem` remembers these things for you.
 When setting up your package / Shiny app with `golem::create_golem("Name of your awesome package/app")`, it creates a `dev` folder with a few files listing all you need to get started with an R package.
 
-It does also give you a lot of other things that you will rarely use, and it also sets up some basic structures for Shiny apps. These can simply be deleted if you are not also building a Shiny app.
+It does also give you a lot of other things that you will rarely use, and it also sets up some basic structures for Shiny apps. These can simply be deleted if you are not also building a Shiny app (which you will next week).
 

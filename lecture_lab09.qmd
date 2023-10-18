@@ -197,7 +197,7 @@ knitr::include_app("https://gallery.shinyapps.io/081-widgets-gallery/", height =
 <!--# ---------------------------------------------------------------------- -->
 ## 
 
-```{r, eval=TRUE,echo=FALSE}
+```{r}
 #| eval: TRUE
 #| echo: FALSE
 knitr::include_app("https://shdam.shinyapps.io/ShinyDogma/", height = 800)
