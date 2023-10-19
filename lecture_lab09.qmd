@@ -13,10 +13,17 @@ format:
     footer: "R for Bio Data Science"
 ---
 
+```{r run_app}
+#| eval: false
+#| echo: false
+ShinyDogma::run_app(options = list("port" = 1995))
+```
+
+
 ```{r setup}
 #| include: false
 knitr::opts_chunk$set(echo = FALSE)
-# shinyUrl <- "http://127.0.0.1:1995"
+shinyUrl <- "http://localhost:1995"
 ```
 
 # Creating a Simple Shiny App
@@ -52,8 +59,7 @@ _A student who has met the objectives of the session will be able to:_
 ```{r}
 #| eval: TRUE
 #| echo: FALSE
-knitr::include_app("https://shdam.shinyapps.io/ShinyDogma/", height = 800)
-# knitr::include_url("https://shiny.rstudio.com/gallery/", height = 800)
+knitr::include_url("https://shiny.posit.co/r/gallery/", height = 800)
 ```
 
 
@@ -62,11 +68,11 @@ knitr::include_app("https://shdam.shinyapps.io/ShinyDogma/", height = 800)
 <!--# ---------------------------------------------------------------------- -->
 ## 
 
+
 ```{r}
 #| eval: TRUE
 #| echo: FALSE
-knitr::include_app("https://shdam.shinyapps.io/ShinyDogma/", height = 800)
-# knitr::include_app(shinyUrl, height = 800)
+knitr::include_app(shinyUrl, height = 800)
 ```
 
 
@@ -151,8 +157,7 @@ shinyApp(ui, server)
 ```{r}
 #| eval: TRUE
 #| echo: FALSE
-knitr::include_app("https://shdam.shinyapps.io/ShinyDogma/", height = 800)
-# knitr::include_app(shinyUrl, height = 800)
+knitr::include_app(shinyUrl, height = 800)
 ```
 
 <!--# ---------------------------------------------------------------------- -->
@@ -200,8 +205,7 @@ knitr::include_app("https://gallery.shinyapps.io/081-widgets-gallery/", height =
 ```{r}
 #| eval: TRUE
 #| echo: FALSE
-knitr::include_app("https://shdam.shinyapps.io/ShinyDogma/", height = 800)
-# knitr::include_app(shinyUrl, height = 800)
+knitr::include_app(shinyUrl, height = 800)
 ```
 
 <!--# ---------------------------------------------------------------------- -->
@@ -306,8 +310,7 @@ knitr::include_graphics("images/L09_reactivity.png")
 ```{r}
 #| eval: TRUE
 #| echo: FALSE
-knitr::include_app("https://shdam.shinyapps.io/ShinyDogma/", height = 800)
-# knitr::include_app(shinyUrl, height = 800)
+knitr::include_app(shinyUrl, height = 800)
 ```
 
 

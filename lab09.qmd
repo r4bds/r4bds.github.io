@@ -231,7 +231,7 @@ Today, you will use that package to create an app around it.
 
 **Please only use this if your own package does not work!**
 
-Install it with: `devtools::install_github("shdam/centralDogma")`
+Install it with: `devtools::install_github("r4bds/centralDogma")`
 
 The function names are as follows:
 
