@@ -621,8 +621,8 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <li>Do not write anything after <code>@export</code></li>
 <li>The parameters should have the format: <code>@param param_name description of parameter</code></li>
 <li>The return has the format: <code>@return description of function output</code></li>
-<li>Examples can span multiple lines and what you write will be run.</li>
-<li><strong>Important!</strong> Either fill out everything or delete what you don’t describe. Otherwise, the package check will fail (Do <strong>not</strong> delete <code>@export</code> for these functions).</li>
+<li>Examples can span multiple lines and what you write will be run, so make it runnable.</li>
+<li><strong>Important!</strong> Either fill out everything or delete what you don’t. Otherwise, the package check will fail (Do <strong>not</strong> delete <code>@export</code> for these functions).</li>
 </ul></li>
 <li>Run the three lines of codes from <a href="./primer_on_r_packages.html#pkgwf">The Package Workflow</a> section</li>
 </ol>
@@ -651,6 +651,7 @@ Briefly about check
 </ul></li>
 <li>If it succeeds without errors, push your changes to GitHub
 <ul>
+<li>Always pull before pushing</li>
 <li>Use the RStudio GUI if you prefer</li>
 <li>Remember to pull first</li>
 <li>If you chose to create your own branch, <a href="https://www.w3schools.com/git/git_branch_merge.asp">merge it with master/main</a>.</li>
@@ -709,7 +710,7 @@ Function four
 <summary>
 Function five
 </summary>
-<p>This function will be the first to use dependencies. As a reminder, a dependency is a package that your package depends on. In this case, it will be <code>stringr</code> and <code>ggplot2</code>. They are already installed, so you don’t need to do that. The best way to add these packages to your own is to first add them to your package dependencies with <code>usethis::use_package("package_name")</code>. Do that with all three.</p>
+<p>This function will be the first to use dependencies. As a reminder, a dependency is a package that your package depends on. In this case, it will be <code>stringr</code> and <code>ggplot2</code>. They are already installed, so you don’t need to do that. The best way to add these packages to your own is to first add them to your package dependencies with <code>usethis::use_package("package_name")</code>. If you care about reproducibility, you can add <code>min_version = TRUE</code> to the function call to specify a required minimum package version of the dependency. Run <code>usethis::use_package</code> for both dependencies.</p>
 <p>For the <code>ggplot2</code> functions, we will use <code>ggplot2::function_name</code> everywhere a <code>ggplot2</code> function is used. Also add <code>@import ggplot2</code> to the function description (this is often done with <code>ggplot2</code> because it has a lot of useful plotting functions with only rare name overlaps). If you want to be more precise, add <code>@importFrom ggplot2 ggplot aes geom_col theme_bw theme</code> instead. The same applies for <code>stringr</code>, but since we only use a few functions, add <code>@importFrom stringr str_split boundary str_count</code> to the function description.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2){</span>
@@ -741,8 +742,8 @@ Function five
 <h3 class="anchored" data-anchor-id="task-3---group-discussion">Task 3 - Group discussion</h3>
 <ol type="1">
 <li>Describe each function to each other in order - both what it does and which names you gave them and their variables.</li>
-<li>The person(s) responsible for function five, describe how you added the three packages as dependencies and included the pipe in the package namespace.</li>
-<li>Discuss why it is a good idea to limit the number of dependencies your package has. When can’t it be avoided?</li>
+<li>The person(s) responsible for function five, describe how you added the two packages as dependencies.</li>
+<li>Discuss why it is a good idea to limit the number of dependencies your package has. When can’t it always be avoided?</li>
 <li>Discuss the difference between adding an <code>@importFrom package function</code> tag to a function description compared to using <code>package::function()</code>. Read <a href="https://r-pkgs.org/namespace.html#imports">this section</a> if you are not sure or just want to learn more.</li>
 </ol>
 </section>
@@ -753,7 +754,7 @@ Function five
 <p>For this week’s group assignment, write a vignette (user guide) for your package (<strong>max</strong> 2 pages). The vignette should include a brief description of what the package is about and demonstrate how each function in the package is used (individually and in conjunction with each other). As a final section, discuss use cases for the package and what other functions could be included. Also include the main points from your discussion in Task 3.</p>
 <p>Include a link to your group’s GitHub repository at the top of the vignette. Hand it in as a pdf in DTU Learn.</p>
 <ol type="1">
-<li>Create a vignette with <code>usethis::use_vignette("package name")</code>.</li>
+<li>Create a vignette with <code>usethis::use_vignette("your_package_name")</code>.</li>
 <li>When you are done writing it, run <code>devtools::build_vignettes()</code>.</li>
 <li>At the top line of your vignette, change <code>rmarkdown::html_vignette</code> to <code>rmarkdown::pdf_document</code></li>
 <li>Rerun <code>devtools::build_vignettes()</code> - the created pdf-file in the <code>doc</code>-folder is the document to hand it.</li>
@@ -762,7 +763,7 @@ Function five
 <li>Create a README with <code>usethis::use_readme_rmd( open = TRUE )</code>.</li>
 <li>Copy the content of the vignette Rmarkdown into the readme <strong>Keep the top part of the README as is</strong>. If you overwrote it anyway, change <code>rmarkdown::pdf_document</code> to <code>rmarkdown::github_document</code>.</li>
 <li>Run <code>devtools::build_readme()</code></li>
-<li>Push the changes to GitHub</li>
+<li>Push the changes to GitHub.</li>
 </ul></li>
 </ol>
 <section id="last-tip-on-packages" class="level3">
