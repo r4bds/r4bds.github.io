@@ -279,7 +279,6 @@ At its core, an `R package` is essentially a collection of `functions`.
 
 - Properly defined functions `enhance code clarity`, facilitate `debugging`, and foster `modularity`.
 
-## input -> param
 ```{r}
 #| echo: true
 fun_name <- function(param1, param2 = 2){
@@ -321,7 +320,7 @@ fun_name("something_else")
 ## Caution with function names
 
 
-_Avoid using common function names_
+_Avoid overwriting other function names_
 
 ```{r}
 #| echo: true
@@ -334,7 +333,7 @@ mean(1:5)
 ## Caution with function names
 
 
-_Avoid using common function names_
+_Avoid overwriting other function names_
 
 ```{r}
 #| echo: true
@@ -422,7 +421,7 @@ base::mean(1:5)
 
 Using `library()` lets R know which package's tools you intend to use.
 
-However, if multiple packages have tools with the same name, the most recently loaded package takes precedence.
+However, if multiple packages have tools with the same name, the most recently attached package takes precedence.
 
 :::: {.columns}
 
@@ -430,9 +429,9 @@ However, if multiple packages have tools with the same name, the most recently l
 ```{r}
 #| eval: false
 #| echo: true
-library("lubridate")
-library("here")
-here() # here::here()
+library("dplyr")
+library("MASS")
+select() # MASS::select()
 ```
 
 :::
@@ -442,9 +441,9 @@ here() # here::here()
 ```{r}
 #| eval: false
 #| echo: true
-library("here")
-library("lubridate")
-here() # lubridate::here()
+library("MASS")
+library("dplyr")
+select() # dplyr::select()
 ```
 
 :::
@@ -456,8 +455,8 @@ To prevent such overlaps, explicitly call functions using their namespaces:
 ```{r}
 #| eval: false
 #| echo: true
-lubridate::here()
-here::here()
+dplyr::select()
+MASS::select()
 ```
 
 <!--# ---------------------------------------------------------------------- -->
@@ -485,11 +484,11 @@ See how R's environment changes when packages are attached.
 # Initial search path
 search()
 
-# Attach the 'here' package
-library("here")
+# Attach the 'MASS' package
+library("MASS")
 
-# Attach the 'lubridate' package
-library("lubridate")
+# Attach the 'dplyr' package
+library("dplyr")
 
 # Search path after attaching packages
 search()
@@ -581,7 +580,7 @@ Now what exactly is a `dependency`?
 <!--# ---------------------------------------------------------------------- -->
 ## Dependencies: Why They Matter
 
-- A `Dependency` is a package that another package relies on, ensuring all functions and features run as expected.
+- A `Dependency` is a package that another package relies on. It ensures that all functions and features run as expected.
 
 - They help `maintain` the `integrity` of a package when sharing or collaborating.
   - They are installed with your package.
@@ -656,9 +655,13 @@ saveWidget(report$DependencyReporter$graph_viz,
 #| echo: true
 #| eval: false
 install.packages("devtools")          # CRAN: The Comprehensive R Archive Network
-devtools::install_bioc("pairedGSEA")  # Bioconductor
+
+devtools::install_bioc("pairedGSEA")  # Bioconductor (but use BiocManager::install()
+
 devtools::install_github("cyCombine") # GitHub
+
 devtools::install_cran("dplyr")       # CRAN again
+
 # Side note: devtools uses the "remotes" package, i.e., remotes::install_<repo> does the same
 ```
 
@@ -671,9 +674,13 @@ devtools::install_cran("dplyr")       # CRAN again
 #| echo: true
 #| eval: false
 install.packages("devtools")          # CRAN: The Comprehensive R Archive Network
-devtools::install_bioc("pairedGSEA")  # Bioconductor
+
+devtools::install_bioc("pairedGSEA")  # Bioconductor (but use BiocManager::install())
+
 devtools::install_github("cyCombine") # GitHub
+
 devtools::install_cran("dplyr")       # CRAN again
+
 # Side note: devtools uses the "remotes" package, i.e., remotes::install_<repo> does the same
 ```
 

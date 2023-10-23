@@ -259,8 +259,8 @@ For each function (found below), complete the following steps:
     - Do not write anything after `@export`
     - The parameters should have the format: `@param param_name description of parameter`
     - The return has the format: `@return description of function output`
-    - Examples can span multiple lines and what you write will be run.
-    - **Important!** Either fill out everything or delete what you don't describe. Otherwise, the package check will fail (Do **not** delete `@export` for these functions).
+    - Examples can span multiple lines and what you write will be run, so make it runnable.
+    - **Important!** Either fill out everything or delete what you don't. Otherwise, the package check will fail (Do **not** delete `@export` for these functions).
 6. Run the three lines of codes from [The Package Workflow](primer_on_r_packages.qmd#pkgwf) section
   - If at this point, you get a warning that `NAMESPACE` already exists, delete it and try again.
 ```{r}
@@ -281,6 +281,7 @@ The check will tell you what might cause problems with your package and often al
 If there are any errors, fix those. Warnings and notes are also good to address. Feel free to do that if any pops up.
     </details>
 10. If it succeeds without errors, push your changes to GitHub
+    - Always pull before pushing
     - Use the RStudio GUI if you prefer
     - Remember to pull first
     - If you chose to create your own branch, [merge it with master/main](https://www.w3schools.com/git/git_branch_merge.asp).
@@ -348,7 +349,8 @@ This function will be the first to use dependencies.
 As a reminder, a dependency is a package that your package depends on.
 In this case, it will be `stringr` and `ggplot2`. They are already installed, so you don't need to do that.
 The best way to add these packages to your own is to first add them to your package dependencies with `usethis::use_package("package_name")`.
-Do that with all three.
+If you care about reproducibility, you can add `min_version = TRUE` to the function call to specify a required minimum package version of the dependency.
+Run `usethis::use_package` for both dependencies.
 
 For the `ggplot2` functions, we will use `ggplot2::function_name` everywhere a `ggplot2` function is used. Also add `@import ggplot2` to the function description (this is often done with `ggplot2` because it has a lot of useful plotting functions with only rare name overlaps). 
 If you want to be more precise, add `@importFrom ggplot2 ggplot aes geom_col theme_bw theme` instead.
@@ -385,8 +387,8 @@ name_me1 <- function(name_me2){
 ### Task 3 - Group discussion
 
 1. Describe each function to each other in order - both what it does and which names you gave them and their variables.
-2. The person(s) responsible for function five, describe how you added the three packages as dependencies and included the pipe in the package namespace.
-3. Discuss why it is a good idea to limit the number of dependencies your package has. When can't it be avoided? 
+2. The person(s) responsible for function five, describe how you added the two packages as dependencies.
+3. Discuss why it is a good idea to limit the number of dependencies your package has. When can't it always be avoided? 
 4. Discuss the difference between adding an `@importFrom package function` tag to a function description compared to using `package::function()`. Read [this section](https://r-pkgs.org/namespace.html#imports) if you are not sure or just want to learn more.
 
 
@@ -401,7 +403,7 @@ Also include the main points from your discussion in Task 3.
 
 Include a link to your group's GitHub repository at the top of the vignette. Hand it in as a pdf in DTU Learn.
 
-1. Create a vignette with `usethis::use_vignette("package name")`.
+1. Create a vignette with `usethis::use_vignette("your_package_name")`.
 2. When you are done writing it, run `devtools::build_vignettes()`.
 3. At the top line of your vignette, change `rmarkdown::html_vignette` to `rmarkdown::pdf_document`
 4. Rerun `devtools::build_vignettes()` - the created pdf-file in the `doc`-folder is the document to hand it.
@@ -409,7 +411,7 @@ Include a link to your group's GitHub repository at the top of the vignette. Han
     - Create a README with `usethis::use_readme_rmd( open = TRUE )`.
     - Copy the content of the vignette Rmarkdown into the readme **Keep the top part of the README as is**. If you overwrote it anyway, change `rmarkdown::pdf_document` to `rmarkdown::github_document`.
     - Run `devtools::build_readme()`
-    - Push the changes to GitHub
+    - Push the changes to GitHub.
 
 
 
