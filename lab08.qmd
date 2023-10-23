@@ -228,7 +228,16 @@ Normally, you should also describe how the raw data was cleaned. You would do th
 
 Your package now includes some data.
 
-Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from [The Package Workflow](primer_on_r_packages.qmd#pkgwf) section, and run `?NAME_OF_YOUR_OBJECT`. Your manual should pop up. Try printing the object as well to see what it looks like `print(NAME_OF_YOUR_OBJECT)`.
+Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from [The Package Workflow](primer_on_r_packages.qmd#pkgwf) section:
+```{r}
+#| eval: false
+rstudioapi::documentSaveAll()  # Saves all you files
+devtools::document()  # Writes all your manuals for you
+devtools::load_all()  # Simulates library("your package"), allowing you to use your functions
+```
+And run `?NAME_OF_YOUR_OBJECT`. 
+**OBS** For some unknown reason, this does not work on the current R version (4.3.1). Instead, you can click the "Build" tab next to the "Git" tab and then "install". After installing and attaching,
+your manual should pop up. Try printing the object as well to see what it looks like `print(NAME_OF_YOUR_OBJECT)`.
 
 Push your changes to GitHub.
 **The other team members** pull the changes to have the data available to you as well.
@@ -243,7 +252,8 @@ If you are fewer in the team than the number of functions. The quickest to finis
 If you want an additional challenge, each team member can create their own Git branch `gert::git_branch_checkout("NAME_OF_BRANCH")` and work there. When done, merge your branch with the main branch.
 That is a more clean and 'proper' workflow, but completely optional.
 
-If you are in doubt what the underlying functions do, run `?function_name` to get a hint about their purpose.
+If you are in doubt what the underlying functions do, run `?function_name` to get a hint about their purpose. **OBS** For some unknown reason, this does not work on the current R version (4.3.1).
+As mentioned with the data, you can install your package, and then load the manual.
 Also, remember the functions are replicating the central dogma. Let that inspire you, when naming the functions and variables. If you get stuck, ask your teammates about their functions.
 
 Function five is a bit more involved. Do it together or help your teammate out if it causes problems.
