@@ -65,11 +65,12 @@ In the first task, **one team member** (you decide who) will initiate a package 
     - The package you will create will replicate the central dogma of molecular biology. Let that inspire you
     - Look up naming rules [here](https://r-pkgs.org/workflow101.html#name-your-package)
     - The most important rule: `_`, `-`, and `'` are not allowed.
-4. Click "Create project".
+4. Tick the "Create git repository" box.
+5. Click "Create project".
 
 RStudio will now create an R project for you that contains all necessary files and folders.
 
-5. Open the `DESCRIPTION` file and write a title for your package, a small description, and add authors.
+6. Open the `DESCRIPTION` file and write a title for your package, a small description, and add authors.
   - When adding authors, the format is:
 ```{r}
 #| eval: false
@@ -84,9 +85,9 @@ Authors@R:
            email = "your@email.com"))
 ```
 
-6. Create an MIT license (from the console) `usethis::use_mit_license("Group name")`
-7. Run `usethis::use_git()`. _If the "Git" tab is not in the lower left panel_: reopen the R project.
-7. <details>
+7. Create an MIT license (from the console) `usethis::use_mit_license("Group name")`
+8. _If you didn't tick the "Create git repository"_: Run `usethis::use_git()`. _If the "Git" tab is not in the lower left panel_: reopen the R project.
+9. <details>
   <summary>**Optional** setup steps (generally good, but not essential for this course)</summary>
   <ul>
   <li>Add a Readme file `usethis::use_readme_rmd( open = FALSE )`. You will do that in the Group Assignment later </li>
@@ -261,6 +262,7 @@ For each function (found below), complete the following steps:
     - Examples can span multiple lines and what you write will be run.
     - **Important!** Either fill out everything or delete what you don't describe. Otherwise, the package check will fail (Do **not** delete `@export` for these functions).
 6. Run the three lines of codes from [The Package Workflow](primer_on_r_packages.qmd#pkgwf) section
+  - If at this point, you get a warning that `NAMESPACE` already exists, delete it and try again.
 ```{r}
 #| eval: false
 rstudioapi::documentSaveAll()  # Saves all you files

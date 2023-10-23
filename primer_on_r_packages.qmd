@@ -117,6 +117,7 @@ You can do that in many ways, but I recommend the following workflow:
     - If it is a new function, document it
 2. Save your files: `rstudioapi::documentSaveAll()`
 3. Create package documentation: `devtools::document()`
+  - If at this point, you get a warning that `NAMESPACE` already exists, delete it and try again.
 4. Load package: `devtools::load_all()`
 5. Your package is now loaded, and you can test that it works as intended.
 
