@@ -480,7 +480,7 @@ pca_plot
 
 Lastly, a quick case story:
 
-- *A well seasoned Professor was curious about the tidyverse, but reluctant! Over perhaps 6 months, I would answer the occasional over-the-coffee questions and point to some materials, still feeling some push-back. Then suddenly, one day said colleague came into my office an proclaimed: "I get it now! The penny has dropped! Once you get your head around it, this thing is a complete game changer!*
+- *A well seasoned Professor was curious about the tidyverse, but reluctant! Over perhaps 6 months, I would answer the occasional over-the-coffee questions and point to some materials, still feeling some push-back. Then suddenly, one day said colleague came into my office and proclaimed: "I get it now! The penny has dropped! Once you get your head around it, this thing is a complete game changer!*
 
 - It was easy to for me to utter: "Could not agree more!"
 
