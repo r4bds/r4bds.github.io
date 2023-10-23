@@ -296,4 +296,15 @@ The exam consists of 3 components:
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-# That's it! Questions?
+# Now...
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Go and do great things!
+
+![](images/group_work_motivation.png){width="80%" fig-align="center"}
+
+*I don't care how cliché this is - This project is part of the foundation for your future career! And you will meet components from this course on your path forth - So absorb and expand your bio data science toolbox!*

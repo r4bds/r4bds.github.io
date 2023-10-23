@@ -1,7 +1,5 @@
 # Lab 10 Project Startup & Industry Talks {.unnumbered}
 
-#### STOP: Section not yet completed!
-
 ## Schedule
 
 - 08.00 - 08.15: Recap and Assignment
