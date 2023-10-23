@@ -1,4 +1,4 @@
-# Exam {.unnumbered}
+# Exam {.unnumbered  #sec-examdesc}
 
 ## Design
 
@@ -6,29 +6,31 @@ The exam consists of 3 components:
 
 1. A group project, where all members are responsible for all parts of the project. This is handed in as a code base on the course GitHub repository
 1. An oral group presentation of the project, where all group members, as per DTU rules on oral exams, must be physically present
-1. A two hour multiple choice quiz (MCQ) exam, where general course learning objectives are examined, see course description
+1. A two hour multiple choice quiz (MCQ) exam, where general course learning objectives are examined
 
-*Please note that active participation in the group work and timely submission of project and code base are both indispensable prerequisites for exam participation. The final grade is based on an overall assessment of all three components.*
+*See course description at DTU course base for further description*
 
 ## Deadlines and Dates
 
 1. Project code base and presentation must be completed at the latest 23:59 on the day before lab 13. Note, you **cannot** edit anything on the GitHub repository after this deadline!
-1. The oral presentation will be on lab 13 of the course, see DTU Learn calender for dates
+1. The oral group presentation will be on lab 13 of the course, see DTU Learn calender for dates
 1. The MCQ is placed according to the DTU exam schedule
 
 ## Content
 
 ### The Group Project
 
-- Be sure that everyone understands ALL code in the project as all group members are responsible for ALL code
+- Be sure that **everyone** understands **ALL** code in the project as **all group members are responsible for ALL code**
 - The aim of the project is to cover the entire course cycle, so be sure to align your project
-- Expect a few overall questions regarding the decisions you have made throughout your project
-- Be sure to read [Project FAQ](#sec-projfaq)
+- Be sure to read [Project Description](#sec-projdesc)
+- Questions? Make sure to consult the [Project FAQ](#sec-projfaq)
 
 ### The Presentation
 
-- The format is a 10-slides-in-10-mins and everyone in the group must present a part
-- The group presentations will be on the last day of the course, i.e. lab 13
+- The format is a 10-slides-in-10-mins
+- Everyone in the group must present a part of the project
+- Expect a few overall questions regarding the decisions you have made throughout your project
+- NOTE: The final presentation in HTML-format must be zipped and uploaded to DTU Learn before deadline, so we can check the GitHub version is identical
 
 ### The MCQ
 
@@ -37,3 +39,4 @@ The exam consists of 3 components:
 - All aids are allowed, but no open internet
 - Each question will have 4 possible answers and only 1 is the right one and you can only choose one answer per question
 
+**If any aspects of the above is not clear, please reach out to the teaching team!**

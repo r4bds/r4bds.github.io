@@ -1,8 +1,10 @@
-# Project Description {.unnumbered}
+# Project Description {.unnumbered #sec-projdesc}
+
+**Make sure you have read the [exam description](#sec-examdesc)**
 
 ## Project Groups
 
-- You will be working in the groups assigned from the beginning of the course.
+- You will be working in the groups assigned from the beginning of the course
 
 - IMPORTANT: _All groups members are responsible for all parts of the project!_
 
@@ -42,7 +44,7 @@ Recall the "Data Science Cycle"
 
 ### Organisation
 
-Your project must strictly adhere to the organisation illustrated below:
+Your project **must strictly** adhere to the organisation illustrated below:
 
 ![](images/viz_bio_data_science_project_organisation_qmd.png){fig-align="center" width=90%}
 
@@ -50,7 +52,7 @@ Your project must strictly adhere to the organisation illustrated below:
 
 ### Code
 
-Your project must strictly adhere to the [Course Code Styling Guide](code_styling.qmd)
+Your project **must strictly** adhere to the [Course Code Styling Guide](code_styling.qmd)
 
 ### Data
 
@@ -58,9 +60,9 @@ Your project must strictly adhere to the [Course Code Styling Guide](code_stylin
 
 - It must be based on a bio data set
 
-- Start out as "dirty" i.e. a completely clean and analysis-ready data set will not allow you to demonstrate, that you have met the course learning objectives
+- Start out as "dirty" i.e. a completely clean / tidy and analysis-ready data set will not allow you to demonstrate, that you have met the course learning objectives
 
-- It is advisable, that the data is limited size, so you do not risk time waste due to long runtimes
+- It is advisable, that the data is of limited size, so you do not risk time waste due to long runtimes
 
 - Note, you should demonstrate ability to extract biological insights, but at the same time mind that the focus should be on demonstrating that you master the data science toolbox according to course aim and learning objectives
 
@@ -84,7 +86,7 @@ Your project must strictly adhere to the [Course Code Styling Guide](code_stylin
   
 - Created using [`Quarto Presentation`](https://quarto.org/docs/presentations/), just as the course slides are
 
-- NOTE: This final presentation in HTML-format should be zipped and uploaded to DTU Learn before deadline, so we can check the GitHub version is identical
+- NOTE: This final presentation in HTML-format must be zipped and uploaded to DTU Learn before deadline, so we can check the GitHub version is identical
 
 ## Project Supervision
 
@@ -94,8 +96,10 @@ Your project must strictly adhere to the [Course Code Styling Guide](code_stylin
 
 - I **highly** encourage the use of Piazza for questions, which will be monitored by the teaching team
 
-- Also, a rather comprehensive list of [frequently asked questions](project_faq.qmd) have been compiled, so be sure to check that out!
+- Also, a rather comprehensive list of [Project FAQ](#sec-projfaq) have been compiled, so be sure to check that out!
 
 - I recommend using your course Quarto documents for reference 
 
 - Also, perhaps you can get input on the [Posit Community Pages](https://community.rstudio.com)
+
+**If any aspects of the above is not clear, please reach out to the teaching team!**
