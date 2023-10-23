@@ -362,7 +362,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>08.00 - 08.15: Recap of exercises from last lab</li>
 <li>08.15 - 08.30: Assignment walk-through</li>
-<li>08.30 - 09.00: Slides</li>
+<li>08.30 - 09.00: <a href="https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab09.html">Lecture</a></li>
 <li>09.00 - 09.15: Break</li>
 <li>09.00 - 12.00: <a href="#sec-exercises">Exercises</a></li>
 </ul>
@@ -391,7 +391,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><em>A student who has met the objectives of the session will be able to:</em></p>
 <ul>
 <li>Prepare a simple shiny application</li>
-<li>Using relevant online ressources to autonomously identify and obtain new and expand on existing knowledge of R</li>
+<li>Using relevant online resources to autonomously identify and obtain new and expand on existing knowledge of R</li>
 </ul>
 </section>
 <section id="sec-exercises" class="level2">
@@ -414,7 +414,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="task-1.1---create-the-app" class="level4">
 <h4 class="anchored" data-anchor-id="task-1.1---create-the-app">Task 1.1 - Create the App</h4>
 <ol type="1">
-<li>Go to <a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science RStudio Cloud Server</a> and login.</li>
+<li>Go to <a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science RStudio Server</a> and login.</li>
 <li>Run <code>golem::create_golem("YOUR_APP_NAME")</code> in the console, putting in a name of your own choosing.</li>
 </ol>
 <ul>
@@ -459,7 +459,7 @@ You need to type your password. Don’t change the default settings of creating 
 Copy the generated token (should start with ghp_) and store it securely (e.g.&nbsp;in password manager). Do not keep it in a plain file.
 </li></ul>
 </details></li>
-<li>Go back to the RStudio Cloud project.</li>
+<li>Go back to the RStudio Server project.</li>
 <li>Type in the console <code>gitcreds::gitcreds_set()</code> and paste the <code>PAT</code> key.</li>
 <li>Stage all files (in the <code>git</code> window in the top right) by ticking all boxes under <code>Staged</code>.</li>
 <li>Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the <strong>X</strong>.</li>
@@ -475,7 +475,6 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <ol type="1">
 <li>In the RStudio server, create a new project based on the GitHub Repository just created by your teammate.</li>
 <li>Remember to change the project name to <code>group_X_shiny</code>. Remember to replace the <strong>X</strong></li>
-<li>Install <code>devtools</code> and <code>golem</code></li>
 <li>Find your <code>PAT</code> key or create a new
 <details>
 <summary>
@@ -492,7 +491,7 @@ You need to type your password. Don’t change the default settings of creating 
 Copy the generated token (should start with ghp_) and store it securely (e.g.&nbsp;in password manager). Do not keep it in a plain file.
 </li></ul>
 </details></li>
-<li>Go back to the RStudio Cloud project</li>
+<li>Go back to the RStudio Server project</li>
 <li>Type in the console <code>gitcreds::gitcreds_set()</code> and paste the <code>PAT</code> key</li>
 <li>Still in the console, run the following commands. Replace your GitHub username and email.</li>
 </ol>
@@ -518,7 +517,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 </ul></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Author<span class="sc">@</span>R<span class="sc">:</span></span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Authors<span class="sc">@</span>R<span class="sc">:</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fu">person</span>(<span class="at">given =</span> <span class="st">"firstname"</span>,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">family =</span> <span class="st">"lastname"</span>,</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">role =</span> <span class="fu">c</span>(<span class="st">"aut"</span>, <span class="st">"cre"</span>), <span class="co"># There must be a "cre", but there can only be one</span></span>
@@ -536,7 +535,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 </section>
 <section id="the-r-folder" class="level4">
 <h4 class="anchored" data-anchor-id="the-r-folder">The R folder</h4>
-<p><code>golem</code> sets up a framework for your Shiny app. This framework is probably a little different from what you normally see when reading/watching guides on Shiny Apps. It may look overly complicated, and perhaps it is for your purpose. But it is a robust framework that makes maintaining even large apps easy. Building a small app is very easy as well.</p>
+<p><code>golem</code> sets up a framework for your Shiny app. This framework is probably a little different from what you normally see when reading/watching guides on Shiny Apps. It may look overly complicated, and perhaps it is for this exercise. But it is a robust framework that makes maintaining even large apps easy(ier). Building a small app is very easy as well.</p>
 <p>You are welcome to ignore the <code>R/run_app.R</code> and <code>R/app_config.R</code> for now.</p>
 <p>The first places you want to look are <code>R/app_ui.R</code> and <code>R/app_server.R</code>. They are responsible for the user interface and the app back end, respectively. You will not be working here directly as much, although you could. But it is strongly recommended to work in Shiny modules - created with <code>golem::add_module( name = "module_name" )</code>, as you saw in class.</p>
 <section id="shiny-modules" class="level5">
@@ -546,11 +545,11 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <p>Another useful feature of Shiny modules is that you can test them independently from the main app. I suggest, each time you create a module, to copy something like the following in the bottom of the created module script (renaming the relevant parts to fit the module). This way you always have a quick test environment at hand. But bear in mind the layout will be different from your main app, as it will not transfer the layout from <code>app_ui.R</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="cn">FALSE</span>){ <span class="co"># Testing</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  golem<span class="sc">::</span>detach_all_attached</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  golem<span class="sc">::</span>document_and_reload</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  ui <span class="ot">&lt;-</span> <span class="fu">mod_name_ui</span>(<span class="st">"name_ui_1"</span>) <span class="co"># replace name here</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  golem<span class="sc">::</span><span class="fu">detach_all_attached</span>()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  golem<span class="sc">::</span><span class="fu">document_and_reload</span>()</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  ui <span class="ot">&lt;-</span> <span class="fu">mod_NAME_ui</span>(<span class="st">"NAME_ui_1"</span>) <span class="co"># replace name here</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  server <span class="ot">&lt;-</span> <span class="cf">function</span>( input,output,session){</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mod_name_server</span>(<span class="st">"name_ui_1"</span>) <span class="co"># and here</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mod_NAME_server</span>(<span class="st">"NAME_ui_1"</span>) <span class="co"># and here</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shinyApp</span>(ui, server)</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -575,7 +574,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 Install backup
 </summary>
 <p><strong>Please only use this if your own package does not work!</strong></p>
-<p>Install it with: <code>devtools::install_github("rforbiodatascience22/centralDogma")</code></p>
+<p>Install it with: <code>devtools::install_github("r4bds/centralDogma")</code></p>
 <p>The function names are as follows:</p>
 <ul>
 <li>Function one: <code>centralDogma::random_dna()</code></li>
@@ -611,8 +610,6 @@ Install backup
 <ol type="1">
 <li>Go to <code>dev/02_dev.R</code> and find the function to add a module. For now, set <code>with_test = FALSE</code> - you will not be creating tests for the app in this exercise. Remember to name the module something sensible related to the description above instead of just “module2”. Run the function.</li>
 <li>Scroll to the bottom of the module and copy the commented out server function and add it to <code>R/app_server.R</code> inside the <code>app_server</code> function.</li>
-<li>While you are there, we will use the tidyverse pipe in the app. As you remember from building a package last week, we need to import that function to use it. Add a <code>@importFrom magrittr %&gt;%</code> tag above the server function in <code>R/app_server.R</code>. I suggest adding app-wide import tags here, as you then have a single place to put them (you will not be adding more to this app).</li>
-<li>Run line 18 in <code>dev/02_dev.R</code> to see how dependencies are handled automatically.</li>
 <li>Redo step 2, but for the ui function. Importantly, place it in the second <code>tabPanel</code> in <code>R/app_ui.R</code>, instead of the “module2”. Give it a sensible title. If you made your own layout, place the module where you imagine it should go.</li>
 <li><strong>Go back to the module script</strong>. Use my suggested module layout below. If you want, you are more than welcome to design it yourself. See the layout guide <a href="https://shiny.posit.co/r/articles/build/layout-guide/">here</a> or <a href="https://rstudio.github.io/cheatsheets/html/shiny.html">cheat sheet</a> for inspiration.
 <ul>
@@ -636,7 +633,7 @@ If you want, draw inspiration for the layout I chose
 The names in the example are not actual shiny stuff, just names I put in as a placeholder. Feel free to use them as your inputIDs and outputIDs or come up with your own.
 </details>
 <p><br></p>
-<ol start="7" type="1">
+<ol start="5" type="1">
 <li><p>Run the app to see what it looks like.</p></li>
 <li><p>Add an input field for the <code>peptide_sequence</code>, replace the string with the input you are adding. Please try it out first.</p></li>
 </ol>
@@ -658,7 +655,7 @@ Possible solution
 </div>
 </details>
 <p><br></p>
-<ol start="9" type="1">
+<ol start="7" type="1">
 <li>Add an output field for the <code>plot</code>, replacing the placeholder string. Please try it out first.</li>
 </ol>
 <details>
@@ -800,7 +797,7 @@ Hint for <code>peptide_sequence</code>
 </summary>
 <p>For “peptide_sequence”, I chose a <code>verbatimTextOutput</code>. You may not have seen it before; it is in the shiny cheat sheet, but it simply allows for text output in a grey box. The <code>tagAppendAttributes</code> allow you to add CSS tags (you don’t need to know what that means). In this case, I wanted the text to wrap. By googling a bit, I found the solution seen below (feel free to see how it looks with and without it - but remember you will first see something, when you have made the server logic in the next task).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">verbatimTextOutput</span>(<span class="at">outputId =</span> <span class="fu">ns</span>(<span class="st">"peptide"</span>)) <span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">verbatimTextOutput</span>(<span class="at">outputId =</span> <span class="fu">ns</span>(<span class="st">"peptide"</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tagAppendAttributes</span>(<span class="at">style =</span> <span class="st">"white-space: pre-wrap;"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
@@ -827,7 +824,7 @@ Full possible solution
 <span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">label =</span> <span class="st">"Generate random DNA"</span>, <span class="at">style =</span> <span class="st">"margin-top: 18px;"</span></span>
 <span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>      ))</span>
 <span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    shiny<span class="sc">::</span><span class="fu">verbatimTextOutput</span>(<span class="at">outputId =</span> <span class="fu">ns</span>(<span class="st">"peptide"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    shiny<span class="sc">::</span><span class="fu">verbatimTextOutput</span>(<span class="at">outputId =</span> <span class="fu">ns</span>(<span class="st">"peptide"</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>      shiny<span class="sc">::</span><span class="fu">tagAppendAttributes</span>(<span class="at">style =</span> <span class="st">"white-space: pre-wrap;"</span>)</span>
 <span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  )</span>
@@ -870,8 +867,8 @@ Full possible solution
 <summary>
 Answer
 </summary>
-<p>The <code>output$DNA</code> informs shiny to update the output with DNA as ID from the UI. In this case the <code>uiOutput</code> you added earlier. The <code>renderUI</code> creates a UI field. This function is specific to the <code>uiOutput</code>. <code>textAreaInput</code> is a large text input field - suitable for large text inputs, such as DNA. The <code>ns()</code> should always be called when adding input/output fields in modules. Note that it is not necessary when defining outputs, such as <code>output$DNA</code>. The <code>dna()</code> adds the DNA strand as the value in the field, this ensures that the updated DNA value is displayed in the input field.</p>
-As an added note, notice that the input and output IDs can be the same, as with the <code>ns("DNA")</code> ID for both <code>uiOutput</code> and <code>textAreaInput</code> in this case. I find it handy to name them the same, so I know which input and output interacts.
+<p>The <code>output$DNA</code> informs shiny to update the output with DNA as ID from the UI. In this case the <code>uiOutput</code> you added earlier. The <code>renderUI</code> creates a UI field. This function is specific to the <code>uiOutput</code>. <code>textAreaInput</code> is a large text input field - suitable for large text inputs, such as DNA. The <code>ns()</code> should always be called when adding input/output fields in modules. Note that it is not necessary when assigning to outputs, such as <code>output$DNA</code>. The <code>dna()</code> adds the DNA strand as the value in the field, this ensures that the updated DNA value is displayed in the input field, when it is generated with the ‘random DNA’ function.</p>
+As an added note, notice that the input and output IDs can be the same, as with the <code>ns("DNA")</code> ID for both <code>uiOutput</code> and <code>textAreaInput</code> in this case. I find it handy to name them the same, so I know which input and output interacts. If you find it confusing, you can name them something else.
 </details>
 <p><br></p>
 <ol start="3" type="1">
@@ -924,9 +921,9 @@ Possible solution
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span>{</span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        input<span class="sc">$</span>DNA <span class="sc">|&gt;</span> </span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">toupper</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>          centralDogma<span class="sc">::</span><span class="fu">transcribe</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>          centralDogma<span class="sc">::</span><span class="fu">codon_split</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>          centralDogma<span class="sc">::</span><span class="fu">translate</span>()</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>          yourpackage<span class="sc">::</span><span class="fu">function_two</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>          yourpackage<span class="sc">::</span><span class="fu">function_three</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>          yourpackage<span class="sc">::</span><span class="fu">function_four</span>()</span>
 <span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>      }</span>
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -939,7 +936,7 @@ Possible solution
 <summary>
 Answer
 </summary>
-<p>With a direct <code>renderText</code> on the <code>input$DNA</code>, the output will update whenever the input field changes, without causing the nuisance described above, which would be introduced with a <code>observeEvent</code> without an associated <code>actionButton</code>. Recall <code>input$DNA</code> gets updated when <code>generate_dna</code> is clicked. The first test checks that the input is not <code>NULL</code>, which it is upon loading the app, causing an error message in the console, but doesn’t necessarily crash the app. An output of <code>NULL</code> renders nothing. The second test ensures an output is only generated when there is more than 3 characters to interpret. The <code>toupper()</code> function ensures the input is upper case, which is required for the codon table. <code>renderText</code> does as you would expect and renders some text for the UI. You might have guessed from the row of functions in the <code>renderText</code>, it takes the dna strand and converts it using the package you created last week into a peptide sequence. This peptide sequence is then stored in the peptide output, which links to the <code>verbatimTextOutput</code> you likely have in your ui function</p>
+<p>With a direct <code>renderText</code> on the <code>input$DNA</code>, the output will update whenever the input field changes, without causing the nuisance described above, which would be introduced with an <code>observeEvent</code> without an associated <code>actionButton</code>. Recall <code>input$DNA</code> gets updated when <code>generate_dna</code> is clicked. The first test checks that the input is not <code>NULL</code>, which it is upon loading the app, causing an error message in the console, but doesn’t necessarily crash the app. An output of <code>NULL</code> renders nothing. The second test ensures an output is only generated when there is more than 3 characters to interpret. The <code>toupper()</code> function ensures the input is upper case, which is required for the codon table. <code>renderText</code> does as you would expect and renders some text for the UI. You might have guessed from the row of functions in the <code>renderText</code>, it takes the dna strand and converts it using the package you created last week into a peptide sequence. This peptide sequence is then stored in the peptide output, which links to the <code>verbatimTextOutput</code> you likely have in your ui function</p>
 </details>
 <p><br></p>
 <ol start="7" type="1">
@@ -948,6 +945,7 @@ Answer
 <li>Run the app and see if it acts as expected.</li>
 <li>Push it to GitHub</li>
 </ol>
+<p><br></p>
 <p>Awesomely done! You have now created a fully functional R shiny application that takes in a DNA strand or creates a random one, converts it into a peptide sequence, and then is able to plot the abundance of each amino acid in the sequence.</p>
 </section>
 <section id="task-3.7---deploy-your-app-to-shinyapps.io" class="level4">

@@ -323,7 +323,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#task-1---setting-up-the-r-package" id="toc-task-1---setting-up-the-r-package" class="nav-link" data-scroll-target="#task-1---setting-up-the-r-package">Task 1 - Setting up the R package</a></li>
   <li><a href="#task-2---build-the-package" id="toc-task-2---build-the-package" class="nav-link" data-scroll-target="#task-2---build-the-package">Task 2 - Build the package</a></li>
   <li><a href="#task-3---group-discussion" id="toc-task-3---group-discussion" class="nav-link" data-scroll-target="#task-3---group-discussion">Task 3 - Group discussion</a></li>
-  <li><a href="#group-assignment" id="toc-group-assignment" class="nav-link" data-scroll-target="#group-assignment"><span style="color: red;">GROUP ASSIGNMENT</span></a></li>
+  </ul></li>
+  <li><a href="#group-assignment" id="toc-group-assignment" class="nav-link" data-scroll-target="#group-assignment"><span style="color: red;">GROUP ASSIGNMENT</span></a>
+  <ul class="collapse">
   <li><a href="#last-tip-on-packages" id="toc-last-tip-on-packages" class="nav-link" data-scroll-target="#last-tip-on-packages">Last tip on packages</a></li>
   </ul></li>
   </ul>
@@ -371,7 +373,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="learning-materials">Learning Materials</h2>
 <p><em>Please prepare the following materials:</em></p>
 <ul>
-<li><a href="./primer_on_r_packages.html#pkgwf">Primer on R Packages</a></li>
+<li><a href="./primer_on_r_packages.html">Primer on R Packages</a></li>
 <li>Cheatsheet: <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/package-development.pdf">Package development with devtools</a> – When in doubt, check here first</li>
 <li>Web: <a href="https://www.datacamp.com/community/tutorials/r-packages-guide">R Packages: A Beginner’s Tutorial</a> – Read this before class</li>
 <li>Web: <a href="https://support.rstudio.com/hc/en-us/articles/200486488-Developing-Packages-with-RStudio">Developing Packages with RStudio</a> – Creating an R Package with RStudio</li>
@@ -395,7 +397,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="introduction" class="level3">
 <h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
 <p>The aim of these exercises is to set up a collaborative coding project using GitHub and collaborate on creating a simple R package that replicates the central dogma of molecular biology.</p>
-<p>The exercises uses what you learned in <a href="./lab07.html">Lab 7</a> and its <a href="./lab07.html#sec-exercises">exercises</a>. But don’t worry too much, the setup steps will be given here as well.</p>
+<p>The exercises will build upon what you learned in <a href="./lab07.html">Lab 7</a> and its <a href="./lab07.html#sec-exercises">exercises</a>. But don’t worry too much, the setup steps will be given here as well.</p>
 <hr>
 </section>
 <section id="tasks" class="level3">
@@ -408,7 +410,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="task-1.1---create-r-package" class="level4">
 <h4 class="anchored" data-anchor-id="task-1.1---create-r-package">Task 1.1 - Create R Package</h4>
 <ol type="1">
-<li>Go to <a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science RStudio Cloud Server</a> and login.</li>
+<li>Go to <a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science RStudio Server</a> and login.</li>
 <li>Click <code>Create a project</code><img src="images/L08_create.png" class="img-fluid" style="width:5.0%"> in the top left and choose <code>New Directory</code>.</li>
 <li>Select <code>R Package</code> and pick a fitting Package name.
 <ul>
@@ -416,17 +418,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Look up naming rules <a href="https://r-pkgs.org/workflow101.html#name-your-package">here</a></li>
 <li>The most important rule: <code>_</code>, <code>-</code>, and <code>'</code> are not allowed.</li>
 </ul></li>
+<li>Tick the “Create git repository” box.</li>
 <li>Click “Create project”.</li>
 </ol>
 <p>RStudio will now create an R project for you that contains all necessary files and folders.</p>
-<ol start="5" type="1">
+<ol start="6" type="1">
 <li>Open the <code>DESCRIPTION</code> file and write a title for your package, a small description, and add authors.</li>
 </ol>
 <ul>
 <li>When adding authors, the format is:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Author<span class="sc">@</span>R<span class="sc">:</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Authors<span class="sc">@</span>R<span class="sc">:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fu">person</span>(<span class="at">given =</span> <span class="st">"firstname"</span>,</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">family =</span> <span class="st">"lastname"</span>,</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">role =</span> <span class="fu">c</span>(<span class="st">"aut"</span>, <span class="st">"cre"</span>), <span class="co"># There must be a "cre", but there can only be one</span></span>
@@ -436,27 +439,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">role =</span> <span class="st">"aut"</span>,</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">email =</span> <span class="st">"your@email.com"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="6" type="1">
+<ol start="7" type="1">
 <li>Create an MIT license (from the console) <code>usethis::use_mit_license("Group name")</code></li>
+<li><em>If you didn’t tick the “Create git repository”</em>: Run <code>usethis::use_git()</code>. <em>If the “Git” tab is not in the lower left panel</em>: reopen the R project.</li>
 <li><details>
 <summary>
 <strong>Optional</strong> setup steps (generally good, but not essential for this course)
 </summary>
 <ul>
-<li>
-<em>If the “Git” tab is not in the lower left panel</em>:
-</li>
-<ul>
-<li>
-Run <code>usethis::use_git()</code> and reopen the project to have it appear
-</li>
-<li>
-To use GitHub, you create an empty repository there and link the account with <code>gert::git_remote_add("link")</code> and <code>gert::git_push("origin")</code>
-</li>
-<li>
-<code>git push</code> will now push your committed changes to the GitHub repository
-</li>
-</ul>
 <li>
 Add a Readme file <code>usethis::use_readme_rmd( open = FALSE )</code>. You will do that in the Group Assignment later
 </li>
@@ -559,7 +549,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <section id="task-2---build-the-package" class="level3">
 <h3 class="anchored" data-anchor-id="task-2---build-the-package">Task 2 - Build the package</h3>
 <hr>
-<p>Each team member should build and implement their own function. The code will be given, but you will be asked to come up with a name for your function and many of the variables, so discuss in the team what naming convention you want to use. Do you want to use <code>snake_case</code> (common in tidyverse) or <code>camelCase</code> (common in Bioconductor)? It doesn’t really matter, but try to be consistent.</p>
+<p>Each team member should build and implement their own function. The code will be given, but you will be asked to come up with a name for your function and many of the variables, so discuss in the team what naming convention you want to use. Do you want to use <code>snake_case</code> (common in tidyverse) or <code>camelCase</code> (common in Bioconductor)? It doesn’t really matter, but be consistent.</p>
 <p><br></p>
 <section id="task-2.1---incorporate-data" class="level4">
 <h4 class="anchored" data-anchor-id="task-2.1---incorporate-data">Task 2.1 - Incorporate data</h4>
@@ -636,6 +626,9 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 </ul></li>
 <li>Run the three lines of codes from <a href="./primer_on_r_packages.html#pkgwf">The Package Workflow</a> section</li>
 </ol>
+<ul>
+<li>If at this point, you get a warning that <code>NAMESPACE</code> already exists, delete it and try again.</li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rstudioapi<span class="sc">::</span><span class="fu">documentSaveAll</span>()  <span class="co"># Saves all you files</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()  <span class="co"># Writes all your manuals for you</span></span>
@@ -753,8 +746,9 @@ Function five
 <li>Discuss the difference between adding an <code>@importFrom package function</code> tag to a function description compared to using <code>package::function()</code>. Read <a href="https://r-pkgs.org/namespace.html#imports">this section</a> if you are not sure or just want to learn more.</li>
 </ol>
 </section>
-<section id="group-assignment" class="level3">
-<h3 class="anchored" data-anchor-id="group-assignment"><span style="color: red;">GROUP ASSIGNMENT</span></h3>
+</section>
+<section id="group-assignment" class="level2">
+<h2 class="anchored" data-anchor-id="group-assignment"><span style="color: red;">GROUP ASSIGNMENT</span></h2>
 <hr>
 <p>For this week’s group assignment, write a vignette (user guide) for your package (<strong>max</strong> 2 pages). The vignette should include a brief description of what the package is about and demonstrate how each function in the package is used (individually and in conjunction with each other). As a final section, discuss use cases for the package and what other functions could be included. Also include the main points from your discussion in Task 3.</p>
 <p>Include a link to your group’s GitHub repository at the top of the vignette. Hand it in as a pdf in DTU Learn.</p>
@@ -771,13 +765,12 @@ Function five
 <li>Push the changes to GitHub</li>
 </ul></li>
 </ol>
-</section>
 <section id="last-tip-on-packages" class="level3">
 <h3 class="anchored" data-anchor-id="last-tip-on-packages">Last tip on packages</h3>
 <hr>
 <p>Next week, I will introduce the <code>golem</code> package for building <a href="https://engineering-shiny.org/index.html">production-grade Shiny apps</a>. However, I personally also use it to quickly get going with packages.</p>
 <p>When starting out with an R package, it may seem complicated with a lot of things to remember. <code>golem</code> remembers these things for you. When setting up your package / Shiny app with <code>golem::create_golem("Name of your awesome package/app")</code>, it creates a <code>dev</code> folder with a few files listing all you need to get started with an R package.</p>
-<p>It does also give you a lot of other things that you will rarely use, and it also sets up some basic structures for Shiny apps. These can simply be deleted if you are not also building a Shiny app.</p>
+<p>It does also give you a lot of other things that you will rarely use, and it also sets up some basic structures for Shiny apps. These can simply be deleted if you are not also building a Shiny app (which you will next week).</p>
 
 
 </section>
