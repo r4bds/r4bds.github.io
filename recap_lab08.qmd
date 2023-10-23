@@ -17,7 +17,7 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## PCA Assignment
+# Tidy PCA Assignment
 
 ```{r}
 #| echo: false
@@ -29,282 +29,468 @@ library("broom")
 library("ggrepel")
 ```
 
-## 
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## About Data - I Choose
+
+### The BLOSUM (BLOcks SUbstitution Matrix)
+
+- A substitution matrix used extensively in protein e.g. sequence alignment
+
+- Contains log-odds scores indicating how likely a substition is
+
+- Derived from very conserved regions of protein families in the BLOCKS database
+
+- Using blocks of aligned sequence segments
+
+- Blocks are chosen such that they have less than x% similarity
+
+- E.g. BLOSUM62 is derived from blocks with less than 62% similarity
+
+**Note, only numbers computed from observed substitutions here! No information on physico-chemical features of amino acids!**
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Get Data
+
+### Download
 
 ```{r}
-bl62 <- read.table(
-  file = "https://raw.githubusercontent.com/rdpstaff/AlignmentTools/master/src/data/blosum62.txt",
-  comment = "#") |>
-  rownames_to_column(var = "aa") |>
-  as_tibble() |> 
-  slice(1:20) |>
-  select(1:21)
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+
+download.file(
+  url = "https://raw.githubusercontent.com/rdpstaff/AlignmentTools/master/src/data/blosum62.txt",
+  destfile = "data/_raw/blosum62.txt")
+bl62 <- read_table(
+  file = "data/_raw/blosum62.txt",
+  comment = "#")
 bl62
 ```
 
-## Let us take a look at the BLOSUM62 matrix
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Wrangle Data
+
+### Adjust Column Names
 
 ```{r}
-amino_acids <- bl62 |> pull(aa)
-bl62 |>
-  pivot_longer(cols = -aa,
-               names_to = "aa2",
-               values_to = "log_odds_score") |> 
-  ggplot(aes(x = factor(aa, levels = amino_acids),
-             y = factor(aa2, levels = rev(amino_acids)),
-             fill = log_odds_score,
-             label = log_odds_score)) +
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+
+colnames(bl62) <- c("aa", colnames(bl62))
+```
+
+### Subset to Data on the 20 Proteinogenic AA
+
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+
+std_aa = c("A", "R", "N", "D", "C", "Q", "E", "G", "H", "I",
+           "L", "K", "M", "F", "P", "S", "T", "W", "Y", "V")
+bl62 <- bl62 |> 
+  filter(aa %in% std_aa) |> 
+  select(aa, std_aa)
+bl62
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Wrangle Data
+
+### Save to File
+
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+
+write_tsv(x = bl62,
+          file = "data/blosum62.tsv")
+```
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Visualise Data
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+
+pl <- bl62 |>
+  pivot_longer(
+    cols = -aa,
+    names_to = "aa2",
+    values_to = "log_odds_score") |> 
+  ggplot(aes(
+    x = factor(aa,
+               levels = std_aa),
+    y = factor(aa2,
+               levels = rev(std_aa)),
+    fill = log_odds_score,
+    label = log_odds_score)) +
   geom_tile() +
-  geom_text(colour = "darkgrey") +
+  geom_text(colour = "darkgrey",
+            size = 7) +
   scale_fill_gradient2(low = "blue",
                        mid = "white",
                        high = "red",
                        midpoint = 0) +
   scale_x_discrete(position = "top") +
   coord_fixed() +
-  theme_minimal(base_size = 12, base_family = "Avenir") +
+  theme_minimal(base_size = 22,
+                base_family = "Avenir") +
   theme(legend.position = "none",
-        plot.title = element_text(hjust = 0.5, vjust = -4)) +
-  labs(x = "",
-       y = "",
-       title = "The BLOSUM62 visualised as a heatmap")
+        plot.title = element_text(
+          hjust = 0.5,
+          vjust = -4)) +
+  labs(
+    x = "",
+    y = "",
+    title = str_c(
+    "The BLOSUM62 Visualised ",
+    "as a Heatmap"))
 ```
 
+:::
 
-## Wrangle and save the data
+::: {.column width="60%"}
 
 ```{r}
-std_aa = c("A", "R", "N", "D", "C", "Q", "E", "G", "H", "I", "L", "K", "M", "F", "P", "S", "T", "W", "Y", "V")
-bl62 <- bl62 |>
-  select(aa, all_of(std_aa)) |>
-  filter(aa %in% std_aa)
-write_tsv(x = bl62,
-          file = "data/BLOSUM62_ncbi.tsv")
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| fig-width: 8
+#| fig-height: 8
+#| fig-align: center
+
+pl
 ```
 
-## Wrangle and save the data
-```{r}
-bl62
-```
+:::
 
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
 ## Create a PCA object
 
 ```{r}
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+
 bl62_pca <- bl62 |>
-  select(-aa) |>
-  prcomp(center = TRUE, scale = TRUE)
-bl62_pca
+  select_if(is.numeric) |>
+  prcomp(center = TRUE,
+         scale = TRUE)
+bl62_pca |>
+  str()
 ```
 
+- "Complicated" model object $\rightarrow$ `broom` to the rescue!
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
 ## Make a scree plot using broom to tidy
 
-<div style="float: left; width: 50%;">
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
 ```{r}
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+
 bl62_pca |>
   tidy("pcs")
 ```
-</div>
 
-<div style="float: right; width: 50%;">
-```{r fig.align="left", fig.width=5, fig.height=4}
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+
 bl62_pca |>
   tidy("pcs") |> 
+  mutate(percent = percent * 100) |> 
   ggplot(aes(x = PC,
              y = percent)) +
-  geom_col() +
-  theme_bw()
+  geom_hline(yintercept = 0) +
+  geom_col(colour = "black",
+           alpha = 0.5) +
+  theme_bw(base_size = 20) +
+  theme(panel.grid.minor.x = element_blank(),
+        panel.grid.major.x = element_blank()) +
+  labs(title = "Scree Plot of PCA of BLOSUM62")
 ```
-</div>
 
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
 ## Augment using broom
 
 ```{r}
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+
 bl62_pca_aug <- bl62_pca |>
   augment(bl62)
-```
-
-## Augment using broom
-```{r echo=FALSE}
 bl62_pca_aug
 ```
 
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
 ## Add some chemical classes
 
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
 ```{r}
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+
 get_chem_class <- function(x){
-  chem_cols <- c("A" = "Hydrophobic", "R" = "Basic", "N" = "Neutral", "D" = "Acidic",
-                 "C" = "sulphur", "Q" = "Neutral", "E" = "Acidic", "G" = "Polar",
-                 "H" = "Basic", "I" = "Hydrophobic", "L" = "Hydrophobic", "K" = "Basic",
-                 "M" = "sulphur", "F" = "Hydrophobic", "P" = "Hydrophobic", "S" = "Polar",
-                 "T" = "Polar", "W" = "Hydrophobic", "Y" = "Polar", "V" = "Hydrophobic")
-  return(factor(chem_cols[x])) # Custom function NOT a pipeline, hence the [] => shareable!
+  chem_cols <- c(
+    "A" = "Hydrophobic",
+    "R" = "Basic",
+    "N" = "Neutral",
+    "D" = "Acidic",
+    "C" = "Sulphur",
+    "Q" = "Neutral",
+    "E" = "Acidic",
+    "G" = "Polar",
+    "H" = "Basic",
+    "I" = "Hydrophobic",
+    "L" = "Hydrophobic",
+    "K" = "Basic",
+    "M" = "Sulphur",
+    "F" = "Hydrophobic",
+    "P" = "Hydrophobic",
+    "S" = "Polar",
+    "T" = "Polar",
+    "W" = "Hydrophobic",
+    "Y" = "Polar",
+    "V" = "Hydrophobic")
+  return( chem_cols[x] ) # Example of avoiding dependencies => shareable!
 }
 ```
 
-```{r}
-bl62_pca_aug <- bl62_pca_aug |> 
-  mutate(chem_class = get_chem_class(aa))
-```
+- This is a named vector, think dictionary (Yes `R` can do that too!)
 
-#### Note how we are using our own custom function inside a dplyr pipeline here
+:::
+
+::: {.column width="60%"}
+
+![](images/chemistry_beaker.gif){width="50%" fig-align="center"}
+
+:::
+
+::::
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Add some chemical classes
+
+- Note how we are using our own custom function inside a `dplyr` pipeline here
 
 ```{r}
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+
 get_chem_class(x = c("A", "R", "D"))
 ```
 
-## Add some chemical classes
-
 ```{r}
-bl62_pca_aug |> select(aa, chem_class)
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+
+bl62_pca_aug <- bl62_pca_aug |> 
+  mutate(chem_class = get_chem_class(aa))
+
+bl62_pca_aug |>
+  select(aa, chem_class)
 ```
 
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
 ## Plot the PCA Plot
 
 ```{r}
-bl62_pca_aug |> 
-  ggplot(aes(x = .fittedPC1, y = .fittedPC2, label = aa, colour = chem_class)) +
-  geom_text() +
-  theme(legend.position = "bottom")
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+
+pca_plot_axes_labels <- bl62_pca |>
+  tidy("eigenvalues") |>
+  mutate(lbl = str_c("PC", PC, ", VE = ", round(percent*100,2), "%")) |> 
+  pull("lbl")
+pca_plot_axes_labels
 ```
 
-## Plot the Loadings Plot
 
-<div style="float: left; width: 50%;">
-```{r}
-# define arrow style for plotting
-arrow_style <- arrow(
-  angle = 20, ends = "first", type = "closed",
-  length = grid::unit(8, "pt"))
 
-# plot rotation matrix
-pl <- bl62_pca |>
-  tidy(matrix = "rotation") |>
-  pivot_wider(names_from = "PC",
-              names_prefix = "PC",
-              values_from = "value") |>
-  ggplot(aes(x = PC1,
-             y = PC2,
-             label = column)) +
-  geom_segment(xend = 0,
-               yend = 0,
-               arrow = arrow_style) +
-  geom_text(hjust = 1,
-            nudge_x = -0.02, 
-            color = "#904C2F") +
-  coord_fixed() + # fix aspect ratio to 1:1
-  theme_minimal(12)
-```
-</div>
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Plot the PCA Plot
 
-<div style="float: right; width: 50%;">
-```{r fig.align="left", fig.width=5, fig.height=4}
-pl
-```
-</div>
+:::: {.columns}
 
-## Plot the PCA
+::: {.column width="40%"}
 
 ```{r}
-bl62_pca_aug |> pull(chem_class) |> levels
+#| echo: true
+#| eval: true
+#| message: false
+#| warning: false
+
+pca_plot <- bl62_pca_aug |> 
+  ggplot(aes(x = .fittedPC1,
+             y = .fittedPC2,
+             label = aa,
+             colour = chem_class,
+             fill = chem_class)) +
+  geom_vline(xintercept = 0) +
+  geom_hline(yintercept = 0) +
+  geom_point(shape = 21,
+             size = 6,
+             alpha = 0.5) +
+  geom_text(colour = "black") +
+  scale_fill_manual(
+    values = c("red", "blue", "black",
+               "purple", "green", "yellow")) +
+  scale_colour_manual(
+    values = c("red", "blue", "black",
+               "purple", "green", "yellow")) +
+  coord_fixed() +
+  theme_bw(base_size = 20,
+           base_family = "avenir") +
+  labs(
+    title = "PCA: Scores Plot of BLOSUM62",
+    x = pluck(pca_plot_axes_labels, 1),
+    y = pluck(pca_plot_axes_labels, 2),
+    fill = "Chemistry",
+    colour = "Chemistry",
+    caption = "Up: Aromatic, down: Aliphatic, Left: Charged, Right: Hydrophobic")
 ```
 
-```{r eval=FALSE}
-# Bad code style to make it fit on slide
-x <- bl62_pca |> tidy("pcs") |> filter(PC == 1) |> pull(percent)
-x <- str_c("PC1 (", round(x*100, 2), "%)")
-y <- bl62_pca |> tidy("pcs") |> filter(PC == 2) |> pull(percent)
-y <- str_c("PC2 (", round(y*100, 2), "%)")
-```
+:::
 
-
-```{r eval=FALSE}
-bl62_pca_aug |> 
-  ggplot(aes(x = .fittedPC1, y = .fittedPC2,
-             label = aa, colour = chem_class)) +
-  geom_label_repel() + # library("ggrepel") trick here
-  theme(legend.position = "bottom") +
-  scale_colour_manual(values = c("red", "blue", "black",
-                                 "purple", "green", "yellow")) +
-  labs(x = x, y = y)
-```
-
-## Plot the PCA
-
-<div style="float: left; width: 50%;">
-```{r echo=FALSE}
-x <- bl62_pca |> tidy("pcs") |> filter(PC==1) |> pull(percent)
-x <- str_c("PC1 (", round(x*100, 2), "%)")
-y <- bl62_pca |> tidy("pcs") |> filter(PC==2) |> pull(percent)
-y <- str_c("PC2 (", round(y*100, 2), "%)")
-```
-
-```{r echo=FALSE, fig.align="center", fig.width=4.7}
-bl62_pca_aug |> 
-  ggplot(aes(x = .fittedPC1, y = .fittedPC2,
-             label = aa, colour = chem_class)) +
-  geom_label_repel() + # library("ggrepel") trick here
-  theme(legend.position = "bottom") +
-  scale_colour_manual(values = c("red", "blue", "black",
-                                 "purple", "green", "yellow")) +
-  labs(x = x, y = y, colour = "")
-```
-</div>
-<div style="float: right; width: 50%;">
-```{r echo=FALSE, fig.align="center", fig.width=4.7}
-bl62_pca |>
-  tidy("pcs") |> 
-  ggplot(aes(x = PC, y = percent)) +
-  geom_col() +
-  theme_bw()
-```
-</div>
-
-- Up: Aromatic, down: Aliphatic, Left: Charged, Right: Hydrophobic
-- Non of this was given to the model, it is all in the BLOSUM62 numbers
-
-## Add k-means
-
+::: {.column width="60%"}
 ```{r}
-bl62 |>
-  select(-aa) |>
-  kmeans(centers = 6, iter.max = 1000, nstart = 10) |>
-  augment(bl62_pca_aug) |> 
-  head
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| #| fig-align: center
+#| fig-width: 10
+#| fig-height: 8
+
+pca_plot
 ```
 
-## Add k-means
+:::
 
-<div style="float: left; width: 50%;">
-```{r echo=FALSE, fig.align="center", fig.width=4.7}
-bl62_pca_aug |> 
-  ggplot(aes(x = .fittedPC1, y = .fittedPC2,
-             label = aa, colour = chem_class)) +
-  geom_label_repel() + # library("ggrepel") trick here
-  theme(legend.position = "bottom") +
-  scale_colour_manual(values = c("red", "blue", "black",
-                                 "purple", "green", "yellow")) +
-  labs(x = x, y = y, colour = "")
-```
-</div>
-
-<div style="float: right; width: 50%;">
-```{r echo=FALSE, fig.align="center", fig.width=4.7}
-set.seed(174369)
-bl62 |>
-  select(-aa) |>
-  kmeans(centers = 6, iter.max = 1000, nstart = 10) |>
-  augment(bl62_pca_aug) |> 
-  ggplot(aes(x = .fittedPC1, y = .fittedPC2,
-             label = aa, colour = .cluster)) +
-  geom_label_repel() + # library("ggrepel") trick here
-  theme(legend.position = "bottom") +
-  scale_colour_manual(values = c("red", "blue", "black",
-                                 "purple", "green", "yellow")) +
-  labs(x = x, y = y, colour = "")
-
-```
-</div>
-
-# Questions?
+::::
 
 
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## That's about it for tidyverse
+
+- We have been over a ton of materials - Well done!
+
+- Now we will have two great labs on R-packages and Shiny
+
+- And then the mini-symposium, with 6 talks on how R for Bio Data Science is being applied in industry
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## That's about it for tidyverse
+
+Lastly, a quick case story:
+
+- *A well seasoned Professor was curious about the tidyverse, but reluctant! Over perhaps 6 months, I would answer the occasional over-the-coffee questions and point to some materials, still feeling some push-back. Then suddenly, one day said colleague came into my office an proclaimed: "I get it now! The penny has dropped! Once you get your head around it, this thing is a complete game changer!*
+
+- It was easy to for me to utter: "Could not agree more!"
+
+- So, get your "head around it" and you WILL HAVE...
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## That's about it for tidyverse
+
+![](images/palpatine_unlimited_power.gif){width="60%" fig-align="center"}

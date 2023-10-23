@@ -599,7 +599,13 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 </div>
 <p>Normally, you should also describe how the raw data was cleaned. You would do that in the file that opens after running <code>usethis::use_data_raw( name = "NAME_OF_YOUR_OBJECT", open = TRUE )</code>, but that is less relevant here, so we will skip that part.</p>
 <p>Your package now includes some data.</p>
-<p>Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from <a href="./primer_on_r_packages.html#pkgwf">The Package Workflow</a> section, and run <code>?NAME_OF_YOUR_OBJECT</code>. Your manual should pop up. Try printing the object as well to see what it looks like <code>print(NAME_OF_YOUR_OBJECT)</code>.</p>
+<p>Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from <a href="./primer_on_r_packages.html#pkgwf">The Package Workflow</a> section:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rstudioapi<span class="sc">::</span><span class="fu">documentSaveAll</span>()  <span class="co"># Saves all you files</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()  <span class="co"># Writes all your manuals for you</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>()  <span class="co"># Simulates library("your package"), allowing you to use your functions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And run <code>?NAME_OF_YOUR_OBJECT</code>. <strong>OBS</strong> For some unknown reason, this does not work on the current R version (4.3.1). Instead, you can click the “Build” tab next to the “Git” tab and then “install”. After installing and attaching, your manual should pop up. Try printing the object as well to see what it looks like <code>print(NAME_OF_YOUR_OBJECT)</code>.</p>
 <p>Push your changes to GitHub. <strong>The other team members</strong> pull the changes to have the data available to you as well.</p>
 <p><br></p>
 </section>
@@ -607,7 +613,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <h4 class="anchored" data-anchor-id="task-2.2---implement-functions">Task 2.2 - Implement functions</h4>
 <p>In this task you will be working individually to implement a function each. If you are fewer in the team than the number of functions. The quickest to finish can implement the remaining, or separate them out as you see fit.</p>
 <p>If you want an additional challenge, each team member can create their own Git branch <code>gert::git_branch_checkout("NAME_OF_BRANCH")</code> and work there. When done, merge your branch with the main branch. That is a more clean and ‘proper’ workflow, but completely optional.</p>
-<p>If you are in doubt what the underlying functions do, run <code>?function_name</code> to get a hint about their purpose. Also, remember the functions are replicating the central dogma. Let that inspire you, when naming the functions and variables. If you get stuck, ask your teammates about their functions.</p>
+<p>If you are in doubt what the underlying functions do, run <code>?function_name</code> to get a hint about their purpose. <strong>OBS</strong> For some unknown reason, this does not work on the current R version (4.3.1). As mentioned with the data, you can install your package, and then load the manual. Also, remember the functions are replicating the central dogma. Let that inspire you, when naming the functions and variables. If you get stuck, ask your teammates about their functions.</p>
 <p>Function five is a bit more involved. Do it together or help your teammate out if it causes problems.</p>
 <p>For each function (found below), complete the following steps:</p>
 <ol type="1">
@@ -630,9 +636,9 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <li>If at this point, you get a warning that <code>NAMESPACE</code> already exists, delete it and try again.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rstudioapi<span class="sc">::</span><span class="fu">documentSaveAll</span>()  <span class="co"># Saves all you files</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()  <span class="co"># Writes all your manuals for you</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>()  <span class="co"># Simulates library("your package"), allowing you to use your functions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>rstudioapi<span class="sc">::</span><span class="fu">documentSaveAll</span>()  <span class="co"># Saves all you files</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()  <span class="co"># Writes all your manuals for you</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">load_all</span>()  <span class="co"># Simulates library("your package"), allowing you to use your functions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="7" type="1">
 <li>View your function documentation with <code>?function_name</code></li>
@@ -662,11 +668,11 @@ Briefly about check
 Function one
 </summary>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2){</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>), <span class="at">size =</span> name_me2, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  name_me4 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(name_me3, <span class="at">collapse =</span> <span class="st">""</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me4)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2){</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"G"</span>, <span class="st">"C"</span>), <span class="at">size =</span> name_me2, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  name_me4 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(name_me3, <span class="at">collapse =</span> <span class="st">""</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me4)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <details>
@@ -674,10 +680,10 @@ Function one
 Function two
 </summary>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2){</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"T"</span>, <span class="st">"U"</span>, name_me2)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me3)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2){</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"T"</span>, <span class="st">"U"</span>, name_me2)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me3)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <details>
@@ -685,13 +691,13 @@ Function two
 Function three
 </summary>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2, <span class="at">start =</span> <span class="dv">1</span>){</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> <span class="fu">nchar</span>(name_me2)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  codons <span class="ot">&lt;-</span> <span class="fu">substring</span>(name_me2,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">first =</span> <span class="fu">seq</span>(<span class="at">from =</span> start, <span class="at">to =</span> name_me3<span class="dv">-3</span><span class="sc">+</span><span class="dv">1</span>, <span class="at">by =</span> <span class="dv">3</span>),</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">last =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">3</span><span class="sc">+</span>start<span class="dv">-1</span>, <span class="at">to =</span> name_me3, <span class="at">by =</span> <span class="dv">3</span>))</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(codons)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2, <span class="at">start =</span> <span class="dv">1</span>){</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> <span class="fu">nchar</span>(name_me2)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  codons <span class="ot">&lt;-</span> <span class="fu">substring</span>(name_me2,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">first =</span> <span class="fu">seq</span>(<span class="at">from =</span> start, <span class="at">to =</span> name_me3<span class="dv">-3</span><span class="sc">+</span><span class="dv">1</span>, <span class="at">by =</span> <span class="dv">3</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">last =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">3</span><span class="sc">+</span>start<span class="dv">-1</span>, <span class="at">to =</span> name_me3, <span class="at">by =</span> <span class="dv">3</span>))</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(codons)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <details>
@@ -700,10 +706,10 @@ Function four
 </summary>
 <p><code>NAME_OF_YOUR_OBJECT</code> refers to the codon table you stored in Task 2.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>name_me <span class="ot">&lt;-</span> <span class="cf">function</span>(codons){</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  name_me2 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(NAME_OF_YOUR_OBJECT[codons], <span class="at">collapse =</span> <span class="st">""</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me2)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>name_me <span class="ot">&lt;-</span> <span class="cf">function</span>(codons){</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  name_me2 <span class="ot">&lt;-</span> <span class="fu">paste0</span>(NAME_OF_YOUR_OBJECT[codons], <span class="at">collapse =</span> <span class="st">""</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me2)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <details>
@@ -713,26 +719,26 @@ Function five
 <p>This function will be the first to use dependencies. As a reminder, a dependency is a package that your package depends on. In this case, it will be <code>stringr</code> and <code>ggplot2</code>. They are already installed, so you don’t need to do that. The best way to add these packages to your own is to first add them to your package dependencies with <code>usethis::use_package("package_name")</code>. If you care about reproducibility, you can add <code>min_version = TRUE</code> to the function call to specify a required minimum package version of the dependency. Run <code>usethis::use_package</code> for both dependencies.</p>
 <p>For the <code>ggplot2</code> functions, we will use <code>ggplot2::function_name</code> everywhere a <code>ggplot2</code> function is used. Also add <code>@import ggplot2</code> to the function description (this is often done with <code>ggplot2</code> because it has a lot of useful plotting functions with only rare name overlaps). If you want to be more precise, add <code>@importFrom ggplot2 ggplot aes geom_col theme_bw theme</code> instead. The same applies for <code>stringr</code>, but since we only use a few functions, add <code>@importFrom stringr str_split boundary str_count</code> to the function description.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2){</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> name_me2 <span class="sc">|&gt;</span>  </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    stringr<span class="sc">::</span><span class="fu">str_split</span>(<span class="at">pattern =</span> stringr<span class="sc">::</span><span class="fu">boundary</span>(<span class="st">"character"</span>), <span class="at">simplify =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.character</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unique</span>()</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  counts <span class="ot">&lt;-</span> <span class="fu">sapply</span>(name_me3, <span class="cf">function</span>(amino_acid) stringr<span class="sc">::</span><span class="fu">str_count</span>(<span class="at">string =</span> name_me2, <span class="at">pattern =</span>  amino_acid)) <span class="sc">|&gt;</span>  </span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>()</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(counts) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Counts"</span>)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  counts[[<span class="st">"Name_me2"</span>]] <span class="ot">&lt;-</span> <span class="fu">rownames</span>(counts)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  name_me4 <span class="ot">&lt;-</span> counts <span class="sc">|&gt;</span>  </span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> Name_me2, <span class="at">y =</span> Counts, <span class="at">fill =</span> Name_me2)) <span class="sc">+</span></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me4)</span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>name_me1 <span class="ot">&lt;-</span> <span class="cf">function</span>(name_me2){</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  name_me3 <span class="ot">&lt;-</span> name_me2 <span class="sc">|&gt;</span>  </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    stringr<span class="sc">::</span><span class="fu">str_split</span>(<span class="at">pattern =</span> stringr<span class="sc">::</span><span class="fu">boundary</span>(<span class="st">"character"</span>), <span class="at">simplify =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.character</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unique</span>()</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  counts <span class="ot">&lt;-</span> <span class="fu">sapply</span>(name_me3, <span class="cf">function</span>(amino_acid) stringr<span class="sc">::</span><span class="fu">str_count</span>(<span class="at">string =</span> name_me2, <span class="at">pattern =</span>  amino_acid)) <span class="sc">|&gt;</span>  </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.data.frame</span>()</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(counts) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Counts"</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  counts[[<span class="st">"Name_me2"</span>]] <span class="ot">&lt;-</span> <span class="fu">rownames</span>(counts)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  name_me4 <span class="ot">&lt;-</span> counts <span class="sc">|&gt;</span>  </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> Name_me2, <span class="at">y =</span> Counts, <span class="at">fill =</span> Name_me2)) <span class="sc">+</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    ggplot2<span class="sc">::</span><span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(name_me4)</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </details>
 <p><br></p>
