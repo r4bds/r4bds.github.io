@@ -1,0 +1,299 @@
+---
+title: "Lecture Lab 10"
+author: "Leon Eyrich Jessen"
+format:
+  revealjs:
+    embed-resources: true
+    theme: moon
+    slide-number: c/t
+    width: 1600
+    height: 900
+    mainfont: avenir
+    logo: images/r4bds_logo_small.png
+    footer: "R for Bio Data Science"
+---
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Introduction to Project Period and Exam
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## You made it!
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- That was the first part of the course
+
+- A total of 9 labs of 4 hours + preparation covering the tidyverse toolbox
+
+- You've put in a lot of hours!
+
+- I know it has been intense!
+
+- But you made it - Well done!
+
+:::
+
+::: {.column width="50%"}
+![](images/meme_you_made_it.png){width="60%" fig-align="center"}
+:::
+
+::::
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Now for the second part of the course - Projects!
+
+![](images/project_group_work.png){width="90%" fig-align="center"}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Groups
+
+- You will be working in the groups assigned from the beginning of the course
+
+- IMPORTANT: _All groups members are responsible for all parts of the project!_
+
+- Note, completing the project is considered your exam preparation
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project as a Collaborative effort
+
+As per the course description at the DTU course base: *Active participation in the group work and timely submission of project and code base are both indispensable prerequisites for exam participation.*
+
+This means, that each group member is expected to:
+
+ - Generally participate **actively** in the group project
+ - Take responsibility for solving assigned tasks within the project
+ - Write and review code and perform commit-/push-/pulls to the project GitHub repository
+ - Meet and discuss **actively** with the group members
+ - Spend 9-10h per week on the project for the full 3 week project period
+
+_Bio Data Science is a collaborative effort, which is reflected in the design of the project module of this course!_
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Expected time usage
+
+As per the rules for the European Credit Transfer System (ECTS) points:
+
+-1 credit equals 28 hours
+- Therefore, for a 5-person group working for 3 weeks, the expected total project hours is ~150
+- Setup your collaborative project and this will be more than sufficient to create a full bio data science project
+- Note, for lab 13, you workload will be a ~10min. presentation therefore the hours for this lab is included.
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Description
+
+### Aim
+
+The aim with the Project module of the course is to allow you to independently work with the course elements, you have been exposed to during the first 9 weeks of teaching. Here, you will synthesise the entire bio data science cycle, thereby internalising the course elements. Moreover, you are to:
+
+- Use the tools you have learned in the course and _"design and execute a bio data science project focusing on collaborative coding and reproducibility, incl. independently using online resources to seek information about application and technical details of state-of-the-art data science tools"_
+
+Recall the "Data Science Cycle"
+
+![](images/data_science_cycle.png){fig-align="center" width=90%}
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Requirements
+
+### Organisation
+
+Your project **must strictly** adhere to the organisation illustrated below:
+
+![](images/viz_bio_data_science_project_organisation_qmd.png){fig-align="center" width=90%}
+
+**Important: This entails, that the entire project as put on GitHub, can be cloned and then executed end-to-end**
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Requirements
+
+### Code
+
+Your project **must strictly** adhere to the [Course Code Styling Guide](code_styling.qmd)
+
+- You know this by name
+
+- Literate coding
+
+- Explicit coding
+
+- Crystal clear and legible code
+
+- Tidyverse all the way!
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Requirements
+
+### Data
+
+*First and foremost, you must find a data set you can work with in the project!*
+
+- It must be based on a bio data set
+
+- Start out as "dirty" i.e. a completely clean / tidy and analysis-ready data set will not allow you to demonstrate, that you have met the course learning objectives
+
+- It is advisable, that the data is of limited size, so you do not risk time waste due to long runtimes
+
+- Note, you should demonstrate ability to extract biological insights, but at the same time mind that the focus should be on demonstrating that you master the data science toolbox according to course aim and learning objectives
+
+- Remember, **the process is the product!**
+
+- *Naturally, you cannot reuse the data we have worked with during the exercise labs*
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Requirements
+
+### Presentation
+  
+- A 10-slides-in-10-mins presentation, possibly followed by a few questions
+
+- Follow the `IMRAD` standard scientific structure:
+  - `I`ntroduction, `M`aterials and Methods, `R`esults `A`nd `D`iscussion
+  
+- With a technical focus, but minding to communicate which-ever biological insights you arrived at
+
+- Should **not** include all your code, but rather focus on the broader picture and include data summaries and visualisations
+  
+- Created using [`Quarto Presentation`](https://quarto.org/docs/presentations/), just as the course slides are
+
+- NOTE: This final presentation in HTML-format must be zipped and uploaded to DTU Learn before deadline, so we can check the GitHub version is identical
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Supervision
+
+- As a point of reference, this project is part of the overall assessment and you will therefore have limited access to supervision
+
+- Think of the project, as a long take-home-assignment
+
+- I **highly** encourage the use of Piazza for questions, which will be monitored by the teaching team
+
+- Also, a rather comprehensive list of Project FAQ have been compiled, so be sure to check that out on the course site!
+
+- I recommend using your course Quarto documents for reference 
+
+- Also, perhaps you can get input on the [Posit Community Pages](https://community.rstudio.com)
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Exam
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Design
+
+The exam consists of 3 components:
+
+1. A group project, where all members are responsible for all parts of the project. This is handed in as a code base on the course GitHub repository
+1. An oral group presentation of the project, where all group members, as per DTU rules on oral exams, must be physically present
+1. A two hour multiple choice quiz (MCQ) exam, where general course learning objectives are examined
+
+*See course description at DTU course base for further description*
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Deadlines and Dates
+
+1. Project code base and presentation must be completed at the latest 23:59 on the day before lab 13. Note, you **cannot** edit anything on the GitHub repository after this deadline!
+1. The oral group presentation will be on lab 13 of the course, see DTU Learn calender for dates
+1. The MCQ is placed according to the DTU exam schedule
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Content
+
+### The Group Project
+
+- Be sure that **everyone** understands **ALL** code in the project as **all group members are responsible for ALL code**
+- The aim of the project is to cover the entire course cycle, so be sure to align your project
+- Be sure to read Project Description on the course site
+- Questions? Make sure to consult the Project FAQ on the course site
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Content
+
+### The Presentation
+
+- The format is a 10-slides-in-10-mins
+- Everyone in the group must present a part of the project
+- Expect a few overall questions regarding the decisions you have made throughout your project
+- NOTE: The final presentation in HTML-format must be zipped and uploaded to DTU Learn before deadline, so we can check the GitHub version is identical
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Content
+
+### The MCQ
+
+- A 2-hour individual multiple choice exam
+- In 2022 the exam contained 60 questions, expect a similar number of questions
+- All aids are allowed, but no open internet
+- Each question will have 4 possible answers and only 1 is the right one and you can only choose one answer per question
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# That's it! Questions?

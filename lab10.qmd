@@ -5,23 +5,33 @@
 ## Schedule
 
 - 08.00 - 08.15: Recap and Assignment
-- 08.15 - 08.45: Introduction to Project Period and Exam
+- 08.15 - 08.45: [Introduction to Project Period and Exam](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab010.html)
 - 08.45 - 09.00: Break
-- 09.00 - 10.00: Mini Symposium (See below)
+- 09.00 - 10.00: [Mini Symposium](#sec-symposium)
 
-## Mini Symposium: Applications of R for Bio Data Science in Industry
+## Mini Symposium: Applications of R for Bio Data Science in Industry {#sec-symposium}
 
-_This mini symposium on Applications of R for Bio Data Science in Industry aims to give students a glimpse into how modern data science is transforming value creation in the pharmaceutical industry and healthcare sector._
+*This mini symposium on Applications of R for Bio Data Science in Industry aims to give students a glimpse into how modern bio data science is transforming value creation in the pharmaceutical industry and healthcare sector.*
 
 ### 2023
 
 #### Companies Represented
 
-- TBA
+- [Clinical Microbiomics](https://clinical-microbiomics.com)
+- [Gubra](https://www.gubra.dk)
+- [Lundbeck](https://www.lundbeck.com/global)
+- [Novo Nordisk](https://www.novonordisk.com)
+- [ZS](https://www.zs.com)
 
 #### Speaker List
 
-- TBA
+- [Maria Novosolov](https://www.linkedin.com/in/maria-novosolov/), Data Scientist, Clinical Microbiomics: "Harnessing R Packages for Microbiome Analysis and Reporting"
+- [Christina Bligaard Pedersen](https://www.linkedin.com/in/bligaard/), Senior Bioinformatician, ZS: "Plotly and Shiny apps for exploratory analysis of transcriptomics data"
+- [Carlotta Porcelli](https://www.linkedin.com/in/carlottap/),  Senior Statistical Programmer, Novo Nordisk: "An ADA monitoring tool developed with Rshiny"
+- [Victor A. O. Carmelo](https://www.linkedin.com/in/victor-carmelo-8ab329155/), Principal Bioinformatician, Lundbeck: ""The R in R&D efficiency"
+- [Sebastian Tølbøl Thrane](https://www.linkedin.com/in/sebthr/), Senior Scientist, Gubra: "From data analysis to infrastructure: A journey with R"
+- [Claus Dethlefsen](https://www.linkedin.com/in/clausdethlefsen/), Statistical Director, Novo Nordisk: "The long and winding road to use R in a pharmaceutical company"
+
 
 ### 2022
 
