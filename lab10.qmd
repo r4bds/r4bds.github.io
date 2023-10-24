@@ -30,7 +30,6 @@
 - [Sebastian Tølbøl Thrane](https://www.linkedin.com/in/sebthr/), Senior Scientist, Gubra: "From data analysis to infrastructure: A journey with R"
 - [Claus Dethlefsen](https://www.linkedin.com/in/clausdethlefsen/), Statistical Director, Novo Nordisk: "The long and winding road to use R in a pharmaceutical company"
 
-
 ### 2022
 
 #### Companies Represented
