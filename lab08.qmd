@@ -11,7 +11,7 @@
 
 ## Schedule
 
-- 08.00 - 08.15: [Assignment walk-through](https://raw.githack.com/r4bds/r4bds.github.io/main/recap_lab08.html)
+- 08.00 - 08.15: [Recap of Lab 7](https://raw.githack.com/r4bds/r4bds.github.io/main/recap_lab08.html)
 - 08.15 - 08.45: [Lecture](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab08.html)
 - 08.45 - 09.00: Break
 - 09.00 - 12.00: [Exercises](#sec-exercises)
