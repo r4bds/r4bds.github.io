@@ -146,7 +146,7 @@ _After your teammate has pushed to GitHub._
 1. In the RStudio Server, create a new project based on the GitHub Repository just created by your teammate.
     - Click `Create a project`![](images/L08_create.png){width="5%"} in the top left.
     - Choose `Version Control` and then `Git`.
-    - Paste in the repository URL: `"https://github.com/rforbiodatascience23/group_X_package.git"`. Remember to replace the **X**.
+    - Paste in the repository URL: `https://github.com/rforbiodatascience23/group_X_package.git`. Remember to replace the **X**.
     - Give the directory a fitting name and click `Create Project`.
 2. Find your `PAT` key or create a new
   <details> <summary>How to create a new one</summary>
