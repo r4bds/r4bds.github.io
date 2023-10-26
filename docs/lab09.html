@@ -550,6 +550,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <li>When you ran line 32 previously, an <code>app.R</code> file was created. This allows the Health Tech Server to run your Shiny app from this url: <code>https://teaching.healthtech.dtu.dk/shiny/username/app_name/</code> - Edit username and app_name appropriately.</li>
 <li>You should see an empty app with your title. Now you just need to put stuff in it.</li>
 <li><strong>OBS</strong> Sometimes, for unknown reasons, the browser removes the “shiny” part of the url. If you get a “Not Found” error, check the url.</li>
+<li><strong>Another OBS</strong> For changes to take effect, you will have to close the app session, which means either closing the tab or removing the app name from the url. The latter will list all apps you have created - likely just this one so far. The url would then look like: <code>https://teaching.healthtech.dtu.dk/shiny/username/</code>.</li>
 </ul>
 </section>
 <section id="the-r-folder" class="level4">
@@ -755,11 +756,12 @@ Possible solution
 <li><p><strong>Discuss in your group what is going on in my solution</strong>. Why does it work, and what other ways could you get to the same solution (check my slide on reactivity for inspiration). As a small note, I chose to hide the legend, as that looked better in the app.</p></li>
 <li><p>Add <code>@importfrom ggplot2 theme</code> to the server function description.</p></li>
 <li><p>Go to <code>dev/02_dev.R</code> and run the first function to add <code>ggplot2</code> to your package dependencies: <code>attachment::att_amend_desc()</code>. Or add it to the <code>DESCRIPTION</code> manually.</p></li>
-<li><p>Run every line but the last in <code>dev/run_dev.R</code> and refresh your app to see that it works (You can just type in random amino acids in the field).</p></li>
+<li><p>Run every line but the last in <code>dev/run_dev.R</code> and reopen your app to see that it works (You can just type in random amino acids in the field).</p></li>
 </ol>
 <ul>
 <li>If you run the last line, a popup will tell you the connection is refused - it would work locally, but doesn’t on the server.</li>
 <li>Remember if you get a “Not Found” error, the “/shiny/” might be missing from the url.</li>
+<li>If no changes appear, close the tab for a minute and try again.</li>
 </ul>
 </section>
 <section id="task-3.5---create-shiny-module1" class="level4">
@@ -783,10 +785,11 @@ Possible solution
 </div>
 <p>Again, the names in the example are not actual shiny stuff, just names I put in as a placeholder. Feel free to use them as your inputIDs and outputIDs or come up with your own.</p>
 <ol start="5" type="1">
-<li>Before we continue, try to run the app: Run every line but the last in <code>dev/run_dev.R</code> and refresh your app.</li>
+<li>Before we continue, try to run the app: Run every line but the last in <code>dev/run_dev.R</code> and reopen your app.</li>
 </ol>
 <ul>
 <li>Remember if you get a “Not Found” error, the “/shiny/” might be missing from the url.</li>
+<li>If no changes appear, close the tab for a minute and try again.</li>
 </ul>
 <ol start="6" type="1">
 <li><strong>Discuss in your group which parts of the UI needs to be reactive (updateable) and which don’t.</strong> Of course, when you type a letter, the letter should appear where you typed it - that part happens automatically. But what needs to update when a button is clicked or an input changes?</li>
@@ -866,7 +869,7 @@ Full possible solution
 </details>
 <p><br></p>
 <ol start="8" type="1">
-<li>Run your app again to see what it looks like. Remember, all <code>output</code> stuff will not appear before the server outputs something to it.</li>
+<li>Reopen your app to see what it looks like. Remember, all <code>output</code> stuff will not appear before the server outputs something to it.</li>
 </ol>
 </section>
 <section id="task-3.6---adding-server-logic" class="level4">
@@ -975,10 +978,11 @@ Answer
 <ol start="7" type="1">
 <li>Please make sure all input and output IDs match in the UI and Server functions.</li>
 <li>Go to <code>dev/02_dev.R</code> and run the first function to adds dependencies: <code>attachment::att_amend_desc()</code>.</li>
-<li>Refresh the app and see if it acts as expected.</li>
+<li>Reopen the app and see if it acts as expected.</li>
 </ol>
 <ul>
 <li>Remember if you get a “Not Found” error, the “/shiny/” might be missing from the url.</li>
+<li>If no changes appear, close the tab for a minute and try again.</li>
 </ul>
 <ol start="10" type="1">
 <li>Push it to GitHub</li>
