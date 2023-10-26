@@ -45,8 +45,9 @@ _A student who has met the objectives of the session will be able to:_
 <!--# ---------------------------------------------------------------------- -->
 ## Today's lab 
 
+- Shiny app examples
 - The two main components of a web application
-- The difference between imperative and declarative programming
+- The difference between `imperative` and `declarative` programming
 - Using `golem` and modules for shiny app development
 - How to create an R shiny app
 
@@ -74,30 +75,30 @@ knitr::include_app("https://shiny.posit.co/r/gallery/", height = 800)
 knitr::include_app(shinyUrl, height = 800)
 ```
 
-[Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/app/)
+[Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/ShinyDogma/)
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Question
-
-
-### What are the two main components of a web application?
+## The two main components of a web application
 
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Question
+## The two main components of a web application
+
+- User Interface (Front end)
 
 
-### What are the two main components of a web application?
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The two main components of a web application
 
 - User Interface (Front end)
 
 - Server (Back end)
-
-
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -110,9 +111,7 @@ knitr::include_app(shinyUrl, height = 800)
 library(shiny)
 
 # User Interface (Front end)
-ui <- fluidPage(
-  "Hello World!"
-  )
+ui <- fluidPage("Hello World!")
 
 # Server (Back end)
 server <- function(input, output, session){}
@@ -133,8 +132,9 @@ shinyApp(ui, server)
 
 <!-- </br></br></br></br></br></br> -->
 
-</br></br></br></br></br></br></br>
-- [source](https://www.indeed.com/career-advice/career-development/user-interface) 
+</br></br></br></br></br></br></br></br></br>
+
+[source](https://www.indeed.com/career-advice/career-development/user-interface) 
 <!-- & [source](https://www.productplan.com/glossary/user-experience/) -->
 
 
@@ -146,8 +146,8 @@ shinyApp(ui, server)
 - When you know the purpose of your app, the first place to start is to think about the app layout.
 
 - For inspiration either use:
-- the [Shiny Layout Guide](https://shiny.posit.co/r/articles/build/layout-guide/)
-- Or the [Shiny Cheat Sheet](https://rstudio.github.io/cheatsheets/html/shiny.html)
+  - The [Shiny Layout Guide](https://shiny.posit.co/r/articles/build/layout-guide/)
+  - Or the [Shiny Cheat Sheet](https://rstudio.github.io/cheatsheets/html/shiny.html)
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -159,7 +159,7 @@ shinyApp(ui, server)
 #| echo: FALSE
 knitr::include_app(shinyUrl, height = 800)
 ```
-[Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/app/)
+[Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/ShinyDogma/)
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -177,9 +177,9 @@ knitr::include_app("https://gallery.shinyapps.io/081-widgets-gallery/", height =
 <!--# ---------------------------------------------------------------------- -->
 ## UI take-aways
 
-- Start with layout
-- Define/create your inputs
-- Use online resource for help and inspiration
+- Start with `layout`
+- Define/create your `inputs`
+- Use `online resource` for help and inspiration
 
 
 
@@ -189,9 +189,9 @@ knitr::include_app("https://gallery.shinyapps.io/081-widgets-gallery/", height =
 <!--# ---------------------------------------------------------------------- -->
 ## UI take-aways
 
-- Start with layout
-- Define/create your inputs
-- Use online resource for help and inspiration
+- Start with `layout`
+- Define/create your `inputs`
+- Use `online resource` for help and inspiration
 
 </br>
 
@@ -208,7 +208,7 @@ knitr::include_app("https://gallery.shinyapps.io/081-widgets-gallery/", height =
 #| echo: FALSE
 knitr::include_app(shinyUrl, height = 800)
 ```
-[Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/app/)
+[Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/ShinyDogma/)
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -221,21 +221,22 @@ knitr::include_app(shinyUrl, height = 800)
 - *"With imperative code you say 'Make me a sandwich'."*
 - *"With declarative code you say 'Ensure there is a sandwich in the refrigerator whenever I look inside of it'"*
 
-</br></br></br></br></br>
-- [source](https://mastering-shiny.org/basic-reactivity.html#imperative-vs-declarative-programming)
+</br></br></br></br></br></br></br>
+[source](https://mastering-shiny.org/basic-reactivity.html#imperative-vs-declarative-programming)
 
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Shiny is declarative
+## Shiny is `declarative`
 
-- Shiny translates your declared goals and constraints only when necessary.
+- Shiny translates your `declared` goals and constraints only when necessary.
 
 - *What are the benefits and issues with declarative programming?*
     - You can have many actions ready, but only some are used
     - You do not need to define when the action should take place
-    - But, initiating the action is strongly dependent on the name of the declaration
+    - But... initiating an action is strongly dependent on the name of the declaration
+      - i.e., typos are hard to detect
 
 
 
@@ -269,8 +270,12 @@ knitr::include_graphics("images/L09_reactivity.png")
 - It relies on the idea that every shiny application should be built as an R package
 - But what does that mean and why?
 
-</br></br></br></br></br></br></br></br>
-- [source](https://engineering-shiny.org/structuring-project.html)
+
+![](images/L09_golem.png){fig-align="center" height="300pt"}
+
+</br>
+
+[source](https://engineering-shiny.org/structuring-project.html)
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -285,8 +290,9 @@ knitr::include_graphics("images/L09_reactivity.png")
 - There is a native way to build and deploy it
 
 
-</br></br></br></br></br>
-- [source](https://engineering-shiny.org/structuring-project.html)
+</br></br></br></br></br></br>
+
+[source](https://engineering-shiny.org/structuring-project.html)
 
 
 <!--# ---------------------------------------------------------------------- -->
@@ -314,7 +320,7 @@ knitr::include_graphics("images/L09_reactivity.png")
 #| echo: FALSE
 knitr::include_app(shinyUrl, height = 800)
 ```
-[Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/app/)
+[Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/ShinyDogma/)
 
 
 <!--# ---------------------------------------------------------------------- -->
