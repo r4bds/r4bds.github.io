@@ -69,11 +69,12 @@ Let the other team members follow along with what you are doing and do the follo
 
 
 1. Go to [R for Bio Data Science RStudio Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) and login.
-2. Run `golem::create_golem("YOUR_APP_NAME")` in the console, putting in a name of your own choosing.
+2. Create a folder in home called `ShinyApps` - You need this for the server to find your app.
+3. Run `golem::create_golem("~/ShinyApps/YOUR_APP_NAME")` in the console, putting in a name of your own choosing.
   - As last week, the theme is the central dogma of molecular biology. Let that inspire you
   - Look up naming rules [here](https://r-pkgs.org/workflow101.html#name-your-package)
   - The most important rule: `_`, `-`, and `'` are not allowed.
-3. Run `usethis::use_git()` to ensure git is initialized.
+4. Run `usethis::use_git()` to ensure git is initialized.
 
 
 #### Task 1.2 - Make a GitHub repository for your group's app
@@ -121,10 +122,12 @@ gert::git_push("origin")
 
 *After your teammate has pushed to GitHub.*
 
-1. In the RStudio Server, create a new project based on the GitHub Repository just created by your teammate.
+1. You also need to create a `ShinyApps` folder.
+2. In the RStudio Server, create a new project based on the GitHub Repository just created by your teammate.
     - Click `Create a project`![](images/L08_create.png){width="5%"} in the top left.
     - Choose `Version Control` and then `Git`.
     - Paste in the repository URL: `https://github.com/rforbiodatascience23/group_X_package.git`. Remember to replace the **X**.
+    - Make sure to put it in the `ShinyApps` folder.
     - Give the directory a fitting name and click `Create Project`.
 2. Find your `PAT` key or create a new
   <details> <summary>How to create a new one</summary>
@@ -180,6 +183,7 @@ Authors@R:
 4. Look through `dev/run_dev.R` and run the first four commands. If you were not on a server, you could launch your app by running the last command `run_app()`. However, we *are* on a server, so we have implemented a small trick.
   - When you ran line 32 previously, an `app.R` file was created. This allows the Health Tech Server to run your Shiny app from this url: `https://teaching.healthtech.dtu.dk/shiny/username/app_name/` - Edit username and app_name appropriately.
   - You should see an empty app with your title. Now you just need to put stuff in it.
+  - **OBS** Sometimes, for unknown reasons, the browser removes the "shiny" part of the url. If you get a "Not Found" error, check the url.
 
 #### The R folder
 
@@ -187,7 +191,7 @@ Authors@R:
 This framework is probably a little different from what you normally see when reading/watching guides on Shiny Apps.
 It may look overly complicated, and perhaps it is for this exercise. But it is a robust framework that makes maintaining even large apps easy(ier). Building a small app is very easy as well.
 
-You are welcome to ignore the `R/run_app.R` (a wrapper function for `shiny::shinyApp()`) and `R/app_config.R` (some `golem` configuration) for now.
+You are welcome to ignore the `R/run_app.R` (a wrapper function for `shiny::shinyApp()`, which runs the app) and `R/app_config.R` (some `golem` configuration) for now.
 
 The first places you want to look are `R/app_ui.R` and `R/app_server.R`. They are responsible for the user interface and the app back end, respectively.
 You will not be working here directly as much, although you could. But it is strongly recommended to work in Shiny modules - created with `golem::add_module( name = "module_name" )`, as you saw in class.
@@ -232,9 +236,6 @@ Today, you will use that package to create an app around it.
 #### Task 3.1 - Install the package you created last week
 
 1. `devtools::install_github("rforbiodatascience23/group_X_package")`. Remember to replace the **X**
-2. Because we are on the server, we need to add a small hack so that the shiny server on the system knows where to find the package you created.
-  - Add `library("group_X_package", lib.loc = "/home/people/USERNAME/R/x86_64-pc-linux-gnu-library/4.3/")` on line 4 in `app.R`.
-  - Remember to change the **X** and the **USERNAME**.
 
 
 <details><summary> Install backup </summary>
@@ -308,6 +309,7 @@ The names in the example are not actual shiny stuff, just names I put in as a pl
 </br>
 
 5. Run the app to see what it looks like (by refreshing the app url you created on Task 2.1).
+  - Remember if you get a "Not Found" error, the "/shiny/" might be missing from the url.
 
 6. Add an input field for the `peptide_sequence`, replace the string with the input you are adding. Please try it out first.
   - Remember `ns()` around input/output IDs
@@ -405,6 +407,7 @@ output$abundance <- renderPlot({
 
 5. Run every line but the last in `dev/run_dev.R` and refresh your app to see that it works (You can just type in random amino acids in the field).
   - If you run the last line, a popup will tell you the connection is refused - it would work locally, but doesn't on the server.
+  - Remember if you get a "Not Found" error, the "/shiny/" might be missing from the url.
 
 
 #### Task 3.5 - Create shiny "module1"
@@ -429,6 +432,7 @@ Again, the names in the example are not actual shiny stuff, just names I put in 
 
 
 5. Before we continue, try to run the app: Run every line but the last in `dev/run_dev.R` and refresh your app.
+  - Remember if you get a "Not Found" error, the "/shiny/" might be missing from the url.
 6. **Discuss in your group which parts of the UI needs to be reactive (updateable) and which don't.** Of course, when you type a letter, the letter should appear where you typed it - that part happens automatically. But what needs to update when a button is clicked or an input changes?
 7. Let's add some inputs (buttons, text, etc.):
     - Go [here](https://shiny.posit.co/r/gallery/widgets/widget-gallery/) for inspiration for inputs.
@@ -607,6 +611,7 @@ This peptide sequence is then stored in the peptide output, which links to the `
 7. Please make sure all input and output IDs match in the UI and Server functions.
 8. Go to `dev/02_dev.R` and run the first function to adds dependencies: `attachment::att_amend_desc()`.
 9. Refresh the app and see if it acts as expected.
+  - Remember if you get a "Not Found" error, the "/shiny/" might be missing from the url.
 10. Push it to GitHub
 
 
