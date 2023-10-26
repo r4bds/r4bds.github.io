@@ -16,14 +16,14 @@ format:
 ```{r run_app}
 #| eval: false
 #| echo: false
-# ShinyDogma::run_app(options = list("port" = 1995))
+ShinyDogma::run_app(options = list("port" = 1995))
 ```
 
 
 ```{r setup}
 #| include: false
 knitr::opts_chunk$set(echo = FALSE)
-shinyUrl <- "https://teaching.healthtech.dtu.dk/shiny/sohdam/app/" #"http://localhost:1995"
+shinyUrl <- "http://localhost:1995"
 ```
 
 # Creating a Simple Shiny App
@@ -59,7 +59,7 @@ _A student who has met the objectives of the session will be able to:_
 ```{r}
 #| eval: TRUE
 #| echo: FALSE
-knitr::include_url("https://shiny.posit.co/r/gallery/", height = 800)
+knitr::include_app("https://shiny.posit.co/r/gallery/", height = 800)
 ```
 
 
@@ -68,13 +68,13 @@ knitr::include_url("https://shiny.posit.co/r/gallery/", height = 800)
 <!--# ---------------------------------------------------------------------- -->
 ## 
 
-
 ```{r}
 #| eval: TRUE
 #| echo: FALSE
 knitr::include_app(shinyUrl, height = 800)
 ```
 
+[Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/app/)
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -159,6 +159,7 @@ shinyApp(ui, server)
 #| echo: FALSE
 knitr::include_app(shinyUrl, height = 800)
 ```
+[Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/app/)
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -207,6 +208,7 @@ knitr::include_app("https://gallery.shinyapps.io/081-widgets-gallery/", height =
 #| echo: FALSE
 knitr::include_app(shinyUrl, height = 800)
 ```
+[Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/app/)
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -312,7 +314,7 @@ knitr::include_graphics("images/L09_reactivity.png")
 #| echo: FALSE
 knitr::include_app(shinyUrl, height = 800)
 ```
-
+[Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/app/)
 
 
 <!--# ---------------------------------------------------------------------- -->
