@@ -291,6 +291,7 @@ The check will tell you what might cause problems with your package and often al
 If there are any errors, fix those. Warnings and notes are also good to address. Feel free to do that if any pops up.
     </details>
 10. If it succeeds without errors, push your changes to GitHub
+    - If you decided to create branches review [last week's exercises](lab07.qm#your-first-branch-merging) for guidance
     - Always pull before pushing
     - Use the RStudio GUI if you prefer
     - Remember to pull first
