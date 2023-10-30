@@ -401,9 +401,9 @@ output$abundance <- renderPlot({
 
 2. **Discuss in your group what is going on in my solution**. Why does it work, and what other ways could you get to the same solution (check my slide on reactivity for inspiration). As a small note, I chose to hide the legend, as that looked better in the app.
 
-3. Add `@importfrom ggplot2 theme` to the server function description.
+3. Add `@importfrom ggplot2 theme` and `@import yourpackage` to the module server function description.
 
-4. Go to `dev/02_dev.R` and run the first function to add `ggplot2` to your package dependencies: `attachment::att_amend_desc()`. Or add it to the `DESCRIPTION` manually.
+4. Go to `dev/02_dev.R` and run the first function to add `ggplot2` and `yourpackage` to your package dependencies: `attachment::att_amend_desc()`. Or add it to the `DESCRIPTION` manually.
 
 5. Run every line but the last in `dev/run_dev.R` and reopen your app to see that it works (You can just type in random amino acids in the field).
   - If you run the last line, a popup will tell you the connection is refused - it would work locally, but doesn't on the server.
@@ -611,7 +611,7 @@ This peptide sequence is then stored in the peptide output, which links to the `
 </br>
 
 7. Please make sure all input and output IDs match in the UI and Server functions.
-8. Go to `dev/02_dev.R` and run the first function to adds dependencies: `attachment::att_amend_desc()`.
+8. Go to `dev/02_dev.R` and run the first function to add dependencies: `attachment::att_amend_desc()` or do it manually.
 9. Reopen the app and see if it acts as expected.
   - Remember if you get a "Not Found" error, the "/shiny/" might be missing from the url.
   - If no changes appear, close the tab for a minute and try again.
