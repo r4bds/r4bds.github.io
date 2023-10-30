@@ -77,10 +77,15 @@ knitr::include_app(shinyUrl, height = 800)
 
 [Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/ShinyDogma/)
 
+::: notes
+Quickly walk through the app, showing how it works. We will talk about the components later.
+:::
+
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
 ## The two main components of a web application
+
 
 
 <!--# ---------------------------------------------------------------------- -->
@@ -119,6 +124,7 @@ server <- function(input, output, session){}
 # Running the app
 shinyApp(ui, server)
 ```
+
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -161,6 +167,12 @@ knitr::include_app(shinyUrl, height = 800)
 ```
 [Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/ShinyDogma/)
 
+::: notes
+Go over the layout of the app and the input/output fields.
+
+Skip the Example tab.
+:::
+
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
@@ -171,6 +183,8 @@ knitr::include_app(shinyUrl, height = 800)
 #| echo: FALSE
 knitr::include_app("https://gallery.shinyapps.io/081-widgets-gallery/", height = 800)
 ```
+
+
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -210,6 +224,10 @@ knitr::include_app(shinyUrl, height = 800)
 ```
 [Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/ShinyDogma/)
 
+::: notes
+Explain the top part of the Example tab and how it works.
+:::
+
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
@@ -224,6 +242,46 @@ knitr::include_app(shinyUrl, height = 800)
 </br></br></br></br></br></br></br>
 [source](https://mastering-shiny.org/basic-reactivity.html#imperative-vs-declarative-programming)
 
+::: notes
+Imperative: giving an authoritative command
+
+Declarative: denoting high-level programming languages which can be used to solve problems without requiring the programmer to specify an exact procedure to be followed
+:::
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Shiny is `declarative`
+
+- Shiny translates your `declared` goals and constraints only when necessary.
+
+- *What are the benefits and issues with declarative programming?*
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Shiny is `declarative`
+
+- Shiny translates your `declared` goals and constraints only when necessary.
+
+- *What are the benefits and issues with declarative programming?*
+    - You can have many actions ready, but only some are used
+    
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Shiny is `declarative`
+
+- Shiny translates your `declared` goals and constraints only when necessary.
+
+- *What are the benefits and issues with declarative programming?*
+    - You can have many actions ready, but only some are used
+    - You do not need to define when the action should take place
+
+
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -237,8 +295,6 @@ knitr::include_app(shinyUrl, height = 800)
     - You do not need to define when the action should take place
     - But... initiating an action is strongly dependent on the name of the declaration
       - i.e., typos are hard to detect
-
-
 
 </br></br></br></br></br></br></br></br></br>
 <!-- </br> -->
@@ -321,6 +377,10 @@ knitr::include_graphics("images/L09_reactivity.png")
 knitr::include_app(shinyUrl, height = 800)
 ```
 [Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/ShinyDogma/)
+
+::: notes
+Scroll down in the Example tab and showcase how to add a module to the app_ui and app_server.
+:::
 
 
 <!--# ---------------------------------------------------------------------- -->
