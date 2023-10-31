@@ -152,7 +152,7 @@ Skipping NAMESPACE
 
 </br>
 
-**Solution:** Delete `NAMESPACE` file and rerun** `devtools::document()`
+**Solution:** Delete `NAMESPACE` file and rerun `devtools::document()`
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -289,7 +289,12 @@ export(function_y)
 
 - Can introduce compatibility issues.
 
-- They are rarely avoidable.
+- They increase maintenance.
+
+- They are rarely completely avoidable.
+  - When extending other packages (e.g., analysis tools etc.)
+  - Works in an ecosystem (e.g., Tidyverse / Bioconductor / Seurat)
+  - ggplot plotting
 
 
 <!--# ---------------------------------------------------------------------- -->
