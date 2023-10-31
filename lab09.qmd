@@ -125,7 +125,7 @@ gert::git_push("origin")
 2. In the RStudio Server, create a new project based on the GitHub Repository just created by your teammate.
     - Click `Create a project`![](images/L08_create.png){width="5%"} in the top left.
     - Choose `Version Control` and then `Git`.
-    - Paste in the repository URL: `https://github.com/rforbiodatascience23/group_X_package.git`. Remember to replace the **X**.
+    - Paste in the repository URL: `https://github.com/rforbiodatascience23/group_X_shiny.git`. Remember to replace the **X**.
     - Make sure to put it in the `ShinyApps` folder.
     - Give the directory a fitting name and click `Create Project`.
 2. Find your `PAT` key or create a new
