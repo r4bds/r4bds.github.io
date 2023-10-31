@@ -155,6 +155,11 @@ usethis::use_git_config(user.name = "USERNAME", user.email = "USEREMAIL@EXAMPLE.
 
 It may seem daunting, but `golem` holds your hand much of the way.
 
+**To avoid git conflicts, the rest of the exercises should be done by only one group member.** 
+Please walk through everything you do.
+If the other group members want, they can also do all the exercises, but be aware it will be a *big* challenge to merge the conflicts. 
+In the end, you can just abandon this project and create a new based on the updated GitHub repository - up to you, but expect a headache if you try to pull/push a version you have edited to the one another has edited as well.
+
 #### Task 2.1 - The dev folder
 
 `golem` creates a `dev` folder in your project. The files there are extremely helpful and you should make yourself familiar with the content. Read [this short chapter](https://engineering-shiny.org/setting-up-for-success.html#setting-up-for-success) to get a feeling for what each helper function does.
