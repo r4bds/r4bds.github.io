@@ -3,7 +3,7 @@
 ## Schedule
 
 - 08.00 - 08.15: Recap and Assignment
-- 08.15 - 08.45: [Introduction to Project Period and Exam](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab010.html)
+- 08.15 - 08.45: [Introduction to Project Period and Exam](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab10.html)
 - 08.45 - 09.00: Break
 - 09.00 - 10.00: [Mini Symposium](#sec-symposium)
 

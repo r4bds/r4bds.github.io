@@ -53,7 +53,7 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Now for the second part of the course - Projects!
+## Now for the key part of the course - Projects!
 
 ![](images/project_group_work.png){width="90%" fig-align="center"}
 
