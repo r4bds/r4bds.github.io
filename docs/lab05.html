@@ -526,18 +526,18 @@ Click here for hint
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 30
-   Experiment Subject `Cell Type`        `Target Type` Cohort   Age Gender Race 
-   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt;         &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;
- 1 eLH58         1770 CD8 depleted B- P… C19_cII       COVID…    NA &lt;NA&gt;   &lt;NA&gt; 
- 2 eAM23         5422 PBMC               C19_cI        COVID…    48 M      &lt;NA&gt; 
- 3 eJL148        3211 PBMC               C19_cI        COVID…    41 F      &lt;NA&gt; 
- 4 eJL162        6890 PBMC               C19_cI        COVID…    61 M      &lt;NA&gt; 
- 5 eDH113     1327414 PBMC               C19_cI        Healt…    56 &lt;NA&gt;   &lt;NA&gt; 
- 6 eQD109        1349 PBMC               C19_cI        COVID…    61 M      &lt;NA&gt; 
- 7 eQD117        1979 PBMC               C19_cI        COVID…    70 F      &lt;NA&gt; 
- 8 eJL151        3270 PBMC               C19_cI        COVID…    79 F      &lt;NA&gt; 
- 9 eHH174       19153 naive_CD8          C19_cI        Healt…    31 F      White
-10 eHO132          26 PBMC               C19_cI        COVID…    65 F      White
+   Experiment Subject `Cell Type` `Target Type` Cohort          Age Gender Race 
+   &lt;chr&gt;        &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;
+ 1 eJL164         466 PBMC        C19_cI        COVID-19-B-N…    33 M      White
+ 2 eQD121        3646 PBMC        C19_cI        COVID-19-Con…    38 M      &lt;NA&gt; 
+ 3 eEE224       19830 naive_CD8   C19_cI        Healthy (No …    24 M      White
+ 4 eQD120        6499 PBMC        C19_cI        COVID-19-Con…    62 F      &lt;NA&gt; 
+ 5 eDH113     1327414 PBMC        C19_cI        Healthy (No …    56 &lt;NA&gt;   &lt;NA&gt; 
+ 6 eAV100        1995 PBMC        C19_cII       COVID-19-Con…    29 F      &lt;NA&gt; 
+ 7 eQD125        7736 PBMC        C19_cI        COVID-19-Con…    44 M      &lt;NA&gt; 
+ 8 eQD113        7477 PBMC        C19_cI        COVID-19-Con…    36 M      &lt;NA&gt; 
+ 9 eOX46        19943 naive_CD8   C19_cI        Healthy (No …    45 M      White
+10 eQD123         273 PBMC        C19_cI        COVID-19-B-N…    49 F      White
 # ℹ 22 more variables: `HLA-A...9` &lt;chr&gt;, `HLA-A...10` &lt;chr&gt;,
 #   `HLA-B...11` &lt;chr&gt;, `HLA-B...12` &lt;chr&gt;, `HLA-C...13` &lt;chr&gt;,
 #   `HLA-C...14` &lt;chr&gt;, DPA1...15 &lt;chr&gt;, DPA1...16 &lt;chr&gt;, DPB1...17 &lt;chr&gt;,
@@ -601,16 +601,16 @@ Click here for hint
 <pre><code># A tibble: 10 × 27
    Experiment Cohort      Age Gender Race  `HLA-A...9` `HLA-A...10` `HLA-B...11`
    &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;        &lt;chr&gt;       
- 1 eQD137     COVID-19…    NA &lt;NA&gt;   &lt;NA&gt;  "A*01:01:0… "A*02:01:01" "B*37:01:01"
- 2 eHO136     COVID-19…    51 M      Hisp… ""          ""           ""          
- 3 eXL30      Healthy …    21 F      White "A*01:01"   "A*02:01"    "B*35:02"   
- 4 eQD132     COVID-19…    NA &lt;NA&gt;   &lt;NA&gt;  "A*02:03:0… "A*11:01:01" "B*39:01:01"
- 5 eMR13      COVID-19…    NA &lt;NA&gt;   &lt;NA&gt;  "A*01:01:0… "A*24:02:01" "B*08:01:01"
- 6 eLH42      COVID-19…    63 M      &lt;NA&gt;  "A*02:01:0… "A*23:01:01" "B*07:02:01"
- 7 eHH173     Healthy …    50 M      White "A*02:01"   "A*03:01"    "B*35:01"   
- 8 eQD136     COVID-19…    NA &lt;NA&gt;   &lt;NA&gt;  "A*02:01:0… "A*68:01:01" "B*08:01:01"
- 9 eMR20      COVID-19…    37 M      White "A*02:01:0… "A*26:01:01" "B*14:01:01"
-10 eHO132     COVID-19…    65 F      White "A*02:01:0… "A*24:02:01" "B*14:02:01"
+ 1 eLH51      COVID-19…    55 M      Asian A*24:07:01  A*34:01:01   B*15:35     
+ 2 eQD120     COVID-19…    62 F      &lt;NA&gt;  A*01:01:01  A*31:01:02   B*08:01:01  
+ 3 eLH59      COVID-19…    NA &lt;NA&gt;   &lt;NA&gt;  A*01:01:01  A*02:01:01   B*40:01:02  
+ 4 eQD127     COVID-19…    61 F      &lt;NA&gt;  A*02:01:01  A*03:01:01   B*27:02:01  
+ 5 ePD79      COVID-19…    79 F      &lt;NA&gt;  A*02:01:01  A*02:02:01   B*07:02:01  
+ 6 eLH49      COVID-19…    76 M      &lt;NA&gt;  A*03:01:01  A*29:02:01   B*07:02:01  
+ 7 eQD132     COVID-19…    NA &lt;NA&gt;   &lt;NA&gt;  A*02:03:01  A*11:01:01   B*39:01:01  
+ 8 eOX49      Healthy …    21 M      White A*02:01     A*26:01      B*44:02     
+ 9 eAM23      COVID-19…    48 M      &lt;NA&gt;  A*11:01:01  A*24:02:01   B*15:01:01  
+10 eLH41      COVID-19…    71 F      &lt;NA&gt;  A*02:01:01  A*03:01:01   B*13:02:01  
 # ℹ 19 more variables: `HLA-B...12` &lt;chr&gt;, `HLA-C...13` &lt;chr&gt;,
 #   `HLA-C...14` &lt;chr&gt;, DPA1...15 &lt;chr&gt;, DPA1...16 &lt;chr&gt;, DPB1...17 &lt;chr&gt;,
 #   DPB1...18 &lt;chr&gt;, DQA1...19 &lt;chr&gt;, DQA1...20 &lt;chr&gt;, DQB1...21 &lt;chr&gt;,
@@ -826,15 +826,15 @@ Click here for hint
    Experiment Cohort        Age Gender Race  A1    A2    B1    B2    C1    C2   
    &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
  1 eEE228     Healthy (N…    45 M      White "A*0… "A*0… "B*3… "B*4… "C*0… "C*0…
- 2 eGK111     COVID-19-C…    50 F      &lt;NA&gt;  "A*0… "A*0… "B*0… "B*1… "C*0… "C*0…
- 3 ePD91      COVID-19-C…    52 M      White ""    ""    ""    ""    ""    ""   
- 4 eLH46      COVID-19-C…    57 F      White "A*0… "A*2… "B*3… "B*5… "C*1… "C*1…
- 5 eQD131     COVID-19-E…    NA &lt;NA&gt;   &lt;NA&gt;  "A*0… "A*3… "B*1… "B*5… "C*0… "C*0…
- 6 eQD109     COVID-19-C…    61 M      &lt;NA&gt;  "A*0… "A*6… "B*0… "B*0… "C*0… "C*0…
- 7 ePD81      COVID-19-C…    64 M      &lt;NA&gt;  "A*2… "A*2… "B*4… "B*4… "C*0… "C*1…
- 8 eHO130     Healthy (N…    28 F      White "A*0… "A*0… "B*0… "B*0… "C*0… "C*0…
- 9 eMR14      COVID-19-C…    NA &lt;NA&gt;   &lt;NA&gt;  "A*0… "A*2… "B*0… "B*5… "C*0… "C*0…
-10 eQD119     COVID-19-C…    51 M      &lt;NA&gt;  "A*0… "A*0… "B*0… "B*3… "C*0… "C*0…</code></pre>
+ 2 eMR26      COVID-19-C…    62 M      &lt;NA&gt;  "A*0… "A*0… "B*0… "B*5… "C*0… "C*0…
+ 3 eQD121     COVID-19-C…    38 M      &lt;NA&gt;  "A*0… "A*2… "B*1… "B*5… "C*0… "C*0…
+ 4 ePD79      COVID-19-C…    79 F      &lt;NA&gt;  "A*0… "A*0… "B*0… "B*4… "C*0… "C*1…
+ 5 eJL153     COVID-19-C…    36 M      &lt;NA&gt;  "A*0… "A*1… "B*0… "B*1… "C*0… "C*0…
+ 6 eJL151     COVID-19-C…    79 F      &lt;NA&gt;  "A*2… "A*6… "B*1… "B*4… "C*0… "C*0…
+ 7 eHO141     COVID-19-A…    NA &lt;NA&gt;   &lt;NA&gt;  ""    ""    ""    ""    ""    ""   
+ 8 eQD131     COVID-19-E…    NA &lt;NA&gt;   &lt;NA&gt;  "A*0… "A*3… "B*1… "B*5… "C*0… "C*0…
+ 9 eMR22      COVID-19-C…    65 M      &lt;NA&gt;  "A*0… "A*3… "B*4… "B*5… "C*0… "C*1…
+10 eLH42      COVID-19-C…    63 M      &lt;NA&gt;  "A*0… "A*2… "B*0… "B*1… "C*0… "C*0…</code></pre>
 </div>
 </div>
 <p>Now, we have a beautiful <code>tidy</code>-dataset, recall that this entails, that each row is an observation, each column is a variable and each cell holds one value.</p>
@@ -850,16 +850,16 @@ Click here for hint
 <pre><code># A tibble: 10 × 7
    `TCR BioIdentity`            TCR Nucleotide Seque…¹ Experiment `ORF Coverage`
    &lt;chr&gt;                        &lt;chr&gt;                  &lt;chr&gt;      &lt;chr&gt;         
- 1 CASSFYGLQETQYF+TCRBV12-X+TC… ATCCAGCCCTCAGAACCCAGG… eEE226     ORF1ab        
- 2 CASSEPDRRYNEQFF+TCRBV10-01+… GAGTCTGCTGCCTCCTCCCAG… eOX54      ORF1ab        
- 3 CATRGGQGTDTQYF+TCRBV02-01+T… ATCCGGTCCACAAAGCTGGAG… eEE226     ORF6          
- 4 CASSIGTNNEQFF+TCRBV11-01+TC… AAGATCCAGCCTGCAGAGCTT… eOX52      ORF1ab        
- 5 CASSYSAGTNQPQHF+TCRBV27-01+… GAGTCGCCCAGCCCCAACCAG… eEE224     ORF1ab        
- 6 CASSELGLADNTGELFF+TCRBV06-0… GCTGCTCCCTCCCAGACATCT… eEE226     ORF1ab        
- 7 CASSPYSGLGFQETQYF+TCRBV27-0… CCCAGCCCCAACCAGACCTCT… eXL30      ORF1ab        
- 8 CASSTSSYEQYF+TCRBV27-01+TCR… CTGATCCTGGAGTCGCCCAGC… eXL36      ORF3a         
- 9 CSARDQVRVETQYF+TCRBV20-X+TC… GTGACCAGTGCCCATCCTGAA… eXL27      membrane glyc…
-10 CASSSPTTGVPNEQFF+TCRBV11-03… CCTGCAGAGCTTGGGGACTCG… eEE226     ORF1ab        
+ 1 CASSAPVIVLDTGELFF+TCRBV06-X… GCTGCTCCCTCCCAGACATCT… eEE226     surface glyco…
+ 2 CASSLALTGGGGKLFF+TCRBV05-01… ACCTTGGAGCTGGGGGACTCG… ePD84      ORF3a         
+ 3 CATGHHSYEQYF+TCRBV10-03+TCR… CTCACTCTGGAGTCCGCTACC… eAV88      surface glyco…
+ 4 CASSWGGASGNNEQFF+TCRBV05-04… GCCTTGGAGCTGGACGACTCG… eOX52      ORF1ab        
+ 5 CASSLGPNYGYTF+TCRBV28-01+TC… ATTCTGGAGTCCGCCAGCACC… eXL31      ORF7b         
+ 6 CASSGRDLGQEQFF+TCRBV09-01+T… CTGAGCTCTCTGGAGCTGGGG… eXL27      ORF1ab        
+ 7 CASSLDLGMNTEAFF+TCRBV05-01+… AGCACCTTGGAGCTGGGGGAC… eOX52      nucleocapsid …
+ 8 CASSSPDRALSRGRLSGEQFF+TCRBV… CAGACATCTATGTACCTCTGT… eXL27      surface glyco…
+ 9 CASSSGAYTDTQYF+TCRBV02-01+T… ATCCGGTCCACAAAGCTGGAG… eEE226     ORF1ab        
+10 CASLGQRGPMNTEAFF+TCRBV28-01… TCCGCCAGCACCAACCAGACA… eQD128     surface glyco…
 # ℹ abbreviated name: ¹​`TCR Nucleotide Sequence`
 # ℹ 3 more variables: `Amino Acids` &lt;chr&gt;, `Start Index in Genome` &lt;dbl&gt;,
 #   `End Index in Genome` &lt;dbl&gt;</code></pre>
@@ -895,18 +895,18 @@ Click here for hint
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 3
-   Experiment `TCR BioIdentity`                       `Amino Acids`             
-   &lt;chr&gt;      &lt;chr&gt;                                   &lt;chr&gt;                     
- 1 eEE240     CASSLGVSRQPQHF+TCRBV28-01+TCRBJ01-05    AFLLFLVLI,FLAFLLFLV,FYLCF…
- 2 eAV88      CSVGVRQAYEQYF+TCRBV29-01+TCRBJ02-07     ELYSPIFLI,LYSPIFLIV,QELYS…
- 3 eLH51      CASSQEWASGNSDEQFF+TCRBV04-02+TCRBJ02-01 APSASAFFGM,AQFAPSASA,ASAF…
- 4 eOX52      CASSDGDRGGYEQYF+TCRBV05-04+TCRBJ02-07   AFPFTIYSL,GYINVFAFPF,INVF…
- 5 eOX46      CASSWGVDYNEQFF+TCRBV19-01+TCRBJ02-01    AFPFTIYSL,GYINVFAFPF,INVF…
- 6 ePD83      CSARDLQDSYEQYF+TCRBV20-X+TCRBJ02-07     SEHDYQIGGYTEKW,YQIGGYTEK,…
- 7 eQD121     CASGGRDGSDTQYF+TCRBV27-01+TCRBJ02-03    HTTDPSFLGRY               
- 8 eAV88      CASSADSYNEQFF+TCRBV09-01+TCRBJ02-01     FLNRFTTTL                 
- 9 eEE240     CASSVGGADQPQHF+TCRBV09-01+TCRBJ01-05    LLDDFVEII,LLLDDFVEI       
-10 eQD125     CASSIEGSAGVGDTQYF+TCRBV19-01+TCRBJ02-03 HTTDPSFLGRY               </code></pre>
+   Experiment `TCR BioIdentity`                        `Amino Acids`            
+   &lt;chr&gt;      &lt;chr&gt;                                    &lt;chr&gt;                    
+ 1 eEE226     CASSLYGGESNYGYTF+TCRBV09-01+TCRBJ01-02   VLWAHGFEL                
+ 2 eOX52      CASSSTGETQYF+TCRBV12-03/12-04+TCRBJ02-05 AFPFTIYSL,GYINVFAFPF,INV…
+ 3 eQD132     CASSDPPTGVTDTQYF+TCRBV06-01+TCRBJ02-03   LLALHRSYL                
+ 4 ePD76      CATSDSKWLQHF+TCRBV24-01+TCRBJ01-05       FLWLLWPVT,FLWLLWPVTL,LWL…
+ 5 eOX52      CASSPDGYGYTF+TCRBV07-03+TCRBJ01-02       VVYRGTTTY                
+ 6 eXL30      CASSRRGDVPGELFF+TCRBV06-05+TCRBJ02-02    FTISVTTEIL               
+ 7 eAM23      CASSPGTDYEQYF+TCRBV04-01+TCRBJ02-07      LLCRMNSRNY,LLLCRMNSR,RMN…
+ 8 eOX43      CASASSGGPTSYNEQFF+TCRBV07-09+TCRBJ02-01  KPLEFGATSAAL             
+ 9 eOX54      CASSPAGGSYEQYF+TCRBV05-01+TCRBJ02-07     VTIAEILLI                
+10 eXL27      CASSADRGYEQYF+TCRBV27-01+TCRBJ02-07      AFLLFLVLI,FLAFLLFLV,FYLC…</code></pre>
 </div>
 </div>
 <ul>
@@ -921,18 +921,18 @@ Click here for hint
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 5
-   Experiment CDR3b              V_gene           J_gene     `Amino Acids`      
-   &lt;chr&gt;      &lt;chr&gt;              &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;              
- 1 eQD124     CASSVMGAGQETQYF    TCRBV09-01       TCRBJ02-05 SYFTSDYYQL,VLHSYFT…
- 2 eXL27      CASSTDRAPNQPQHF    TCRBV27-01       TCRBJ01-05 GRLQSLQTY,LITGRLQS…
- 3 eOX54      CSAPPPGANVLTF      TCRBV20-X        TCRBJ02-06 LLMPILTLT          
- 4 ePD82      CASSEGVYGYTF       TCRBV06-01       TCRBJ01-02 HTTDPSFLGRY        
- 5 eMR12      CASGSWTAGYEQYF     TCRBV03-01/03-02 TCRBJ02-07 ALRKVPTDNYITTY,KVP…
- 6 eEE224     CASSEARNLFYEQYF    TCRBV02-01       TCRBJ02-07 ELYSPIFLI,LYSPIFLI…
- 7 eEE228     CASSFQGAPDTQYF     TCRBV12-X        TCRBJ02-03 AFPFTIYSL,GYINVFAF…
- 8 eDH96      CASSMAGGGIGYTF     TCRBV25-01       TCRBJ01-02 TEKSNIIRGW         
- 9 eEE226     CASSFAGPAGENTGELFF TCRBV07-03       TCRBJ02-02 AEAELAKNVSL,AELAKN…
-10 eXL37      CASSLLAGVTDTQYF    TCRBV27-01       TCRBJ02-03 SELVIGAVI,SELVIGAV…</code></pre>
+   Experiment CDR3b             V_gene     J_gene     `Amino Acids`             
+   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;                     
+ 1 eXL31      CAWIRTSSLGANVLTF  TCRBV30-01 TCRBJ02-06 APAHISTI,LIVNSVLLFL,LLFLA…
+ 2 eAV91      CASSWMTSGGSYNEQFF TCRBV05-01 TCRBJ02-01 AFPFTIYSL,GYINVFAFPF,INVF…
+ 3 eJL154     CASSQGSYNEQFF     TCRBV04-03 TCRBJ02-01 RQLLFVVEV                 
+ 4 eEE226     CASSPGQAWMNTEAFF  TCRBV19-01 TCRBJ01-01 DTDFVNEFYAY,NRDVDTDFVNEFY 
+ 5 eXL32      CASSLVGTGLGDEQFF  TCRBV13-01 TCRBJ02-01 ELYSPIFLI,LYSPIFLIV,QELYS…
+ 6 eEE228     CASSIRSSFEQYF     TCRBV19-01 TCRBJ02-07 FFSNVTWFH,FLPFFSNVT,LPFFS…
+ 7 eOX56      CASSMGQGYEQYF     TCRBV28-01 TCRBJ02-07 FLNGSCGSV                 
+ 8 eEE228     CASSLFRTGEGYGYTF  TCRBV27-01 TCRBJ01-02 LLDDFVEII,LLLDDFVEI       
+ 9 eQD114     CASSQDFGYGYTF     TCRBV14-01 TCRBJ01-02 HTTDPSFLGRY               
+10 eAV93      CASSPTGLAYTGELFF  TCRBV07-09 TCRBJ02-02 VDDPCPIHFY,VVDDPCPIHFY,YV…</code></pre>
 </div>
 </div>
 <details>
@@ -962,18 +962,18 @@ Click here for hint
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 6
-   Experiment CDR3b            V_gene           J_gene  `Amino Acids` n_peptides
-   &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;              &lt;dbl&gt;
- 1 eMR17      CASSSGEYEQYF     TCRBV06-05       TCRBJ0… HTTDPSFLGRY            1
- 2 eOX43      CASSLLGQPQHF     TCRBV28-01       TCRBJ0… FLWLLWPVT,FL…          7
- 3 eOX49      CASGELAGGLNEQFF  TCRBV14-01       TCRBJ0… AFLLFLVLI,FL…         11
- 4 eEE228     CSASPDWDLNTQYF   TCRBV20-X        TCRBJ0… FLNGSCGSV              1
- 5 eEE226     CASSQDVGLIRYIQYF TCRBV03-01/03-02 TCRBJ0… AEAELAKNVSL,…          2
- 6 eAV88      CASSLALSAEQYF    TCRBV07-X        TCRBJ0… YYRARAGEAANF           1
- 7 eHH173     CATSDWANTQYF     TCRBV24-01       TCRBJ0… FTEQPIDLVPNQ…          1
- 8 eMR12      CASSLASSYNEQFF   TCRBV27-01       TCRBJ0… HTTDPSFLGRY            1
- 9 eEE226     CSGGWGWGLEETQYF  TCRBV20-X        TCRBJ0… MVMCGGSLYV,V…          2
-10 eQD111     CASRSGQVHSNQPQHF TCRBV19-01       TCRBJ0… SYFTSDYYQL,V…          3</code></pre>
+   Experiment CDR3b              V_gene          J_gene `Amino Acids` n_peptides
+   &lt;chr&gt;      &lt;chr&gt;              &lt;chr&gt;           &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;
+ 1 eXL30      CARGQGANYEQYF      TCRBV02-01      TCRBJ… DGVYFASTEK,G…          6
+ 2 eEE226     CASSQRGLGGEDEQFF   TCRBV04-01      TCRBJ… LLTDEMIAQY,L…          4
+ 3 eOX52      CASSLGWGAGGETQYF   TCRBV05-04      TCRBJ… VLWAHGFEL              1
+ 4 eQD123     CASSIRSSYEQYF      TCRBV19-01      TCRBJ… FFSNVTWFH,FL…          6
+ 5 eEE228     CASSPGIDEQYF       TCRBV03-01/03-… TCRBJ… ASQSIIAYTM,R…          5
+ 6 eEE226     CASSVAGNEQFF       TCRBV09-01      TCRBJ… FVDGVPFVV              1
+ 7 eEE243     CASSFHLVGQGTTYEQYF TCRBV28-01      TCRBJ… GMEVTPSGTWL,…          4
+ 8 eLH47      CASSYEGWGNSYEQYF   TCRBV06-05      TCRBJ… NPANNAAIV,NP…          3
+ 9 eQD121     CASSGGYNYGYTF      TCRBV09-01      TCRBJ… HTTDPSFLGRY            1
+10 eOX49      CSARITSGVYNEQFF    TCRBV20-X       TCRBJ… KLSYGIATV              1</code></pre>
 </div>
 </div>
 <ul>
@@ -1022,16 +1022,16 @@ Click here for hint
 <pre><code># A tibble: 10 × 18
    Experiment CDR3b        V_gene J_gene peptide_1 peptide_2 peptide_3 peptide_4
    &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;    
- 1 eEE240     CASSLAGQGGN… TCRBV… TCRBJ… QYIKWPWYI YEQYIKWPW YEQYIKWP… &lt;NA&gt;     
- 2 eQD112     CASSWDREVVT… TCRBV… TCRBJ… RARSVSPKL SVSPKLFIR &lt;NA&gt;      &lt;NA&gt;     
- 3 eEE226     CASSPEGQGGT… TCRBV… TCRBJ… DFLEYHDVR EDFLEYHD… LEYHDVRVV LEYHDVRV…
- 4 eEE226     CASSPFGDGEQ… TCRBV… TCRBJ… FLNGSCGSV &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
- 5 eEE226     CASSWGGFRGQ… TCRBV… TCRBJ… MWSFNPET… SFNPETNIL SMWSFNPET &lt;NA&gt;     
- 6 eHH175     CASSSNTGELFF TCRBV… TCRBJ… AFLLFLVLI FLAFLLFLV FYLCFLAFL FYLCFLAF…
- 7 eQD128     CASSIGQGTDT… TCRBV… TCRBJ… ASQSIIAY… RSVASQSII SIIAYTMSL SQSIIAYTM
- 8 eOX52      CASSVSGGSSY… TCRBV… TCRBJ… LLDDFVEII LLLDDFVEI &lt;NA&gt;      &lt;NA&gt;     
- 9 eOX49      CASSLRNEQFF  TCRBV… TCRBJ… AFLLFLVLI FLAFLLFLV FYLCFLAFL FYLCFLAF…
-10 eJL161     CASSAGESHGY… TCRBV… TCRBJ… HTTDPSFL… &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
+ 1 eXL31      CASSEGIGTSG… TCRBV… TCRBJ… LSPRWYFYY SPRWYFYYL &lt;NA&gt;      &lt;NA&gt;     
+ 2 eMR13      CASSLTHSNQP… TCRBV… TCRBJ… HTTDPSFL… &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
+ 3 eAV91      CASSPIVQVEG… TCRBV… TCRBJ… KVFRSSVLH VYYPDKVFR YPDKVFRSS YPDKVFRS…
+ 4 eDH96      CASSRTFSYEQ… TCRBV… TCRBJ… FLQSINFVR FLQSINFV… FLYLYALV… GLEAPFLY…
+ 5 eEE226     CASSFGGPSSY… TCRBV… TCRBJ… FPPTSFGPL &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
+ 6 eOX52      CASSDPGTGAD… TCRBV… TCRBJ… KPLEFGAT… &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
+ 7 eEE228     CASSPLVRVGD… TCRBV… TCRBJ… FVDGVPFVV &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
+ 8 eMR15      CASSQVGGDEQ… TCRBV… TCRBJ… ELYSPIFLI LYSPIFLIV QELYSPIFL VQELYSPIF
+ 9 eEE240     CSAPGIYEQYF  TCRBV… TCRBJ… DFLEYHDVR EDFLEYHD… LEYHDVRVV LEYHDVRV…
+10 eQD120     CASSLGDTPQE… TCRBV… TCRBJ… HTTDPSFL… &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt;     
 # ℹ 10 more variables: peptide_5 &lt;chr&gt;, peptide_6 &lt;chr&gt;, peptide_7 &lt;chr&gt;,
 #   peptide_8 &lt;chr&gt;, peptide_9 &lt;chr&gt;, peptide_10 &lt;chr&gt;, peptide_11 &lt;chr&gt;,
 #   peptide_12 &lt;chr&gt;, peptide_13 &lt;chr&gt;, n_peptides &lt;dbl&gt;</code></pre>
@@ -1070,18 +1070,18 @@ Click here for hint
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 7
-   Experiment CDR3b             V_gene       J_gene n_peptides peptide_n peptide
-   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;  
- 1 eXL30      CSVEGWGTVNTGELFF  TCRBV29-01   TCRBJ…         11 peptide_2 FLAFLL…
- 2 eMR14      CASSSPDGSKNIQYF   TCRBV28-01   TCRBJ…         13 peptide_… YLYALV…
- 3 eOX46      CASSRTDNTEAFF     TCRBV13-01   TCRBJ…          3 peptide_1 EELKKL…
- 4 eXL30      CASNLNLTEQETQYF   TCRBV10-01   TCRBJ…          2 peptide_1 ITDVFY…
- 5 eMR13      CASSLSELGYTF      TCRBV12-03/… TCRBJ…          1 peptide_4 &lt;NA&gt;   
- 6 eJL149     CASSPDIDYEQYF     TCRBV09-01   TCRBJ…          3 peptide_4 &lt;NA&gt;   
- 7 eHO134     CASLGDRGLNEKLFF   TCRBV28-01   TCRBJ…          2 peptide_3 &lt;NA&gt;   
- 8 eHH175     CASSYFTGGGGYTF    TCRBV06-05   TCRBJ…          2 peptide_6 &lt;NA&gt;   
- 9 eAV88      CASSLGPERTDSYEQYF TCRBV07-09   TCRBJ…          4 peptide_… &lt;NA&gt;   
-10 eXL27      CSAPGTSGRVSDTQYF  TCRBV20-X    TCRBJ…          7 peptide_6 NVFAFP…</code></pre>
+   Experiment CDR3b               V_gene     J_gene n_peptides peptide_n peptide
+   &lt;chr&gt;      &lt;chr&gt;               &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;  
+ 1 eEE226     CASSVKGGPYNEQFF     TCRBV09-01 TCRBJ…          2 peptide_6 &lt;NA&gt;   
+ 2 eXL27      CASRSGLAGDEQFF      TCRBV07-09 TCRBJ…         11 peptide_1 AFLLFL…
+ 3 eHO140     CASTWTGGGYEQYF      TCRBV27-01 TCRBJ…          1 peptide_… &lt;NA&gt;   
+ 4 eEE240     CSVETGNGYTF         TCRBV29-01 TCRBJ…          5 peptide_9 &lt;NA&gt;   
+ 5 eEE226     CASSQLQYSGNTIYF     TCRBV04-01 TCRBJ…          6 peptide_… &lt;NA&gt;   
+ 6 eOX43      CASRQ*REDLDISYNEQFF TCRBV19-01 TCRBJ…          7 peptide_4 LYIIKL…
+ 7 eLH47      CASSQDKWMRQETQYF    TCRBV04-01 TCRBJ…          3 peptide_6 &lt;NA&gt;   
+ 8 eOX54      CASSLGPSSYEQYF      TCRBV12-X  TCRBJ…          1 peptide_9 &lt;NA&gt;   
+ 9 eEE226     CSATGEVREDTQYF      TCRBV20-X  TCRBJ…          2 peptide_3 &lt;NA&gt;   
+10 ePD83      CASSIGAGLGHEQFF     TCRBV19-01 TCRBJ…          3 peptide_6 &lt;NA&gt;   </code></pre>
 </div>
 </div>
 <ul>
@@ -1097,18 +1097,18 @@ Click here for hint
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 5
-   Experiment CDR3b               V_gene     J_gene     peptide    
-   &lt;chr&gt;      &lt;chr&gt;               &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;      
- 1 eEE226     CASILSGGEGEQYF      TCRBV19-01 TCRBJ02-07 INVFAFPFTI 
- 2 eMR13      CASRQLGNTEAFF       TCRBV27-01 TCRBJ01-01 HTTDPSFLGRY
- 3 eQD114     CASSPYAEGMSTDTQYF   TCRBV18-01 TCRBJ02-03 HTTDPSFLGRY
- 4 eAV93      CASSLSRAEQYF        TCRBV05-04 TCRBJ02-07 NSSPDDQIGY 
- 5 eOX54      CASSQGSGTGGREAFF    TCRBV04-03 TCRBJ01-01 LYIIKLIFLW 
- 6 eLH48      CASSVGLYSRTNEKLFF   TCRBV05-06 TCRBJ01-04 AYKTFPPTEPK
- 7 eXL30      CSARHLPGTGELFF      TCRBV20-X  TCRBJ02-02 IELSLIDFYL 
- 8 eMR14      CASSQDAEGRGLAKNIQYF TCRBV04-03 TCRBJ02-04 LQSINFVRII 
- 9 eQD127     CASSDGGMGYGYTF      TCRBV05-04 TCRBJ01-02 MWSFNPETNI 
-10 eJL154     CASSEITAGELFF       TCRBV07-03 TCRBJ02-02 TFKVSIWNL  </code></pre>
+   Experiment CDR3b            V_gene           J_gene     peptide   
+   &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;     
+ 1 eXL30      CASSPQGSGELFF    TCRBV19-01       TCRBJ02-02 YLCFLAFLL 
+ 2 eXL32      CASSVDHNEQFF     TCRBV09-01       TCRBJ02-01 LIDFYLCFL 
+ 3 eEE226     CASSHYGDTQYF     TCRBV27-01       TCRBJ02-03 YEQYIKWPW 
+ 4 eEE224     CASRWTSNQPQHF    TCRBV28-01       TCRBJ01-05 YFLQSINFVR
+ 5 eEE226     CASSATDRNEQFF    TCRBV06-02/06-03 TCRBJ02-01 DFLEYHDVR 
+ 6 eOX49      CASSLYGQGGSPLHF  TCRBV27-01       TCRBJ01-06 FYLCFLAFL 
+ 7 eHO141     CASSQDDRTSYEQYF  TCRBV04-01       TCRBJ02-07 FYLCFLAFLL
+ 8 eXL27      CASSQDPPPNEQFF   TCRBV04-02       TCRBJ02-01 SLIDFYLCFL
+ 9 eQD137     CSARDASGMNTGELFF TCRBV20-X        TCRBJ02-02 YLQPRTFL  
+10 eAV91      CASSEVPSGTYEQYF  TCRBV02-01       TCRBJ02-07 AFPFTIYSL </code></pre>
 </div>
 </div>
 <ul>
@@ -1148,18 +1148,18 @@ Click here for hint
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 7
-   Experiment CDR3b            V_gene     J_gene     peptide   k_CDR3b k_peptide
-   &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt;     &lt;int&gt;
- 1 eOX43      CASTEGPSGVYNEQFF TCRBV02-01 TCRBJ02-01 AFPFTIYSL      16         9
- 2 eJL147     CATSPQRVNTGELFF  TCRBV15-01 TCRBJ02-02 FKVSIWNL…      15        10
- 3 eEE240     CASSYPGQGAHEQYF  TCRBV06-05 TCRBJ02-07 FVDGVPFVV      15         9
- 4 eEE228     CASSTGAYGYTF     TCRBV19-01 TCRBJ01-02 SNVTWFHAI      12         9
- 5 eHH173     CASSLYAGDFYGYTF  TCRBV07-02 TCRBJ01-02 FYLCFLAF…      15        10
- 6 eEE228     CSATGYGYTF       TCRBV20-01 TCRBJ01-02 LLFLVLIML      10         9
- 7 eOX52      CSASPSLAGEQTQYF  TCRBV20-X  TCRBJ02-05 YINVFAFPF      15         9
- 8 eOX54      CASSLFQGAGELFF   TCRBV12-X  TCRBJ02-02 NVFAFPFTI      14         9
- 9 eHO138     CASSWGTEDTQYF    TCRBV06-05 TCRBJ02-03 KAYNVTQAF      13         9
-10 eEE226     CSARGGTAIYEQYF   TCRBV20-X  TCRBJ02-07 FYLCFLAF…      14        10</code></pre>
+   Experiment CDR3b             V_gene          J_gene peptide k_CDR3b k_peptide
+   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;           &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt;     &lt;int&gt;
+ 1 eXL30      CASSQVGGTEAFF     TCRBV04-03      TCRBJ… AFLLFL…      13         9
+ 2 eOX52      CASSHRLTYEQYF     TCRBV11-03      TCRBJ… APKEII…      13         8
+ 3 eOX52      CASSLVGGGALSYEQYF TCRBV07-09      TCRBJ… NVFAFP…      17         9
+ 4 eMR16      CASSLGQGDQPQHF    TCRBV06-05      TCRBJ… VYFLQS…      14        10
+ 5 eEE224     CASSSLITEQYF      TCRBV12-03/12-… TCRBJ… FLLPSL…      12         9
+ 6 eHO126     CASSQGAQPGRHEQYF  TCRBV14-01      TCRBJ… HTTDPS…      16        11
+ 7 eOX43      CASRSGTRSTEAFF    TCRBV07-09      TCRBJ… VLPFND…      14         9
+ 8 eOX52      CSVEAKYNEQFF      TCRBV29-01      TCRBJ… APKEII…      12         8
+ 9 eMR14      CASSQVPDTDTQYF    TCRBV04-01      TCRBJ… KTFPPT…      14         9
+10 eAV88      CASSLSVAGASYEQYF  TCRBV11-02      TCRBJ… LLLDDF…      16         9</code></pre>
 </div>
 </div>
 <ul>
@@ -1188,18 +1188,18 @@ Click here for hint
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 7
-   Experiment CDR3b              V_gene         J_gene peptide k_CDR3b k_peptide
-   &lt;chr&gt;      &lt;chr&gt;              &lt;chr&gt;          &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt;     &lt;int&gt;
- 1 ePD76      CASSLRDRRPEVNQPQHF TCRBV19-01     TCRBJ… FLAFLL…      18         9
- 2 eQD132     CASSLSRDSYEQYF     TCRBV27-01     TCRBJ… SELVIG…      14        10
- 3 eLH47      CASSLFTGDTEAFF     TCRBV05-01     TCRBJ… RQLLFV…      14         9
- 4 eXL27      CASRDSGIEQFF       TCRBV19-01     TCRBJ… VTPSGT…      12        10
- 5 eEE226     CASSLGVYNEQFF      TCRBV06-02     TCRBJ… LLLLDR…      13         9
- 6 eXL27      CSGLAGELIVYEQYF    TCRBV20-X      TCRBJ… IELSLI…      15        10
- 7 eMR16      CASSLTAPGYTEAFF    TCRBV28-01     TCRBJ… LQSINF…      15         9
- 8 eEE226     CASSEPRAANYGYTF    TCRBV06-01     TCRBJ… IDFYLC…      15        10
- 9 eLH45      CASSASGRAYNEQFF    TCRBV09-01     TCRBJ… AYKTFP…      15        11
-10 eXL27      CASSLQNAGSSYNEQFF  TCRBV03-01/03… TCRBJ… VTPSGT…      17        10</code></pre>
+   Experiment CDR3b              V_gene     J_gene     peptide k_CDR3b k_peptide
+   &lt;chr&gt;      &lt;chr&gt;              &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;     &lt;int&gt;     &lt;int&gt;
+ 1 eEE226     CASSWGGTEAFF       TCRBV06-05 TCRBJ01-01 INVFAF…      12        10
+ 2 eOX49      CSATQEKETQYF       TCRBV20-X  TCRBJ02-05 LIDFYL…      12         9
+ 3 eAV93      CATHTGTDTQYF       TCRBV10-02 TCRBJ02-03 SQSIIA…      12         9
+ 4 eMR25      CSARESDRAGTEAFF    TCRBV20-X  TCRBJ01-01 IPIGAG…      15        11
+ 5 eMR16      CASSLGLAGVRVVDEQYF TCRBV05-05 TCRBJ02-07 QSINFV…      18         9
+ 6 eXL30      CASSLPGLAYQETQYF   TCRBV12-X  TCRBJ02-05 APKEII…      16         8
+ 7 eQD110     CSARPQVHEQFF       TCRBV20-X  TCRBJ02-01 ELIRQG…      12         9
+ 8 eHH173     CASSKTGTQNIQYF     TCRBV07-09 TCRBJ02-04 LLFLVL…      14         9
+ 9 eEE240     CSAREVTESYEQYF     TCRBV20-X  TCRBJ02-07 LEYHDV…      14        10
+10 eQD109     CASLGGERDYEQYF     TCRBV07-09 TCRBJ02-07 VASQSI…      14         9</code></pre>
 </div>
 </div>
 </section>
@@ -1213,16 +1213,16 @@ Click here for hint
 <pre><code># A tibble: 10 × 11
    Experiment Cohort        Age Gender Race  A1    A2    B1    B2    C1    C2   
    &lt;chr&gt;      &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
- 1 ePD86      COVID-19-C…    58 M      White A*02… A*26… B*44… B*51… C*07… C*14…
- 2 eQD131     COVID-19-E…    NA &lt;NA&gt;   &lt;NA&gt;  A*02… A*32… B*15… B*51… C*02… C*04…
- 3 eAV100     COVID-19-C…    29 F      &lt;NA&gt;  A*02… A*68… B*07… B*40… C*03… C*07…
- 4 eLH46      COVID-19-C…    57 F      White A*02… A*26… B*38… B*51… C*12… C*15…
- 5 eHO135     COVID-19-C…    33 M      White A*03… A*31… B*07… B*35… C*04… C*07…
- 6 eQD121     COVID-19-C…    38 M      &lt;NA&gt;  A*01… A*24… B*18… B*57… C*05… C*07…
- 7 ePD82      COVID-19-C…    60 F      &lt;NA&gt;  A*26… A*33… B*40… B*44… C*08… C*14…
- 8 eEE240     Healthy (N…    23 M      White A*02… A*02… B*40… B*57… C*03… C*06…
- 9 eQD111     COVID-19-C…    51 M      &lt;NA&gt;  A*01… A*11… B*07… B*08… C*07… C*07…
-10 eLH59      COVID-19-C…    NA &lt;NA&gt;   &lt;NA&gt;  A*01… A*02… B*40… B*52… C*03… C*16…</code></pre>
+ 1 eHH169     Healthy (N…    24 F      Blac… "A*0… "A*7… "B*3… "B*3… "C*0… "C*0…
+ 2 eQD113     COVID-19-C…    36 M      &lt;NA&gt;  "A*0… "A*1… "B*5… "B*5… "C*0… "C*1…
+ 3 eMR23      COVID-19-C…    22 F      &lt;NA&gt;  ""    ""    ""    ""    ""    ""   
+ 4 ePD73      Healthy (N…    37 F      White "A*0… "A*0… "B*1… "B*4… "C*0… "C*0…
+ 5 eQD109     COVID-19-C…    61 M      &lt;NA&gt;  "A*0… "A*6… "B*0… "B*0… "C*0… "C*0…
+ 6 eDH107     COVID-19-C…    72 F      &lt;NA&gt;  "A*0… "A*0… "B*1… "B*3… "C*0… "C*0…
+ 7 ePD84      Healthy (N…    29 F      Asian "A*0… "A*0… "B*1… "B*4… "C*0… "C*0…
+ 8 eOX46      Healthy (N…    45 M      White "A*0… "A*0… "B*3… "B*4… "C*0… "C*0…
+ 9 eQD135     COVID-19-C…    74 M      &lt;NA&gt;  "A*0… "A*2… "B*0… "B*0… "C*0… "C*0…
+10 eQD120     COVID-19-C…    62 F      &lt;NA&gt;  "A*0… "A*3… "B*0… "B*4… "C*0… "C*0…</code></pre>
 </div>
 </div>
 <p>Remember you can scroll in the data.</p>
@@ -1243,16 +1243,16 @@ Click here for hint
 <pre><code># A tibble: 10 × 7
    Experiment Cohort                        Age Gender Race         Gene  Allele
    &lt;chr&gt;      &lt;chr&gt;                       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;        &lt;chr&gt; &lt;chr&gt; 
- 1 eQD109     COVID-19-Convalescent          61 M      &lt;NA&gt;         A2    A*69:…
- 2 ePD85      Healthy (No known exposure)    27 F      &lt;NA&gt;         C1    C*07:…
- 3 eLH43      COVID-19-Convalescent          57 M      &lt;NA&gt;         C2    C*05:…
- 4 eHO134     COVID-19-Convalescent          36 M      White        C2    C*07:…
- 5 eHH169     Healthy (No known exposure)    24 F      Black or Af… C2    C*04:…
- 6 eQD112     COVID-19-Convalescent          65 M      &lt;NA&gt;         A1    A*24:…
- 7 eQD108     COVID-19-Convalescent          NA &lt;NA&gt;   &lt;NA&gt;         A2    A*68:…
- 8 eXL37      Healthy (No known exposure)    33 M      White        B1    B*40:…
- 9 eMR22      COVID-19-Convalescent          65 M      &lt;NA&gt;         B1    B*45:…
-10 eQD128     COVID-19-Convalescent          53 F      Asian        B1    B*39:…</code></pre>
+ 1 eHO130     Healthy (No known exposure)    28 F      White        C2    "C*07…
+ 2 eMR23      COVID-19-Convalescent          22 F      &lt;NA&gt;         B1    ""    
+ 3 eQD128     COVID-19-Convalescent          53 F      Asian        A1    "A*02…
+ 4 eEE224     Healthy (No known exposure)    24 M      White        A2    "A*03…
+ 5 eQD111     COVID-19-Convalescent          51 M      &lt;NA&gt;         C2    "C*07…
+ 6 eHO136     COVID-19-Convalescent          51 M      Hispanic or… B1    ""    
+ 7 eXL32      Healthy (No known exposure)    37 F      White        A1    "A*01…
+ 8 eEE228     Healthy (No known exposure)    45 M      White        C1    "C*04…
+ 9 eHO129     COVID-19-Convalescent          66 F      Asian        C1    "C*08…
+10 eHO141     COVID-19-Acute                 NA &lt;NA&gt;   &lt;NA&gt;         C2    ""    </code></pre>
 </div>
 </div>
 <p>Remember, what we are aiming for here, is to create one data set from two. So:</p>
@@ -1268,18 +1268,18 @@ Click here for hint
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 2
-   Experiment Allele      
-   &lt;chr&gt;      &lt;chr&gt;       
- 1 eMR14      "C*07:02:01"
- 2 eAV100     "B*40:01:02"
- 3 eLH42      "B*18:01:01"
- 4 eHO138     ""          
- 5 eMR18      "C*07:01:01"
- 6 ePD91      ""          
- 7 eOX43      "A*03:01"   
- 8 eJL149     "B*50:01:01"
- 9 eEE217     "B*15:01"   
-10 eJL148     "C*07:02:01"</code></pre>
+   Experiment Allele    
+   &lt;chr&gt;      &lt;chr&gt;     
+ 1 eJL164     B*15:01:01
+ 2 eAV91      C*05:01   
+ 3 eLH47      B*07:02:01
+ 4 eHO131     A*02:01:01
+ 5 eHH169     C*04:01   
+ 6 eLH45      A*02:01:01
+ 7 eDH107     B*15:01:01
+ 8 eJL164     A*24:02:01
+ 9 eLH49      A*29:02:01
+10 eEE217     A*02:01   </code></pre>
 </div>
 </div>
 <p>Use the <code>View()</code>-function again, to look at the <code>meta_data</code> - Notice something? Some alleles are e.g.&nbsp;<code>A*11:01</code>, whereas others are <code>B*51:01:02</code>. You can find information on why, by visiting <a href="http://hla.alleles.org/nomenclature/naming.html">Nomenclature for Factors of the HLA System</a>.</p>
@@ -1305,16 +1305,16 @@ Click here for hint
 <pre><code># A tibble: 10 × 3
    Experiment Allele     Allele_F_1_2
    &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;       
- 1 ePD86      A*26:01:01 A*26:01     
- 2 eAM23      B*15:01:01 B*15:01     
- 3 eJL152     C*14:02:01 C*14:02     
- 4 eJL152     B*15:35    B*15:35     
- 5 eQD117     C*04:01:01 C*04:01     
- 6 eHH173     A*02:01    A*02:01     
- 7 eLH42      C*04:01:01 C*04:01     
- 8 eLH49      A*03:01:01 A*03:01     
- 9 eAM23      A*11:01:01 A*11:01     
-10 ePD84      B*44:03    B*44:03     </code></pre>
+ 1 eHH174     C*07:01    C*07:01     
+ 2 eLH59      A*02:01:01 A*02:01     
+ 3 eMR21      B*44:03:01 B*44:03     
+ 4 eHH170     B*35:01    B*35:01     
+ 5 eHO131     B*15:01:01 B*15:01     
+ 6 eJL158     B*40:02:01 B*40:02     
+ 7 eHO126     B*07:02:01 B*07:02     
+ 8 eQD108     A*11:01:01 A*11:01     
+ 9 eQD115     B*07:02:01 B*07:02     
+10 eLH58      B*40:01:02 B*40:01     </code></pre>
 </div>
 </div>
 <p>The asterix, i.e.&nbsp;<code>*</code> is a rather annoying character because of ambiguity, so:</p>
@@ -1331,16 +1331,16 @@ Click here for hint
 <pre><code># A tibble: 10 × 2
    Experiment Allele
    &lt;chr&gt;      &lt;chr&gt; 
- 1 eJL153     B07:02
- 2 eQD108     B52:01
- 3 eJL149     B50:01
- 4 eHH173     B44:02
- 5 eQD113     A11:01
- 6 eXL36      B15:01
- 7 eQD117     C05:01
- 8 ePD79      B07:02
- 9 eJL164     C03:04
-10 eOX52      A02:01</code></pre>
+ 1 ePD79      B07:02
+ 2 eOX56      B53:01
+ 3 eJL154     A02:01
+ 4 eHH175     C07:02
+ 5 eMR12      B40:01
+ 6 eHO131     A02:01
+ 7 eJL146     B44:02
+ 8 eOX49      A02:01
+ 9 eQD117     C05:01
+10 eHO125     B39:01</code></pre>
 </div>
 </div>
 <details>
@@ -1365,18 +1365,18 @@ Click here for hint 2
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 7
-   Experiment CDR3b            V_gene     J_gene     peptide   k_CDR3b k_peptide
-   &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt;     &lt;int&gt;
- 1 eOX43      CSARLALSYEQYF    TCRBV20-X  TCRBJ02-07 MEVTPSGT…      13        10
- 2 eXL27      CASSISSEQYF      TCRBV05-06 TCRBJ02-07 NVFAFPFT…      11        10
- 3 eQD134     CASSPLPTGGMDIQYF TCRBV05-01 TCRBJ02-04 SWMESEFR…      16        10
- 4 eEE224     CASSQFEGPKVYEQYF TCRBV04-01 TCRBJ02-07 YLYALVYFL      16         9
- 5 eOX52      CASSLYAGSVNQPQHF TCRBV27-01 TCRBJ01-05 FYLCFLAF…      16        10
- 6 eEE224     CASSAGDLNYGYTF   TCRBV07-02 TCRBJ01-02 MIELSLID…      14        10
- 7 eXL27      CASSPLSNEQFF     TCRBV18-01 TCRBJ02-01 ELYSPIFLI      12         9
- 8 eEE240     CSARDLQGYEQYF    TCRBV20-X  TCRBJ02-07 FLAFLLFLV      13         9
- 9 eXL27      CASSSPIAGGADTQYF TCRBV06-X  TCRBJ02-03 FLWLLWPV…      16        10
-10 eAV91      CASSGGQGTGYTF    TCRBV02-01 TCRBJ01-02 VEHVTFFIY      13         9</code></pre>
+   Experiment CDR3b             V_gene          J_gene peptide k_CDR3b k_peptide
+   &lt;chr&gt;      &lt;chr&gt;             &lt;chr&gt;           &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt;     &lt;int&gt;
+ 1 eOX52      CASSFTGYTEAFF     TCRBV27-01      TCRBJ… MEVTPS…      13        10
+ 2 eOX52      CASSPGGSWTDTQYF   TCRBV07-06      TCRBJ… FNATRF…      15        10
+ 3 eAV91      CASSSLTGVQETQYF   TCRBV27-01      TCRBJ… STGSNV…      15        10
+ 4 eLH47      CANGEYKQPQHF      TCRBV28-01      TCRBJ… LSPRWY…      12         9
+ 5 eEE226     CASSFLGATDTQYF    TCRBV05-01      TCRBJ… MIELSL…      14        10
+ 6 eQD125     CASFREGDTQYF      TCRBV12-03/12-… TCRBJ… HTTDPS…      12        11
+ 7 eQD110     CASSLSYPMYDTDTQYF TCRBV27-01      TCRBJ… HTTDPS…      17        11
+ 8 eAV91      CSARRADLDTQYF     TCRBV20-X       TCRBJ… MPASWV…      13         9
+ 9 eOX54      CSAPGLAGLYEQYF    TCRBV20-X       TCRBJ… QYIKWP…      14         9
+10 eQD108     CASCPPSSYEQYF     TCRBV12-03/12-… TCRBJ… SPRRAR…      13         9</code></pre>
 </div>
 </div>
 <ul>
@@ -1406,18 +1406,18 @@ Click here for hint 2
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 8
-   Experiment CDR3b              V_gene  J_gene peptide k_CDR3b k_peptide Allele
-   &lt;chr&gt;      &lt;chr&gt;              &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt;     &lt;int&gt; &lt;chr&gt; 
- 1 eEE226     CASSFEGTQYF        TCRBV1… TCRBJ… NVFAFP…      11         9 B35:02
- 2 eOX46      CASSLAGDGGPAGYTF   TCRBV2… TCRBJ… TLACFV…      16        10 C04:01
- 3 eHH175     CASSQDIVVGLADNEQFF TCRBV0… TCRBJ… LIDFYL…      18         9 A29:02
- 4 eXL27      CASAADSYEQYF       TCRBV0… TCRBJ… IDFYLC…      12        10 B27:05
- 5 eXL27      CASTQGAREKLFF      TCRBV2… TCRBJ… LWLLWP…      13         9 C07:04
- 6 eXL37      CSAREKRGVGETQYF    TCRBV2… TCRBJ… VEAEVQ…      15        10 B40:01
- 7 eEE240     CSASEEKSYNEQFF     TCRBV2… TCRBJ… YLCFLA…      14         9 C06:02
- 8 eXL37      CSASPLGQGAQYF      TCRBV2… TCRBJ… SVLLFL…      13         9 B44:03
- 9 eEE240     CASRIFTGGLYNEQFF   TCRBV0… TCRBJ… MIELSL…      16        10 B40:01
-10 ePD83      CASSSGQGASYEQYF    TCRBV1… TCRBJ… YQIGGY…      15         9 B13:01</code></pre>
+   Experiment CDR3b            V_gene    J_gene peptide k_CDR3b k_peptide Allele
+   &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;     &lt;int&gt;     &lt;int&gt; &lt;chr&gt; 
+ 1 eOX54      CASSPTGETQYF     TCRBV03-… TCRBJ… INVFAF…      12        10 C14:03
+ 2 eEE228     CASSILGEYNEQFF   TCRBV06-… TCRBJ… WPVTLA…      14        10 C04:01
+ 3 eXL37      CAIGQGSYEQYF     TCRBV10-… TCRBJ… KLWAQC…      12         9 B40:01
+ 4 eOX54      CASSDSGLGAEQFF   TCRBV02-… TCRBJ… LQSINF…      14        10 B57:02
+ 5 eEE228     CASSRLAAYTDTQYF  TCRBV07-… TCRBJ… LIDFYL…      15         9 C05:01
+ 6 eXL31      CASSFLREETQYF    TCRBV27-… TCRBJ… LIDFYL…      13         9 A29:02
+ 7 eOX49      CSATKEGTAPMEQYF  TCRBV20-X TCRBJ… AFLLFL…      15         9 B44:02
+ 8 eOX43      CASSSIPGGPDNEQFF TCRBV28-… TCRBJ… AFLLFL…      16         9 A02:01
+ 9 eEE228     MWGYEQYF         TCRBV21-… TCRBJ… IDFYLC…       8        10 A02:01
+10 eEE226     CASSFSGYNEQFF    TCRBV07-… TCRBJ… LWLLWP…      13         9 A02:01</code></pre>
 </div>
 </div>
 </section>
