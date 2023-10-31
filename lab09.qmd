@@ -68,7 +68,7 @@ Let the other team members follow along with what you are doing and do the follo
 
 
 1. Go to [R for Bio Data Science RStudio Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) and login.
-2. Create a folder in home called `ShinyApps` - You need this for the server to find your app.
+2. Create a folder in your student **home** folder called `ShinyApps` - You need this for the server to find your app.
 3. Run `golem::create_golem("~/ShinyApps/YOUR_APP_NAME")` in the console, putting in a name of your own choosing.
   - As last week, the theme is the central dogma of molecular biology. Let that inspire you
   - Look up naming rules [here](https://r-pkgs.org/workflow101.html#name-your-package)
@@ -121,24 +121,25 @@ gert::git_push("origin")
 
 *After your teammate has pushed to GitHub.*
 
-1. You also need to create a `ShinyApps` folder.
+1. Create a folder in your student **home** folder called `ShinyApps` - You need this for the server to find your app.
 2. In the RStudio Server, create a new project based on the GitHub Repository just created by your teammate.
     - Click `Create a project`![](images/L08_create.png){width="5%"} in the top left.
     - Choose `Version Control` and then `Git`.
     - Paste in the repository URL: `https://github.com/rforbiodatascience23/group_X_package.git`. Remember to replace the **X**.
     - Make sure to put it in the `ShinyApps` folder.
     - Give the directory a fitting name and click `Create Project`.
-2. Find your `PAT` key or create a new
+3. Feel free to change the name of the project folder within `ShinyApps` - this will impact the url and nothing else. If you do, reopen the Rstudio project by clicking the `yourappname.Rproj` file.
+4. Find your `PAT` key or create a new
   <details> <summary>How to create a new one</summary>
   <ul>
   <li>Type in the console `usethis::create_github_token()`. You’re going to be redirected to GitHub website.
   <li> In case you did it manually, remember to give permission to access your repositories.
   <li>You need to type your password. Don’t change the default settings of creating the token except for the description – set ‘RStudio Server’ or something similar. Then hit Generate token.
-  <li>Copy the generated token (should start with ghp_) and store it securely (e.g. in password manager). Do not keep it in a plain file.
+  <li>Copy the generated token (should start with ghp_) and store it securely (e.g., in password manager). Do not keep it in a plain file.
   </ul></details>
-3. Go back to the RStudio Server project
-4. Type in the console `gitcreds::gitcreds_set()` and paste the `PAT` key
-5. Still in the console, run the following commands. Replace your GitHub username and email.
+5. Go back to the RStudio Server project
+6. Type in the console `gitcreds::gitcreds_set()` and paste the `PAT` key
+7. Still in the console, run the following commands. Replace your GitHub username and email.
 ```{r}
 #| eval: false
 usethis::use_git_config(user.name = "USERNAME", user.email = "USEREMAIL@EXAMPLE.ORG")
