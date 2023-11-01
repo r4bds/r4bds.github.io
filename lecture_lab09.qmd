@@ -16,6 +16,7 @@ format:
 ```{r run_app}
 #| eval: false
 #| echo: false
+# remotes::install_github("r4bds/ShinyDogma")
 ShinyDogma::run_app(options = list("port" = 1995))
 ```
 
