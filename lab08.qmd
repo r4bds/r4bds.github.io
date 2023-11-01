@@ -210,7 +210,8 @@ c("UUU" = "F", "UCU" = "S", "UAU" = "Y", "UGU" = "C",
   "GUG" = "V", "GCG" = "A", "GAG" = "E", "GGG" = "G")
 ```
 2. Run `usethis::use_data(NAME_OF_YOUR_OBJECT, overwrite = TRUE, internal = TRUE)`
-3. You have now made the data available to our functions, but we also want to make it visible for our users.
+  - This will make the data available to your functions,
+3. We also want to make the data visible for your users, so they can see which codon table are used.
     - Run `usethis::use_data(NAME_OF_YOUR_OBJECT, overwrite = TRUE)`.
 4. Write a data manual (document the data).
     - All non-internal data should be documented in a `data.R` file in the `R` folder. Create it with `usethis::use_r("data")`
@@ -226,7 +227,10 @@ c("UUU" = "F", "UCU" = "S", "UAU" = "Y", "UGU" = "C",
 #' @source \url{https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi?chapter=tgencodes#SG1}
 "NAME_OF_YOUR_OBJECT"
 ```
-Normally, you should also describe how the raw data was cleaned. You would do that in the file that opens after running `usethis::use_data_raw( name = "NAME_OF_YOUR_OBJECT", open = TRUE )`, but that is less relevant here, so we will skip that part.
+
+4. You should also describe how the data was produced. You do that in the file that opens after running `usethis::use_data_raw( name = "NAME_OF_YOUR_OBJECT", open = TRUE )`. It might seem a little redundant, but let's do it now for illustrative purposes. 
+  - Copy in everything you did (defining the object and adding it as internal and external data) to this file that just opened.
+  - This can work as a reference for yourself if something acts up. You can rerun the entire script to make sure everything is as it should be.
 
 Your package now includes some data.
 
@@ -238,8 +242,8 @@ devtools::document()  # Writes all your manuals for you
 devtools::load_all()  # Simulates library("your package"), allowing you to use your functions
 ```
 And run `?NAME_OF_YOUR_OBJECT`. 
-**OBS** For some unknown reason, this does not work on the current R version (4.3.1). Instead, you can click the "Build" tab next to the "Git" tab and then "install". After installing and attaching,
-your manual should pop up. Try printing the object as well to see what it looks like `print(NAME_OF_YOUR_OBJECT)`.
+**OBS** For some unknown reason, this does not work on the current R version (4.3.1). Instead, you can click the "Build" tab next to the "Git" tab and then "install".
+After installing and attaching, your manual should pop up. Try printing the object as well to see what it looks like `print(NAME_OF_YOUR_OBJECT)`.
 
 Push your changes to GitHub.
 **The other team members** pull the changes to have the data available to you as well.
