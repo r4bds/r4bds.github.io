@@ -24,6 +24,7 @@ ShinyDogma::run_app(options = list("port" = 1995))
 #| include: false
 knitr::opts_chunk$set(echo = FALSE)
 shinyUrl <- "http://localhost:1995"
+htsShinyUrl <- "https://services.healthtech.dtu.dk/shiny/sohdam/ShinyDogma/"
 ```
 
 # Creating a Simple Shiny App
@@ -75,7 +76,7 @@ knitr::include_app("https://shiny.posit.co/r/gallery/", height = 800)
 knitr::include_app(shinyUrl, height = 800)
 ```
 
-[Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/ShinyDogma/)
+[Link to app](`r htsShinyUrl`)
 
 ::: notes
 Quickly walk through the app, showing how it works. We will talk about the components later.
@@ -165,7 +166,7 @@ shinyApp(ui, server)
 #| echo: FALSE
 knitr::include_app(shinyUrl, height = 800)
 ```
-[Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/ShinyDogma/)
+[Link to app](`r htsShinyUrl`)
 
 ::: notes
 Go over the layout of the app and the input/output fields.
@@ -222,7 +223,7 @@ knitr::include_app("https://gallery.shinyapps.io/081-widgets-gallery/", height =
 #| echo: FALSE
 knitr::include_app(shinyUrl, height = 800)
 ```
-[Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/ShinyDogma/)
+[Link to app](`r htsShinyUrl`)
 
 ::: notes
 Explain the top part of the Example tab and how it works.
@@ -376,7 +377,7 @@ knitr::include_graphics("images/L09_reactivity.png")
 #| echo: FALSE
 knitr::include_app(shinyUrl, height = 800)
 ```
-[Link to app](https://teaching.healthtech.dtu.dk/shiny/sohdam/ShinyDogma/)
+[Link to app](`r htsShinyUrl`)
 
 ::: notes
 Scroll down in the Example tab and showcase how to add a module to the app_ui and app_server.

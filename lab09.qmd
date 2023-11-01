@@ -401,7 +401,7 @@ output$abundance <- renderPlot({
 
 2. **Discuss in your group what is going on in my solution**. Why does it work, and what other ways could you get to the same solution (check my slide on reactivity for inspiration). As a small note, I chose to hide the legend, as that looked better in the app.
 
-3. Add `@importfrom ggplot2 theme` and `@import yourpackage` to the module server function description.
+3. Add `@importFrom ggplot2 theme` and `@import yourpackage` to the module server function description.
 
 4. Go to `dev/02_dev.R` and run the first function to add `ggplot2` and `yourpackage` to your package dependencies: `attachment::att_amend_desc()`. Or add it to the `DESCRIPTION` manually.
 
