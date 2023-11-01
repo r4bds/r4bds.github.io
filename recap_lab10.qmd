@@ -1,0 +1,124 @@
+---
+title: "Recap of Lab 9"
+author: "Søren Helweg Dam"
+format:
+  revealjs:
+    embed-resources: true
+    theme: moon
+    slide-number: c/t
+    width: 1600
+    height: 900
+    mainfont: avenir
+    logo: images/r4bds_logo_small.png
+    footer: "R for Bio Data Science"
+---
+
+```{r setup}
+#| include: false
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Exercises recap
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Lab 9 Learning Objectives
+
+_A student who has met the objectives of the session will be able to:_
+
+- Prepare a simple shiny application
+
+- Using relevant online resources to autonomously identify and obtain new and expand on existing knowledge of R
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## How to build an R shiny app
+  
+- Use `golem` from the get-go
+- Start with layout (UI/UX)
+- Use online resources for inspiration
+- Bear in mind how `declarative` programming works
+  - Use the reactivity slide for inspiration
+- Break your app into modules
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Exercises
+
+- A lot of new stuff (functions, terms, ways of programming)
+- GitHub does not allow multiple people to push the same changes
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Developing apps on the Shiny server
+
+
+- Remember if you get a "Not Found" error, the "/shiny/" might be missing from the url.
+- If the app inexplicably don't work, check the log in `ShinyApps/log/` for error messages.
+- If no changes appear, close the tab for a minute and try again.
+- _Close your app before continuing so future changes take effect._
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Assignment recap
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Challenges with shiny
+
+<!-- - Very new topic requiring a new way of thinking -->
+<!-- - Understanding the interplay between the UI and Server -->
+<!-- - Syntax and where to put what -->
+<!-- - Writing reactive code that acts as you want it to -->
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Pros and cons with `golem`
+
+<!-- - `golem` creates a lot of files that are complicated to navigate -->
+<!--   - But it helps get you started and it gets easier with practice -->
+<!--   - Gives your app structure -->
+<!--   - Allows integration of custom CSS and JavaScript -->
+<!-- - Building the app as a package adds a layer of complexity -->
+<!--   - But it handles metadata and dependencies -->
+<!--   - Makes installation easy -->
+<!-- - Using modules has a steep learning curve -->
+<!--   - But it helps break down the app into smaller pieces -->
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Maintaining reproducibility
+
+<!-- - There should be a history of the changes to track down the evolution of the app -->
+<!-- - The app version should be displayed -->
+<!-- - The user should be made aware of analysis-influencing changes -->
+<!-- - The app should track the user's actions -->
+<!--   - Export file with app settings that can later be imported -->
+<!--   - Requires backwards compatibility -->
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Other challenges and limitations
+
+<!-- - Difficult to answer with limited experience -->
+<!-- - Limited to R -->
+<!--   - Luckily, R is not limited to R -->
+<!--   - `system("command")` for system commands and `reticulate` for Python -->
+<!-- - Slow processing on free server -->
+<!--   - Frozen UI while computing -->
+<!--   - Not controlling reactivity can lead to frequent recomputing -->
+<!--   - But keep in mind that shiny apps can run locally on your (and other's) computer, it does not *have* to be put on a server -->
+<!-- - Crafting a perfect UI requires some experience with CSS and JavaScript -->
+<!-- - It takes effort to implement useful error messages to the user -->
