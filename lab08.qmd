@@ -70,7 +70,9 @@ In the first task, **one team member** (you decide who) will initiate a package 
 
 RStudio will now create an R project for you that contains all necessary files and folders.
 
-6. Open the `DESCRIPTION` file and write a title for your package, a small description, and add authors.
+6. Delete `R/hello.R`. It is an example function that will cause issues later if not deleted.
+
+7. Open the `DESCRIPTION` file and write a title for your package, a small description, and add authors.
   - When adding authors, the format is:
 ```{r}
 #| eval: false
@@ -85,9 +87,9 @@ Authors@R:
            email = "your@email.com"))
 ```
 
-7. Create an MIT license (from the console) `usethis::use_mit_license("Group name")`
-8. _If you didn't tick the "Create git repository"_: Run `usethis::use_git()`. _If the "Git" tab is not in the lower left panel_: reopen the R project.
-9. <details>
+8. Create an MIT license (from the console) `usethis::use_mit_license("Group name")`
+9. _If you didn't tick the "Create git repository"_: Run `usethis::use_git()`. _If the "Git" tab is not in the lower left panel_: reopen the R project.
+10. <details>
   <summary>**Optional** setup steps (generally good, but not essential for this course)</summary>
   <ul>
   <li>Add a Readme file `usethis::use_readme_rmd( open = FALSE )`. You will do that in the Group Assignment later </li>
