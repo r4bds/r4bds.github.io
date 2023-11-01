@@ -70,6 +70,7 @@ Let the other team members follow along with what you are doing and do the follo
 1. Go to [R for Bio Data Science RStudio Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) and login.
 2. Create a folder in your student **home** folder called `ShinyApps` - You need this for the server to find your app.
 3. Run `golem::create_golem("~/ShinyApps/YOUR_APP_NAME")` in the console, putting in a name of your own choosing.
+  - Don't use the same name as the package from last week.
   - As last week, the theme is the central dogma of molecular biology. Let that inspire you
   - Look up naming rules [here](https://r-pkgs.org/workflow101.html#name-your-package)
   - The most important rule: `_`, `-`, and `'` are not allowed.
@@ -125,7 +126,7 @@ gert::git_push("origin")
 2. In the RStudio Server, create a new project based on the GitHub Repository just created by your teammate.
     - Click `Create a project`![](images/L08_create.png){width="5%"} in the top left.
     - Choose `Version Control` and then `Git`.
-    - Paste in the repository URL: `https://github.com/rforbiodatascience23/group_X_package.git`. Remember to replace the **X**.
+    - Paste in the repository URL: `https://github.com/rforbiodatascience23/group_X_shiny.git`. Remember to replace the **X**.
     - Make sure to put it in the `ShinyApps` folder.
     - Give the directory a fitting name and click `Create Project`.
 3. Feel free to change the name of the project folder within `ShinyApps` - this will impact the url and nothing else. If you do, reopen the Rstudio project by clicking the `yourappname.Rproj` file.
@@ -149,16 +150,17 @@ usethis::use_git_config(user.name = "USERNAME", user.email = "USEREMAIL@EXAMPLE.
 **If RStudio at any point asks you to log in to GitHub, redo step 6 and 7.**
 
 
-### Task 2 - Create a production-grade Shiny app
+### Task 2 - Create a production-grade Shiny app {#sec-T2}
 
 ----
 
 It may seem daunting, but `golem` holds your hand much of the way.
 
 **To avoid git conflicts, the rest of the exercises should be done by only one group member.** 
-Please walk through everything you do.
+Please walk through everything you do and show your teammates.
+
 If the other group members want, they can also do all the exercises, but be aware it will be a *big* challenge to merge the conflicts. 
-In the end, you can just abandon this project and create a new based on the updated GitHub repository - up to you, but expect a headache if you try to pull/push a version you have edited to the one another has edited as well.
+In the end, you can just abandon your project and create a new based on the updated GitHub repository - up to you, but expect a headache if you try to pull/push a version you have edited to the one another has edited as well. If all is hell, `git reset --hard HEAD` can be helpful (deletes all changes you've made. Alternatively, use `--soft` to keep changes). Google and ChatGPT can also be helpful.
 
 #### Task 2.1 - The dev folder
 
@@ -182,14 +184,16 @@ Authors@R:
            email = "your@email.com"))
 ```
 2. Go through `dev/02_dev.R` to get an idea of what helper functions are available. You will likely use some of these functions quite frequently.
-3. Look through `dev/03_deploy.R` to get an idea of how to deploy your app either in `shinapps.io`, as the app I showed in class, or on CRAN.
+3. Look through `dev/03_deploy.R` to get an idea of how to deploy your app on `shinapps.io` etc.
   - Because we are operating on a server, we cannot run the app directly in our R session. Therefore, we should prepare the app for deployment. This will allow the shiny server hosted on the Health Tech Server to launch your apps. 
-  - Run line 32 in `dev/03_deploy.R`, i.e., `golem::add_shinyserver_file()`
+  - Run line 32 in `dev/03_deploy.R`, i.e., `golem::add_shinyserver_file()`. This will create an `app.R` file, which the server uses to run your app.
 4. Look through `dev/run_dev.R` and run the first four commands. If you were not on a server, you could launch your app by running the last command `run_app()`. However, we *are* on a server, so we have implemented a small trick.
-  - When you ran line 32 previously, an `app.R` file was created. This allows the Health Tech Server to run your Shiny app from this url: `https://teaching.healthtech.dtu.dk/shiny/username/app_name/` - Edit username and app_name appropriately.
+  - When you ran line 32 previously, an `app.R` file was created. This allows the Health Tech Server to run your Shiny app from this url: `https://teaching.healthtech.dtu.dk/shiny/studentID/app_name/` - Edit studentID and app_name appropriately.
   - You should see an empty app with your title. Now you just need to put stuff in it.
-  - **OBS** Sometimes, for unknown reasons, the browser removes the "shiny" part of the url. If you get a "Not Found" error, check the url.
-  - **Another OBS** For changes to take effect, you will have to close the app session, which means either closing the tab or removing the app name from the url. The latter will list all apps you have created - likely just this one so far. The url would then look like: `https://teaching.healthtech.dtu.dk/shiny/username/`.
+  - **OBS!** Sometimes, for unknown reasons, the browser removes the "shiny" part of the url. If you get a "Not Found" error, check the url.
+  - **Another OBS!** For changes to take effect, you will have to close the app session, which means either closing the tab or removing the app name from the url. The latter will list all apps you have created - likely just this one so far. The url would then look like: `https://teaching.healthtech.dtu.dk/shiny/studentID/`.
+  - **Yet another OBS!** The `app_name` in the url is the name of the folder in `ShinyApps`. It might be `group_X_shiny` for some of you. You can freely change it from Rstudio if you like. 
+  - Close your app before continuing so future changes take effect.
 
 #### The R folder
 
@@ -237,7 +241,8 @@ This is **not** necessary for the exercises, but I wanted to make you aware that
 Last week, you created a package that simulates the central dogma of molecular biology.
 Today, you will use that package to create an app around it.
 
-**Please work together on these tasks.**
+**Please work together on these tasks on a single computer. Discuss what to do and what goes on at every step.**
+Work individually at own risk of GitHub conflicts as mentioned [previously](#sec-T2).
 
 #### Task 3.1 - Install the package you created last week
 
@@ -269,7 +274,7 @@ Feel free to use your imagination. Otherwise, follow my suggestion for a `tabset
 
 If you make your own layout, make space for the two modules, as I did with the two tabPanels with temporary titles and module names below.
 
-1. Add a `tabsetPanel` with 2 panels in the `fluidPage()` function within the `app_ui` function definition in `R/app_ui.R`. The `tabsetPanel` should be inserted after the header (written as h1(“header”) ), separated by a comma.
+1. Add a `tabsetPanel` with 2 panels in the `fluidPage()` function within the `app_ui` function definition in `R/app_ui.R`. The `tabsetPanel` should be inserted after the header (written as `h1(“header”)` ), separated by a comma.
 
 ```{r}
 #| eval: false
@@ -314,8 +319,11 @@ The names in the example are not actual shiny stuff, just names I put in as a pl
 </details>
 </br>
 
-5. Run the app to see what it looks like (by refreshing the app url you created on Task 2.1).
+5. Reopen the app to see what it looks like.
+  - If you run the last line, a popup will tell you the connection is refused - it would work locally, but doesn't on the server.
   - Remember if you get a "Not Found" error, the "/shiny/" might be missing from the url.
+  - If no changes appear, close the tab for a minute and try again.
+  - Close your app before continuing so future changes take effect.
 
 6. Add an input field for the `peptide_sequence`, replace the string with the input you are adding. Please try it out first.
   - Remember `ns()` around input/output IDs
@@ -373,6 +381,8 @@ mod_abundance_ui <- function(id){
   )
 }
 ```
+
+_If you copied my solution, remember your module name and thus function name might be different!_
 </details>
 
 #### Task 3.4 - Plotting module server logic
@@ -408,6 +418,7 @@ output$abundance <- renderPlot({
 2. **Discuss in your group what is going on in my solution**. Why does it work, and what other ways could you get to the same solution (check my slide on reactivity for inspiration). As a small note, I chose to hide the legend, as that looked better in the app.
 
 3. Add `@importfrom ggplot2 theme` and `@import yourpackage` to the module server function description.
+  - We are using `@import` in this case because we know the namespace is small and we are using everything.
 
 4. Go to `dev/02_dev.R` and run the first function to add `ggplot2` and `yourpackage` to your package dependencies: `attachment::att_amend_desc()`. Or add it to the `DESCRIPTION` manually.
 
@@ -415,6 +426,7 @@ output$abundance <- renderPlot({
   - If you run the last line, a popup will tell you the connection is refused - it would work locally, but doesn't on the server.
   - Remember if you get a "Not Found" error, the "/shiny/" might be missing from the url.
   - If no changes appear, close the tab for a minute and try again.
+  - Close your app before continuing so future changes take effect.
 
 
 #### Task 3.5 - Create shiny "module1"
@@ -441,6 +453,7 @@ Again, the names in the example are not actual shiny stuff, just names I put in 
 5. Before we continue, try to run the app: Run every line but the last in `dev/run_dev.R` and reopen your app.
   - Remember if you get a "Not Found" error, the "/shiny/" might be missing from the url.
   - If no changes appear, close the tab for a minute and try again.
+  - Close your app before continuing so changes take effect.
 6. **Discuss in your group which parts of the UI needs to be reactive (updateable) and which don't.** Of course, when you type a letter, the letter should appear where you typed it - that part happens automatically. But what needs to update when a button is clicked or an input changes?
 7. Let's add some inputs (buttons, text, etc.):
     - Go [here](https://shiny.posit.co/r/gallery/widgets/widget-gallery/) for inspiration for inputs.
@@ -508,6 +521,8 @@ mod_dna_expression_ui <- function(id){
   )
 }
 ```
+
+_If you copied my solution, remember your module name and thus function name might be different!_
 </details>
 
 </br>
@@ -621,6 +636,7 @@ This peptide sequence is then stored in the peptide output, which links to the `
 9. Reopen the app and see if it acts as expected.
   - Remember if you get a "Not Found" error, the "/shiny/" might be missing from the url.
   - If no changes appear, close the tab for a minute and try again.
+  - Close your app before continuing so future changes take effect.
 10. Push it to GitHub
 
 
