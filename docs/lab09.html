@@ -753,7 +753,7 @@ Possible solution
 <p><br></p>
 <ol start="2" type="1">
 <li><p><strong>Discuss in your group what is going on in my solution</strong>. Why does it work, and what other ways could you get to the same solution (check my slide on reactivity for inspiration). As a small note, I chose to hide the legend, as that looked better in the app.</p></li>
-<li><p>Add <code>@importfrom ggplot2 theme</code> and <code>@import yourpackage</code> to the module server function description.</p></li>
+<li><p>Add <code>@importFrom ggplot2 theme</code> and <code>@import yourpackage</code> to the module server function description.</p></li>
 <li><p>Go to <code>dev/02_dev.R</code> and run the first function to add <code>ggplot2</code> and <code>yourpackage</code> to your package dependencies: <code>attachment::att_amend_desc()</code>. Or add it to the <code>DESCRIPTION</code> manually.</p></li>
 <li><p>Run every line but the last in <code>dev/run_dev.R</code> and reopen your app to see that it works (You can just type in random amino acids in the field).</p></li>
 </ol>
