@@ -52,16 +52,21 @@ _A student who has met the objectives of the session will be able to:_
 - A lot of new stuff (functions, terms, ways of programming)
 - GitHub does not allow multiple people to push the same changes
 
+
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
 ## Developing apps on the Shiny server
 
+Shiny servers are not built for development.
+</br> 
 
 - Remember if you get a "Not Found" error, the "/shiny/" might be missing from the url.
+- Your app must be in `~/ShinyApps/` to be found.
 - If the app inexplicably don't work, check the log in `ShinyApps/log/` for error messages.
 - If no changes appear, close the tab for a minute and try again.
 - _Close your app before continuing so future changes take effect._
+- Going forward, develop locally and deploy later.
 
 
 <!--# ---------------------------------------------------------------------- -->
@@ -74,37 +79,128 @@ _A student who has met the objectives of the session will be able to:_
 <!--# ---------------------------------------------------------------------- -->
 ## Challenges with shiny
 
-<!-- - Very new topic requiring a new way of thinking -->
-<!-- - Understanding the interplay between the UI and Server -->
-<!-- - Syntax and where to put what -->
-<!-- - Writing reactive code that acts as you want it to -->
+- New challenging topic
+  - More how-to examples would be great
+  - Requires more than fours hours to learn
+  - Complex structure and logic
+  - Does it matter where to put code? [Yes, but no](https://services.healthtech.dtu.dk/shiny/sohdam/ShinyDogma/)
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Challenges with shiny
+
+- New challenging topic
+  - More how-to examples would be great
+  - Requires more than fours hours to learn
+  - Complex structure and logic
+  - Does it matter where to put code? [Yes, but no](https://services.healthtech.dtu.dk/shiny/sohdam/ShinyDogma/)
+
+- Hard to collaborate
+  - Git-conflict galore
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Challenges with shiny
+
+- New challenging topic
+  - More how-to examples would be great
+  - Requires more than fours hours to learn
+  - Complex structure and logic
+  - Does it matter where to put code? [Yes, but no](https://services.healthtech.dtu.dk/shiny/sohdam/ShinyDogma/)
+
+- Hard to collaborate
+  - Git-conflict galore
+
+- Debugging is challenging, especially on a Shiny server
+  - No error messages
+  - Unclear when changes took effect
+
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
 ## Pros and cons with `golem`
 
-<!-- - `golem` creates a lot of files that are complicated to navigate -->
-<!--   - But it helps get you started and it gets easier with practice -->
-<!--   - Gives your app structure -->
-<!--   - Allows integration of custom CSS and JavaScript -->
-<!-- - Building the app as a package adds a layer of complexity -->
-<!--   - But it handles metadata and dependencies -->
-<!--   - Makes installation easy -->
-<!-- - Using modules has a steep learning curve -->
-<!--   - But it helps break down the app into smaller pieces -->
+> _Once we got the hang of Golem, it became a valuable help for structuring and maintaining our application._
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Pros and cons with `golem`
+
+> _Once we got the hang of Golem, it became a valuable help for structuring and maintaining our application._
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- Encourages using modules
+  - Breaks the app into small components
+  - Helps testing and debugging
+- Provides a streamlined and structured workflow
+  - Removes repetitive coding tasks and lets you focus on app logic and structure
+
+
+:::
+::: {.column width="10%"}
+:::
+::: {.column width="45%"}
+
+
+
+:::
+
+::::
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Pros and cons with `golem`
+
+> _Once we got the hang of Golem, it became a valuable help for structuring and maintaining our application._
+
+:::: {.columns}
+
+::: {.column width="45%"}
+- Encourages using modules
+  - Breaks the app into small components
+  - Helps testing and debugging
+- Provides a streamlined and structured workflow
+  - Removes repetitive coding tasks and lets you focus on app logic and structure
+
+
+:::
+::: {.column width="10%"}
+:::
+::: {.column width="45%"}
+
+- Encourages using modules
+  - Hard to figure out how to put components together
+  - Complicated in a small app
+- Steep learning curve
+  - Overwhelming with so many files
+  - Many functionalities to keep track of
+
+
+
+:::
+
+::::
+
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
 ## Maintaining reproducibility
 
-<!-- - There should be a history of the changes to track down the evolution of the app -->
-<!-- - The app version should be displayed -->
-<!-- - The user should be made aware of analysis-influencing changes -->
-<!-- - The app should track the user's actions -->
-<!--   - Export file with app settings that can later be imported -->
-<!--   - Requires backwards compatibility -->
+- Reproducibility is important
+- Version control help managing changes
+  - Show version number in the app
+- Hard to keep track of decisions made by the users
+  - Enforce analysis workflow
+
 
 
 <!--# ---------------------------------------------------------------------- -->
@@ -112,13 +208,20 @@ _A student who has met the objectives of the session will be able to:_
 <!--# ---------------------------------------------------------------------- -->
 ## Other challenges and limitations
 
-<!-- - Difficult to answer with limited experience -->
-<!-- - Limited to R -->
-<!--   - Luckily, R is not limited to R -->
-<!--   - `system("command")` for system commands and `reticulate` for Python -->
-<!-- - Slow processing on free server -->
-<!--   - Frozen UI while computing -->
-<!--   - Not controlling reactivity can lead to frequent recomputing -->
-<!--   - But keep in mind that shiny apps can run locally on your (and other's) computer, it does not *have* to be put on a server -->
-<!-- - Crafting a perfect UI requires some experience with CSS and JavaScript -->
-<!-- - It takes effort to implement useful error messages to the user -->
+- Steep learning curve
+- Slow performance with large datasets or many users
+- Security issues
+  - App server required?
+- Limited graphical design?
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+##
+
+```{r}
+#| eval: TRUE
+#| echo: FALSE
+knitr::include_app("https://shiny.posit.co/r/gallery/", height = 800)
+```
+
