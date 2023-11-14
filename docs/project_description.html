@@ -338,7 +338,15 @@ ul.task-list{list-style: none;}
 <p><img src="images/viz_bio_data_science_project_organisation_qmd.png" class="img-fluid figure-img" style="width:90.0%"></p>
 </figure>
 </div>
-<p><strong>Important: This entails, that the entire project as put on GitHub, can be cloned and then executed end-to-end</strong></p>
+<p>Where directories left-to-right are:</p>
+<ul>
+<li><code>_raw</code>: Contains your raw data file, which must <strong>never</strong> be edited</li>
+<li><code>data</code>: Contains the <code>_raw</code> directory and also data derived from your raw data</li>
+<li><code>R</code>: Contains your Quarto Documents and project script</li>
+<li><code>results</code>: Contains anything considered a result, i.e.&nbsp;plots, p-value tables, differentially expressed genes, etc</li>
+<li><code>doc</code>: Anything considered a document, a PDF of your paper and here, also your final presentation</li>
+</ul>
+<p><strong>Important: This entails, that the entire project as put on GitHub, can be cloned and then executed end-to-end. Since, we are not putting data on GitHub, if possible included programmatic retrieval of data and/or data instructions in your GitHub README file</strong></p>
 </section>
 <section id="code" class="level3">
 <h3 class="anchored" data-anchor-id="code">Code</h3>

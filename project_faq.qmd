@@ -10,6 +10,7 @@
 - One approach could be to work on reproducing results from a paper. Here, you can even consider improving the data visualisations or adding something extra
 - Do not use a data set from one of the course exercises. Doing so would not allow you to demonstrate that you are independently capable of performing a bio data science analysis
 - You are 100% free to choose bio data from any resource as long as it meets the above requirements
+- Be sure to understand that the purpose of the project is for you to synthesise an end-to-end Bio Data Science project demonstrating, that you have met the learning objectives of the course, as stated at the individual labs and on the DTU course base. Hence and importantly, your data must allow you to do so!
 
 ### How should we handle NAs in the data?
 
