@@ -48,16 +48,18 @@ Your project **must strictly** adhere to the organisation illustrated below:
 
 ![](images/viz_bio_data_science_project_organisation_qmd.png){fig-align="center" width=90%}
 
-Where directories left-to-right and corresponding files are:
+Where directories left-to-right, starting with `data` and corresponding files are:
 
-- `_raw`: Contains your raw data file, which must **never** be edited
-  - `raw_data.xlsx`: This need not necessarily be an Excel-file, but should be seen as a placeholder for whichever raw data, your project is based on
-- `data`:
-  - `_raw`: The directory containing your raw data
+<details>
+<p><summary>`data`: **Your data**</summary></p>
+  - `_raw`: Directory inside `data`, containing your raw data file(s), which must **never** be edited
+    - `raw_data.xlsx`: This need not necessarily be an Excel-file, but should be seen as a placeholder for whichever raw data, your project is based on
   - `01_dat_load.tsv`: Your loaded data, e.g. combining multiple sheets from an excel file
   - `02_dat_clean.tsv`: Your data cleaned per your specifications and in tidy format
-  - `03_dat_aug.tsv`: Your data with added variables, e.g. like computing a BMI
-- `R`: Contains your Quarto Documents and project script
+  - `03_dat_aug.tsv`: Your data with added variables, e.g. like computing a BMI</details>
+
+<details>
+<p><summary>`R`: **Your code**</summary></p>
   - `01_load.qmd`: Loads your data, e.g. combining multiple sheets from an excel file
   - `02_clean.qmd`: Cleans your data per your specifications and converts to tidy format
   - `03_augment.qmd`: Adds new variables, like e.g. computing a BMI
@@ -66,18 +68,25 @@ Where directories left-to-right and corresponding files are:
   - `06_analysis_2.qmd`: Here goes your second analysis and so on
   - `99_proj_func.qmd`: DRY: Don't Repeat Yourself, repeated code goes into a function
   - `00_all.qmd`: The master document, capable of running the entire project in one go
-- `results`: Contains anything considered a result, i.e. plots, p-value tables, differentially expressed genes, etc
+</details>
+
+<details>
+<p><summary>`results`: **Your results**</summary></p>  
   - `*.html`: The output from your `*.qmd`s in your `R`-directory
   - `key_plots.png`: Whichever of all the nice plots you made, which should end up in your final presentation
-- `doc`: Anything considered a document, a PDF of your paper and here, also your final presentation
+</details>
+
+<details>
+<p><summary>`doc`: **Your documents**</summary></p>  
   - `presentation.qmd`: Your final Quarto Presentation of your project
   - `presentation.html`: Self-contained HTML5 presentation (just as the course slides)
+</details>
 
 **Important: This entails, that the entire project as put on GitHub, can be cloned and then executed end-to-end. Since, we are not putting data on GitHub, if possible included programmatic retrieval of data and/or data instructions in your GitHub README file**
 
 #### But How???
 
-Yes, we are not putting the data on GitHub, so either include programmatic retrieval of the data or state in your GitHub README file, how you retrieved the data forming the base of the project.K
+Yes, we are not putting the data on GitHub, so either include programmatic retrieval of the data or state in your [GitHub README file](https://quarto.org/docs/output-formats/gfm.html), how you retrieved the data forming the base of the project.
 
 ### Code
 
