@@ -338,15 +338,46 @@ ul.task-list{list-style: none;}
 <p><img src="images/viz_bio_data_science_project_organisation_qmd.png" class="img-fluid figure-img" style="width:90.0%"></p>
 </figure>
 </div>
-<p>Where directories left-to-right are:</p>
+<p>Where directories left-to-right and corresponding files are:</p>
 <ul>
-<li><code>_raw</code>: Contains your raw data file, which must <strong>never</strong> be edited</li>
-<li><code>data</code>: Contains the <code>_raw</code> directory and also data derived from your raw data</li>
-<li><code>R</code>: Contains your Quarto Documents and project script</li>
-<li><code>results</code>: Contains anything considered a result, i.e.&nbsp;plots, p-value tables, differentially expressed genes, etc</li>
-<li><code>doc</code>: Anything considered a document, a PDF of your paper and here, also your final presentation</li>
+<li><code>_raw</code>: Contains your raw data file, which must <strong>never</strong> be edited
+<ul>
+<li><code>raw_data.xlsx</code>: This need not necessarily be an Excel-file, but should be seen as a placeholder for whichever raw data, your project is based on</li>
+</ul></li>
+<li><code>data</code>:
+<ul>
+<li><code>_raw</code>: The directory containing your raw data</li>
+<li><code>01_dat_load.tsv</code>: Your loaded data, e.g.&nbsp;combining multiple sheets from an excel file</li>
+<li><code>02_dat_clean.tsv</code>: Your data cleaned per your specifications and in tidy format</li>
+<li><code>03_dat_aug.tsv</code>: Your data with added variables, e.g.&nbsp;like computing a BMI</li>
+</ul></li>
+<li><code>R</code>: Contains your Quarto Documents and project script
+<ul>
+<li><code>01_load.qmd</code>: Loads your data, e.g.&nbsp;combining multiple sheets from an excel file</li>
+<li><code>02_clean.qmd</code>: Cleans your data per your specifications and converts to tidy format</li>
+<li><code>03_augment.qmd</code>: Adds new variables, like e.g.&nbsp;computing a BMI</li>
+<li><code>04_describe.qmd</code>: Descriptive statistics, how many in each group, etc.</li>
+<li><code>05_analysis_1.qmd</code>: Here goes your first analysis</li>
+<li><code>06_analysis_2.qmd</code>: Here goes your second analysis and so on</li>
+<li><code>99_proj_func.qmd</code>: DRY: Don’t Repeat Yourself, repeated code goes into a function</li>
+<li><code>00_all.qmd</code>: The master document, capable of running the entire project in one go</li>
+</ul></li>
+<li><code>results</code>: Contains anything considered a result, i.e.&nbsp;plots, p-value tables, differentially expressed genes, etc
+<ul>
+<li><code>*.html</code>: The output from your <code>*.qmd</code>s in your <code>R</code>-directory</li>
+<li><code>key_plots.png</code>: Whichever of all the nice plots you made, which should end up in your final presentation</li>
+</ul></li>
+<li><code>doc</code>: Anything considered a document, a PDF of your paper and here, also your final presentation
+<ul>
+<li><code>presentation.qmd</code>: Your final Quarto Presentation of your project</li>
+<li><code>presentation.html</code>: Self-contained HTML5 presentation (just as the course slides)</li>
+</ul></li>
 </ul>
 <p><strong>Important: This entails, that the entire project as put on GitHub, can be cloned and then executed end-to-end. Since, we are not putting data on GitHub, if possible included programmatic retrieval of data and/or data instructions in your GitHub README file</strong></p>
+<section id="but-how" class="level4">
+<h4 class="anchored" data-anchor-id="but-how">But How???</h4>
+<p>Yes, we are not putting the data on GitHub, so either include programmatic retrieval of the data or state in your GitHub README file, how you retrieved the data forming the base of the project.K</p>
+</section>
 </section>
 <section id="code" class="level3">
 <h3 class="anchored" data-anchor-id="code">Code</h3>
