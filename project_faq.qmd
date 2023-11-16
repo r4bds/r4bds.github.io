@@ -101,8 +101,9 @@
 
 ### Can we use package X for analysis/visualisation?
 
-- If the package performs a lot of the work, which you are to demonstrate that you can do, then absolutely no. **Do not** use packages, where you call a plot-my-data-function and the ggplot-magick happens that will **not** allow you to demonstrate that you have met the course learning objectives
+- If the package performs a lot of the work, which you are to demonstrate that you can do, then absolutely no. E.g. **DO NOT** use packages, where you call a plot-my-data-function and the ggplot-magick happens that will **NOT** allow you to demonstrate that you have met the course learning objectives
 - For an example of and-then-magic-happens, see e.g. the `corrplot`-package
+- Basically, any package, which automatically does "things", that are part of the learning objectives, will not allow you to demonstrate, that you have met the learning objectives!
 
 ### How do we run the entire project incl. the presentation?
 
