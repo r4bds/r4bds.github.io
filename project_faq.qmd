@@ -124,7 +124,7 @@
 
 ### When should we create functions?
 
-- Remember DRY (Dont-Repeat-Yourself), so generally, if you do something more than once, it is a function
+- Remember DRY (Don't-Repeat-Yourself), so generally, if you do something more than once, it is a function
 - However, we do not focus much on functions in this course, so don’t put too much effort into creating functions
 - Place functions in `99_proj_functions.R` as illustrated in the overview
 - **DO NOT** hide your code away in functions, so that your main script just becomes 10 function calls. For this process-oriented course, show the code in your main `qmd`-documents, i.e. 01_, 02_, …

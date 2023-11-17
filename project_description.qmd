@@ -42,6 +42,10 @@ Recall the "Data Science Cycle"
 
 ## Project Requirements
 
+### Location
+
+The project must be placed on the course GitHub organisation and named e.g. `group_03_project`, replacing `03`, with your group number.
+
 ### Organisation
 
 Your project **must strictly** adhere to the organisation illustrated below:
