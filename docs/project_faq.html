@@ -468,6 +468,7 @@ ul.task-list{list-style: none;}
 <li>No, you might as well get used to it - Tidyverse all the way! (This is a tidyverse course)</li>
 <li>If you use base, like e.g.&nbsp;<code>my_data$my_var &lt;- 1:4</code> or <code>my_data$my_var[1]</code> or similar, then you will get points deducted in the evaluation of your project</li>
 <li>Again, the process is the product and it matters much if you are using the course correct dialect of <code>R</code>. What you choose to do after the course is your choice</li>
+<li>Using base R, where course content contains describes the tidyverse alternative is no different from using python and I suppose you wouldn’e expect to be able to hand in python code as the final product in an R course</li>
 </ul>
 </section>
 <section id="what-if-we-cant-make-it-work-in-tidyverse-but-only-in-base-r" class="level3">
@@ -482,7 +483,7 @@ ul.task-list{list-style: none;}
 <li>Yes, think of it this way: R has as core functionality to do statistics. Tidyverse is for performing the data manipulation surrounding these calculations. Therefore, using functions such as sum(), mean(), sd(), etc. is naturally fine</li>
 <li>E.g. recall, when we did the <code>group_by()</code> <span class="math inline">\(\rightarrow\)</span> <code>summarise()</code>-workflow, we used the descriptive statistics functions</li>
 <li>Also, we used the <code>lm()</code>-function for fitting a linear regression.</li>
-<li><code>Tidyverse</code> aims to replace the inconsistant and low legibility of base R with respect to data manipulation and visualisation - It does not replace the core functionality of doing statistics</li>
+<li><code>Tidyverse</code> aims to replace the inconsistent and low legibility of base R with respect to data manipulation and visualisation - It does not replace the core functionality of doing statistics</li>
 </ul>
 </section>
 <section id="how-do-we-know-if-there-is-a-tidyverse-function-we-should-use-rather-than-base" class="level3">
@@ -491,6 +492,7 @@ ul.task-list{list-style: none;}
 <li>Identify the general area of what you’re working with. E.g. if strings, then go to your RStudio session and find the console and type <code>stringr::</code> and hit tab, then you can look through the functions</li>
 <li>Look and search in the <a href="https://r4ds.hadley.nz">R4DS2e</a>-book</li>
 <li>Ask on the <a href="https://community.rstudio.com">Posit community pages</a></li>
+<li>Also generally base will use e.g.&nbsp;<code>read.table()</code>, where tidyverse will use <code>read_table()</code>, i.e.&nbsp;a period vs.&nbsp;an underscore</li>
 </ul>
 </section>
 <section id="can-we-use-package-x-for-analysisvisualisation" class="level3">

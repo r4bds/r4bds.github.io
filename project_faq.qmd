@@ -81,6 +81,7 @@
 - No, you might as well get used to it - Tidyverse all the way! (This is a tidyverse course)
 - If you use base, like e.g. `my_data$my_var <- 1:4` or `my_data$my_var[1]` or similar, then you will get points deducted in the evaluation of your project
 - Again, the process is the product and it matters much if you are using the course correct dialect of `R`. What you choose to do after the course is your choice
+- Using base R, where course content contains describes the tidyverse alternative is no different from using python and I suppose you wouldn'e expect to be able to hand in python code as the final product in an R course
 
 ### What if we can’t make it work in tidyverse but only in base R?
 
@@ -91,13 +92,14 @@
 - Yes, think of it this way: R has as core functionality to do statistics. Tidyverse is for performing the data manipulation surrounding these calculations. Therefore, using functions such as sum(), mean(), sd(), etc. is naturally fine
 - E.g. recall, when we did the `group_by()` $\rightarrow$ `summarise()`-workflow, we used the descriptive statistics functions
 - Also, we used the `lm()`-function for fitting a linear regression.
-- `Tidyverse` aims to replace the inconsistant and low legibility of base R with respect to data manipulation and visualisation - It does not replace the core functionality of doing statistics
+- `Tidyverse` aims to replace the inconsistent and low legibility of base R with respect to data manipulation and visualisation - It does not replace the core functionality of doing statistics
 
 ### How do we know if there is a tidyverse function we should use rather than base?
 
 - Identify the general area of what you’re working with. E.g. if strings, then go to your RStudio session and find the console and type `stringr::` and hit tab, then you can look through the functions
 - Look and search in the [R4DS2e](https://r4ds.hadley.nz)-book
 - Ask on the [Posit community pages](https://community.rstudio.com)
+- Also generally base will use e.g. `read.table()`, where tidyverse will use `read_table()`, i.e. a period vs. an underscore
 
 ### Can we use package X for analysis/visualisation?
 
