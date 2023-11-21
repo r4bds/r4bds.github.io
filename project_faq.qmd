@@ -1,5 +1,15 @@
 # Project FAQ {.unnumbered #sec-projfaq}
 
+## Text in the Quarto Docs
+
+### How much text should we add beyond code?
+
+- The emphasis for the communication of the course is on the presentation. Hence, think of the report text as "What information would I like to have / need in order to follow the code and project?"
+
+### What should the narrative be?
+
+- Do not think of the text as constituting a report in a classical sense, as you have likely done in other courses. Rather, the text constitutes the underpinnings of a technical report, i.e. the aim is to support the code and clarify what is going on enabling the reader to easily follow the code
+
 ## Data
 
 ### Is this data set ok to use?
@@ -109,7 +119,7 @@
 
 ### How do we run the entire project incl. the presentation?
 
-- Make sure to include a programmatic call to render a file
+- Make sure to include a programmatic call to render a file, i.e. in your run-all qmd file, when you include sub-documents and run the run-all file, the sub-files will not be generated, hence you need to include a programmatic call in your run-all file, which will also render the seperate sub-documents
 - Note, you can include one Quarto document in another
 
 ### Should we create a Shiny app?

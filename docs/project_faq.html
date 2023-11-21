@@ -250,7 +250,12 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">Data</a>
+  <li><a href="#text-in-the-quarto-docs" id="toc-text-in-the-quarto-docs" class="nav-link active" data-scroll-target="#text-in-the-quarto-docs">Text in the Quarto Docs</a>
+  <ul class="collapse">
+  <li><a href="#how-much-text-should-we-add-beyond-code" id="toc-how-much-text-should-we-add-beyond-code" class="nav-link" data-scroll-target="#how-much-text-should-we-add-beyond-code">How much text should we add beyond code?</a></li>
+  <li><a href="#what-should-the-narrative-be" id="toc-what-should-the-narrative-be" class="nav-link" data-scroll-target="#what-should-the-narrative-be">What should the narrative be?</a></li>
+  </ul></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
   <ul class="collapse">
   <li><a href="#is-this-data-set-ok-to-use" id="toc-is-this-data-set-ok-to-use" class="nav-link" data-scroll-target="#is-this-data-set-ok-to-use">Is this data set ok to use?</a></li>
   <li><a href="#how-should-we-handle-nas-in-the-data" id="toc-how-should-we-handle-nas-in-the-data" class="nav-link" data-scroll-target="#how-should-we-handle-nas-in-the-data">How should we handle NAs in the data?</a></li>
@@ -357,6 +362,21 @@ ul.task-list{list-style: none;}
 
 </header>
 
+<section id="text-in-the-quarto-docs" class="level2">
+<h2 class="anchored" data-anchor-id="text-in-the-quarto-docs">Text in the Quarto Docs</h2>
+<section id="how-much-text-should-we-add-beyond-code" class="level3">
+<h3 class="anchored" data-anchor-id="how-much-text-should-we-add-beyond-code">How much text should we add beyond code?</h3>
+<ul>
+<li>The emphasis for the communication of the course is on the presentation. Hence, think of the report text as “What information would I like to have / need in order to follow the code and project?”</li>
+</ul>
+</section>
+<section id="what-should-the-narrative-be" class="level3">
+<h3 class="anchored" data-anchor-id="what-should-the-narrative-be">What should the narrative be?</h3>
+<ul>
+<li>Do not think of the text as constituting a report in a classical sense, as you have likely done in other courses. Rather, the text constitutes the underpinnings of a technical report, i.e.&nbsp;the aim is to support the code and clarify what is going on enabling the reader to easily follow the code</li>
+</ul>
+</section>
+</section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <section id="is-this-data-set-ok-to-use" class="level3">
@@ -506,7 +526,7 @@ ul.task-list{list-style: none;}
 <section id="how-do-we-run-the-entire-project-incl.-the-presentation" class="level3">
 <h3 class="anchored" data-anchor-id="how-do-we-run-the-entire-project-incl.-the-presentation">How do we run the entire project incl.&nbsp;the presentation?</h3>
 <ul>
-<li>Make sure to include a programmatic call to render a file</li>
+<li>Make sure to include a programmatic call to render a file, i.e.&nbsp;in your run-all qmd file, when you include sub-documents and run the run-all file, the sub-files will not be generated, hence you need to include a programmatic call in your run-all file, which will also render the seperate sub-documents</li>
 <li>Note, you can include one Quarto document in another</li>
 </ul>
 </section>
