@@ -26,6 +26,7 @@
 
 - Depends, does your data set come with a readme, which allows you to make a decision regarding NAs?
 - Be careful not to simply drop all NAs as you might drop observations, where columns of interest have complete data
+- Whether to remove NAs or not cannot be universally answered, as it is specific to the challenge / data at hand. If it's meaningful for you to keep NAs, then do so, if not, then remove them.
 
 ### How should we handle binary variables?
 
