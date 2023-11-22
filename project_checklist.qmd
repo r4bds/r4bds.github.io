@@ -6,7 +6,7 @@
 - This is essential, this is where all the information on the project is collected
 
 ### "Have we included a project README on the GitHub Repository?"
-- Important: First header in the README has to be "Project Contributors" and then please state the student ids and matching GitHub usernames, so we know who-is-who
+- **<span style="color: red;">IMPORTANT:</span>** First header in the README has to be "Project Contributors" and then please state the student ids and matching GitHub usernames, so we know who-is-who
 - Since we're not putting data on GitHub, you need to let us know how to get the data
 
 ### “Does our presentation follow the IMRAD structure?”
