@@ -1,0 +1,50 @@
+# Project Checklist {.unnumbered #sec-projchecklist}
+
+### IMPORTANT: Ask yourselves:
+
+### "Have we remembered to look through the FAQ and description"
+- This is essential, this is where all the information on the project is collected
+
+### “Does our presentation follow the IMRAD structure?”
+- Is the presentation created as one `qmd`-file and output to a HTML?
+- Is the presentation clear and concise?
+- Are we doing good data communication via good visualisations?
+- Do we present a clear overview of the data process incl. any decisions made, e.g. using a flow chart?
+- Are we clearly communicating a biological insight?
+- Are we following standard guidelines? Sources, references, etc.
+
+![](images/project_check_01.png){fig-align="center" width=400}
+
+### “Does our project include all components of the data science cycle?”
+
+![](images/project_check_02.png){fig-align="center" width=400}
+
+### “Are we aware of and have included learning objectives as appropriate in the project?”
+
+*Check your project against the course learning objectives, as defined on the DTU course base*
+
+### “Is our project-GitHub organised as instructed and can it run end-to-end via doit?”
+
+_(Note, this is a generic representation, e.g. you do not need exactly 3 key plots nor exactly 2 analyses)_
+
+![](images/viz_bio_data_science_project_organisation_qmd.png){fig-align="center" width=90%}
+
+### “Does ALL our code in ALL our files follow the Course Style Guide?”
+
+- Recall what we discussed in the course on styling
+- See the [Course Style Guide](code_styling.qmd)
+- E.g.:
+
+![](images/project_check_05.png){fig-align="center" width=90%}
+
+### “Are we using base-R, where we should use tidyverse-R?”
+
+- E.g. think about the following:
+
+![](images/project_check_06.png){fig-align="center" width=90%}
+
+### “Can we explain and justify the data decisions in the project?”
+
+- IMPORTANT: _In essence it does not matter which decision you took, what really matters is your ability to explain and justify why you took that decision, e.g. decided on a particular path in your analysis_
+
+![](images/project_check_07.png){fig-align="center" width=90%}

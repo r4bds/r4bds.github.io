@@ -47,6 +47,7 @@ book:
         - assignments.qmd
         - project_description.qmd
         - project_faq.qmd
+        - project_checklist.qmd
         - exam.qmd
 
 format:
