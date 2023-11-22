@@ -23,7 +23,9 @@
 
 *Check your project against the course learning objectives, as defined on the DTU course base*
 
-### “Is our project-GitHub organised as instructed and can it run end-to-end via doit?”
+### “Is our project-GitHub organised as instructed and can it run end-to-end via a "doit"?”
+
+- A "doit" is a script, which acts as a wrapper executing other scripts. In the project organisation, what would be the `00_all.qmd`-file
 
 _(Note, this is a generic representation, e.g. you do not need exactly 3 key plots nor exactly 2 analyses)_
 
