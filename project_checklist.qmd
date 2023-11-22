@@ -5,9 +5,13 @@
 ### "Have we remembered to look through the FAQ and description"
 - This is essential, this is where all the information on the project is collected
 
+### "Have we included a project README on the GitHub Repository?"
+- Important: First header in the README has to be "Project Contributors" and then please state the student ids and matching GitHub usernames, so we know who-is-who
+- Since we're not putting data on GitHub, you need to let us know how to get the data
+
 ### “Does our presentation follow the IMRAD structure?”
 - Is the presentation created as one `qmd`-file and output to a HTML?
-- Is the presentation clear and concise?
+- Are the 10 presentation slides clear and concise?
 - Are we doing good data communication via good visualisations?
 - Do we present a clear overview of the data process incl. any decisions made, e.g. using a flow chart?
 - Are we clearly communicating a biological insight?
