@@ -211,6 +211,10 @@
 
 ## Exam/hand-in deliverables
 
+### What does "Independently identify and adapt relevant novel state-of-the-art data science tools" mean?
+
+- This is the exact result of completing the project work and my reason for not doing hand-holding in the project period. You are training your competences in that exact learning objective, so that once you leave this course, you will be able to do just that. This is absolute key as a modern bio data scientist. As an example, I programmed in a programming language called Perl, when I did my bioinformatics PhD, in fact the majority of my fellow phd students did that. I spend a lot of time getting really good at Perl... Today, I never use it... As in ever-never! Technology is under constants development and those with the capabilities stated in this LO will have a competitive edge and remain forefront in their working life
+
 ### What is the final product?
 
 - A GitHub repository organised according to principles of reproducible data analysis
