@@ -46,6 +46,11 @@ Recall the "Data Science Cycle"
 
 The project must be placed on the course GitHub organisation and named e.g. `group_03_project`, replacing `03`, with your group number.
 
+### GitHub README
+
+- **<span style="color: red;">IMPORTANT:</span>** First header in the README has to be "Project Contributors" and then please state the student ids and matching GitHub usernames, so we know who-is-who
+- Since we are **not** putting data on GitHub, use the README to supply information on data retrieval
+
 ### Organisation
 
 Your project **must strictly** adhere to the organisation illustrated below:
