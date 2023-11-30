@@ -1,4 +1,4 @@
-# Primer on RStudio {.unnumbered}
+# Guide for Working Locally {.unnumbered}
 
 ## Download Course Materials
 
@@ -10,6 +10,17 @@
 1. Click `Export...`
 1. You should now be prompted to download `r_for_bio_data_science.zip`
 1. Click `Download`
+
+## Download Course Slides
+
+The course slides are available via the course site. They are self-contained `.html`-files and can be opened offline in a browser like e.g. google chrome. The slides can be downloaded as follows:
+
+1. Go to the [Course Site](http://r4bds.github.io/)
+1. In the menu on the left, choose a course lab and click it
+1. Under `Schedule`, find and click the link to the lecture
+1. Hit command+s (mac) or ctrl+s (windows) or choose file and then save depending on your OS
+1. Put the downloaded `.html`-files where you want to save them.
+1. Right click and choose open with or similar and then choose your favourite browser
 
 ## Installing R on your computer
 
