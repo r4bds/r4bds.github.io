@@ -35,6 +35,7 @@ book:
 
     - part: resources.qmd
       chapters: 
+        - primer_on_rstudio.qmd
         - paths_and_projects.qmd
         - variable_assignment_in_r.qmd
         - code_styling.qmd

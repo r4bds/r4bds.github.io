@@ -1,0 +1,51 @@
+# Primer on RStudio {.unnumbered}
+
+## Download Course Materials
+
+1. Go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php)
+1. Login using your credentials
+1. In the file pane, navigate to your `projects`-directory, where (if you followed course instructions) you will find your `r_for_bio_data_science`-directory
+1. Tick the box to the left of your `r_for_bio_data_science`-directory
+1. Click the gear cog, which says `More`
+1. Click `Export...`
+1. You should now be prompted to download `r_for_bio_data_science.zip`
+1. Click `Download`
+
+## Installing R on your computer
+
+1. Go to [The R Project for Statistical Computing](https://www.r-project.org)
+1. Under `Getting Started` it says `To download R, please...`, click the `download R`-part
+1. Scroll down and find `Denmark` and click
+1. Click the `Aalborg University`-mirror link [https://mirrors.dotsrc.org/cran/](Aalborg University)
+1. Under `Download and Install R`, click your appropriate OS Linux, macOS or Windows
+    1. If you have Linux, you'll know what to do
+    1. For mac, be aware that you have to choose either `R-4.3.2-arm64.pkg` or `R-4.3.2-x86_64.pkg` (versions as of 30-11-23) depending on whether you have a `M`- or an `Intel`-mac. This you can find out by clicking the apple in the upper left corner of your screen and select `About This Mac` and look at what is says next to `Chip`
+    1. For Windows, there is a `install R for the first time`-guide you will have to follow.
+  
+If any of this is unclear, I'm absolutely sure, there will be tons of how-to-install-R tutorials on youtube
+
+## Installing RStudio
+
+1. Go to the [Posit](https://posit.co) site
+1. Click `DOWNLOAD RSTUDIO` in the upper right corner
+1. Under `RStudio Desktop`, click `DOWNLOAD RSTUDIO`
+1. The first point `1: Install R` is covered above
+1. Under `2: Install RStudio`, click the blue box below, it will vary depending on your OS, mine says `DOWNLOAD RSTUDIO DESKTOP FOR MACOS 11+`
+1. Open the downloaded installer and follow the instructions
+
+## Installing packages
+
+Once you have downloaded and installed `R` and `RStudio`, you can start installing packages. E.g. we can install `Tidyverse` using the command:
+
+```{r}
+#| echo: true
+#| eval: false
+
+install.packages("tidyverse")
+```
+
+Look through the different exercise labs at the top, the packages you have been working with are stated.
+
+## Open course materials
+
+The downloaded course materials can simply be opened directly in `RStudio`, so be sure to organise them, so you can easily access them on your own computer.
