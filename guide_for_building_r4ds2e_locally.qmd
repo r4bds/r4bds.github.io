@@ -1,0 +1,27 @@
+# Guide for Building the R4DS2e Book Locally {.unnumbered}
+
+## Clone Repository
+
+1. In the upper right corner of RStudio, click the current project
+1. Choose `New Project...`
+1. Choose `Version Control`
+1. Choose `Git`
+1. Under `Repository URL:`, enter `https://github.com/hadley/r4ds`
+1. Under `Project directory name:`, enter `r4ds`
+1. Under `Create project as subdirectory of:` uge the `Browse...`-button to navigate to where you want to place this project
+1. Click `Create Project`
+
+A `Clone Repository` process now starts, wait for it to finish
+
+1. In the RStudio `Files` pane of your new project, find and open the file `index.qmd`
+1. Click the `render`-button above the `index.qmd`-file you just opened
+1. It probably will not run on the first try! Make sure to check the errors, e.g. `Error in library(ggthemes) : there is no package called 'ggthemes'` and then run e.g. `install.packages("ggthemes")`
+1. Again, click the `render`-button above the `index.qmd`-file (Be aware that RStudio will show you the file, where the missing package is mentioned, so you will have to make sure, that you click the `index.qmd`-file tab) and redo installation of any missing packages (For Restart R error, see below)
+1. Once all missing packages have been installed, the rendered book will appear in the `Viewer` pane. Click the small white and lightblue icon with and arrow
+1. The book will now open locally in your browser on e.g. `http://localhost:7829/index.html`
+
+Congratulations! You have now sucessfully cloned a GitHub repository and build an entire Quarto book from scratch!
+
+If you get stuck in a loop where RStudio says "Restart R prior to install" on the same package. Select `Cancel`, quit the project, re-open the project and as the first thing, type in the `install.packages("PACKAGE_NAME")`-command and then select `No`, when it prompts for restart.
+
+Stop for a moment and consider that you get all of this is for free! All the tons of hours being put in by the 287 contributors have done so in the name of open source and open learning! That's nothing short of awesome!
