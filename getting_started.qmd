@@ -24,7 +24,7 @@ Prior to class, please go to [GitHub](https://github.com) and setup and account,
 
 ## Class Communication
 
-To streamline class communication, we will be using Slack. The aim is to facilitate getting you help fast and efficiently from classmates, the TAs, and myself. Rather than emailing questions to the teaching staff, I encourage you to post your questions on Slack. Each teaching lab will have its own dedicated Slack channel.
+To streamline class communication, we will be using Slack. The aim is to facilitate getting you help fast and efficiently from classmates, the TAs, and myself. Rather than emailing questions to the teaching staff, I encourage you to post your questions on Slack. Each teaching lab will have its own dedicated Slack channel. Note: You can also make group specific Slack channels!
 
 Please join the Slack workspace by clicking [here](https://join.slack.com/t/r4bds2024/shared_invite/zt-2pitcnpja-ot0zIYOsikzEMYZt84eMMA)
 
