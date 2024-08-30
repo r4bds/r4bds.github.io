@@ -520,8 +520,8 @@ _We'll spend a lot more time on going over the details of the Tidyverse!_
 library("tidyverse")
 library("broom")
 d <- tibble(
-  Year = c(2018, 2020, 2021, 2022, 2023),
-  Students = c(8, 38, 89, 91, 147)
+  Year = c(2018, 2020, 2021, 2022, 2023, 2024),
+  Students = c(8, 38, 89, 91, 144, 130)
 )
 
 d |> 
