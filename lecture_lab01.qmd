@@ -528,8 +528,8 @@ d |>
   ggplot(aes(x = Year,
              y = Students)) +
   geom_point() +
-  geom_smooth(method = "lm") +
-  scale_x_continuous(breaks = 2018:2023) +
+  geom_smooth(method = "lm", se = FALSE, colour = "red", linetype = "dashed") +
+  scale_x_continuous(breaks = 2018:2024) +
   theme_classic(base_size = 20) +
   theme(panel.grid.major = element_line())
 ```
