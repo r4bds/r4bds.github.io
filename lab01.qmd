@@ -40,7 +40,7 @@ Today, we will focused on getting you started and up and running with the first 
 
 ### Cloud server and the RStudio IDE
 
-Go to the [R for Bio Data Science Cloud Server](http://teaching.healthtech.dtu.dk/22100/rstudio.php) and follow the login procedure. Upon login, you will see this:
+Go to the [R for Bio Data Science Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) and follow the login procedure. Upon login, you will see this:
 
 ![](images/lab01_01.png){fig-align="center" width="800px"}
 
@@ -171,6 +171,7 @@ Now, at the bottom it says *"Send a message"*, let us ask 3 simple question and 
 1.  *Explain in simple terms what you are*
 2.  *Explain in simple terms how you work*
 3.  *Explain in simple terms how you can be used to generate value as a virtual AI assistant, when doing Bio Data Science for R*
+4.  *How many Rs are there in the word strawberry?*
 
 ##### Moving onto R
 
@@ -221,8 +222,8 @@ replicate(n = 10, expr = paste0(sample(nucleotides, size = 100, replace = TRUE),
 
 ##### Summary
 
-While `chatGPT` can be a powerful tool for code productivity, it comes with a major caveat: **When it fails, it fails with confidence**. This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can see if you are heading in the right direction or if you're being send on a wild goose chase.
+While `chatGPT` can be a powerful tool for code productivity, it comes with a major caveat: **When it fails, it fails with confidence** (strawberry). This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can see if you are heading in the right direction or if you're being send on a wild goose chase.
 
-**Therefore, in the beginning of the course, for your own sake, please refrain from using chatGPT!**
+**Therefore, in the beginning of the course, for your own sake, please refrain from using chatGPT! You will learn nothing from copy/pasting solutions from chatGPT!**
 
 _Instead solve the exercises based on the materials you have prepared, talk to you group members and discuss the challenges and check your understanding. Then later on, when you have gained initial experience, we can explore using chatGPT to augment your bio data science workflow to enhance productivity_
