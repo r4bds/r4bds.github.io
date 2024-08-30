@@ -14,7 +14,7 @@ Teaching sessions will be E3A, Tuesday mornings 8 - 12 in building 358, room 060
 
 First, make sure you have a working DTU account, either as a student id or employee initials (e.g. PhD-students or postdocs). In this course we will be using a cloud server infrastructure to perform our work. Click below to access the cloud server:
 
-- [R for Bio Data Science Cloud Server](http://teaching.healthtech.dtu.dk/22100/rstudio.php)
+- [R for Bio Data Science Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php)
 
 _Note, that there is a 24h time out on the sessions, meaning that if you logon and forget to sign out, your session will be terminated after 24h._
 
