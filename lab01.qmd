@@ -19,7 +19,7 @@
 
 -   Read the full course description here: [22100](https://kurser.dtu.dk/course/22100) / [22160](https://kurser.dtu.dk/course/22160)
 -   Answer the brief anonymous _R for Bio Data Science Pre-course Questionnaire_ (See schedule above)
--   Read course site sections: [Welcome to R for Bio Data Science](https://r4bds.github.io), [Prologue](https://r4bds.github.io/prologue.html) and [Getting Started](https://r4bds.github.io/getting_started.html) and perform any small tasks mentioned
+-   Read course site sections: [Welcome to R for Bio Data Science](https://r4bds.github.io), [Prologue](https://r4bds.github.io/prologue.html) and [Getting Started](https://r4bds.github.io/getting_started.html) and **perform any small tasks mentioned**
 -   R4DS2e Book: [Welcome](https://r4ds.hadley.nz), [Preface to the second edition](https://r4ds.hadley.nz/preface-2e), [Chapter 1](https://r4ds.hadley.nz/intro), [Chapter 3](https://r4ds.hadley.nz/workflow-basics), [Chapter 29](https://r4ds.hadley.nz/quarto.html) (Don't do the exercises)
 -   Video: [RStudio for the Total Beginner](https://www.youtube.com/watch?v=FIrsOBy5k58)
 -   Paper: [A Quick Guide to Organizing Computational Biology Projects](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
@@ -135,7 +135,7 @@ Projects are a *must* and allows you to create reproducible encapsulated bio dat
 
 #### Quarto
 
-While `.R`-scripts are a perfectly, there is another Skywalker:
+While `.R`-scripts are a perfectly valid way to write scripts, there is another Skywalker:
 
 -   In the upper left corner, again, click the white paper with the round green plus, but this time select `Quarto Document`
 -   Enter a `Title:`, e.g. "Lab 1 Exercises" and enter your name below in the box `Author:`
@@ -151,7 +151,7 @@ Try clicking the `Render` button just above the quarto-document. This will creat
 
 If you have previously worked with `Rmarkdown`, then many features of `Quarto` will be familiar. Think of `Quarto` as the complete rethink of `Rmarkdown`, i.e. based on all the experience gained, what would the optimal way of constructing an open-source scientific and technical publishing system?
 
-Perhaps you have previously encountered Jupyter notebooks, Quarto is similar. The basic idea is to have one document covering the entire project cycle.
+Perhaps you have previously encountered Jupyter notebooks, Quarto is similar. The basic idea is to have one document covering the entire project cycle, i.e. code, plots and text will be in the same document.
 
 Proceed [R for Data Science (2e), chapter 29](https://r4ds.hadley.nz/quarto) and do the exercises.
 
@@ -171,17 +171,18 @@ Now, at the bottom it says *"Send a message"*, let us ask 3 simple question and 
 1.  *Explain in simple terms what you are*
 2.  *Explain in simple terms how you work*
 3.  *Explain in simple terms how you can be used to generate value as a virtual AI assistant, when doing Bio Data Science for R*
-4.  *How many Rs are there in the word strawberry?*
+4.  *What is chatGPT and abbreviation for?*
 
 ##### Moving onto R
 
-In the upper left corner, it says `+ New chat`, click it to start a new session.
+In the upper left corner, click `ChatGPT` it to start a new session.
 
 Again, type the following questions in the prompt and read the answers:
 
 1.  *R*
 2.  *What is R?*
 3.  *Give a few simple examples*
+4.  *Explain the difference between base R and Tidyverse R*
 
 If you do get some code examples, try to copy/paste into the console in RStudio and see if they run
 
@@ -193,23 +194,22 @@ Start a new chat and enter:
 
 Compare the response with the one from before, is it the same or different and why so?
 
-Discuss in your group what is "Prompt Engineering" and how does it relate to the above few tests you did? (Bonus info: Prompt engineer is already a job and people are making money off of selling prompts)
+Discuss in your group what is "Prompt Engineering" and how does it relate to the above few tests you did? (Bonus info: Prompt engineer is already a job and people are making money off of selling "prompts")
 
 ##### ...a bit more
 
 Start a new chat and enter:
 
-- *Tell me about DNA*
+1.  *Tell me about DNA*
 
 Check if it gives you correct information?
 
 Now, write:
 
-- *Give a few fun examples on how to get started with the R programming language using DNA*
-
-Copy/paste the code into the Console, do the examples all run?
-
-- Earlier you were told to play around with some code snippets. Perhaps you didn't fully catch what was going on? If so, try to type in e.g.:
+2.  *Give a few fun examples on how to get started with the R programming language using DNA*
+3.  *Copy/paste the code into the Console, do the examples all run?*
+4.  *Discuss in your group if you understand what is going on*
+5.  *Earlier you were told to play around with some code snippets. Perhaps you didn't fully catch what was going on? If so, try to type in e.g.:*
 
 ```{verbatim}
 I'm new to R, please explain in simple terms, what the following code does:
@@ -220,10 +220,40 @@ replicate(n = 10, expr = paste0(sample(nucleotides, size = 100, replace = TRUE),
 "
 ```
 
+6. *Now, you could also ask a question like this:*
+
+```{verbatim}
+I am a student in the course "R for Bio Data Science" and we have been asked to solve the following problem:
+
+"
+Now it is time to take it a step further. A) Create a function, which returns random RNA of length 'l' and B) another function, which performs reverse transcription.
+"
+
+Please give me the solution to the problem
+```
+
+7.  *Try to run the code, you were presumable given. Likely, the tasks have been solved, but did you actually learn something? Do you understand the details of the code?*
+
+##### Strawberry Fields Forever
+
+Start yet a new chat and run:
+
+1.  *How many Rs are there in the word strawberry?*
+2.  *How many Rs are there in the word strawberries?*
+3.  *What is the difference in the number of Rs in strawberry and strawberries?*
+4.  *Inspect the answers, did ChatGPT get these simple questions right?*
+
 ##### Summary
 
-While `chatGPT` can be a powerful tool for code productivity, it comes with a major caveat: **When it fails, it fails with confidence** (strawberry). This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can see if you are heading in the right direction or if you're being send on a wild goose chase.
+**The following is IMPORTANT, so please read carefully and please discuss in your group**
 
-**Therefore, in the beginning of the course, for your own sake, please refrain from using chatGPT! You will learn nothing from copy/pasting solutions from chatGPT!**
+While `chatGPT` can be a powerful tool for code productivity, it comes with a major caveat: **When it fails, it fails with confidence** (See `Strawberry Fields Forever` above). This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can use your experience to evaluate if you are heading in the right direction or if you're being send on a wild goose chase. In this situation, ChatGPT can be a powerful sparring partner to augment your bio data science workflow to enhance productivity.
 
-_Instead solve the exercises based on the materials you have prepared, talk to you group members and discuss the challenges and check your understanding. Then later on, when you have gained initial experience, we can explore using chatGPT to augment your bio data science workflow to enhance productivity_
+Know the difference between "asking for a solution" and "asking for an explanation" - Do not cheat yourself here, it is **very important** that the yield of this course is that **you** learn **Tidyverse R** and **not** how to "use ChatGPT to produced code".
+
+Therefore, **do not use chatGPT to solve the exercises**, rather use ChatGPT as a learning assistant. Here is an example of the difference:
+
+- **Wrong:** _Give me the tidyverse code for adding a new variable `z` to a dataset, which is the sum of `x` and `y`_
+- **Right:** _In simple terms, explain which tidyverse function is used to add variables to datasets and give a very basic example of how it is used_
+
+The **wrong** way will give you the solution directly, robbing you of the learning process of internalising the functionality and the translation of the general explanation to the specific application to your problem. The **right** way, will allow you to work with your understanding of the problem and how to translate the general explation into a specific solution to your problem.

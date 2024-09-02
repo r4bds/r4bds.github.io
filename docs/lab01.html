@@ -384,7 +384,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Read the full course description here: <a href="https://kurser.dtu.dk/course/22100">22100</a> / <a href="https://kurser.dtu.dk/course/22160">22160</a></li>
 <li>Answer the brief anonymous <em>R for Bio Data Science Pre-course Questionnaire</em> (See schedule above)</li>
-<li>Read course site sections: <a href="https://r4bds.github.io">Welcome to R for Bio Data Science</a>, <a href="https://r4bds.github.io/prologue.html">Prologue</a> and <a href="https://r4bds.github.io/getting_started.html">Getting Started</a> and perform any small tasks mentioned</li>
+<li>Read course site sections: <a href="https://r4bds.github.io">Welcome to R for Bio Data Science</a>, <a href="https://r4bds.github.io/prologue.html">Prologue</a> and <a href="https://r4bds.github.io/getting_started.html">Getting Started</a> and <strong>perform any small tasks mentioned</strong></li>
 <li>R4DS2e Book: <a href="https://r4ds.hadley.nz">Welcome</a>, <a href="https://r4ds.hadley.nz/preface-2e">Preface to the second edition</a>, <a href="https://r4ds.hadley.nz/intro">Chapter 1</a>, <a href="https://r4ds.hadley.nz/workflow-basics">Chapter 3</a>, <a href="https://r4ds.hadley.nz/quarto.html">Chapter 29</a> (Don’t do the exercises)</li>
 <li>Video: <a href="https://www.youtube.com/watch?v=FIrsOBy5k58">RStudio for the Total Beginner</a></li>
 <li>Paper: <a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424">A Quick Guide to Organizing Computational Biology Projects</a></li>
@@ -503,7 +503,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="quarto" class="level4">
 <h4 class="anchored" data-anchor-id="quarto">Quarto</h4>
-<p>While <code>.R</code>-scripts are a perfectly, there is another Skywalker:</p>
+<p>While <code>.R</code>-scripts are a perfectly valid way to write scripts, there is another Skywalker:</p>
 <ul>
 <li>In the upper left corner, again, click the white paper with the round green plus, but this time select <code>Quarto Document</code></li>
 <li>Enter a <code>Title:</code>, e.g.&nbsp;“Lab 1 Exercises” and enter your name below in the box <code>Author:</code></li>
@@ -519,7 +519,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Try clicking the <code>Render</code> button just above the quarto-document. This will create the HTML5 output file. Note! You may get a <code>Connection Refused</code> message. If so, don’t worry, just close the page to return to the cloud server and find the generated <code>.html</code> file, left-click and select <code>View in Web Browser</code>.</p>
 <p>If you have previously worked with <code>Rmarkdown</code>, then many features of <code>Quarto</code> will be familiar. Think of <code>Quarto</code> as the complete rethink of <code>Rmarkdown</code>, i.e.&nbsp;based on all the experience gained, what would the optimal way of constructing an open-source scientific and technical publishing system?</p>
-<p>Perhaps you have previously encountered Jupyter notebooks, Quarto is similar. The basic idea is to have one document covering the entire project cycle.</p>
+<p>Perhaps you have previously encountered Jupyter notebooks, Quarto is similar. The basic idea is to have one document covering the entire project cycle, i.e.&nbsp;code, plots and text will be in the same document.</p>
 <p>Proceed <a href="https://r4ds.hadley.nz/quarto">R for Data Science (2e), chapter 29</a> and do the exercises.</p>
 </section>
 </section>
@@ -539,17 +539,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><em>Explain in simple terms what you are</em></li>
 <li><em>Explain in simple terms how you work</em></li>
 <li><em>Explain in simple terms how you can be used to generate value as a virtual AI assistant, when doing Bio Data Science for R</em></li>
-<li><em>How many Rs are there in the word strawberry?</em></li>
+<li><em>What is chatGPT and abbreviation for?</em></li>
 </ol>
 </section>
 <section id="moving-onto-r" class="level5">
 <h5 class="anchored" data-anchor-id="moving-onto-r">Moving onto R</h5>
-<p>In the upper left corner, it says <code>+ New chat</code>, click it to start a new session.</p>
+<p>In the upper left corner, click <code>ChatGPT</code> it to start a new session.</p>
 <p>Again, type the following questions in the prompt and read the answers:</p>
 <ol type="1">
 <li><em>R</em></li>
 <li><em>What is R?</em></li>
 <li><em>Give a few simple examples</em></li>
+<li><em>Explain the difference between base R and Tidyverse R</em></li>
 </ol>
 <p>If you do get some code examples, try to copy/paste into the console in RStudio and see if they run</p>
 </section>
@@ -560,35 +561,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><em>Give a few simple examples</em></li>
 </ol>
 <p>Compare the response with the one from before, is it the same or different and why so?</p>
-<p>Discuss in your group what is “Prompt Engineering” and how does it relate to the above few tests you did? (Bonus info: Prompt engineer is already a job and people are making money off of selling prompts)</p>
+<p>Discuss in your group what is “Prompt Engineering” and how does it relate to the above few tests you did? (Bonus info: Prompt engineer is already a job and people are making money off of selling “prompts”)</p>
 </section>
 <section id="a-bit-more" class="level5">
 <h5 class="anchored" data-anchor-id="a-bit-more">…a bit more</h5>
 <p>Start a new chat and enter:</p>
-<ul>
+<ol type="1">
 <li><em>Tell me about DNA</em></li>
-</ul>
+</ol>
 <p>Check if it gives you correct information?</p>
 <p>Now, write:</p>
-<ul>
+<ol start="2" type="1">
 <li><em>Give a few fun examples on how to get started with the R programming language using DNA</em></li>
-</ul>
-<p>Copy/paste the code into the Console, do the examples all run?</p>
-<ul>
-<li>Earlier you were told to play around with some code snippets. Perhaps you didn’t fully catch what was going on? If so, try to type in e.g.:</li>
-</ul>
+<li><em>Copy/paste the code into the Console, do the examples all run?</em></li>
+<li><em>Discuss in your group if you understand what is going on</em></li>
+<li><em>Earlier you were told to play around with some code snippets. Perhaps you didn’t fully catch what was going on? If so, try to type in e.g.:</em></li>
+</ol>
 <div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>I'm new to R, please explain in simple terms, what the following code does:</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>"</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>nucleotides &lt;- c("a", "c", "g", "t")</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>replicate(n = 10, expr = paste0(sample(nucleotides, size = 100, replace = TRUE), collapse = ""))</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="6" type="1">
+<li><em>Now, you could also ask a question like this:</em></li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>I am a student in the course "R for Bio Data Science" and we have been asked to solve the following problem:</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>"</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>Now it is time to take it a step further. A) Create a function, which returns random RNA of length 'l' and B) another function, which performs reverse transcription.</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>"</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>Please give me the solution to the problem</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="7" type="1">
+<li><em>Try to run the code, you were presumable given. Likely, the tasks have been solved, but did you actually learn something? Do you understand the details of the code?</em></li>
+</ol>
+</section>
+<section id="strawberry-fields-forever" class="level5">
+<h5 class="anchored" data-anchor-id="strawberry-fields-forever">Strawberry Fields Forever</h5>
+<p>Start yet a new chat and run:</p>
+<ol type="1">
+<li><em>How many Rs are there in the word strawberry?</em></li>
+<li><em>How many Rs are there in the word strawberries?</em></li>
+<li><em>What is the difference in the number of Rs in strawberry and strawberries?</em></li>
+<li><em>Inspect the answers, did ChatGPT get these simple questions right?</em></li>
+</ol>
 </section>
 <section id="summary" class="level5">
 <h5 class="anchored" data-anchor-id="summary">Summary</h5>
-<p>While <code>chatGPT</code> can be a powerful tool for code productivity, it comes with a major caveat: <strong>When it fails, it fails with confidence</strong> (strawberry). This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can see if you are heading in the right direction or if you’re being send on a wild goose chase.</p>
-<p><strong>Therefore, in the beginning of the course, for your own sake, please refrain from using chatGPT! You will learn nothing from copy/pasting solutions from chatGPT!</strong></p>
-<p><em>Instead solve the exercises based on the materials you have prepared, talk to you group members and discuss the challenges and check your understanding. Then later on, when you have gained initial experience, we can explore using chatGPT to augment your bio data science workflow to enhance productivity</em></p>
+<p><strong>The following is IMPORTANT, so please read carefully and please discuss in your group</strong></p>
+<p>While <code>chatGPT</code> can be a powerful tool for code productivity, it comes with a major caveat: <strong>When it fails, it fails with confidence</strong> (See <code>Strawberry Fields Forever</code> above). This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can use your experience to evaluate if you are heading in the right direction or if you’re being send on a wild goose chase. In this situation, ChatGPT can be a powerful sparring partner to augment your bio data science workflow to enhance productivity.</p>
+<p>Know the difference between “asking for a solution” and “asking for an explanation” - Do not cheat yourself here, it is <strong>very important</strong> that the yield of this course is that <strong>you</strong> learn <strong>Tidyverse R</strong> and <strong>not</strong> how to “use ChatGPT to produced code”.</p>
+<p>Therefore, <strong>do not use chatGPT to solve the exercises</strong>, rather use ChatGPT as a learning assistant. Here is an example of the difference:</p>
+<ul>
+<li><strong>Wrong:</strong> <em>Give me the tidyverse code for adding a new variable <code>z</code> to a dataset, which is the sum of <code>x</code> and <code>y</code></em></li>
+<li><strong>Right:</strong> <em>In simple terms, explain which tidyverse function is used to add variables to datasets and give a very basic example of how it is used</em></li>
+</ul>
+<p>The <strong>wrong</strong> way will give you the solution directly, robbing you of the learning process of internalising the functionality and the translation of the general explanation to the specific application to your problem. The <strong>right</strong> way, will allow you to work with your understanding of the problem and how to translate the general explation into a specific solution to your problem.</p>
 
 
 </section>
