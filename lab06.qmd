@@ -17,7 +17,10 @@
 _Please prepare the following materials:_
 
 - **Important:** Questionnaire (brief, 5-10 min): [Course Midway Evaluation](https://docs.google.com/forms/d/e/1FAIpQLSe9nDaUs1OfZ6YHA2gNKeSye0rCN1KambBEYYwYU-E7G5dDLQ/viewform?usp=sf_link)
-- R4DS Book (Note, this is intentionally 1.ed.): [Chapter 22: Introduction](https://r4ds.had.co.nz/model-intro.html), [Chapter 23: Model Basics](https://r4ds.had.co.nz/model-basics.html), [Chapter 24: Model Building](https://r4ds.had.co.nz/model-building.html), [Chapter 25: Many models](https://r4ds.had.co.nz/many-models.html)
+-  Book (Note, this is intentionally 1.ed.): [R4DS: Chapter 22: Introduction](https://r4ds.had.co.nz/model-intro.html)
+-  Book (Note, this is intentionally 1.ed.): [Chapter 23: Model Basics](https://r4ds.had.co.nz/model-basics.html)
+-  Book (Note, this is intentionally 1.ed.): [Chapter 24: Model Building](https://r4ds.had.co.nz/model-building.html)
+-  Book (Note, this is intentionally 1.ed.): [Chapter 25: Many models](https://r4ds.had.co.nz/many-models.html)
 - Video: [Broom: Converting Statistical Models to Tidy Data Frames](https://www.youtube.com/watch?v=7VGPUBWGv6g)
 - Video: [Alex Hayes | Solving the model representation problem with broom | RStudio (2019)](https://www.youtube.com/watch?v=gLZyvY5_kWQ)
 - Video: ["The Joy of Functional Programming (for Data Science)" with Hadley Wickham](https://www.youtube.com/watch?v=bzUmK0Y07ck)

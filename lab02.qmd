@@ -16,7 +16,7 @@
 
 _Please prepare the following materials:_
 
-- Book: [R4DS2e Chapter 2 Data Visualisation](https://r4ds.hadley.nz/data-visualize)
+- Book: [R4DS2e: Chapter 1 Data Visualisation](https://r4ds.hadley.nz/data-visualize)
 - Paper: ["A Layered Grammar of Graphics"](http://vita.had.co.nz/papers/layered-grammar.pdf) by Hadley Wickham
 - Video: [The best stats you've ever seen](https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen)
 - Video: [The SDGs aren't the same old same old](https://www.gapminder.org)

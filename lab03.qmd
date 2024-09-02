@@ -17,7 +17,7 @@
 
 _Please prepare the following materials_
 
-- Book: ["Visualize", chapters 10, 11 and 12](https://r4ds.hadley.nz/visualize)
+- Book: [R4DS2e: "Visualize", chapters 9, 10 and 11](https://r4ds.hadley.nz/visualize)
 - Video: [William Chase | The Glamour of Graphics | RStudio (2020)](https://www.youtube.com/watch?v=h5cTacaWE6I)
 - Web: [Patchwork - Getting started](https://patchwork.data-imaginist.com/articles/patchwork.html)
 - Web: [Scales - Getting started](https://www.tidyverse.org/blog/2022/04/scales-1-2-0/)

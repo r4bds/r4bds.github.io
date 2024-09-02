@@ -21,10 +21,13 @@
 
 *Please prepare the following materials*
 
--   R4DS2e book: [Chapter 6: Data Tidying](https://r4ds.hadley.nz/data-tidy), [Chapter 15: Strings](https://r4ds.hadley.nz/strings), [Chapter 17: Factors](https://r4ds.hadley.nz/factors), [Chapter 20: Joins](https://r4ds.hadley.nz/joins)
--   Video: [Tidy Data and tidyr](https://youtu.be/1ELALQlO-yM?t=465) - NB! Start at 7:45 and please note: `gather()` is now `pivot_longer()` and `spread()` is now `pivot_wider()`
--   Video: [Working with Two Datasets: Binds, Set Operations, and Joins](https://www.youtube.com/watch?v=AuBgYDCg1Cg)
--   Video: [stringr](https://www.youtube.com/watch?v=oIu5jK8DeX8&list=PLiC1doDIe9rDwsUhd3FtN1XGCV2ES1xZ2) (Playlist with 7 short videos)
+-  Book: [R4DS2e: Chapter 5 Data tidying](https://r4ds.hadley.nz/data-tidy)
+-  Book: [R4DS2e: Chapter 14 Strings](https://r4ds.hadley.nz/strings)
+-  Book: [R4DS2e: Chapter 16 Factors](https://r4ds.hadley.nz/factors)
+-  Book: [Chapter 19 Joins](https://r4ds.hadley.nz/joins)
+-  Video: [Tidy Data and tidyr](https://youtu.be/1ELALQlO-yM?t=465) - NB! Start at 7:45 and please note: `gather()` is now `pivot_longer()` and `spread()` is now `pivot_wider()`
+-  Video: [Working with Two Datasets: Binds, Set Operations, and Joins](https://www.youtube.com/watch?v=AuBgYDCg1Cg)
+-  Video: [stringr](https://www.youtube.com/watch?v=oIu5jK8DeX8&list=PLiC1doDIe9rDwsUhd3FtN1XGCV2ES1xZ2) (Playlist with 7 short videos)
 
 ## Learning Objectives
 

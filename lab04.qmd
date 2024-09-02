@@ -18,10 +18,13 @@
 
 _Please prepare the following materials:_
 
-- R4DS2e book: [Chapter 4](https://r4ds.hadley.nz/data-transform), [chapter 5](https://r4ds.hadley.nz/workflow-style), [chapter 8](https://r4ds.hadley.nz/data-import), [chapter 9](https://r4ds.hadley.nz/workflow-help)
-- Web: [What is data wrangling? Intro, Motivation, Outline, Setup -- Pt. 1 Data Wrangling Introduction](https://www.youtube.com/watch?v=jOd65mR1zfw)
-- Web: (NB! STOP at 7:45, i.e. skip tidyr) [Tidy Data and tidyr -- Pt 2 Intro to Data Wrangling with R and the Tidyverse](https://www.youtube.com/watch?v=1ELALQlO-yM)
-- Web: [Data Manipulation Tools: dplyr -- Pt 3 Intro to the Grammar of Data Manipulation with R](https://www.youtube.com/watch?v=Zc_ufg4uW4U)
+-  Book: [R4DS2e: Chapter 3 Data transformation](https://r4ds.hadley.nz/data-transform)
+-  Book: [R4DS2e: Chapter 4 Workflow: Code Style](https://r4ds.hadley.nz/workflow-style)
+-  Book: [R4DS2e: Chapter 7 Data import](https://r4ds.hadley.nz/data-import)
+-  Book: [R4DS2e: Chapter 8 Workflow: getting help](https://r4ds.hadley.nz/workflow-help)
+-  Web: [What is data wrangling? Intro, Motivation, Outline, Setup -- Pt. 1 Data Wrangling Introduction](https://www.youtube.com/watch?v=jOd65mR1zfw)
+-  Web: (NB! STOP at 7:45, i.e. skip tidyr) [Tidy Data and tidyr -- Pt 2 Intro to Data Wrangling with R and the Tidyverse](https://www.youtube.com/watch?v=1ELALQlO-yM)
+-  Web: [Data Manipulation Tools: dplyr -- Pt 3 Intro to the Grammar of Data Manipulation with R](https://www.youtube.com/watch?v=Zc_ufg4uW4U)
 
 ## Learning Objectives
 
