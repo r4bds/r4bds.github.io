@@ -20,7 +20,7 @@
 -   Read the full course description here: [22100](https://kurser.dtu.dk/course/22100) / [22160](https://kurser.dtu.dk/course/22160)
 -   Answer the brief anonymous _R for Bio Data Science Pre-course Questionnaire_ (See schedule above)
 -   Read course site sections: [Welcome to R for Bio Data Science](https://r4bds.github.io), [Prologue](https://r4bds.github.io/prologue.html) and lastly [Getting Started](https://r4bds.github.io/getting_started.html), where it is important that you **perform any small tasks mentioned**
--   R4DS2e Book: [Welcome](https://r4ds.hadley.nz), [Preface to the second edition](https://r4ds.hadley.nz/preface-2e), [Chapter 1](https://r4ds.hadley.nz/intro), [Chapter 3](https://r4ds.hadley.nz/workflow-basics), [Chapter 29](https://r4ds.hadley.nz/quarto.html) (Don't do the exercises)
+-   R4DS2e Book: [Welcome](https://r4ds.hadley.nz), [Preface to the second edition](https://r4ds.hadley.nz/preface-2e), [Introduction](https://r4ds.hadley.nz/intro), [Chapter 2](https://r4ds.hadley.nz/workflow-basics), [Chapter 28](https://r4ds.hadley.nz/quarto.html) (Don't do the exercises)
 -   Video: [RStudio for the Total Beginner](https://www.youtube.com/watch?v=FIrsOBy5k58)
 -   Paper: [A Quick Guide to Organizing Computational Biology Projects](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
 
@@ -240,8 +240,9 @@ Start yet a new chat and run:
 
 1.  *How many Rs are there in the word strawberry?*
 2.  *How many Rs are there in the word strawberries?*
-3.  *What is the difference in the number of Rs in strawberry and strawberries?*
-4.  *Inspect the answers, did ChatGPT get these simple questions right?*
+3.  *What is the difference between strawberry and strawberries?*
+4.  *Try as above, but using 'raspberry' and 'cranberry'*
+5.  *Inspect the answers, did ChatGPT get these simple questions right?*
 
 ##### Summary
 
