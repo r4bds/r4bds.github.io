@@ -26,9 +26,9 @@ _Please prepare the following materials:_
 
 _A student who has met the objectives of the session will be able to:_
 
-* Explains the basic theory of data visualisation
+* Explain the basic theory of data visualisation
 * Decipher the components of a simple ggplot
-* Use ggplot to do basic data visualisation
+* Use `ggplot` to do basic data visualisation
 
 ## Exercises {#sec-exercises}
 
@@ -76,9 +76,9 @@ _First of all, make sure to read every line in these exercises carefully!_
 
 _If you get stuck with Quarto, revisit [R4DS2e, chapter 29](https://r4ds.hadley.nz/quarto.html) or [take a look at the Comprehensive guide to using Quarto](https://quarto.org/docs/guide/)_
 
-- Go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) session from last time and login and choose the project you created.
+- Go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) session from last time and log in and choose the project you created.
 
-- **Create a new Quarto Document for todays exercises, e.g. lab02_exercises.qmd**
+- **Create a new Quarto Document for today's exercises, e.g. lab02_exercises.qmd**
 
 Recall the layout of the IDE (Integrated Development Environment)
 
@@ -121,16 +121,16 @@ IMPORTANT! You are mixing code and text in a Quarto Document! Anything within a 
 
 Note, this might not work, depending on your browser. In that case you can insert a new code chunk using ![](images/insert_new_chunk) or You can change the shortcuts via “Tools” > “Modify Keyboard shortcuts…” > Filter for “Insert Chunk” and then choose the desired shortcut. E.g. change the shortcut for code chunks to Shift+Cmd+i or similar.
 
-- Add a new code chunk and use the `load()`-function to load the data you retrieved.
+- Add a new code chunk and use the `load()` function to load the data you retrieved.
 
 <details>
 <p><summary>Click here for a hint</summary></p>
 Remember, you can use `?load` to get help on how the function works and remember your project root path is defined by the location of your `.Rproj` file, i.e. the path. A path is simply where `R` can find your file, e.g. `/home/projects/r_for_bio_data_science/` or similar depending on your particular setup.
 </details>
 
-Now, in the console, run the `ls()`-command and confirm, that you did indeed load the `gravier` data.
+Now, in the console, run the `ls()` command and confirm, that you did indeed load the `gravier` data.
 
-- Read the information about the `gravier`-data [here](https://github.com/ramhiser/datamicroarray/wiki/Gravier-%282010%29)
+- Read the information about the `gravier` data [here](https://github.com/ramhiser/datamicroarray/wiki/Gravier-%282010%29)
 
 Now, in your Quarto Document, add a new code chunk like so
 
@@ -154,7 +154,7 @@ cancer_data$age_group=cut(cancer_data$age,breaks=seq(10,100,by=10))
 cancer_data=relocate(cancer_data,c(pt_id,age,age_group,pt_id,event_label))
 ```
 
-Now we have the data set as an tibble, which is an augmented data frame (we will also get to that later):
+Now we have the data set as a tibble, which is an augmented data frame (we will also get to that later):
 
 ```{r}
 cancer_data
@@ -180,7 +180,7 @@ _Do you think you are the first person in the world to try to find out how many 
 
 ### General Syntax
 
-The general syntax for a basic ggplot is:
+The general syntax for a basic `ggplot` is:
 
 ```{r}
 #| eval: false
@@ -203,7 +203,7 @@ Note the `+` for adding layers to the plot
 
 Now:
 
-- Reivisit this illustration and discuss in your group what is what:
+- Revisit this illustration and discuss in your group what is what:
 
 ![](images/vis_ggplot_components.png)
 
@@ -211,7 +211,7 @@ A very handy `ggplot` cheat-sheet can be found [here](https://rstudio.github.io/
 
 ### Basic Plots
 
-Remember to write notes in your rmarkdown document. You will likely revisit these basic plots in future exercises.
+Remember to write notes in your Quarto document. You will likely revisit these basic plots in future exercises.
 
 Primer: Plotting 2 x 20 random normally distributed numbers, can be done like so:
 
@@ -225,9 +225,9 @@ ggplot(data = tibble(x = rnorm(20),
 
 Using this small primer, the materials you read for today and the `cancer_data` you created, in separate code-chunks, create a:
 
-* __T1: scatterplot of one variable against another__
-* __T2: linegraph of one variable against another__
-* __T3: boxplot of one variable__ (_Hint: Set `x = "my_gene"` in `aes()`_)
+* __T1: scatter plot of one variable against another__
+* __T2: line graph of one variable against another__
+* __T3: box plot of one variable__ (_Hint: Set `x = "my_gene"` in `aes()`_)
 * __T4: histogram of one variable__
 * __T5: densitogram of one variable__
 
@@ -237,21 +237,21 @@ Remember to write notes to yourself, so you know what you did and if there is so
 
 ### Extending Basic Plots
 
-* __T6: Pick your favourite gene and create a boxplot of expression levels stratified on the variable `event_label`__
+* __T6: Pick your favourite gene and create a box plot of expression levels stratified on the variable `event_label`__
 
 * __T7: Like T6, but with densitograms__ <span style="color: red;">GROUP ASSIGNMENT</span>
 
-* __T8: Pick your favourite gene and create a boxplot of expression levels stratified on the variable `age_group`__
+* __T8: Pick your favourite gene and create a box plot of expression levels stratified on the variable `age_group`__
     * Then, add stratification on `event_label`
     * Then, add transparency to the boxes
     * Then, add some labels
 
-* __T9: Pick your favourite gene and create a scatter-plot of expression levels versus `age`__
+* __T9: Pick your favourite gene and create a scatter plot of expression levels versus `age`__
     * Then, add stratification on `event_label`
     * Then, add a smoothing line
     * Then, add some labels
 
-* __T10: Pick your favourite two genes and create a scatter-plot of their expression levels__
+* __T10: Pick your favourite two genes and create a scatter plot of their expression levels__
     * Then, add stratification on `event_label`
     * Then, add a smoothing line
     * Then, show split into seperate panes based on the variable `age_group`
@@ -299,7 +299,7 @@ cancer_data %>%
 
 * __T13: If you arrive here and there is still time left for the exercises, you are probably already familiar with `ggplot` - Use what time is left to challenge yourself to further explore the `cancer_data` and create some nice data visualisations - Show me what you come up with!__
 
-## Further ressources for data visualisation
+## Further resources for data visualisation
 
 - A very handy `ggplot` cheat-sheet can be found [here](https://rstudio.github.io/cheatsheets/data-visualization.pdf)
 - So which plot to choose? Check this handy [guide](https://www.data-to-viz.com/)

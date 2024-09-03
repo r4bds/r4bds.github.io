@@ -28,7 +28,7 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 ## Aim
 
-- Lab 2: Genomics, the `gravier`-data from [A prognostic DNA signature for T1T2 node-negative breast cancer patients](https://pubmed.ncbi.nlm.nih.gov/20842727/)
+- Lab 2: Genomics, the `gravier` data from [A prognostic DNA signature for T1T2 node-negative breast cancer patients](https://pubmed.ncbi.nlm.nih.gov/20842727/)
 
 *Today, we will re-examine the data acquired in Lab 2 to investigate the research question:*
 
@@ -151,7 +151,7 @@ gravier_clean_aug  |>
 ## Analysis
 
 ### One Gene, one model - Let's fit our first model!
-- **T7: Use the `lm`-function to create your first model and save it to a new variable e.g. "my_first_model"**
+- **T7: Use the `lm()` function to create your first model and save it to a new variable e.g. "my_first_model"**
 
 ```{r}
 #| eval: true
@@ -174,7 +174,7 @@ my_first_model |>
 
 ## Analysis
 
-- **T8: Use the `group_by()` $\rightarrow$ `summarise()`-workflow to calculate the mean values of the gene expression for your favourite gene stratified on `early_metastasis`**
+- **T8: Use the `group_by()` $\rightarrow$ `summarise()` workflow to calculate the mean values of the gene expression for your favourite gene stratified on `early_metastasis`**
 
 - **Q8: What are your mean values? Mine are:**
 
@@ -214,11 +214,11 @@ gravier_clean_aug |>
 
 ::::
 
-- **Q10: Discuss in your group: Is your gene up- or down-regulated from `early_metastasis = 0` to `early_metastasis = 1` and use the `summary()`-function to see if is it statistically significant at a level of significance of $\alpha = 0.05$?**
+- **Q10: Discuss in your group: Is your gene up- or down-regulated from `early_metastasis = 0` to `early_metastasis = 1` and use the `summary()` function to see if is it statistically significant at a level of significance of $\alpha = 0.05$?**
 
 ## All the Genes, all the models
 
-- **Q11: How many genes are there in the gravier data set?**
+- **Q11: How many genes are there in the `gravier` data set?**
 
 ```{r}
 #| eval: true
@@ -252,7 +252,7 @@ gravier_clean_aug_long
 
 ## Models, models everywhere... Data Preparation...
 
-- **T10: Create a `dplyr`-pipeline, use the `group_by()`-function to group your `gravier_clean_aug_long`-dataset by `gene` and then add the `nest()`- and `ungroup()`-functions to your pipeline**
+- **T10: Create a `dplyr` pipeline, use the `group_by()` function to group your `gravier_clean_aug_long` dataset by `gene` and then add the `nest()` and `ungroup()` functions to your pipeline**
 
 :::: {.columns}
 
@@ -284,8 +284,8 @@ gravier_clean_aug_long_nested |>
 
 ## Fitting Models
 
-- **T11: Use the `group_by()`-function to let `R` know, that we want to work *per* gene**
-- **T12: Then add a new line to your pipeline, where you add a new variable `model_object` to your `gravier_clean_aug_long_nested`-dataset, which `R` will compute *per* gene**
+- **T11: Use the `group_by()` function to let `R` know, that we want to work *per* gene**
+- **T12: Then add a new line to your pipeline, where you add a new variable `model_object` to your `gravier_clean_aug_long_nested` dataset, which `R` will compute *per* gene**
 
 :::: {.columns}
 
@@ -316,7 +316,7 @@ gravier_clean_aug_long_nested |>
 
 ::::
 
-## First use of the `map()`-function
+## First use of the `map()` function
 
 ```{r}
 #| echo: true
@@ -329,9 +329,9 @@ model_object = map(.x = data,
 - `model_object` is a `new` variable, we are creating
 - `.x` to what `existing` (nested) variable are we mapping?
 - `.f` which function do we want to map to each element in the `existing` (nested) variable?
-- *NB! The `log2_expr_level` and `early_metastasis` are variables "inside" the nested `data`-variable*
+- *NB! The `log2_expr_level` and `early_metastasis` are variables "inside" the nested `data` variable*
 
-## Tidying Models with the `broom`-package
+## Tidying Models with the `broom` package
 
 ```{r}
 #| echo: true
@@ -356,9 +356,9 @@ tidy(x = my_first_model,
      conf.level = 0.95)
 ```
 
-## Now, we want to apply this `tidy()`-function *per `model_object`*
+## Now, we want to apply this `tidy()` function *per `model_object`*
 
-- **T13: Scroll a bit back to where we created the `model_object` and see if you can translate that into mapping the `tidy()`-function to the `model_object`-variable**
+- **T13: Scroll a bit back to where we created the `model_object` and see if you can translate that into mapping the `tidy()` function to the `model_object` variable**
 
 :::: {.columns}
 
@@ -391,7 +391,7 @@ gravier_clean_aug_long_nested |>
 
 ## We're almost there - Just a bit of wrangling to go!
 
-- **T14: Create a `dplyr`-pipeline and save the result in a new variable called `gravier_estimates`: Use the `unnest()`-function to unpack the `model_object_tidy`**
+- **T14: Create a `dplyr` pipeline and save the result in a new variable called `gravier_estimates`: Use the `unnest()` function to unpack the `model_object_tidy`**
 
 ```{r}
 #| echo: true
@@ -404,7 +404,7 @@ gravier_estimates
 
 ## We're almost there - Just a bit more of wrangling to go!
 
-- **T15: The again, create a `dplyr`-pipeline and save the result in a the same `gravier_estimates`-variable: Subset the rows to only get the slope term and then choose variables as displayed below, finally end with un-grouping your data, as we no longer need the groups**
+- **T15: The again, create a `dplyr` pipeline and save the result in a the same `gravier_estimates` variable: Subset the rows to only get the slope term and then choose variables as displayed below, finally end with un-grouping your data, as we no longer need the groups**
 
 ```{r}
 #| echo: true
@@ -419,7 +419,7 @@ gravier_estimates
 
 ## We're almost there - Just a tiny bit more of wrangling to go!
 
-- **T16: To your `gravier_estimates`-dataset, add a variable `q.value`, which is the result of calling the `p.adjust()`-function on your `p.value`-variable and also add an indicator variable denoting if a given gene is significant or not**
+- **T16: To your `gravier_estimates` dataset, add a variable `q.value`, which is the result of calling the `p.adjust()` function on your `p.value` variable and also add an indicator variable denoting if a given gene is significant or not**
 
 ```{r}
 #| echo: true
@@ -434,13 +434,13 @@ gravier_estimates
 
 ## Recap - What happened?
 
-1. We have the `gravier`-dataset, with the log2-expression levels for 2,905 genes of 168 patients of whom 111 did *not* have early metastasis and 57 who did
+1. We have the `gravier` dataset, with the log2-expression levels for 2,905 genes of 168 patients of whom 111 did *not* have early metastasis and 57 who did
 1. We are interested in investigating what genes are significantly up-/down-regulated between the patients with- and without early metastasis
-1. First we retrieved the data from the data repository, cleaned and augmented it and saved it to disk
-1. Then pivotted the data, so we could work *per gene* (The  `gene`-variable)
-1. Next, we grouped *per gene* and nested the data (The `data`-variable)
-1. Then, we fitted a linear model to each gene (The `model_object`-variable)
-1. Next, we used the `broom`-package to tidy the fitted model incl. getting confidence intervals (The `model_object_tidy`-variable)
+1. First, we retrieved the data from the data repository, cleaned and augmented it and saved it to disk
+1. Then pivoted the data, so we could work *per gene* (The `gene` variable)
+1. Next, we grouped *per gene* and nested the data (The `data` variable)
+1. Then, we fitted a linear model to each gene (The `model_object` variable)
+1. Next, we used the `broom` package to tidy the fitted model incl. getting confidence intervals (The `model_object_tidy` variable)
 1. Lastly, we extracted the model parameters, corrected for multiple testing and added and indicator for significant findings
 
 ## Awesome!

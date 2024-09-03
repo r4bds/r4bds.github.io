@@ -78,15 +78,15 @@ Let the other team members follow along with what you are doing and do the follo
 
 #### Task 1.2 - Make a GitHub repository for your group's app
 
-1. Go to [https://github.com/rforbiodatascience23](https://github.com/rforbiodatascience23)
-2. Click the green `New`-button
+1. Go to [https://github.com/rforbiodatascience24](https://github.com/rforbiodatascience24)
+2. Click the green `New` button
 3. Create a new repository called `group_X_shiny`. Remember to replace the **X**
-4. Select `rforbiodatascience23` as owner
+4. Select `rforbiodatascience24` as owner
 5. Make the repository `Public`
-6. Click the green `Create repository`-button
+6. Click the green `Create repository` button
 7. In this new repository, click the `settings` tab
 8. Click `Collaborators and Team`
-9. Click the green `Add people`-button
+9. Click the green `Add people` button
 10. Invite the remaining group members
 11. All other team members should now have access to the repository, **but do not create your own project yet.**
 
@@ -110,7 +110,7 @@ Let the other team members follow along with what you are doing and do the follo
 5. Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the **X**.
 ```{r}
 #| eval: false
-usethis::use_git_remote(name = "origin", "https://github.com/rforbiodatascience23/group_X_shiny.git", overwrite = TRUE)
+usethis::use_git_remote(name = "origin", "https://github.com/rforbiodatascience24/group_X_shiny.git", overwrite = TRUE)
 usethis::use_git_config(user.name = "USERNAME", user.email = "USEREMAIL@EXAMPLE.ORG")
 gert::git_commit_all("App setup") # Only run if there were files to stage
 gert::git_push("origin")
@@ -125,7 +125,7 @@ gert::git_push("origin")
 2. In the RStudio Server, create a new project based on the GitHub Repository just created by your teammate.
     - Click `Create a project`![](images/L08_create.png){width="5%"} in the top left.
     - Choose `Version Control` and then `Git`.
-    - Paste in the repository URL: `https://github.com/rforbiodatascience23/group_X_shiny.git`. Remember to replace the **X**.
+    - Paste in the repository URL: `https://github.com/rforbiodatascience24/group_X_shiny.git`. Remember to replace the **X**.
     - Make sure to put it in the `ShinyApps` folder.
     - Give the directory a fitting name and click `Create Project`.
 2. Find your `PAT` key or create a new
@@ -162,7 +162,7 @@ Also take a look at the [golem cheatsheet](https://raw.githubusercontent.com/rst
 1. Go through `dev/01_start.R` and run the setup functions you think will be useful. *Not everything is.*
     - Run them in order. **Don't run line 36**, and if you are prompted to install packages, please decline.
     - Everything on and above line 42 is recommended, everything else is optional. Feel free to see what they do. None of them should cause problems.
-    - After running the function for modifying the `DESCRIPTION` file, add more authors to the `DESCRIPTION`-file using this layout:
+    - After running the function for modifying the `DESCRIPTION` file, add more authors to the `DESCRIPTION` file using this layout:
 ```{r}
 #| eval: false
 Authors@R:
@@ -235,7 +235,7 @@ Today, you will use that package to create an app around it.
 
 #### Task 3.1 - Install the package you created last week
 
-1. `devtools::install_github("rforbiodatascience23/group_X_package")`. Remember to replace the **X**
+1. `devtools::install_github("rforbiodatascience24/group_X_package")`. Remember to replace the **X**
 
 
 <details><summary> Install backup </summary>
@@ -259,7 +259,7 @@ You have already done the initial setup steps, so let's get started with buildin
 
 #### Task 3.2 - Design your primary layout
 
-Feel free to use your imagination. Otherwise, follow my suggestion for a `tabsetPanel`-layout:
+Feel free to use your imagination. Otherwise, follow my suggestion for a `tabsetPanel` layout:
 
 If you make your own layout, make space for the two modules, as I did with the two tabPanels with temporary titles and module names below.
 
@@ -433,7 +433,7 @@ Again, the names in the example are not actual shiny stuff, just names I put in 
 
 
 5. Before we continue, try to run the app: Run every line but the last in `dev/run_dev.R` and reopen your app.
-  - Remember if you get a "Not Found" error, the "/shiny/" might be missing from the url.
+  - Remember if you get a "Not Found" error, the "/shiny/" might be missing from the URL.
   - If no changes appear, close the tab for a minute and try again.
 6. **Discuss in your group which parts of the UI needs to be reactive (updateable) and which don't.** Of course, when you type a letter, the letter should appear where you typed it - that part happens automatically. But what needs to update when a button is clicked or an input changes?
 7. Let's add some inputs (buttons, text, etc.):

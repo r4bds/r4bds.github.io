@@ -245,7 +245,7 @@ anti_join(X, Y, by = "id")
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Pivotting
+## Pivoting
 
 :::: {.columns}
 
@@ -276,7 +276,7 @@ my_data
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Pivotting
+## Pivoting
 
 :::: {.columns}
 
@@ -307,7 +307,7 @@ my_data_long
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Pivotting
+## Pivoting
 
 :::: {.columns}
 
@@ -917,7 +917,7 @@ peptide_data
 
 ## Lab 5 Exercises
 
-- **T12: From the `peptide_data` data above, with peptide_1, peptide_2, etc. create this data set using one of the data-pivotting functions**
+- **T12: From the `peptide_data` data above, with peptide_1, peptide_2, etc. create this data set using one of the data pivoting functions**
 
 ```{r}
 #| echo: true
@@ -938,7 +938,7 @@ peptide_data
 
 ## Lab 5 Exercises
 
-- **T13: Now, loose the redundant variables `n_peptides` and `peptide_n` and also get rid of the `NA`s in the `peptide`-column and make sure, that we only have unique observations, i.e. there are no repeated rows/observations**
+- **T13: Now, lose the redundant variables `n_peptides` and `peptide_n`, get rid of the `NA`s in the `peptide` column, and make sure that we only have unique observations (i.e. there are no repeated rows/observations).**
 
 ```{r}
 #| echo: true
@@ -1297,9 +1297,9 @@ meta_data
 
 ## Lab 5 Exercises
 
-The asterix, i.e. `*` is a rather annoying character because of ambiguity, so:
+The asterisk, i.e. `*` is a rather annoying character because of ambiguity, so:
 
-- **T20: Clean the data a bit more, by removing the asterix and redundant variables:**
+- **T20: Clean the data a bit more, by removing the asterisk and redundant variables:**
 
 ```{r}
 #| echo: true

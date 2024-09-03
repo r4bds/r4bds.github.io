@@ -33,8 +33,8 @@
 
 *A student who has met the objectives of the session will be able to:*
 
-- Understand and apply the various `str_*()`-functions for string manipulation
-- Understand and apply the family of `*_join()`-functions for combining data sets
+- Understand and apply the various `str_*()` functions for string manipulation
+- Understand and apply the family of `*_join()` functions for combining data sets
 - Understand and apply `pivot_wider()` and `pivot_longer()`
 - Use factors in context with plotting categorical data using `ggplot`
 
@@ -42,7 +42,7 @@
 
 ### Prologue
 
-Today will not be easy! But please try to remember Hadley's word-of-advise:
+Today will not be easy! But please try to remember Hadley's words of advice:
 
 -   *"The bad news is, whenever you're learning a new tool, for a long time, you're going to suck! It's gonna be very frustrating! But the good news is that that is typical and something that happens to everyone and it's only temporary! Unfortunately, there is no way to going from knowing nothing about the subject to knowing something about a subject and being an expert in it without going through a period of great frustration and much suckiness! Keep pushing through!"* - H. Wickham [(dplyr tutorial at useR 2014, 4:10 - 4:48)](https://www.youtube.com/watch?v=8SGif63VW6E)
 
@@ -63,23 +63,23 @@ Remember what you have worked on so far:
 
 -   RStudio
 -   Quarto
--   ggplot
--   filter
--   arrange
--   select
--   mutate
--   group_by
--   summarise
+-   `ggplot`
+-   `filter`
+-   `arrange`
+-   `select`
+-   `mutate`
+-   `group_by`
+-   `summarise`
 -   The pipe and creating pipelines
--   stringr
+-   `stringr`
 -   joining data
--   pivotting data
+-   pivoting data
 
 *That's quite a lot! Well done - You've come quite far already! Remember to think about the above tools in the following as we will synthesise your learnings so far into an analysis!*
 
 ## Background {#sec-background}
 
-In the early 20s, the world was hit by the coronavirus disease 2019 (COVID-19) pandemic. The pandemic was caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). In Denmark the virus first confirmed case was on 27 February 2020.
+In the early 20s, the world was hit by the coronavirus disease 2019 (COVID-19) pandemic. The pandemic was caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). In Denmark, the virus first confirmed case was on 27 February 2020.
 
 While initially very little was known about the SARS-CoV-2 virus, we did know the general pathology of vira. Briefly, the virus invades the cells and hijacks the intra-cellular machinery. Using the hijacked machinery, components for new virus particles are produced, eventually being packed into the viral envelope and released from the infected cell. Some of these components, viral proteins, is broken down into smaller fragments called peptides by the proteasome. These peptides are transported into the endoplasmatic reticulum by the Transporter Associated with antigen Processing (TAP) protein complex. Here, they are aided by chaperones bound to the Major Histocompatilibty Complex class I (MHCI) and then across the Golgi Aparatus they finally get displayed on the surface of the cells. Note, in humans, MHC is also called Human Leukocyte Antigen (HLA) and represents the most diverse genes. Each of us have a total of 6 HLA-alleles, 3 from the maternal and 3 from the paternal side. These are further divided into 3 classes HLA-A, HLA-B and HLA-C and the combination of these constitute the HLA-haplotype for an individual. Once the peptide is bound to the MHC Class I at the cell surface and exposed, the MHCI-peptide complex can be recognised by CD8+ Cytotoxic T-Lymphocytes (CTLs) via the T-cell Receptor (TCR). If a cell displays peptides of viral origin, the CTL gets activated and via a cascade induces apoptosis (programmed cell death) of the infected cell. The proces is summarised in the figure below.
 
@@ -105,15 +105,15 @@ Today, we will emulate the situation, where you are working as a Bioinformaticia
 ## Getting Started
 
 1.  [Click here](https://teaching.healthtech.dtu.dk/22100/rstudio.php) to go to the course RStudio cloud server and login
-1.  Make sure you are in your `r_for_bio_data_science`-project, you can verify this in the upper right corner
-1.  In the same place as your `r_for_bio_data_science.Rproj`-file and existing `data`-folder, create a new folder and name it `doc`
-1.  Go to the aforementioned [manuscript](https://www.researchsquare.com/article/rs-51964/v1). Download the PDF and upload it to your new `doc`-folder
+1.  Make sure you are in your `r_for_bio_data_science` project, you can verify this in the upper right corner
+1.  In the same place as your `r_for_bio_data_science.Rproj` file and existing `data` folder, create a new folder and name it `doc`
+1.  Go to the aforementioned [manuscript](https://www.researchsquare.com/article/rs-51964/v1). Download the PDF and upload it to your new `doc` folder
 1.  Open the PDF and find the link to the data
 1.  Go to the data site (*Note, you may have to create and account to download, shouldn't take too long*)
 .  Find and download the file `ImmuneCODE-MIRA-Release002.1.zip` (*CAREFUL, do not download the superseded files*)
 1.  Unpack the downloaded file
-1.  Find the files `peptide-detail-ci.csv` and `subject-metadata.csv` and compress to `.zip`-files
-1.  Upload the compressed `peptide-detail-ci.csv.zip`- and `subject-metadata.csv.zip`-files to your `data`-folder in your RStudio Cloud session
+1.  Find the files `peptide-detail-ci.csv` and `subject-metadata.csv` and compress to `.zip` files
+1.  Upload the compressed `peptide-detail-ci.csv.zip` and `subject-metadata.csv.zip` files to your `data` folder in your RStudio Cloud session
 1. Finally, once again, create a new Quarto document for today's exercises, containing the sections:
     1. Background
     1. Aim
@@ -184,7 +184,7 @@ meta_data |>
 
 Read this first:
 
-- *Think about: What is on the x-axis? What is on the y-axis? And also, it looks like we need to do some counting. Recall, that we can stick together a `dplyr`-pipeline with a call to `ggplot`, so here we will have to `count` of `Cohort` and `Gender` before plotting*
+- *Think about: What is on the x-axis? What is on the y-axis? And also, it looks like we need to do some counting. Recall, that we can stick together a `dplyr` pipeline with a call to `ggplot`, so here we will have to `count` of `Cohort` and `Gender` before plotting*
 
 ```{r}
 #| echo: false
@@ -210,7 +210,7 @@ meta_data |>
 Does your plot look different somehow? Consider peeking at the hint...
 
 <details><p><summary>Click here for hint</summary></p>
-*Perhaps not everyone agrees on how to denote `NA`s in data. I have seen `-99`, `-11`, `_` and so on... Perhaps this can be dealt with in the instance we read the data from the file? I.e. in the actual function call to your `read`-function. Recall, how can we get information on the parameters of a `?function`*
+*Perhaps not everyone agrees on how to denote `NA`s in data. I have seen `-99`, `-11`, `_` and so on... Perhaps this can be dealt with in the instance we read the data from the file? I.e. in the actual function call to your `read()` function. Recall, how can we get information on the parameters of a `?function`*
 </details>
 
 - **T2: Re-create this plot**
@@ -279,7 +279,7 @@ meta_data |>
 
 Lastly, before we proceed, the `meta_data` contains HLA data for both class I and class II (see background), but here we are **only** interested in class I, recall these are denoted `HLA-A`, `HLA-B` and `HLA-C`, so make sure to remove any non-class I, i.e. the one after, denoted `D`-something.
 
-- **T4: Create a new version of the `meta_data`, which with respect to allele-data only contains information on class I and also fix the odd naming, e.g. `HLA-A...9` becomes `A1` oand `HLA-A...10` becomes `A2` and so on for `B1`, `B2`, `C1` and `C2` (Think: How can we `rename` variables? And here, just do it "manually" per variable). Remember to assign this new data to the same `meta_data`-variable**
+- **T4: Create a new version of the `meta_data`, which with respect to allele-data only contains information on class I and also fix the odd naming, e.g. `HLA-A...9` becomes `A1` oand `HLA-A...10` becomes `A2` and so on for `B1`, `B2`, `C1` and `C2` (Think: How can we `rename` variables? And here, just do it "manually" per variable). Remember to assign this new data to the same `meta_data` variable**
 
 <details><p><summary>Click here for hint</summary></p>
 *Which `tidyverse` function subsets variables? Perhaps there is a function, which somehow `matches` a set of variables? And perhaps for the initiated this is compatible with regular expressions (If you don't know what this means - No worries! If you do, see if you utilise this to simplify your variable selection)*
@@ -307,7 +307,7 @@ meta_data |>
   sample_n(10)
 ```
 
-Now, we have a beautiful `tidy`-dataset, recall that this entails, that each row is an observation, each column is a variable and each cell holds one value.
+Now, we have a beautiful `tidy` dataset, recall that this entails, that each row is an observation, each column is a variable and each cell holds one value.
 
 #### The Peptide Details Data
 
@@ -324,17 +324,17 @@ peptide_data |>
 
 This is a rather big data set, so let us start with two "tricks" to handle this, first:
 
-1. *Write the data back into your `data`-folder, using the filename `peptide-detail-ci.csv.gz`, note the appending of `.gz`, which is automatically recognised and results in gz-compression*
+1. *Write the data back into your `data` folder, using the filename `peptide-detail-ci.csv.gz`, note the appending of `.gz`, which is automatically recognised and results in gz-compression*
 1. *Now, check in your data folder, that you have two files `peptide-detail-ci.csv` and `peptide-detail-ci.csv.gz`, delete the former*
-1. *Adjust your reading-the-data-code in the "Load Data"-section, to now read in the `peptide-detail-ci.csv.gz`-file*
+1. *Adjust your reading-the-data-code in the "Load Data"-section, to now read in the `peptide-detail-ci.csv.gz` file*
 
 <details><p><summary>Click here for hint</summary></p>
-*Just as you can `read` a file, you can of course also `write` a file. Note the filetype we want to write here is `csv`. If you in the console type e.g. `readr::wr` and then hit the `tab`-button, you will see the different functions for writing different filetypes*
+*Just as you can `read` a file, you can of course also `write` a file. Note the filetype we want to write here is `csv`. If you in the console type e.g. `readr::wr` and then hit the Tab key, you will see the different functions for writing different filetypes*
 </details>
 
 Then:
 
-- **T5: As before, let's immediately subset the `peptide_data` to the variables of interest: `TCR BioIdentity`, `Experiment` and `Amino Acids`. Remember to assign this new data to the same `peptide_data`-variable to avoid cluttering your environment with redundant variables. Bonus: Did you know you can click the `Environment` pane and see which variables you have?**
+- **T5: As before, let's immediately subset the `peptide_data` to the variables of interest: `TCR BioIdentity`, `Experiment` and `Amino Acids`. Remember to assign this new data to the same `peptide_data` variable to avoid cluttering your environment with redundant variables. Bonus: Did you know you can click the `Environment` pane and see which variables you have?**
 
 ```{r}
 #| echo: false
@@ -373,7 +373,7 @@ peptide_data |>
 ```
 
 <details><p><summary>Click here for hint</summary></p>
-*First: Compare the two datasets and identify what happened? Did any variables "dissappear" and did any "appear"? Ok, so this is a bit tricky, but perhaps there is a function to `separate` a composit (untidy) `col`umn `into` a set of new variables based on a `sep`arator? But what is a `sep`arator? Just like when you read a file with `C`omma `S`eparated `V`alues, a separator denotes how a composite string is divided into fields. So look for such a repeated values, which seem to indeed separate such fields. Also, be aware, that character, which can mean more than one thing, may need to be "escaped" using an initial two backslashed, i.e. "\\x", where x denotes the character needing to be "escaped"*
+*First: Compare the two datasets and identify what happened? Did any variables "disappear" and did any "appear"? Ok, so this is a bit tricky, but perhaps there is a function to `separate` a composite (untidy) `col`umn `into` a set of new variables based on a `sep`arator? But what is a `sep`arator? Just like when you read a file with `C`omma `S`eparated `V`alues, a separator denotes how a composite string is divided into fields. So, look for such a repeated value, which seem to indeed separate such fields. Also, be aware, that character, which can mean more than one thing, may need to be "escaped" using an initial two backslashed, i.e. "\\x", where x denotes the character needing to be "escaped"*
 </details>
 
 - **T7: Add a variable, which counts how many peptides are in each observation of `Amino Acids`**
@@ -387,7 +387,7 @@ peptide_data <- peptide_data |>
 ```
 
 <details><p><summary>Click here for hint</summary></p>
-*We have been working with the `stringr`-package, perhaps the contains a function to somehow count the number of occurrences of a given character in a string? Again, remember you can type e.g. `stringr::str_` and then hit the `tab`-button to see relevant functions*
+*We have been working with the `stringr` package, perhaps the contains a function to somehow count the number of occurrences of a given character in a string? Again, remember you can type e.g. `stringr::str_` and then hit the Tab key to see relevant functions*
 </details>
 
 ```{r}
@@ -420,7 +420,7 @@ peptide_data |>
 
 - **Q4: What is the maximum number of peptides assigned to one observation?**
 
-- **T9: Using the `str_c`- and the `seq`-functions, re-create the below**
+- **T9: Using the `str_c()` and the `seq()` functions, re-create the below**
 
 ```{r}
 #| echo: false
@@ -459,11 +459,11 @@ peptide_data |>
 
 - **Q6: With respect to `peptide_n`, discuss in your group, if this is wide- or long-data?**
 
-Now, finally we will use the what we prepared for today, data-pivotting. There are two functions, namely `pivot_wider()` and `pivot_longer()`. Also, now, we will use a trick when developing ones data pipeline, while working with new functions, that on might not be completely comfortable with. You have seen the `sample_n()`-function several times above and we can use that to randomly sample `n`-observations from data. This we can utilise to work with a smaller data set in the development face and once we are ready, we can increase this `n` gradually to see if everything continues to work as anticipated.
+Now, finally we will use the what we prepared for today, data pivoting. There are two functions, namely `pivot_wider()` and `pivot_longer()`. Also, now, we will use a trick when developing ones data pipeline, while working with new functions, that on might not be completely comfortable with. You have seen the `sample_n()` function several times above and we can use that to randomly sample `n` observations from data. This we can utilise to work with a smaller data set in the development face and once we are ready, we can increase this `n` gradually to see if everything continues to work as anticipated.
 
-- **T11: Using the `peptide_data`, run a few `sample_n()`-calls with varying degree of `n` to make sure, that you get a feeling for what is going on**
+- **T11: Using the `peptide_data`, run a few `sample_n()` calls with varying degree of `n` to make sure, that you get a feeling for what is going on**
 
-- **T12: From the `peptide_data` data above, with peptide_1, peptide_2, etc. create this data set using one of the data-pivotting functions. Remember to start initially with sampling a smaller data set and then work on that first! Also, once you're sure you're good to go, reuse the `peptide_data`-variable as we don't want huge redundant data sets floating around in our environment**
+- **T12: From the `peptide_data` data above, with peptide_1, peptide_2, etc. create this data set using one of the data pivoting functions. Remember to start initially with sampling a smaller data set and then work on that first! Also, once you're sure you're good to go, reuse the `peptide_data` variable as we don't want huge redundant data sets floating around in our environment**
 
 ```{r}
 #| echo: false
@@ -477,7 +477,7 @@ peptide_data <- peptide_data |>
 
 <details><p><summary>Click here for hint</summary></p>
 
-If the pivotting is not clear at all, then do what I do, create some example data:
+If the pivoting is not clear at all, then do what I do, create some example data:
 
 ```{r}
 #| echo: true
@@ -489,7 +489,7 @@ my_data <- tibble(
   var_3 = round(rnorm(10),1))
 ```
 
-...and then play around with that. A small set like the one above is easy to handle, so perhaps start with that and then pivot back and forth a few times using the `pivot_wider()`-/`pivot_longer()`-functions. Use the `View()`-function to inspect and get a better overview of the results of pivotting. 
+...and then play around with that. A small set like the one above is easy to handle, so perhaps start with that and then pivot back and forth a few times using `pivot_wider()`/`pivot_longer()`. Use `View()` to inspect and get a better overview of the results of pivoting. 
 
 </details>
 
@@ -500,11 +500,11 @@ peptide_data |>
   sample_n(10)
 ```
 
-- **Q7: You will see some `NA`s in the `peptide`-variable, discuss in your group from where these arise?**
+- **Q7: You will see some `NA`s in the `peptide` variable, discuss in your group from where these arise?**
 
 - **Q8: How many rows and columns now and how does this compare with Q3? Discuss why/why not it is different?**
 
-- **T13: Now, loose the redundant variables `n_peptides` and `peptide_n` and also get rid of the `NA`s in the `peptide`-column and make sure, that we only have unique observations, i.e. there are no repeated rows/observations**
+- **T13: Now, lose the redundant variables `n_peptides` and `peptide_n`, get rid of the `NA`s in the `peptide` column, and make sure that we only have unique observations (i.e. there are no repeated rows/observations).**
 
 ```{r}
 #| echo: false
@@ -526,9 +526,9 @@ peptide_data |>
 
 - **Q8: Now how many rows and columns and is this data tidy? Discuss in your group why/why not?**
 
-Again, we turn to the `stringr`-package, as we need to make sure that the sequence data does indeed only contain valid characters. There are a total of 20 proteogenic amino acids, which we symbolise using `ARNDCQEGHILKMFPSTWYV`.
+Again, we turn to the `stringr` package, as we need to make sure that the sequence data does indeed only contain valid characters. There are a total of 20 proteogenic amino acids, which we symbolise using `ARNDCQEGHILKMFPSTWYV`.
 
-- **T14: Use the `str_detect()`-function to `filter` the `CDR3b` and `peptide` variables using a `pattern` of `[^ARNDCQEGHILKMFPSTWYV]` and then play with the `negate`-parameter so see what happens**
+- **T14: Use the `str_detect()` function to `filter` the `CDR3b` and `peptide` variables using a `pattern` of `[^ARNDCQEGHILKMFPSTWYV]` and then play with the `negate` parameter so see what happens**
 
 ```{r}
 #| echo: false
@@ -540,7 +540,7 @@ peptide_data <- peptide_data |>
 ```
 
 <details><p><summary>Click here for hint</summary></p>
-*Again, try to play a bit around with the function in the console, type e.g. `str_detect(string = "ARND", pattern = "A")` and `str_detect(string = "ARND", pattern = "C")` and then recall, that the `filter`-function requires a logical vector, i.e. a vector of `TRUE` and `FALSE` to filter the rows*
+*Again, try to play a bit around with the function in the console, type e.g. `str_detect(string = "ARND", pattern = "A")` and `str_detect(string = "ARND", pattern = "C")` and then recall, that the `filter()` function requires a logical vector, i.e. a vector of `TRUE` and `FALSE` to filter the rows*
 </details>
 
 - **T15: Add two new variables to the data, `k_CDR3b` and `k_peptide` each signifying the length of the respective sequences**
@@ -611,7 +611,7 @@ peptide_data |>
 
 #### Creating one data set from two data sets
 
-Before we move onto using the family of `*_join`-functions you prepared for today, we will just take a quick peek at the meta data again:
+Before we move onto using the family of `*_join()` functions you prepared for today, we will just take a quick peek at the meta data again:
 
 ```{r}
 #| echo: true
@@ -623,11 +623,11 @@ meta_data |>
 
 Remember you can scroll in the data.
 
-- **Q12: Discuss in your group, if this data with respect to the `A1`-, `A2`-, `B1`-, `B2`-, `C1-` and `C2`-variables is a wide- or a long-data format?**
+- **Q12: Discuss in your group, if this data with respect to the `A1`, `A2`, `B1`, `B2`, `C1` and `C2` variables is a wide or a long data format?**
 
-As with the `peptide_data`, we will now have to use data-pivotting again. I.e.:
+As with the `peptide_data`, we will now have to use data pivoting again. I.e.:
 
-- **T18: use either the `pivot_wider`- or `pivot_longer`-function to create the following data:**
+- **T18: use either `pivot_wider()` or `pivot_longer()` to create the following data:**
 
 ```{r}
 #| echo: false
@@ -667,12 +667,12 @@ meta_data |>
   sample_n(10)
 ```
 
-Use the `View()`-function again, to look at the `meta_data` - Notice something? Some alleles are e.g. `A*11:01`, whereas others are `B*51:01:02`. You can find information on why, by visiting [Nomenclature for Factors of the HLA System](http://hla.alleles.org/nomenclature/naming.html).
+Use the `View()` function again, to look at the `meta_data`. Notice something? Some alleles are e.g. `A*11:01`, whereas others are `B*51:01:02`. You can find information on why, by visiting [Nomenclature for Factors of the HLA System](http://hla.alleles.org/nomenclature/naming.html).
 
-Long story short, we only want to include `Field 1` (allele group) and `Field 2` (Specific HLA protein). You have prepared the `stringr`-package for today. See if you can find a way to reduce e.g. `B*51:01:02` to `B*51:01` and then create a new variable `Allele_F_1_2` accordingly, while also removing the `...x` (where `x` is a number) subscripts from the `Gene`-variable (It is an artifact from having the data in a wide format, where you cannot have two variables with the same name) and also, remove any `NA`s and `""`s, denoting empty entries.
+Long story short, we only want to include `Field 1` (allele group) and `Field 2` (Specific HLA protein). You have prepared the `stringr` package for today. See if you can find a way to reduce e.g. `B*51:01:02` to `B*51:01` and then create a new variable `Allele_F_1_2` accordingly, while also removing the `...x` (where `x` is a number) subscripts from the `Gene` variable (It is an artifact from having the data in a wide format, where you cannot have two variables with the same name) and also, remove any `NA`s and `""`s, denoting empty entries.
 
 <details><p><summary>Click here for hint</summary></p>
-*There are several ways this can be achieved, the easiest being to consider if perhaps a part of the string based on indices could be of interest. This term "a part of a string" is called a substring, perhaps the `stringr`-package contains a function work with substring? In the console, type `stringr::` and hit `tab`. This will display the functions available in the `stringr`-package. Scroll down and find the functionst starting with `str_` and look for on, which might be relevant and remember you can use `?function_name` to get more information on how a given function works.*
+*There are several ways this can be achieved, the easiest being to consider if perhaps a part of the string based on indices could be of interest. This term "a part of a string" is called a substring, perhaps the `stringr` package contains a function work with substring? In the console, type `stringr::` and hit `tab`. This will display the functions available in the `stringr` package. Scroll down and find the functionst starting with `str_` and look for on, which might be relevant and remember you can use `?function_name` to get more information on how a given function works.*
 </details>
 
 ```{r}
@@ -694,9 +694,9 @@ meta_data |>
   sample_n(10)
 ```
 
-The asterix, i.e. `*` is a rather annoying character because of ambiguity, so:
+The asterisk, i.e. `*` is a rather annoying character because of ambiguity, so:
 
-- **T20: Clean the data a bit more, by removing the asterix and redundant variables:**
+- **T20: Clean the data a bit more, by removing the asterisk and redundant variables:**
 
 ```{r}
 #| echo: false
@@ -715,7 +715,7 @@ meta_data |>
 ```
 
 <details><p><summary>Click here for hint 1</summary></p>
-*Again, the `stringr`-package may come in handy. Perhaps there is a function `remove`, one or more such pesky characters?*
+*Again, the `stringr` package may come in handy. Perhaps there is a function `remove`, one or more such pesky characters?*
 </details>
 
 <details><p><summary>Click here for hint 2</summary></p>
@@ -732,7 +732,7 @@ peptide_data |>
   sample_n(10)
 ```
 
-- **T21: Create a `dplyr`-pipeline, starting with the `peptide_data`, which joins it with the `meta_data` and remember to make sure that you get only unqiue observations of rows. Save this data into a new variable names `peptide_meta_data` (If you get a warning, discuss in your group what it means?)**
+- **T21: Create a `dplyr` pipeline, starting with the `peptide_data`, which joins it with the `meta_data` and remember to make sure that you get only unqiue observations of rows. Save this data into a new variable names `peptide_meta_data` (If you get a warning, discuss in your group what it means?)**
 
 ```{r}
 #| echo: false
@@ -773,10 +773,10 @@ Now, that we have the data in a prepared and ready-to-analyse format, let us ret
 
 As we have touched upon multiple times, `R` is *very* flexible and naturally you can also create sequence logos. Finally, let us create a binding motif using the package `ggseqlogo` ([More info here](https://omarwagih.github.io/ggseqlogo/)).
 
-- **T22: Subset the final `peptide_meta_data`-data to `A02:01` and unique observations of peptides of length 9 and re-create the below sequence logo**
+- **T22: Subset the final `peptide_meta_data` data to `A02:01` and unique observations of peptides of length 9 and re-create the below sequence logo**
 
 <details><p><summary>Click here for hint</summary></p>
-*You can pipe a vector of peptides into ggseqlogo, but perhaps you first need to `pull` that vector from the relevant variable in your tibble? Also, consider before that, that you'll need to make sure, you are only looking at peptides of length 9*
+*You can pipe a vector of peptides into `ggseqlogo`, but perhaps you first need to `pull` that vector from the relevant variable in your tibble? Also, consider before that, that you'll need to make sure, you are only looking at peptides of length 9*
 </details>
 
 ```{r}
@@ -792,7 +792,7 @@ peptide_meta_data |>
   ggseqlogo()
 ```
 
-- **T23: Repeat for e.g. `B07:02` or another of your favorite alleles**
+- **T23: Repeat for e.g. `B07:02` or another of your favourite alleles**
 
 Now, let's take a closer look at the sequence logo:
 
@@ -828,13 +828,13 @@ peptide_meta_data |>
 
 That's it for today - I know this overwhelming now, but commit to it and you WILL be plenty rewarded! I hope today was at least a glimpse into the flexibility and capabilities of using `tidyverse` for applied Bio Data Science
 
-...also, noticed something? We spend maybe 80% of the time here on dealing with data-wrangling and then once we're good to go, the analysis wasn't that time consuming - That's often the way it ends up going, you'll spend a lot of time on data handling and getting the tidyverse toolbox in your toolbelt, will allow you to be so much more effecient in your data wrangling, so you can get to the fun part as quick as possible!
+...also, noticed something? We spend maybe 80% of the time here on dealing with data-wrangling and then once we're good to go, the analysis wasn't that time consuming - That's often the way it ends up going, you'll spend a lot of time on data handling and getting the tidyverse toolbox in your tool belt, will allow you to be so much more efficient in your data wrangling, so you can get to the fun part as quick as possible!
 
 ## [Today's Assignment]{style="color: red;"} {#sec-assignment}
 
 After today, we are halfway through the labs of the course, so now is a good time to spend some time recalling what we have been over and practising writing a reproducible Quarto-report.
 
-Your group assignment today is to condense the exercises into a group micro-report! Talk together and figure out how to destill the exercises from today into one small end-to-end runable reproducible micro-report. DO NOT include ALL of the exercises, but rather include as few steps as possible to arrive at your results. Be vey consise!
+Your group assignment today is to condense the exercises into a group micro-report! Talk together and figure out how to distil the exercises from today into one small end-to-end runnable reproducible micro-report. DO NOT include ALL of the exercises, but rather include as few steps as possible to arrive at your results. Be very concise!
 
 But WHY? WHY are you not specifying exactly what we need to hand in? *Because we are training taking independent decisions, which is crucial in applied bio data science, so take a look at the combined group code, select relevant sections and condense - If you don't make it all the way through the exercises, then condense and present what you were able to arrive at! What do you think is central/important/indispensable? Also, these hand ins are NOT for us to evaluate you, but for you to train creating products and the get feedback on your progress!*
 
