@@ -92,7 +92,7 @@ ls()
 
 Take some time and play around with these commands and other things you can come up with. Use the `?function` to get help on what that function does. Be sure to discuss what you observe in the console. Do not worry too much on the details for now, we are just getting started. But as you hopefully can see, `R` is very flexible and basically the message is: "If you can think it, you can build it in `R`".
 
-- Go to [2 Workflow: basics](https://r4ds.hadley.nz/workflow-basics) in R4DS2e and do the exercises
+- Go to [R4DS2e Chapter 2 Workflow: basics](https://r4ds.hadley.nz/workflow-basics) in R4DS2e and do the exercises
 
 #### The Terminal
 
@@ -157,7 +157,7 @@ If you have previously worked with `Rmarkdown`, then many features of `Quarto` w
 
 Perhaps you have previously encountered Jupyter notebooks, Quarto is similar. The basic idea is to have one document covering the entire project cycle, i.e. code, plots and text will be in the same document.
 
-Proceed [R for Data Science (2e), chapter 29](https://r4ds.hadley.nz/quarto) and do the exercises.
+Proceed to [R4DS2e Chapter 28 Quarto](https://r4ds.hadley.nz/quarto) and do the exercises.
 
 ### Bio Data Science with a Virtual AI Assistant
 
