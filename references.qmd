@@ -1,0 +1,6 @@
+# References {.unnumbered}
+
+_Note: These references primarily consist of papers that describe the datasets utilised in the course. Thus, these papers are not required reading for the course._
+
+::: {#refs}
+:::
