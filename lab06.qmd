@@ -81,10 +81,10 @@ library("broom")
 
 So far, we have worked on
 
-- Lab 2: Genomis, the `gravier` data from [A prognostic DNA signature for T1T2 node-negative breast cancer patients](https://pubmed.ncbi.nlm.nih.gov/20842727/)
-- Lab 3: Metagenomics, the `pitlatrine` data from [“Assessment of the influence of intrinsic environmental and geographical factors on the bacterial ecology of pit latrines”](https://sfamjournals.onlinelibrary.wiley.com/doi/full/10.1111/1751-7915.12334)
-- Lab 4: Clinical data, the `diabetes` data from [Prevalence of coronary heart disease risk factors among rural blacks: a community-based study](https://pubmed.ncbi.nlm.nih.gov/9258308/) and [A trial of church-based smoking cessation interventions for rural African Americans](https://pubmed.ncbi.nlm.nih.gov/9010903/)
-- Lab 5: High throughput immunoinformatics data, the `SARS-CoV-2` data [A large-scale database of T-cell receptor beta (TCRβ) sequences and binding associations from natural and synthetic exposure to SARS-CoV-2](https://www.researchsquare.com/article/rs-51964/v1)
+- Lab 2: Genomics, the `gravier` data from @Gravier2010.
+- Lab 3: Metagenomics, the `pitlatrine` data from @Torondel2016.
+- Lab 4: Clinical data, the `diabetes` data from @Willems1997 and @Schorling1997.
+- Lab 5: High throughput immunoinformatics data, the `SARS-CoV-2` data from @Nolan2020.
 
 ## Getting Started
 
@@ -518,7 +518,7 @@ gravier_estimates <- gravier_estimates |>
 gravier_estimates
 ```
 
-*But... `q.value`??? What are you on about??? Here is a nice primer on ["How does multiple testing correction work?"](https://www.nature.com/articles/nbt1209-1135)*
+*But... `q.value`??? What are you on about??? For a nice primer on how multiple testing correction works, please read this article by @Noble2009!*
 
 #### Recap
 

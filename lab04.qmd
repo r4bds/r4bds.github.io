@@ -321,7 +321,7 @@ This is **very** important for plotting, as this will determine the order in whi
 
 <details>
 <p><summary>Click here for hint</summary></p>
-BFP can be calculated usin the below equation [source](https://www.nature.com/articles/0802006):
+BFP can be calculated using the following equation from @Jackson2002:
 
 $$BFP = 1.39 \cdot BMI + 0.16 \cdot age - 10.34 \cdot sex - 9$$
 

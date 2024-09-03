@@ -49,7 +49,7 @@ _Read the steps of this exercises carefully, while completing them_
 
 Some authors are kind enough to supply the data they used for their paper, e.g.,
 
-- [_"Assessment of the influence of intrinsic environmental and geographical factors on the bacterial ecology of pit latrines"_](https://sfamjournals.onlinelibrary.wiley.com/doi/full/10.1111/1751-7915.12334)
+- "Assessment of the influence of intrinsic environmental and geographical factors on the bacterial ecology of pit latrines" [@Torondel2016]
 
 Where the supporting data can be found here:
 
