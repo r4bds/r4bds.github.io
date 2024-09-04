@@ -318,6 +318,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -471,19 +476,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Click <code>Create Project</code></li>
 </ol>
 <p><em>Congratulations! You have just cloned your first GitHub repository!</em></p>
-<p>In your <code>Files</code>-pane, you should now see:</p>
+<p>In your <code>Files</code> pane, you should now see:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/git_first_files.png" class="img-fluid figure-img" style="width:40.0%"></p>
 </figure>
 </div>
-<p>…and now in your <code>Environment</code>-pane, you should see a new <code>git</code>-tab:</p>
+<p>…and now in your <code>Environment</code> pane, you should see a new <code>git</code> tab:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/git_environment_pane.png" class="img-fluid figure-img" style="width:50.0%"></p>
 </figure>
 </div>
-<p>If you click the <code>git</code>-tab, you should see:</p>
+<p>If you click the <code>git</code> tab, you should see:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/environment_pane_git_tab.png" class="img-fluid figure-img" style="width:50.0%"></p>
@@ -497,13 +502,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4 class="anchored" data-anchor-id="team-2"><strong><span style="color:darkgreen;">Team</span></strong></h4>
 <ol type="1">
 <li>Create a new Quarto document, title it <code>student_id</code> and save id as <code>student_id.qmd</code>, where <code>student_id</code> is your… You guessed it!</li>
-<li>In the <code>environment</code>-pane, click the <code>git</code>-tab</li>
+<li>In the <code>environment</code> pane, click the <code>git</code> tab</li>
 <li>Tick the 3 boxes under <code>staged</code></li>
 <li>Click <code>commit</code></li>
 <li>In the upper right corner, add a <code>Commit message</code>, e.g “First commit by student_id”</li>
-<li>Click the <code>Commit</code>-button</li>
+<li>Click the <code>Commit</code> button</li>
 <li>A pop-up, will give you details on your commit, look through them and then click <code>Close</code></li>
-<li>Now, very important <strong>ALWAYS</strong> click the <img src="images/pull.png" class="img-fluid"> <code>Pull</code>-button <strong>BEFORE</strong> clicking the <img src="images/push.png" class="img-fluid"> <code>Push</code>-button</li>
+<li>Now, very important <strong>ALWAYS</strong> click the <img src="images/pull.png" class="img-fluid"> <code>Pull</code> button <strong>BEFORE</strong> clicking the <img src="images/push.png" class="img-fluid"> <code>Push</code> button</li>
 <li>Clicking <code>Pull</code>, you should see “Already up to date.”</li>
 <li>Then click <code>Push</code></li>
 </ol>
@@ -532,7 +537,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Under <code>Note</code>, where it says <code>DESCRIBE THE TOKEN'S USE CASE</code>, delete the text and write e.g.<code>R for Bio Data Science lab 7 git exercises</code></li>
 <li>Under <code>Expiration</code>, where it says <code>30 days</code>, change that to <code>90 days</code></li>
 <li>Do not change any other setting, but simply scroll down and click <code>Generate token</code></li>
-<li>A new <code>Personal access tokens (classic)</code>-page will appear, stating your personal access token, which starts with <code>ghp_</code>, go ahead and copy it</li>
+<li>A new <code>Personal access tokens (classic)</code> page will appear, stating your personal access token, which starts with <code>ghp_</code>, go ahead and copy it</li>
 <li>Store the <code>PAT</code> somewhere save, e.g.&nbsp;in a password management tool</li>
 <li>Again in the console, run the below command and enter your <code>PAT</code> when prompted:</li>
 </ol>
@@ -540,9 +545,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="10" type="1">
-<li>In the <code>Environment</code>-pane, make sure you are in the <code>git</code>-tab and again click <code>Pull</code> (We <em>always</em> pull before push)</li>
+<li>In the <code>Environment</code> pane, make sure you are in the <code>git</code> tab and again click <code>Pull</code> (We <em>always</em> pull before push)</li>
 <li>Click <code>Push</code></li>
-<li>Go to your groups <code>GitHub</code>-project page <code>https://github.com/CAPTAIN_USERNAME/groupXX</code></li>
+<li>Go to your groups <code>GitHub</code> project page <code>https://github.com/CAPTAIN_USERNAME/groupXX</code></li>
 <li>Confirm, that you see your files</li>
 </ol>
 <p><em>Congratulations! You just took your first step towards true collaborative bio data science!</em></p>
@@ -551,19 +556,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="making-your-credentials-and-personal-access-token-stick-around-team" class="level4">
 <h4 class="anchored" data-anchor-id="making-your-credentials-and-personal-access-token-stick-around-team">Making your Credentials and Personal Access Token stick around (<strong><span style="color:darkgreen;">Team</span></strong>)</h4>
 <p><em>The thing is, we’re actually working on a Linux server her, this entails a that you’re credentials and PAT exists in a cache, which is cleared every 15 minutes. This. Is. Annoying! So let’s fix it!</em></p>
-<p>First of all RStudio is a (G)raphical (U)ser (I)nterface, meaning, that it allows you to do pointy-clicky stuff, but at the end of the day, everything happens at the commandline. That also goes for git, so your button-pushing simply gets converted into commands, which are executed at the commandline. If you are not comfortable with the commandline, don’t worry, the pointy-clicky stuff will be sufficient for now! If you are comfortable with the commandline, I advice to get comfortable with git on the commandline as well, you do get some extra bang-for-the-buck!</p>
-<p>Now, a brief visit of the commandline:</p>
+<p>First of all RStudio is a (G)raphical (U)ser (I)nterface, meaning, that it allows you to do pointy-clicky stuff, but at the end of the day, everything happens at the command line. That also goes for git, so your button-pushing simply gets converted into commands, which are executed at the command line. If you are not comfortable with the command line, don’t worry, the pointy-clicky stuff will be sufficient for now! If you are comfortable with the command line, I advice to get comfortable with git on the command line as well, you do get some extra bang-for-the-buck!</p>
+<p>Now, a brief visit of the command line:</p>
 <ol type="1">
-<li>In the <code>Console</code>-pane, click the <code>Terminal</code>-tab, which gains you access to the system underlying RStudio</li>
+<li>In the <code>Console</code> pane, click the <code>Terminal</code> tab, which gains you access to the system underlying RStudio</li>
 <li>You should see something like <code>user@pupilX:/net/pupilX/home/people/user/projects/lab07_git_exercises$</code></li>
-<li>Enter <code>ls -a</code>, this will <code>l</code>ist <code>a</code>ll the files, compare with your <code>Files</code>-pane, you will see that RStudio is “hiding” something from you, namely the <code>.git</code> folder</li>
+<li>Enter <code>ls -a</code>, this will <code>l</code>ist <code>a</code>ll the files, compare with your <code>Files</code> pane, you will see that RStudio is “hiding” something from you, namely the <code>.git</code> folder</li>
 <li>Enter <code>ls -a .git</code> and you will see the content of the folder, this is where all the git-magic happens</li>
 <li>See the config file? That holds the configuration, enter <code>git config --global --list</code></li>
 <li>Recall you entered your GitHub username and mail? This is where it ended up! Note the <code>credential.helper=cache</code>, which tells us, that the credentials are being cached. Now, enter <code>git config --global credential.helper 'cache --timeout=86400'</code></li>
 <li>Re-run the command <code>git config --global --list</code> and confirm the change</li>
 <li>Go back to your <code>Console</code> and run the command <code>gitcreds::gitcreds_set()</code> and re-enter your PAT</li>
 </ol>
-<p><em>Congratulations! You have now used the commandline and you will forever be part of an elite few, who know that everything you see in hacker-movies is BS, except perhaps for Wargames and Mr.&nbsp;Robot! Also, your PAT will now be good for 24h</em></p>
+<p><em>Congratulations! You have now used the command line and you will forever be part of an elite few, who know that everything you see in hacker-movies is BS, except perhaps for Wargames and Mr.&nbsp;Robot! Also, your PAT will now be good for 24h</em></p>
 </section>
 </section>
 <section id="your-next-collaboration" class="level3">
@@ -574,10 +579,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Create a new Quarto Document, title it “Group Document” and save it as <code>group_document.qmd</code></li>
 <li>Using markdown headers, create one section for each group member, incl.&nbsp;yourself. Here, you can use your names, student ids or whatever you deem appropriate</li>
-<li>Again in the <code>Environment</code>-pane, make sure you are in the <code>git</code>-tab and then tick the box next to <code>group_document.qmd</code></li>
+<li>Again in the <code>Environment</code> pane, make sure you are in the <code>git</code> tab and then tick the box next to <code>group_document.qmd</code></li>
 <li>Click <code>Commit</code></li>
 <li>Add a commit message, e.g.&nbsp;“Add group document”</li>
-<li>Click the <code>Commit</code>-button</li>
+<li>Click the <code>Commit</code> button</li>
 <li>Click <code>Pull</code> (You should be “Already up to date.”)</li>
 <li>Click <code>Push</code></li>
 <li>Click <code>Close</code></li>
@@ -591,7 +596,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Open <code>group_document.qmd</code> and find your assigned section</li>
 <li>In your section and your section only, enter some text, add a few code chunks with some <code>R</code>-code</li>
 <li>Make sure to save the document</li>
-<li>Now again, find the <code>group_document.qmd</code> in the <code>git</code>-tab of the <code>Environment</code>-pane and tick the box under <code>Staged</code></li>
+<li>Now again, find the <code>group_document.qmd</code> in the <code>git</code> tab of the <code>Environment</code> pane and tick the box under <code>Staged</code></li>
 <li>Click <code>Commit</code></li>
 <li>Note how your changes to the document are highlighted in green</li>
 <li>Add a commit message, e.g.&nbsp;“Update the STUDENT_ID section” and click <code>Commit</code></li>
@@ -619,7 +624,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="team-3" class="level4">
 <h4 class="anchored" data-anchor-id="team-3"><strong><span style="color:darkgreen;">Team</span></strong></h4>
 <ol type="1">
-<li>Go to your RStudio session and in the <code>git</code>-tab of the <code>Environment</code>-pane, click <img src="images/git_new_branch.png" class="img-fluid"> <code>New Branch</code></li>
+<li>Go to your RStudio session and in the <code>git</code> tab of the <code>Environment</code> pane, click <img src="images/git_new_branch.png" class="img-fluid"> <code>New Branch</code></li>
 <li>In branch name, enter your student id</li>
 <li>You should see a pop-up <code>Branch 'STUDENT_ID' set up to track remote branch 'STUDENT_ID' from 'origin'.</code>, go ahead and click <code>Close</code></li>
 <li>Next to where you clicked <code>New Branch</code> just before, it should now say <code>STUDENT_ID</code>, click it and confirm that you see <code>STUDENT_ID</code> and <code>Main</code></li>
@@ -627,7 +632,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Click <code>STUDENT_ID</code> and you will get a confirmation that you are already on that branch and that you are up-to-date, click <code>Close</code></li>
 <li>In the <code>group_document.qmd</code> under your section, using markdown, enter a new sub-header and name it e.g.&nbsp;<code>New feature</code> or <code>New analysis</code></li>
 <li>Enter some text, a few code chunks with a bit of <code>R</code>-code of your choosing and save the document</li>
-<li>Again, in the <code>git</code>-tab, tick the box under staged and click <code>Commit</code></li>
+<li>Again, in the <code>git</code> tab, tick the box under staged and click <code>Commit</code></li>
 <li>Add a commit message, e.g.&nbsp;<code>New feature from STUDENT_ID</code> and click <code>Commit</code></li>
 <li>Click <code>Close</code>, <code>Pull</code>, <code>Close</code>, <code>Push</code> and <code>Close</code> and then close the commit window</li>
 <li>Go to your group GitHub and confirm that you now have at least 2 branches</li>
@@ -647,28 +652,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Click <code>Confirm merge</code> after which it should now say <code>Pull request successfully merged and closed</code></li>
 <li>You have now fully merged, so go ahead and click <code>Delete branch</code></li>
 <li>Revisit the previous illustration and compare with your branch workflow, make sure that everyone in the groups are on par here</li>
-<li>Finally return to your RStudio session and make sure you switch to the <code>main</code>-branch</li>
+<li>Finally return to your RStudio session and make sure you switch to the <code>main</code> branch</li>
 </ol>
 <p><em>Congratulations! You have now succesfully done your first branch merge!</em></p>
 <p>But wait, what was this <code>Pull request</code>??? What you actually did, was: 1. Created a new branch 1. Completed a new feature/analysis 1. Push’ed the new feature/analysis to GitHub 1. Created a <code>Pull request</code> for merging your branch <code>STUDENT_ID</code> into the <code>main</code> branch 1. Approved and completed the <code>Pull request</code></p>
-<p>Think about e.g.&nbsp;again the <code>ggplot2</code>-repo, if anyone could create a new branch and then do as described above, then there would be no way of making quality control. Therefore, typically such pull requests will have to be approved by someone. This can either be someone who is close-to-the-code e.g.&nbsp;in the case of <code>ggplot2</code>, that’d be someone like Hadley. In a company, then that might be some senior developer approving junior developers pull requests. At one point you might have seen something like “The min branch is unprotected”, this is exactly that!</p>
+<p>Think about e.g.&nbsp;again the <code>ggplot2</code> repo, if anyone could create a new branch and then do as described above, then there would be no way of making quality control. Therefore, typically such pull requests will have to be approved by someone. This can either be someone who is close-to-the-code e.g.&nbsp;in the case of <code>ggplot2</code>, that’d be someone like Hadley. In a company, then that might be some senior developer approving junior developers pull requests. At one point you might have seen something like “The min branch is unprotected”, this is exactly that!</p>
 </section>
 <section id="your-first-merge-conflict" class="level3">
 <h3 class="anchored" data-anchor-id="your-first-merge-conflict">Your first merge conflict</h3>
 <p>Okay, that’s all good an well. Seems easy and straight forward, right? Well, that is as long as we don’t have a <code>conflict</code>. A conflict is when two or more changes to one file are not compatible, consider:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Top <span class="dv">10</span> Data Science Languages of ALL Time<span class="sc">:</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fl">10.</span> It is </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fl">9.</span> Impossible</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fl">8.</span> to rank them</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fl">7.</span> Because</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fl">6.</span> programming is subjective</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fl">5.</span> and everyone</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fl">4.</span> has</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> different</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> tastes</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Top 10 Data Science Languages of ALL Time:</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>10. It is </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>9. Impossible</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>8. to rank them</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>7. Because</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>6. programming is subjective</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>5. and everyone</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>4. has</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>3. different</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>2. tastes</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>1. R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In fact, let’s screw things up!</p>
 <section id="captain-2" class="level4">
 <h4 class="anchored" data-anchor-id="captain-2"><strong><span style="color:darkgreen;">Captain</span></strong></h4>
@@ -676,7 +679,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Go to the RStudio session and where you usually click <code>Quarto Document...</code>, this time let’s just create a simple <code>Text File</code></li>
 <li>Copy/paste the <code>Top 10 Data Science Languages of ALL Time</code> into the file</li>
 <li>Save the file as <code>best_ds_langs.txt</code></li>
-<li>Make sure you are in the <code>main</code>-branch</li>
+<li>Make sure you are in the <code>main</code> branch</li>
 <li>Do a commit/pull/push and check the file ended at your group github</li>
 </ol>
 </section>
@@ -684,57 +687,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4 class="anchored" data-anchor-id="crew-2"><strong><span style="color:darkgreen;">Crew</span></strong></h4>
 <p>Let’s commit mutiny! (pun intended)</p>
 <ol type="1">
-<li>Make sure you are in the <code>main</code>-branch and then hit <code>Pull</code></li>
+<li>Make sure you are in the <code>main</code> branch and then hit <code>Pull</code></li>
 <li>Open the <code>best_ds_langs.txt</code></li>
 <li>Each of you separatly (wrongfully) replace <code>R</code> with an (inferior) data science language of your choice (you can really write anything)</li>
 <li>Now, this time <strong>we do not pull first</strong>, simply commit and then push</li>
 <li>Now you can <code>pull</code></li>
 <li>You will now get notified about a <code>merge conflict</code></li>
-<li>Close and re-open the <code>best_ds_langs.txt</code>-file, it should look something like:</li>
+<li>Close and re-open the <code>best_ds_langs.txt</code> file, it should look something like:</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Top <span class="dv">10</span> Data Science Languages of ALL Time<span class="sc">:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fl">10.</span> It is </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fl">9.</span> Impossible</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fl">8.</span> to rank them</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fl">7.</span> Because</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fl">6.</span> programming is subjective</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fl">5.</span> and everyone</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fl">4.</span> has</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> different</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> tastes</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> C<span class="sc">++</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="er">=======</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> Python</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span><span class="er">&gt;&gt;&gt;&gt;&gt;&gt;</span> 85283ca3246b7f7462ab633085f92ac5f173d3e7</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Top 10 Data Science Languages of ALL Time:</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>10. It is </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>9. Impossible</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>8. to rank them</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>7. Because</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>6. programming is subjective</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>5. and everyone</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>4. has</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>3. different</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>2. tastes</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>1. C++</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>=======</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>1. Python</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 85283ca3246b7f7462ab633085f92ac5f173d3e7</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="captain-3" class="level4">
 <h4 class="anchored" data-anchor-id="captain-3"><strong><span style="color:darkgreen;">Captain</span></strong></h4>
 <p>Get your <strong><span style="color:darkgreen;">Crew</span></strong> in order!</p>
 <ol type="1">
-<li>Simply edit the file so that you delete everything below 2. and add the final line, which emphasises that <code>1. R is superiour!</code></li>
+<li>Simply edit the file so that you delete everything below 2. and add the final line, which emphasises that <code>1. R is superior!</code></li>
 <li>The box under <code>Staged</code> looks a bit odd right, just click it</li>
 <li>Click <code>Commit</code> and add a commit message, e.g.&nbsp;<code>Fixed merge conflict, got crew back in order!</code></li>
 <li>Click <code>Commit</code>, <code>Close</code>, <code>Pull</code>, <code>Close</code>, <code>Push</code>, <code>Close</code> and close the commit window</li>
-<li>Return to your GitHub group and confirm all is in order and you can continue with confidence knowing that <code>R is superiour!</code> (Check the file to make sure)</li>
+<li>Return to your GitHub group and confirm all is in order and you can continue with confidence knowing that <code>R is superior!</code> (Check the file to make sure)</li>
 </ol>
 <p><em>Congratulations! You have now fixed your first merge conflict!</em></p>
-<p>Lastly, click the <code>History</code>-button next to the <code>Push</code>-button and explore the history of how your branches and commits have changed through these exercises.</p>
+<p>Lastly, click the <code>History</code> button next to the <code>Push</code> button and explore the history of how your branches and commits have changed through these exercises.</p>
 </section>
 </section>
 <section id="the-.gitignore-file" class="level3">
 <h3 class="anchored" data-anchor-id="the-.gitignore-file">The .gitignore file</h3>
-<p>You may have noticed the <code>.gitignore</code>-file?</p>
+<p>You may have noticed the <code>.gitignore</code> file?</p>
 <section id="team-4" class="level4">
 <h4 class="anchored" data-anchor-id="team-4"><strong><span style="color:darkgreen;">Team</span></strong></h4>
 <ol type="1">
-<li>Go to your RStudio session, find the <code>.gitignore</code>-file and click it</li>
+<li>Go to your RStudio session, find the <code>.gitignore</code> file and click it</li>
 </ol>
-<p>It contains a list of files and folders, which should <strong>not</strong> end up at your <code>git</code>-repo, i.e.&nbsp;files which should be ignored. An important aspect of working with GitHub is that GitHub is meant for code, <strong>not</strong> data! Let’s say we had a <code>data</code> and a <code>data/_raw/</code>, we could add those to the <code>.gitignore</code>-file to avoid the data being included in our commits.</p>
+<p>It contains a list of files and folders, which should <strong>not</strong> end up at your <code>git</code> repo, i.e.&nbsp;files which should be ignored. An important aspect of working with GitHub is that GitHub is meant for code, <strong>not</strong> data! Let’s say we had a <code>data</code> and a <code>data/_raw/</code>, we could add those to the <code>.gitignore</code> file to avoid the data being included in our commits.</p>
 <ol type="1">
-<li>Update the <code>.gitignore</code>-file and get the updated version to GitHub</li>
+<li>Update the <code>.gitignore</code> file and get the updated version to GitHub</li>
 </ol>
 </section>
 </section>
@@ -749,7 +750,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Your assignment this time, will be to:</p>
 <ol type="1">
 <li>Go to <a href="https://clauswilke.com/blog/2020/09/07/pca-tidyverse-style/">this post</a> on “PCA tidyverse style” by Claus O. Wilke, Professor of Integrative Biology</li>
-<li>Again, create a reproducible micro-report, this time, where you do a code-along with either the data in the post or e.g.&nbsp;the <code>gravier</code>-data or ?</li>
+<li>Again, create a reproducible micro-report, this time, where you do a code-along with either the data in the post or e.g.&nbsp;the <code>gravier</code> data or ?</li>
 <li>Use your GitHub group repository to collaborate</li>
 <li>Your hand in will be a link to your micro-report in your GitHub group repository</li>
 <li>Make sure to check the <a href="https://r4bds.github.io/assignments.html">Assignment Guidelines</a></li>

@@ -37,7 +37,7 @@ library("dplyr")
 ### Where should you be by now?
 
 -   In a group
--   On Piazza
+-   On Slack
 -   On the RStudio Cloud Server
 -   On GitHub
 
@@ -54,7 +54,7 @@ library("dplyr")
 
 -   Think about Hadley's and Hans' lectures, the book chapter and paper you read for today
 -   Use the next 5 minutes to think and talk to the person next to you
--   Then, write your thoughts on Piazza in the "LIVE Q&A"
+-   Then, write your thoughts on Slack in the channel for Teaching lab 2
 
 :::
 

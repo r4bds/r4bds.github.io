@@ -18,8 +18,6 @@ First, make sure you have a working DTU account, either as a student id or emplo
 
 Please click here to test your access the cloud server: [R for Bio Data Science Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php)
 
-_Note, that there is a 24h time out on the sessions, meaning that if you logon and forget to sign out, your session will be terminated after 24h._
-
 ## Class Communication
 
 To streamline class communication, we will be using Slack. The aim is to facilitate getting you help fast and efficiently from classmates, the TAs, and myself. Rather than emailing questions to the teaching staff, I encourage you to post your questions on Slack. Each teaching lab will have its own dedicated Slack channel. Note: You can also make group specific Slack channels!
@@ -36,9 +34,11 @@ Please state your GitHub username in [this google sheet](https://docs.google.com
 
 The backbone of this course is modern **collaborative** data science and as such group work and active participation herein is mandatory. Furthermore, It is **important** that course participants prioritise to **be present** during classes as the course design is based on student-student interaction in an active learning environment. Therefore, students will work in groups of 4-5 students.
 
-Please click here to go to the  [group formation sheet](https://docs.google.com/spreadsheets/d/1P3wbjztVje5s5REtUhldcIr9gTtEMkDLJo6YMBfPOis/edit?usp=sharing)
+Please click here and fill in the [group formation sheet](https://docs.google.com/spreadsheets/d/1P3wbjztVje5s5REtUhldcIr9gTtEMkDLJo6YMBfPOis/edit?usp=sharing)
 
 ## Pre Course Questionnaire
 
-In order for the teaching team to understand the class composition this year, please take 3 minutes to fill in this brief and 100% [anonymous questionnaire](https://forms.gle/Hyxa93VdsXU5gKHw6)
+It is important for the teaching team to understand the class composition.
+
+Please click here and fill in this brief and 100% [anonymous questionnaire](https://forms.gle/Hyxa93VdsXU5gKHw6)
 

@@ -319,6 +319,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -330,7 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages">Package(s)</a></li>
   <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
-  <li><a href="#learning-materials" id="toc-learning-materials" class="nav-link" data-scroll-target="#learning-materials">Learning Materials</a></li>
+  <li><a href="#sec-learning-materials" id="toc-sec-learning-materials" class="nav-link" data-scroll-target="#sec-learning-materials">Learning Materials</a></li>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   <li><a href="#sec-exercises" id="toc-sec-exercises" class="nav-link" data-scroll-target="#sec-exercises">Exercises</a>
   <ul class="collapse">
@@ -364,7 +369,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Package(s)</h2>
 <ul>
-<li><a href="https://www.r-project.org">Base</a></li>
+<li><a href="https://www.r-project.org">base</a></li>
 </ul>
 </section>
 <section id="schedule" class="level2">
@@ -378,8 +383,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>11.30 - 12.00: Lecture: Reproducibility in Modern Bio Data Science</li>
 </ul>
 </section>
-<section id="learning-materials" class="level2">
-<h2 class="anchored" data-anchor-id="learning-materials">Learning Materials</h2>
+<section id="sec-learning-materials" class="level2">
+<h2 class="anchored" data-anchor-id="sec-learning-materials">Learning Materials</h2>
 <p><em>Please prepare the following materials:</em></p>
 <ul>
 <li>Read the full course description here: <a href="https://kurser.dtu.dk/course/22100">22100</a> / <a href="https://kurser.dtu.dk/course/22160">22160</a></li>
@@ -407,7 +412,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="sec-exercises" class="level2">
 <h2 class="anchored" data-anchor-id="sec-exercises">Exercises</h2>
-<p>Today, we will focused on getting you started and up and running with the first elements of the course, namely the RStudio IDE (Integrated Developer Environment) and Quarto. If the relationship between <code>R</code> and RStudio is unclear, think of it this way: Consider a car, in that case, <code>R</code> would be the engine and RStudio would be the rest of the car. Neither is particularly useful, but together they form a functioning unit. Before you continue, make sure you in fact did watch the “RStudio for the Total Beginner” video (See the Learning Materials for todays session).</p>
+<p>Today, we will focus on getting you started and up and running with the first elements of the course, namely the RStudio IDE (Integrated Developer Environment) and Quarto. If the relationship between <code>R</code> and RStudio is unclear, think of it this way: Consider a car, in that case, <code>R</code> would be the engine and RStudio would be the rest of the car. Neither is particularly useful, but together they form a functioning unit. Before you continue, make sure you in fact did watch the “RStudio for the Total Beginner” video (See the <a href="#sec-learning-materials">Learning Materials</a> for today’s session).</p>
 <section id="cloud-server-and-the-rstudio-ide" class="level3">
 <h3 class="anchored" data-anchor-id="cloud-server-and-the-rstudio-ide">Cloud server and the RStudio IDE</h3>
 <p>Go to the <a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science Cloud Server</a> and follow the login procedure. Upon login, you will see this:</p>
@@ -462,7 +467,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Take some time and play around with these commands and other things you can come up with. Use the <code>?function</code> to get help on what that function does. Be sure to discuss what you observe in the console. Do not worry too much on the details for now, we are just getting started. But as you hopefully can see, <code>R</code> is very flexible and basically the message is: “If you can think it, you can build it in <code>R</code>”.</p>
+<p>Take some time and play around with these commands and other things you can come up with. Use the <code>?function</code> to get help on what that function does. Be sure to discuss what you observe in the console. Do not worry too much about the details for now; we are just getting started. But as you hopefully can see, <code>R</code> is very flexible and basically the message is: “If you can think it, you can build it in <code>R</code>”.</p>
 <ul>
 <li>Go to <a href="https://r4ds.hadley.nz/workflow-basics">R4DS2e Chapter 2 Workflow: basics</a> in R4DS2e and do the exercises</li>
 </ul>
@@ -485,7 +490,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="the-source" class="level4">
 <h4 class="anchored" data-anchor-id="the-source">The Source</h4>
 <p>The source is where you will write scripts. A script is a series of commands to be executed sequentially, i.e.&nbsp;first line 1, then line 2 and so on. Right now, you should have a open script called <code>Untitled1</code>. If not, you can create a new script by clicking white paper with a round green plus sign in the upper left corner.</p>
-<p>Taking inspiration from the examples above, try to write a series of commands and include a <code>print()</code>-statement at the very end. Click <code>File</code> <span class="math inline">\(\rightarrow\)</span> <code>Save</code> and save the file as e.g.&nbsp;<code>my_first_script.R</code>. Now, go to the console and type in the command <code>source("my_first_script.R")</code>. Congratulations! You have now written your very first reproducible R-program!</p>
+<p>Taking inspiration from the examples above, try to write a series of commands and include a <code>print()</code>-statement at the very end. Click <code>File</code> <span class="math inline">\(\rightarrow\)</span> <code>Save</code> and save the file as e.g.&nbsp;<code>my_first_script.R</code>. Now, go to the console and type in the command <code>source("my_first_script.R")</code>. Congratulations! You have now written your very first reproducible R program!</p>
 </section>
 </section>
 <section id="the-whole-shebang" class="level3">
@@ -501,9 +506,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <section id="on-working-in-projects" class="level4">
 <h4 class="anchored" data-anchor-id="on-working-in-projects">On Working in Projects</h4>
-<p>Projects allow you to create fully transferable bio data science projects, meaning that the root of the project will be where the <code>.Rproj</code> file is located. You can confirm this by entering <code>getwd()</code> in the console. This means that under <em>no circumstance</em> should ever <em>not</em> work in a project nor should <em>ever</em> use absolute paths. Every single path you state in your project <em>must</em> be relative to the project root.</p>
-<p>But why? Imagine you have create a project, where you have indeed used absolute paths. Now you want to share that project with a colleague. Said colleague gets your project and tests the reproducibility by running the project end-to-end. But it <em>completely</em> fails because you have hardcoded your paths to be absolute, meaning that all files and project ressources locations points to locations on your laptop.</p>
-<p>Projects are a <em>must</em> and allows you to create reproducible encapsulated bio data science projects. Note, the concept of reproducibility is absolute central to this course and must be considered in all aspect of the life cycle of a project!</p>
+<p>Projects allow you to create fully transferable bio data science projects, meaning that the root of the project will be where the <code>.Rproj</code> file is located. You can confirm this by entering <code>getwd()</code> in the console. This means that under <em>no circumstances</em> should you ever <em>not</em> work within a project, nor should you <em>ever</em> use absolute paths. Every single path you state in your project <em>must</em> be relative to the project root.</p>
+<p>But why? Imagine you have created a project, where you have indeed used absolute paths. Now you want to share that project with a colleague. Said colleague gets your project and tests the reproducibility by running the project end-to-end. But it <em>completely</em> fails because you have hardcoded your paths to be absolute, meaning that all file and project resource locations point to locations on your laptop.</p>
+<p>Projects are a <em>must</em> and allow you to create reproducible encapsulated bio data science projects. Note, the concept of reproducibility is absolutely central to this course and must be considered in all aspects of the life cycle of a project!</p>
 </section>
 <section id="quarto" class="level4">
 <h4 class="anchored" data-anchor-id="quarto">Quarto</h4>
@@ -513,7 +518,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Enter a <code>Title:</code>, e.g.&nbsp;“Lab 1 Exercises” and enter your name below in the box <code>Author:</code></li>
 <li>Click <code>Create</code></li>
 <li>Important: Save your Quarto document! Click <code>File</code> <span class="math inline">\(\rightarrow\)</span> <code>Save</code> and name it e.g.&nbsp;<code>lab_01_exercises.qmd</code></li>
-<li>Minimise the <code>Environment</code>-pane</li>
+<li>Minimise the <code>Environment</code> pane</li>
 </ul>
 <p>You should now see something like this:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -522,19 +527,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </figure>
 </div>
 <p>Try clicking the <code>Render</code> button just above the quarto-document. This will create the HTML5 output file. Note! You may get a <code>Connection Refused</code> message. If so, don’t worry, just close the page to return to the cloud server and find the generated <code>.html</code> file, left-click and select <code>View in Web Browser</code>.</p>
-<p>If you have previously worked with <code>Rmarkdown</code>, then many features of <code>Quarto</code> will be familiar. Think of <code>Quarto</code> as the complete rethink of <code>Rmarkdown</code>, i.e.&nbsp;based on all the experience gained, what would the optimal way of constructing an open-source scientific and technical publishing system?</p>
-<p>Perhaps you have previously encountered Jupyter notebooks, Quarto is similar. The basic idea is to have one document covering the entire project cycle, i.e.&nbsp;code, plots and text will be in the same document.</p>
+<p>If you have previously worked with <code>Rmarkdown</code>, then many features of <code>Quarto</code> will be familiar. Think of <code>Quarto</code> as a complete rethinking of <code>Rmarkdown</code>, i.e.&nbsp;based on all the experience gained, what would the optimal way of constructing an open-source scientific and technical publishing system?</p>
+<p>If you have previously encountered Jupyter notebooks, Quarto is similar. The basic idea is to have one document covering the entire project cycle.</p>
 <p>Proceed to <a href="https://r4ds.hadley.nz/quarto">R4DS2e Chapter 28 Quarto</a> and do the exercises.</p>
 </section>
 </section>
 <section id="bio-data-science-with-a-virtual-ai-assistant" class="level3">
 <h3 class="anchored" data-anchor-id="bio-data-science-with-a-virtual-ai-assistant">Bio Data Science with a Virtual AI Assistant</h3>
-<p>I am pretty sure you all know of chatGPT by now, so let us address the elephant in the room!</p>
+<p>I am pretty sure you all know of ChatGPT by now, so let us address the elephant in the room!</p>
 <section id="getting-started" class="level4">
 <h4 class="anchored" data-anchor-id="getting-started">Getting started</h4>
 <ul>
 <li>Go to the <a href="https://chat.openai.com">ChatGPT</a> site</li>
-<li>Create a user and login</li>
+<li>Create a user and log in</li>
 </ul>
 <section id="let-us-get-acquainted" class="level5">
 <h5 class="anchored" data-anchor-id="let-us-get-acquainted">Let us get acquainted</h5>
@@ -556,7 +561,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><em>Give a few simple examples</em></li>
 <li><em>Explain the difference between base R and Tidyverse R</em></li>
 </ol>
-<p>If you do get some code examples, try to copy/paste into the console in RStudio and see if they run</p>
+<p>If you get some code examples, try copying and pasting them into the console in RStudio to see if they run.</p>
 </section>
 <section id="prompt-engineering" class="level5">
 <h5 class="anchored" data-anchor-id="prompt-engineering">Prompt Engineering</h5>
@@ -615,9 +620,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="summary" class="level5">
 <h5 class="anchored" data-anchor-id="summary">Summary</h5>
 <p><strong>The following is IMPORTANT, so please read carefully and please discuss in your group</strong></p>
-<p>While <code>chatGPT</code> can be a powerful tool for code productivity, it comes with a major caveat: <strong>When it fails, it fails with confidence</strong> (See <code>Strawberry Fields Forever</code> above). This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can use your experience to evaluate if you are heading in the right direction or if you’re being send on a wild goose chase. In this situation, ChatGPT can be a powerful sparring partner to augment your bio data science workflow to enhance productivity.</p>
+<p>While <code>ChatGPT</code> can be a powerful tool for code productivity, it comes with a major caveat: <strong>When it fails, it fails with confidence</strong> (See <code>Strawberry Fields Forever</code> above). This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can use your experience to evaluate if you are heading in the right direction or if you’re being send on a wild goose chase. In this situation, ChatGPT can be a powerful sparring partner to augment your bio data science workflow to enhance productivity.</p>
 <p>Know the difference between “asking for a solution” and “asking for an explanation” - Do not cheat yourself here, it is <strong>very important</strong> that the yield of this course is that <strong>you</strong> learn <strong>Tidyverse R</strong> and <strong>not</strong> how to “use ChatGPT to produced code”.</p>
-<p>Therefore, <strong>do not use chatGPT to solve the exercises</strong>, rather use ChatGPT as a learning assistant. Here is an example of the difference:</p>
+<p>Therefore, <strong>do not use ChatGPT to solve the exercises</strong>, rather use ChatGPT as a learning assistant. Here is an example of the difference:</p>
 <ul>
 <li><strong>Wrong:</strong> <em>Give me the tidyverse code for adding a new variable <code>z</code> to a dataset, which is the sum of <code>x</code> and <code>y</code></em></li>
 <li><strong>Right:</strong> <em>In simple terms, explain which tidyverse function is used to add variables to datasets and give a very basic example of how it is used</em></li>

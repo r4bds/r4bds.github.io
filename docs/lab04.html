@@ -78,6 +78,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -319,6 +338,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -410,20 +434,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 
 </div>
-<p><em>Important: As we progress, avoid using black-box do-everything-with-one-command R-packages like e.g.&nbsp;<code>ggpubr</code> - I want you to learn the underlying technical bio data science! …and why is that? Because if you use these type of packages, you will be limited to their functionality, whereas if you truly understand ggplot - The sky is the limit! Basically, it the cliché that “If you give a man a fish, you feed him for a day. If you teach a man to fish, you feed him for a lifetime”</em></p>
+<p><em>Important: As we progress, avoid using black-box do-everything-with-one-command R-packages like e.g.&nbsp;<code>ggpubr</code> - I want you to learn the underlying technical bio data science! …and why is that? Because if you use these types of packages, you will be limited to their functionality, whereas if you truly understand ggplot - the sky is the limit! Basically, it’s the cliché: “If you give a man a fish, you feed him for a day. If you teach a man to fish, you feed him for a lifetime”</em></p>
 <section id="getting-started" class="level3">
 <h3 class="anchored" data-anchor-id="getting-started">Getting Started</h3>
 <p>Use this link to go to the <a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science RStudio Cloud Server</a></p>
 <p>First things first:</p>
 <ul>
-<li>Create a new Quarto Document for todays exercises, e.g.&nbsp;<code>lab04_exercises.qmd</code></li>
+<li>Create a new Quarto Document for today’s exercises, e.g.&nbsp;<code>lab04_exercises.qmd</code></li>
 </ul>
-<p>Note that: - The Quarto document MUST be placed together with your <code>.Rproj</code> file (defining, the project root - look in your <code>Files</code>-pane) and also there, the <code>data</code>-folder should be placed!</p>
-<p><em>Understanding how paths and projects work is important. In case this is no entirely clear, a new chapter has been added on <a href="./paths_and_projects.html">Paths and Projects</a>.</em></p>
+<p>Note that: - The Quarto document MUST be placed together with your <code>.Rproj</code> file (defining, the project root - look in your <code>Files</code> pane) and also there, the <code>data</code> folder should be placed!</p>
+<p><em>Understanding how paths and projects work is important. In case this is not entirely clear, a new chapter has been added on <a href="./paths_and_projects.html">Paths and Projects</a>.</em></p>
 </section>
 <section id="brief-refresh-of-quarto-so-far" class="level3">
 <h3 class="anchored" data-anchor-id="brief-refresh-of-quarto-so-far">Brief refresh of Quarto so far</h3>
-<p>Recall the syntax for a new code chunk, where all your <code>R</code> code goes any text and notes must be <em>outside</em> the chunk tags:</p>
+<p>Recall the syntax for a new code chunk, where all your <code>R</code> code goes. Any text and notes must be <em>outside</em> the chunk tags:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Here the code goes</span></span>
@@ -436,7 +460,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 [1] 2</code></pre>
 </div>
 </div>
-<p>Outside the code-chunks, go our markdown, e.g.:</p>
+<p>Our markdown goes outside the code-chunks, e.g.:</p>
 <pre><code>  # Header level 1
   ## Header level 2
   ### Header level 3
@@ -452,8 +476,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>And run the chunk. This will load our data science toolbox, including <code>dplyr</code> (and <code>ggplot</code>). But wait, what does the <code>#| message: false</code>-part do? 🤷️ 🤔</p>
-<p><strong>Try to structure your Rmarkdown document as your course notes, i.e.&nbsp;add notes while solving the exercises aiming at creating a revisitable reference for your final project work</strong></p>
+<p>And run the chunk. This will load our data science toolbox, including <code>dplyr</code> (and <code>ggplot</code>). But wait, what does <code>#| message: false</code> do? 🤷️ 🤔</p>
+<p><strong>Try to structure your Quarto document as your course notes, i.e.&nbsp;add notes while solving the exercises aiming to create a reference that you can revisit for your final project work.</strong></p>
 <p>Bonus info: We are engineers, so of course, we love equations, we can include standard <span class="math inline">\(\LaTeX\)</span> syntax, e.g.:</p>
 <pre><code>  $E(x) = \frac{1}{n} \cdot \sum_{i=1}^{n} x_{i}$</code></pre>
 <p>Try it!</p>
@@ -462,35 +486,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="a-few-handy-short-cuts">A few handy short cuts</h3>
 <p>Insert new code chunk:</p>
 <ul>
-<li>Mac: CTRL + OPTION + i</li>
-<li>Windows: CTRL + OPTION + i</li>
+<li>Mac: CMD + OPTION + i</li>
+<li>Windows: CTRL + ALT + i</li>
 </ul>
-<p>Render my Quarto document</p>
+<p>Render my Quarto document:</p>
 <ul>
 <li>Mac: CMD + SHIFT + k</li>
 <li>Win: CTRL + SHIFT + k</li>
 </ul>
-<p>Run line in chunk</p>
+<p>Run line in chunk:</p>
 <ul>
 <li>Mac: CMD + ENTER</li>
 <li>Win: CTRL + ENTER</li>
 </ul>
-<p>Run entire chunk</p>
+<p>Run entire chunk:</p>
 <ul>
 <li>Mac: CMD + SHIFT + ENTER</li>
 <li>Win: CTRL + SHIFT + ENTER</li>
 </ul>
-<p>Insert the pipe symbol <code>|&gt;</code></p>
+<p>Insert the pipe symbol <code>|&gt;</code>:</p>
 <ul>
 <li>Mac: CMD + SHIFT + m</li>
 <li>Win: CTRL + SHIFT + m</li>
 </ul>
-<p><em>Note, if you’re trying this out and you see <code>%&gt;%</code> instead of <code>|&gt;</code>, then go to <code>Tools</code>, <code>Global Options...</code>, <code>Code</code> and check the box <code>Use native pipeoperator</code></em></p>
+<p><em>Note, if you’re trying this out and you see <code>%&gt;%</code> instead of <code>|&gt;</code>, then go to <code>Tools</code>, <code>Global Options...</code>, <code>Code</code> and check the box <code>Use native pipeoperator, |&gt;</code></em></p>
 </section>
 </section>
 <section id="a-few-initial-questions" class="level2">
 <h2 class="anchored" data-anchor-id="a-few-initial-questions">A few initial questions</h2>
-<p>First, if you don’t feel completely comfortable with the <code>group_by |&gt; summarise</code>-workflow, then no worries - Feel free to visit this short <a href="https://www.youtube.com/watch?v=zAlbrPozMHI">R Tutorial: Grouping and summarizing</a></p>
+<p>First, if you don’t feel completely comfortable with the <code>group_by |&gt; summarise</code> workflow, then no worries - Feel free to visit this short <a href="https://www.youtube.com/watch?v=zAlbrPozMHI">R Tutorial: Grouping and summarizing</a></p>
 <p>Then, in your groups, discuss the following primer questions. Note, when asked for <em>“what is the output”</em>, do not run the code in the console, instead try to <strong>talk and think about it</strong> and write your answers and notes in your Quarto document for the day:</p>
 <p>First, in a new chunk, run <code>tibble(x = c(4, 3, 5, 1, 2))</code>, so you understand what it does, then - Discuss in your group, what is the output of, remember first talk, then check understanding by running code:</p>
 <ul>
@@ -518,9 +542,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Go to the <a href="https://hbiostat.org/data/">Vanderbilt Biostatistics Datasets</a> site</li>
 <li>Find <strong>Diabetes data</strong> and download the <code>diabetes.csv</code> file</li>
-<li>You should have a <code>data</code>-folder, if not, then in the <code>Files</code> pane, click the <code>New Folder</code> button, enter folder name <code>data</code> and click <code>ok</code></li>
+<li>You should have a <code>data</code> folder, if not, then in the <code>Files</code> pane, click the <code>New Folder</code> button, enter folder name <code>data</code> and click <code>ok</code></li>
 <li>Now, click on the folder you created</li>
-<li>Click the <img src="images/button_upload.png" class="img-fluid"> <code>Upload</code>-button and navigate to the <code>diabetes.csv</code> file you downloaded</li>
+<li>Click the <img src="images/button_upload.png" class="img-fluid"> <code>Upload</code> button and navigate to the <code>diabetes.csv</code> file you downloaded</li>
 <li>Clicking the two dots <code>..</code> above the file you uploaded, look for <img src="images/paths_dir_up.png" class="img-fluid"> <code>..</code>, will take you one level up in your project path</li>
 <li>Insert a new code chunk in your Quarto document</li>
 <li>Add and then run the following code</li>
@@ -532,7 +556,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Then realise that we could simply have run the following code to do the exact same thing (Yes, <code>readr</code> is pretty nifty):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the data directory programmatically</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="at">x =</span> <span class="st">"data"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="at">path =</span> <span class="st">"data"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve the data directly</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>diabetes_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"https://hbiostat.org/data/repo/diabetes.csv"</span>)</span>
@@ -545,7 +569,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="work-with-the-diabetes-data-set" class="level2">
 <h2 class="anchored" data-anchor-id="work-with-the-diabetes-data-set">Work with the diabetes data set</h2>
-<p>Use the pipe <code>|&gt;</code> to use the <code>View()</code>-function to inspect the data set. Note, if you click the <img src="images/button_view.png" class="img-fluid">-button, you will get a spreadsheet-like view of the data, allowing you to get an overview.</p>
+<p>Use the pipe <code>|&gt;</code> to use the <code>View()</code> function to inspect the data set. Note, if you click the <img src="images/button_view.png" class="img-fluid">-button, you will get a spreadsheet-like view of the data, allowing you to get an overview.</p>
 <ul>
 <li><strong>Q1: How many observations and how many variables?</strong></li>
 <li><strong>Q2: Is this a tidy data set? Which three rules must be satisfied?</strong></li>
@@ -553,12 +577,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Before we continue</p>
 <ul>
-<li><strong>T1: Change the <code>height</code>, <code>weight</code>, <code>waist</code> and <code>hip</code> from inches/pounds to the metric system (cm/kg), rounding to 1 decimal</strong></li>
+<li><strong>T1: Change the <code>height</code>, <code>weight</code>, <code>waist</code> and <code>hip</code> from the imperial system (inches/pounds) to the metric system (cm/kg), rounding to 1 decimal</strong></li>
 </ul>
 <div class="cell">
 
 </div>
-<p>Let us try to take a closer look at the data by various subsetting (How many… is equal to the number of rows in the subset of the data you created):</p>
+<p>Let us try to take a closer look at various subsets of the data. For the following questions, “How many …” refers to the number of rows in the subset of the data you create:</p>
 <ul>
 <li><p><strong>Q4: How many weigh less than 100kg?</strong></p></li>
 <li><p><strong>Q5: How many weigh more than 100kg?</strong></p></li>
@@ -568,14 +592,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Q9: How many women in Louisa are older than 30?</strong></p></li>
 <li><p><strong>Q10: How many men in Buckingham are younger than 30 and taller than 1.9m?</strong></p></li>
 <li><p><strong>T2: Make a scatter plot of <code>weight</code> versus <code>height</code> and colour by sex for inhabitants of Louisa above the age of 40</strong></p></li>
-<li><p><strong>T3: Make a boxplot of height versus location stratified on sex for people above the age of 50</strong></p></li>
+<li><p><strong>T3: Make a box plot of height versus location stratified on sex for people above the age of 50</strong></p></li>
 </ul>
-<p>Sorting columns can aid in getting an overview of variable ranges (don’t use the summary function yet for this one)</p>
+<p>Sorting columns can aid in getting an overview of variable ranges (don’t use the <code>summary()</code> function yet for this one)</p>
 <ul>
 <li><strong>Q11: How old is the youngest person?</strong></li>
 <li><strong>Q12: How old is the oldest person?</strong></li>
-<li><strong>Q13: Of all the 20-year olds, what is the height of the tallest?</strong></li>
-<li><strong>Q14: Of all the 20-year olds, what is the height of the shortest?</strong></li>
+<li><strong>Q13: Of all the 20-year-olds, what is the height of the tallest?</strong></li>
+<li><strong>Q14: Of all the 20-year-olds, what is the height of the shortest?</strong></li>
 </ul>
 <p>Choosing specific columns can be used to work with a subset of the data for a specific purpose</p>
 <ul>
@@ -601,7 +625,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span> <span class="sc">&lt;=</span> x <span class="sc">~</span> <span class="st">"Larger than or equal to 1"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>and then go read about <a href="https://www.ncbi.nlm.nih.gov/books/NBK541070/">BMI classification here</a> and discuss in your group how to extract classifications from the Definition/Introduction section</em></p>
-<p>Note, the <code>cut()</code>-function could be used here, but you should try to use <code>case_when()</code> as illustrated in the example chunk above.</p>
+<p>Note, the <code>cut()</code> function could be used here, but you should try to use <code>case_when()</code> as illustrated in the example chunk above.</p>
 <div class="cell">
 
 </div>
@@ -614,7 +638,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>This is <strong>very</strong> important for plotting, as this will determine the order in which the categories appear on the plot!</p>
 <ul>
-<li><strong>T6: Create a boxplot of <code>hdl</code> versus BMI_class</strong></li>
+<li><strong>T6: Create a box plot of <code>hdl</code> versus BMI_class</strong></li>
 <li><strong>Q17: What do you see?</strong></li>
 <li><strong>T7: Create a <code>BFP</code> (Body fat percentage) variable</strong></li>
 </ul>
@@ -624,16 +648,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Click here for hint
 </summary>
 <p></p>
-<p>BFP can be calculated usin the below equation <a href="https://www.nature.com/articles/0802006">source</a>:</p>
+<p>BFP can be calculated using the following equation from <span class="citation" data-cites="Jackson2002">Jackson et al. (<a href="references.html#ref-Jackson2002" role="doc-biblioref">2002</a>)</span>:</p>
 <p><span class="math display">\[BFP = 1.39 \cdot BMI + 0.16 \cdot age - 10.34 \cdot sex - 9\]</span></p>
-Where <span class="math inline">\(sex\)</span> is defined as being <span class="math inline">\(0\)</span> for female and <span class="math inline">\(1\)</span> for male.
+where <span class="math inline">\(sex\)</span> is defined as being <span class="math inline">\(0\)</span> for female and <span class="math inline">\(1\)</span> for male.
 </details>
 <div class="cell">
 
 </div>
 <ul>
 <li><strong>T8: Create a <code>WHR</code> (waist-to-hip ratio) variable</strong></li>
-<li><strong>Q18: Which correlate better with <code>BMI</code>, <code>WHR</code> or <code>BFP</code>?</strong> <span style="color: red;">GROUP ASSIGNMENT</span></li>
+<li><strong>Q18: What correlates better with <code>BMI</code>, <code>WHR</code> or <code>BFP</code>?</strong> <span style="color: red;">GROUP ASSIGNMENT</span></li>
 </ul>
 <details>
 <p>
@@ -641,7 +665,7 @@ Where <span class="math inline">\(sex\)</span> is defined as being <span class="
 Click here for hint
 </summary>
 <p></p>
-<em>Is there a certain plot-type, which can visualise if the relationship between two variables and give insights to if they are correlated? Can you perhaps use an <code>R</code>-function to compute the “correlation coefficient”?. Do not use e.g.&nbsp;<code>ggpubr</code>, use only <code>tidyverse</code> and <code>base</code>)</em>
+<em>Is there a certain plot-type, which can visualise if the relationship between two variables and give insights to if they are correlated? Can you perhaps use an <code>R</code> function to compute the “correlation coefficient”?. Do not use e.g.&nbsp;<code>ggpubr</code>, use only <code>tidyverse</code> and <code>base</code>)</em>
 </details>
 <p>Now, with this augmented data set, let us create some summary statistics</p>
 <ul>
@@ -669,6 +693,11 @@ Click here for hint
 <p>Finally, if you reach this point and there is still time left. Take some time to do some exploratory plots of the data set and see if you can find something interesting.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-Jackson2002" class="csl-entry" role="doc-biblioentry">
+Jackson, AS, PR Stanforth, J Gagnon, T Rankinen, AS Leon, DC Rao, JS Skinner, C Bouchard, and JH Wilmore. 2002. <span>“The Effect of Sex, Age and Race on Estimating Percentage Body Fat from Body Mass Index: The Heritage Family Study.”</span> <em>International Journal of Obesity</em> 26 (6): 789–96. <a href="https://doi.org/10.1038/sj.ijo.0802006">https://doi.org/10.1038/sj.ijo.0802006</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

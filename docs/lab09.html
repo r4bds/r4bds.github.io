@@ -318,6 +318,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -441,15 +446,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="task-1.2---make-a-github-repository-for-your-groups-app" class="level4">
 <h4 class="anchored" data-anchor-id="task-1.2---make-a-github-repository-for-your-groups-app">Task 1.2 - Make a GitHub repository for your group’s app</h4>
 <ol type="1">
-<li>Go to <a href="https://github.com/rforbiodatascience23">https://github.com/rforbiodatascience23</a></li>
-<li>Click the green <code>New</code>-button</li>
+<li>Go to <a href="https://github.com/rforbiodatascience24">https://github.com/rforbiodatascience24</a></li>
+<li>Click the green <code>New</code> button</li>
 <li>Create a new repository called <code>group_X_shiny</code>. Remember to replace the <strong>X</strong></li>
-<li>Select <code>rforbiodatascience23</code> as owner</li>
+<li>Select <code>rforbiodatascience24</code> as owner</li>
 <li>Make the repository <code>Public</code></li>
-<li>Click the green <code>Create repository</code>-button</li>
+<li>Click the green <code>Create repository</code> button</li>
 <li>In this new repository, click the <code>settings</code> tab</li>
 <li>Click <code>Collaborators and Team</code></li>
-<li>Click the green <code>Add people</code>-button</li>
+<li>Click the green <code>Add people</code> button</li>
 <li>Invite the remaining group members</li>
 <li>All other team members should now have access to the repository, <strong>but do not create your own project yet.</strong></li>
 </ol>
@@ -480,7 +485,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <li>Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the <strong>X</strong>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_remote</span>(<span class="at">name =</span> <span class="st">"origin"</span>, <span class="st">"https://github.com/rforbiodatascience23/group_X_shiny.git"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_remote</span>(<span class="at">name =</span> <span class="st">"origin"</span>, <span class="st">"https://github.com/rforbiodatascience24/group_X_shiny.git"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"USERNAME"</span>, <span class="at">user.email =</span> <span class="st">"USEREMAIL@EXAMPLE.ORG"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_commit_all</span>(<span class="st">"App setup"</span>) <span class="co"># Only run if there were files to stage</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_push</span>(<span class="st">"origin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -493,7 +498,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <ul>
 <li>Click <code>Create a project</code><img src="images/L08_create.png" class="img-fluid" style="width:5.0%"> in the top left.</li>
 <li>Choose <code>Version Control</code> and then <code>Git</code>.</li>
-<li>Paste in the repository URL: <code>https://github.com/rforbiodatascience23/group_X_shiny.git</code>. Remember to replace the <strong>X</strong>.</li>
+<li>Paste in the repository URL: <code>https://github.com/rforbiodatascience24/group_X_shiny.git</code>. Remember to replace the <strong>X</strong>.</li>
 <li>Make sure to put it in the <code>ShinyApps</code> folder.</li>
 <li>Give the directory a fitting name and click <code>Create Project</code>.</li>
 </ul></li>
@@ -535,7 +540,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <ul>
 <li>Run them in order. <strong>Don’t run line 36</strong>, and if you are prompted to install packages, please decline.</li>
 <li>Everything on and above line 42 is recommended, everything else is optional. Feel free to see what they do. None of them should cause problems.</li>
-<li>After running the function for modifying the <code>DESCRIPTION</code> file, add more authors to the <code>DESCRIPTION</code>-file using this layout:</li>
+<li>After running the function for modifying the <code>DESCRIPTION</code> file, add more authors to the <code>DESCRIPTION</code> file using this layout:</li>
 </ul></li>
 </ol>
 <div class="cell">
@@ -601,7 +606,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <section id="task-3.1---install-the-package-you-created-last-week" class="level4">
 <h4 class="anchored" data-anchor-id="task-3.1---install-the-package-you-created-last-week">Task 3.1 - Install the package you created last week</h4>
 <ol type="1">
-<li><code>devtools::install_github("rforbiodatascience23/group_X_package")</code>. Remember to replace the <strong>X</strong></li>
+<li><code>devtools::install_github("rforbiodatascience24/group_X_package")</code>. Remember to replace the <strong>X</strong></li>
 </ol>
 <details>
 <summary>
@@ -622,7 +627,7 @@ Install backup
 </section>
 <section id="task-3.2---design-your-primary-layout" class="level4">
 <h4 class="anchored" data-anchor-id="task-3.2---design-your-primary-layout">Task 3.2 - Design your primary layout</h4>
-<p>Feel free to use your imagination. Otherwise, follow my suggestion for a <code>tabsetPanel</code>-layout:</p>
+<p>Feel free to use your imagination. Otherwise, follow my suggestion for a <code>tabsetPanel</code> layout:</p>
 <p>If you make your own layout, make space for the two modules, as I did with the two tabPanels with temporary titles and module names below.</p>
 <ol type="1">
 <li>Add a <code>tabsetPanel</code> with 2 panels in the <code>fluidPage()</code> function within the <code>app_ui</code> function definition in <code>R/app_ui.R</code>. The <code>tabsetPanel</code> should be inserted after the header (written as h1(“header”) ), separated by a comma.</li>
@@ -802,7 +807,7 @@ Possible solution
 <li>Before we continue, try to run the app: Run every line but the last in <code>dev/run_dev.R</code> and reopen your app.</li>
 </ol>
 <ul>
-<li>Remember if you get a “Not Found” error, the “/shiny/” might be missing from the url.</li>
+<li>Remember if you get a “Not Found” error, the “/shiny/” might be missing from the URL.</li>
 <li>If no changes appear, close the tab for a minute and try again.</li>
 </ul>
 <ol start="6" type="1">

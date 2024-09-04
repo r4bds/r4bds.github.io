@@ -78,6 +78,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -319,6 +338,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -453,10 +477,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>So far, we have worked on</p>
 <ul>
-<li>Lab 2: Genomis, the <code>gravier</code>-data from <a href="https://pubmed.ncbi.nlm.nih.gov/20842727/">A prognostic DNA signature for T1T2 node-negative breast cancer patients</a></li>
-<li>Lab 3: Metagenomics, the <code>pitlatrine</code>-data from <a href="https://sfamjournals.onlinelibrary.wiley.com/doi/full/10.1111/1751-7915.12334">“Assessment of the influence of intrinsic environmental and geographical factors on the bacterial ecology of pit latrines”</a></li>
-<li>Lab 4: Clinical data, the <code>diabetes</code>-data from <a href="https://pubmed.ncbi.nlm.nih.gov/9258308/">Prevalence of coronary heart disease risk factors among rural blacks: a community-based study</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/9010903/">A trial of church-based smoking cessation interventions for rural African Americans</a></li>
-<li>Lab 5: High throughput immunoinformatics data, the <code>SARS-CoV-2</code>-data <a href="https://www.researchsquare.com/article/rs-51964/v1">A large-scale database of T-cell receptor beta (TCRβ) sequences and binding associations from natural and synthetic exposure to SARS-CoV-2</a></li>
+<li>Lab 2: Genomics, the <code>gravier</code> data from <span class="citation" data-cites="Gravier2010">Gravier et al. (<a href="references.html#ref-Gravier2010" role="doc-biblioref">2010</a>)</span>.</li>
+<li>Lab 3: Metagenomics, the <code>pitlatrine</code> data from <span class="citation" data-cites="Torondel2016">Torondel et al. (<a href="references.html#ref-Torondel2016" role="doc-biblioref">2016</a>)</span>.</li>
+<li>Lab 4: Clinical data, the <code>diabetes</code> data from <span class="citation" data-cites="Willems1997">Willems et al. (<a href="references.html#ref-Willems1997" role="doc-biblioref">1997</a>)</span> and <span class="citation" data-cites="Schorling1997">Schorling et al. (<a href="references.html#ref-Schorling1997" role="doc-biblioref">1997</a>)</span>.</li>
+<li>Lab 5: High throughput immunoinformatics data, the <code>SARS-CoV-2</code> data from <span class="citation" data-cites="Nolan2020">Nolan et al. (<a href="references.html#ref-Nolan2020" role="doc-biblioref">2020</a>)</span>.</li>
 </ul>
 </section>
 <section id="getting-started" class="level2">
@@ -467,7 +491,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Today, we will re-examine the data acquired in Lab 2 to further explore the research question:</p>
 <ul>
-<li><strong>What genes are significantly up-/down-regulated between the patients with- and without early metastasis?“</strong></li>
+<li><strong>What genes are significantly up- or down-regulated between the patients with/without early metastasis?“</strong></li>
 </ul>
 </section>
 <section id="load-data" class="level2">
@@ -501,7 +525,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Click here for hint
 </summary>
 <p></p>
-<p>We have used the <code>str_c()</code>-function before, try running e.g.:</p>
+<p>We have used the <code>str_c()</code> function before, try running e.g.:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"a"</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="st">"b"</span></span>
@@ -522,8 +546,8 @@ Click here for hint
 <h2 class="anchored" data-anchor-id="clean-data">Clean Data</h2>
 <p>The next step is to clean up the data:</p>
 <ol type="1">
-<li>Use the <code>ls()</code>-function to see what objects you have in your environment</li>
-<li>Use the <code>str()</code>-function on the gravier data you retrieved to answer:</li>
+<li>Use the <code>ls()</code> function to see what objects you have in your environment</li>
+<li>Use the <code>str()</code> function on the gravier data you retrieved to answer:</li>
 </ol>
 <ul>
 <li><p><strong>Q2: Discuss in your group if this is tidy data?</strong></p></li>
@@ -541,7 +565,7 @@ Click here for hint
 </ul>
 <p>Now, moving on, let’s write the clean data to disk:</p>
 <ul>
-<li><strong>T3: In your “Clean Data”-section, add a new chunk, where you write a tab-separated-values gzipped (i.e.&nbsp;compressed) file called “02_gravier_clean” (with the correct filetype specification) into your “data”-folder</strong></li>
+<li><strong>T3: In your “Clean Data”-section, add a new chunk, where you write a tab-separated-values gzipped (i.e.&nbsp;compressed) file called “02_gravier_clean” (with the correct file type specification) into your “data”-folder</strong></li>
 </ul>
 <details>
 <p>
@@ -549,7 +573,7 @@ Click here for hint
 Click here for hint
 </summary>
 <p></p>
-<em>Just as you can <code>read</code> a file, you can of course also <code>write</code> a file. Note the filetype we want to write here is tab-separated-values. If you in the console type e.g.&nbsp;<code>readr::wr</code> and then hit the <code>tab</code>-button, you will see the different functions for writing different filetypes. We previously did a trick to automatically gzip (compress) files?</em>
+<em>Just as you can <code>read</code> a file, you can of course also <code>write</code> a file. Note the file type we want to write here is tab-separated-values. If you in the console type e.g.&nbsp;<code>readr::wr</code> and then hit the Tab key, you will see the different functions for writing different file types. We previously did a trick to automatically gzip (compress) files?</em>
 </details>
 </section>
 <section id="augment-data" class="level2">
@@ -564,8 +588,8 @@ Click here for hint
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(<span class="at">early_metastasis =</span> y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li><p><strong>Q6: In your group, discuss, what each step of the above work flow does, i.e.&nbsp;what are the specifics of the <code>dplyr</code>-pipeline?</strong></p></li>
-<li><p><strong>T5: In your “Augment Data”-section, add a new chunk, where you write a tab-separated-values gzipped (i.e.&nbsp;compressed) file called “03_gravier_clean_aug” (with the correct filetype specification) into your “data”-folder</strong></p></li>
+<li><p><strong>Q6: In your group, discuss, what each step of the above work flow does, i.e.&nbsp;what are the specifics of the <code>dplyr</code> pipeline?</strong></p></li>
+<li><p><strong>T5: In your “Augment Data”-section, add a new chunk, where you write a tab-separated-values gzipped (i.e.&nbsp;compressed) file called “03_gravier_clean_aug” (with the correct file type specification) into your “data” folder</strong></p></li>
 </ul>
 </section>
 <section id="analysis" class="level2">
@@ -578,7 +602,7 @@ Click here for hint
 <p>Recall, in the second lab, we were looking at “our favourite gene”. In the following either look back to what was your favourite gene or choose a new 🤷️</p>
 <p>Let’s fit our first model! If the concept of models and linear regression is unfamiliar, consider checking out the <a href="./primer_on_linear_models_in_r.html">primer on linear models in R</a> before proceeding.</p>
 <ul>
-<li><strong>T7: Use the <code>lm</code>-function to create your first model and save it to a new variable e.g.&nbsp;“my_first_model”</strong></li>
+<li><strong>T7: Use the <code>lm()</code> function to create your first model and save it to a new variable e.g.&nbsp;“my_first_model”</strong></li>
 </ul>
 <details>
 <p>
@@ -586,7 +610,7 @@ Click here for hint
 Click here for hint
 </summary>
 <p></p>
-<em>Use the formula <code>my_favourite_gene ~ early_metastasis</code> and remember when you pipe into the <code>lm</code>-function, you have to specify <code>data = _</code></em>
+<em>Use the formula <code>my_favourite_gene ~ early_metastasis</code> and remember when you pipe into the <code>lm()</code> function, you have to specify <code>data = _</code></em>
 </details>
 <ul>
 <li><strong>Q7: What are your coefficients? Mine are:</strong></li>
@@ -598,7 +622,7 @@ Click here for hint
 </div>
 </div>
 <ul>
-<li><p><strong>T8: Use the <code>group_by()</code> <span class="math inline">\(\rightarrow\)</span> <code>summarise()</code>-workflow to calculate the mean values of the gene expression for your favourite gene stratified on <code>early_metastasis</code></strong></p></li>
+<li><p><strong>T8: Use the <code>group_by()</code> <span class="math inline">\(\rightarrow\)</span> <code>summarise()</code> workflow to calculate the mean values of the gene expression for your favourite gene stratified on <code>early_metastasis</code></strong></p></li>
 <li><p><strong>Q8: What are your mean values? Mine are:</strong></p></li>
 </ul>
 <div class="cell">
@@ -619,10 +643,10 @@ Click here for hint
 Click here for hint
 </summary>
 <p></p>
-<em>Recall, we have two terms here, <code>intercept</code> and <code>slope</code>. The intercept is the <code>y</code>-value at <code>x = 0</code> and the <code>slope</code> is the change in <code>y</code>-value, for one unit change in <code>x</code></em>
+<em>Recall, we have two terms here, <code>intercept</code> and <code>slope</code>. The intercept is the <code>y</code> value at <code>x = 0</code> and the <code>slope</code> is the change in <code>y</code> value, for one unit change in <code>x</code></em>
 </details>
 <ul>
-<li><strong>Q10: Discuss in your group: Is your gene up- or down-regulated from <code>early_metastasis = 0</code> to <code>early_metastasis = 1</code> and use the <code>summary()</code>-function to see if is it statistically significant at a level of significance of <span class="math inline">\(\alpha = 0.05\)</span>?</strong></li>
+<li><strong>Q10: Discuss in your group: Is your gene up- or down-regulated from <code>early_metastasis = 0</code> to <code>early_metastasis = 1</code> and use the <code>summary()</code> function to see if is it statistically significant at a level of significance of <span class="math inline">\(\alpha = 0.05\)</span>?</strong></li>
 </ul>
 <details>
 <p>
@@ -632,7 +656,7 @@ Click here for hint
 <p></p>
 <em>Try to run <code>my_first_model |&gt; summary()</code> and look at the estimate for <code>early_metastasis</code>, i.e.&nbsp;the slope and also see if you can find the <code>p-value</code> somewhere in this summary…</em>
 </details>
-<p>Excellent! Now we have a feeling for working with the <code>lm()</code>-functions and a basic understanding of the meaning of the coefficients, when we are using linear regression to model a binary outcome. The reason that we use a linear regression model in this case is, that for these exercises, we want to investigate the relationship between variables rather than obtaining probability predictions, i.e.</p>
+<p>Excellent! Now we have a feeling for working with the <code>lm()</code> functions and a basic understanding of the meaning of the coefficients, when we are using linear regression to model a binary outcome. The reason that we use a linear regression model in this case is, that for these exercises, we want to investigate the relationship between variables rather than obtaining probability predictions, i.e.</p>
 <ul>
 <li><strong>What genes are significantly up-/down-regulated between the patients with- and without early metastasis?</strong></li>
 </ul>
@@ -640,7 +664,7 @@ Click here for hint
 </section>
 <section id="all-the-genes-all-the-models" class="level3">
 <h3 class="anchored" data-anchor-id="all-the-genes-all-the-models">All the Genes, all the models</h3>
-<p>First, the recent couple of years have seen an immense development in unifying the modelling interface in <code>R</code>, which is notoriously inconsistent. You may be familiar with the <code>caret</code>-package, the developer of which has created <a href="https://www.tidymodels.org">tidymodels</a>, (which I really wish we had time to explore in details). In the following we will work with some of the principles for tidying model object using <code>broom</code>, having object nested in tibbles and working with these using <code>purrr</code>.</p>
+<p>First, the recent couple of years have seen an immense development in unifying the modelling interface in <code>R</code>, which is notoriously inconsistent. You may be familiar with the <code>caret</code> package, the developer of which has created <a href="https://www.tidymodels.org">tidymodels</a>, (which I really wish we had time to explore in details). In the following we will work with some of the principles for tidying model object using <code>broom</code>, having object nested in tibbles and working with these using <code>purrr</code>.</p>
 <p>Now, you saw above how we could fit <em>one</em> model for <em>one</em> gene. So, we could repeat the procedure you worked through for each gene, but first consider:</p>
 <ul>
 <li><strong>Q11: How many genes are there in the gravier data set?</strong></li>
@@ -690,12 +714,12 @@ Click here for hint
 Click here for hint
 </summary>
 <p></p>
-<em>Recall which function took a dataset from “wide”- to “long”-format and also the three parameters of interest for that function is <code>cols</code>, <code>names_to</code> and <code>values_to</code>. If you look at my example, you will see that the columns we have pivotted have types <code>&lt;chr&gt;</code> and <code>&lt;dbl&gt;</code>, these will map to the <code>names_to</code>- and <code>values_to</code>-parameters respectively. The <code>cols</code> can be used with the so-called “helper-functions”, that we have previously talked about. If you look at the gene-columns in the data, all the genes starts with a “g”, so we can use the helper functions <code>starts_with()</code> and then give the argument “g” to the <code>match</code>-parameter</em>
+<em>Recall which function took a dataset from “wide” to “long” format and also the three parameters of interest for that function is <code>cols</code>, <code>names_to</code> and <code>values_to</code>. If you look at my example, you will see that the columns we have pivoted have types <code>&lt;chr&gt;</code> and <code>&lt;dbl&gt;</code>, these will map to the <code>names_to</code> and <code>values_to</code> parameters respectively. The <code>cols</code> can be used with the so-called “helper-functions”, that we have previously talked about. If you look at the gene-columns in the data, all the genes starts with a “g”, so we can use the helper functions <code>starts_with()</code> and then give the argument “g” to the <code>match</code> parameter</em>
 </details>
-<p>The reason we want the “long” version of the data set is, that now we have ALL the genes defined in ONE <code>gene</code>-column. This means that we can use the <code>group_by()</code>-function to work <em>per</em> gene without looping (<em>Recall: Don’t loop, only func!</em>).</p>
+<p>The reason we want the “long” version of the data set is, that now we have ALL the genes defined in ONE <code>gene</code> column. This means that we can use <code>group_by()</code> to work <em>per</em> gene without looping (<em>Recall: Don’t loop, only func!</em>).</p>
 <p>Now:</p>
 <ul>
-<li><strong>T10: Create a <code>dplyr</code>-pipeline, use the <code>group_by()</code>-function to group your <code>gravier_clean_aug_long</code>-dataset by <code>gene</code> and then add the <code>nest()</code>- and <code>ungroup()</code>-functions to your pipeline</strong></li>
+<li><strong>T10: Create a <code>dplyr</code> pipeline, use the <code>group_by()</code> function to group your <code>gravier_clean_aug_long</code> dataset by <code>gene</code> and then add the <code>nest()</code> and <code>ungroup()</code> functions to your pipeline</strong></li>
 </ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -742,7 +766,7 @@ Click here for hint
 <ul>
 <li><strong>Q14: Moreover, discuss in your group, what does <code>&lt;tibble [168 × 2]&gt;</code> mean?</strong></li>
 </ul>
-<p>Now, <strong>if</strong> you experiencing, that the server seems slow, consider if you want to proceed now with ALL the genes or just a subset. If you just want a subset, then use <code>sample_n()</code> to randomly select e.g.&nbsp;100 genes for further analysis. Remember you may want to use the <code>set.seed()</code> function to create a reproducible work flow even when sampling.</p>
+<p>Now, <strong>if</strong> you’re experiencing, that the server seems slow, consider if you want to proceed now with ALL the genes or just a subset. If you just want a subset, then use <code>sample_n()</code> to randomly select e.g.&nbsp;100 genes for further analysis. Remember you may want to use the <code>set.seed()</code> function to create a reproducible work flow even when sampling.</p>
 <div class="cell">
 
 </div>
@@ -755,7 +779,7 @@ Click here for hint
 </ul>
 <p>To investigate this, we want to fit a linear model to each gene, i.e.&nbsp;as you did initially for your favourite gene, we want to do in a clever way <em>per</em> gene for ALL genes.</p>
 <ul>
-<li><strong>T11: Use the <code>group_by()</code>-function to let <code>R</code> know, that we want to work <em>per</em> gene</strong></li>
+<li><strong>T11: Use the <code>group_by()</code> function to let <code>R</code> know, that we want to work <em>per</em> gene</strong></li>
 </ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -777,7 +801,7 @@ Click here for hint
 </div>
 </div>
 <ul>
-<li><strong>T12: Then add a new line to your pipeline, where you add a new variable <code>model_object</code> to your <code>gravier_clean_aug_long_nested</code>-dataset, which <code>R</code> will compute <em>per</em> gene</strong></li>
+<li><strong>T12: Then add a new line to your pipeline, where you add a new variable <code>model_object</code> to your <code>gravier_clean_aug_long_nested</code> dataset, which <code>R</code> will compute <em>per</em> gene</strong></li>
 </ul>
 <p><em>To do this you will need the following syntax and then wrap that inside the relevant tidyverse-function for creating a new variable:</em></p>
 <div class="cell">
@@ -788,13 +812,13 @@ Click here for hint
 <div class="cell">
 
 </div>
-<p>Make sure to <strong>understand</strong> the <code>map()</code>-function here, it is <strong>completely central</strong> to functional programming with <code>purrr</code>:</p>
+<p>Make sure to <strong>understand</strong> the <code>map()</code> function here, it is <strong>completely central</strong> to functional programming with <code>purrr</code>:</p>
 <ul>
 <li>We need the <code>group_by()</code> to define which variable holds the elements to each of which we want to map</li>
-<li><code>model_object</code> is a <strong>new</strong> variable, we are creating, which will contain the result of our call to the <code>map()</code>-function</li>
-<li><code>.x</code> to what <strong>exising</strong> (nested) variable are we mapping?</li>
+<li><code>model_object</code> is a <strong>new</strong> variable, we are creating, which will contain the result of our call to the <code>map()</code> function</li>
+<li><code>.x</code> to what <strong>existing</strong> (nested) variable are we mapping?</li>
 <li><code>.f</code> which function do we want to map to each element in the <strong>existing</strong> (nested) variable?</li>
-<li>Note that <code>log2_expr_level</code> and <code>early_metastasis</code> are variables “inside” the nested <code>data</code>-variable</li>
+<li>Note that <code>log2_expr_level</code> and <code>early_metastasis</code> are variables “inside” the nested <code>data</code> variable</li>
 </ul>
 <p>Note, once again, this is conceptually a <em>super-tricky data structure</em>, not only do we have a <em>per gene</em> nested tibble, but now we also have a <em>per gene</em> nested model object - So please do make sure to discuss in your group, what is going on here, e.g.&nbsp;try running this and discuss what you see:</p>
 <div class="cell">
@@ -805,7 +829,7 @@ Click here for hint
 </section>
 <section id="tidying-models" class="level4">
 <h4 class="anchored" data-anchor-id="tidying-models">Tidying Models</h4>
-<p>Excellent! Now we have a <em>per gene</em> model. Let us use the <code>broom</code>-package to extract some information from each of the models. First, to get a better understanding of what is going on when calling the <code>tidy()</code>-function, try running this:</p>
+<p>Excellent! Now we have a <em>per gene</em> model. Let us use the <code>broom</code> package to extract some information from each of the models. First, to get a better understanding of what is going on when calling the <code>tidy()</code> function, try running this:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>gravier_clean_aug_long_nested <span class="sc">|&gt;</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -825,9 +849,9 @@ Click here for hint
 <span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>(<span class="at">conf.int =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now, we want to apply this <code>tidy()</code>-function <em>per <code>model_object</code></em>:</p>
+<p>Now, we want to apply this <code>tidy()</code> function <em>per <code>model_object</code></em>:</p>
 <ul>
-<li><strong>T13: Scroll a bit back to where we created the <code>model_object</code> and see if you can translate that into mapping the <code>tidy()</code>-function to the <code>model_object</code>-variable, thereby creating a new variable <code>model_object_tidy</code> - This is tricky, so do make sure to discuss in your group how this can be done!</strong></li>
+<li><strong>T13: Scroll a bit back to where we created the <code>model_object</code> and see if you can translate that into mapping the <code>tidy()</code> function to the <code>model_object</code> variable, thereby creating a new variable <code>model_object_tidy</code> - This is tricky, so do make sure to discuss in your group how this can be done!</strong></li>
 </ul>
 <details>
 <p>
@@ -835,7 +859,7 @@ Click here for hint
 Click here for hint
 </summary>
 <p></p>
-<em>Remember the parameters to the <code>tidy()</code>-functions, which gives us the confidence intervals and defines corresponding level. Also, everything you need is in the previous layout of the <code>map()</code>-function. Note, that the calls to the <code>pull()</code>- and <code>pluck()</code>-functions above, pertains to <strong>extracting</strong> from a tibble, which we do <strong>not</strong> want, on the contrary, we want <strong>all</strong> objects to be contained in our <code>gravier_clean_aug_long_nested</code> data</em>
+<em>Remember the parameters to the <code>tidy()</code> functions, which gives us the confidence intervals and defines corresponding level. Also, everything you need is in the previous layout of the <code>map()</code> function. Note, that the calls to the <code>pull()</code> and <code>pluck()</code> functions above, pertains to <strong>extracting</strong> from a tibble, which we do <strong>not</strong> want, on the contrary, we want <strong>all</strong> objects to be contained in our <code>gravier_clean_aug_long_nested</code> data</em>
 </details>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -856,7 +880,7 @@ Click here for hint
 # ℹ 2,895 more rows</code></pre>
 </div>
 </div>
-<p>Note, once again, this is conceptually a <em>super-tricky data structure</em>, not only do we have a <em>per gene</em> nested tibble, but now we also have a <em>per gene</em> nested model object and now also a nested tibble of tidyed objects - So please again do make sure to discuss in your group, what is going on here, e.g.&nbsp;try running this and discuss what you see:</p>
+<p>Note, once again, this is conceptually a <em>super-tricky data structure</em>, not only do we have a <em>per gene</em> nested tibble, but now we also have a <em>per gene</em> nested model object and now also a nested tibble of <code>tidy</code>ed objects - So please again do make sure to discuss in your group, what is going on here, e.g.&nbsp;try running this and discuss what you see:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>gravier_clean_aug_long_nested <span class="sc">|&gt;</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gene <span class="sc">==</span> <span class="st">"g2E09"</span>) <span class="sc">|&gt;</span> <span class="co"># Replace "g2E09" with whatever was YOUR favourite gene!</span></span>
@@ -865,10 +889,10 @@ Click here for hint
 </section>
 <section id="wrangling" class="level4">
 <h4 class="anchored" data-anchor-id="wrangling">Wrangling</h4>
-<p>We’re almost there - Just a bit of wrangling to go!</p>
-<p>Just as you saw that we could <code>nest()</code> on a variable (recall we did that for the <code>gene</code>-variable), you can do the opposite and lo and behold, that is the <code>unnest()</code>-function. Before we continue:</p>
+<p>We’re almost there - just a bit of wrangling to go!</p>
+<p>Just as you saw that we could <code>nest()</code> on a variable (recall we did that for the <code>gene</code> variable), you can do the opposite and lo and behold, that is the <code>unnest()</code> function. Before we continue:</p>
 <ul>
-<li><strong>T14: Create a <code>dplyr</code>-pipeline and save the result in a new variable called <code>gravier_estimates</code>: Use the <code>unnest()</code>-function to unpack the <code>model_object_tidy</code></strong></li>
+<li><strong>T14: Create a <code>dplyr</code> pipeline and save the result in a new variable called <code>gravier_estimates</code>: Use the <code>unnest()</code> function to unpack the <code>model_object_tidy</code></strong></li>
 </ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -891,7 +915,7 @@ Click here for hint
 </div>
 </div>
 <ul>
-<li><strong>T15: The again, create a <code>dplyr</code>-pipeline and save the result in a the same <code>gravier_estimates</code>-variable: Subset the rows to only get the slope term and then choose variables as displayed below, finally end with un-grouping your data, as we no longer need the groups</strong></li>
+<li><strong>T15: The again, create a <code>dplyr</code> pipeline and save the result in a the same <code>gravier_estimates</code> variable: Subset the rows to only get the slope term and then choose variables as displayed below, finally end with un-grouping your data, as we no longer need the groups</strong></li>
 </ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -912,7 +936,7 @@ Click here for hint
 </div>
 </div>
 <ul>
-<li><strong>T16: To your <code>gravier_estimates</code>-dataset, add a variable <code>q.value</code>, which is the result of calling the <code>p.adjust()</code>-function on your <code>p.value</code>-variable and also add an indicator variable denoting if a given gene is significant or not</strong></li>
+<li><strong>T16: To your <code>gravier_estimates</code> dataset, add a variable <code>q.value</code>, which is the result of calling the <code>p.adjust()</code> function on your <code>p.value</code> variable and also add an indicator variable denoting if a given gene is significant or not</strong></li>
 </ul>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -932,24 +956,24 @@ Click here for hint
 # ℹ 2,895 more rows</code></pre>
 </div>
 </div>
-<p><em>But… <code>q.value</code>??? What are you on about??? Here is a nice primer on <a href="https://www.nature.com/articles/nbt1209-1135">“How does multiple testing correction work?”</a></em></p>
+<p><em>But… <code>q.value</code>??? What are you on about??? For a nice primer on how multiple testing correction works, please read this article by <span class="citation" data-cites="Noble2009">Noble (<a href="references.html#ref-Noble2009" role="doc-biblioref">2009</a>)</span>!</em></p>
 </section>
 <section id="recap" class="level4">
 <h4 class="anchored" data-anchor-id="recap">Recap</h4>
-<p>If you understandbly by now, have lost a bit of overview of what is going on, let’s just re-iterate.</p>
+<p>If you (understandably by now) have lost a bit of overview of what is going on, let’s just re-iterate.</p>
 <ol type="1">
-<li>We have the <code>gravier</code>-dataset, with the log2-expression levels for 2,905 genes of 168 patients of whom 111 did <em>not</em> have early metastasis and 57 who did</li>
+<li>We have the <code>gravier</code> dataset, with the log2-expression levels for 2,905 genes of 168 patients of whom 111 did <em>not</em> have early metastasis and 57 who did</li>
 <li>We are interested in investigating what genes are significantly up-/down-regulated between the patients with- and without early metastasis</li>
-<li>First we retrieved the data from the data repository, cleaned and augmented it and saved it to disk</li>
-<li>Then pivotted the data, so we could work <em>per gene</em> (The <code>gene</code>-variable)</li>
-<li>Next, we grouped <em>per gene</em> and nested the data (The <code>data</code>-variable)</li>
-<li>Then, we fitted a linear model to each gene (The <code>model_object</code>-variable)</li>
-<li>Next, we used the <code>broom</code>-package to tidy the fitted model incl.&nbsp;getting confidence intervals (The <code>model_object_tidy</code>-variable)</li>
+<li>First, we retrieved the data from the data repository, cleaned and augmented it and saved it to disk</li>
+<li>Then pivoted the data, so we could work <em>per gene</em> (The <code>gene</code> variable)</li>
+<li>Next, we grouped <em>per gene</em> and nested the data (The <code>data</code> variable)</li>
+<li>Then, we fitted a linear model to each gene (The <code>model_object</code> variable)</li>
+<li>Next, we used the <code>broom</code> package to tidy the fitted model incl.&nbsp;getting confidence intervals (The <code>model_object_tidy</code> variable)</li>
 <li>Lastly, we extracted the model parameters, corrected for multiple testing and added and indicator for significant findings</li>
 </ol>
 <p>Now, we actually have everything we need to answer:</p>
 <ul>
-<li><strong>What genes are significantly up-/down-regulated between the patients with- and without early metastasis?“</strong></li>
+<li><strong>What genes are significantly up- or down-regulated between the patients with/without early metastasis?</strong></li>
 </ul>
 <p>In the following, we will use a level of significance of <span class="math inline">\(\alpha = 0.05\)</span> to provide this answer.</p>
 </section>
@@ -957,7 +981,7 @@ Click here for hint
 <h4 class="anchored" data-anchor-id="visualise">Visualise</h4>
 <p>Right, let’s get to it!</p>
 <ul>
-<li><strong>T17: Re-create this <code>forest-plot</code> to finally reveal the results of your analysis</strong> <span style="color: red;">GROUP ASSIGNMENT part I</span></li>
+<li><strong>T17: Re-create this forest plot to finally reveal the results of your analysis</strong> <span style="color: red;">GROUP ASSIGNMENT part I</span></li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
@@ -970,10 +994,10 @@ Click here for hint
 Click here for hint
 </summary>
 <p></p>
-<em>Here, you will have to use your indicator variable to identify significant genes <strong>before</strong> plotting and then it would probably be prudent to take a look at the <code>fct_reorder()</code>-function and <code>geom_errorbarh()</code>-representation</em>
+<em>Here, you will have to use your indicator variable to identify significant genes <strong>before</strong> plotting and then it would probably be prudent to take a look at the <code>fct_reorder()</code> function and <code>geom_errorbarh()</code> representation</em>
 </details>
 <ul>
-<li><strong>T18: Re-create this <code>volcano-plot</code> to finally reveal the results of your analysis</strong> <span style="color: red;">GROUP ASSIGNMENT part II</span></li>
+<li><strong>T18: Re-create this volcano plot to finally reveal the results of your analysis</strong> <span style="color: red;">GROUP ASSIGNMENT part II</span></li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
@@ -986,7 +1010,7 @@ Click here for hint
 Click here for hint
 </summary>
 <p></p>
-<em>Here,<strong>before</strong> plotting you will have to create a new label-variable which takes value <code>gene</code> for significant genes and otherwise is simply an empty string, which we denote by <code>""</code>. Also, perhaps the <code>ggrepel</code>-package would be relevant for somehow adding text/labels</em>
+<em>Here,<strong>before</strong> plotting you will have to create a new label-variable which takes value <code>gene</code> for significant genes and otherwise is simply an empty string, which we denote by <code>""</code>. Also, perhaps the <code>ggrepel</code> package would be relevant for somehow adding text/labels</em>
 </details>
 </section>
 </section>
@@ -1006,17 +1030,37 @@ Click here for hint
 <h3 class="anchored" data-anchor-id="pca">PCA</h3>
 <ul>
 <li>Go and visit this blog post by <a href="https://clauswilke.com/blog/2020/09/07/pca-tidyverse-style/">Claus O. Wilke, Professor of Integrative Biology</a>.</li>
-<li>Your task is to work through the blog post using the <code>gravier</code>-dataset to crate a PCA-analysis</li>
+<li>Your task is to work through the blog post using the <code>gravier</code> dataset to create a PCA analysis</li>
 </ul>
 </section>
 <section id="k-means" class="level3">
 <h3 class="anchored" data-anchor-id="k-means">K-means</h3>
 <ul>
 <li>Go and visit this <a href="https://www.tidymodels.org/learn/statistics/k-means/">K-means clustering with tidy data principles</a> post</li>
-<li>Your task is to work through the blog post using the <code>gravier</code>-dataset to crate a kmeans-analysis</li>
+<li>Your task is to work through the blog post using the <code>gravier</code> dataset to create a K-means analysis</li>
 </ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-Gravier2010" class="csl-entry" role="doc-biblioentry">
+Gravier, Eléonore, Gaëlle Pierron, Anne Vincent‐Salomon, Nadège Gruel, Virginie Raynal, Alexia Savignoni, Yann De Rycke, et al. 2010. <span>“A Prognostic DNA Signature for T1t2 Node‐negative Breast Cancer Patients.”</span> <em>Genes, Chromosomes and Cancer</em> 49 (12): 1125–34. <a href="https://doi.org/10.1002/gcc.20820">https://doi.org/10.1002/gcc.20820</a>.
+</div>
+<div id="ref-Noble2009" class="csl-entry" role="doc-biblioentry">
+Noble, William S. 2009. <span>“How Does Multiple Testing Correction Work?”</span> <em>Nature Biotechnology</em> 27 (12): 1135–37. <a href="https://doi.org/10.1038/nbt1209-1135">https://doi.org/10.1038/nbt1209-1135</a>.
+</div>
+<div id="ref-Nolan2020" class="csl-entry" role="doc-biblioentry">
+Nolan, Sean, Marissa Vignali, Mark Klinger, Jennifer N. Dines, Ian M. Kaplan, Emily Svejnoha, Tracy Craft, et al. 2020. <span>“A Large-Scale Database of t-Cell Receptor Beta (TCRβ) Sequences and Binding Associations from Natural and Synthetic Exposure to SARS-CoV-2.”</span> August. <a href="https://doi.org/10.21203/rs.3.rs-51964/v1">https://doi.org/10.21203/rs.3.rs-51964/v1</a>.
+</div>
+<div id="ref-Schorling1997" class="csl-entry" role="doc-biblioentry">
+Schorling, John B., Julienne Roach, Marjorie Siegel, Natalie Baturka, Dawn E. Hunt, Thomas M. Guterbock, and Herbert L. Stewart. 1997. <span>“A Trial of Church-Based Smoking Cessation Interventions for Rural African Americans.”</span> <em>Preventive Medicine</em> 26 (1): 92–101. <a href="https://doi.org/10.1006/pmed.1996.9988">https://doi.org/10.1006/pmed.1996.9988</a>.
+</div>
+<div id="ref-Torondel2016" class="csl-entry" role="doc-biblioentry">
+Torondel, Belen, Jeroen H. J. Ensink, Ozan Gundogdu, Umer Zeeshan Ijaz, Julian Parkhill, Faraji Abdelahi, Viet-Anh Nguyen, et al. 2016. <span>“Assessment of the Influence of Intrinsic Environmental and Geographical Factors on the Bacterial Ecology of Pit Latrines.”</span> <em>Microbial Biotechnology</em> 9 (2): 209–23. <a href="https://doi.org/10.1111/1751-7915.12334">https://doi.org/10.1111/1751-7915.12334</a>.
+</div>
+<div id="ref-Willems1997" class="csl-entry" role="doc-biblioentry">
+Willems, James P., J Terry Sanders, Dawn E. Hunt, and John B. Schorling. 1997. <span>“Prevalence of Coronary Heart Disease Risk Factors Among Rural Blacks: A Community-Based Study.”</span> <em>Southern Medical Journal</em> 90 (8): 814–20. <a href="https://doi.org/10.1097/00007611-199708000-00008">https://doi.org/10.1097/00007611-199708000-00008</a>.
+</div>
+</div>
 </section>
 </section>
 

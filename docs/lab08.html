@@ -318,6 +318,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -480,15 +485,15 @@ Write vignettes: <code>usethis::use_vignette("Vignette name")</code>
 <p>During the previous class, you have been using a combination of console and terminal to set up GitHub. This week, you will solely be using the console.</p>
 <p><strong>Still only the first team member</strong></p>
 <ol type="1">
-<li>Go to <a href="https://github.com/rforbiodatascience23">https://github.com/rforbiodatascience23</a></li>
-<li>Click the green <code>New</code>-button</li>
+<li>Go to <a href="https://github.com/rforbiodatascience24">https://github.com/rforbiodatascience24</a></li>
+<li>Click the green <code>New</code> button</li>
 <li>Create a new repository called <code>group_X_package</code>. Remember to replace the <strong>X</strong></li>
-<li>Select <code>rforbiodatascience23</code> as owner</li>
+<li>Select <code>rforbiodatascience24</code> as owner</li>
 <li>Make the repository <code>Public</code></li>
-<li>Click the green <code>Create repository</code>-button</li>
+<li>Click the green <code>Create repository</code> button</li>
 <li>In this new repository, click the <code>settings</code> tab</li>
 <li>Click <code>Collaborators and Team</code></li>
-<li>Click the green <code>Add people</code>-button</li>
+<li>Click the green <code>Add people</code> button</li>
 <li>Invite the remaining group members</li>
 <li>All other team members should now have access to the repository, <strong>but do not create your own project yet.</strong></li>
 </ol>
@@ -519,7 +524,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g., i
 <li>Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the <strong>X</strong>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_remote</span>(<span class="at">name =</span> <span class="st">"origin"</span>, <span class="st">"https://github.com/rforbiodatascience23/group_X_package.git"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>) <span class="co"># Remember to replace the X</span></span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_remote</span>(<span class="at">name =</span> <span class="st">"origin"</span>, <span class="st">"https://github.com/rforbiodatascience24/group_X_package.git"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>) <span class="co"># Remember to replace the X</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"USERNAME"</span>, <span class="at">user.email =</span> <span class="st">"USEREMAIL@EXAMPLE.ORG"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_commit_all</span>(<span class="st">"Package setup"</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_push</span>(<span class="st">"origin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -531,7 +536,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g., i
 <ul>
 <li>Click <code>Create a project</code><img src="images/L08_create.png" class="img-fluid" style="width:5.0%"> in the top left.</li>
 <li>Choose <code>Version Control</code> and then <code>Git</code>.</li>
-<li>Paste in the repository URL: <code>https://github.com/rforbiodatascience23/group_X_package.git</code>. Remember to replace the <strong>X</strong>.</li>
+<li>Paste in the repository URL: <code>https://github.com/rforbiodatascience24/group_X_package.git</code>. Remember to replace the <strong>X</strong>.</li>
 <li>Give the directory a fitting name and click <code>Create Project</code>.</li>
 </ul></li>
 <li>Find your <code>PAT</code> key or create a new
@@ -779,7 +784,7 @@ Function five
 <li>Create a vignette with <code>usethis::use_vignette("your_package_name")</code>.</li>
 <li>When you are done writing it, run <code>devtools::build_vignettes()</code>.</li>
 <li>At the top line of your vignette, change <code>rmarkdown::html_vignette</code> to <code>rmarkdown::pdf_document</code></li>
-<li>Rerun <code>devtools::build_vignettes()</code> - the created pdf-file in the <code>doc</code>-folder is the document to hand it.</li>
+<li>Rerun <code>devtools::build_vignettes()</code> - the created pdf-file in the <code>doc</code> folder is the document to hand it.</li>
 <li>Lastly, duplicate the vignette as the GitHub README
 <ul>
 <li>Create a README with <code>usethis::use_readme_rmd( open = TRUE )</code>.</li>

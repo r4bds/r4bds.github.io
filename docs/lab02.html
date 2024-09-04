@@ -318,6 +318,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -341,7 +346,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#basic-plots" id="toc-basic-plots" class="nav-link" data-scroll-target="#basic-plots">Basic Plots</a></li>
   <li><a href="#extending-basic-plots" id="toc-extending-basic-plots" class="nav-link" data-scroll-target="#extending-basic-plots">Extending Basic Plots</a></li>
   </ul></li>
-  <li><a href="#further-ressources-for-data-visualisation" id="toc-further-ressources-for-data-visualisation" class="nav-link" data-scroll-target="#further-ressources-for-data-visualisation">Further ressources for data visualisation</a></li>
+  <li><a href="#further-resources-for-data-visualisation" id="toc-further-resources-for-data-visualisation" class="nav-link" data-scroll-target="#further-resources-for-data-visualisation">Further resources for data visualisation</a></li>
   </ul>
 </nav>
     </div>
@@ -395,9 +400,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 <p><em>A student who has met the objectives of the session will be able to:</em></p>
 <ul>
-<li>Explains the basic theory of data visualisation</li>
+<li>Explain the basic theory of data visualisation</li>
 <li>Decipher the components of a simple ggplot</li>
-<li>Use ggplot to do basic data visualisation</li>
+<li>Use <code>ggplot</code> to do basic data visualisation</li>
 </ul>
 </section>
 <section id="sec-exercises" class="level2">
@@ -452,8 +457,8 @@ Click here for visualisation 4
 <p><em>First of all, make sure to read every line in these exercises carefully!</em></p>
 <p><em>If you get stuck with Quarto, revisit <a href="https://r4ds.hadley.nz/quarto.html">R4DS2e, chapter 29</a> or <a href="https://quarto.org/docs/guide/">take a look at the Comprehensive guide to using Quarto</a></em></p>
 <ul>
-<li><p>Go to the <a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science RStudio Cloud Server</a> session from last time and login and choose the project you created.</p></li>
-<li><p><strong>Create a new Quarto Document for todays exercises, e.g.&nbsp;lab02_exercises.qmd</strong></p></li>
+<li><p>Go to the <a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science RStudio Cloud Server</a> session from last time and log in and choose the project you created.</p></li>
+<li><p><strong>Create a new Quarto Document for today’s exercises, e.g.&nbsp;lab02_exercises.qmd</strong></p></li>
 </ul>
 <p>Recall the layout of the IDE (Integrated Development Environment)</p>
 <div class="quarto-figure quarto-figure-center">
@@ -492,7 +497,7 @@ Click here for visualisation 4
 </ul>
 <p>Note, this might not work, depending on your browser. In that case you can insert a new code chunk using <img src="images/insert_new_chunk.png" class="img-fluid"> or You can change the shortcuts via “Tools” &gt; “Modify Keyboard shortcuts…” &gt; Filter for “Insert Chunk” and then choose the desired shortcut. E.g. change the shortcut for code chunks to Shift+Cmd+i or similar.</p>
 <ul>
-<li>Add a new code chunk and use the <code>load()</code>-function to load the data you retrieved.</li>
+<li>Add a new code chunk and use the <code>load()</code> function to load the data you retrieved.</li>
 </ul>
 <details>
 <p>
@@ -502,9 +507,9 @@ Click here for a hint
 <p></p>
 Remember, you can use <code>?load</code> to get help on how the function works and remember your project root path is defined by the location of your <code>.Rproj</code> file, i.e.&nbsp;the path. A path is simply where <code>R</code> can find your file, e.g.&nbsp;<code>/home/projects/r_for_bio_data_science/</code> or similar depending on your particular setup.
 </details>
-<p>Now, in the console, run the <code>ls()</code>-command and confirm, that you did indeed load the <code>gravier</code> data.</p>
+<p>Now, in the console, run the <code>ls()</code> command and confirm, that you did indeed load the <code>gravier</code> data.</p>
 <ul>
-<li>Read the information about the <code>gravier</code>-data <a href="https://github.com/ramhiser/datamicroarray/wiki/Gravier-%282010%29">here</a></li>
+<li>Read the information about the <code>gravier</code> data <a href="https://github.com/ramhiser/datamicroarray/wiki/Gravier-%282010%29">here</a></li>
 </ul>
 <p>Now, in your Quarto Document, add a new code chunk like so</p>
 <div class="cell">
@@ -522,7 +527,7 @@ Remember, you can use <code>?load</code> to get help on how the function works a
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>cancer_data<span class="sc">$</span>age_group<span class="ot">=</span><span class="fu">cut</span>(cancer_data<span class="sc">$</span>age,<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">10</span>,<span class="dv">100</span>,<span class="at">by=</span><span class="dv">10</span>))</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>cancer_data<span class="ot">=</span><span class="fu">relocate</span>(cancer_data,<span class="fu">c</span>(pt_id,age,age_group,pt_id,event_label))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now we have the data set as an tibble, which is an augmented data frame (we will also get to that later):</p>
+<p>Now we have the data set as a tibble, which is an augmented data frame (we will also get to that later):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>cancer_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -578,7 +583,7 @@ Click here for a hint
 <h2 class="anchored" data-anchor-id="ggplot---the-very-basics">ggplot - The Very Basics</h2>
 <section id="general-syntax" class="level3">
 <h3 class="anchored" data-anchor-id="general-syntax">General Syntax</h3>
-<p>The general syntax for a basic ggplot is:</p>
+<p>The general syntax for a basic <code>ggplot</code> is:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> my_data,</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> variable_1_name,</span>
@@ -598,14 +603,14 @@ Click here for a hint
 </ul>
 <p>Now:</p>
 <ul>
-<li>Reivisit this illustration and discuss in your group what is what:</li>
+<li>Revisit this illustration and discuss in your group what is what:</li>
 </ul>
 <p><img src="images/vis_ggplot_components.png" class="img-fluid"></p>
 <p>A very handy <code>ggplot</code> cheat-sheet can be found <a href="https://rstudio.github.io/cheatsheets/data-visualization.pdf">here</a></p>
 </section>
 <section id="basic-plots" class="level3">
 <h3 class="anchored" data-anchor-id="basic-plots">Basic Plots</h3>
-<p>Remember to write notes in your rmarkdown document. You will likely revisit these basic plots in future exercises.</p>
+<p>Remember to write notes in your Quarto document. You will likely revisit these basic plots in future exercises.</p>
 <p>Primer: Plotting 2 x 20 random normally distributed numbers, can be done like so:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">20</span>),</span>
@@ -619,9 +624,9 @@ Click here for a hint
 </div>
 <p>Using this small primer, the materials you read for today and the <code>cancer_data</code> you created, in separate code-chunks, create a:</p>
 <ul>
-<li><strong>T1: scatterplot of one variable against another</strong></li>
-<li><strong>T2: linegraph of one variable against another</strong></li>
-<li><strong>T3: boxplot of one variable</strong> (<em>Hint: Set <code>x = "my_gene"</code> in <code>aes()</code></em>)</li>
+<li><strong>T1: scatter plot of one variable against another</strong></li>
+<li><strong>T2: line graph of one variable against another</strong></li>
+<li><strong>T3: box plot of one variable</strong> (<em>Hint: Set <code>x = "my_gene"</code> in <code>aes()</code></em>)</li>
 <li><strong>T4: histogram of one variable</strong></li>
 <li><strong>T5: densitogram of one variable</strong></li>
 </ul>
@@ -633,21 +638,21 @@ Click here for a hint
 <section id="extending-basic-plots" class="level3">
 <h3 class="anchored" data-anchor-id="extending-basic-plots">Extending Basic Plots</h3>
 <ul>
-<li><p><strong>T6: Pick your favourite gene and create a boxplot of expression levels stratified on the variable <code>event_label</code></strong></p></li>
+<li><p><strong>T6: Pick your favourite gene and create a box plot of expression levels stratified on the variable <code>event_label</code></strong></p></li>
 <li><p><strong>T7: Like T6, but with densitograms</strong> <span style="color: red;">GROUP ASSIGNMENT</span></p></li>
-<li><p><strong>T8: Pick your favourite gene and create a boxplot of expression levels stratified on the variable <code>age_group</code></strong></p>
+<li><p><strong>T8: Pick your favourite gene and create a box plot of expression levels stratified on the variable <code>age_group</code></strong></p>
 <ul>
 <li>Then, add stratification on <code>event_label</code></li>
 <li>Then, add transparency to the boxes</li>
 <li>Then, add some labels</li>
 </ul></li>
-<li><p><strong>T9: Pick your favourite gene and create a scatter-plot of expression levels versus <code>age</code></strong></p>
+<li><p><strong>T9: Pick your favourite gene and create a scatter plot of expression levels versus <code>age</code></strong></p>
 <ul>
 <li>Then, add stratification on <code>event_label</code></li>
 <li>Then, add a smoothing line</li>
 <li>Then, add some labels</li>
 </ul></li>
-<li><p><strong>T10: Pick your favourite two genes and create a scatter-plot of their expression levels</strong></p>
+<li><p><strong>T10: Pick your favourite two genes and create a scatter plot of their expression levels</strong></p>
 <ul>
 <li>Then, add stratification on <code>event_label</code></li>
 <li>Then, add a smoothing line</li>
@@ -677,8 +682,8 @@ Click here for a hint
 </ul>
 </section>
 </section>
-<section id="further-ressources-for-data-visualisation" class="level2">
-<h2 class="anchored" data-anchor-id="further-ressources-for-data-visualisation">Further ressources for data visualisation</h2>
+<section id="further-resources-for-data-visualisation" class="level2">
+<h2 class="anchored" data-anchor-id="further-resources-for-data-visualisation">Further resources for data visualisation</h2>
 <ul>
 <li>A very handy <code>ggplot</code> cheat-sheet can be found <a href="https://rstudio.github.io/cheatsheets/data-visualization.pdf">here</a></li>
 <li>So which plot to choose? Check this handy <a href="https://www.data-to-viz.com/">guide</a></li>
