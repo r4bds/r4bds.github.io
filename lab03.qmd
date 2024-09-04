@@ -47,9 +47,9 @@ _Read the steps of this exercises carefully, while completing them_
 
 ### Introduction
 
-Some authors are kind enough to supply the data they used for their paper, e.g.:
+Some authors are kind enough to supply the data they used for their paper, e.g.,
 
-- [_"Assessment of the influence of intrinsic environmental and geographical factors on the bacterial ecology of pit latrines"_](https://sfamjournals.onlinelibrary.wiley.com/doi/full/10.1111/1751-7915.12334)
+- "Assessment of the influence of intrinsic environmental and geographical factors on the bacterial ecology of pit latrines" [@Torondel2016]
 
 Where the supporting data can be found here:
 
@@ -59,8 +59,8 @@ Where the supporting data can be found here:
 
 Again, go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) session from last time and login and choose the project you created
 
-- **Create a new Quarto Document for todays exercises, e.g. lab03_exercises.qmd**
-- **NB! The Quarto document MUST be placed together with your `.Rproj` file (defining, the project root - look in your `Files`-tab) and also there, the `data`-folder should be placed!**
+- **Create a new Quarto Document for today's exercises, e.g. lab03_exercises.qmd**
+- **NB! The Quarto document MUST be placed together with your `.Rproj` file (defining, the project root - look in your `Files` tab) and also there, the `data`-folder should be placed!**
 - **REMEMBER paths are important! Also, R is case-sensitive, i.e. "data" is not the same as "Data"**
 
 See [Paths and Projects](paths_and_projects.qmd)
@@ -89,7 +89,7 @@ Add the chunk settings `#| echo: true` and `#| eval: true`, then run the block a
 
 <details>
 <p><summary>Click here for hint</summary></p>
-From where do we retrieve the data and to where do we write it and what happens if we run the chunk more than one time?
+Where do we retrieve the data from, where do we write it to, and what happens if we run the chunk more than one time?
 </details>
 
 ### Wrangling the data
@@ -311,7 +311,7 @@ ggplot(data = SPE_ENV_targets,
   scale_fill_viridis_d() +
   labs(x = "OTU Count",
        y = "Taxa Identified",
-       title = "OTU Count Distribution for 5 Taxa Stratified on Site",
+       title = "OTU Count Distribution for 5 Taxa Stratified by Site",
        caption = "Data from doi.org/10.1111/1751-7915.12334") +
   theme_minimal(base_family = "Avenir",
                 base_size = 12) +
@@ -322,7 +322,7 @@ ggplot(data = SPE_ENV_targets,
 
 <details>
 <p><summary>Click here for hint</summary></p>
-_Here we need to use `geom_density_ridges()`, but which package contains this? Also we are using a colour scale called `viridis`, but how do we add this? Also, perhaps there are more themes we can use than just `theme_classic()?`_ 
+_Here we need to use `geom_density_ridges()`, but which package contains this? Also, we are using a colour scale called `viridis`, but how do we add this? Also, perhaps there are more themes we can use than just `theme_classic()?`_ 
 </details>
 
 #### Task 9 - <span style="color: red;">GROUP ASSIGNMENT</span>

@@ -2,7 +2,7 @@
 
 ## Package(s)
 
--   [Base](https://www.r-project.org)
+-   [base](https://www.r-project.org)
 
 ## Schedule
 
@@ -13,7 +13,7 @@
 -   11.15 - 11.30: Break
 -   11.30 - 12.00: Lecture: Reproducibility in Modern Bio Data Science
 
-## Learning Materials
+## Learning Materials {#sec-learning-materials}
 
 *Please prepare the following materials:*
 
@@ -40,7 +40,7 @@
 
 ## Exercises {#sec-exercises}
 
-Today, we will focused on getting you started and up and running with the first elements of the course, namely the RStudio IDE (Integrated Developer Environment) and Quarto. If the relationship between `R` and RStudio is unclear, think of it this way: Consider a car, in that case, `R` would be the engine and RStudio would be the rest of the car. Neither is particularly useful, but together they form a functioning unit. Before you continue, make sure you in fact did watch the "RStudio for the Total Beginner" video (See the Learning Materials for todays session).
+Today, we will focus on getting you started and up and running with the first elements of the course, namely the RStudio IDE (Integrated Developer Environment) and Quarto. If the relationship between `R` and RStudio is unclear, think of it this way: Consider a car, in that case, `R` would be the engine and RStudio would be the rest of the car. Neither is particularly useful, but together they form a functioning unit. Before you continue, make sure you in fact did watch the "RStudio for the Total Beginner" video (See the [Learning Materials](#sec-learning-materials) for today's session).
 
 ### Cloud server and the RStudio IDE
 
@@ -90,7 +90,7 @@ str(df)
 ls()
 ```
 
-Take some time and play around with these commands and other things you can come up with. Use the `?function` to get help on what that function does. Be sure to discuss what you observe in the console. Do not worry too much on the details for now, we are just getting started. But as you hopefully can see, `R` is very flexible and basically the message is: "If you can think it, you can build it in `R`".
+Take some time and play around with these commands and other things you can come up with. Use the `?function` to get help on what that function does. Be sure to discuss what you observe in the console. Do not worry too much about the details for now; we are just getting started. But as you hopefully can see, `R` is very flexible and basically the message is: "If you can think it, you can build it in `R`".
 
 - Go to [R4DS2e Chapter 2 Workflow: basics](https://r4ds.hadley.nz/workflow-basics) in R4DS2e and do the exercises
 
@@ -116,7 +116,7 @@ Basically, here you have access to a full terminal, which can prove immensely us
 
 The source is where you will write scripts. A script is a series of commands to be executed sequentially, i.e. first line 1, then line 2 and so on. Right now, you should have a open script called `Untitled1`. If not, you can create a new script by clicking white paper with a round green plus sign in the upper left corner.
 
-Taking inspiration from the examples above, try to write a series of commands and include a `print()`-statement at the very end. Click `File` $\rightarrow$ `Save` and save the file as e.g. `my_first_script.R`. Now, go to the console and type in the command `source("my_first_script.R")`. Congratulations! You have now written your very first reproducible R-program!
+Taking inspiration from the examples above, try to write a series of commands and include a `print()`-statement at the very end. Click `File` $\rightarrow$ `Save` and save the file as e.g. `my_first_script.R`. Now, go to the console and type in the command `source("my_first_script.R")`. Congratulations! You have now written your very first reproducible R program!
 
 ### The Whole Shebang
 
@@ -131,11 +131,11 @@ Enough playing around, let us embark on our modern Bio Data Science in R journey
 
 #### On Working in Projects
 
-Projects allow you to create fully transferable bio data science projects, meaning that the root of the project will be where the `.Rproj` file is located. You can confirm this by entering `getwd()` in the console. This means that under *no circumstance* should ever *not* work in a project nor should *ever* use absolute paths. Every single path you state in your project *must* be relative to the project root.
+Projects allow you to create fully transferable bio data science projects, meaning that the root of the project will be where the `.Rproj` file is located. You can confirm this by entering `getwd()` in the console. This means that under *no circumstances* should you ever *not* work within a project, nor should you *ever* use absolute paths. Every single path you state in your project *must* be relative to the project root.
 
-But why? Imagine you have create a project, where you have indeed used absolute paths. Now you want to share that project with a colleague. Said colleague gets your project and tests the reproducibility by running the project end-to-end. But it *completely* fails because you have hardcoded your paths to be absolute, meaning that all files and project ressources locations points to locations on your laptop.
+But why? Imagine you have created a project, where you have indeed used absolute paths. Now you want to share that project with a colleague. Said colleague gets your project and tests the reproducibility by running the project end-to-end. But it *completely* fails because you have hardcoded your paths to be absolute, meaning that all file and project resource locations point to locations on your laptop.
 
-Projects are a *must* and allows you to create reproducible encapsulated bio data science projects. Note, the concept of reproducibility is absolute central to this course and must be considered in all aspect of the life cycle of a project!
+Projects are a *must* and allow you to create reproducible encapsulated bio data science projects. Note, the concept of reproducibility is absolutely central to this course and must be considered in all aspects of the life cycle of a project!
 
 #### Quarto
 
@@ -145,7 +145,7 @@ While `.R`-scripts are a perfectly valid way to write scripts, there is another 
 -   Enter a `Title:`, e.g. "Lab 1 Exercises" and enter your name below in the box `Author:`
 -   Click `Create`
 -   Important: Save your Quarto document! Click `File` $\rightarrow$ `Save` and name it e.g. `lab_01_exercises.qmd`
--   Minimise the `Environment`-pane
+-   Minimise the `Environment` pane
 
 You should now see something like this:
 
@@ -153,20 +153,20 @@ You should now see something like this:
 
 Try clicking the `Render` button just above the quarto-document. This will create the HTML5 output file. Note! You may get a `Connection Refused` message. If so, don't worry, just close the page to return to the cloud server and find the generated `.html` file, left-click and select `View in Web Browser`.
 
-If you have previously worked with `Rmarkdown`, then many features of `Quarto` will be familiar. Think of `Quarto` as the complete rethink of `Rmarkdown`, i.e. based on all the experience gained, what would the optimal way of constructing an open-source scientific and technical publishing system?
+If you have previously worked with `Rmarkdown`, then many features of `Quarto` will be familiar. Think of `Quarto` as a complete rethinking of `Rmarkdown`, i.e. based on all the experience gained, what would the optimal way of constructing an open-source scientific and technical publishing system?
 
-Perhaps you have previously encountered Jupyter notebooks, Quarto is similar. The basic idea is to have one document covering the entire project cycle, i.e. code, plots and text will be in the same document.
+If you have previously encountered Jupyter notebooks, Quarto is similar. The basic idea is to have one document covering the entire project cycle.
 
 Proceed to [R4DS2e Chapter 28 Quarto](https://r4ds.hadley.nz/quarto) and do the exercises.
 
 ### Bio Data Science with a Virtual AI Assistant
 
-I am pretty sure you all know of chatGPT by now, so let us address the elephant in the room!
+I am pretty sure you all know of ChatGPT by now, so let us address the elephant in the room!
 
 #### Getting started
 
 -   Go to the [ChatGPT](https://chat.openai.com) site
--   Create a user and login
+-   Create a user and log in
 
 ##### Let us get acquainted
 
@@ -188,7 +188,7 @@ Again, type the following questions in the prompt and read the answers:
 3.  *Give a few simple examples*
 4.  *Explain the difference between base R and Tidyverse R*
 
-If you do get some code examples, try to copy/paste into the console in RStudio and see if they run
+If you get some code examples, try copying and pasting them into the console in RStudio to see if they run.
 
 ##### Prompt Engineering
 
@@ -252,11 +252,11 @@ Start yet a new chat and run:
 
 **The following is IMPORTANT, so please read carefully and please discuss in your group**
 
-While `chatGPT` can be a powerful tool for code productivity, it comes with a major caveat: **When it fails, it fails with confidence** (See `Strawberry Fields Forever` above). This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can use your experience to evaluate if you are heading in the right direction or if you're being send on a wild goose chase. In this situation, ChatGPT can be a powerful sparring partner to augment your bio data science workflow to enhance productivity.
+While `ChatGPT` can be a powerful tool for code productivity, it comes with a major caveat: **When it fails, it fails with confidence** (See `Strawberry Fields Forever` above). This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can use your experience to evaluate if you are heading in the right direction or if you're being send on a wild goose chase. In this situation, ChatGPT can be a powerful sparring partner to augment your bio data science workflow to enhance productivity.
 
 Know the difference between "asking for a solution" and "asking for an explanation" - Do not cheat yourself here, it is **very important** that the yield of this course is that **you** learn **Tidyverse R** and **not** how to "use ChatGPT to produced code".
 
-Therefore, **do not use chatGPT to solve the exercises**, rather use ChatGPT as a learning assistant. Here is an example of the difference:
+Therefore, **do not use ChatGPT to solve the exercises**, rather use ChatGPT as a learning assistant. Here is an example of the difference:
 
 - **Wrong:** _Give me the tidyverse code for adding a new variable `z` to a dataset, which is the sum of `x` and `y`_
 - **Right:** _In simple terms, explain which tidyverse function is used to add variables to datasets and give a very basic example of how it is used_

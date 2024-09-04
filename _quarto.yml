@@ -51,6 +51,10 @@ book:
         - project_faq.qmd
         - project_checklist.qmd
         - exam.qmd
+    
+    - references.qmd
+
+bibliography: references.bib
 
 format:
   html:

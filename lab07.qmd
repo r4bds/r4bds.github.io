@@ -92,15 +92,15 @@ First, select a team **<span style="color:darkgreen;">Captain</span>**, that per
 
 *Congratulations! You have just cloned your first GitHub repository!*
 
-In your `Files`-pane, you should now see:
+In your `Files` pane, you should now see:
 
 ![](images/git_first_files.png){fig-align="center" width=40%}
 
-...and now in your `Environment`-pane, you should see a new `git`-tab:
+...and now in your `Environment` pane, you should see a new `git` tab:
 
 ![](images/git_environment_pane.png){fig-align="center" width=50%}
 
-If you click the `git`-tab, you should see:
+If you click the `git` tab, you should see:
 
 ![](images/environment_pane_git_tab.png){fig-align="center" width=50%}
 
@@ -109,13 +109,13 @@ If you click the `git`-tab, you should see:
 #### **<span style="color:darkgreen;">Team</span>**
 
 1. Create a new Quarto document, title it `student_id` and save id as `student_id.qmd`, where `student_id` is your... You guessed it!
-1. In the `environment`-pane, click the `git`-tab
+1. In the `environment` pane, click the `git` tab
 1. Tick the 3 boxes under `staged`
 1. Click `commit`
 1. In the upper right corner, add a `Commit message`, e.g "First commit by student_id"
-1. Click the `Commit`-button
+1. Click the `Commit` button
 1. A pop-up, will give you details on your commit, look through them and then click `Close`
-1. Now, very important **ALWAYS** click the ![](images/pull.png) `Pull`-button **BEFORE** clicking the ![](images/push.png) `Push`-button
+1. Now, very important **ALWAYS** click the ![](images/pull.png) `Pull` button **BEFORE** clicking the ![](images/push.png) `Push` button
 1. Clicking `Pull`, you should see "Already up to date."
 1. Then click `Push`
 
@@ -147,7 +147,7 @@ usethis::create_github_token()
 4. Under `Note`, where it says `DESCRIBE THE TOKEN'S USE CASE`, delete the text and write e.g.`R for Bio Data Science lab 7 git exercises`
 5. Under `Expiration`, where it says `30 days`, change that to `90 days`
 6. Do not change any other setting, but simply scroll down and click `Generate token`
-7. A new `Personal access tokens (classic)`-page will appear, stating your personal access token, which starts with `ghp_`, go ahead and copy it
+7. A new `Personal access tokens (classic)` page will appear, stating your personal access token, which starts with `ghp_`, go ahead and copy it
 8. Store the `PAT` somewhere save, e.g. in a password management tool
 9. Again in the console, run the below command and enter your `PAT` when prompted:
 
@@ -157,9 +157,9 @@ usethis::create_github_token()
 gitcreds::gitcreds_set()
 ```
 
-10. In the `Environment`-pane, make sure you are in the `git`-tab and again click `Pull` (We *always* pull before push)
+10. In the `Environment` pane, make sure you are in the `git` tab and again click `Pull` (We *always* pull before push)
 11. Click `Push`
-12. Go to your groups `GitHub`-project page `https://github.com/CAPTAIN_USERNAME/groupXX`
+12. Go to your groups `GitHub` project page `https://github.com/CAPTAIN_USERNAME/groupXX`
 13. Confirm, that you see your files
 
 *Congratulations! You just took your first step towards true collaborative bio data science!*
@@ -170,20 +170,20 @@ Stop, wait a minute and make sure, that **ALL** group members are at this stage 
 
 *The thing is, we're actually working on a Linux server her, this entails a that you're credentials and PAT exists in a cache, which is cleared every 15 minutes. This. Is. Annoying! So let's fix it!*
 
-First of all RStudio is a (G)raphical (U)ser (I)nterface, meaning, that it allows you to do pointy-clicky stuff, but at the end of the day, everything happens at the commandline. That also goes for git, so your button-pushing simply gets converted into commands, which are executed at the commandline. If you are not comfortable with the commandline, don't worry, the pointy-clicky stuff will be sufficient for now! If you are comfortable with the commandline, I advice to get comfortable with git on the commandline as well, you do get some extra bang-for-the-buck!
+First of all RStudio is a (G)raphical (U)ser (I)nterface, meaning, that it allows you to do pointy-clicky stuff, but at the end of the day, everything happens at the command line. That also goes for git, so your button-pushing simply gets converted into commands, which are executed at the command line. If you are not comfortable with the command line, don't worry, the pointy-clicky stuff will be sufficient for now! If you are comfortable with the command line, I advice to get comfortable with git on the command line as well, you do get some extra bang-for-the-buck!
 
-Now, a brief visit of the commandline:
+Now, a brief visit of the command line:
 
-1. In the `Console`-pane, click the `Terminal`-tab, which gains you access to the system underlying RStudio
+1. In the `Console` pane, click the `Terminal` tab, which gains you access to the system underlying RStudio
 1. You should see something like `user@pupilX:/net/pupilX/home/people/user/projects/lab07_git_exercises$`
-1. Enter `ls -a`, this will `l`ist `a`ll the files, compare with your `Files`-pane, you will see that RStudio is "hiding" something from you, namely the `.git` folder
+1. Enter `ls -a`, this will `l`ist `a`ll the files, compare with your `Files` pane, you will see that RStudio is "hiding" something from you, namely the `.git` folder
 1. Enter `ls -a .git` and you will see the content of the folder, this is where all the git-magic happens
 1. See the config file? That holds the configuration, enter `git config --global --list`
 1. Recall you entered your GitHub username and mail? This is where it ended up! Note the `credential.helper=cache`, which tells us, that the credentials are being cached. Now, enter `git config --global credential.helper 'cache --timeout=86400'`
 1. Re-run the command `git config --global --list` and confirm the change
 1. Go back to your `Console` and run the command `gitcreds::gitcreds_set()` and re-enter your PAT
 
-*Congratulations! You have now used the commandline and you will forever be part of an elite few, who know that everything you see in hacker-movies is BS, except perhaps for Wargames and Mr. Robot! Also, your PAT will now be good for 24h* 
+*Congratulations! You have now used the command line and you will forever be part of an elite few, who know that everything you see in hacker-movies is BS, except perhaps for Wargames and Mr. Robot! Also, your PAT will now be good for 24h* 
 
 ### Your next collaboration
 
@@ -193,10 +193,10 @@ Now, a brief visit of the commandline:
 
 1. Create a new Quarto Document, title it "Group Document" and save it as `group_document.qmd`
 1. Using markdown headers, create one section for each group member, incl. yourself. Here, you can use your names, student ids or whatever you deem appropriate
-1. Again in the `Environment`-pane, make sure you are in the `git`-tab and then tick the box next to `group_document.qmd`
+1. Again in the `Environment` pane, make sure you are in the `git` tab and then tick the box next to `group_document.qmd`
 1. Click `Commit`
 1. Add a commit message, e.g. "Add group document"
-1. Click the `Commit`-button
+1. Click the `Commit` button
 1. Click `Pull` (You should be "Already up to date.")
 1. Click `Push`
 1. Click `Close`
@@ -208,7 +208,7 @@ Now, a brief visit of the commandline:
 1. Open `group_document.qmd` and find your assigned section
 1. In your section and your section only, enter some text, add a few code chunks with some `R`-code
 1. Make sure to save the document
-1. Now again, find the `group_document.qmd` in the `git`-tab of the `Environment`-pane and tick the box under `Staged`
+1. Now again, find the `group_document.qmd` in the `git` tab of the `Environment` pane and tick the box under `Staged`
 1. Click `Commit`
 1. Note how your changes to the document are highlighted in green
 1. Add a commit message, e.g. "Update the STUDENT_ID section" and click `Commit`
@@ -233,7 +233,7 @@ Below here, is an illustration, consider the **<span style="color:green;">Master
 
 #### **<span style="color:darkgreen;">Team</span>**
 
-1. Go to your RStudio session and in the `git`-tab of the `Environment`-pane, click ![](images/git_new_branch.png) `New Branch`
+1. Go to your RStudio session and in the `git` tab of the `Environment` pane, click ![](images/git_new_branch.png) `New Branch`
 1. In branch name, enter your student id
 1. You should see a pop-up `Branch 'STUDENT_ID' set up to track remote branch 'STUDENT_ID' from 'origin'.`, go ahead and click `Close`
 1. Next to where you clicked `New Branch` just before, it should now say `STUDENT_ID`, click it and confirm that you see `STUDENT_ID` and `Main`
@@ -241,7 +241,7 @@ Below here, is an illustration, consider the **<span style="color:green;">Master
 1. Click `STUDENT_ID` and you will get a confirmation that you are already on that branch and that you are up-to-date, click `Close`
 1. In the `group_document.qmd` under your section, using markdown, enter a new sub-header and name it e.g. `New feature` or `New analysis`
 1. Enter some text, a few code chunks with a bit of `R`-code of your choosing and save the document
-1. Again, in the `git`-tab, tick the box under staged and click `Commit`
+1. Again, in the `git` tab, tick the box under staged and click `Commit`
 1. Add a commit message, e.g. `New feature from STUDENT_ID` and click `Commit`
 1. Click `Close`, `Pull`, `Close`, `Push` and `Close` and then close the commit window
 1. Go to your group GitHub and confirm that you now have at least 2 branches
@@ -259,7 +259,7 @@ Below here, is an illustration, consider the **<span style="color:green;">Master
 1. Click `Confirm merge` after which it should now say `Pull request successfully merged and closed`
 1. You have now fully merged, so go ahead and click `Delete branch`
 1. Revisit the previous illustration and compare with your branch workflow, make sure that everyone in the groups are on par here
-1. Finally return to your RStudio session and make sure you switch to the `main`-branch
+1. Finally return to your RStudio session and make sure you switch to the `main` branch
 
 *Congratulations! You have now succesfully done your first branch merge!*
 
@@ -270,16 +270,13 @@ But wait, what was this `Pull request`??? What you actually did, was:
 1. Created a `Pull request` for merging your branch `STUDENT_ID` into the `main` branch
 1. Approved and completed the `Pull request`
 
-Think about e.g. again the `ggplot2`-repo, if anyone could create a new branch and then do as described above, then there would be no way of making quality control. Therefore, typically such pull requests will have to be approved by someone. This can either be someone who is close-to-the-code e.g. in the case of `ggplot2`, that'd be someone like Hadley. In a company, then that might be some senior developer approving junior developers pull requests. At one point you might have seen something like "The min branch is unprotected", this is exactly that!
+Think about e.g. again the `ggplot2` repo, if anyone could create a new branch and then do as described above, then there would be no way of making quality control. Therefore, typically such pull requests will have to be approved by someone. This can either be someone who is close-to-the-code e.g. in the case of `ggplot2`, that'd be someone like Hadley. In a company, then that might be some senior developer approving junior developers pull requests. At one point you might have seen something like "The min branch is unprotected", this is exactly that!
 
 ### Your first merge conflict
 
 Okay, that's all good an well. Seems easy and straight forward, right? Well, that is as long as we don't have a `conflict`. A conflict is when two or more changes to one file are not compatible, consider:
 
-```{r}
-#| echo: true
-#| eval: false
-
+```{verbatim}
 Top 10 Data Science Languages of ALL Time:
 10. It is 
 9. Impossible
@@ -300,25 +297,22 @@ In fact, let's screw things up!
 1. Go to the RStudio session and where you usually click `Quarto Document...`, this time let's just create a simple `Text File`
 1. Copy/paste the `Top 10 Data Science Languages of ALL Time` into the file
 1. Save the file as `best_ds_langs.txt`
-1. Make sure you are in the `main`-branch
+1. Make sure you are in the `main` branch
 1. Do a commit/pull/push and check the file ended at your group github
 
 #### **<span style="color:darkgreen;">Crew</span>**
 
 Let's commit mutiny! (pun intended)
 
-1. Make sure you are in the `main`-branch and then hit `Pull`
+1. Make sure you are in the `main` branch and then hit `Pull`
 1. Open the `best_ds_langs.txt`
 1. Each of you separatly (wrongfully) replace `R` with an (inferior) data science language of your choice (you can really write anything)
 1. Now, this time **we do not pull first**, simply commit and then push
 1. Now you can `pull`
 1. You will now get notified about a `merge conflict`
-1. Close and re-open the `best_ds_langs.txt`-file, it should look something like:
+1. Close and re-open the `best_ds_langs.txt` file, it should look something like:
 
-```{r}
-#| echo: true
-#| eval: false
-
+```{verbatim}
 Top 10 Data Science Languages of ALL Time:
 10. It is 
 9. Impossible
@@ -340,27 +334,27 @@ Top 10 Data Science Languages of ALL Time:
 
 Get your **<span style="color:darkgreen;">Crew</span>** in order!
 
-1. Simply edit the file so that you delete everything below 2. and add the final line, which emphasises that `1. R is superiour!`
+1. Simply edit the file so that you delete everything below 2. and add the final line, which emphasises that `1. R is superior!`
 1. The box under `Staged` looks a bit odd right, just click it
 1. Click `Commit` and add a commit message, e.g. `Fixed merge conflict, got crew back in order!`
 1. Click `Commit`, `Close`, `Pull`, `Close`, `Push`, `Close` and close the commit window
-1. Return to your GitHub group and confirm all is in order and you can continue with confidence knowing that `R is superiour!` (Check the file to make sure)
+1. Return to your GitHub group and confirm all is in order and you can continue with confidence knowing that `R is superior!` (Check the file to make sure)
 
 *Congratulations! You have now fixed your first merge conflict!*
 
-Lastly, click the `History`-button next to the `Push`-button and explore the history of how your branches and commits have changed through these exercises.
+Lastly, click the `History` button next to the `Push` button and explore the history of how your branches and commits have changed through these exercises.
 
 ### The .gitignore file
 
-You may have noticed the `.gitignore`-file?
+You may have noticed the `.gitignore` file?
 
 #### **<span style="color:darkgreen;">Team</span>**
 
-1. Go to your RStudio session, find the `.gitignore`-file and click it
+1. Go to your RStudio session, find the `.gitignore` file and click it
 
-It contains a list of files and folders, which should **not** end up at your `git`-repo, i.e. files which should be ignored. An important aspect of working with GitHub is that GitHub is meant for code, **not** data! Let's say we had a `data` and a `data/_raw/`, we could add those to the `.gitignore`-file to avoid the data being included in our commits.
+It contains a list of files and folders, which should **not** end up at your `git` repo, i.e. files which should be ignored. An important aspect of working with GitHub is that GitHub is meant for code, **not** data! Let's say we had a `data` and a `data/_raw/`, we could add those to the `.gitignore` file to avoid the data being included in our commits.
 
-1. Update the `.gitignore`-file and get the updated version to GitHub
+1. Update the `.gitignore` file and get the updated version to GitHub
 
 ### Summary
 
@@ -375,7 +369,7 @@ First of all, here we have just scratched the surface. You can [read much more h
 Your assignment this time, will be to:
 
 1. Go to [this post](https://clauswilke.com/blog/2020/09/07/pca-tidyverse-style/) on "PCA tidyverse style" by Claus O. Wilke, Professor of Integrative Biology
-1. Again, create a reproducible micro-report, this time, where you do a code-along with either the data in the post or e.g. the `gravier`-data or ?
+1. Again, create a reproducible micro-report, this time, where you do a code-along with either the data in the post or e.g. the `gravier` data or ?
 1. Use your GitHub group repository to collaborate
 1. Your hand in will be a link to your micro-report in your GitHub group repository
 1. Make sure to check the [Assignment Guidelines](https://r4bds.github.io/assignments.html)
