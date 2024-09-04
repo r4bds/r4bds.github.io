@@ -26,6 +26,8 @@ _Please prepare the following materials:_
 -  Web: (NB! STOP at 7:45, i.e. skip tidyr) [Tidy Data and tidyr -- Pt 2 Intro to Data Wrangling with R and the Tidyverse](https://www.youtube.com/watch?v=1ELALQlO-yM)
 -  Web: [Data Manipulation Tools: dplyr -- Pt 3 Intro to the Grammar of Data Manipulation with R](https://www.youtube.com/watch?v=Zc_ufg4uW4U)
 
+_Unless explicitly stated, do not do the per-chapter exercises in the R4DS2e book_
+
 ## Learning Objectives
 
 _A student who has met the objectives of the session will be able to:_

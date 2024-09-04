@@ -31,6 +31,8 @@ _Note: The following are suggested learning materials, i.e., do not go over ever
 - Example: [nnvizRt](https://leonjessen.shinyapps.io/nnvizRt/)
 - More inspiration: [Shiny Gallery](https://shiny.rstudio.com/gallery/)
 
+_Unless explicitly stated, do not do the per-chapter exercises in the R4DS2e book_
+
 ## Learning Objectives
 
 _A student who has met the objectives of the session will be able to:_

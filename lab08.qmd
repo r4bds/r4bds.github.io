@@ -27,6 +27,8 @@ _Please prepare the following materials:_
 - Web: [R package primer a minimal tutorial](https://kbroman.org/pkg_primer/) -- Brief but comprehensive R Package tutorial
 - Book: [R Packages - 1 Introduction](https://r-pkgs.org/introduction.html) -- Everything you need to know about R Packages
 
+_Unless explicitly stated, do not do the per-chapter exercises in the R4DS2e book_
+
 ## Learning Objectives
 
 _A student who has met the objectives of the session will be able to:_

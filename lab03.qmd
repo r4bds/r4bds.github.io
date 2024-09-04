@@ -22,6 +22,8 @@ _Please prepare the following materials_
 - Web: [Patchwork - Getting started](https://patchwork.data-imaginist.com/articles/patchwork.html)
 - Web: [Scales - Getting started](https://www.tidyverse.org/blog/2022/04/scales-1-2-0/)
 
+_Unless explicitly stated, do not do the per-chapter exercises in the R4DS2e book_
+
 ## Learning Objectives
 
 _A student who has met the objectives of the session will be able to:_

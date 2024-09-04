@@ -28,6 +28,8 @@
 -   Video: [RStudio for the Total Beginner](https://www.youtube.com/watch?v=FIrsOBy5k58)
 -   Paper: [A Quick Guide to Organizing Computational Biology Projects](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424)
 
+_Unless explicitly stated, do not do the per-chapter exercises in the R4DS2e book_
+
 ## Learning Objectives
 
 *A student who has met the objectives of the session will be able to:*
@@ -48,7 +50,9 @@ Go to the [R for Bio Data Science Cloud Server](https://teaching.healthtech.dtu.
 
 ![](images/lab01_01.png){fig-align="center" width="800px"}
 
-This is the RStudio IDE. It allows you to consolidate all features needed to develop `R` code for analysis. Now, click `Tools` $\rightarrow$ `Global Options...` $\rightarrow$ `Pane Layout` and you will see this:
+First, just a quick change of settings to enable graphics. Click `Tools` $\rightarrow$ `Global Options`. Then under `General`, choose the tab `Graphics` and under `Graphics Device`, choose `Cairo` as your `Backend`. Then click `Apply` and finally `OK`. That was easy right? Now, please continue.
+
+Welcome to the RStudio IDE. It allows you to consolidate all features needed to develop `R` code for analysis. Now, click `Tools` $\rightarrow$ `Global Options...` $\rightarrow$ `Pane Layout` and you will see this:
 
 ![](images/lab01_02.png){fig-align="center" width="600px"}
 

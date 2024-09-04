@@ -23,6 +23,8 @@ _Please prepare the following materials_
 - Video: [RStudio and Git - an Overview (Part 1)](https://www.youtube.com/watch?v=KjLycV1IWqc) -- Basic git concepts, for those who prefer listen rather than read. Books, however, contain more information
 - Video: [How to use Git and GitHub with R](https://www.youtube.com/watch?v=kL6L2MNqPHg) -- Basic operating on git in RStudio. Complementary to second book. You can skip to 2:50, we are not going to link to git manually either way
 
+_Unless explicitly stated, do not do the per-chapter exercises in the R4DS2e book_
+
 ## Learning Objectives
 
 _A student who has met the objectives of the session will be able to:_

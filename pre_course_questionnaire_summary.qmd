@@ -13,6 +13,76 @@ format:
     footer: "R for Bio Data Science"
 ---
 
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Student Composition
+```{r}
+library("tidyverse")
+library("broom")
+
+d <- read_csv(file = "data/01_pre_course_survey_2024.csv") |> 
+  select(
+    x1 = `What is your current activity?`,
+    x2 = `Prerequisites - Have you completed mentioned courses or equivalent prior to this course?`,
+    x3 = `How many years of programming (language irrelevant) experience do you have?`,
+    x4 = `How many years of base R-programming experience do you have?`,
+    x5 = `How many years of tidyverse R-programming experience do you have?`,
+    x6 = `Have you previously worked with any kind of data analysis?`) |> 
+  filter(x1 %in% c("Bachelor student","Master Student","PhD Student","Postdoc","Industry"),
+         str_starts(string = x2, pattern = "\\d{5}"),
+         str_starts(string = x6, pattern = "Yes|No"))
+
+d <- d |>
+  mutate(id = row_number()) |> 
+  relocate(id) |> 
+  # mutate(dummy = 1) |>
+  # pivot_wider(id_cols = everything(),
+  #             names_from = x1,
+  #             values_from = dummy,
+  #             values_fill = 0) |> 
+  separate_rows(x2, sep = ", ") |> 
+  filter(str_starts(x2, "\\d{5}")) |> 
+  mutate(dummy = 1) |>
+  pivot_wider(id_cols = everything(),
+              names_from = x2,
+              values_from = dummy,
+              values_fill = 0) |> 
+  separate_rows(x6, sep = ", ") |> 
+  filter(str_starts(string = x6, pattern = "in|No")) |> 
+  mutate(dummy = 1) |>
+  pivot_wider(id_cols = everything(),
+              names_from = x6,
+              values_from = dummy,
+              values_fill = 0)
+d_pca_obj <- d |>
+  select(-id, -x1) |>
+  prcomp(center = TRUE, scale. = TRUE)
+d_pca_obj_aug <- d_pca_obj |> 
+  augment(d)
+
+lbl <- d_pca_obj |>
+  tidy("eigenvalues") |>
+  mutate(lbl = str_c("PC", PC, ", Variance Explained = ",
+                     round(percent*100,1), "%"))
+
+d_pca_obj_aug |> 
+  ggplot(aes(x = .fittedPC1,
+             y = .fittedPC2,
+             fill = factor(x5))) +
+  geom_vline(xintercept = 0) +
+  geom_hline(yintercept = 0) +
+  stat_ellipse(aes(colour = factor(x5))) +
+  geom_point(pch = 21, colour = "black", size = 4, alpha = 0.5) +
+  labs(title = "R for Bio Data Science, Student Composition",
+       x = lbl$lbl[1],
+       y = lbl$lbl[2],
+       fill = "Tidyverse\nExperience",
+       colour = "Tidyverse\nExperience") +
+  theme_minimal()
+```
+
+
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->

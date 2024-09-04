@@ -26,6 +26,8 @@ _Please prepare the following materials:_
 - Video: ["The Joy of Functional Programming (for Data Science)" with Hadley Wickham](https://www.youtube.com/watch?v=bzUmK0Y07ck)
 - Optional: If you are completely new to statistical modelling, then [click here for a primer](primer_on_linear_models_in_r.qmd)
 
+_Unless explicitly stated, do not do the per-chapter exercises in the R4DS2e book_
+
 ## Learning Objectives
 
 *A student who has met the objectives of the session will be able to:*

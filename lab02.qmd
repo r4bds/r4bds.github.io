@@ -22,6 +22,8 @@ _Please prepare the following materials:_
 - Video: [The SDGs aren't the same old same old](https://www.gapminder.org)
 - Video: EMBL Keynote Lecture - ["Data visualization and data science"](https://www.youtube.com/watch?v=9YTNYT1maa4) by Hadley Wickham
 
+_Unless explicitly stated, do not do the per-chapter exercises in the R4DS2e book_
+
 ## Learning Objectives
 
 _A student who has met the objectives of the session will be able to:_
@@ -74,7 +76,7 @@ _Note, AMR = Antimicrobial Resistance_
 
 _First of all, make sure to read every line in these exercises carefully!_
 
-_If you get stuck with Quarto, revisit [R4DS2e, chapter 29](https://r4ds.hadley.nz/quarto.html) or [take a look at the Comprehensive guide to using Quarto](https://quarto.org/docs/guide/)_
+_If you get stuck with Quarto, revisit [R4DS2e: Chapter 28 Quarto](https://r4ds.hadley.nz/quarto.html) or [take a look at the Comprehensive guide to using Quarto](https://quarto.org/docs/guide/)_
 
 - Go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) session from last time and log in and choose the project you created.
 
