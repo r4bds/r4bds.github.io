@@ -91,87 +91,44 @@ d_pca_obj_aug |>
 
 
 
+
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## General Bioinformatics & Data Analysis:
-
-- General interest in bioinformatics.
-- Comfortable handling different types of biological data in R.
-- How to work with data and make it easier to analyze.
-- Visualizations of big data.
+## Data Analysis & Machine Learning
+_"I'm interested in more advanced statistics, mapping, and machine learning techniques applied to biological data, especially handling large datasets like RNA-seq and proteomics."_
 
 
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Genetics & Genomics:
-
-- Genetics, Genomics, and Evolution.
-- Transcriptomics, Metagenomics, Genomic data analysis, and RNA-seq.
-- Single cell omics, Bulk RNA-seq data manipulation.
-- Gene expression data analysis in R.
+## Genetics and Genomics
+_"I would like to see topics related to gene-based disease discovery, genome sequencing, and CRISPR applications in bio-research."_
 
 
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Disease & Medical Research:
-
-- Personalized medicine and precision medicine.
-- Research related to specific diseases: obesity, cancer, autoimmune diseases, infectious diseases.
-- Drug design, clinical drug trials, and drug trial data analysis.
-- Analysis of complex cancer patient data.
-
+## Immunology
+_"Immunology research, particularly related to autoimmune diseases and tumor immunology, would be valuable to explore."_
 
 
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Immunology & Microbiology:
-
-- Immunology, especially related to MHC, neoantigens, antibodies, and antigens.
-- Clinical research in R related to immunology.
-- Gut microbiome, Microbiome studies on cancer, and Microbiologic studies.
-- Immune response bio-research and immune system or stem cells.
+## Multi-omics & Omics Data
+_"Multi-omics approaches, including proteomics, genomics, and the analysis of RNA-seq data, are areas I’m very interested in."_
 
 
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Advanced Computational Techniques:
-
-- Predictive modeling and visualizations of complex networks/pathways.
-- Deep learning in R and Artificial Intelligence.
-- Analysis of peptide sequencing via mass spec (TD-search and de novo).
-
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Specific Bio-research Topics:
-- Food-related research.
-- Ecology.
-- Plastic degradation by microorganisms or enzymes.
-- CO2 capture by microorganisms.
-- Mass screening and patient profiling, especially for cancer.
-- LC-MS data, peptide prediction from proteins.
-
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Others:
-
-- Some students have expressed that they are open to any topic or aren't particularly focused on a specific area.
-- A few are excited about the course in general and don't have specific preferences.
-- There's interest in the integration of bioinformatics with scientific articles and hospital data.
+## Epidemiology & Clinical Data
+_"It would be helpful to cover epidemiology topics, including predictive modeling of disease outbreaks and the analysis of clinical datasets."_
 
 
 
@@ -182,89 +139,92 @@ d_pca_obj_aug |>
 
 
 
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## R Proficiency:
-
-- Many students wish to gain or improve proficiency in using R for data analysis.
-- There's an emphasis on understanding the R environment, syntax, and packages.
-- Some students are already familiar with R and wish to polish and expand their skills, while others are complete beginners hoping to grasp the basics.
-
 
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Bioinformatics and Biology Application:
-
-- Many students want to learn how to apply R specifically to biological and bioinformatic datasets.
-- They expect to work with real-life bio data and learn how to handle and analyze data relevant to their bio studies.
+## R Programming Proficiency
+"I expect to become proficient in R programming, gaining confidence in writing, interpreting, and using R code in a variety of bio-research contexts. I aim to improve my R skills for future work in biological research and industry."
 
 
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Data Visualization & Manipulation:
-
-- Students are keen to learn about data visualization and manipulation in R.
-- They are interested in using R for creating plots, visualizations, and handling various data types.
+## Data Handling and Analysis
+"My goal is to learn how to effectively handle and analyze large datasets, including cleaning, organizing, and applying statistical methods to biological data. I hope to gain the ability to manage big data and automate data analysis tasks in R."
 
 
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Practical Skills for Future Application:
-
-- Several students hope the course will prepare them for future projects, research, or roles that require data analysis.
-- Some students are interested in using the skills they gain in this course for their thesis or future studies.
-- A few want to be able to transfer the knowledge they gain to other programming languages, like Python.
+## Practical Applications in Biology
+"I want to apply the R programming skills learned in this course to real-world biological problems, such as genomic data analysis, bioinformatics, and pipeline development. Understanding how to use R in practical bio-research scenarios is a key expectation."
 
 
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Data Analysis Techniques:
-
-- Students wish to learn about different data analysis methods, including statistics, RNA sequencing data processing, etc.
-- They hope to understand how to organize, clean, and interpret data.
+## Visualization & Data Presentation
+"I hope to develop skills in visualizing and presenting biological data in a clear and effective way. Learning how to create plots and presentations that make large datasets more accessible is a critical aspect I expect to master."
 
 
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Tool and Package Familiarity:
+## Confidence and Efficiency in Using R
+"I aim to feel more confident and efficient in using R for bio-data analysis by the end of this course. I hope to reduce the time spent on coding, improve the readability of my code, and tackle intermediate challenges independently."
 
-- Some students want to familiarize themselves with specific R packages, like tidyverse.
-- There's an interest in learning how to utilize GitHub for shared programming.
-- Several mention wanting to know how to use specific tools for data analysis, such as data wrangling and lab notebook style coding.
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+# Is there anything you would like to add? Comments, suggestions, anything?
+
 
 
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Learning Environment:
-
-- A few students mentioned hoping for a structured or gradual introduction, especially for those without prior knowledge.
-- Some have heard from past students and have expectations based on word-of-mouth.
-- A couple of students are concerned about the timing and structure of the exam.
+## Course Pace & Structure
+"No rushing through the learning material would greatly benefit my understanding. A slower, more deliberate pace will help those of us who are new to programming."
 
 
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Miscellaneous:
+## Learning Resources
+"It would be really helpful to have additional learning resources, such as recommended books or websites, to support learning outside of class. Pointers for getting extra help would be appreciated."
 
-- There are mentions of topics like the application of R in various biological datasets, multiomics, and genetics.
-- Some are looking forward to learning how to plan scientific studies or adjust chosen methods.
-- A few students don't have specific expectations, while others hope for a challenging but rewarding experience.
 
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Industry Applications
+"Including company talks with content related to protein engineering and data handling would be valuable. It would be great to see how skills from the course can be applied to real industry problems, particularly in the context of protein data."
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Community & Atmosphere
+"Looking forward to the course and excited about the learning experience! There's a general sense of anticipation and eagerness to start the class."
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Individual Programming Projects
+"I'd love to focus more on coding custom functions and understanding how they can be applied in different contexts, beyond just the basics."
 
 
 <!--# ---------------------------------------------------------------------- -->
@@ -304,8 +264,8 @@ d_pca_obj_aug |>
 ## This course - In other words
 
 - Creates the foundation for you to explore the multitude of bioinformatics subjects
-- Gives you concrete skills to handle (almost) any kind of bio data
-- Trains your collaborative and communicative meta skills
+- Gives you concrete tool skills to handle (almost) any kind of bio data and to do collaborative coding projects
+- Trains your general collaborative and communicative meta skills
 
 
 

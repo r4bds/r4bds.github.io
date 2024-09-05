@@ -6,7 +6,7 @@
 
 ## Schedule
 
-- 08.00 - 08.15: [Pre-course Survey Walk-through](https://raw.githack.com/r4bds/r4bds.github.io/main/pre_course_questionnaire_summary.html)
+- 08.00 - 08.15: [pre-course anonymous questionaire Walk-through](https://raw.githack.com/r4bds/r4bds.github.io/main/pre_course_questionnaire_summary.html)
 - 08.15 - 08.30: Recap: RStudio Cloud, RStudio and R - The Very Basics (Live session)
 - 08.30 - 09.00: [Lecture](https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab02.html)
 - 09.00 - 09.15: Break
