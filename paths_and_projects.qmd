@@ -1,4 +1,4 @@
-# Paths & Projects {.unnumbered}
+# Paths & Projects {.unnumbered #sec-pathproj}
 
 _You step onto the road, and if you don't keep your feet, there's no knowing where you might be swept off to_
 
@@ -192,6 +192,8 @@ Click ![](images/paths_dir_up.png)`..` and you will see:
 This is now your two project folders and you can add others, such as yet another course or e.g. `special_course`, `bachelor_thesis` or `master_thesis`. 
 
 Now, we can easily switch between different projects. In the upper right corner you will see, that you are currently in the `introduction_to_systems_biology` project, meaning that `R` will look for all files relative to the `introduction_to_systems_biology.Rproj`-file. Naturally, we would want to switch back to the project, we created for the "R for Bio Data Science"-course. To do this, we simply click ![](images/paths_new_proj.png) `introduction_to_systems_biology` and if you look at the drop-down menu, you should see `r_for_bio_data_science` - Click it! Notice how `R` automatically restarts and you are moved to the correct folder for this project.
+
+**Make sure to change your active project back to `r_for_bio_data_Science` before doing further lab exercises!**
 
 ## Learning Objectives
 
