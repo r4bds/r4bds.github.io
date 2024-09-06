@@ -44,7 +44,9 @@ load(file = "data/gravier.RData")
 
 ## Prelude
 
-Discuss these 4 visualisations with your group members
+**First, make sure you are where you supposed to be, i.e. 1. In a group, 2. On Slack, 3. On the RStudio Cloud Server and 4. on Github. If not, see the [Getting Started section](getting_started.qmd)**
+
+Then, discuss these 4 visualisations with your group members:
 
 - _What is problematic?_
 - _What could be done to rectify?_

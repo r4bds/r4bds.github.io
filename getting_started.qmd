@@ -30,6 +30,8 @@ Prior to class, please go to [GitHub](https://github.com) and setup and account,
 
 Please state your GitHub username in [this google sheet](https://docs.google.com/spreadsheets/d/1yXC3ZBr4nS3DIJuBXFxejqsybI-kGU_NFrVupye6B6E/edit?usp=sharing).
 
+We will then invite you to the [Github organisation](https://github.com/rforbiodatascience24) for this year's course. This is where you will learn how to do collaborative data science.
+
 ## Group Formation
 
 The backbone of this course is modern **collaborative** data science and as such group work and active participation herein is mandatory. Furthermore, It is **important** that course participants prioritise to **be present** during classes as the course design is based on student-student interaction in an active learning environment. Therefore, students will work in groups of 4-5 students.
