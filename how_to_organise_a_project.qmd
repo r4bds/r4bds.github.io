@@ -1,0 +1,350 @@
+---
+title: "How to Organise a Project"
+subtitle: "The most important talk you never heard"
+author: "Leon Eyrich Jessen"
+format:
+  revealjs:
+    embed-resources: true
+    theme: moon
+    slide-number: c/t
+    width: 1600
+    height: 900
+    mainfont: avenir
+    logo: images/r4bds_logo_small.png
+    footer: "R for Bio Data Science"
+---
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The most important talk you never heard!
+
+- Think about it...
+  - How many courses have you attended?
+  - How many classes have you taken?
+  - How many talks have you been to?
+  - Etc.
+
+- Has anyone ever talked to you about the underlying "machinery"?
+
+- Has anyone ever presented you to or with a project organisation plan?
+
+- How were the results you are being presented to produced?
+
+- I know there are supposed to be a materials and methods section in papers – Have you ever been tasked with deciphering and repeating such a section?
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The Corner Stone of Research
+
+- In essence - What is that we do?
+  - We produce knowledge!
+  - We disseminate knowledge!
+
+- But…
+  - You cannot simply say I found ‘Z’
+  - You HAVE to be able to account for how you got from ‘A’ to ‘Z’
+
+- Reproducible Research!
+  - Being able to (easily) reproduce every single result from a paper
+
+- Why?
+  - Basically, we need to be able to see if you are cheating
+  - Others need to stand on your shoulders
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## So, how are we doing?
+
+![](images/how_to_organise_01.png){fig-align="center" width=90%}
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## So, how are we doing?
+
+![](images/how_to_organise_02.png){fig-align="center" width=90%}
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## So, how are we doing?
+
+- "More than 70% of researchers have tried and failed to reproduce another scientist's experiments"
+
+- "More than half have failed to reproduce their own experiments"
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## So, what can we do?
+
+- Granted, some of the reasons for the reproducibility crisis is beyond our control
+  - Biology is notoriously messy
+  - False positives
+  - Etc.
+
+- However, a step in the right direction is to think about organising and documenting your research
+
+- I have seen many times people revisiting old projects only to find that they cannot figure the project out or even reproduce it or understanding the project is so time consuming, that repeating it is more time efficient
+
+- Why does this happen?
+  - Admitted, we’re all storm chasers – Always on the hunt for the next publication
+  - Many see documentation as a waste of valuable time
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Familiar?
+
+![](images/how_to_organise_03.png){fig-align="center" width=90%}
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Familiar? Waste. Of. Time! We can do better!
+
+![](images/how_to_organise_03.png){fig-align="center" width=90%}
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Who has taught you to organise a project?
+
+- _"In practice, the principles behind organizing and documenting … are often learned on the fly"_
+
+![](images/how_to_organise_04.png){fig-align="center" width=90%}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Let’s dive in...
+
+- The following is inspired by this paper
+
+![](images/how_to_organise_04.png){fig-align="center" width=90%}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Directory Structure
+
+![](images/how_to_organise_05.png){fig-align="center" width=90%}
+
+- Raw Data should always be pulled from central source, never from an excel sheet someone sent to you
+
+- You are not allowed to touch or alter the original raw data
+
+- Make sure that every step from the raw data, to the data you use for analysis can be repeated
+
+- Save the cleaned data and proceed from that
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Directory Structure - With Collaborators
+
+![](images/how_to_organise_06.png){fig-align="center" width=90%}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Directory Structure - Central source data flow
+
+![](images/how_to_organise_07.png){fig-align="center" width=90%}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Directory Structure - Happy high five panda applauds you!
+
+![](images/how_to_organise_08.png){fig-align="center" width=90%}
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Directory Structure - However...
+
+![](images/how_to_organise_06.png){fig-align="center" width=90%}
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Directory Structure - However, you may not know the flow!?
+
+![](images/how_to_organise_09.png){fig-align="center" width=90%}
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Directory Structure - Sad and tired panda is disappointed...
+
+![](images/how_to_organise_10.png){fig-align="center" width=90%}
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Directory Structure - doc
+
+![](images/how_to_organise_11.png){fig-align="center" width=90%}
+
+- This is where your manuscript lives
+
+- Notes, presentations, pdfs and alike pertaining to the project
+
+- Basically anything "doc"-like...
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Directory Structure - R (scripts)
+
+![](images/how_to_organise_12.png){fig-align="center" width=90%}
+
+- This is where your analysis scripts are places
+
+- All scripts must be able to run from start-to-end with no manual intervention (We'll get back to that)
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Directory Structure - results
+
+![](images/how_to_organise_13.png){fig-align="center" width=90%}
+
+- Anything considered a results
+  - Plots
+  - Text file with p-value tables
+  - Etc.
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Directory Structure - tmp
+
+![](images/how_to_organise_14.png){fig-align="center" width=90%}
+
+- Anything you can delete without thinking about it
+  - Tests
+  - Stuff you want to check
+  - Temporary exploratory files
+  - Etc...
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Building your R (scripts) directory
+
+- Load-clean-func-do philosophy
+
+- First scripts takes your raw data from raw to analysis-ready
+  - Raw data is loaded and cleaned
+  - Clean data and versions hereof are saved for subsequent use
+
+- Project specific functions are put in a separate file
+
+- A single do file is defined capable of running the ENTIRE project and produce ALL results
+
+- Collect the results in a markdown file
+
+- Use GitHub for (code) collaboration/sharing, version control and backup
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The essence of data science
+
+![](images/data_science_cycle.png){fig-align="center" width=50%}
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The essence of data science
+
+![](images/data_science_cycle.png){fig-align="center" width=50%}
+
+- Repeat the inner cycle until understanding is achieved
+- Value generation through understanding!
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project finalisation
+
+- Ideally,
+  - Once analysis has converged, a technical report should be created using markdown
+
+  - Once the paper is published the project directory should be frozen as read-only (and be on Github)
+
+  - The directory should contain everything needed to recreate all the exact figures and tables in the paper
+
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## In conclusion
+
+- This is not the absolute truth
+
+- This is my (current) take on a how-to data science
+
+- Structure takes time in order to save time
+
+- Am I _always_ adhering 110% to this? No, but…
+
+- I strongly believe that striving for structure is better than abandoning it
+
+- A picture speaks a thousand words - Let’s try to visualise it!
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Project Organisation Overview
+
+![](images/viz_bio_data_science_project_organisation_qmd.png){fig-align="center" width=90%}
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Remember, you are ALWAYS doing collaborative data science!
+
+
+
+_Think about readability of your code. Every project you work on is fundamentally collaborative. Even if you are not working with any other person, you are always working with future you and you really do not want to be in a situation where future you has no idea what past you was thinking, because past you will not respond to any emails! [Hadley Wickham]_
+
+

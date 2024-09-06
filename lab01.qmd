@@ -11,7 +11,7 @@
 -   08.45 - 09.00: Break
 -   09.00 - 11.15: [Exercises](#sec-exercises)
 -   11.15 - 11.30: Break
--   11.30 - 12.00: Lecture: Reproducibility in Modern Bio Data Science
+-   11.30 - 12.00: Lecture: [Reproducibility in Modern Bio Data Science](https://raw.githack.com/r4bds/r4bds.github.io/main/how_to_organise_a_project.html)
 
 ## Learning Materials {#sec-learning-materials}
 
