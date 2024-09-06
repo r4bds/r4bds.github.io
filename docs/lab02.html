@@ -473,7 +473,7 @@ Click here for visualisation 4
 </div>
 <p>Then, before we start, we need to fetch some data to work on.</p>
 <ul>
-<li>See if you can figure out how to create a new folder called “data”, make sure to place it the same place as your my_project_name.Rproj file.</li>
+<li>See if you can figure out how to create a new folder called “data”, make sure to place it the same place as your <code>r_for_bio_data_science.Rproj</code> file.</li>
 </ul>
 <p>Then, without further ado, run each of the following lines separately in your <em>console</em>:</p>
 <div class="cell">
@@ -481,6 +481,14 @@ Click here for visualisation 4
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>output_file <span class="ot">&lt;-</span> <span class="st">"data/gravier.RData"</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>curl<span class="sc">::</span><span class="fu">curl_download</span>(<span class="at">url =</span> target_url, <span class="at">destfile =</span> output_file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<details>
+<p>
+</p><summary>
+Click here for a hint if you get an error along the lines of <code>Failed to open file...</code>
+</summary>
+<p></p>
+Think about what we are doing here. If you look at the code chunk above, then you can see that we are setting a variable <code>target_url</code>, which defines “a location on the internet”. From here we want to download some data. We need to tell <code>R</code>, where to put this data, so we also define the <code>output_file</code>-variable. Then we call the function <code>curl_download()</code> from the <code>curl</code>-package, hence the notation <code>curl::curl_download()</code>. As arguments to the function-parameters <code>url</code> and <code>destfile</code>, we pass the aforementioned variables. So far so good. Now, look at the <code>target_url</code>- and the <code>output_file</code>-variables, which one of those are we responsible for? If you think about it - We cannot change the <code>target_url</code>, we can only change the <code>output_file</code>, so there is a good chance, that the error you are getting pertains to this variable. But what does the variable contain? It contains the path to where you want to place the file, that is the <code>data/</code>-part and then it contains the filename you want to use, that is the <code>gravier</code>-part and then finally, it contains the filetype you want to use, that is the <code>.RData</code>-part. The filename and filetype is up to you to choose, but the path… Well, <code>R</code> can only find that if it exists… So… Did you remember to create a folder <code>data</code> in the same location as your <code>r_for_bio_data_science.Rproj</code>-file? If this small intermezzo has left things even more unclear, you should go over the primer on <a href="./paths_and_projects.html">paths and projects</a>. Remember, if at first you don’t succeed - Try and try again!
+</details>
 <ul>
 <li>Using the <code>files</code> pane, check the folder you created to see if you managed to retrieve the file.</li>
 </ul>
