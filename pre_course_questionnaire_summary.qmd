@@ -16,31 +16,26 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Student Composition
+## Programming Experience
 ```{r}
 library("tidyverse")
 library("broom")
 
-d <- read_csv(file = "data/01_pre_course_survey_2024.csv") |> 
+d_raw <- read_csv(file = "data/2024 R4BDS Pre Course Questionnaire (Responses) - Form Responses 1.csv") |> 
   select(
     x1 = `What is your current activity?`,
     x2 = `Prerequisites - Have you completed mentioned courses or equivalent prior to this course?`,
     x3 = `How many years of programming (language irrelevant) experience do you have?`,
     x4 = `How many years of base R-programming experience do you have?`,
     x5 = `How many years of tidyverse R-programming experience do you have?`,
-    x6 = `Have you previously worked with any kind of data analysis?`) |> 
+    x6 = `Have you previously worked with any kind of data analysis?`)
+
+d <- d_raw |>
   filter(x1 %in% c("Bachelor student","Master Student","PhD Student","Postdoc","Industry"),
          str_starts(string = x2, pattern = "\\d{5}"),
-         str_starts(string = x6, pattern = "Yes|No"))
-
-d <- d |>
+         str_starts(string = x6, pattern = "Yes|No")) |> 
   mutate(id = row_number()) |> 
   relocate(id) |> 
-  # mutate(dummy = 1) |>
-  # pivot_wider(id_cols = everything(),
-  #             names_from = x1,
-  #             values_from = dummy,
-  #             values_fill = 0) |> 
   separate_rows(x2, sep = ", ") |> 
   filter(str_starts(x2, "\\d{5}")) |> 
   mutate(dummy = 1) |>
@@ -55,6 +50,30 @@ d <- d |>
               names_from = x6,
               values_from = dummy,
               values_fill = 0)
+
+d_raw |> 
+  select(Any = x3, BaseR = x4, TidyverseR = x5) |> 
+  pivot_longer(cols = everything()) |> 
+  count(name, value) |> 
+  complete(name, value, fill = list(value = 0)) |> 
+  ggplot(aes(x = value,
+             y = n,
+             fill = name,
+             label = n)) +
+  geom_col(position = position_dodge(preserve = "single"), alpha = 0.5, colour = "black") +
+  geom_text(position = position_dodge(width = 0.9), vjust = -0.7) +
+  geom_hline(yintercept = 0) +
+  scale_x_continuous(breaks = 0:10) +
+  theme_minimal(base_family = "Arial", base_size = 20) +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor = element_blank())
+```
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Student Composition
+```{r}
 d_pca_obj <- d |>
   select(-id, -x1) |>
   prcomp(center = TRUE, scale. = TRUE)
@@ -69,7 +88,7 @@ lbl <- d_pca_obj |>
 d_pca_obj_aug |> 
   ggplot(aes(x = .fittedPC1,
              y = .fittedPC2,
-             fill = factor(x5))) +
+             fill = factor(x4))) +
   geom_vline(xintercept = 0) +
   geom_hline(yintercept = 0) +
   stat_ellipse(aes(colour = factor(x5))) +
@@ -77,9 +96,9 @@ d_pca_obj_aug |>
   labs(title = "R for Bio Data Science, Student Composition",
        x = lbl$lbl[1],
        y = lbl$lbl[2],
-       fill = "Tidyverse\nExperience",
-       colour = "Tidyverse\nExperience") +
-  theme_minimal()
+       fill = "Base R\nExperience",
+       colour = "Base R\nExperience") +
+  theme_minimal(base_family = "Arial", base_size = 20)
 ```
 
 
