@@ -625,7 +625,7 @@ This peptide sequence is then stored in the peptide output, which links to the `
 Awesomely done! You have now created a fully functional R shiny application that takes in a DNA strand or creates a random one, converts it into a peptide sequence, and then is able to plot the abundance of each amino acid in the sequence.
 
 
-## <span style="color: red;">GROUP ASSIGNMENT</span>
+## <<span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: [how to](assignments.qmd))
 
 ----
 

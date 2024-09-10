@@ -327,7 +327,7 @@ ggplot(data = SPE_ENV_targets,
 _Here we need to use `geom_density_ridges()`, but which package contains this? Also, we are using a colour scale called `viridis`, but how do we add this? Also, perhaps there are more themes we can use than just `theme_classic()?`_ 
 </details>
 
-#### Task 9 - <span style="color: red;">GROUP ASSIGNMENT</span>
+#### Task 9 - <span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: [how to](assignments.qmd))
 
 _For this assignment you and your group are to apply what you have learned in the two data visualisation labs. The task is to create a really nice plot using one of two datasets, the `cancer_data` or the `SPE_ENV`_
 

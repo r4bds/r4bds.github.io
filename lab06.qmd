@@ -545,7 +545,7 @@ In the following, we will use a level of significance of $\alpha = 0.05$ to prov
 
 Right, let's get to it!
 
-- **T17: Re-create this forest plot to finally reveal the results of your analysis** <span style="color: red;">GROUP ASSIGNMENT part I</span>
+- **T17: Re-create this forest plot to finally reveal the results of your analysis** <span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: [how to](assignments.qmd))
 
 ```{r}
 #| echo: false

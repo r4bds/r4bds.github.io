@@ -98,7 +98,7 @@ Today, we will emulate the situation, where you are working as a Bioinformaticia
 1.  What characterises the peptides binding to the HLAs?
 1.  What characterises T-cell Receptors binding to the pMHC-complexes?
 
-[GROUP ASSIGNMENT: Today, your assignment will be to create a micro-report on these 2 questions!]{style="color: red;"}
+[GROUP ASSIGNMENT: Today, your assignment will be to create a micro-report on these 2 questions!]{style="color: red;"} (Important, see: [how to](assignments.qmd))
 
 [MAKE SURE TO READ THE LAST SECTION ON THE ASSIGNMENT](#sec-assignment)
 

@@ -341,7 +341,7 @@ diabetes_data <- diabetes_data |>
 ```
 
 * **T8: Create a `WHR` (waist-to-hip ratio) variable**
-* **Q18: What correlates better with `BMI`, `WHR` or `BFP`?** <span style="color: red;">GROUP ASSIGNMENT</span>
+* **Q18: What correlates better with `BMI`, `WHR` or `BFP`?** <span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: [how to](assignments.qmd))
 
 <details>
 <p><summary>Click here for hint</summary></p>

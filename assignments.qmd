@@ -32,21 +32,24 @@ editor: visual
 1. Only hand in **one** assignment, meaning either under the BSc. or the MSc. course, **not** both
 1. You should hand in the rendered html-file, make sure to compress it to a zip-file prior to upload
 
+## Deadline
+
+- **The deadline for handing in is Thursday 23.59**
+
 ## Assignment Checklist
 
 Did you?
 
-- Match your group number with DTU Learn groups
-- Add Group number, names and student ids?
-- Only answer what is defined as "Group Assignment"
-- Create the assignment using Quarto
-- Modify the YAML-header to ensure encapsulation
-- Include Group number, names and student ids
-- Use proper markdown headers as defined by `#`, `##`, `###`
-- Write a few sentences under each section
-- Separate text clearly from code chunks
-- Follow [course code styling](code_styling.qmd)
-- Think about reproducibility with respect to data and libraries?
-- Render to html
-- Compress the html-file to a zip-file, **before** upload to DTU Learn
-- Make sure to download the upload'ed zip-file and check that everything looks right?
+1. Match your group number with DTU Learn groups
+1. Add Group number, names and student ids?
+1. Only answer what is defined as "Group Assignment"
+1. Create the assignment using Quarto
+1. Modify the YAML-header to ensure encapsulation (see above)
+1. Use proper markdown headers as defined by `#`, `##`, `###`
+1. Write a few sentences under each section
+1. Separate text clearly from code chunks
+1. Follow [course code styling](code_styling.qmd)
+1. Think about reproducibility with respect to data and libraries?
+1. Render to html
+1. Compress the html-file to a zip-file, **before** upload to DTU Learn
+1. Make sure to download the upload'ed zip-file and check that everything looks right?

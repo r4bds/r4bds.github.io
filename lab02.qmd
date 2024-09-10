@@ -251,7 +251,7 @@ Remember to write notes to yourself, so you know what you did and if there is so
 
 * __T6: Pick your favourite gene and create a box plot of expression levels stratified on the variable `event_label`__
 
-* __T7: Like T6, but with densitograms__ <span style="color: red;">GROUP ASSIGNMENT</span>
+* __T7: Like T6, but with densitograms__ <span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: [how to](assignments.qmd))
 
 * __T8: Pick your favourite gene and create a box plot of expression levels stratified on the variable `age_group`__
     * Then, add stratification on `event_label`

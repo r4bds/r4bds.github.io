@@ -364,7 +364,7 @@ You have not gotten to play around with collaborative coding using `git` - Well 
 
 If you are more curious for more, please feel free to play around with a new file, edit commit/pull/push etc. Perhaps also take an extra look at the GitHub, explore and learn more 👍
 
-### **<span style="color:red;">GROUP ASSIGNMENT</span>**
+### <span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: [how to](assignments.qmd))
 
 First of all, here we have just scratched the surface. You can [read much more here](https://happygitwithr.com).
 

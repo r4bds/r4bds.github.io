@@ -406,7 +406,7 @@ name_me1 <- function(name_me2){
 
 
 
-## <span style="color: red;">GROUP ASSIGNMENT</span>
+## <span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: [how to](assignments.qmd))
 
 ----
 
