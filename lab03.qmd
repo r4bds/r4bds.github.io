@@ -59,13 +59,33 @@ Where the supporting data can be found here:
 
 ### Getting Started
 
-Again, go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) session from last time and login and choose the project you created
+Again, go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) session from last time and login and make sure you are working in the `r_for_bio_data_science` project you created previously, then:
 
-- **Create a new Quarto Document for today's exercises, e.g. lab03_exercises.qmd**
-- **NB! The Quarto document MUST be placed together with your `.Rproj` file (defining, the project root - look in your `Files` tab) and also there, the `data`-folder should be placed!**
-- **REMEMBER paths are important! Also, R is case-sensitive, i.e. "data" is not the same as "Data"**
+- Create a new Quarto Document for today's exercises, e.g. lab03_exercises.qmd
+- NB! The Quarto document MUST be placed together with your `.Rproj` file (defining, the project root - look in your `Files` tab) and also there, the `data`-folder should be placed!
+- REMEMBER paths are important! Also, R is case-sensitive, i.e. "data" is not the same as "Data"
 
 See [Paths and Projects](paths_and_projects.qmd)
+
+### The `here` package as your friendly neighborhood path helper
+
+Paths can be tricky and as you have seen, some file formats *cough* .qmd's *cough*, may not really feel that strongly about your project setup, so... The `here` package to the rescue.
+
+If you decided to put your qmd-file in e.g. an `exercises`-directory, which is a very nice and perfectly understandable idea, then you will find that the following chunk will _not_ work:
+
+```{r}
+library("tidyverse")
+load(file = "data/gravier.RData") # Nope!
+```
+
+So here is the trick, `here` keeps track of your project root, as defined by the `.Rproj`-file. So the following _will_ work even if you have your `.qmd`-files in other directories:
+
+```{r}
+library("here")
+load(file = here("data/gravier.RData")) # Yup!
+```
+
+Enjoy your friendly neighborhood path helper!
 
 ### Getting the data
 
@@ -75,14 +95,15 @@ Add a new code chunk and add the following code (Never mind the details, we will
 #| echo: true
 #| eval: false
 base_url <- "http://userweb.eng.gla.ac.uk/umer.ijaz/bioinformatics/ecological/"
+raw_data_path <- "data/_raw/"
 
 SPE <- read_csv(file = str_c(base_url, "SPE_pitlatrine.csv"))
 write_csv(x = SPE,
-          file = "data/SPE_pitlatrine.csv")
+          file = str_c(raw_data_path, "SPE_pitlatrine.csv"))
 
 ENV <- read_csv(file = str_c(base_url, "ENV_pitlatrine.csv"))
 write_csv(x = ENV,
-          file = "data/ENV_pitlatrine.csv")
+          file = str_c(raw_data_path, ENV_pitlatrine.csv))
 ```
 
 Add the chunk settings `#| echo: true` and `#| eval: true`, then run the block and change the latter to `#| eval: false`.
@@ -329,8 +350,6 @@ _Here we need to use `geom_density_ridges()`, but which package contains this? A
 
 #### Task 9 - <span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: [how to](assignments.qmd))
 
-_For this assignment you and your group are to apply what you have learned in the two data visualisation labs. The task is to create a really nice plot using one of two datasets, the `cancer_data` or the `SPE_ENV`_
+_For this assignment you and your group are to apply what you have learned in the two data visualisation labs. The task is to be creative and make a really nice plot using the `SPE_ENV` data set_
 
 Try to play around with some custom colouring. There is a nice tool to aid in choosing colours for visualisations [here](https://www.sessions.edu/color-calculator/)
-
-Be sure to read the [assignment instructions](assignments.qmd) before submitting your solution.

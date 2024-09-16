@@ -39,7 +39,8 @@ top10_pharma <- tribble(
   "Johnson-Johnson", 40.7,
   "Roche", 45.6,
   "Pfizer", 53.7) |> 
-  mutate(Company = factor(Company, levels = Company))
+  mutate(Company = factor(Company, levels = Company),
+         lbl = str_c("$", Revenue))
 ```
 
 
@@ -55,26 +56,61 @@ top10_pharma <- tribble(
 
 ## What is wrong with this visualisation?
 
-:::: {.columns}
-
-::: {.column width="50%"}
 ```{r}
-top10_pharma %>% 
+top10_pharma |>  
   ggplot(aes(x = Company,
              y = Revenue,
-             label = Company)) +
+             fill = Company,
+             label = lbl)) +
   geom_col() +
-  labs(x = "", y = "Revenue [billion USD]") +
-  theme_classic(base_size = 18) +
-  theme(axis.text.x = element_text(angle = 50, hjust = 1))
+  geom_point(aes(colour = Company),
+             size = 20) +
+  geom_text(colour = "white",
+            size = 6) +
+  scale_y_continuous(expand = expansion(mult = c(0, .1))) +
+  scale_colour_manual(
+    values = c("Bristol-Myers Squibb" = "#2E80AD",
+               "GlaxoSmithKline" = "#F18532",
+               "Amgen" = "#1E5898",
+               "Abbvie" = "#000000",
+               "Novartis" = "#29607A",
+               "Merck" = "#006F68",
+               "Sanofi" = "#43599E",
+               "Johnson-Johnson" = "#CF181F",
+               "Roche" = "#0E6DB2",
+               "Pfizer" = "#33B7E9")) +
+  scale_fill_manual(
+    values = c("Bristol-Myers Squibb" = "#8AB5DA",
+               "GlaxoSmithKline" = "#C1BDB8",
+               "Amgen" = "#83A9D5",
+               "Abbvie" = "#97AABC",
+               "Novartis" = "#84AAC8",
+               "Merck" = "#82AFC3",
+               "Sanofi" = "#8AAAD7",
+               "Johnson-Johnson" = "#BBA4A8",
+               "Roche" = "#84B0DC",
+               "Pfizer" = "#90C7EB")) +
+  labs(x = NULL,
+       y = NULL,
+       title = "Top 10 pharmaceutical companies in 2019",
+       subtitle = "Total revenue from pharmaceutical segment\n(USD billions)") +
+  theme_classic(base_size = 18,
+                base_family = "Helvetica") +
+  theme(axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        axis.line = element_blank(),
+        legend.position = "none",
+        panel.background = element_rect(fill = "#C7DFF3"),
+        plot.background = element_rect(fill = "#C7DFF3"),
+        plot.title = element_text(hjust = 0.1,
+                                  vjust = 0.1,
+                                  colour = "#1C4E6D",
+                                  face = "bold"),
+        plot.subtitle = element_text(hjust = 0.1,
+                                     vjust = 0.1,
+                                     colour = "#7F8285"),
+        plot.margin = unit(c(1, -0.5, -0.1, -0.5), "cm"))
 ```
-:::
-
-::: {.column width="50%"}
-![](images/bad_viz_11.png){fig-align="center"}
-:::
-
-::::
 
 
 
@@ -929,7 +965,7 @@ my_plot <- ggplot(data = cancer_data,
                                 fill = event_label)) +
   geom_hline(yintercept = 0,
              linetype = "dashed") +
-  geom_boxplot() +
+  geom_boxplot(alpha = 0.5) +
   scale_fill_manual(labels = c("No", "Yes"),
                     values = c("green", "red")) +
   labs(x = "Patient Age Group",

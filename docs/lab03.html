@@ -359,6 +359,7 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  <li><a href="#the-here-package-as-your-friendly-neighborhood-path-helper" id="toc-the-here-package-as-your-friendly-neighborhood-path-helper" class="nav-link" data-scroll-target="#the-here-package-as-your-friendly-neighborhood-path-helper">The <code>here</code> package as your friendly neighborhood path helper</a></li>
   <li><a href="#getting-the-data" id="toc-getting-the-data" class="nav-link" data-scroll-target="#getting-the-data">Getting the data</a></li>
   <li><a href="#wrangling-the-data" id="toc-wrangling-the-data" class="nav-link" data-scroll-target="#wrangling-the-data">Wrangling the data</a></li>
   </ul></li>
@@ -447,27 +448,46 @@ div.csl-indent {
 </section>
 <section id="getting-started" class="level3">
 <h3 class="anchored" data-anchor-id="getting-started">Getting Started</h3>
-<p>Again, go to the <a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science RStudio Cloud Server</a> session from last time and login and choose the project you created</p>
+<p>Again, go to the <a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science RStudio Cloud Server</a> session from last time and login and make sure you are working in the <code>r_for_bio_data_science</code> project you created previously, then:</p>
 <ul>
-<li><strong>Create a new Quarto Document for today’s exercises, e.g.&nbsp;lab03_exercises.qmd</strong></li>
-<li><strong>NB! The Quarto document MUST be placed together with your <code>.Rproj</code> file (defining, the project root - look in your <code>Files</code> tab) and also there, the <code>data</code>-folder should be placed!</strong></li>
-<li><strong>REMEMBER paths are important! Also, R is case-sensitive, i.e.&nbsp;“data” is not the same as “Data”</strong></li>
+<li>Create a new Quarto Document for today’s exercises, e.g.&nbsp;lab03_exercises.qmd</li>
+<li>NB! The Quarto document MUST be placed together with your <code>.Rproj</code> file (defining, the project root - look in your <code>Files</code> tab) and also there, the <code>data</code>-folder should be placed!</li>
+<li>REMEMBER paths are important! Also, R is case-sensitive, i.e.&nbsp;“data” is not the same as “Data”</li>
 </ul>
 <p>See <a href="./paths_and_projects.html">Paths and Projects</a></p>
+</section>
+<section id="the-here-package-as-your-friendly-neighborhood-path-helper" class="level3">
+<h3 class="anchored" data-anchor-id="the-here-package-as-your-friendly-neighborhood-path-helper">The <code>here</code> package as your friendly neighborhood path helper</h3>
+<p>Paths can be tricky and as you have seen, some file formats <em>cough</em> .qmd’s <em>cough</em>, may not really feel that strongly about your project setup, so… The <code>here</code> package to the rescue.</p>
+<p>If you decided to put your qmd-file in e.g.&nbsp;an <code>exercises</code>-directory, which is a very nice and perfectly understandable idea, then you will find that the following chunk will <em>not</em> work:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"data/gravier.RData"</span>) <span class="co"># Nope!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>So here is the trick, <code>here</code> keeps track of your project root, as defined by the <code>.Rproj</code>-file. So the following <em>will</em> work even if you have your <code>.qmd</code>-files in other directories:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"here"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>here() starts at /Users/ljess/Library/CloudStorage/OneDrive-DanmarksTekniskeUniversitet/Immunomicslab/Teaching/22100_r_for_bio_data_science/course_site</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="fu">here</span>(<span class="st">"data/gravier.RData"</span>)) <span class="co"># Yup!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Enjoy your friendly neighborhood path helper!</p>
 </section>
 <section id="getting-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="getting-the-data">Getting the data</h3>
 <p>Add a new code chunk and add the following code (Never mind the details, we will get back to this), remember you can use headers to nicely section your quarto Document.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>base_url <span class="ot">&lt;-</span> <span class="st">"http://userweb.eng.gla.ac.uk/umer.ijaz/bioinformatics/ecological/"</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>SPE <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="fu">str_c</span>(base_url, <span class="st">"SPE_pitlatrine.csv"</span>))</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="at">x =</span> SPE,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">file =</span> <span class="st">"data/SPE_pitlatrine.csv"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>ENV <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="fu">str_c</span>(base_url, <span class="st">"ENV_pitlatrine.csv"</span>))</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="at">x =</span> ENV,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">file =</span> <span class="st">"data/ENV_pitlatrine.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>base_url <span class="ot">&lt;-</span> <span class="st">"http://userweb.eng.gla.ac.uk/umer.ijaz/bioinformatics/ecological/"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>raw_data_path <span class="ot">&lt;-</span> <span class="st">"data/_raw/"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>SPE <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="fu">str_c</span>(base_url, <span class="st">"SPE_pitlatrine.csv"</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="at">x =</span> SPE,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">file =</span> <span class="fu">str_c</span>(raw_data_path, <span class="st">"SPE_pitlatrine.csv"</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>ENV <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="fu">str_c</span>(base_url, <span class="st">"ENV_pitlatrine.csv"</span>))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(<span class="at">x =</span> ENV,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">file =</span> <span class="fu">str_c</span>(raw_data_path, ENV_pitlatrine.csv))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Add the chunk settings <code>#| echo: true</code> and <code>#| eval: true</code>, then run the block and change the latter to <code>#| eval: false</code>.</p>
 <ul>
@@ -490,14 +510,14 @@ Where do we retrieve the data from, where do we write it to, and what happens if
 <p>Before we continue with plotting, we want to unify the data, so here again you will run some code, where the details are not important right now.</p>
 <p>But… Make sure, that you have run <code>library("tidyverse")</code> somewhere in your Quarto document - Perhaps under an initial header saying “Load Libraries” or similar?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>SPE <span class="sc">|&gt;</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Taxa,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Samples"</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"OTU_Count"</span>)  <span class="sc">|&gt;</span> </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(ENV, <span class="at">by =</span> <span class="st">"Samples"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">site =</span> <span class="fu">case_when</span>(<span class="fu">str_detect</span>(Samples, <span class="st">"^T"</span>) <span class="sc">~</span> <span class="st">"Tanzania"</span>,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">str_detect</span>(Samples, <span class="st">"^V"</span>) <span class="sc">~</span> <span class="st">"Vietnam"</span>)) <span class="sc">|&gt;</span>  </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="at">file =</span> <span class="st">"data/SPE_ENV.tsv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>SPE <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Taxa,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"Samples"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"OTU_Count"</span>)  <span class="sc">|&gt;</span> </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(ENV, <span class="at">by =</span> <span class="st">"Samples"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">site =</span> <span class="fu">case_when</span>(<span class="fu">str_detect</span>(Samples, <span class="st">"^T"</span>) <span class="sc">~</span> <span class="st">"Tanzania"</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">str_detect</span>(Samples, <span class="st">"^V"</span>) <span class="sc">~</span> <span class="st">"Vietnam"</span>)) <span class="sc">|&gt;</span>  </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="at">file =</span> <span class="st">"data/SPE_ENV.tsv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Change the chunk settings as before</p>
 </section>
@@ -507,8 +527,8 @@ Where do we retrieve the data from, where do we write it to, and what happens if
 <section id="read-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="read-the-data">Read the data</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>SPE_ENV <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="at">file =</span> <span class="st">"data/SPE_ENV.tsv"</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>SPE_ENV</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>SPE_ENV <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="at">file =</span> <span class="st">"data/SPE_ENV.tsv"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>SPE_ENV</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4,212 × 15
    Taxa   Samples OTU_Count    pH  Temp    TS    VS   VFA  CODt  CODs perCODsbyt
@@ -564,7 +584,7 @@ Click here for hint
 <p><em>Discuss in your group, which ggplot elements can you identify?</em></p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="lab03_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="lab03_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -573,7 +593,7 @@ Click here for hint
 <p><em>Discuss in your group, which ggplot elements can you identify?</em></p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="lab03_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<p><img src="lab03_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -582,7 +602,7 @@ Click here for hint
 <p><em>Discuss in your group, which ggplot elements can you identify?</em></p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="lab03_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="lab03_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -591,7 +611,7 @@ Click here for hint
 <p><em>Discuss in your group, which ggplot elements can you identify?</em></p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="lab03_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<p><img src="lab03_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -600,12 +620,12 @@ Click here for hint
 <p><em>Discuss in your group, which ggplot elements can you identify?</em></p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="lab03_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<p><img src="lab03_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="lab03_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="lab03_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <details>
@@ -622,7 +642,7 @@ Same data, but a transformation happened, changing the representation of the dat
 <p><em>Discuss in your group, which ggplot elements can you identify?</em></p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="lab03_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="lab03_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <details>
@@ -641,7 +661,7 @@ Click here for hint
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="lab03_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="lab03_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -659,16 +679,16 @@ Click here for hint
 <h4 class="anchored" data-anchor-id="task-8---recreate-the-following-plot">Task 8 - Recreate the following plot</h4>
 <p>Start by running this code in a new chunk (ignore details for now)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>targets <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Methanobacteria"</span>, <span class="st">"Clostridia"</span>, <span class="st">"Actinobacteria"</span>,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Sphingobacteria"</span>, <span class="st">"Anaerolineae"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>SPE_ENV_targets <span class="ot">&lt;-</span> SPE_ENV <span class="sc">|&gt;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Taxa <span class="sc">%in%</span> targets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>targets <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Methanobacteria"</span>, <span class="st">"Clostridia"</span>, <span class="st">"Actinobacteria"</span>,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Sphingobacteria"</span>, <span class="st">"Anaerolineae"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>SPE_ENV_targets <span class="ot">&lt;-</span> SPE_ENV <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Taxa <span class="sc">%in%</span> targets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and then use the created dataset <code>SPE_ENV_targets</code> to recreate this plot:</p>
 <p><em>Discuss in your group, which ggplot elements can you identify?</em></p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="lab03_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+<p><img src="lab03_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <details>
@@ -682,9 +702,8 @@ Click here for hint
 </section>
 <section id="task-9---group-assignment-important-see-how-to" class="level4">
 <h4 class="anchored" data-anchor-id="task-9---group-assignment-important-see-how-to">Task 9 - <span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: <a href="./assignments.html">how to</a>)</h4>
-<p><em>For this assignment you and your group are to apply what you have learned in the two data visualisation labs. The task is to create a really nice plot using one of two datasets, the <code>cancer_data</code> or the <code>SPE_ENV</code></em></p>
+<p><em>For this assignment you and your group are to apply what you have learned in the two data visualisation labs. The task is to be creative and make a really nice plot using the <code>SPE_ENV</code> data set</em></p>
 <p>Try to play around with some custom colouring. There is a nice tool to aid in choosing colours for visualisations <a href="https://www.sessions.edu/color-calculator/">here</a></p>
-<p>Be sure to read the <a href="./assignments.html">assignment instructions</a> before submitting your solution.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
