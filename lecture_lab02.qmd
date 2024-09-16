@@ -278,7 +278,7 @@ ggplot(data = my_data,
 
 -   Choose a graphical representation
 
--   Let us look at that in e another way
+-   Let us look at that in another way
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->

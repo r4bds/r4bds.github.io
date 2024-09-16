@@ -266,7 +266,7 @@ Remember to write notes to yourself, so you know what you did and if there is so
 * __T10: Pick your favourite two genes and create a scatter plot of their expression levels__
     * Then, add stratification on `event_label`
     * Then, add a smoothing line
-    * Then, show split into seperate panes based on the variable `age_group`
+    * Then, show split into separate panes based on the variable `age_group`
     * Then, add some labels
     * Change the `event_label` title of the legend
 
