@@ -87,6 +87,11 @@ load(file = "data/gravier.RData") # Nope!
 So here is the trick, `here` keeps track of your project root, as defined by the `.Rproj`-file. So the following _will_ work even if you have your `.qmd`-files in other directories:
 
 ```{r}
+#| message: false
+#| warning: false
+#| echo: true
+#| eval: true
+
 library("here")
 load(file = here("data/gravier.RData")) # Yup!
 ```
