@@ -1037,7 +1037,6 @@ pl2 <- ggplot(data = cancer_data,
   theme_classic(base_size = 12,
                 base_family = "Avenir") +
   theme(legend.position = "bottom")
-
 ```
 :::
 

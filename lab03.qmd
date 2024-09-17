@@ -109,7 +109,7 @@ write_csv(x = SPE,
 
 ENV <- read_csv(file = str_c(base_url, "ENV_pitlatrine.csv"))
 write_csv(x = ENV,
-          file = str_c(raw_data_path, ENV_pitlatrine.csv))
+          file = str_c(raw_data_path, "ENV_pitlatrine.csv"))
 ```
 
 Add the chunk settings `#| echo: true` and `#| eval: true`, then run the block and change the latter to `#| eval: false`.
