@@ -435,16 +435,14 @@ div.csl-indent {
 <div class="cell">
 
 </div>
-<p><em>Important: As we progress, avoid using black-box do-everything-with-one-command R-packages like e.g.&nbsp;<code>ggpubr</code> - I want you to learn the underlying technical bio data science! …and why is that? Because if you use these types of packages, you will be limited to their functionality, whereas if you truly understand ggplot - the sky is the limit! Basically, it’s the cliché: “If you give a man a fish, you feed him for a day. If you teach a man to fish, you feed him for a lifetime”</em></p>
+<p><em>Important: As we progress, avoid using black-box do-everything-with-one-command R-packages like e.g.&nbsp;<code>ggpubr</code> - I want you to learn the underlying technical bio data science! …and why is that? Because if you use these types and-then-magic-happens packages, you will be limited to their functionality and what if you want to create something custom? Something beyond stock? Some awesome idea that you got? If you truly understand ggplot - the sky is the limit! Basically, it’s the cliché: “If you give a man a fish, you feed him for a day. If you teach a man to fish, you feed him for a lifetime”</em></p>
 <section id="getting-started" class="level3">
 <h3 class="anchored" data-anchor-id="getting-started">Getting Started</h3>
 <p>Use this link to go to the <a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science RStudio Cloud Server</a></p>
 <p>First things first:</p>
 <ul>
-<li>Create a new Quarto Document for today’s exercises, e.g.&nbsp;<code>lab04_exercises.qmd</code></li>
+<li>Let’s create a new Quarto Document for today’s exercises, e.g.&nbsp;<code>lab04_exercises.qmd</code></li>
 </ul>
-<p>Note that: - The Quarto document MUST be placed together with your <code>.Rproj</code> file (defining, the project root - look in your <code>Files</code> pane) and also there, the <code>data</code> folder should be placed!</p>
-<p><em>Understanding how paths and projects work is important. In case this is not entirely clear, a new chapter has been added on <a href="./paths_and_projects.html">Paths and Projects</a>.</em></p>
 </section>
 <section id="brief-refresh-of-quarto-so-far" class="level3">
 <h3 class="anchored" data-anchor-id="brief-refresh-of-quarto-so-far">Brief refresh of Quarto so far</h3>
@@ -478,7 +476,7 @@ div.csl-indent {
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And run the chunk. This will load our data science toolbox, including <code>dplyr</code> (and <code>ggplot</code>). But wait, what does <code>#| message: false</code> do? 🤷️ 🤔</p>
-<p><strong>Try to structure your Quarto document as your course notes, i.e.&nbsp;add notes while solving the exercises aiming to create a reference that you can revisit for your final project work.</strong></p>
+<p><strong>Try to structure your Quarto document as your course notes, i.e.&nbsp;add notes while solving the exercises aiming to create a reference that you can revisit for your final project work… And… For future reference after this course, where hopefully you’ll really reap what you sow</strong></p>
 <p>Bonus info: We are engineers, so of course, we love equations, we can include standard <span class="math inline">\(\LaTeX\)</span> syntax, e.g.:</p>
 <pre><code>  $E(x) = \frac{1}{n} \cdot \sum_{i=1}^{n} x_{i}$</code></pre>
 <p>Try it!</p>
@@ -539,7 +537,8 @@ div.csl-indent {
 </section>
 <section id="load-data" class="level2">
 <h2 class="anchored" data-anchor-id="load-data">Load data</h2>
-<p>Again, add a new header to your Quarto document, e.g.&nbsp;<code>## Load Data</code>, then:</p>
+<p>Wait… If your write some <code>R</code>-code, which for some reason does not run, <code>R</code> will let you know what went wrong. Make sure to <strong>read</strong> these error messages. During this course the teaching team is available, but after the course, you’ll have to be comfortable with <code>debugging</code>, i.e.&nbsp;finding and fixing errors in your code. By-the-way, did you know the term <code>debugging</code> is attested to <a href="https://aws.amazon.com/what-is/debugging/#:~:text=The%20term%20debugging%20can%20be,they%20were%20debugging%20the%20system.">Admiral Grace Hopper</a>?</p>
+<p>Let’s continue - Again, add a new header to your Quarto document, e.g.&nbsp;<code>## Load Data</code>, then:</p>
 <ol type="1">
 <li>Go to the <a href="https://hbiostat.org/data/">Vanderbilt Biostatistics Datasets</a> site</li>
 <li>Find <strong>Diabetes data</strong> and download the <code>diabetes.csv</code> file</li>
@@ -551,7 +550,7 @@ div.csl-indent {
 <li>Add and then run the following code</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>diabetes_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"data/diabetes.csv"</span>)</span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>diabetes_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> data<span class="sc">/</span>diabetes.csv)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>diabetes_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then realise that we could simply have run the following code to do the exact same thing (Yes, <code>readr</code> is pretty nifty):</p>
@@ -570,7 +569,8 @@ div.csl-indent {
 </section>
 <section id="work-with-the-diabetes-data-set" class="level2">
 <h2 class="anchored" data-anchor-id="work-with-the-diabetes-data-set">Work with the diabetes data set</h2>
-<p>Use the pipe <code>|&gt;</code> to use the <code>View()</code> function to inspect the data set. Note, if you click the <img src="images/button_view.png" class="img-fluid">-button, you will get a spreadsheet-like view of the data, allowing you to get an overview.</p>
+<p>First, take a few minutes to read about this dataset. Go to the <a href="https://hbiostat.org/data/">Vanderbilt Department of Biostatistics site</a> and find the <code>Diabetes data</code> header and directly below that, click the link <code>diabetes.html</code>. This will contain some meta data on the data.</p>
+<p>Now, use the pipe <code>|&gt;</code> to use the <code>View()</code> function to inspect the data set. Note, if you click the <img src="images/button_view.png" class="img-fluid">-button, you will get a spreadsheet-like view of the data, allowing you to get an overview (Psst… No need to use Excel…).</p>
 <ul>
 <li><strong>Q1: How many observations and how many variables?</strong></li>
 <li><strong>Q2: Is this a tidy data set? Which three rules must be satisfied?</strong></li>
@@ -666,7 +666,7 @@ where <span class="math inline">\(sex\)</span> is defined as being <span class="
 Click here for hint
 </summary>
 <p></p>
-<em>Is there a certain plot-type, which can visualise if the relationship between two variables and give insights to if they are correlated? Can you perhaps use an <code>R</code> function to compute the “correlation coefficient”?. Do not use e.g.&nbsp;<code>ggpubr</code>, use only <code>tidyverse</code> and <code>base</code>)</em>
+<em>Is there a certain plot-type, which can visualise if the relationship between two variables and give insights to if they are correlated? Can you perhaps use an <code>R</code> function to compute the “correlation coefficient”?. Do not use e.g.&nbsp;<code>ggpubr</code> or any other and-then-magic-happens package, use the knowledge you’ve gained so far)</em>
 </details>
 <p>Now, with this augmented data set, let us create some summary statistics</p>
 <ul>

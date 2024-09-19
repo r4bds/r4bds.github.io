@@ -1,6 +1,5 @@
 ---
-title: "Recap Lab 4"
-author: "Leon Eyrich Jessen"
+title: "Recap of Lab 3 Exercises"
 format:
   revealjs:
     embed-resources: true
@@ -18,7 +17,7 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-# A Few Meta Points...
+# Recap of Lab 3 Exercises
 
 ```{r}
 #| echo: false
@@ -31,76 +30,6 @@ targets <- c("Methanobacteria", "Clostridia", "Actinobacteria",
              "Sphingobacteria", "Anaerolineae")
 SPE_ENV_targets <- filter(SPE_ENV, Taxa %in% targets)
 ```
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Paths
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-![](images/paths_19.png)
-:::
-
-::: {.column width="50%"}
-![](images/paths_20.png)
-:::
-
-::::
-
-- The `.Rproj`-file defines your project root, i.e. everything is relative to where this file is
-- In your `.Qmd`-file you need to think about where files you need are
-- To load something from `data`, you need to specify `data/my_data.csv`
-- To load from `_raw` in `data`, you specify `data/_raw/my_raw_data.xlsx`
-
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Qmd 
-
-- Load libraries *before* calling needed functions
-- Do a `Run All` check (Menu above Quarto doc $\rightarrow$ `Run` $\rightarrow$ `Run All`)
-- When getting errors, make sure *read* the error message
-
-![](images/paths_21.png){fig-align="center"}
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Group work
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-- Each student *must* have a and work in a project on the RStudio Cloud Server
-
-- Each student *must* to actively write code (no one has ever gotten good at football by watching others play $\rightarrow$ Learning by actively doing)
-
-- Make sure to talk together in your groups, you *will* learn something by explaining
-
-- Group work **is** a Learning Objective element in this course $\rightarrow$ Outlook to collaboratice bio data science!
-
-:::
-
-::: {.column width="50%"}
-
-![](images/group_work_meme.png){fig-align="center"}
-
-:::
-
-::::
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-# Recap
 
 
 
@@ -422,4 +351,4 @@ pl
 <!--# ---------------------------------------------------------------------- -->
 ## Task 9 - <span style="color: red;">GROUP ASSIGNMENT</span>
 
-Let us take a look at this years submissions...
+Let us take a look at a nice example...

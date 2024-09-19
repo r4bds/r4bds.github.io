@@ -361,6 +361,6 @@ _Here we need to use `geom_density_ridges()`, but which package contains this? A
 
 #### Task 9 - <span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: [how to](assignments.qmd))
 
-_For this assignment you and your group are to apply what you have learned in the two data visualisation labs. The task is to be creative and make a really nice plot using the `SPE_ENV` data set_
+_For this assignment you and your group are to apply what you have learned in the two data visualisation labs. The task is to be creative and make a really nice plot using the `SPE`- and `ENV`-data sets or a relevant subset hereof, remember to include how you arrive at subsets of the data in your assignment_
 
 Try to play around with some custom colouring. There is a nice tool to aid in choosing colours for visualisations [here](https://www.sessions.edu/color-calculator/)

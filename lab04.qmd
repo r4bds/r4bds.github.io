@@ -48,7 +48,7 @@ library("tidyverse")
 diabetes_data <- read_csv(file = "data/diabetes.csv")
 ```
 
-*Important: As we progress, avoid using black-box do-everything-with-one-command R-packages like e.g. `ggpubr` - I want you to learn the underlying technical bio data science! ...and why is that? Because if you use these types of packages, you will be limited to their functionality, whereas if you truly understand ggplot - the sky is the limit! Basically, it's the cliché: "If you give a man a fish, you feed him for a day. If you teach a man to fish, you feed him for a lifetime"*
+*Important: As we progress, avoid using black-box do-everything-with-one-command R-packages like e.g. `ggpubr` - I want you to learn the underlying technical bio data science! ...and why is that? Because if you use these types and-then-magic-happens packages, you will be limited to their functionality and what if you want to create something custom? Something beyond stock? Some awesome idea that you got? If you truly understand ggplot - the sky is the limit! Basically, it's the cliché: "If you give a man a fish, you feed him for a day. If you teach a man to fish, you feed him for a lifetime"*
 
 ### Getting Started
 
@@ -56,12 +56,7 @@ Use this link to go to the [R for Bio Data Science RStudio Cloud Server](https:/
 
 First things first:
 
-- Create a new Quarto Document for today's exercises, e.g. `lab04_exercises.qmd`
-
-Note that:
-- The Quarto document MUST be placed together with your `.Rproj` file (defining, the project root - look in your `Files` pane) and also there, the `data` folder should be placed!
-
-*Understanding how paths and projects work is important. In case this is not entirely clear, a new chapter has been added on [Paths and Projects](paths_and_projects.qmd).*
+- Let's create a new Quarto Document for today's exercises, e.g. `lab04_exercises.qmd`
 
 ### Brief refresh of Quarto so far
 
@@ -103,7 +98,7 @@ library("tidyverse")
 
 And run the chunk. This will load our data science toolbox, including `dplyr` (and `ggplot`). But wait, what does `#| message: false` do? 🤷️ 🤔
 
-**Try to structure your Quarto document as your course notes, i.e. add notes while solving the exercises aiming to create a reference that you can revisit for your final project work.**
+**Try to structure your Quarto document as your course notes, i.e. add notes while solving the exercises aiming to create a reference that you can revisit for your final project work... And... For future reference after this course, where hopefully you'll really reap what you sow**
 
 Bonus info: We are engineers, so of course, we love equations, we can include standard $\LaTeX$ syntax, e.g.:
 
@@ -184,7 +179,9 @@ In the following, return to these questions and your answers for reference on th
 
 ## Load data
 
-Again, add a new header to your Quarto document, e.g. `## Load Data`, then:
+Wait... If your write some `R`-code, which for some reason does not run, `R` will let you know what went wrong. Make sure to **read** these error messages. During this course the teaching team is available, but after the course, you'll have to be comfortable with `debugging`, i.e. finding and fixing errors in your code. By-the-way, did you know the term `debugging` is attested to [Admiral Grace Hopper](https://aws.amazon.com/what-is/debugging/#:~:text=The%20term%20debugging%20can%20be,they%20were%20debugging%20the%20system.)? 
+
+Let's continue - Again, add a new header to your Quarto document, e.g. `## Load Data`, then:
 
 1. Go to the [Vanderbilt Biostatistics Datasets](https://hbiostat.org/data/) site
 1. Find **Diabetes data** and download the `diabetes.csv` file
@@ -198,7 +195,7 @@ Again, add a new header to your Quarto document, e.g. `## Load Data`, then:
 ```{r}
 #| eval: false
 #| message: false
-diabetes_data <- read_csv(file = "data/diabetes.csv")
+diabetes_data <- read_csv(file = data/diabetes.csv)
 diabetes_data
 ```
 
@@ -222,7 +219,9 @@ _Just remember the echo/eval trick from last session to avoid retrieving online 
 
 ## Work with the diabetes data set
 
-Use the pipe `|>` to use the `View()` function to inspect the data set. Note, if you click the ![](images/button_view.png)-button, you will get a spreadsheet-like view of the data, allowing you to get an overview.
+First, take a few minutes to read about this dataset. Go to the [Vanderbilt Department of Biostatistics site](https://hbiostat.org/data/) and find the `Diabetes data` header and directly below that, click the link `diabetes.html`. This will contain some meta data on the data.
+
+Now, use the pipe `|>` to use the `View()` function to inspect the data set. Note, if you click the ![](images/button_view.png)-button, you will get a spreadsheet-like view of the data, allowing you to get an overview (Psst... No need to use Excel...).
 
 - **Q1: How many observations and how many variables?**
 - **Q2: Is this a tidy data set? Which three rules must be satisfied?**
@@ -345,7 +344,7 @@ diabetes_data <- diabetes_data |>
 
 <details>
 <p><summary>Click here for hint</summary></p>
-*Is there a certain plot-type, which can visualise if the relationship between two variables and give insights to if they are correlated? Can you perhaps use an `R` function to compute the "correlation coefficient"?. Do not use e.g. `ggpubr`, use only `tidyverse` and `base`)*
+*Is there a certain plot-type, which can visualise if the relationship between two variables and give insights to if they are correlated? Can you perhaps use an `R` function to compute the "correlation coefficient"?. Do not use e.g. `ggpubr` or any other and-then-magic-happens package, use the knowledge you've gained so far)*
 </details>
  
 Now, with this augmented data set, let us create some summary statistics
