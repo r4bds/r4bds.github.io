@@ -88,10 +88,13 @@ So far, we have worked on
 - Lab 4: Clinical data, the `diabetes` data from @Willems1997 and @Schorling1997.
 - Lab 5: High throughput immunoinformatics data, the `SARS-CoV-2` data from @Nolan2020.
 
-## Getting Started
+### Getting Started
 
-1. Once again, please [go to the course cloud RStudio server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) and login
-1. Create a **new** Quarto document and remember to save it
+_First, make sure to read and discuss the feedback you got from last week's assignment!_
+
+Then, once again go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php)
+
+Create a **new** Quarto document and remember to save it
 
 Today, we will re-examine the data acquired in Lab 2 to further explore the research question:
 

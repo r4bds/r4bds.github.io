@@ -44,6 +44,8 @@ _Read the steps of this exercises carefully while completing them_
 
 ### Introduction
 
+_First, make sure to read and discuss the feedback you got from last week's assignment!_
+
 The aim of these exercises is to set up a collaborative coding project using GitHub and collaborate on creating a simple R package that replicates the central dogma of molecular biology.
 
 The exercises will build upon what you learned in [Lab 7](lab07.qmd) and its [exercises](lab07.qmd#sec-exercises).

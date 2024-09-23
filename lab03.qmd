@@ -44,14 +44,13 @@ library("tidyverse")
 library("ggridges")
 ```
 
-
 _Read the steps of this exercises carefully, while completing them_ 
 
 ### Assignment Feedback
 
 _Everyone who met the deadline for handing in last week's assignment, should have gotten written feedback - **Make sure to read this**, so you get feedback on your work and progress!_
 
-_In the unexpeted case, that you did meet the deadline, but did not receive any feedback, please make sure to contact the teaching team_
+_In the unexpected case, that you met the deadline, but did not receive any feedback, please make sure to contact the teaching team_
 
 ### Introduction
 

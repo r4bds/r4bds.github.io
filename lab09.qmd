@@ -45,6 +45,8 @@ _A student who has met the objectives of the session will be able to:_
 
 ### Introduction
 
+_First, make sure to read and discuss the feedback you got from last week's assignment!_
+
 ----
 
 In today's lab, you will use the package you developed last time as basis for a Shiny App.

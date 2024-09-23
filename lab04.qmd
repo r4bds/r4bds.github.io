@@ -52,7 +52,9 @@ diabetes_data <- read_csv(file = "data/diabetes.csv")
 
 ### Getting Started
 
-Use this link to go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php)
+_First, make sure to read and discuss the feedback you got from last week's assignment!_
+
+Then, once again go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php)
 
 First things first:
 

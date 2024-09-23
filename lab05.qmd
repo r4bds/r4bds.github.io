@@ -104,7 +104,9 @@ Today, we will emulate the situation, where you are working as a Bioinformaticia
 
 ## Getting Started
 
-1.  [Click here](https://teaching.healthtech.dtu.dk/22100/rstudio.php) to go to the course RStudio cloud server and login
+_First, make sure to read and discuss the feedback you got from last week's assignment!_
+
+1.  Then, once again go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php)
 1.  Make sure you are in your `r_for_bio_data_science` project, you can verify this in the upper right corner
 1.  In the same place as your `r_for_bio_data_science.Rproj` file and existing `data` folder, create a new folder and name it `doc`
 1.  Go to the aforementioned [manuscript](https://www.researchsquare.com/article/rs-51964/v1). Download the PDF and upload it to your new `doc` folder

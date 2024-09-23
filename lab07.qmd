@@ -50,6 +50,8 @@ _A student who has met the objectives of the session will be able to:_
 
 ### Getting Started
 
+_First, make sure to read and discuss the feedback you got from last week's assignment!_
+
 **The following exercises have to be done in your groups! You must move at the same pace and progress together as a team through the exercises!**
 
 *GitHub is **the** place for collaborative coding and different group members will have to do different tasks in a specific order, to make it through the exercises together, so... Team Up and don't rush it!*
