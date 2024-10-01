@@ -1,6 +1,25 @@
 # Primer on Logistic Regression in `R` {.unnumbered}
 
-## The Logistic Regression
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+
+library("tidyverse")
+library("broom")
+load(file = "data/_raw/gravier.RData")
+```
+
+
+## Logistic Regression
+
+```{r}
+gravier_wide <- gravier |>
+  bind_cols() |>
+  as_tibble()
+gravier_wide
+```
+
 
 What if we wanted to understand how a continous variable like e.g. `gene_expression_level` of a given gene, determined whether the plant would survive or sucomb to heat shock at a given temperature? In that case, we would be interested in understanding `survived` yes/no as a function of `gene_expression_level`:
 

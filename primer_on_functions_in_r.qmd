@@ -1,0 +1,66 @@
+# Primer on Functions in `R` {.unnumbered}
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+
+
+```
+
+## The Basics
+
+A function in its simplest form takes some *"input"* and does *"something"* and then returns the *"result"*:
+
+```{r}
+#| echo: true
+#| eval: false
+
+f <- function(input){
+  # Do "something" to get the result
+  return(result)
+}
+```
+
+So the function "acts" upon the "input" and thereby creates the result. Since we are working with R for Bio Data Science, let us use DNA as an example of input and then choose transcription as the act upon the input, whereby messenger RNA would be the output. This would look like so:
+
+```{r}
+transcribe_dna <- function(DNA){
+
+  # First we initiate
+  mRNA <- ""
+  
+  # Then we elongate by going through all
+  # of the nucleotides in the input DNA
+  for( i in 1:nchar(DNA) ){
+    
+    # To elongate, first we specify
+    # the i'th nucleotide in the input DNA
+    nucleotide <- substr(DNA, i, i)
+    
+    # Then we define the as of yet unknown
+    # result of the transcription
+    transcribed_nucleotide <- ""
+    
+    # And then we see if the input nucleotide
+    # is "a", "c", "g" or "t" and perform the 
+    # appropriate transcription:
+    if( nucleotide == "a" ){
+      transcribed_nucleotide <- "u"
+    } else if(nucleotide == "c"){
+      transcribed_nucleotide <- "g"
+    } else if(nucleotide == "g"){
+      transcribed_nucleotide <- "c"
+    } else if(nucleotide == "t"){
+      transcribed_nucleotide <- "a"
+    }
+    
+    # Perform the elongation
+    mRNA <- paste0(mRNA, transcribed_nucleotide)
+  }
+  
+  # And finally, we terminate
+  return(mRNA)
+}
+```
+

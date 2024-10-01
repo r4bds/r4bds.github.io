@@ -656,14 +656,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Revisit the previous illustration and compare with your branch workflow, make sure that everyone in the groups are on par here</li>
 <li>Finally return to your RStudio session and make sure you switch to the <code>main</code> branch</li>
 </ol>
-<p><em>Congratulations! You have now succesfully done your first branch merge!</em></p>
+<p><em>Congratulations! You have now successfully done your first branch merge!</em></p>
 <p>But wait, what was this <code>Pull request</code>??? What you actually did, was: 1. Created a new branch 1. Completed a new feature/analysis 1. Push’ed the new feature/analysis to GitHub 1. Created a <code>Pull request</code> for merging your branch <code>STUDENT_ID</code> into the <code>main</code> branch 1. Approved and completed the <code>Pull request</code></p>
 <p>Think about e.g.&nbsp;again the <code>ggplot2</code> repo, if anyone could create a new branch and then do as described above, then there would be no way of making quality control. Therefore, typically such pull requests will have to be approved by someone. This can either be someone who is close-to-the-code e.g.&nbsp;in the case of <code>ggplot2</code>, that’d be someone like Hadley. In a company, then that might be some senior developer approving junior developers pull requests. At one point you might have seen something like “The min branch is unprotected”, this is exactly that!</p>
 </section>
 <section id="your-first-merge-conflict" class="level3">
 <h3 class="anchored" data-anchor-id="your-first-merge-conflict">Your first merge conflict</h3>
 <p>Okay, that’s all good an well. Seems easy and straight forward, right? Well, that is as long as we don’t have a <code>conflict</code>. A conflict is when two or more changes to one file are not compatible, consider:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Top 10 Data Science Languages of ALL Time:</span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Top 10 Bio Data Science Languages of ALL Time:</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>10. It is </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>9. Impossible</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>8. to rank them</span>
@@ -679,7 +679,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4 class="anchored" data-anchor-id="captain-2"><strong><span style="color:darkgreen;">Captain</span></strong></h4>
 <ol type="1">
 <li>Go to the RStudio session and where you usually click <code>Quarto Document...</code>, this time let’s just create a simple <code>Text File</code></li>
-<li>Copy/paste the <code>Top 10 Data Science Languages of ALL Time</code> into the file</li>
+<li>Copy/paste the <code>Top 10 Bio Data Science Languages of ALL Time</code> into the file</li>
 <li>Save the file as <code>best_ds_langs.txt</code></li>
 <li>Make sure you are in the <code>main</code> branch</li>
 <li>Do a commit/pull/push and check the file ended at your group github</li>
@@ -687,17 +687,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="crew-2" class="level4">
 <h4 class="anchored" data-anchor-id="crew-2"><strong><span style="color:darkgreen;">Crew</span></strong></h4>
-<p>Let’s commit mutiny! (pun intended)</p>
+<p>Rrrrrrr… Let’s commit mutiny! (Double pun intended)</p>
 <ol type="1">
 <li>Make sure you are in the <code>main</code> branch and then hit <code>Pull</code></li>
 <li>Open the <code>best_ds_langs.txt</code></li>
-<li>Each of you separatly (wrongfully) replace <code>R</code> with an (inferior) data science language of your choice (you can really write anything)</li>
+<li>Each of you separately (wrongfully) replace <code>R</code> with an (inferior) bio data science language of your choice (you can really write anything)</li>
 <li>Now, this time <strong>we do not pull first</strong>, simply commit and then push</li>
 <li>Now you can <code>pull</code></li>
 <li>You will now get notified about a <code>merge conflict</code></li>
 <li>Close and re-open the <code>best_ds_langs.txt</code> file, it should look something like:</li>
 </ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Top 10 Data Science Languages of ALL Time:</span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Top 10 Bio Data Science Languages of ALL Time:</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>10. It is </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>9. Impossible</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>8. to rank them</span>
