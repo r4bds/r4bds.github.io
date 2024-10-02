@@ -186,7 +186,7 @@ meta_data |>
 
 Read this first:
 
-- *Think about: What is on the x-axis? What is on the y-axis? And also, it looks like we need to do some counting. Recall, that we can stick together a `dplyr` pipeline with a call to `ggplot`, so here we will have to `count` of `Cohort` and `Gender` before plotting*
+- *Think about: What is on the x-axis? What is on the y-axis? And also, it looks like we need to do some `count`ing stratified by `Cohort` and `Gender`. Recall, that we can stick together a `dplyr` pipeline with a call to `ggplot`.*
 
 ```{r}
 #| echo: false
@@ -212,7 +212,7 @@ meta_data |>
 Does your plot look different somehow? Consider peeking at the hint...
 
 <details><p><summary>Click here for hint</summary></p>
-*Perhaps not everyone agrees on how to denote `NA`s in data. I have seen `-99`, `-11`, `_` and so on... Perhaps this can be dealt with in the instance we read the data from the file? I.e. in the actual function call to your `read()` function. Recall, how can we get information on the parameters of a `?function`*
+*Perhaps not everyone agrees on how to denote `NA`s in data. I have seen `-99`, `-11`, `_` and so on... Perhaps this can be dealt with in the instance we read the data from the file? I.e. in the actual function call to your `read_csv()` function. Recall, how can we get information on the parameters of a `?function`*
 </details>
 
 - **T2: Re-create this plot**

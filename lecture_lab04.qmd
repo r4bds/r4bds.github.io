@@ -382,7 +382,7 @@ Collapse the sample of characters into a string
 paste0(sample(c("a", "c", "g", "t"), size = 100, replace = TRUE), collapse = "")
 ```
 
-Replicate the proces 10 times
+Replicate the process 10 times
 
 ```{r}
 #| echo: true
@@ -411,7 +411,7 @@ We read the pipe `|>` as `then`, so:
 1. Define the nucleotides, `then`
 1. Sample the nucleotides 100 times with replacement, `then`
 1. Collapse the sample of characters into a string, `then`
-1. Replicate the proces 10 times
+1. Replicate the process 10 times
 
 
 
