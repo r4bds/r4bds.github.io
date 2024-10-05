@@ -828,9 +828,9 @@ peptide_meta_data |>
 
 ## Epilogue
 
-That's it for today - I know this overwhelming now, but commit to it and you WILL be plenty rewarded! I hope today was at least a glimpse into the flexibility and capabilities of using `tidyverse` for applied Bio Data Science
+That's it for today - I know this is overwhelming now, but commit to it and you WILL be plenty rewarded! I hope today was at least a glimpse into the flexibility and capabilities of using `tidyverse` for applied Bio Data Science
 
-...also, noticed something? We spend maybe 80% of the time here on dealing with data-wrangling and then once we're good to go, the analysis wasn't that time consuming - That's often the way it ends up going, you'll spend a lot of time on data handling and getting the tidyverse toolbox in your tool belt, will allow you to be so much more efficient in your data wrangling, so you can get to the fun part as quick as possible!
+...also, noticed something? We spend maybe 80% of the time here on dealing with data-wrangling and then once we're good to go, the analysis wasn't that time consuming - That's often the way it ends up going. You'll spend a lot of time on data handling, and getting the tidyverse toolbox in your tool belt will allow you to be so much more efficient in your data wrangling, so you can get to the fun part as quickly as possible!
 
 ## [Today's Assignment]{style="color: red;"} {#sec-assignment}
 
