@@ -18,6 +18,372 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
+## That was the first half of the course!
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+
+library("tidyverse")
+```
+
+- Time flies when you're having fun!
+
+- Up until now, we have been focusing on data visualisation, data wrangling and reproducible reporting
+
+- In the second half, we will switch gears and use what we have learned so far to learn to efficiently deal with more complicated data situations
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
 ## Functional Programming in R using Purrr
 
-![](images/advr_map.png){fig-align="center" width=60%}
+:::: {.columns}
+
+::: {.column width="40%"}
+
+- Functional Programming is a paradigm, where we call functions on objects and the result is returned
+
+- We "catch" the result by variable assignment
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: true
+double_the_value <- function(value){
+  return( 2*value )
+}
+
+x <- 2
+double_the_value(value = x)
+y <- double_the_value(value = x)
+y
+```
+
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## When you are creating a `dplyr`-pipeline...
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+You are stiching functions together
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+
+make_random_dna <- function(n, l_min = 10, l_max = 20){
+  dna <- c("a", "c", "g", "t")
+  random_dna <- dna |> 
+    sample(size = sample(x = seq(from = l_min, to = l_max), size = 1),
+           replace = TRUE) |> 
+    replicate(n = n, expr = _) |> 
+    lapply(paste0, collapse = "") |> 
+    unlist()
+  return(random_dna)
+}
+```
+
+```{r}
+#| echo: true
+
+set.seed(470812)
+example_data <- tibble(
+  dna = make_random_dna(n = 10))
+example_data
+```
+
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## When you are creating a `dplyr`-pipeline...
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+You are stiching functions together
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+
+make_random_dna <- function(n, l_min = 10, l_max = 20){
+  dna <- c("a", "c", "g", "t")
+  random_dna <- dna |> 
+    sample(size = sample(x = seq(from = l_min, to = l_max), size = 1),
+           replace = TRUE) |> 
+    replicate(n = n, expr = _) |> 
+    lapply(paste0, collapse = "") |> 
+    unlist()
+  return(random_dna)
+}
+```
+
+```{r}
+#| echo: true
+
+set.seed(470812)
+example_data <- tibble(
+  dna = make_random_dna(n = 10))
+example_data |> 
+  mutate(dna_length = str_length(dna))    # <- `mutate` is a function!
+```
+
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## When you are creating a `dplyr`-pipeline...
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+You are stiching functions together
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: false
+
+make_random_dna <- function(n, l_min = 10, l_max = 20){
+  dna <- c("a", "c", "g", "t")
+  random_dna <- dna |> 
+    sample(size = sample(x = seq(from = l_min, to = l_max), size = 1),
+           replace = TRUE) |> 
+    replicate(n = n, expr = _) |> 
+    lapply(paste0, collapse = "") |> 
+    unlist()
+  return(random_dna)
+}
+```
+
+```{r}
+#| echo: true
+
+set.seed(470812)
+example_data <- tibble(
+  sample_id = str_c("s_", rep(1:2, each = 5)),
+  dna = make_random_dna(n = 10))
+example_data |> 
+  mutate(dna_length = str_length(dna)) |> # <- `mutate` is a function!
+  filter( # <- `filter` is a function!
+    str_detect(string = dna, pattern = "aag")) # <- `str_detect` is a function!
+```
+
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## What does the `group_by()`-function actually do?
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+```{r}
+#| echo: true
+
+example_data |> 
+  mutate(dna_length = str_length(dna)) |>  
+  group_by(sample_id)
+```
+
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: true
+
+example_data |> 
+  mutate(dna_length = str_length(dna)) |> 
+  group_by(sample_id) |>
+  summarise(mean_length = mean(dna_length))
+```
+
+:::
+
+::::
+
+_Note the `Groups` on the left, this is called an `attribute`, it tells functions, that the data is grouped, which they then respect_
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The `map`-family of functions in the `purrr`-package
+
+ - The aim is to avoid looping and instead work on grouped data!
+ - You use `map` to apply a function to each group in your data
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+```{r}
+#| echo: true
+
+example_data |>
+  mutate(dna_length = str_length(dna))
+```
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: true
+
+example_data |>
+  mutate(dna_length = str_length(dna)) |> 
+  group_by(sample_id) |>
+  nest()
+```
+
+:::
+
+::::
+
+ - Note the dimensions of the nested data, each is 5 observations of 2 variables
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## We avoid looping by applying functions to nested data
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+```{r}
+#| echo: true
+
+example_data |>
+  mutate(dna_length = str_length(dna)) |> 
+  group_by(sample_id) |>
+  nest()
+```
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: true
+
+example_data |>
+    mutate(dna_length = str_length(dna)) |>
+    group_by(sample_id) |>
+    nest() |>
+    mutate(mean_length = map_dbl(.x = data,
+                                 .f = ~mean(pull(.x, dna_length))))
+```
+
+:::
+
+::::
+
+ - Note here, how we are retaining the data in the output column `data`, while ALSO computing our desired value
+ - This is a toy example, you will see in the exercises, why this is immensely useful!
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## What do you mean "retain the data"?
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+```{r}
+#| echo: true
+
+example_data |>
+    mutate(dna_length = str_length(dna)) |>
+    group_by(sample_id) |>
+    nest() |>
+    mutate(mean_length = map_dbl(
+      .x = data,
+      .f = ~mean(pull(.x, dna_length))))
+```
+
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| echo: true
+
+example_data |>
+    mutate(dna_length = str_length(dna)) |>
+    group_by(sample_id) |>
+    nest() |>
+    mutate(mean_length = map_dbl(
+      .x = data,
+      .f = ~mean(pull(.x, dna_length)))) |> 
+  unnest(data)
+```
+
+:::
+
+::::
+
+ - By retaining the data and using objects nested inside objects, we get one point of reference for our analysis work
+ - Opposed to 1,000 different object with names we forget and huge redundancy eating your ram
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Functional Programming in R using Purrr
+
+![](images/advr_map.png){fig-align="center" width=50%}
+
+ - And then remember to call the `map()`-function inside `mutate()`, when you work on nested data in tibbles!
