@@ -803,14 +803,21 @@ Click here for hint
 </div>
 </div>
 <ul>
-<li><strong>T12: Then add a new line to your pipeline, where you add a new variable <code>model_object</code> to your <code>gravier_clean_aug_long_nested</code> dataset, which <code>R</code> will compute <em>per</em> gene</strong></li>
+<li><strong>T12: Then using the <code>map()</code>-function, add a new line to your pipeline, where you add a new variable <code>model_object</code> to your <code>gravier_clean_aug_long_nested</code> dataset, which <code>R</code> will compute <em>per</em> gene</strong></li>
 </ul>
+<details>
+<p>
+</p><summary>
+Click here for hint
+</summary>
+<p></p>
 <p><em>To do this you will need the following syntax and then wrap that inside the relevant tidyverse-function for creating a new variable:</em></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>model_object <span class="ot">=</span> <span class="fu">map</span>(<span class="at">.x =</span> data,</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">.f =</span> <span class="sc">~</span><span class="fu">lm</span>(<span class="at">formula =</span> log2_expr_level <span class="sc">~</span> early_metastasis,</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">data =</span> .x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</details>
 <div class="cell">
 
 </div>
