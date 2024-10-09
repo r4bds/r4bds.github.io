@@ -33,7 +33,7 @@ library("tidyverse")
 
 - Up until now, we have been focusing on data visualisation, data wrangling and reproducible reporting
 
-- In the second half, we will switch gears and use what we have learned so far to learn to efficiently deal with more complicated data situations
+- In the second half, we will switch gears and use what we have learned so far to learn how to efficiently deal with more complicated data situations
 
 
 <!--# ---------------------------------------------------------------------- -->
@@ -81,7 +81,7 @@ y
 
 ::: {.column width="40%"}
 
-You are stiching functions together
+You are stitching functions together
 
 :::
 
@@ -127,7 +127,7 @@ example_data
 
 ::: {.column width="40%"}
 
-You are stiching functions together
+You are stitching functions together
 
 :::
 
@@ -174,7 +174,7 @@ example_data |>
 
 ::: {.column width="40%"}
 
-You are stiching functions together
+You are stitching functions together
 
 :::
 
