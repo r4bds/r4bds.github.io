@@ -52,7 +52,7 @@ _A student who has met the objectives of the session will be able to:_
 
 _First, make sure to read and discuss the feedback you got from last week's assignment!_
 
-**The following exercises have to be done in your groups! You must move at the same pace and progress together as a team through the exercises!**
+ <span style="color: red;">**The following exercises have to be done in your groups! You must move at the same pace and progress together as a team through the exercises!**</span> 
 
 *GitHub is **the** place for collaborative coding and different group members will have to do different tasks in a specific order, to make it through the exercises together, so... Team Up and don't rush it!*
 
@@ -61,10 +61,11 @@ First, select a team **<span style="color:darkgreen;">Captain</span>**, that per
 #### **<span style="color:darkgreen;">Team</span>**
 
 1. Go to [GitHub](https://github.com) and login
-1. In the upper left corner, click `Repositories`
+1. In the upper right corner, click on your profile picture. Then in the menu, click on "Your Organizations" and go into rforbiodatascience24. If you are not a member, contact a TA NOW before proceeding. Next, go into repositories (top left).
 
 #### **<span style="color:darkgreen;">Captain</span>**
 
+1. Click "New repository"
 1. The default owner of the repository should be your GitHub username. Keep that, please.
 1. Name the repository `groupXX`, where `XX` is your group number, e.g. `02`
 1. Select `Public`
@@ -73,14 +74,14 @@ First, select a team **<span style="color:darkgreen;">Captain</span>**, that per
 1. Click `Settings` in the menu line starting with `<> Code`
 1. Under `Access`, click `Collaborators and teams`
 1. Click `Add people`
-1. Write a group members username
+1. Write a group members username and select the role "Maintain".
 1. Click the correct suggestion
 1. Select `Add username to this repository`
 1. Repeat for all group members
 
 #### **<span style="color:darkgreen;">Crew</span>**
 
-1. Check your mail and accept your invitation to join the repository
+1. Refresh the page and go into the new repository. If you don't see it, check your mail and accept your invitation to join the repository.
 
 #### **<span style="color:darkgreen;">Team</span>**
 
@@ -89,7 +90,7 @@ First, select a team **<span style="color:darkgreen;">Captain</span>**, that per
 1. Choose ![](images/paths_new_proj_plus.png) `New Project...`
 1. Select ![](images/icon_version_control.png) **Version Control**
 1. Select ![](images/icon_git.png) **Git**
-1. Under `Repository URL:`, enter `https://github.com/CAPTAIN_USERNAME/groupXX`, where again you replace `XX` with your group number, e.g. `02`. **NOTE**: Replace CAPTAIN_USERNAME with the captain's GitHub username.
+1. Under `Repository URL:`, enter `https://github.com/rforbiodatascience24/groupXX`, where again you replace `XX` with your group number, e.g. `02`. 
 1. Under `Project directory name:`, enter `lab07_git_exercises`
 1. Under `Create project as a subdirectory of:`, make sure that is says `~/projects`
 1. Click `Create Project`
@@ -162,8 +163,8 @@ gitcreds::gitcreds_set()
 ```
 
 10. In the `Environment` pane, make sure you are in the `git` tab and again click `Pull` (We *always* pull before push)
-11. Click `Push`
-12. Go to your groups `GitHub` project page `https://github.com/CAPTAIN_USERNAME/groupXX`
+11. Click `Push`. Now when it prompts your password, you will add the PAT.
+12. Go to your groups `GitHub` project page `https://github.com/rforbiodatascience24/groupXX`
 13. Confirm, that you see your files
 
 *Congratulations! You just took your first step towards true collaborative bio data science!*
@@ -172,7 +173,7 @@ Stop, wait a minute and make sure, that **ALL** group members are at this stage 
 
 #### Making your Credentials and Personal Access Token stick around (**<span style="color:darkgreen;">Team</span>**)
 
-*The thing is, we're actually working on a Linux server her, this entails a that you're credentials and PAT exists in a cache, which is cleared every 15 minutes. This. Is. Annoying! So let's fix it!*
+*The thing is, we're actually working on a Linux server here, this entails a that you're credentials and PAT exists in a cache, which is cleared every 15 minutes. This. Is. Annoying! So let's fix it!*
 
 First of all RStudio is a (G)raphical (U)ser (I)nterface, meaning, that it allows you to do pointy-clicky stuff, but at the end of the day, everything happens at the command line. That also goes for git, so your button-pushing simply gets converted into commands, which are executed at the command line. If you are not comfortable with the command line, don't worry, the pointy-clicky stuff will be sufficient for now! If you are comfortable with the command line, I advice to get comfortable with git on the command line as well, you do get some extra bang-for-the-buck!
 
@@ -197,7 +198,7 @@ Now, a brief visit of the command line:
 
 1. Create a new Quarto Document, title it "Group Document" and save it as `group_document.qmd`
 1. Using markdown headers, create one section for each group member, incl. yourself. Here, you can use your names, student ids or whatever you deem appropriate
-1. Again in the `Environment` pane, make sure you are in the `git` tab and then tick the box next to `group_document.qmd`
+1. Again in the `Environment` pane, make sure you are in the `git` tab and then tick the box next to `group_document.qmd`. If you do not see the document in this window after saving, refresh the browser and it should appear.
 1. Click `Commit`
 1. Add a commit message, e.g. "Add group document"
 1. Click the `Commit` button
@@ -206,7 +207,7 @@ Now, a brief visit of the command line:
 1. Click `Close`
 1. Again, go to the group GitHub and confirm that you see the new document you just created
 
-#### **<span style="color:darkgreen;">Crew</span>**
+#### **<span style="color:darkgreen;">Team</span>**
 
 1. Click `Pull` and confirm that you now also have the file `group_document.qmd`
 1. Open `group_document.qmd` and find your assigned section
@@ -256,6 +257,8 @@ Below here, is an illustration, consider the **<span style="color:green;">Master
 
 ### Your first branch merging
 
+#### **<span style="color:darkgreen;">Team</span>**
+
 1. Go to your groups GitHub page, at the top it should say `STUDENT_ID had recent pushes...`, click the `Compare & pull request`
 1. Your commit message will appear and where it says `Leave a comment`, add a comment like e.g. `I'm done, all seems to be working now!` or similar
 1. Click `Create pull request`
@@ -274,7 +277,7 @@ But wait, what was this `Pull request`??? What you actually did, was:
 1. Created a `Pull request` for merging your branch `STUDENT_ID` into the `main` branch
 1. Approved and completed the `Pull request`
 
-Think about e.g. again the `ggplot2` repo, if anyone could create a new branch and then do as described above, then there would be no way of making quality control. Therefore, typically such pull requests will have to be approved by someone. This can either be someone who is close-to-the-code e.g. in the case of `ggplot2`, that'd be someone like Hadley. In a company, then that might be some senior developer approving junior developers pull requests. At one point you might have seen something like "The min branch is unprotected", this is exactly that!
+Think about e.g. again the `ggplot2` repo, if anyone could create a new branch and then do as described above, then there would be no way of making quality control. Therefore, typically such pull requests will have to be approved by someone. This can either be someone who is close-to-the-code e.g. in the case of `ggplot2`, that'd be someone like Hadley. In a company, then that might be some senior developer approving junior developers pull requests. At one point you might have seen something like "The main branch is unprotected", this is exactly that!
 
 ### Your first merge conflict
 
@@ -378,6 +381,6 @@ Your assignment this time, will be to:
 1. Your hand in will be a link to your micro-report in your GitHub group repository
 1. Make sure to check the [Assignment Guidelines](https://r4bds.github.io/assignments.html)
 1. And also follow the [Course Code Styling](https://r4bds.github.io/code_styling.html)
-1. **HOW TO HAND IN**: Go to `https://github.com/CAPTAIN_USERNAME/groupXX`, copy the link and paste it into an empty text (.txt) file. Hand in this text file.
+1. **HOW TO HAND IN**: Go to `https://github.com/r4biodatascience/groupXX`, copy the link and paste it into an empty text (.txt) file. Hand in this text file.
 
 *Note, focus here is on the `git` learning objectives and doing a code-along, which is not a copy/paste of the code, but using it as inspiration to create your own nice concise **tidy** micro-report!*
