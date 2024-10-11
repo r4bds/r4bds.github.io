@@ -15,10 +15,16 @@
 
 #### Companies Represented
 
+- [Gubra](https://www.gubra.dk)
+- [QIAGEN](https://www.qiagen.com/dk)
+- [UCPH Center for Health Data Science](https://heads.ku.dk)
 - TBA
 
 #### Symposium Programme
 
+- [Abril Diosdado Hernández](https://www.linkedin.com/in/abrildh/), Associate Research Scientist, [Gubra](https://www.gubra.dk)
+- [Erika Tóth](https://www.linkedin.com/in/erika-toth-ph-d/), Strategic Account Manager, [QIAGEN](https://www.qiagen.com/dk)
+- [Helene Wegener](https://www.linkedin.com/in/helene-wegener-75b589230/), Junior Data Scientist, [UCPH Center for Health Data Science](https://heads.ku.dk)
 - TBA
 
 ### 2023
