@@ -431,19 +431,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="getting-started" class="level3">
 <h3 class="anchored" data-anchor-id="getting-started">Getting Started</h3>
 <p><em>First, make sure to read and discuss the feedback you got from last week’s assignment!</em></p>
-<p><strong>The following exercises have to be done in your groups! You must move at the same pace and progress together as a team through the exercises!</strong></p>
+<p><span style="color: red;"><strong>The following exercises have to be done in your groups! You must move at the same pace and progress together as a team through the exercises!</strong></span></p>
 <p><em>GitHub is <strong>the</strong> place for collaborative coding and different group members will have to do different tasks in a specific order, to make it through the exercises together, so… Team Up and don’t rush it!</em></p>
 <p>First, select a team <strong><span style="color:darkgreen;">Captain</span></strong>, that person will have to carry out specific tasks. If <strong><span style="color:darkgreen;">Team</span></strong> is stated, then that refers to all group members and lastly if <strong><span style="color:darkgreen;">Crew</span></strong> is stated, then that is everyone but the <strong><span style="color:darkgreen;">Captain</span></strong>. Please note, that tasks are sequential, so if a task is assigned to the <strong><span style="color:darkgreen;">Captain</span></strong>, then the <strong><span style="color:darkgreen;">Crew</span></strong> has to await completion before proceeding!</p>
 <section id="team" class="level4">
 <h4 class="anchored" data-anchor-id="team"><strong><span style="color:darkgreen;">Team</span></strong></h4>
 <ol type="1">
 <li>Go to <a href="https://github.com">GitHub</a> and login</li>
-<li>In the upper left corner, click <code>Repositories</code></li>
+<li>In the upper right corner, click on your profile picture. Then in the menu, click on “Your Organizations” and go into rforbiodatascience24. If you are not a member, contact a TA NOW before proceeding. Next, go into repositories (top left).</li>
 </ol>
 </section>
 <section id="captain" class="level4">
 <h4 class="anchored" data-anchor-id="captain"><strong><span style="color:darkgreen;">Captain</span></strong></h4>
 <ol type="1">
+<li>Click “New repository”</li>
 <li>The default owner of the repository should be your GitHub username. Keep that, please.</li>
 <li>Name the repository <code>groupXX</code>, where <code>XX</code> is your group number, e.g.&nbsp;<code>02</code></li>
 <li>Select <code>Public</code></li>
@@ -452,7 +453,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Click <code>Settings</code> in the menu line starting with <code>&lt;&gt; Code</code></li>
 <li>Under <code>Access</code>, click <code>Collaborators and teams</code></li>
 <li>Click <code>Add people</code></li>
-<li>Write a group members username</li>
+<li>Write a group members username and select the role “Maintain”.</li>
 <li>Click the correct suggestion</li>
 <li>Select <code>Add username to this repository</code></li>
 <li>Repeat for all group members</li>
@@ -461,7 +462,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="crew" class="level4">
 <h4 class="anchored" data-anchor-id="crew"><strong><span style="color:darkgreen;">Crew</span></strong></h4>
 <ol type="1">
-<li>Check your mail and accept your invitation to join the repository</li>
+<li>Refresh the page and go into the new repository. If you don’t see it, check your mail and accept your invitation to join the repository.</li>
 </ol>
 </section>
 <section id="team-1" class="level4">
@@ -472,7 +473,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Choose <img src="images/paths_new_proj_plus.png" class="img-fluid"> <code>New Project...</code></li>
 <li>Select <img src="images/icon_version_control.png" class="img-fluid"> <strong>Version Control</strong></li>
 <li>Select <img src="images/icon_git.png" class="img-fluid"> <strong>Git</strong></li>
-<li>Under <code>Repository URL:</code>, enter <code>https://github.com/CAPTAIN_USERNAME/groupXX</code>, where again you replace <code>XX</code> with your group number, e.g.&nbsp;<code>02</code>. <strong>NOTE</strong>: Replace CAPTAIN_USERNAME with the captain’s GitHub username.</li>
+<li>Under <code>Repository URL:</code>, enter <code>https://github.com/rforbiodatascience24/groupXX</code>, where again you replace <code>XX</code> with your group number, e.g.&nbsp;<code>02</code>.</li>
 <li>Under <code>Project directory name:</code>, enter <code>lab07_git_exercises</code></li>
 <li>Under <code>Create project as a subdirectory of:</code>, make sure that is says <code>~/projects</code></li>
 <li>Click <code>Create Project</code></li>
@@ -548,8 +549,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <ol start="10" type="1">
 <li>In the <code>Environment</code> pane, make sure you are in the <code>git</code> tab and again click <code>Pull</code> (We <em>always</em> pull before push)</li>
-<li>Click <code>Push</code></li>
-<li>Go to your groups <code>GitHub</code> project page <code>https://github.com/CAPTAIN_USERNAME/groupXX</code></li>
+<li>Click <code>Push</code>. Now when it prompts your password, you will add the PAT.</li>
+<li>Go to your groups <code>GitHub</code> project page <code>https://github.com/rforbiodatascience24/groupXX</code></li>
 <li>Confirm, that you see your files</li>
 </ol>
 <p><em>Congratulations! You just took your first step towards true collaborative bio data science!</em></p>
@@ -557,7 +558,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="making-your-credentials-and-personal-access-token-stick-around-team" class="level4">
 <h4 class="anchored" data-anchor-id="making-your-credentials-and-personal-access-token-stick-around-team">Making your Credentials and Personal Access Token stick around (<strong><span style="color:darkgreen;">Team</span></strong>)</h4>
-<p><em>The thing is, we’re actually working on a Linux server her, this entails a that you’re credentials and PAT exists in a cache, which is cleared every 15 minutes. This. Is. Annoying! So let’s fix it!</em></p>
+<p><em>The thing is, we’re actually working on a Linux server here, this entails a that you’re credentials and PAT exists in a cache, which is cleared every 15 minutes. This. Is. Annoying! So let’s fix it!</em></p>
 <p>First of all RStudio is a (G)raphical (U)ser (I)nterface, meaning, that it allows you to do pointy-clicky stuff, but at the end of the day, everything happens at the command line. That also goes for git, so your button-pushing simply gets converted into commands, which are executed at the command line. If you are not comfortable with the command line, don’t worry, the pointy-clicky stuff will be sufficient for now! If you are comfortable with the command line, I advice to get comfortable with git on the command line as well, you do get some extra bang-for-the-buck!</p>
 <p>Now, a brief visit of the command line:</p>
 <ol type="1">
@@ -581,7 +582,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Create a new Quarto Document, title it “Group Document” and save it as <code>group_document.qmd</code></li>
 <li>Using markdown headers, create one section for each group member, incl.&nbsp;yourself. Here, you can use your names, student ids or whatever you deem appropriate</li>
-<li>Again in the <code>Environment</code> pane, make sure you are in the <code>git</code> tab and then tick the box next to <code>group_document.qmd</code></li>
+<li>Again in the <code>Environment</code> pane, make sure you are in the <code>git</code> tab and then tick the box next to <code>group_document.qmd</code>. If you do not see the document in this window after saving, refresh the browser and it should appear.</li>
 <li>Click <code>Commit</code></li>
 <li>Add a commit message, e.g.&nbsp;“Add group document”</li>
 <li>Click the <code>Commit</code> button</li>
@@ -591,8 +592,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Again, go to the group GitHub and confirm that you see the new document you just created</li>
 </ol>
 </section>
-<section id="crew-1" class="level4">
-<h4 class="anchored" data-anchor-id="crew-1"><strong><span style="color:darkgreen;">Crew</span></strong></h4>
+<section id="team-3" class="level4">
+<h4 class="anchored" data-anchor-id="team-3"><strong><span style="color:darkgreen;">Team</span></strong></h4>
 <ol type="1">
 <li>Click <code>Pull</code> and confirm that you now also have the file <code>group_document.qmd</code></li>
 <li>Open <code>group_document.qmd</code> and find your assigned section</li>
@@ -623,8 +624,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><strong>Q4:</strong> Again, find the <code>ggplot</code> GitHub site and see if you can find how many branches there are?</li>
 </ul>
-<section id="team-3" class="level4">
-<h4 class="anchored" data-anchor-id="team-3"><strong><span style="color:darkgreen;">Team</span></strong></h4>
+<section id="team-4" class="level4">
+<h4 class="anchored" data-anchor-id="team-4"><strong><span style="color:darkgreen;">Team</span></strong></h4>
 <ol type="1">
 <li>Go to your RStudio session and in the <code>git</code> tab of the <code>Environment</code> pane, click <img src="images/git_new_branch.png" class="img-fluid"> <code>New Branch</code></li>
 <li>In branch name, enter your student id</li>
@@ -646,6 +647,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="your-first-branch-merging" class="level3">
 <h3 class="anchored" data-anchor-id="your-first-branch-merging">Your first branch merging</h3>
+<section id="team-5" class="level4">
+<h4 class="anchored" data-anchor-id="team-5"><strong><span style="color:darkgreen;">Team</span></strong></h4>
 <ol type="1">
 <li>Go to your groups GitHub page, at the top it should say <code>STUDENT_ID had recent pushes...</code>, click the <code>Compare &amp; pull request</code></li>
 <li>Your commit message will appear and where it says <code>Leave a comment</code>, add a comment like e.g.&nbsp;<code>I'm done, all seems to be working now!</code> or similar</li>
@@ -658,7 +661,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p><em>Congratulations! You have now successfully done your first branch merge!</em></p>
 <p>But wait, what was this <code>Pull request</code>??? What you actually did, was: 1. Created a new branch 1. Completed a new feature/analysis 1. Push’ed the new feature/analysis to GitHub 1. Created a <code>Pull request</code> for merging your branch <code>STUDENT_ID</code> into the <code>main</code> branch 1. Approved and completed the <code>Pull request</code></p>
-<p>Think about e.g.&nbsp;again the <code>ggplot2</code> repo, if anyone could create a new branch and then do as described above, then there would be no way of making quality control. Therefore, typically such pull requests will have to be approved by someone. This can either be someone who is close-to-the-code e.g.&nbsp;in the case of <code>ggplot2</code>, that’d be someone like Hadley. In a company, then that might be some senior developer approving junior developers pull requests. At one point you might have seen something like “The min branch is unprotected”, this is exactly that!</p>
+<p>Think about e.g.&nbsp;again the <code>ggplot2</code> repo, if anyone could create a new branch and then do as described above, then there would be no way of making quality control. Therefore, typically such pull requests will have to be approved by someone. This can either be someone who is close-to-the-code e.g.&nbsp;in the case of <code>ggplot2</code>, that’d be someone like Hadley. In a company, then that might be some senior developer approving junior developers pull requests. At one point you might have seen something like “The main branch is unprotected”, this is exactly that!</p>
+</section>
 </section>
 <section id="your-first-merge-conflict" class="level3">
 <h3 class="anchored" data-anchor-id="your-first-merge-conflict">Your first merge conflict</h3>
@@ -685,8 +689,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Do a commit/pull/push and check the file ended at your group github</li>
 </ol>
 </section>
-<section id="crew-2" class="level4">
-<h4 class="anchored" data-anchor-id="crew-2"><strong><span style="color:darkgreen;">Crew</span></strong></h4>
+<section id="crew-1" class="level4">
+<h4 class="anchored" data-anchor-id="crew-1"><strong><span style="color:darkgreen;">Crew</span></strong></h4>
 <p>Rrrrrrr… Let’s commit mutiny! (Double pun intended)</p>
 <ol type="1">
 <li>Make sure you are in the <code>main</code> branch and then hit <code>Pull</code></li>
@@ -730,8 +734,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="the-.gitignore-file" class="level3">
 <h3 class="anchored" data-anchor-id="the-.gitignore-file">The .gitignore file</h3>
 <p>You may have noticed the <code>.gitignore</code> file?</p>
-<section id="team-4" class="level4">
-<h4 class="anchored" data-anchor-id="team-4"><strong><span style="color:darkgreen;">Team</span></strong></h4>
+<section id="team-6" class="level4">
+<h4 class="anchored" data-anchor-id="team-6"><strong><span style="color:darkgreen;">Team</span></strong></h4>
 <ol type="1">
 <li>Go to your RStudio session, find the <code>.gitignore</code> file and click it</li>
 </ol>
@@ -757,7 +761,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Your hand in will be a link to your micro-report in your GitHub group repository</li>
 <li>Make sure to check the <a href="https://r4bds.github.io/assignments.html">Assignment Guidelines</a></li>
 <li>And also follow the <a href="https://r4bds.github.io/code_styling.html">Course Code Styling</a></li>
-<li><strong>HOW TO HAND IN</strong>: Go to <code>https://github.com/CAPTAIN_USERNAME/groupXX</code>, copy the link and paste it into an empty text (.txt) file. Hand in this text file.</li>
+<li><strong>HOW TO HAND IN</strong>: Go to <code>https://github.com/r4biodatascience/groupXX</code>, copy the link and paste it into an empty text (.txt) file. Hand in this text file.</li>
 </ol>
 <p><em>Note, focus here is on the <code>git</code> learning objectives and doing a code-along, which is not a copy/paste of the code, but using it as inspiration to create your own nice concise <strong>tidy</strong> micro-report!</em></p>
 
