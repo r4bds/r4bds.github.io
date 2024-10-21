@@ -54,6 +54,8 @@ _First, make sure to read and discuss the feedback you got from last week's assi
 
  <span style="color: red;">**The following exercises have to be done in your groups! You must move at the same pace and progress together as a team through the exercises!**</span> 
 
+<span style="color: red;">**Be aware of where you are working at! You should work on "Visual" editor instead of "Source" editor. ALL OF YOU! If one of you work on different editor, it could cause a conflict issue!**</span>
+
 *GitHub is **the** place for collaborative coding and different group members will have to do different tasks in a specific order, to make it through the exercises together, so... Team Up and don't rush it!*
 
 First, select a team **<span style="color:darkgreen;">Captain</span>**, that person will have to carry out specific tasks. If **<span style="color:darkgreen;">Team</span>** is stated, then that refers to all group members and lastly if **<span style="color:darkgreen;">Crew</span>** is stated, then that is everyone but the **<span style="color:darkgreen;">Captain</span>**. Please note, that tasks are sequential, so if a task is assigned to the **<span style="color:darkgreen;">Captain</span>**, then the **<span style="color:darkgreen;">Crew</span>** has to await completion before proceeding!
@@ -108,25 +110,6 @@ In your `Files` pane, you should now see:
 If you click the `git` tab, you should see:
 
 ![](images/environment_pane_git_tab.png){fig-align="center" width=50%}
-
-### Your first collaboration
-
-#### **<span style="color:darkgreen;">Team</span>**
-
-1. Create a new Quarto document, title it `student_id` and save id as `student_id.qmd`, where `student_id` is your... You guessed it!
-1. In the `environment` pane, click the `git` tab
-1. Tick the 3 boxes under `staged`
-1. Click `commit`
-1. In the upper right corner, add a `Commit message`, e.g "First commit by student_id"
-1. Click the `Commit` button
-1. A pop-up, will give you details on your commit, look through them and then click `Close`
-1. Now, very important **ALWAYS** click the ![](images/pull.png) `Pull` button **BEFORE** clicking the ![](images/push.png) `Push` button
-1. Clicking `Pull`, you should see "Already up to date."
-1. Then click `Push`
-
-- **Q4:** Discuss in your group, what happened and why? Try copying the message and paste it into google, did you get any hits?
-
-*Do not start solving this issue just yet, simply realise, that `git` is being used by literally millions of people on a daily basis, the chance that you will encounter a unique error, that no one else have ever seen is slim-to-nothing! So if you end up in trouble, googl'ing the message, is not a bad initial stab at the problem!*
 
 #### Setting up your Credentials and Personal Access Token (**<span style="color:darkgreen;">Team</span>**)
 
@@ -190,6 +173,24 @@ Now, a brief visit of the command line:
 
 *Congratulations! You have now used the command line and you will forever be part of an elite few, who know that everything you see in hacker-movies is BS, except perhaps for Wargames and Mr. Robot! Also, your PAT will now be good for 24h* 
 
+### Your first collaboration
+
+#### **<span style="color:darkgreen;">Team</span>**
+
+1. Create a new Quarto document, title it `student_id` and save id as `student_id.qmd`, where `student_id` is your... You guessed it!
+1. In the `environment` pane, click the `git` tab
+1. Tick the 3 boxes under `staged`
+1. Click `commit`
+1. In the upper right corner, add a `Commit message`, e.g "First commit by student_id"
+1. Click the `Commit` button
+1. A pop-up, will give you details on your commit, look through them and then click `Close`
+1. Now, very important **ALWAYS** click the ![](images/pull.png) `Pull` button **BEFORE** clicking the ![](images/push.png) `Push` button
+1. Clicking `Pull`, you should see "Already up to date."
+1. Then click `Push`
+
+- **Q4:** Discuss in your group, what each of the steps did and why they are performed? 
+
+
 ### Your next collaboration
 
 *That first collaboration was easy right!? Well, you were all working on different files...*
@@ -244,7 +245,7 @@ Below here, is an illustration, consider the **<span style="color:green;">Master
 1. Next to where you clicked `New Branch` just before, it should now say `STUDENT_ID`, click it and confirm that you see `STUDENT_ID` and `Main`
 1. Look at the illustration above and make sure you are on par with that from the original branch `main`, which is equivalent with **<span style="color:green;">Master</span>**, you have created a new branch `STUDENT_ID`, which is equivalent to **<span style="color:blue;">Your Work</span>**
 1. Click `STUDENT_ID` and you will get a confirmation that you are already on that branch and that you are up-to-date, click `Close`
-1. In the `group_document.qmd` under your section, using markdown, enter a new sub-header and name it e.g. `New feature` or `New analysis`
+1. In the `group_document.qmd` under your section, using markdown, enter a new sub-header and name it e.g. `New feature` or `New analysis`. Make sure that you are all on the Visual editor for the qmd!
 1. Enter some text, a few code chunks with a bit of `R`-code of your choosing and save the document
 1. Again, in the `git` tab, tick the box under staged and click `Commit`
 1. Add a commit message, e.g. `New feature from STUDENT_ID` and click `Commit`
@@ -377,7 +378,7 @@ Your assignment this time, will be to:
 
 1. Go to [this post](https://clauswilke.com/blog/2020/09/07/pca-tidyverse-style/) on "PCA tidyverse style" by Claus O. Wilke, Professor of Integrative Biology
 1. Again, create a reproducible micro-report, this time, where you do a code-along with either the data in the post or e.g. the `gravier` data or ?
-1. Use your GitHub group repository to collaborate
+1. Use your GitHub group repository to collaborate. Make sure again that you are on the "Visual" editor for working on this!
 1. Your hand in will be a link to your micro-report in your GitHub group repository
 1. Make sure to check the [Assignment Guidelines](https://r4bds.github.io/assignments.html)
 1. And also follow the [Course Code Styling](https://r4bds.github.io/code_styling.html)
