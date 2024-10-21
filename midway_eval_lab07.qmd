@@ -18,11 +18,11 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 ## Midway Evaluation
 
--   Our opportunity to understand if the course elements works as intended
--   Your opportunity to let us know, how the course looks on the students side
--   Super important to align
--   Roughly half the students answered this year
--   THANK YOU for your important contribution
+- Our opportunity to understand if the course elements works as intended
+- Your opportunity to let us know, how the course looks on the students side
+- Super important to align
+- 76 out of 124 enrolled students answered this year 
+- THANK YOU for this important contribution!
 
 
 
@@ -31,12 +31,15 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 ## Highlights: What's Working Well in the Course
 
--   Practical Emphasis: Students value hands-on coding, exercises, and real-world application
--   Course Resources: The course website, online book, and videos stand out as comprehensive and user-friendly tools
--   Group Dynamics: Collaborative group work fosters discussion, problem-solving, and reinforces learning
--   Instructor & TA Engagement: The availability, responsiveness, and teaching approach of the TAs and lecturer are highly appreciated
--   Optimal Structure: Short, focused lectures coupled with ample exercise time enhance the learning experience
+- The course is well-organized, with clear structure, helpful recaps of previous material, and balanced lecture-to-exercise time
 
+- Hands-on approach with well-guided exercises that align with learning level
+
+- The TAs play a crucial role by offering timely assistance, encouraging questions
+
+- Working in teams is beneficial for learning, especially when combined with the practical nature of the assignments
+
+- Course materials, particularly the website, reading materials, and exercises, are helpful in getting through the course content
 
 
 <!--# ---------------------------------------------------------------------- -->
@@ -44,12 +47,11 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 ## Highlights: What could be better
 
--   Course Pacing: Many found the course rushed, suggesting a more gradual increase in assignment difficulty and clearer priority setting for reading materials
--   Assignments: Students called for clearer instructions, better group assignment structures, and improved matching of skill levels within groups
--   Tools & Platform: Frequent issues with the server and mixed reviews on the use of Piazza. Calls for earlier upload of materials
--   Lecture Content: Desire for more in-depth explanations and possibly recorded lectures. Some found morning lectures unnecessary
--   General Structure: Balancing in-depth lectures and hands-on exercises is a challenge. Concerns about the volume and clarity of assignments
-
+- Workload of exercises is sometimes too large, unevenly spread across weeks, or time-consuming, particularly Week 5
+- Several students experienced difficulties with the R cloud server and prefer working locally with RStudio
+- Many students would prefer slightly longer lectures with more in-depth explanations rather than relying heavily on pre-class preparation
+- The volume of reading and preparation materials, with some finding it difficult to manage before each class
+- The early start times pose challenges for some students, particularly those commuting, making it harder to follow the course
 
 
 <!--# ---------------------------------------------------------------------- -->
@@ -57,11 +59,11 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 ## Highlights: Group Assignment Element
 
--   Group Size & Dynamics: Majority appreciate group work but some concerns on size and coordination, especially when members have varying skills
--   Assignment Pacing: Mixed views on weekly deadlines; some find it stressful while others value the consistency
--   Feedback Quality: Generally positive, but a few didn't realize feedback was given or wanted more detail
--   Task Nature: Some assignments perceived more suitable for individual work rather than group-focused
--   Group vs. Individual Learning: Recognition of group learning benefits, but some prefer individual pace due to task nature
+- Group work can be challenging due to varying skill levels, often leading to one or two group members completing most of the work
+- Differences in progress during in-class exercises and limited time for coordination outside class make group collaboration difficult for some students.
+- Many find the group assignments beneficial for practice, some feel the tasks are too large or complex to be effectively tackled as a group within the available time
+- Generally the feedback is found useful and constructive, helping to improve their work throughout the course
+- Several students suggest smaller groups for more effective collaboration and equal participation in the assignments
 
 
 
@@ -70,11 +72,11 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 ## Highlights: Open input and feedback
 
--   General Positivity: Students appreciate the course structure, content, and real-data exercises
--   Course Timing: Some prefer a later start time and more consistent pacing
--   Technical Concerns: Issues with R-server speed and reliability
--   Flexibility in Coding: Desire for more coding method options beyond dplyr/tidyverse
--   Additional Support: Interest in clearer assignments, an introduction to GitHub, and more TA availability
+- Many students prefer working with RStudio locally rather than using the R cloud server, which some found unreliable
+- Collaborating on group assignments is difficult due to varying skill levels and working paces, which impacts the ability to collaborate effectively
+- Students appreciate the overall structure, but there is some feedback suggesting more balance in the amount of preparation material and fewer exercises in certain weeks (e.g., Week 5)
+- Students find the feedback valuable, but some mentioned issues with only the person submitting the group assignment being able to view it, suggesting improvements for accessibility across the group
+- Overall, students find the course highly valuable, particularly in terms of learning R and bio data science, with several suggesting it should be promoted more to bachelor students and integrated into earlier stages of their studies
 
 
 
@@ -120,3 +122,5 @@ format:
 ## 
 
 ![](images/midway_05.png){fig-align="center" width=100%}
+
+_Average: 4 + 3.9 +/- 2.2 ~6-10h/week, expected time usage for 5 ECTS ~9-10h/week_
