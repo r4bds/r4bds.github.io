@@ -52,9 +52,9 @@ _A student who has met the objectives of the session will be able to:_
 
 _First, make sure to read and discuss the feedback you got from last week's assignment!_
 
- <span style="color: red;">**The following exercises have to be done in your groups! You must move at the same pace and progress together as a team through the exercises!**</span> 
+<span style="color: red;">**The following exercises have to be done in your groups! You must move at the same pace and progress together as a team through the exercises!**</span> 
 
-<span style="color: red;">**Be aware of where you are working at! You should work on "Visual" editor instead of "Source" editor. ALL OF YOU! If one of you work on different editor, it could cause a conflict issue!**</span>
+<span style="color: red;">**Be aware of which editor you are using in RStudio! You must work in the "Visual" editor instead of the "Source" editor. ALL OF YOU! If one of you works in a different editor, it could cause a conflict issue!**</span>
 
 *GitHub is **the** place for collaborative coding and different group members will have to do different tasks in a specific order, to make it through the exercises together, so... Team Up and don't rush it!*
 
@@ -188,7 +188,7 @@ Now, a brief visit of the command line:
 1. Clicking `Pull`, you should see "Already up to date."
 1. Then click `Push`
 
-- **Q4:** Discuss in your group, what each of the steps did and why they are performed? 
+- **Q4:** Discuss in your group what each of the steps did and why they are performed? 
 
 
 ### Your next collaboration
@@ -235,7 +235,7 @@ Below here, is an illustration, consider the **<span style="color:green;">Master
 
 *There can be even more branches*
 
-- **Q4:** Again, find the `ggplot` GitHub site and see if you can find how many branches there are?
+- **Q5:** Again, find the `ggplot` GitHub site and see if you can find how many branches there are?
 
 #### **<span style="color:darkgreen;">Team</span>**
 
@@ -245,7 +245,7 @@ Below here, is an illustration, consider the **<span style="color:green;">Master
 1. Next to where you clicked `New Branch` just before, it should now say `STUDENT_ID`, click it and confirm that you see `STUDENT_ID` and `Main`
 1. Look at the illustration above and make sure you are on par with that from the original branch `main`, which is equivalent with **<span style="color:green;">Master</span>**, you have created a new branch `STUDENT_ID`, which is equivalent to **<span style="color:blue;">Your Work</span>**
 1. Click `STUDENT_ID` and you will get a confirmation that you are already on that branch and that you are up-to-date, click `Close`
-1. In the `group_document.qmd` under your section, using markdown, enter a new sub-header and name it e.g. `New feature` or `New analysis`. Make sure that you are all on the Visual editor for the qmd!
+1. In the `group_document.qmd` under your section, using markdown, enter a new sub-header and name it e.g. `New feature` or `New analysis`. Make sure that you all use the "Visual" editor for the .qmd file!
 1. Enter some text, a few code chunks with a bit of `R`-code of your choosing and save the document
 1. Again, in the `git` tab, tick the box under staged and click `Commit`
 1. Add a commit message, e.g. `New feature from STUDENT_ID` and click `Commit`
@@ -378,7 +378,7 @@ Your assignment this time, will be to:
 
 1. Go to [this post](https://clauswilke.com/blog/2020/09/07/pca-tidyverse-style/) on "PCA tidyverse style" by Claus O. Wilke, Professor of Integrative Biology
 1. Again, create a reproducible micro-report, this time, where you do a code-along with either the data in the post or e.g. the `gravier` data or ?
-1. Use your GitHub group repository to collaborate. Make sure again that you are on the "Visual" editor for working on this!
+1. Use your GitHub group repository to collaborate. Again, make sure that you are using the "Visual" editor while working on this!
 1. Your hand in will be a link to your micro-report in your GitHub group repository
 1. Make sure to check the [Assignment Guidelines](https://r4bds.github.io/assignments.html)
 1. And also follow the [Course Code Styling](https://r4bds.github.io/code_styling.html)
