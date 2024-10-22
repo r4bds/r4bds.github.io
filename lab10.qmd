@@ -9,7 +9,9 @@
 
 ## Mini Symposium: Applications of R for Bio Data Science in Industry {#sec-symposium}
 
-*This mini symposium on Applications of R for Bio Data Science in Industry aims to give students a glimpse into how modern bio data science is transforming value creation in the pharmaceutical industry and healthcare sector.*
+_This mini symposium on Applications of R for Bio Data Science in Industry offers participants a glimpse into how modern Bio Data Science is transforming value creation in the pharmaceutical and healthcare sectors._
+
+_Each talk features a Bio Data Science professional sharing unique insights into real-world projects that apply cutting-edge Bio Data Science techniques, while also providing a glimpse into the career paths that have enabled their exciting work. Every talk will be followed by a Q&A session._
 
 ### 2024
 
