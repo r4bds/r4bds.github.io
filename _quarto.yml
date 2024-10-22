@@ -10,6 +10,8 @@ book:
   page-footer:
     left: |
       R for Bio Data Science
+    center: |
+      All content © 2023 - 2024 Leon Eyrich Jessen. All rights reserved
     right: |
       Full course description available at <a href="https://kurser.dtu.dk/course/22100">DTU Course Base</a>.
   
