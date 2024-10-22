@@ -177,7 +177,7 @@ Now, a brief visit of the command line:
 
 #### **<span style="color:darkgreen;">Team</span>**
 
-1. Create a new Quarto document, title it `student_id` and save id as `student_id.qmd`, where `student_id` is your... You guessed it!
+1. Create a new Quarto document, title it `student_id` and save id as `student_id.qmd`, where `student_id` is your... You guessed it! **Make sure that "Use visual markdown editor" is checked.**
 1. In the `environment` pane, click the `git` tab
 1. Tick the 3 boxes under `staged`
 1. Click `commit`
