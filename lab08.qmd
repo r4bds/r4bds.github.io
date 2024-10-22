@@ -20,11 +20,9 @@
 _Please prepare the following materials:_
 
 - Book: [R Packages (2e): Welcome!](https://r-pkgs.org)
-- Book: [R Packages (2e): Chapter 1 Introduction](https://r-pkgs.org/introduction.html)
+- Book: [R Packages (2e): Introduction](https://r-pkgs.org/introduction.html)
 - Book: [R Packages (2e): Chapter 1 The Whole Game](https://r-pkgs.org/whole-game.html)
-- Video: [Building R packages with devtools and usethis | RStudio](https://www.youtube.com/watch?v=EpTkT6Rkgbs) (This is optional and is basically a video walk-through of the reading material)
-
-_Unless explicitly stated, do not do the per-chapter exercises in the R4DS2e book_
+- Video: [Building R packages with devtools and usethis | RStudio](https://www.youtube.com/watch?v=EpTkT6Rkgbs) (_This is optional and is basically a video walk-through of the reading material_)
 
 ## Learning Objectives
 
