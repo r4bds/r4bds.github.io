@@ -273,11 +273,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./primer_on_r_packages.html" class="sidebar-item-text sidebar-link">Primer on R package development</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./external_resources.html" class="sidebar-item-text sidebar-link">External Resources</a>
   </div>
 </li>
@@ -393,11 +388,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="learning-materials">Learning Materials</h2>
 <p><em>Please prepare the following materials:</em></p>
 <ul>
-<li><a href="./primer_on_r_packages.html">Primer on R Packages</a></li>
-<li>Cheatsheet: <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/package-development.pdf">Package development with devtools</a> – When in doubt, check here first</li>
-<li>Web: <a href="https://www.datacamp.com/community/tutorials/r-packages-guide">R Packages: A Beginner’s Tutorial</a> – Read this before class</li>
-<li>Web: <a href="https://support.rstudio.com/hc/en-us/articles/200486488-Developing-Packages-with-RStudio">Developing Packages with RStudio</a> – Creating an R Package with RStudio</li>
-<li>Web: <a href="https://kbroman.org/pkg_primer/">R package primer a minimal tutorial</a> – Brief but comprehensive R Package tutorial</li>
 <li>Book: <a href="https://r-pkgs.org/introduction.html">R Packages - 1 Introduction</a> – Everything you need to know about R Packages</li>
 </ul>
 <p><em>Unless explicitly stated, do not do the per-chapter exercises in the R4DS2e book</em></p>
@@ -424,7 +414,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="tasks" class="level3">
 <h3 class="anchored" data-anchor-id="tasks">TASKS</h3>
-<p>If you haven’t read the <a href="./primer_on_r_packages.html">Primer on R packages</a> yet, consider reading it now.</p>
+<p>If you haven’t read the <a href="primer_on_r_packages.qmd">Primer on R packages</a> yet, consider reading it now.</p>
 </section>
 <section id="task-1---setting-up-the-r-package" class="level3">
 <h3 class="anchored" data-anchor-id="task-1---setting-up-the-r-package">Task 1 - Setting up the R package</h3>
@@ -621,7 +611,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 </div>
 <p>Normally, you should also describe how the raw data was cleaned. You would do that in the file that opens after running <code>usethis::use_data_raw( name = "NAME_OF_YOUR_OBJECT", open = TRUE )</code>, but that is less relevant here, so we will skip that part.</p>
 <p>Your package now includes some data.</p>
-<p>Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from <a href="./primer_on_r_packages.html#pkgwf">The Package Workflow</a> section:</p>
+<p>Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from <a href="primer_on_r_packages.qmd#pkgwf">The Package Workflow</a> section:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rstudioapi<span class="sc">::</span><span class="fu">documentSaveAll</span>()  <span class="co"># Saves all you files</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()  <span class="co"># Writes all your manuals for you</span></span>
@@ -652,7 +642,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <li>Examples can span multiple lines and what you write will be run, so make it runnable.</li>
 <li><strong>Important!</strong> Either fill out everything or delete what you don’t. Otherwise, the package check will fail (Do <strong>not</strong> delete <code>@export</code> for these functions).</li>
 </ul></li>
-<li>Run the three lines of codes from <a href="./primer_on_r_packages.html#pkgwf">The Package Workflow</a> section</li>
+<li>Run the three lines of codes from <a href="primer_on_r_packages.qmd#pkgwf">The Package Workflow</a> section</li>
 </ol>
 <ul>
 <li>If at this point, you get a warning that <code>NAMESPACE</code> already exists, delete it and try again.</li>

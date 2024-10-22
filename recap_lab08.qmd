@@ -38,9 +38,9 @@ library("ggrepel")
 
 ### The BLOSUM (BLOcks SUbstitution Matrix)
 
-- A substitution matrix used extensively in protein e.g. sequence alignment
+- A substitution matrix used extensively in protein science e.g. sequence alignment
 
-- Contains log-odds scores indicating how likely a substition is
+- Contains log-odds scores indicating how likely a substitution is
 
 - Derived from very conserved regions of protein families in the BLOCKS database
 
@@ -65,11 +65,11 @@ library("ggrepel")
 #| message: false
 #| warning: false
 
-download.file(
-  url = "https://raw.githubusercontent.com/rdpstaff/AlignmentTools/master/src/data/blosum62.txt",
-  destfile = "data/_raw/blosum62.txt")
+base_url <- "https://raw.githubusercontent.com/"
+file_url <- "rdpstaff/AlignmentTools/master/src/data/blosum62.txt"
+
 bl62 <- read_table(
-  file = "data/_raw/blosum62.txt",
+  file = str_c(base_url, file_url),
   comment = "#")
 bl62
 ```
@@ -103,8 +103,8 @@ colnames(bl62) <- c("aa", colnames(bl62))
 std_aa = c("A", "R", "N", "D", "C", "Q", "E", "G", "H", "I",
            "L", "K", "M", "F", "P", "S", "T", "W", "Y", "V")
 bl62 <- bl62 |> 
-  filter(aa %in% std_aa) |> 
-  select(aa, std_aa)
+  filter(aa %in% std_aa) |> # Work on rows
+  select(aa, std_aa)        # Work on columns
 bl62
 ```
 
@@ -124,7 +124,7 @@ bl62
 #| warning: false
 
 write_tsv(x = bl62,
-          file = "data/blosum62.tsv")
+          file = "data/blosum62.tsv") # Very small file, so skipping gz
 ```
 
 
@@ -215,7 +215,7 @@ pl
 bl62_pca <- bl62 |>
   select_if(is.numeric) |>
   prcomp(center = TRUE,
-         scale = TRUE)
+         scale. = TRUE)
 bl62_pca |>
   str()
 ```
@@ -471,7 +471,7 @@ pca_plot
 
 - Now we will have two great labs on R-packages and Shiny
 
-- And then the mini-symposium, with 6 talks on how R for Bio Data Science is being applied in industry
+- And then the mini-symposium, with talks on how R for Bio Data Science is being applied in industry
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
