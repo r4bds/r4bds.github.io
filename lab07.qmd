@@ -63,12 +63,12 @@ First, select a team **<span style="color:darkgreen;">Captain</span>**, that per
 #### **<span style="color:darkgreen;">Team</span>**
 
 1. Go to [GitHub](https://github.com) and login
-1. In the upper right corner, click on your profile picture. Then in the menu, click on "Your Organizations" and go into rforbiodatascience24. If you are not a member, contact a TA NOW before proceeding. Next, go into repositories (top left).
+1. In the upper right corner, click on your profile picture. Then in the menu, click on "Your Organizations" and go into rforbiodatascienceYY (replace `YY` with year). If you are not a member, contact a TA NOW before proceeding. Next, go into repositories (top left).
 
 #### **<span style="color:darkgreen;">Captain</span>**
 
 1. Click "New repository"
-1. The default owner of the repository should be your GitHub username. Keep that, please.
+1. Since you created the project from the organisation, the default owner of the repository is the organisation (rforbiodatascienceYY). Verify and keep that, please.
 1. Name the repository `groupXX`, where `XX` is your group number, e.g. `02`
 1. Select `Public`
 1. Tick `Add a README file`
@@ -92,7 +92,7 @@ First, select a team **<span style="color:darkgreen;">Captain</span>**, that per
 1. Choose ![](images/paths_new_proj_plus.png) `New Project...`
 1. Select ![](images/icon_version_control.png) **Version Control**
 1. Select ![](images/icon_git.png) **Git**
-1. Under `Repository URL:`, enter `https://github.com/rforbiodatascience24/groupXX`, where again you replace `XX` with your group number, e.g. `02`. 
+1. Under `Repository URL:`, enter `https://github.com/rforbiodatascienceYY/groupXX`, where again you replace `YY` with year and replace `XX` with your group number, e.g. `02`. 
 1. Under `Project directory name:`, enter `lab07_git_exercises`
 1. Under `Create project as a subdirectory of:`, make sure that is says `~/projects`
 1. Click `Create Project`
@@ -136,21 +136,14 @@ usethis::create_github_token()
 5. Under `Expiration`, where it says `30 days`, change that to `90 days`
 6. Do not change any other setting, but simply scroll down and click `Generate token`
 7. A new `Personal access tokens (classic)` page will appear, stating your personal access token, which starts with `ghp_`, go ahead and copy it
-8. Store the `PAT` somewhere save, e.g. in a password management tool
-9. Again in the console, run the below command and enter your `PAT` when prompted:
+8. Store the `PAT` somewhere save, e.g. in a password management tool. It will serve as your password when connecting to the repository via R.
+9. Again in the console, run the below command and enter your `PAT` when prompted for the password:
 
 ```{r}
 #| echo: true
 #| eval: false
 gitcreds::gitcreds_set()
 ```
-
-10. In the `Environment` pane, make sure you are in the `git` tab and again click `Pull` (We *always* pull before push)
-11. Click `Push`. Now when it prompts your password, you will add the PAT.
-12. Go to your groups `GitHub` project page `https://github.com/rforbiodatascience24/groupXX`
-13. Confirm, that you see your files
-
-*Congratulations! You just took your first step towards true collaborative bio data science!*
 
 Stop, wait a minute and make sure, that **ALL** group members are at this stage of the exercises.
 
@@ -167,9 +160,10 @@ Now, a brief visit of the command line:
 1. Enter `ls -a`, this will `l`ist `a`ll the files, compare with your `Files` pane, you will see that RStudio is "hiding" something from you, namely the `.git` folder
 1. Enter `ls -a .git` and you will see the content of the folder, this is where all the git-magic happens
 1. See the config file? That holds the configuration, enter `git config --global --list`
-1. Recall you entered your GitHub username and mail? This is where it ended up! Note the `credential.helper=cache`, which tells us, that the credentials are being cached. Now, enter `git config --global credential.helper 'cache --timeout=86400'`
+1. Recall you entered your GitHub username and mail? This is where it ended up! Note the `credential.helper=cache`, which tells us, that the credentials are being cached. Now, enter `git config --global credential.helper 'cache --timeout=86400'`. Hint: You can paste with Ctrl-Shift-V in the terminal on Windows.
 1. Re-run the command `git config --global --list` and confirm the change
-1. Go back to your `Console` and run the command `gitcreds::gitcreds_set()` and re-enter your PAT
+1. Go back to your `Console` and run the command `gitcreds::gitcreds_set()`. Select option 2, and re-enter your PAT.
+1. If you didn't get a list of options in the prior step, restart your R session and retry.
 
 *Congratulations! You have now used the command line and you will forever be part of an elite few, who know that everything you see in hacker-movies is BS, except perhaps for Wargames and Mr. Robot! Also, your PAT will now be good for 24h* 
 
@@ -356,11 +350,11 @@ Lastly, click the `History` button next to the `Push` button and explore the his
 
 You may have noticed the `.gitignore` file?
 
-#### **<span style="color:darkgreen;">Team</span>**
+#### **<span style="color:darkgreen;">One crew member</span>**
 
 1. Go to your RStudio session, find the `.gitignore` file and click it
 
-It contains a list of files and folders, which should **not** end up at your `git` repo, i.e. files which should be ignored. An important aspect of working with GitHub is that GitHub is meant for code, **not** data! Let's say we had a `data` and a `data/_raw/`, we could add those to the `.gitignore` file to avoid the data being included in our commits.
+It contains a list of files and folders, which should **not** end up at your `git` repo, i.e. files which should be ignored. An important aspect of working with GitHub is that GitHub is meant for code, **not** data! Let's say we had a `data` and a `data/_raw/`, we could add those to the `.gitignore` file to avoid the data being included in our commits. Currently, files like `.RData` and folders like `.Rproj.user` should be listed in the `.gitignore` file, as these are unique to each of your own sessions and shouldn't be committed to the repo.
 
 1. Update the `.gitignore` file and get the updated version to GitHub
 
@@ -377,11 +371,10 @@ First of all, here we have just scratched the surface. You can [read much more h
 Your assignment this time, will be to:
 
 1. Go to [this post](https://clauswilke.com/blog/2020/09/07/pca-tidyverse-style/) on "PCA tidyverse style" by Claus O. Wilke, Professor of Integrative Biology
-1. Again, create a reproducible micro-report, this time, where you do a code-along with either the data in the post or e.g. the `gravier` data or ?
-1. Use your GitHub group repository to collaborate. Again, make sure that you are using the "Visual" editor while working on this!
+1. Again, create a reproducible micro-report *together*, this time, where you do a code-along with either the data in the post, the `gravier` data, and/or any other dataset.
+1. Use your GitHub group repository to collaborate - you should all contribute. Again, make sure that you are using the "Visual" editor while working on this!
 1. Your hand in will be a link to your micro-report in your GitHub group repository
+1. *Note, focus here is on the `git` learning objectives and doing a code-along, which is not a copy/paste of the code, but using it as inspiration to create your own nice concise **tidy** micro-report!*
 1. Make sure to check the [Assignment Guidelines](https://r4bds.github.io/assignments.html)
 1. And also follow the [Course Code Styling](https://r4bds.github.io/code_styling.html)
-1. **HOW TO HAND IN**: Go to `http://github.com/rforbiodatascienceYY/groupXX`, replace `YY` with year and `groupXX` with appropriate group number, then copy the link and paste it into an empty text (.txt) file. Hand in this text file.
-
-*Note, focus here is on the `git` learning objectives and doing a code-along, which is not a copy/paste of the code, but using it as inspiration to create your own nice concise **tidy** micro-report!*
+1. **HOW TO HAND IN**: Go to `http://github.com/rforbiodatascienceYY/groupXX`, replace `YY` with year and `groupXX` with appropriate group number, then copy the link and paste it into an empty text (.txt) file. Hand in this text file. **No need to zip your html file,** since we are accessing it through the repository!
