@@ -101,7 +101,7 @@ During the previous class, you have been using a combination of console and term
 
 **Still only the first team member**
 
-1. Go to [https://github.com/rforbiodatascience24](https://github.com/rforbiodatascience24)
+1. Go to [https://github.com/rforbiodatascience24](https://github.com/rforbiodatascience24) and go to repositories.
 2. Click the green `New` button
 3. Create a new repository called `group_X_package`. Remember to replace the **X**
 4. Select `rforbiodatascience24` as owner
@@ -186,7 +186,7 @@ In this task you will include the following codon table in your package.
 The rest should follow along.
 
 
-1. Below is a standard codon table. Store it in an object with a name of your own choosing.
+1. Below is a standard codon table. In the console, store the table in an R object with a name of your own choosing.
 ```{r}
 #| eval: false
 c("UUU" = "F", "UCU" = "S", "UAU" = "Y", "UGU" = "C",
