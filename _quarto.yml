@@ -44,6 +44,7 @@ book:
         - code_styling.qmd
         - primer_on_linear_models_in_r.qmd
         - external_resources.qmd
+        - primer_on_r_packages.qmd
 
     - part: course_elements.qmd
       chapters: 
