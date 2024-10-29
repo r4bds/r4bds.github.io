@@ -115,7 +115,7 @@ format:
 
 ::: {.column width="50%"}
 
-![](images/logo_github.png){fig-align="center" width="80%"}
+![](images/GitHub_Lockup_Light.png){fig-align="center" width="80%"}
 
 :::
 
