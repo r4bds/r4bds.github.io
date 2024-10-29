@@ -439,14 +439,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4 class="anchored" data-anchor-id="team"><strong><span style="color:darkgreen;">Team</span></strong></h4>
 <ol type="1">
 <li>Go to <a href="https://github.com">GitHub</a> and login</li>
-<li>In the upper right corner, click on your profile picture. Then in the menu, click on “Your Organizations” and go into rforbiodatascience24. If you are not a member, contact a TA NOW before proceeding. Next, go into repositories (top left).</li>
+<li>In the upper right corner, click on your profile picture. Then in the menu, click on “Your Organizations” and go into rforbiodatascienceYY (replace <code>YY</code> with year). If you are not a member, contact a TA NOW before proceeding. Next, go into repositories (top left).</li>
 </ol>
 </section>
 <section id="captain" class="level4">
 <h4 class="anchored" data-anchor-id="captain"><strong><span style="color:darkgreen;">Captain</span></strong></h4>
 <ol type="1">
 <li>Click “New repository”</li>
-<li>The default owner of the repository should be your GitHub username. Keep that, please.</li>
+<li>Since you created the project from the organisation, the default owner of the repository is the organisation (rforbiodatascienceYY). Verify and keep that, please.</li>
 <li>Name the repository <code>groupXX</code>, where <code>XX</code> is your group number, e.g.&nbsp;<code>02</code></li>
 <li>Select <code>Public</code></li>
 <li>Tick <code>Add a README file</code></li>
@@ -474,7 +474,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Choose <img src="images/paths_new_proj_plus.png" class="img-fluid"> <code>New Project...</code></li>
 <li>Select <img src="images/icon_version_control.png" class="img-fluid"> <strong>Version Control</strong></li>
 <li>Select <img src="images/icon_git.png" class="img-fluid"> <strong>Git</strong></li>
-<li>Under <code>Repository URL:</code>, enter <code>https://github.com/rforbiodatascience24/groupXX</code>, where again you replace <code>XX</code> with your group number, e.g.&nbsp;<code>02</code>.</li>
+<li>Under <code>Repository URL:</code>, enter <code>https://github.com/rforbiodatascienceYY/groupXX</code>, where again you replace <code>YY</code> with year and replace <code>XX</code> with your group number, e.g.&nbsp;<code>02</code>.</li>
 <li>Under <code>Project directory name:</code>, enter <code>lab07_git_exercises</code></li>
 <li>Under <code>Create project as a subdirectory of:</code>, make sure that is says <code>~/projects</code></li>
 <li>Click <code>Create Project</code></li>
@@ -520,19 +520,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Under <code>Expiration</code>, where it says <code>30 days</code>, change that to <code>90 days</code></li>
 <li>Do not change any other setting, but simply scroll down and click <code>Generate token</code></li>
 <li>A new <code>Personal access tokens (classic)</code> page will appear, stating your personal access token, which starts with <code>ghp_</code>, go ahead and copy it</li>
-<li>Store the <code>PAT</code> somewhere save, e.g.&nbsp;in a password management tool</li>
-<li>Again in the console, run the below command and enter your <code>PAT</code> when prompted:</li>
+<li>Store the <code>PAT</code> somewhere save, e.g.&nbsp;in a password management tool. It will serve as your password when connecting to the repository via R.</li>
+<li>Again in the console, run the below command and enter your <code>PAT</code> when prompted for the password:</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>gitcreds<span class="sc">::</span><span class="fu">gitcreds_set</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="10" type="1">
-<li>In the <code>Environment</code> pane, make sure you are in the <code>git</code> tab and again click <code>Pull</code> (We <em>always</em> pull before push)</li>
-<li>Click <code>Push</code>. Now when it prompts your password, you will add the PAT.</li>
-<li>Go to your groups <code>GitHub</code> project page <code>https://github.com/rforbiodatascience24/groupXX</code></li>
-<li>Confirm, that you see your files</li>
-</ol>
-<p><em>Congratulations! You just took your first step towards true collaborative bio data science!</em></p>
 <p>Stop, wait a minute and make sure, that <strong>ALL</strong> group members are at this stage of the exercises.</p>
 </section>
 <section id="making-your-credentials-and-personal-access-token-stick-around-team" class="level4">
@@ -546,9 +539,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Enter <code>ls -a</code>, this will <code>l</code>ist <code>a</code>ll the files, compare with your <code>Files</code> pane, you will see that RStudio is “hiding” something from you, namely the <code>.git</code> folder</li>
 <li>Enter <code>ls -a .git</code> and you will see the content of the folder, this is where all the git-magic happens</li>
 <li>See the config file? That holds the configuration, enter <code>git config --global --list</code></li>
-<li>Recall you entered your GitHub username and mail? This is where it ended up! Note the <code>credential.helper=cache</code>, which tells us, that the credentials are being cached. Now, enter <code>git config --global credential.helper 'cache --timeout=86400'</code></li>
+<li>Recall you entered your GitHub username and mail? This is where it ended up! Note the <code>credential.helper=cache</code>, which tells us, that the credentials are being cached. Now, enter <code>git config --global credential.helper 'cache --timeout=86400'</code>. Hint: You can paste with Ctrl-Shift-V in the terminal on Windows.</li>
 <li>Re-run the command <code>git config --global --list</code> and confirm the change</li>
-<li>Go back to your <code>Console</code> and run the command <code>gitcreds::gitcreds_set()</code> and re-enter your PAT</li>
+<li>Go back to your <code>Console</code> and run the command <code>gitcreds::gitcreds_set()</code>. Select option 2, and re-enter your PAT.</li>
+<li>If you didn’t get a list of options in the prior step, restart your R session and retry.</li>
 </ol>
 <p><em>Congratulations! You have now used the command line and you will forever be part of an elite few, who know that everything you see in hacker-movies is BS, except perhaps for Wargames and Mr.&nbsp;Robot! Also, your PAT will now be good for 24h</em></p>
 </section>
@@ -734,12 +728,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="the-.gitignore-file" class="level3">
 <h3 class="anchored" data-anchor-id="the-.gitignore-file">The .gitignore file</h3>
 <p>You may have noticed the <code>.gitignore</code> file?</p>
-<section id="team-6" class="level4">
-<h4 class="anchored" data-anchor-id="team-6"><strong><span style="color:darkgreen;">Team</span></strong></h4>
+<section id="one-crew-member" class="level4">
+<h4 class="anchored" data-anchor-id="one-crew-member"><strong><span style="color:darkgreen;">One crew member</span></strong></h4>
 <ol type="1">
 <li>Go to your RStudio session, find the <code>.gitignore</code> file and click it</li>
 </ol>
-<p>It contains a list of files and folders, which should <strong>not</strong> end up at your <code>git</code> repo, i.e.&nbsp;files which should be ignored. An important aspect of working with GitHub is that GitHub is meant for code, <strong>not</strong> data! Let’s say we had a <code>data</code> and a <code>data/_raw/</code>, we could add those to the <code>.gitignore</code> file to avoid the data being included in our commits.</p>
+<p>It contains a list of files and folders, which should <strong>not</strong> end up at your <code>git</code> repo, i.e.&nbsp;files which should be ignored. An important aspect of working with GitHub is that GitHub is meant for code, <strong>not</strong> data! Let’s say we had a <code>data</code> and a <code>data/_raw/</code>, we could add those to the <code>.gitignore</code> file to avoid the data being included in our commits. Currently, files like <code>.RData</code> and folders like <code>.Rproj.user</code> should be listed in the <code>.gitignore</code> file, as these are unique to each of your own sessions and shouldn’t be committed to the repo.</p>
 <ol type="1">
 <li>Update the <code>.gitignore</code> file and get the updated version to GitHub</li>
 </ol>
@@ -756,14 +750,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Your assignment this time, will be to:</p>
 <ol type="1">
 <li>Go to <a href="https://clauswilke.com/blog/2020/09/07/pca-tidyverse-style/">this post</a> on “PCA tidyverse style” by Claus O. Wilke, Professor of Integrative Biology</li>
-<li>Again, create a reproducible micro-report, this time, where you do a code-along with either the data in the post or e.g.&nbsp;the <code>gravier</code> data or ?</li>
-<li>Use your GitHub group repository to collaborate. Again, make sure that you are using the “Visual” editor while working on this!</li>
+<li>Again, create a reproducible micro-report <em>together</em>, this time, where you do a code-along with either the data in the post, the <code>gravier</code> data, and/or any other dataset.</li>
+<li>Use your GitHub group repository to collaborate - you should all contribute. Again, make sure that you are using the “Visual” editor while working on this!</li>
 <li>Your hand in will be a link to your micro-report in your GitHub group repository</li>
+<li><em>Note, focus here is on the <code>git</code> learning objectives and doing a code-along, which is not a copy/paste of the code, but using it as inspiration to create your own nice concise <strong>tidy</strong> micro-report!</em></li>
 <li>Make sure to check the <a href="https://r4bds.github.io/assignments.html">Assignment Guidelines</a></li>
 <li>And also follow the <a href="https://r4bds.github.io/code_styling.html">Course Code Styling</a></li>
-<li><strong>HOW TO HAND IN</strong>: Go to <code>http://github.com/rforbiodatascienceYY/groupXX</code>, replace <code>YY</code> with year and <code>groupXX</code> with appropriate group number, then copy the link and paste it into an empty text (.txt) file. Hand in this text file.</li>
+<li><strong>HOW TO HAND IN</strong>: Go to <code>http://github.com/rforbiodatascienceYY/groupXX</code>, replace <code>YY</code> with year and <code>groupXX</code> with appropriate group number, then copy the link and paste it into an empty text (.txt) file. Hand in this text file. <strong>No need to zip your html file,</strong> since we are accessing it through the repository!</li>
 </ol>
-<p><em>Note, focus here is on the <code>git</code> learning objectives and doing a code-along, which is not a copy/paste of the code, but using it as inspiration to create your own nice concise <strong>tidy</strong> micro-report!</em></p>
 
 
 </section>
