@@ -430,7 +430,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Make sure to <code>Verify Your Email</code> as instructed</li>
 <li>Then return to where you set up the account and click the blue <code>Continue</code> button</li>
 </ol>
-<p>Congratulations! You have now created your personal posic cloud account. You will land in <code>Your Workspace</code>. Here you will have to create a new project, which you will use to work on the exercises today, so please:</p>
+<p>Congratulations! You have now created your personal Posit cloud account. You will land in <code>Your Workspace</code>. Here you will have to create a new project, which you will use to work on the exercises today, so please:</p>
 <ol type="1">
 <li>In the upper right corner, click the blue <code>New Project</code> button</li>
 <li>Choose <code>New RStudio Project</code></li>
@@ -627,7 +627,7 @@ Virtual Gene
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  dna_string <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> dna_vector,</span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">collapse =</span> <span class="st">""</span>)</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(dna)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(dna_string)</span>
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p></p>
@@ -900,7 +900,7 @@ Click to expand app code
 </div>
 </details>
 <ul>
-<li><strong>Task:</strong> Update your app using the above <code>card()</code>-function layout</li>
+<li><strong>Task:</strong> Update your app using the above <code>card()</code>-function layout. Remember to load the <code>bslib</code>-package.</li>
 </ul>
 </section>
 <section id="its-complicated" class="level3">
@@ -961,7 +961,7 @@ Click to expand app code
 </section>
 <section id="getting-your-shiny-app-live" class="level3">
 <h3 class="anchored" data-anchor-id="getting-your-shiny-app-live">Getting Your Shiny App LIVE!</h3>
-<p><em>Note, when we publish our app, each file will be “build” and this will create errors if some functions are not found. Therefore, make sure to include <code>library("PACKAGE_NAME")</code> in each files for all needed libraries</em></p>
+<p><em>Note, when we publish our app, each file will be “build” and this will create errors if some functions are not found. Therefore, make sure to include <code>library("PACKAGE_NAME")</code> in each files for all needed libraries</em> and source the app_functions.R file where it’s needed too.</p>
 <ol type="1">
 <li>Go to <a href="https://www.shinyapps.io">shinyapps.io</a></li>
 <li>Log in or create an account</li>
@@ -979,7 +979,7 @@ Click to expand app code
 <ul>
 <li><em>“An error has occurred! An error has occurred. Check your logs or contact the app author for clarification.”</em></li>
 </ul>
-<p>Then likely, there is a problem withs paths or libraries, did you remember to start this last part as a seperate project? Also, did you remember to include library definitions in all 3 files?</p>
+<p>Then likely, there is a problem withs paths or libraries, did you remember to start this last part as a seperate project? Also, did you remember to include library definitions and source the app_functions.R file in all the necessary files?</p>
 </section>
 </section>
 <section id="group-assignment-important-see-how-to" class="level2">

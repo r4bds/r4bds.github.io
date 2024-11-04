@@ -15,371 +15,218 @@ format:
 
 # Creating a Simple Shiny App
 
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Lab 9 Learning Objectives
-
-_A student who has met the objectives of the session will be able to:_
-
-- Prepare a simple shiny application
-
-- Using relevant online resources to autonomously identify and obtain new and expand on existing knowledge of R
-
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Today's lab 
+## But... What is Shiny? ...and how does it relate to a package?
 
-- Shiny app examples
-- The two main components of a web application
-- The difference between `imperative` and `declarative` programming
-- Using `golem` and modules for shiny app development
-- How to create an R shiny app
+_What if you wanted to "share your code" with someone who don't know how to code? 🤔_
 
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-##
+:::: {.columns}
 
+::: {.column width="50%"}
 
-```{r}
-#| eval: TRUE
-#| echo: FALSE
-knitr::include_app("https://shiny.posit.co/r/gallery/", height = 800)
-```
+![](images/logo_pkg_down_hex.png){fig-align="center"}
 
+- A package is an ordered and documented collection of functions
 
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## 
-
-```{r}
-#| eval: TRUE
-#| echo: FALSE
-knitr::include_app(shinyUrl, height = 800)
-```
-
-[Link to app](`r htsShinyUrl`)
-
-::: notes
-Quickly walk through the app, showing how it works. We will talk about the components later.
 :::
 
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## The two main components of a web application
+::: {.column width="50%"}
 
+![](images/logo_shiny_hex.png){fig-align="center"}
 
+- A Shiny app is an interface on top of an ordered and documented collection of functions
 
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## The two main components of a web application
+:::
 
-- User Interface (Front end)
+::::
 
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## The two main components of a web application
+## General Idea is to...
 
-- User Interface (Front end)
+:::: {.columns}
 
-- Server (Back end)
+::: {.column width="50%"}
+
+- Shiny enables writing powerful interactive web apps in R, thereby:
+  - Connecting non-data literate people with data
+  - Automating time consuming tasks
+  - Exhibiting data to relevant stakeholders
+  - Generating value by facilitating extraction of insights
+
+:::
+
+::: {.column width="50%"}
+
+<br>
+<br>
+<br>
+
+![](images/shiny_data_to_action.png)
+
+:::
+
+::::
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## The simplest Shiny App
+## Seeing is believing
+
+- Let us visit [the Posit Shiny Gallery](https://shiny.posit.co/r/gallery/)
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Hello Shiny!
+
+:::: {.columns}
+
+::: {.column width="50%"}
 
 ```{r}
-#| eval: false
 #| echo: true
-library(shiny)
+#| eval: false
 
-# User Interface (Front end)
-ui <- fluidPage("Hello World!")
+# Load the Shiny library
+library("shiny")
 
-# Server (Back end)
-server <- function(input, output, session){}
+# Define the User Interface (Frontend)
+ui <- fluidPage(
+  titlePanel("Hello Shiny!"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput(inputId = "bins",
+                  label = "Number of bins:",
+                  min = 1,
+                  max = 50,
+                  value = 30)
+    ),
+    mainPanel(
+      plotOutput(outputId = "distPlot")
+    )
+  )
+)
 
-# Running the app
-shinyApp(ui, server)
+# Define the Server (Backend)
+server <- function(input, output) {
+  output$distPlot <- renderPlot({
+    x <- faithful$waiting
+    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+    hist(x, breaks = bins, col = "#75AADB", border = "white",
+         xlab = "Waiting time to next eruption (in mins)",
+         main = "Histogram of waiting times")
+  })
+}
+
+# Launch the shiny app
+shinyApp(ui = ui, server = server)
 ```
 
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-
-## What is user interface?
-
-- *"The user interface (UI) is the point at which human users interact with a computer, website or application.*"
-
-- *"The goal of effective UI is to make the user's experience easy and intuitive, requiring minimum effort on the user's part to receive maximum desired outcome."*
-
-<!-- </br></br></br></br></br></br> -->
-
-</br></br></br></br></br></br></br></br></br>
-
-[source](https://www.indeed.com/career-advice/career-development/user-interface) 
-<!-- & [source](https://www.productplan.com/glossary/user-experience/) -->
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## User Interface
-
-- When you know the purpose of your app, the first place to start is to think about the app layout.
-
-- For inspiration either use:
-  - The [Shiny Layout Guide](https://shiny.posit.co/r/articles/build/layout-guide/)
-  - Or the [Shiny Cheat Sheet](https://rstudio.github.io/cheatsheets/html/shiny.html)
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## 
-
-```{r}
-#| eval: TRUE
-#| echo: FALSE
-knitr::include_app(shinyUrl, height = 800)
-```
-[Link to app](`r htsShinyUrl`)
-
-::: notes
-Go over the layout of the app and the input/output fields.
-
-Skip the Example tab.
 :::
 
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Shiny Inputs
+::: {.column width="50%"}
 
-```{r}
-#| eval: TRUE
-#| echo: FALSE
-knitr::include_app("https://gallery.shinyapps.io/081-widgets-gallery/", height = 800)
-```
+![](images/shiny_hello_shiny_example.png)
 
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## UI take-aways
-
-- Start with `layout`
-- Define/create your `inputs`
-- Use `online resource` for help and inspiration
-
-
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## UI take-aways
-
-- Start with `layout`
-- Define/create your `inputs`
-- Use `online resource` for help and inspiration
-
-</br>
-
-- **Now on to some programming**
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## 
-
-```{r}
-#| eval: TRUE
-#| echo: FALSE
-knitr::include_app(shinyUrl, height = 800)
-```
-[Link to app](`r htsShinyUrl`)
-
-::: notes
-Explain the top part of the Example tab and how it works.
 :::
 
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Imperative vs declarative programming
-
-- `Imperative`: Issued commands are executed immediately
-- `Declarative`: You set a high-level goal or describe a set of constraints to be translated into actions later
-
-- *"With imperative code you say 'Make me a sandwich'."*
-- *"With declarative code you say 'Ensure there is a sandwich in the refrigerator whenever I look inside of it'"*
-
-</br></br></br></br></br></br></br>
-[source](https://mastering-shiny.org/basic-reactivity.html#imperative-vs-declarative-programming)
-
-::: notes
-Imperative: giving an authoritative command
-
-Declarative: denoting high-level programming languages which can be used to solve problems without requiring the programmer to specify an exact procedure to be followed
-:::
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Shiny is `declarative`
-
-- Shiny translates your `declared` goals and constraints only when necessary.
-
-- *What are the benefits and issues with declarative programming?*
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Shiny is `declarative`
-
-- Shiny translates your `declared` goals and constraints only when necessary.
-
-- *What are the benefits and issues with declarative programming?*
-    - You can have many actions ready, but only some are used
-    
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Shiny is `declarative`
-
-- Shiny translates your `declared` goals and constraints only when necessary.
-
-- *What are the benefits and issues with declarative programming?*
-    - You can have many actions ready, but only some are used
-    - You do not need to define when the action should take place
+::::
 
 
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Shiny is `declarative`
+## Hello Shiny!
 
-- Shiny translates your `declared` goals and constraints only when necessary.
+:::: {.columns}
 
-- *What are the benefits and issues with declarative programming?*
-    - You can have many actions ready, but only some are used
-    - You do not need to define when the action should take place
-    - But... initiating an action is strongly dependent on the name of the declaration
-      - i.e., typos are hard to detect
-
-</br></br></br></br></br></br></br></br></br>
-<!-- </br> -->
-- [source](https://mastering-shiny.org/basic-reactivity.html#imperative-vs-declarative-programming)
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Reactivity
-
-```{r, fig.align="center", out.width="95%"}
-knitr::include_graphics("images/L09_reactivity.png")
-```
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-# Questions?
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Introducing `golem`
-
-
-- A framework for building production-grade shiny applications.
-- It relies on the idea that every shiny application should be built as an R package
-- But what does that mean and why?
-
-
-![](images/L09_golem.png){fig-align="center" height="300pt"}
-
-</br>
-
-[source](https://engineering-shiny.org/structuring-project.html)
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Why `golem`?
-
-- It has metadata
-- It handles dependencies
-- It’s split into functions
-- It has documentation
-- It’s tested
-- There is a native way to build and deploy it
-
-
-</br></br></br></br></br></br>
-
-[source](https://engineering-shiny.org/structuring-project.html)
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Shiny modules
-
-
-- Breaks the application into bite size pieces
-
-- Helps you have a mental model of the application
-
-- But isn't it complicated?
-
-- Let me show you..
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## 
+::: {.column width="50%"}
 
 ```{r}
-#| eval: TRUE
-#| echo: FALSE
-knitr::include_app(shinyUrl, height = 800)
-```
-[Link to app](`r htsShinyUrl`)
+#| echo: true
+#| eval: false
 
-::: notes
-Scroll down in the Example tab and showcase how to add a module to the app_ui and app_server.
+# Load the Shiny library
+library("shiny")
+
+# Define the User Interface (Frontend)
+ui <- fluidPage(
+  titlePanel("Hello Shiny!"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput(inputId = "bins",
+                  label = "Number of bins:",
+                  min = 1,
+                  max = 50,
+                  value = 30)
+    ),
+    mainPanel(
+      plotOutput(outputId = "distPlot")
+    )
+  )
+)
+
+# Define the Server (Backend)
+server <- function(input, output) {
+  output$distPlot <- renderPlot({
+    x <- faithful$waiting
+    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+    hist(x, breaks = bins, col = "#75AADB", border = "white",
+         xlab = "Waiting time to next eruption (in mins)",
+         main = "Histogram of waiting times")
+  })
+}
+
+# Launch the shiny app
+shinyApp(ui = ui, server = server)
+```
+
 :::
 
+::: {.column width="50%"}
+
+![](images/shiny_01_hello_app_anatomy.png)
+
+:::
+
+::::
+
+
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-# Questions?
+## Hello Shiny!
 
+:::: {.columns}
 
+::: {.column width="50%"}
 
+- Frontend, the user interface
+  - This is where the user interacts with your app
+  - Chooses arguments to function parameters
+  - Choices are "requests"
+  
 
+:::
 
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-# Break, then exercises!
+::: {.column width="50%"}
+
+- Backend, the server
+  - This is where the computations are made in response to the user's choices
+  - Chosen arguments are passed to function parameters, producing an output
+  - The output is the "response"
+
+:::
+
+::::
+
+_This frontend-to-backend continous communication is key!_
