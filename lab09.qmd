@@ -148,7 +148,7 @@ Now, let us build the `01_hello`-app from scratch!
 1. Now, click `File` $\rightarrow$ `Save`
 1. Name the file `01_hello.R`
 1. Copy/paste the code below here into the empty file and again remember to save
-1. Then at the menu just above your open file, click `Run App`
+1. Then at the menu just above your open file, click `Run App` or use the console: `runApp("PATH_TO_MY_APP")`
 1. Check if it works and compare with the `01_hello`-example
 
 _Important: This is an R-script file NOT a Quarto document! Think of it as if you take all the code boxes and **only** include those in your file._
@@ -317,6 +317,7 @@ transcribe_dna <- function(dna){
 
 # Virtual Ribosome
 translate_rna <- function(rna){
+  if( is.null(rna) || rna == "" ){ return("") }
   l <- nchar(x = rna)
   firsts <- seq(
     from = 1,
@@ -361,8 +362,11 @@ translate_rna <- function(rna){
 #| eval: true
 
 # Simple base counts
-base_freqs <- function(x){
-  dna_vec <- strsplit(x = x,
+base_freqs <- function(dna){
+  if (is.null(dna) || dna == "" ){
+    return( data.frame(dna_vec = factor(c("A", "C", "G", "T")),
+                       Freq = c(0, 0, 0, 0)) ) }
+  dna_vec <- strsplit(x = dna,
                       split = "")
   base_counts <- table(dna_vec)
   return( as.data.frame.table(base_counts) )
@@ -377,7 +381,7 @@ base_freqs <- function(x){
 
 #### Version 1, the basics
 
-Below here, you will find some boilerplate code, which is based on what you saw in the `01_hello`-example. 
+Below here, you will find some boilerplate code, which is based on what you saw in the `01_hello`-example.
 
 - **Task:** Look at this code and compare it to your first shiny app, discuss the changes in your group, what do you see?
 - **Task:** Create your second Shiny App in a new file `virtual_gene_generator.R`, copy/paste making sure to insert the code needed for the function `gene_dna()` (See code for functions above)
@@ -607,7 +611,8 @@ Right then:
 A bit of help to get you started:
 
 - You can find an overview of the different [input controls here](https://shiny.posit.co/r/getstarted/shiny-basics/lesson3/)
-
+- Use manual copy/paste when transferring DNA to RNA to Protein (Naturally, this can be done automatically, but that's a completely different can of worms)
+- Perhaps you could look at the `01_hello`-example to get some inspiration on how you can include a `ggplot` of your nucleotide frequency analysis
 
 ### Getting Your Shiny App LIVE!
 
