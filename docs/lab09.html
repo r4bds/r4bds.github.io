@@ -119,6 +119,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -338,13 +339,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   <li><a href="#sec-exercises" id="toc-sec-exercises" class="nav-link" data-scroll-target="#sec-exercises">Exercises</a>
   <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks">TASKS</a></li>
-  <li><a href="#task-1---setting-up-the-shiny-app" id="toc-task-1---setting-up-the-shiny-app" class="nav-link" data-scroll-target="#task-1---setting-up-the-shiny-app">Task 1 - Setting up the Shiny App</a></li>
-  <li><a href="#task-2---create-a-production-grade-shiny-app" id="toc-task-2---create-a-production-grade-shiny-app" class="nav-link" data-scroll-target="#task-2---create-a-production-grade-shiny-app">Task 2 - Create a production-grade Shiny app</a></li>
-  <li><a href="#task-3---populate-your-shiny-app" id="toc-task-3---populate-your-shiny-app" class="nav-link" data-scroll-target="#task-3---populate-your-shiny-app">Task 3 - Populate your Shiny App</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  <li><a href="#initial-hello-shiny-world" id="toc-initial-hello-shiny-world" class="nav-link" data-scroll-target="#initial-hello-shiny-world">Initial “Hello Shiny World”</a></li>
+  <li><a href="#your-first-shiny-app" id="toc-your-first-shiny-app" class="nav-link" data-scroll-target="#your-first-shiny-app">Your First Shiny App</a></li>
+  <li><a href="#your-second-shiny-app" id="toc-your-second-shiny-app" class="nav-link" data-scroll-target="#your-second-shiny-app">Your Second Shiny App</a></li>
+  <li><a href="#controlling-the-layout" id="toc-controlling-the-layout" class="nav-link" data-scroll-target="#controlling-the-layout">Controlling the Layout</a></li>
+  <li><a href="#its-complicated" id="toc-its-complicated" class="nav-link" data-scroll-target="#its-complicated">It’s Complicated…</a></li>
+  <li><a href="#completing-the-central-dogma" id="toc-completing-the-central-dogma" class="nav-link" data-scroll-target="#completing-the-central-dogma">Completing the Central Dogma</a></li>
+  <li><a href="#getting-your-shiny-app-live" id="toc-getting-your-shiny-app-live" class="nav-link" data-scroll-target="#getting-your-shiny-app-live">Getting Your Shiny App LIVE!</a></li>
   </ul></li>
-  <li><a href="#group-assignment-important-see-how-to" id="toc-group-assignment-important-see-how-to" class="nav-link" data-scroll-target="#group-assignment-important-see-how-to">&lt;<span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: <span>how to</span>)</a></li>
+  <li><a href="#group-assignment-important-see-how-to" id="toc-group-assignment-important-see-how-to" class="nav-link" data-scroll-target="#group-assignment-important-see-how-to"><span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: <span>how to</span>)</a></li>
   </ul>
 </nav>
     </div>
@@ -413,618 +417,576 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="sec-exercises" class="level2">
 <h2 class="anchored" data-anchor-id="sec-exercises">Exercises</h2>
-<section id="introduction" class="level3">
-<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<section id="getting-started" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started">Getting Started</h3>
 <p><em>First, make sure to read and discuss the feedback you got from last week’s assignment!</em></p>
-<hr>
-<p>In today’s lab, you will use the package you developed last time as basis for a Shiny App.</p>
-<p>Do not worry if you didn’t finish it, you will be able to install a backup. But please do try to use your own package first.</p>
-<p>You will be using the <code>golem</code> production-grade app development framework, which has a bit of a learning curve, but it is a solid starting point. Please hang tight, as I walk you through how to get started.</p>
-<p>When building a Shiny App with <code>golem</code>, you need everything you learned about creating an R package, because a <code>golem</code> Shiny App <em>is</em> a package, and all the same rules apply.</p>
-</section>
-<section id="tasks" class="level3">
-<h3 class="anchored" data-anchor-id="tasks">TASKS</h3>
-</section>
-<section id="task-1---setting-up-the-shiny-app" class="level3">
-<h3 class="anchored" data-anchor-id="task-1---setting-up-the-shiny-app">Task 1 - Setting up the Shiny App</h3>
-<hr>
-<p>As last week, the first tasks are only done by <strong>one team member</strong>, until instructed otherwise. Let the other team members follow along with what you are doing and do the following:</p>
-<section id="task-1.1---create-the-app" class="level4">
-<h4 class="anchored" data-anchor-id="task-1.1---create-the-app">Task 1.1 - Create the App</h4>
+<p>Then, for this particular session, we will make use of Posit’s free Cloud infrastructure. Setting it up is quite easy:</p>
 <ol type="1">
-<li>Go to <a href="https://teaching.healthtech.dtu.dk/22100/rstudio.php">R for Bio Data Science RStudio Server</a> and login.</li>
-<li>Create a folder in home called <code>ShinyApps</code> - You need this for the server to find your app.</li>
-<li>Run <code>golem::create_golem("~/ShinyApps/YOUR_APP_NAME")</code> in the console, putting in a name of your own choosing.</li>
+<li>Go to <a href="https://posit.cloud">posit Cloud</a></li>
+<li>Click the blue <code>GET STARTED</code> button</li>
+<li>Under <code>Cloud Free</code>, click the blue <code>Learn more</code> button</li>
+<li>Click the long blue <code>Sign Up</code> button</li>
+<li>Enter your information for setting up an account</li>
+<li>Make sure to <code>Verify Your Email</code> as instructed</li>
+<li>Then return to where you set up the account and click the blue <code>Continue</code> button</li>
 </ol>
+<p>Congratulations! You have now created your personal posic cloud account. You will land in <code>Your Workspace</code>. Here you will have to create a new project, which you will use to work on the exercises today, so please:</p>
+<ol type="1">
+<li>In the upper right corner, click the blue <code>New Project</code> button</li>
+<li>Choose <code>New RStudio Project</code></li>
+<li>Your project will be prepared and then deployed and you will land in the familiar RStudio IDE. Next to <code>Your Workspace</code> in the upper left corner, click where it says <code>Untitled Project</code> and name your project, e.g.&nbsp;<code>R4BDS Shiny Exercises</code></li>
+</ol>
+<p>Now, let us do some quick setup:</p>
+<ol type="1">
+<li>Click <code>Tools</code> and then <code>Global Options...</code></li>
+<li>Under <strong>Workspace</strong>, untick <code>Restore .RData into workspace on startup</code></li>
+<li>Next to <code>Save workspace to .RData on exit:</code>, choose <code>Never</code></li>
+<li>In the lower right corner, click <code>Apply</code></li>
+<li>Now on the left, find and click <code>Pane Layout</code> and click <code>Environment, History, Conne</code> and choose <code>Console</code></li>
+<li>In the lower right corner, click <code>Apply</code></li>
+</ol>
+<p>Optionally you can adjust the visual appearance:</p>
+<ol type="1">
+<li>Now on the left, find and click <code>Appearance</code></li>
+<li>Under <code>Editor theme:</code>, click a few options and see if you can find something you like</li>
+<li>If you want to return to the default, simply find and click <code>Textmate (default)</code></li>
+</ol>
+<p>Optionally, you can add a third column enabling you to e.g.&nbsp;have two Quarto Documents / Scripts / Text files open simultaneously:</p>
+<ol type="1">
+<li>On the left, find and click <code>Pane Layout</code></li>
+<li>Click <code>Add Column</code></li>
+<li>Note, this is best suited for wide desktop screens, so if you change your mind, simply click <code>Remove Column</code></li>
+</ol>
+<p><em>Once you are done, click <code>OK</code> to close the <code>Options</code></em></p>
+</section>
+<section id="initial-hello-shiny-world" class="level3">
+<h3 class="anchored" data-anchor-id="initial-hello-shiny-world">Initial “Hello Shiny World”</h3>
+<p>Now let us get started on <code>Shiny</code>. First, find the console and enter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"shiny"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You are going to get an error message, make sure to read it, so you can fix it.</p>
+<details>
+<p>
+</p><summary>
+Click here for hint
+</summary>
+<p></p>
+<em>R does not know what you are asking for here. You are missing “something”, how can we install “something” we are missing? Note, here on the <strong>posit cloud</strong> you are allowed to install tools you need</em>
+</details>
+<p>Once you have fixed the error, in the console, run:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"shiny"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">runExample</span>(<span class="st">"01_hello"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You may get a <code>Popup Blocked</code> message, if so, simply click <strong>Try Again</strong>. The you should see:</p>
+<p><img src="images/shiny_hello_shiny_example.png" class="img-fluid"></p>
+<p>Now, this is the frontend of a real life Shiny app. You can try to alter the <code>Number of bins:</code> and see what happens.</p>
+<p>There are a multitude of such built in examples.</p>
 <ul>
-<li>As last week, the theme is the central dogma of molecular biology. Let that inspire you</li>
-<li>Look up naming rules <a href="https://r-pkgs.org/workflow101.html#name-your-package">here</a></li>
-<li>The most important rule: <code>_</code>, <code>-</code>, and <code>'</code> are not allowed.</li>
+<li><strong>Task:</strong> Try to play around with a few of the following to get an initial feel for what you can do with Shiny and discuss what you see in your group:</li>
 </ul>
-<ol start="4" type="1">
-<li>Run <code>usethis::use_git()</code> to ensure git is initialized.</li>
-</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runExample</span>(<span class="st">"01_hello"</span>)      <span class="co"># a histogram</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">runExample</span>(<span class="st">"02_text"</span>)       <span class="co"># tables and data frames</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">runExample</span>(<span class="st">"03_reactivity"</span>) <span class="co"># a reactive expression</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">runExample</span>(<span class="st">"04_mpg"</span>)        <span class="co"># global variables</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">runExample</span>(<span class="st">"05_sliders"</span>)    <span class="co"># slider bars</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">runExample</span>(<span class="st">"06_tabsets"</span>)    <span class="co"># tabbed panels</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">runExample</span>(<span class="st">"07_widgets"</span>)    <span class="co"># help text and submit buttons</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">runExample</span>(<span class="st">"08_html"</span>)       <span class="co"># Shiny app built from HTML</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">runExample</span>(<span class="st">"09_upload"</span>)     <span class="co"># file upload wizard</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">runExample</span>(<span class="st">"10_download"</span>)   <span class="co"># file download wizard</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">runExample</span>(<span class="st">"11_timer"</span>)      <span class="co"># an automated timer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="task-1.2---make-a-github-repository-for-your-groups-app" class="level4">
-<h4 class="anchored" data-anchor-id="task-1.2---make-a-github-repository-for-your-groups-app">Task 1.2 - Make a GitHub repository for your group’s app</h4>
+<section id="your-first-shiny-app" class="level3">
+<h3 class="anchored" data-anchor-id="your-first-shiny-app">Your First Shiny App</h3>
+<p>Now, let us build the <code>01_hello</code>-app from scratch!</p>
 <ol type="1">
-<li>Go to <a href="https://github.com/rforbiodatascience24">https://github.com/rforbiodatascience24</a></li>
-<li>Click the green <code>New</code> button</li>
-<li>Create a new repository called <code>group_X_shiny</code>. Remember to replace the <strong>X</strong></li>
-<li>Select <code>rforbiodatascience24</code> as owner</li>
-<li>Make the repository <code>Public</code></li>
-<li>Click the green <code>Create repository</code> button</li>
-<li>In this new repository, click the <code>settings</code> tab</li>
-<li>Click <code>Collaborators and Team</code></li>
-<li>Click the green <code>Add people</code> button</li>
-<li>Invite the remaining group members</li>
-<li>All other team members should now have access to the repository, <strong>but do not create your own project yet.</strong></li>
+<li>Go to your Posit Cloud session and click <code>File</code> <span class="math inline">\(\rightarrow\)</span> <code>New File</code> <span class="math inline">\(\rightarrow\)</span> <code>R Script</code></li>
+<li>Now, click <code>File</code> <span class="math inline">\(\rightarrow\)</span> <code>Save</code></li>
+<li>Name the file <code>01_hello.R</code></li>
+<li>Copy/paste the code below here into the empty file and again remember to save</li>
+<li>Then at the menu just above your open file, click <code>Run App</code></li>
+<li>Check if it works and compare with the <code>01_hello</code>-example</li>
 </ol>
-</section>
-<section id="task-1.3---connect-your-rstudio-project-to-the-github-repository" class="level4">
-<h4 class="anchored" data-anchor-id="task-1.3---connect-your-rstudio-project-to-the-github-repository">Task 1.3 - Connect your RStudio Project to the GitHub Repository</h4>
-<p><strong>Still only the first team member</strong></p>
-<ol type="1">
-<li>Find your <code>PAT</code> key or create a new
+<p><em>Important: This is an R-script file NOT a Quarto document! Think of it as if you take all the code boxes and <strong>only</strong> include those in your file.</em></p>
 <details>
-<summary>
-How to create a new one
+<p>
+</p><summary>
+Code for your first app
 </summary>
-<ul>
-<li>
-Type in the console <code>usethis::create_github_token()</code>. You’re going to be redirected to GitHub website.
-</li><li>
-In case you do it manually, remember to give permission to access your repositories.
-</li><li>
-You need to type your password. Don’t change the default settings of creating the token except for the description – set ‘RStudio Server’ or something similar. Then hit Generate token.
-</li><li>
-Copy the generated token (should start with ghp_) and store it securely (e.g.&nbsp;in password manager). Do not keep it in a plain file.
-</li></ul>
-</details></li>
-<li>Go back to the RStudio Server project.</li>
-<li>Type in the console <code>gitcreds::gitcreds_set()</code> and paste the <code>PAT</code> key.</li>
-<li>If there are files in the <code>git</code> window, stage them by ticking all boxes under <code>Staged</code>.</li>
-<li>Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the <strong>X</strong>.</li>
-</ol>
+<p></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_remote</span>(<span class="at">name =</span> <span class="st">"origin"</span>, <span class="st">"https://github.com/rforbiodatascience24/group_X_shiny.git"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"USERNAME"</span>, <span class="at">user.email =</span> <span class="st">"USEREMAIL@EXAMPLE.ORG"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_commit_all</span>(<span class="st">"App setup"</span>) <span class="co"># Only run if there were files to stage</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_push</span>(<span class="st">"origin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the Shiny library</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"shiny"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the User Interface (Frontend)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"Hello Shiny!"</span>),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sliderInput</span>(<span class="at">inputId =</span> <span class="st">"bins"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"Number of bins:"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                  <span class="at">min =</span> <span class="dv">1</span>,</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                  <span class="at">max =</span> <span class="dv">50</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">value =</span> <span class="dv">30</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="at">outputId =</span> <span class="st">"distPlot"</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the Server (Backend)</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>distPlot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> faithful<span class="sc">$</span>waiting</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    bins <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(x), <span class="fu">max</span>(x), <span class="at">length.out =</span> input<span class="sc">$</span>bins <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hist</span>(x, <span class="at">breaks =</span> bins, <span class="at">col =</span> <span class="st">"#75AADB"</span>, <span class="at">border =</span> <span class="st">"white"</span>,</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">xlab =</span> <span class="st">"Waiting time to next eruption (in mins)"</span>,</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">"Histogram of waiting times"</span>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Launch the shiny app</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><strong>All other team members</strong></p>
-<p><em>After your teammate has pushed to GitHub.</em></p>
-<ol type="1">
-<li>You also need to create a <code>ShinyApps</code> folder.</li>
-<li>In the RStudio Server, create a new project based on the GitHub Repository just created by your teammate.
+</details>
 <ul>
-<li>Click <code>Create a project</code><img src="images/L08_create.png" class="img-fluid" style="width:5.0%"> in the top left.</li>
-<li>Choose <code>Version Control</code> and then <code>Git</code>.</li>
-<li>Paste in the repository URL: <code>https://github.com/rforbiodatascience24/group_X_shiny.git</code>. Remember to replace the <strong>X</strong>.</li>
-<li>Make sure to put it in the <code>ShinyApps</code> folder.</li>
-<li>Give the directory a fitting name and click <code>Create Project</code>.</li>
-</ul></li>
-<li>Find your <code>PAT</code> key or create a new
-<details>
-<summary>
-How to create a new one
-</summary>
-<ul>
-<li>
-Type in the console <code>usethis::create_github_token()</code>. You’re going to be redirected to GitHub website.
-</li><li>
-In case you did it manually, remember to give permission to access your repositories.
-</li><li>
-You need to type your password. Don’t change the default settings of creating the token except for the description – set ‘RStudio Server’ or something similar. Then hit Generate token.
-</li><li>
-Copy the generated token (should start with ghp_) and store it securely (e.g.&nbsp;in password manager). Do not keep it in a plain file.
-</li></ul>
-</details></li>
-<li>Go back to the RStudio Server project</li>
-<li>Type in the console <code>gitcreds::gitcreds_set()</code> and paste the <code>PAT</code> key</li>
-<li>Still in the console, run the following commands. Replace your GitHub username and email.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"USERNAME"</span>, <span class="at">user.email =</span> <span class="st">"USEREMAIL@EXAMPLE.ORG"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><strong>If RStudio at any point asks you to log in to GitHub, redo step 6 and 7.</strong></p>
-</section>
-</section>
-<section id="task-2---create-a-production-grade-shiny-app" class="level3">
-<h3 class="anchored" data-anchor-id="task-2---create-a-production-grade-shiny-app">Task 2 - Create a production-grade Shiny app</h3>
-<hr>
-<p>It may seem daunting, but <code>golem</code> holds your hand much of the way.</p>
-<section id="task-2.1---the-dev-folder" class="level4">
-<h4 class="anchored" data-anchor-id="task-2.1---the-dev-folder">Task 2.1 - The dev folder</h4>
-<p><code>golem</code> creates a <code>dev</code> folder in your project. The files there are extremely helpful and you should make yourself familiar with the content. Read <a href="https://engineering-shiny.org/setting-up-for-success.html#setting-up-for-success">this short chapter</a> to get a feeling for what each helper function does. Also take a look at the <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/golem.pdf">golem cheatsheet</a>.</p>
-<ol type="1">
-<li>Go through <code>dev/01_start.R</code> and run the setup functions you think will be useful. <em>Not everything is.</em>
-<ul>
-<li>Run them in order. <strong>Don’t run line 36</strong>, and if you are prompted to install packages, please decline.</li>
-<li>Everything on and above line 42 is recommended, everything else is optional. Feel free to see what they do. None of them should cause problems.</li>
-<li>After running the function for modifying the <code>DESCRIPTION</code> file, add more authors to the <code>DESCRIPTION</code> file using this layout:</li>
-</ul></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Authors<span class="sc">@</span>R<span class="sc">:</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="fu">person</span>(<span class="at">given =</span> <span class="st">"firstname"</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">family =</span> <span class="st">"lastname"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">role =</span> <span class="fu">c</span>(<span class="st">"aut"</span>, <span class="st">"cre"</span>), <span class="co"># There must be a "cre", but there can only be one</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">email =</span> <span class="st">"your@email.com"</span>), </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">person</span>(<span class="at">given =</span> <span class="st">"firstname"</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">family =</span> <span class="st">"lastname"</span>,</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">role =</span> <span class="st">"aut"</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">email =</span> <span class="st">"your@email.com"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="2" type="1">
-<li>Go through <code>dev/02_dev.R</code> to get an idea of what helper functions are available. You will likely use some of these functions quite frequently.</li>
-<li>Look through <code>dev/03_deploy.R</code> to get an idea of how to deploy your app either in <code>shinapps.io</code>, as the app I showed in class, or on CRAN.</li>
-</ol>
-<ul>
-<li>Because we are operating on a server, we cannot run the app directly in our R session. Therefore, we should prepare the app for deployment. This will allow the shiny server hosted on the Health Tech Server to launch your apps.</li>
-<li>Run line 32 in <code>dev/03_deploy.R</code>, i.e., <code>golem::add_shinyserver_file()</code></li>
+<li><strong>Task:</strong> In your group, compare the code with the below illustration of the anatomy of your first shiny app. Pay specific attention to the <code>input</code>- and <code>output</code>-variables and how the <code>inputId = "bins"</code> end up in <code>input$bins</code>. This front-to-back-end communication is central!</li>
 </ul>
-<ol start="4" type="1">
-<li>Look through <code>dev/run_dev.R</code> and run the first four commands. If you were not on a server, you could launch your app by running the last command <code>run_app()</code>. However, we <em>are</em> on a server, so we have implemented a small trick.</li>
-</ol>
+<p><img src="images/shiny_01_hello_app_anatomy.png" class="img-fluid"></p>
 <ul>
-<li>When you ran line 32 previously, an <code>app.R</code> file was created. This allows the Health Tech Server to run your Shiny app from this url: <code>https://teaching.healthtech.dtu.dk/shiny/username/app_name/</code> - Edit username and app_name appropriately.</li>
-<li>You should see an empty app with your title. Now you just need to put stuff in it.</li>
-<li><strong>OBS</strong> Sometimes, for unknown reasons, the browser removes the “shiny” part of the url. If you get a “Not Found” error, check the url.</li>
-<li><strong>Another OBS</strong> For changes to take effect, you will have to close the app session, which means either closing the tab or removing the app name from the url. The latter will list all apps you have created - likely just this one so far. The url would then look like: <code>https://teaching.healthtech.dtu.dk/shiny/username/</code>.</li>
+<li><strong>Task:</strong> To further understand what is going on, we can ask constructively for input. Let us use your favourite LLM-technology as a sparring partner, e.g.&nbsp;you can cope/paste the following into a chatGPT prompt:</li>
 </ul>
-</section>
-<section id="the-r-folder" class="level4">
-<h4 class="anchored" data-anchor-id="the-r-folder">The R folder</h4>
-<p><code>golem</code> sets up a framework for your Shiny app. This framework is probably a little different from what you normally see when reading/watching guides on Shiny Apps. It may look overly complicated, and perhaps it is for this exercise. But it is a robust framework that makes maintaining even large apps easy(ier). Building a small app is very easy as well.</p>
-<p>You are welcome to ignore the <code>R/run_app.R</code> (a wrapper function for <code>shiny::shinyApp()</code>, which runs the app) and <code>R/app_config.R</code> (some <code>golem</code> configuration) for now.</p>
-<p>The first places you want to look are <code>R/app_ui.R</code> and <code>R/app_server.R</code>. They are responsible for the user interface and the app back end, respectively. You will not be working here directly as much, although you could. But it is strongly recommended to work in Shiny modules - created with <code>golem::add_module( name = "module_name" )</code>, as you saw in class.</p>
-<section id="shiny-modules" class="level5">
-<h5 class="anchored" data-anchor-id="shiny-modules">Shiny Modules</h5>
-<p>Shiny modules may appear to make your life more complicated at first, but they will save you a lot of time down the road - especially from bug-fixing and GitHub merging issues.</p>
-<p>After creating a module, its <code>ui</code> and <code>server</code> functions should be copied into the <code>app_ui.R</code> and <code>app_server.R</code> scripts, as you will be reminded in the bottom of the module scripts. There, you can control how the module should interact with the main app - should each module have their own tab in the app or should they be called depending on which button the user clicks on.</p>
-<p>Another useful feature of Shiny modules is that you can test them independently from the main app. I suggest, each time you create a module, to copy something like the following in the bottom of the created module script (renaming the relevant parts to fit the module). This way you always have a quick test environment at hand. But bear in mind the layout will be different from your main app, as it will not transfer the layout from <code>app_ui.R</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="cn">FALSE</span>){ <span class="co"># Testing</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  golem<span class="sc">::</span><span class="fu">detach_all_attached</span>()</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  golem<span class="sc">::</span><span class="fu">document_and_reload</span>()</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  ui <span class="ot">&lt;-</span> <span class="fu">mod_NAME_ui</span>(<span class="st">"NAME_ui_1"</span>) <span class="co"># replace NAME here</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  server <span class="ot">&lt;-</span> <span class="cf">function</span>( input,output,session){</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mod_NAME_server</span>(<span class="st">"NAME_ui_1"</span>) <span class="co"># and here</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  shiny<span class="sc">::</span><span class="fu">shinyApp</span>(ui, server)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>If you want to learn how to make the modules share information, please read <a href="https://engineering-shiny.org/structuring-project.html#communication-between-modules">here</a>. I personally prefer approach B.</p>
-<p>This is <strong>not</strong> necessary for the exercises, but I wanted to make you aware that it is possible. Feel free to use it in the Group Assignment.</p>
-</section>
-</section>
-</section>
-<section id="task-3---populate-your-shiny-app" class="level3">
-<h3 class="anchored" data-anchor-id="task-3---populate-your-shiny-app">Task 3 - Populate your Shiny App</h3>
-<hr>
-<p>Last week, you created a package that simulates the central dogma of molecular biology. Today, you will use that package to create an app around it.</p>
-<p><strong>Please work together on these tasks.</strong></p>
-<section id="task-3.1---install-the-package-you-created-last-week" class="level4">
-<h4 class="anchored" data-anchor-id="task-3.1---install-the-package-you-created-last-week">Task 3.1 - Install the package you created last week</h4>
-<ol type="1">
-<li><code>devtools::install_github("rforbiodatascience24/group_X_package")</code>. Remember to replace the <strong>X</strong></li>
-</ol>
-<details>
-<summary>
-Install backup
-</summary>
-<p><strong>Please only use this if your own package does not work!</strong></p>
-<p>Install it with: <code>devtools::install_github("r4bds/centralDogma")</code></p>
-<p>The function names are as follows:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>I am following the university course "R for Bio Data Science".</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Today we are learning about Shiny, which is completely new to me.</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>The first thing we have done is to re-create a small shiny app,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>which is part of the examples in the Shiny-package. Moreover,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>it is the example which can be seen by running the code:</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>`runExample("01_hello")`</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>Now, we have manually implemented the app, but I am not certain</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>of how it works and the details. In the following, I will</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>paste the code from the app. Please in details, minding that I</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>am a begginer, explain the details of the code:</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>PASTE THE APP CODE HERE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Function one: <code>centralDogma::random_dna()</code></li>
-<li>Function two: <code>centralDogma::transcribe()</code></li>
-<li>Function three: <code>centralDogma::codon_split()</code></li>
-<li>Function four: <code>centralDogma::translate()</code></li>
-<li>Function five: <code>centralDogma::plot_abundance()</code></li>
+<li><strong>Task:</strong> Furthermore, let us also get some input on how the illustration above maps to the code. Right-click the “Shiny” image above and save it to disk, then copy/paste the following into the same prompt:</li>
 </ul>
-</details>
-<p>You have already done the initial setup steps, so let’s get started with building the app!</p>
-</section>
-<section id="task-3.2---design-your-primary-layout" class="level4">
-<h4 class="anchored" data-anchor-id="task-3.2---design-your-primary-layout">Task 3.2 - Design your primary layout</h4>
-<p>Feel free to use your imagination. Otherwise, follow my suggestion for a <code>tabsetPanel</code> layout:</p>
-<p>If you make your own layout, make space for the two modules, as I did with the two tabPanels with temporary titles and module names below.</p>
-<ol type="1">
-<li>Add a <code>tabsetPanel</code> with 2 panels in the <code>fluidPage()</code> function within the <code>app_ui</code> function definition in <code>R/app_ui.R</code>. The <code>tabsetPanel</code> should be inserted after the header (written as h1(“header”) ), separated by a comma.</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tabsetPanel</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabPanel</span>(<span class="at">title =</span> <span class="st">"panel1"</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">"module1"</span>),</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabPanel</span>(<span class="at">title =</span> <span class="st">"panel2"</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>           <span class="st">"module2"</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>I have added placeholder names, you should replace these with relevant module functions as the app is build.</p>
-<p>You will start by implementing the plotting module (“module2”) because it is a lot simpler, with only a single text input and a plot.</p>
-</section>
-<section id="task-3.3---create-the-plotting-shiny-module" class="level4">
-<h4 class="anchored" data-anchor-id="task-3.3---create-the-plotting-shiny-module">Task 3.3 - Create the plotting shiny module</h4>
-<p>Your plotting module should take in a peptide sequence and plot the relative absolute abundance of each amino acid.</p>
-<ol type="1">
-<li>Go to <code>dev/02_dev.R</code> and find the function to add a module. For now, set <code>with_test = FALSE</code> - you will not be creating tests for the app in this exercise, unless you want to. Remember to name the module something sensible related to the description above instead of just “module2”. Run the function.</li>
-<li>Scroll to the bottom of the module and copy the commented out server function and add it to <code>R/app_server.R</code> inside the <code>app_server</code> function.</li>
-<li>Redo step 2, but for the ui function. Importantly, place it in the second <code>tabPanel</code> in <code>R/app_ui.R</code>, instead of the “module2”. Give it a sensible title. If you made your own layout, place the module where you imagine it should go.</li>
-<li><strong>Go back to the module script</strong>. Use my suggested module layout below. If you want, you are more than welcome to design it yourself. See the layout guide <a href="https://shiny.posit.co/r/articles/build/layout-guide/">here</a> or <a href="https://rstudio.github.io/cheatsheets/html/shiny.html">cheat sheet</a> for inspiration.
+<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>The lecturer has given me this graphical illustration,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>but I am not sure I understand how it maps to the code,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>can you please explain?</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>REMEMBER TO UPLOAD THE IMAGE</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Fill your desired layout in the <code>tagsList</code> of the <code>ui</code> function in the module.</li>
-</ul></li>
-</ol>
-<details>
-<summary>
-If you want, draw inspiration for the layout I chose
-</summary>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sidebarLayout</span>(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sidebarPanel</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"peptide_sequence"</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mainPanel</span>(</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"plot"</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-The names in the example are not actual shiny stuff, just names I put in as a placeholder. Feel free to use them as your inputIDs and outputIDs or come up with your own.
-</details>
-<p><br></p>
-<ol start="5" type="1">
-<li>Run the app to see what it looks like (by refreshing the app url you created on Task 2.1).</li>
-</ol>
-<ul>
-<li>Remember if you get a “Not Found” error, the “/shiny/” might be missing from the url.</li>
+<li><strong>Task:</strong> Now, look at the answers you got, if something is unclear, ask for an elaboration, e.g.:</li>
 </ul>
-<ol start="6" type="1">
-<li>Add an input field for the <code>peptide_sequence</code>, replace the string with the input you are adding. Please try it out first.</li>
-</ol>
-<ul>
-<li>Remember <code>ns()</code> around input/output IDs</li>
-</ul>
-<details>
-<summary>
-Possible solution
-</summary>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">textAreaInput</span>(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">inputId =</span> <span class="fu">ns</span>(<span class="st">"peptide"</span>),</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">label =</span> <span class="st">"Peptide sequence"</span>,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">width =</span> <span class="dv">300</span>,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> <span class="dv">100</span>,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">placeholder =</span> <span class="st">"Insert peptide sequence"</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</details>
-<p><br></p>
-<ol start="7" type="1">
-<li>Add an output field for the <code>plot</code>, replacing the placeholder string. Please try it out first.</li>
-</ol>
-<details>
-<summary>
-Possible solution
-</summary>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotOutput</span>(</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">outputId =</span> <span class="fu">ns</span>(<span class="st">"abundance"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</details>
-<details>
-<summary>
-Full possible solution
-</summary>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mod_abundance_ui <span class="ot">&lt;-</span> <span class="cf">function</span>(id){</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tagList</span>(</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    shiny<span class="sc">::</span><span class="fu">sidebarLayout</span>(</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>      shiny<span class="sc">::</span><span class="fu">sidebarPanel</span>(</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        shiny<span class="sc">::</span><span class="fu">textAreaInput</span>(</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">inputId =</span> <span class="fu">ns</span>(<span class="st">"peptide"</span>),</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">label =</span> <span class="st">"Peptide sequence"</span>,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">width =</span> <span class="dv">300</span>,</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">height =</span> <span class="dv">100</span>,</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">placeholder =</span> <span class="st">"Insert peptide sequence"</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>      shiny<span class="sc">::</span><span class="fu">mainPanel</span>(</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        shiny<span class="sc">::</span><span class="fu">plotOutput</span>(</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">outputId =</span> <span class="fu">ns</span>(<span class="st">"abundance"</span>)</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>          )</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</details>
+<div class="sourceCode" id="cb7"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>I have not seen the terms "user interface" or "frontend"</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>or "backend" before. Please briefly explain, what these</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>mean and how they are related to building shiny apps  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Note here, how we using the LLM-technology productively as a sparring-partner. Instead of asking it to produce code, we ask it to explain existing code and to elaborate on any unclear specifics</em></p>
 </section>
-<section id="task-3.4---plotting-module-server-logic" class="level4">
-<h4 class="anchored" data-anchor-id="task-3.4---plotting-module-server-logic">Task 3.4 - Plotting module server logic</h4>
-<!-- There should be something that handles the peptide sequence and something that gives that sequence to a plotting function, whose output should be displayed in the app.
--->
-<p>There are several ways to solve this task, but keep in mind that if an empty string is given to <code>function_five</code>, it will give an error and the app will crash. Prevent that. Please try to make the server logic on your own. Also feel free to add an additional button to control when the plotting is happening (see my slide on reactivity for inspiration).</p>
-<ol type="1">
-<li><strong>Go the the module server function.</strong> Make the server logic for handling the text input and render a plot using <code>function_five</code> from your package, remember to rename the function call appropriately (<code>yourpackage::function_five</code>).</li>
-</ol>
-<ul>
-<li>Ensure the IDs match.</li>
-<li>It does not matter where in the module server function you put it, as long as you put it inside the function.</li>
-</ul>
+<section id="your-second-shiny-app" class="level3">
+<h3 class="anchored" data-anchor-id="your-second-shiny-app">Your Second Shiny App</h3>
+<p>We will continue where we left of last week. To make sure, that everyone is working with the same functions, we will use the functions outlined below here. Remember the task here is to build an interface, which allow people without coding skills to interact with data.</p>
+<p><em>Let’s get started!</em></p>
 <details>
 <summary>
-Possible solution
+Click here for functions
 </summary>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>abundance <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(input<span class="sc">$</span>peptide <span class="sc">==</span> <span class="st">""</span>){</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        <span class="cn">NULL</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span>{</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>        input<span class="sc">$</span>peptide <span class="sc">|&gt;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>          yourpackage<span class="sc">::</span><span class="fu">function_five</span>() <span class="sc">+</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>          ggplot2<span class="sc">::</span><span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>
+</p><p><em>Please note, that as an example of reducing dependencies, these functions are implemented using base R. In case you are not familiar, here again is a prime example of using LLM-technology such as e.g.&nbsp;chatGPT as a sparring partner. Try to submit the following prompt:</em></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>I am not familiar with base R, I only know tidyverse R.</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>For the following function and R-code, please explain</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>in detail how the used base R functions work and what</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>the code in its entirety does:</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>PASTE THE BASE R CODE OF A FUNCTION HERE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details>
+<summary>
+Virtual Gene
+</summary>
+<p>
+</p><div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Virtual gene</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>gene_dna <span class="ot">&lt;-</span> <span class="cf">function</span>(length, <span class="at">base_probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.25</span>, <span class="fl">0.25</span>, <span class="fl">0.25</span>)){</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>( length <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">!=</span> <span class="dv">0</span> ){</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"The argument to the parameter 'l' has to be divisible by 3"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  dna_vector <span class="ot">&lt;-</span> <span class="fu">sample</span>(</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"T"</span>, <span class="st">"C"</span>, <span class="st">"G"</span>),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> length,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">prob =</span> base_probs)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  dna_string <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> dna_vector,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">collapse =</span> <span class="st">""</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(dna)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p></p>
 </details>
-<p><br></p>
-<ol start="2" type="1">
-<li><p><strong>Discuss in your group what is going on in my solution</strong>. Why does it work, and what other ways could you get to the same solution (check my slide on reactivity for inspiration). As a small note, I chose to hide the legend, as that looked better in the app.</p></li>
-<li><p>Add <code>@importFrom ggplot2 theme</code> and <code>@import yourpackage</code> to the module server function description.</p></li>
-<li><p>Go to <code>dev/02_dev.R</code> and run the first function to add <code>ggplot2</code> and <code>yourpackage</code> to your package dependencies: <code>attachment::att_amend_desc()</code>. Or add it to the <code>DESCRIPTION</code> manually.</p></li>
-<li><p>Run every line but the last in <code>dev/run_dev.R</code> and reopen your app to see that it works (You can just type in random amino acids in the field).</p></li>
-</ol>
-<ul>
-<li>If you run the last line, a popup will tell you the connection is refused - it would work locally, but doesn’t on the server.</li>
-<li>Remember if you get a “Not Found” error, the “/shiny/” might be missing from the url.</li>
-<li>If no changes appear, close the tab for a minute and try again.</li>
-</ul>
+<details>
+<summary>
+Virtual RNA Polymerase
+</summary>
+<p>
+</p><div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Virtual RNA polymerase</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>transcribe_dna <span class="ot">&lt;-</span> <span class="cf">function</span>(dna){</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  rna <span class="ot">&lt;-</span> <span class="fu">gsub</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">"T"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">replacement =</span> <span class="st">"U"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> dna)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(rna)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p></p>
+</details>
+<details>
+<summary>
+Virtual Ribosome
+</summary>
+<p>
+</p><div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Virtual Ribosome</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>translate_rna <span class="ot">&lt;-</span> <span class="cf">function</span>(rna){</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  l <span class="ot">&lt;-</span> <span class="fu">nchar</span>(<span class="at">x =</span> rna)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  firsts <span class="ot">&lt;-</span> <span class="fu">seq</span>(</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">from =</span> <span class="dv">1</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">to =</span> l,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="dv">3</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  lasts <span class="ot">&lt;-</span> <span class="fu">seq</span>(</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">from =</span> <span class="dv">3</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">to =</span> l,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="dv">3</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  codons <span class="ot">&lt;-</span> <span class="fu">substring</span>(</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> rna,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">first =</span> firsts,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">last =</span> lasts)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  codon_table <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"UUU"</span> <span class="ot">=</span> <span class="st">"F"</span>, <span class="st">"UCU"</span> <span class="ot">=</span> <span class="st">"S"</span>, <span class="st">"UAU"</span> <span class="ot">=</span> <span class="st">"Y"</span>, <span class="st">"UGU"</span> <span class="ot">=</span> <span class="st">"C"</span>,</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"UUC"</span> <span class="ot">=</span> <span class="st">"F"</span>, <span class="st">"UCC"</span> <span class="ot">=</span> <span class="st">"S"</span>, <span class="st">"UAC"</span> <span class="ot">=</span> <span class="st">"Y"</span>, <span class="st">"UGC"</span> <span class="ot">=</span> <span class="st">"C"</span>,</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"UUA"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"UCA"</span> <span class="ot">=</span> <span class="st">"S"</span>, <span class="st">"UAA"</span> <span class="ot">=</span> <span class="st">"_"</span>, <span class="st">"UGA"</span> <span class="ot">=</span> <span class="st">"_"</span>,</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"UUG"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"UCG"</span> <span class="ot">=</span> <span class="st">"S"</span>, <span class="st">"UAG"</span> <span class="ot">=</span> <span class="st">"_"</span>, <span class="st">"UGG"</span> <span class="ot">=</span> <span class="st">"W"</span>,</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CUU"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"CCU"</span> <span class="ot">=</span> <span class="st">"P"</span>, <span class="st">"CAU"</span> <span class="ot">=</span> <span class="st">"H"</span>, <span class="st">"CGU"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CUC"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"CCC"</span> <span class="ot">=</span> <span class="st">"P"</span>, <span class="st">"CAC"</span> <span class="ot">=</span> <span class="st">"H"</span>, <span class="st">"CGC"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CUA"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"CCA"</span> <span class="ot">=</span> <span class="st">"P"</span>, <span class="st">"CAA"</span> <span class="ot">=</span> <span class="st">"Q"</span>, <span class="st">"CGA"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CUG"</span> <span class="ot">=</span> <span class="st">"L"</span>, <span class="st">"CCG"</span> <span class="ot">=</span> <span class="st">"P"</span>, <span class="st">"CAG"</span> <span class="ot">=</span> <span class="st">"Q"</span>, <span class="st">"CGG"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"AUU"</span> <span class="ot">=</span> <span class="st">"I"</span>, <span class="st">"ACU"</span> <span class="ot">=</span> <span class="st">"T"</span>, <span class="st">"AAU"</span> <span class="ot">=</span> <span class="st">"N"</span>, <span class="st">"AGU"</span> <span class="ot">=</span> <span class="st">"S"</span>,</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"AUC"</span> <span class="ot">=</span> <span class="st">"I"</span>, <span class="st">"ACC"</span> <span class="ot">=</span> <span class="st">"T"</span>, <span class="st">"AAC"</span> <span class="ot">=</span> <span class="st">"N"</span>, <span class="st">"AGC"</span> <span class="ot">=</span> <span class="st">"S"</span>,</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"AUA"</span> <span class="ot">=</span> <span class="st">"I"</span>, <span class="st">"ACA"</span> <span class="ot">=</span> <span class="st">"T"</span>, <span class="st">"AAA"</span> <span class="ot">=</span> <span class="st">"K"</span>, <span class="st">"AGA"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"AUG"</span> <span class="ot">=</span> <span class="st">"M"</span>, <span class="st">"ACG"</span> <span class="ot">=</span> <span class="st">"T"</span>, <span class="st">"AAG"</span> <span class="ot">=</span> <span class="st">"K"</span>, <span class="st">"AGG"</span> <span class="ot">=</span> <span class="st">"R"</span>,</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"GUU"</span> <span class="ot">=</span> <span class="st">"V"</span>, <span class="st">"GCU"</span> <span class="ot">=</span> <span class="st">"A"</span>, <span class="st">"GAU"</span> <span class="ot">=</span> <span class="st">"D"</span>, <span class="st">"GGU"</span> <span class="ot">=</span> <span class="st">"G"</span>,</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"GUC"</span> <span class="ot">=</span> <span class="st">"V"</span>, <span class="st">"GCC"</span> <span class="ot">=</span> <span class="st">"A"</span>, <span class="st">"GAC"</span> <span class="ot">=</span> <span class="st">"D"</span>, <span class="st">"GGC"</span> <span class="ot">=</span> <span class="st">"G"</span>,</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"GUA"</span> <span class="ot">=</span> <span class="st">"V"</span>, <span class="st">"GCA"</span> <span class="ot">=</span> <span class="st">"A"</span>, <span class="st">"GAA"</span> <span class="ot">=</span> <span class="st">"E"</span>, <span class="st">"GGA"</span> <span class="ot">=</span> <span class="st">"G"</span>,</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>    <span class="st">"GUG"</span> <span class="ot">=</span> <span class="st">"V"</span>, <span class="st">"GCG"</span> <span class="ot">=</span> <span class="st">"A"</span>, <span class="st">"GAG"</span> <span class="ot">=</span> <span class="st">"E"</span>, <span class="st">"GGG"</span> <span class="ot">=</span> <span class="st">"G"</span>)</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>  protein <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> codon_table[codons],</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">collapse =</span> <span class="st">""</span>)</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(protein)</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p></p>
+</details>
+<details>
+<summary>
+Simple base counts
+</summary>
+<p>
+</p><div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple base counts</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>base_freqs <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  dna_vec <span class="ot">&lt;-</span> <span class="fu">strsplit</span>(<span class="at">x =</span> x,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">split =</span> <span class="st">""</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  base_counts <span class="ot">&lt;-</span> <span class="fu">table</span>(dna_vec)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>( <span class="fu">as.data.frame.table</span>(base_counts) )</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p></p>
+</details>
+<p></p>
+</details>
+<section id="building-a-virtual-gene-generator" class="level4">
+<h4 class="anchored" data-anchor-id="building-a-virtual-gene-generator">Building a Virtual Gene Generator</h4>
 </section>
-<section id="task-3.5---create-shiny-module1" class="level4">
-<h4 class="anchored" data-anchor-id="task-3.5---create-shiny-module1">Task 3.5 - Create shiny “module1”</h4>
-<p>The “module1” module (please pick a sensible name) should take in a DNA strand and convert it into a peptide sequence. There should also be an option to create a random DNA strand, in case the user does not have one of their own.</p>
-<ol type="1">
-<li>Go to <code>dev/02_dev.R</code> and find the function to add a module. Again, set <code>with_test = FALSE</code>. Remember to name the module something sensible related to the description above. Run the function.</li>
-<li>In the created module file, scroll to the bottom of the module and copy the commented out module server function and add it to <code>R/app_server.R</code> in the <code>app_server</code> function.</li>
-<li>Do the same for the ui function. Importantly, place it in the first <code>tabPanel</code> in <code>R/app_ui.R</code>, replacing the “module1” string. Give it a sensible title. If you made your own layout, place the module where you imagine it should go.</li>
-<li>Go back to the module script. Use my suggested module layout below. If you want, you are more than welcome to design it yourself. See the layout guide <a href="https://shiny.posit.co/r/articles/build/layout-guide/">here</a> or <a href="https://rstudio.github.io/cheatsheets/html/shiny.html">cheat sheet</a> for inspiration.
+<section id="version-1-the-basics" class="level4">
+<h4 class="anchored" data-anchor-id="version-1-the-basics">Version 1, the basics</h4>
+<p>Below here, you will find some boilerplate code, which is based on what you saw in the <code>01_hello</code>-example.</p>
 <ul>
-<li>Fill your desired layout in the <code>tagsList</code> of the <code>ui</code> function in the module.</li>
-</ul></li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fluidRow</span>(</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column</span>(<span class="dv">8</span>, <span class="st">"DNA_sequence"</span>),</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column</span>(<span class="dv">4</span>, <span class="st">"random_dna_length"</span>, <span class="st">"generate_dna_button"</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>),</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="st">"peptide_sequence"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Again, the names in the example are not actual shiny stuff, just names I put in as a placeholder. Feel free to use them as your inputIDs and outputIDs or come up with your own.</p>
-<ol start="5" type="1">
-<li>Before we continue, try to run the app: Run every line but the last in <code>dev/run_dev.R</code> and reopen your app.</li>
-</ol>
-<ul>
-<li>Remember if you get a “Not Found” error, the “/shiny/” might be missing from the URL.</li>
-<li>If no changes appear, close the tab for a minute and try again.</li>
+<li><strong>Task:</strong> Look at this code and compare it to your first shiny app, discuss the changes in your group, what do you see?</li>
+<li><strong>Task:</strong> Create your second Shiny App in a new file <code>virtual_gene_generator.R</code>, copy/paste making sure to insert the code needed for the function <code>gene_dna()</code> (See code for functions above)</li>
+<li><strong>Task:</strong> Run the App and in your group, discuss how it works</li>
 </ul>
-<ol start="6" type="1">
-<li><strong>Discuss in your group which parts of the UI needs to be reactive (updateable) and which don’t.</strong> Of course, when you type a letter, the letter should appear where you typed it - that part happens automatically. But what needs to update when a button is clicked or an input changes?</li>
-<li>Let’s add some inputs (buttons, text, etc.):
-<ul>
-<li>Go <a href="https://shiny.posit.co/r/gallery/widgets/widget-gallery/">here</a> for inspiration for inputs.</li>
-<li>Look at the shiny <a href="https://rstudio.github.io/cheatsheets/html/shiny.html">cheat sheet</a> for inspiration for input and output.</li>
-<li>Remember to wrap your input/output IDs with <code>ns()</code> (required in modules).</li>
-</ul></li>
-</ol>
-<details>
-<summary>
-Hint for <code>DNA_sequence</code>
-</summary>
-For the DNA input, I wanted the sequence to be updated when the user clicks the “generate_dna_button” button. The simplest way to make UI inputs reactive is with an <code>uiOutput()</code>. My “DNA_sequence” look like: <code>uiOutput(ns("DNA"))</code>. The content of the field will be defined in the server.
-</details>
-<details>
-<summary>
-Hint for <code>random_dna_length</code> and <code>generate_dna_button</code>
-</summary>
-<p>I chose a numeric input for the “random_dna_length” and an actionButton for the “generate_dna_button”. They look like:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">numericInput</span>(</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">inputId =</span> <span class="fu">ns</span>(<span class="st">"dna_length"</span>),</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">value =</span> <span class="dv">6000</span>,</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">min =</span> <span class="dv">3</span>,</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">max =</span> <span class="dv">100000</span>,</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">step =</span> <span class="dv">3</span>,</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"Random DNA length"</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">actionButton</span>(</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">inputId =</span> <span class="fu">ns</span>(<span class="st">"generate_dna"</span>),</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"Generate random DNA"</span>, <span class="at">style =</span> <span class="st">"margin-top: 18px;"</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"shiny"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the "Virtual Gene"-function (See code for functions above)</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>gene_dna <span class="ot">&lt;-</span> ...</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the User Interface (Frontend)</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">"Virtual Gene Generator"</span>),</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sidebarLayout</span>(</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sidebarPanel</span>(</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sliderInput</span>(<span class="at">inputId =</span> <span class="st">"n_bases"</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"Number of bases:"</span>,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                  <span class="at">min =</span> <span class="dv">1</span>,</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>                  <span class="at">max =</span> <span class="dv">60</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>                  <span class="at">value =</span> <span class="dv">30</span>)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mainPanel</span>(</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">textOutput</span>(<span class="at">outputId =</span> <span class="st">"dna"</span>)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the Server (Backend)</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>dna <span class="ot">&lt;-</span> <span class="fu">renderText</span>({</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gene_dna</span>(<span class="at">length =</span> input<span class="sc">$</span>n_bases)</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Launch the shiny app</span></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-I added the style to adjust the position of the button. That is in no way required.
-</details>
-<details>
-<summary>
-Hint for <code>peptide_sequence</code>
-</summary>
-<p>For “peptide_sequence”, I chose a <code>verbatimTextOutput</code>. You may not have seen it before; it is in the shiny cheat sheet, but it simply allows for long-form text output in a grey box. The <code>tagAppendAttributes</code> allow you to add CSS tags (you don’t need to know what that means). In this case, I wanted the text to wrap. By googling a bit, I found the solution seen below (feel free to see how it looks with and without it - but remember you will first see something, when you have made the server logic in the next task).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">verbatimTextOutput</span>(<span class="at">outputId =</span> <span class="fu">ns</span>(<span class="st">"peptide"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tagAppendAttributes</span>(<span class="at">style =</span> <span class="st">"white-space: pre-wrap;"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</details>
-<details>
-<summary>
-Full possible solution
-</summary>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mod_dna_expression_ui <span class="ot">&lt;-</span> <span class="cf">function</span>(id){</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  ns <span class="ot">&lt;-</span> <span class="fu">NS</span>(id)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tagList</span>(</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fluidRow</span>(</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">column</span>(<span class="dv">8</span>, shiny<span class="sc">::</span><span class="fu">uiOutput</span>(<span class="fu">ns</span>(<span class="st">"DNA"</span>))),</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">column</span>(<span class="dv">4</span>, shiny<span class="sc">::</span><span class="fu">numericInput</span>(</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">inputId =</span> <span class="fu">ns</span>(<span class="st">"dna_length"</span>),</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">value =</span> <span class="dv">6000</span>,</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">min =</span> <span class="dv">3</span>,</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">max =</span> <span class="dv">100000</span>,</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">step =</span> <span class="dv">3</span>,</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">label =</span> <span class="st">"Random DNA length"</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>      ),</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>      shiny<span class="sc">::</span><span class="fu">actionButton</span>(</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">inputId =</span> <span class="fu">ns</span>(<span class="st">"generate_dna"</span>),</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">label =</span> <span class="st">"Generate random DNA"</span>, <span class="at">style =</span> <span class="st">"margin-top: 18px;"</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>      ))</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    shiny<span class="sc">::</span><span class="fu">verbatimTextOutput</span>(<span class="at">outputId =</span> <span class="fu">ns</span>(<span class="st">"peptide"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>      shiny<span class="sc">::</span><span class="fu">tagAppendAttributes</span>(<span class="at">style =</span> <span class="st">"white-space: pre-wrap;"</span>)</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</details>
-<p><br></p>
-<ol start="8" type="1">
-<li>Reopen your app to see what it looks like. Remember, all <code>output</code> stuff will not appear before the server outputs something to it.</li>
-</ol>
 </section>
-<section id="task-3.6---adding-server-logic" class="level4">
-<h4 class="anchored" data-anchor-id="task-3.6---adding-server-logic">Task 3.6 - Adding server logic</h4>
-<p>This task might seem a bit confusing, but hang tight! Let me take you through this one step at a time.</p>
-<ol type="1">
-<li>First, the DNA sequence should be an object that reacts to user input. Therefore, it should be a reactive value.
+<section id="version-2-expanding" class="level4">
+<h4 class="anchored" data-anchor-id="version-2-expanding">Version 2, expanding</h4>
+<p>Now, if you look at the code for the <code>gene_dna</code>-function, it has a second parameter <code>base_probs</code> with the default argument <code>c(0.25, 0.25, 0.25, 0.25)</code>. Let us now expand, so your app allows the user to define the individual base probabilities.</p>
 <ul>
-<li>As the first line to add in the server function in your module, write <code>dna &lt;- reactiveVal()</code>.</li>
-<li>Read more about reactive values <a href="https://mastering-shiny.org/reactivity-objects.html?q=reactiveVal#reactive-values">here</a> if you like. The important thing to have in mind is that every time you want to get the value run <code>dna()</code>, and when you update it run <code>dna(new_value)</code> with your new value - you will see an example of this in a minute.</li>
-</ul></li>
-<li>If you, like me, wanted your DNA input strand to be updateable in the input field, add the following somewhere in the server:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>DNA <span class="ot">&lt;-</span> <span class="fu">renderUI</span>({</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">textAreaInput</span>(</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">inputId =</span> <span class="fu">ns</span>(<span class="st">"DNA"</span>),</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">label =</span> <span class="st">"DNA sequence"</span>,</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">placeholder =</span> <span class="st">"Insert DNA sequence"</span>,</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">value =</span> <span class="fu">dna</span>(),</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">height =</span> <span class="dv">100</span>,</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">width =</span> <span class="dv">600</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Make sure the IDs match.</li>
-<li><strong>Discuss in the group what is going on there.</strong></li>
+<li><strong>Task:</strong> Expand the <code>ui</code> with one <code>numericInput()</code> for each of the four bases defining the probability of drawing that base and pass those numbers onto the <code>server</code></li>
 </ul>
 <details>
-<summary>
-Answer
+<p>
+</p><summary>
+Need a hint?
 </summary>
-<p>The <code>output$DNA</code> informs shiny to update the output with DNA as ID from the UI. In this case the <code>uiOutput</code> you added earlier. The <code>renderUI</code> creates a UI field. This function is complementary to the <code>uiOutput</code>. <code>textAreaInput</code> is a large text input field - suitable for large text inputs, such as DNA. The <code>ns()</code> should always be called when adding input/output fields in modules. Note that it is not necessary when assigning to outputs, such as <code>output$DNA</code>. The <code>dna()</code> adds the DNA strand as the value in the field, this ensures that the updated DNA value is displayed in the input field, when it is generated with the ‘random DNA’ function.</p>
-As an added note, notice that the input and output IDs can be the same, as with the <code>ns("DNA")</code> ID for both <code>uiOutput</code> and <code>textAreaInput</code> in this case. I find it handy to name them the same, so I know which input and output interacts. If you find it confusing, you can name them something else.
+<p></p>
+<p>Recall, that you in the console can type <code>?numericInput</code> and get help on the function. Try to do so and compare with the <code>sliderInput()</code> you already have defined in your app.</p>
+<em>Tip: Start with just one probability and then hardcode the other 3 to e.g.&nbsp;0.25</em>
 </details>
-<p><br></p>
-<ol start="3" type="1">
-<li>The next step is to add a reaction when the “generate random DNA” button is clicked.
-<ul>
-<li>There are a few ways to handle this. My favorite is the following:</li>
-</ul></li>
-</ol>
+<details>
+<p>
+</p><summary>
+Need a hint more?
+</summary>
+<p></p>
+The <code>inputId</code> defines the “name” of what is passed to the server, e.g.&nbsp;if you look at the <code>sliderInput()</code> it uses <code>inputId = "n_bases"</code>, which is then passed to the server as <code>input$n_bases</code>
+</details>
+<details>
+<p>
+</p><summary>
+Need just one hint more?
+</summary>
+<p></p>
+<p>In your <code>ui</code>, you have to find room for:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">observeEvent</span>(input<span class="sc">$</span>generate_dna, {</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>      <span class="fu">dna</span>(</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        yourpackage<span class="sc">::</span><span class="fu">function_one</span>(input<span class="sc">$</span>dna_length)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>      )</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">numericInput</span>(<span class="at">inputId =</span> <span class="st">"prob_A"</span>,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">label =</span> <span class="st">"Probability of A"</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">value =</span> <span class="fl">0.25</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">min =</span> <span class="dv">0</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">max =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="4" type="1">
-<li>Write the name of your package instead of <code>yourpackage</code> and add the name you gave function one from last week’s exercise.
-<ul>
-<li>Make sure the input names are the same as for your app (<code>generate_dna</code> and <code>dna_length</code>)</li>
-<li><strong>Discuss in your group what is going on.</strong> Before looking at the answer, consider reading <a href="https://mastering-shiny.org/basic-reactivity.html?q=observ#observers">this section</a>.</li>
-</ul></li>
-</ol>
-<details>
-<summary>
-Answer
-</summary>
-The <code>observeEvent</code> function observes when a change occurs to the <code>generate_dna</code> input. The reaction to a change then involves updating the dna value to the output of <code>function_one()</code> - or what you chose to call the function.
-</details>
-<p><br></p>
-<ol start="5" type="1">
-<li>Lastly, we should address what happens when there is DNA to be translated into a peptide:
-<ul>
-<li>Feel free to play around with a solution, based on what you have done previously.</li>
-<li>The challenging part is to make the peptide update automatically without initial loading problems or nuisance for the user (the latter refers to a problem where an <a href="https://mastering-shiny.org/basic-reactivity.html?q=observer#observers">observer</a> may deselect the text input field such that the user has to press the field again to continue typing.)</li>
-<li>Otherwise, use my solution below:</li>
-</ul></li>
-</ol>
-<details>
-<summary>
-Possible solution
-</summary>
-<p>This may not work as intended if you did not choose the <code>uiOutput</code> for the DNA input field. Then you may have to use <code>dna()</code> or add an <code>actionButton</code>. Ask if you run into issues. Please note that I am using <code>input$DNA</code> and <em>not</em> <code>dna()</code>. You will discuss why in a minute, but feel free to try it out both ways and see if you notice the difference.</p>
+<p>In your <code>server</code> you have to find room for:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>peptide <span class="ot">&lt;-</span> <span class="fu">renderText</span>({</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Ensure input is not NULL and is longer than 2 characters</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(<span class="fu">is.null</span>(input<span class="sc">$</span>DNA)){</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="cn">NULL</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> <span class="cf">if</span>(<span class="fu">nchar</span>(input<span class="sc">$</span>DNA) <span class="sc">&lt;</span> <span class="dv">3</span>){</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="cn">NULL</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span>{</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        input<span class="sc">$</span>DNA <span class="sc">|&gt;</span> </span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>          <span class="fu">toupper</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>          yourpackage<span class="sc">::</span><span class="fu">function_two</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>          yourpackage<span class="sc">::</span><span class="fu">function_three</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>          yourpackage<span class="sc">::</span><span class="fu">function_four</span>()</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>      }</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>base_probs <span class="ot">=</span> <span class="fu">c</span>(input<span class="sc">$</span>prob_A, <span class="fl">0.25</span>, <span class="fl">0.25</span>, <span class="fl">0.25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+and then figure out how to expand that to also include <code>prob_T</code>, <code>prob_C</code> and <code>prob_G</code>
 </details>
-<p><br></p>
-<ol start="6" type="1">
-<li>Regardless of wether you used my solution or not, <strong>discuss in your group what goes on in my solution</strong></li>
-</ol>
-<details>
-<summary>
-Answer
-</summary>
-<p>With a direct <code>renderText</code> on the <code>input$DNA</code>, the output will update whenever the input field changes, without causing the nuisance described above, which would be introduced with an <code>observeEvent</code> without an associated <code>actionButton</code>. Recall <code>input$DNA</code> gets updated when <code>generate_dna</code> is clicked. The first test checks that the input is not <code>NULL</code>, which it is upon loading the app, causing an error message in the console, but doesn’t necessarily crash the app. An output of <code>NULL</code> renders nothing (this fact can be useful when building apps in the future). The second test ensures an output is only generated when there is more than 3 characters to interpret. The <code>toupper()</code> function ensures the input is upper case, which is required for the codon table. <code>renderText</code> does as you would expect and renders some text for the UI. You might have guessed from the row of functions in the <code>renderText</code>, it takes the dna strand and converts it using the package you created last week into a peptide sequence. This peptide sequence is then stored in the peptide output, which links to the <code>verbatimTextOutput</code> you likely have in your ui function</p>
-</details>
-<p><br></p>
-<ol start="7" type="1">
-<li>Please make sure all input and output IDs match in the UI and Server functions.</li>
-<li>Go to <code>dev/02_dev.R</code> and run the first function to add dependencies: <code>attachment::att_amend_desc()</code> or do it manually.</li>
-<li>Reopen the app and see if it acts as expected.</li>
-</ol>
+<p>Once you are up and running, your app should look something like this:</p>
+<p><img src="images/shiny_virtual_gene_generator.png" class="img-fluid"></p>
 <ul>
-<li>Remember if you get a “Not Found” error, the “/shiny/” might be missing from the url.</li>
-<li>If no changes appear, close the tab for a minute and try again.</li>
+<li><strong>Task:</strong> Update the <code>gene_dna()</code>-function in your app to check if the probabilities sum to 1 and make sure output a meaningful error message, if they do not</li>
 </ul>
-<ol start="10" type="1">
-<li>Push it to GitHub</li>
-</ol>
-<p><br></p>
-<p>Awesomely done! You have now created a fully functional R shiny application that takes in a DNA strand or creates a random one, converts it into a peptide sequence, and then is able to plot the abundance of each amino acid in the sequence.</p>
+<details>
+<p>
+</p><summary>
+Need a hint?
+</summary>
+<p></p>
+The <code>gene_dna()</code>-function already checks it the length of the DNA is divisible by 3, use this as inspiration to add your own check. If you are uncertain on how to compute the <code>sum()</code> of a vector in <code>R</code>, try to google a bit…
+</details>
+<details>
+<p>
+</p><summary>
+A bit more advanced hint
+</summary>
+<p></p>
+Actually, you should be careful when comparing numbers when you create apps or any analysis code. If you sum a large vector, you might experience, that even when the sum should be equal to 1, it will fail a direct comparison, such as <code>sum(p) == 1</code>. This has to do with internal representation of numbers in a computer resulting in small rounding errors. Therefore, it is safer to use e.g.: <code>abs(sum(p) - 1) &lt; 1e-10</code>, i.e.&nbsp;is the difference between my sum and the number 1 smaller than some very small number.
+</details>
 </section>
+</section>
+<section id="controlling-the-layout" class="level3">
+<h3 class="anchored" data-anchor-id="controlling-the-layout">Controlling the Layout</h3>
+<p>By now your base app is up and running, but you may want to tinker with the layout of the user interface. We can do so using the <code>card()</code>-function from the <code>bslib</code>-package:</p>
+<details>
+<summary>
+Click to expand app code
+</summary>
+<p>
+</p><div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the User Interface (Frontend)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">page_fluid</span>(</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout_columns</span>(</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_widths =</span> <span class="dv">12</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">card</span>(</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">titlePanel</span>(<span class="st">"Virtual Central Dogma"</span>),</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">style =</span> <span class="st">"background-color: #f0f0f0; padding: 15px;"</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    )),</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout_columns</span>(</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_widths =</span> <span class="dv">12</span>,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">card</span>(</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">titlePanel</span>(<span class="st">"About"</span>),</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">helpText</span>(<span class="st">"Describe what your app does..."</span>)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    )),</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout_columns</span>(</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_widths =</span> <span class="dv">12</span>,</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">card</span>(</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">card_header</span>(<span class="st">"Virtual Gene Generator"</span>),</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sliderInput</span>(<span class="at">inputId =</span> <span class="st">"n_bases"</span>,</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>                  <span class="at">label =</span> <span class="st">"Number of bases:"</span>,</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>                  <span class="at">min =</span> <span class="dv">1</span>,</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>                  <span class="at">max =</span> <span class="dv">60</span>,</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>                  <span class="at">value =</span> <span class="dv">30</span>,</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>                  <span class="at">width =</span> <span class="st">"100%"</span>),</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>      <span class="fu">layout_columns</span>(</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">col_widths =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>),</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>        <span class="fu">numericInput</span>(<span class="at">inputId =</span> <span class="st">"prob_A"</span>,</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>                     <span class="at">label =</span> <span class="st">"Probability of A"</span>,</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>                     <span class="at">value =</span> <span class="fl">0.25</span>,</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>                     <span class="at">min =</span> <span class="dv">0</span>,</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>                     <span class="at">max =</span> <span class="dv">1</span>,</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>                     <span class="at">step =</span> <span class="fl">0.1</span>),</span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>        <span class="fu">numericInput</span>(<span class="at">inputId =</span> <span class="st">"prob_T"</span>,</span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>                     <span class="at">label =</span> <span class="st">"Probability of T"</span>,</span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>                     <span class="at">value =</span> <span class="fl">0.25</span>,</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>                     <span class="at">min =</span> <span class="dv">0</span>,</span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>                     <span class="at">max =</span> <span class="dv">1</span>,</span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>                     <span class="at">step =</span> <span class="fl">0.1</span>),</span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>        <span class="fu">numericInput</span>(<span class="at">inputId =</span> <span class="st">"prob_C"</span>,</span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>                     <span class="at">label =</span> <span class="st">"Probability of C"</span>,</span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>                     <span class="at">value =</span> <span class="fl">0.25</span>,</span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>                     <span class="at">min =</span> <span class="dv">0</span>,</span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>                     <span class="at">max =</span> <span class="dv">1</span>,</span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>                     <span class="at">step =</span> <span class="fl">0.1</span>),</span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a>        <span class="fu">numericInput</span>(<span class="at">inputId =</span> <span class="st">"prob_G"</span>,</span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a>                     <span class="at">label =</span> <span class="st">"Probability of G"</span>,</span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a>                     <span class="at">value =</span> <span class="fl">0.25</span>,</span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a>                     <span class="at">min =</span> <span class="dv">0</span>,</span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>                     <span class="at">max =</span> <span class="dv">1</span>,</span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a>                     <span class="at">step =</span> <span class="fl">0.1</span>)</span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a>    ))),</span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout_columns</span>(</span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_widths =</span> <span class="dv">12</span>,</span>
+<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">card</span>(</span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a>      <span class="fu">card_header</span>(<span class="st">"Virtual Gene output"</span>),</span>
+<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mainPanel</span>(</span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>        <span class="fu">verbatimTextOutput</span>(<span class="at">outputId =</span> <span class="st">"dna"</span>)</span>
+<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>    ))</span>
+<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
+<ul>
+<li><strong>Task:</strong> Update your app using the above <code>card()</code>-function layout</li>
+</ul>
+</section>
+<section id="its-complicated" class="level3">
+<h3 class="anchored" data-anchor-id="its-complicated">It’s Complicated…</h3>
+<p>As you have probably realised by now, the final app can be rather many lines of code defining the user interface and likewise for the server and also associated functions. To address this, it is recommendable to divide your app into seperate files mimicking the illustration of the anatomy of a Shiny app. To do so, we will need four files:</p>
+<ol type="1">
+<li>The functions: <code>app_functions.R</code></li>
+<li>The user interface: <code>ui.R</code></li>
+<li>The server: <code>server.R</code></li>
+<li>The app: <code>virtual_central_dogma.R</code></li>
+</ol>
+<p>The latter will look something like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load needed libraries</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"PACKAGE_NAME"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load needed functions</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="at">file =</span> <span class="st">"app_functions.R"</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the frontend user interface ui.R</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="at">file =</span> <span class="st">"ui.R"</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the backend server server.R</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="at">file =</span> <span class="st">"server.R"</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Run the Shiny app</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><strong>Task:</strong> First make sure, that your app runs as is and then create these four files and copy/paste the approproiate code into each of the files</li>
+</ul>
+</section>
+<section id="completing-the-central-dogma" class="level3">
+<h3 class="anchored" data-anchor-id="completing-the-central-dogma">Completing the Central Dogma</h3>
+<p>So far you have just been working with the <code>gene_dna()</code>-function, but we naturally have to also include:</p>
+<ul>
+<li>Transcription</li>
+<li>Translation</li>
+<li>A bit of analysis</li>
+</ul>
+<p>If you scroll a bit back, you were given some pre-built code for the following functions:</p>
+<ul>
+<li><code>gene_dna()</code></li>
+<li><code>transcribe_dna()</code></li>
+<li><code>translate_rna()</code></li>
+<li><code>base_freqs()</code></li>
+</ul>
+<p>Right then:</p>
+<ul>
+<li><strong>Task:</strong> Expand your app to include the central dogma functions <code>gene_dna()</code>, <code>transcribe_dna()</code> and <code>translate_rna()</code>. Note that any further analysis, such as e.g.&nbsp;<code>base_freqs()</code> or similar is optional</li>
+</ul>
+<p>A bit of help to get you started:</p>
+<ul>
+<li>You can find an overview of the different <a href="https://shiny.posit.co/r/getstarted/shiny-basics/lesson3/">input controls here</a></li>
+</ul>
+</section>
+<section id="getting-your-shiny-app-live" class="level3">
+<h3 class="anchored" data-anchor-id="getting-your-shiny-app-live">Getting Your Shiny App LIVE!</h3>
+<p><em>Note, when we publish our app, each file will be “build” and this will create errors if some functions are not found. Therefore, make sure to include <code>library("PACKAGE_NAME")</code> in each files for all needed libraries</em></p>
+<ol type="1">
+<li>Go to <a href="https://www.shinyapps.io">shinyapps.io</a></li>
+<li>Log in or create an account</li>
+<li>Go back to your RStudio session and launch your Shiny App</li>
+<li>In the upper right corner, it’ll say “Publish”</li>
+<li>You may get prompted to install some packages, so go ahead and do so</li>
+<li>You will then get prompted to “Connect Publishing Account”, click “Next”</li>
+<li>Choose your “ShinyApps.io” account</li>
+<li>Follow the outlined connect procedure</li>
+<li>Choose a “Title” for your app</li>
+<li>Click “Publish”</li>
+</ol>
+<p><em>After some automated build procedures, your Shiny App is LIVE - CONGRATULATIONS!</em></p>
+<p>NB! If you an error saying:</p>
+<ul>
+<li><em>“An error has occurred! An error has occurred. Check your logs or contact the app author for clarification.”</em></li>
+</ul>
+<p>Then likely, there is a problem withs paths or libraries, did you remember to start this last part as a seperate project? Also, did you remember to include library definitions in all 3 files?</p>
 </section>
 </section>
 <section id="group-assignment-important-see-how-to" class="level2">
-<h2 class="anchored" data-anchor-id="group-assignment-important-see-how-to">&lt;<span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: <a href="./assignments.html">how to</a>)</h2>
-<hr>
-<p>This week’s assignment is a short group discussion (1/4 - 1/2 page). Please cover these topics:</p>
-<ul>
-<li><p>What did you find most challenging about creating a shiny app?</p></li>
-<li><p>What do you feel are the benefits and challenges with using <code>golem</code> for app development?</p></li>
-<li><p>Maintaining reproducibility when using shiny apps is a challenge. As an example, some pharma-companies display databases to medical doctors for pointy-clicky data exploration. What are your thoughts on maintaining reproducibility in that scenario? What if the database is updated or the app is updated with new or changed functionality?</p></li>
-<li><p>What other challenges and limitations do you see shiny apps may have? Please elaborate.</p></li>
-<li><p>Hand in a pdf with you discussion points and links to your shiny app GitHub page and the app itself.</p></li>
-</ul>
-<p>As an <strong>optional</strong> extra challenge, try to expand your shiny app with a third module. You decide what the content of the module should be. Remember to put the shiny module functions somewhere in <code>R/app_ui.R</code> in the <code>app_ui</code> function and <code>R/app_server.R</code> in the <code>app_server</code> function. If you made one, add a brief description of the module in the hand-in.</p>
+<h2 class="anchored" data-anchor-id="group-assignment-important-see-how-to"><span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: <a href="./assignments.html">how to</a>)</h2>
+<p>For this week’s assignment you have to:</p>
+<ol type="1">
+<li>Create a new Github repository, name it <code>group_XX_shiny</code>, where <code>XX</code> is your group name, e.g.&nbsp;<code>06</code></li>
+<li>Finish the Central Dogma shiny app by Github collaborating (Psst… Perhaps branching and delegate specific cards to group members would be prudent)</li>
+<li>Publish your finished shiny app to shinyapps.io</li>
+<li>Place the link to your published app in the README of the repository</li>
+<li>For your assignment hand in, simply create a text file containing the link to your group Github repository containing your shiny app</li>
+</ol>
+<p><em>You app should contain the central dogma functions <code>gene_dna()</code>, <code>transcribe_dna()</code> and <code>translate_rna()</code>, but any further analysis, such as e.g.&nbsp;<code>base_freqs()</code> or similar is optional. Please feel free to style your app as you please</em></p>
 
 
 </section>

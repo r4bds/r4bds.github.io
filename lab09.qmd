@@ -40,610 +40,606 @@ _A student who has met the objectives of the session will be able to:_
 - Prepare a simple shiny application
 - Using relevant online resources to autonomously identify and obtain new and expand on existing knowledge of R
 
-
 ## Exercises {#sec-exercises}
 
-### Introduction
+### Getting Started
 
 _First, make sure to read and discuss the feedback you got from last week's assignment!_
 
-----
+Then, for this particular session, we will make use of Posit's free Cloud infrastructure. Setting it up is quite easy:
 
-In today's lab, you will use the package you developed last time as basis for a Shiny App.
+1. Go to [posit Cloud](https://posit.cloud)
+1. Click the blue `GET STARTED` button
+1. Under `Cloud Free`, click the blue `Learn more` button
+1. Click the long blue `Sign Up` button
+1. Enter your information for setting up an account
+1. Make sure to `Verify Your Email` as instructed
+1. Then return to where you set up the account and click the blue `Continue` button
 
-Do not worry if you didn't finish it, you will be able to install a backup. But please do try to use your own package first.
+Congratulations! You have now created your personal posic cloud account. You will land in `Your Workspace`. Here you will have to create a new project, which you will use to work on the exercises today, so please:
 
-You will be using the `golem` production-grade app development framework, which has a bit of a learning curve, but it is a solid starting point.
-Please hang tight, as I walk you through how to get started.
+1. In the upper right corner, click the blue `New Project` button
+1. Choose `New RStudio Project`
+1. Your project will be prepared and then deployed and you will land in the familiar RStudio IDE. Next to `Your Workspace` in the upper left corner, click where it says `Untitled Project` and name your project, e.g. `R4BDS Shiny Exercises`
 
-When building a Shiny App with `golem`, you need everything you learned about creating an R package, because a `golem` Shiny App *is* a package, and all the same rules apply.
+Now, let us do some quick setup:
 
+1. Click `Tools` and then `Global Options...`
+1. Under **Workspace**, untick `Restore .RData into workspace on startup`
+1. Next to `Save workspace to .RData on exit:`, choose `Never`
+1. In the lower right corner, click `Apply`
+1. Now on the left, find and click `Pane Layout` and click `Environment, History, Conne` and choose `Console`
+1. In the lower right corner, click `Apply`
 
-### TASKS
+Optionally you can adjust the visual appearance:
 
-### Task 1 - Setting up the Shiny App
+1. Now on the left, find and click `Appearance`
+1. Under `Editor theme:`, click a few options and see if you can find something you like
+1. If you want to return to the default, simply find and click `Textmate (default)`
 
-----
+Optionally, you can add a third column enabling you to e.g. have two Quarto Documents / Scripts / Text files open simultaneously:
 
-As last week, the first tasks are only done by **one team member**, until instructed otherwise.
-Let the other team members follow along with what you are doing and do the following:
+1. On the left, find and click `Pane Layout`
+1. Click `Add Column`
+1. Note, this is best suited for wide desktop screens, so if you change your mind, simply click `Remove Column`
 
-#### Task 1.1 - Create the App
+_Once you are done, click `OK` to close the `Options`_
 
+### Initial "Hello Shiny World"
 
-1. Go to [R for Bio Data Science RStudio Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) and login.
-2. Create a folder in home called `ShinyApps` - You need this for the server to find your app.
-3. Run `golem::create_golem("~/ShinyApps/YOUR_APP_NAME")` in the console, putting in a name of your own choosing.
-  - As last week, the theme is the central dogma of molecular biology. Let that inspire you
-  - Look up naming rules [here](https://r-pkgs.org/workflow101.html#name-your-package)
-  - The most important rule: `_`, `-`, and `'` are not allowed.
-4. Run `usethis::use_git()` to ensure git is initialized.
+Now let us get started on `Shiny`. First, find the console and enter: 
 
-
-#### Task 1.2 - Make a GitHub repository for your group's app
-
-1. Go to [https://github.com/rforbiodatascience24](https://github.com/rforbiodatascience24)
-2. Click the green `New` button
-3. Create a new repository called `group_X_shiny`. Remember to replace the **X**
-4. Select `rforbiodatascience24` as owner
-5. Make the repository `Public`
-6. Click the green `Create repository` button
-7. In this new repository, click the `settings` tab
-8. Click `Collaborators and Team`
-9. Click the green `Add people` button
-10. Invite the remaining group members
-11. All other team members should now have access to the repository, **but do not create your own project yet.**
-
-
-#### Task 1.3 - Connect your RStudio Project to the GitHub Repository
-
-
-**Still only the first team member**
-
-1. Find your `PAT` key or create a new
-  <details> <summary>How to create a new one</summary>
-  <ul>
-  <li>Type in the console `usethis::create_github_token()`. You’re going to be redirected to GitHub website.
-  <li> In case you do it manually, remember to give permission to access your repositories.
-  <li>You need to type your password. Don’t change the default settings of creating the token except for the description – set ‘RStudio Server’ or something similar. Then hit Generate token.
-  <li>Copy the generated token (should start with ghp_) and store it securely (e.g. in password manager). Do not keep it in a plain file.
-  </ul></details>
-2. Go back to the RStudio Server project.
-3. Type in the console `gitcreds::gitcreds_set()` and paste the `PAT` key.
-4. If there are files in the `git` window, stage them by ticking all boxes under `Staged`.
-5. Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the **X**.
 ```{r}
+#| echo: true
 #| eval: false
-usethis::use_git_remote(name = "origin", "https://github.com/rforbiodatascience24/group_X_shiny.git", overwrite = TRUE)
-usethis::use_git_config(user.name = "USERNAME", user.email = "USEREMAIL@EXAMPLE.ORG")
-gert::git_commit_all("App setup") # Only run if there were files to stage
-gert::git_push("origin")
+
+library("shiny")
 ```
 
 
-**All other team members**
+You are going to get an error message, make sure to read it, so you can fix it.
 
-*After your teammate has pushed to GitHub.*
-
-1. You also need to create a `ShinyApps` folder.
-2. In the RStudio Server, create a new project based on the GitHub Repository just created by your teammate.
-    - Click `Create a project`![](images/L08_create.png){width="5%"} in the top left.
-    - Choose `Version Control` and then `Git`.
-    - Paste in the repository URL: `https://github.com/rforbiodatascience24/group_X_shiny.git`. Remember to replace the **X**.
-    - Make sure to put it in the `ShinyApps` folder.
-    - Give the directory a fitting name and click `Create Project`.
-2. Find your `PAT` key or create a new
-  <details> <summary>How to create a new one</summary>
-  <ul>
-  <li>Type in the console `usethis::create_github_token()`. You’re going to be redirected to GitHub website.
-  <li> In case you did it manually, remember to give permission to access your repositories.
-  <li>You need to type your password. Don’t change the default settings of creating the token except for the description – set ‘RStudio Server’ or something similar. Then hit Generate token.
-  <li>Copy the generated token (should start with ghp_) and store it securely (e.g. in password manager). Do not keep it in a plain file.
-  </ul></details>
-3. Go back to the RStudio Server project
-4. Type in the console `gitcreds::gitcreds_set()` and paste the `PAT` key
-5. Still in the console, run the following commands. Replace your GitHub username and email.
-```{r}
-#| eval: false
-usethis::use_git_config(user.name = "USERNAME", user.email = "USEREMAIL@EXAMPLE.ORG")
-```
-
-
-**If RStudio at any point asks you to log in to GitHub, redo step 6 and 7.**
-
-
-### Task 2 - Create a production-grade Shiny app
-
-----
-
-It may seem daunting, but `golem` holds your hand much of the way.
-
-#### Task 2.1 - The dev folder
-
-`golem` creates a `dev` folder in your project. The files there are extremely helpful and you should make yourself familiar with the content. Read [this short chapter](https://engineering-shiny.org/setting-up-for-success.html#setting-up-for-success) to get a feeling for what each helper function does.
-Also take a look at the [golem cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/golem.pdf).
-
-1. Go through `dev/01_start.R` and run the setup functions you think will be useful. *Not everything is.*
-    - Run them in order. **Don't run line 36**, and if you are prompted to install packages, please decline.
-    - Everything on and above line 42 is recommended, everything else is optional. Feel free to see what they do. None of them should cause problems.
-    - After running the function for modifying the `DESCRIPTION` file, add more authors to the `DESCRIPTION` file using this layout:
-```{r}
-#| eval: false
-Authors@R:
-  c(person(given = "firstname",
-           family = "lastname",
-           role = c("aut", "cre"), # There must be a "cre", but there can only be one
-           email = "your@email.com"), 
-    person(given = "firstname",
-           family = "lastname",
-           role = "aut",
-           email = "your@email.com"))
-```
-2. Go through `dev/02_dev.R` to get an idea of what helper functions are available. You will likely use some of these functions quite frequently.
-3. Look through `dev/03_deploy.R` to get an idea of how to deploy your app either in `shinapps.io`, as the app I showed in class, or on CRAN.
-  - Because we are operating on a server, we cannot run the app directly in our R session. Therefore, we should prepare the app for deployment. This will allow the shiny server hosted on the Health Tech Server to launch your apps. 
-  - Run line 32 in `dev/03_deploy.R`, i.e., `golem::add_shinyserver_file()`
-4. Look through `dev/run_dev.R` and run the first four commands. If you were not on a server, you could launch your app by running the last command `run_app()`. However, we *are* on a server, so we have implemented a small trick.
-  - When you ran line 32 previously, an `app.R` file was created. This allows the Health Tech Server to run your Shiny app from this url: `https://teaching.healthtech.dtu.dk/shiny/username/app_name/` - Edit username and app_name appropriately.
-  - You should see an empty app with your title. Now you just need to put stuff in it.
-  - **OBS** Sometimes, for unknown reasons, the browser removes the "shiny" part of the url. If you get a "Not Found" error, check the url.
-  - **Another OBS** For changes to take effect, you will have to close the app session, which means either closing the tab or removing the app name from the url. The latter will list all apps you have created - likely just this one so far. The url would then look like: `https://teaching.healthtech.dtu.dk/shiny/username/`.
-
-#### The R folder
-
-`golem` sets up a framework for your Shiny app.
-This framework is probably a little different from what you normally see when reading/watching guides on Shiny Apps.
-It may look overly complicated, and perhaps it is for this exercise. But it is a robust framework that makes maintaining even large apps easy(ier). Building a small app is very easy as well.
-
-You are welcome to ignore the `R/run_app.R` (a wrapper function for `shiny::shinyApp()`, which runs the app) and `R/app_config.R` (some `golem` configuration) for now.
-
-The first places you want to look are `R/app_ui.R` and `R/app_server.R`. They are responsible for the user interface and the app back end, respectively.
-You will not be working here directly as much, although you could. But it is strongly recommended to work in Shiny modules - created with `golem::add_module( name = "module_name" )`, as you saw in class.
-
-##### Shiny Modules
-
-Shiny modules may appear to make your life more complicated at first, but they will save you a lot of time down the road - especially from bug-fixing and GitHub merging issues.
-
-After creating a module, its `ui` and `server` functions should be copied into the `app_ui.R` and `app_server.R` scripts, as you will be reminded in the bottom of the module scripts.
-There, you can control how the module should interact with the main app - should each module have their own tab in the app or should they be called depending on which button the user clicks on.
-
-Another useful feature of Shiny modules is that you can test them independently from the main app.
-I suggest, each time you create a module, to copy something like the following in the bottom of the created module script (renaming the relevant parts to fit the module). This way you always have a quick test environment at hand. But bear in mind the layout will be different from your main app, as it will not transfer the layout from `app_ui.R`.
-
-```{r, eval=FALSE, echo=TRUE}
-if(FALSE){ # Testing
-  golem::detach_all_attached()
-  golem::document_and_reload()
-  ui <- mod_NAME_ui("NAME_ui_1") # replace NAME here
-  server <- function( input,output,session){
-    mod_NAME_server("NAME_ui_1") # and here
-  }
-  shiny::shinyApp(ui, server)
-}
-```
-
-
-If you want to learn how to make the modules share information, please read [here](https://engineering-shiny.org/structuring-project.html#communication-between-modules). I personally prefer approach B.
-
-This is **not** necessary for the exercises, but I wanted to make you aware that it is possible. Feel free to use it in the Group Assignment.
-
-
-### Task 3 - Populate your Shiny App
-
-----
-
-Last week, you created a package that simulates the central dogma of molecular biology.
-Today, you will use that package to create an app around it.
-
-**Please work together on these tasks.**
-
-#### Task 3.1 - Install the package you created last week
-
-1. `devtools::install_github("rforbiodatascience24/group_X_package")`. Remember to replace the **X**
-
-
-<details><summary> Install backup </summary>
-
-**Please only use this if your own package does not work!**
-
-Install it with: `devtools::install_github("r4bds/centralDogma")`
-
-The function names are as follows:
-
-- Function one: `centralDogma::random_dna()`
-- Function two: `centralDogma::transcribe()`
-- Function three: `centralDogma::codon_split()`
-- Function four: `centralDogma::translate()`
-- Function five: `centralDogma::plot_abundance()`
-
+<details><p><summary>Click here for hint</summary></p>
+_R does not know what you are asking for here. You are missing "something", how can we install "something" we are missing? Note, here on the **posit cloud** you are allowed to install tools you need_
 </details>
 
-
-You have already done the initial setup steps, so let's get started with building the app!
-
-#### Task 3.2 - Design your primary layout
-
-Feel free to use your imagination. Otherwise, follow my suggestion for a `tabsetPanel` layout:
-
-If you make your own layout, make space for the two modules, as I did with the two tabPanels with temporary titles and module names below.
-
-1. Add a `tabsetPanel` with 2 panels in the `fluidPage()` function within the `app_ui` function definition in `R/app_ui.R`. The `tabsetPanel` should be inserted after the header (written as h1(“header”) ), separated by a comma.
+Once you have fixed the error, in the console, run:
 
 ```{r}
+#| echo: true
 #| eval: false
-tabsetPanel(
-  tabPanel(title = "panel1",
-           "module1"),
-  tabPanel(title = "panel2",
-           "module2")
+
+library("shiny")
+runExample("01_hello")
+```
+
+You may get a `Popup Blocked` message, if so, simply click **Try Again**. The you should see:
+
+![](images/shiny_hello_shiny_example.png)
+
+Now, this is the frontend of a real life Shiny app. You can try to alter the `Number of bins:` and see what happens.
+
+There are a multitude of such built in examples.
+
+- **Task:** Try to play around with a few of the following to get an initial feel for what you can do with Shiny and discuss what you see in your group:
+
+```{r}
+#| echo: true
+#| eval: false
+
+runExample("01_hello")      # a histogram
+runExample("02_text")       # tables and data frames
+runExample("03_reactivity") # a reactive expression
+runExample("04_mpg")        # global variables
+runExample("05_sliders")    # slider bars
+runExample("06_tabsets")    # tabbed panels
+runExample("07_widgets")    # help text and submit buttons
+runExample("08_html")       # Shiny app built from HTML
+runExample("09_upload")     # file upload wizard
+runExample("10_download")   # file download wizard
+runExample("11_timer")      # an automated timer
+```
+
+### Your First Shiny App
+
+Now, let us build the `01_hello`-app from scratch!
+
+1. Go to your Posit Cloud session and click `File` $\rightarrow$ `New File` $\rightarrow$ `R Script`
+1. Now, click `File` $\rightarrow$ `Save`
+1. Name the file `01_hello.R`
+1. Copy/paste the code below here into the empty file and again remember to save
+1. Then at the menu just above your open file, click `Run App`
+1. Check if it works and compare with the `01_hello`-example
+
+_Important: This is an R-script file NOT a Quarto document! Think of it as if you take all the code boxes and **only** include those in your file._
+
+<details><p><summary>Code for your first app</summary></p>
+```{r}
+#| echo: true
+#| eval: false
+
+# Load the Shiny library
+library("shiny")
+
+# Define the User Interface (Frontend)
+ui <- fluidPage(
+  titlePanel("Hello Shiny!"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput(inputId = "bins",
+                  label = "Number of bins:",
+                  min = 1,
+                  max = 50,
+                  value = 30)
+    ),
+    mainPanel(
+      plotOutput(outputId = "distPlot")
+    )
+  )
+)
+
+# Define the Server (Backend)
+server <- function(input, output) {
+  output$distPlot <- renderPlot({
+    x <- faithful$waiting
+    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+    hist(x, breaks = bins, col = "#75AADB", border = "white",
+         xlab = "Waiting time to next eruption (in mins)",
+         main = "Histogram of waiting times")
+  })
+}
+
+# Launch the shiny app
+shinyApp(ui = ui, server = server)
+```
+</details>
+
+- **Task:** In your group, compare the code with the below illustration of the anatomy of your first shiny app. Pay specific attention to the `input`- and `output`-variables and how the `inputId = "bins"` end up in `input$bins`. This front-to-back-end communication is central!
+
+![](images/shiny_01_hello_app_anatomy.png)
+
+- **Task:** To further understand what is going on, we can ask constructively for input. Let us use your favourite LLM-technology as a sparring partner, e.g. you can cope/paste the following into a chatGPT prompt:
+
+````{verbatim}
+#| echo: true
+#| eval: false
+
+I am following the university course "R for Bio Data Science".
+Today we are learning about Shiny, which is completely new to me.
+The first thing we have done is to re-create a small shiny app,
+which is part of the examples in the Shiny-package. Moreover,
+it is the example which can be seen by running the code:
+  
+`runExample("01_hello")`
+
+Now, we have manually implemented the app, but I am not certain
+of how it works and the details. In the following, I will
+paste the code from the app. Please in details, minding that I
+am a begginer, explain the details of the code:
+
+PASTE THE APP CODE HERE
+
+````
+
+- **Task:** Furthermore, let us also get some input on how the illustration above maps to the code. Right-click the "Shiny" image above and save it to disk, then copy/paste the following into the same prompt:
+
+````{verbatim}
+#| echo: true
+#| eval: false
+
+The lecturer has given me this graphical illustration,
+but I am not sure I understand how it maps to the code,
+can you please explain?
+
+REMEMBER TO UPLOAD THE IMAGE
+  
+````
+
+- **Task:** Now, look at the answers you got, if something is unclear, ask for an elaboration, e.g.:
+
+````{verbatim}
+#| echo: true
+#| eval: false
+
+I have not seen the terms "user interface" or "frontend"
+or "backend" before. Please briefly explain, what these
+mean and how they are related to building shiny apps  
+````
+
+_Note here, how we using the LLM-technology productively as a sparring-partner. Instead of asking it to produce code, we ask it to explain existing code and to elaborate on any unclear specifics_
+
+### Your Second Shiny App
+
+We will continue where we left of last week. To make sure, that everyone is working with the same functions, we will use the functions outlined below here. Remember the task here is to build an interface, which allow people without coding skills to interact with data.
+
+_Let's get started!_
+
+<details><summary>Click here for functions</summary><p>
+
+_Please note, that as an example of reducing dependencies, these functions are implemented using base R. In case you are not familiar, here again is a prime example of using LLM-technology such as e.g. chatGPT as a sparring partner. Try to submit the following prompt:_
+
+````{verbatim}
+#| echo: true
+#| eval: false
+
+I am not familiar with base R, I only know tidyverse R.
+For the following function and R-code, please explain
+in detail how the used base R functions work and what
+the code in its entirety does:
+
+PASTE THE BASE R CODE OF A FUNCTION HERE
+
+````
+
+<details><summary>Virtual Gene</summary><p>
+```{r}
+#| echo: true
+#| eval: true
+
+# Virtual gene
+gene_dna <- function(length, base_probs = c(0.25, 0.25, 0.25, 0.25)){
+  if( length %% 3 != 0 ){
+    stop("The argument to the parameter 'l' has to be divisible by 3")
+  }
+  dna_vector <- sample(
+    x = c("A", "T", "C", "G"),
+    size = length,
+    replace = TRUE,
+    prob = base_probs)
+  dna_string <- paste0(
+    x = dna_vector,
+    collapse = "")
+  return(dna)
+}
+```
+</p></details>
+
+<details><summary>Virtual RNA Polymerase</summary><p>
+```{r}
+#| echo: true
+#| eval: true
+
+# Virtual RNA polymerase
+transcribe_dna <- function(dna){
+  rna <- gsub(
+    pattern = "T",
+    replacement = "U",
+    x = dna)
+  return(rna)
+}
+```
+</p></details>
+
+<details><summary>Virtual Ribosome</summary><p>
+```{r}
+#| echo: true
+#| eval: true
+
+# Virtual Ribosome
+translate_rna <- function(rna){
+  l <- nchar(x = rna)
+  firsts <- seq(
+    from = 1,
+    to = l,
+    by = 3)
+  lasts <- seq(
+    from = 3,
+    to = l,
+    by = 3)
+  codons <- substring(
+    text = rna,
+    first = firsts,
+    last = lasts)
+  codon_table <- c(
+    "UUU" = "F", "UCU" = "S", "UAU" = "Y", "UGU" = "C",
+    "UUC" = "F", "UCC" = "S", "UAC" = "Y", "UGC" = "C",
+    "UUA" = "L", "UCA" = "S", "UAA" = "_", "UGA" = "_",
+    "UUG" = "L", "UCG" = "S", "UAG" = "_", "UGG" = "W",
+    "CUU" = "L", "CCU" = "P", "CAU" = "H", "CGU" = "R",
+    "CUC" = "L", "CCC" = "P", "CAC" = "H", "CGC" = "R",
+    "CUA" = "L", "CCA" = "P", "CAA" = "Q", "CGA" = "R",
+    "CUG" = "L", "CCG" = "P", "CAG" = "Q", "CGG" = "R",
+    "AUU" = "I", "ACU" = "T", "AAU" = "N", "AGU" = "S",
+    "AUC" = "I", "ACC" = "T", "AAC" = "N", "AGC" = "S",
+    "AUA" = "I", "ACA" = "T", "AAA" = "K", "AGA" = "R",
+    "AUG" = "M", "ACG" = "T", "AAG" = "K", "AGG" = "R",
+    "GUU" = "V", "GCU" = "A", "GAU" = "D", "GGU" = "G",
+    "GUC" = "V", "GCC" = "A", "GAC" = "D", "GGC" = "G",
+    "GUA" = "V", "GCA" = "A", "GAA" = "E", "GGA" = "G",
+    "GUG" = "V", "GCG" = "A", "GAG" = "E", "GGG" = "G")
+  protein <- paste0(
+    x = codon_table[codons],
+    collapse = "")
+  return(protein)
+}
+```
+</p></details>
+
+<details><summary>Simple base counts</summary><p>
+```{r}
+#| echo: true
+#| eval: true
+
+# Simple base counts
+base_freqs <- function(x){
+  dna_vec <- strsplit(x = x,
+                      split = "")
+  base_counts <- table(dna_vec)
+  return( as.data.frame.table(base_counts) )
+}
+```
+</p></details>
+
+</p></details>
+
+
+#### Building a Virtual Gene Generator
+
+#### Version 1, the basics
+
+Below here, you will find some boilerplate code, which is based on what you saw in the `01_hello`-example. 
+
+- **Task:** Look at this code and compare it to your first shiny app, discuss the changes in your group, what do you see?
+- **Task:** Create your second Shiny App in a new file `virtual_gene_generator.R`, copy/paste making sure to insert the code needed for the function `gene_dna()` (See code for functions above)
+- **Task:** Run the App and in your group, discuss how it works
+
+```{r}
+#| echo: true
+#| eval: false
+
+library("shiny")
+
+# Define the "Virtual Gene"-function (See code for functions above)
+gene_dna <- ...
+
+# Define the User Interface (Frontend)
+ui <- fluidPage(
+  titlePanel("Virtual Gene Generator"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput(inputId = "n_bases",
+                  label = "Number of bases:",
+                  min = 1,
+                  max = 60,
+                  value = 30)
+    ),
+    mainPanel(
+      textOutput(outputId = "dna")
+    )
+  )
+)
+
+# Define the Server (Backend)
+server <- function(input, output) {
+  output$dna <- renderText({
+    gene_dna(length = input$n_bases)
+  })
+}
+
+# Launch the shiny app
+shinyApp(ui = ui, server = server)
+```
+
+#### Version 2, expanding
+
+Now, if you look at the code for the `gene_dna`-function, it has a second parameter `base_probs` with the default argument `c(0.25, 0.25, 0.25, 0.25)`. Let us now expand, so your app allows the user to define the individual base probabilities.
+
+- **Task:** Expand the `ui` with one `numericInput()` for each of the four bases defining the probability of drawing that base and pass those numbers onto the `server`
+
+<details><p><summary>Need a hint?</summary></p>
+Recall, that you in the console can type `?numericInput` and get help on the function. Try to do so and compare with the `sliderInput()` you already have defined in your app.
+
+_Tip: Start with just one probability and then hardcode the other 3 to e.g. 0.25_
+</details>
+
+<details><p><summary>Need a hint more?</summary></p>
+The `inputId` defines the "name" of what is passed to the server, e.g. if you look at the `sliderInput()` it uses `inputId = "n_bases"`, which is then passed to the server as `input$n_bases`
+</details>
+
+<details><p><summary>Need just one hint more?</summary></p>
+
+In your `ui`, you have to find room for:
+
+```{r}
+#| echo: true
+#| eval: false
+
+numericInput(inputId = "prob_A",
+             label = "Probability of A",
+             value = 0.25,
+             min = 0,
+             max = 1)
+```
+
+In your `server` you have to find room for:
+
+```{r}
+#| echo: true
+#| eval: false
+
+base_probs = c(input$prob_A, 0.25, 0.25, 0.25)
+```
+
+and then figure out how to expand that to also include `prob_T`, `prob_C` and `prob_G`
+</details>
+
+Once you are up and running, your app should look something like this:
+
+![](images/shiny_virtual_gene_generator.png)
+
+- **Task:** Update the `gene_dna()`-function in your app to check if the probabilities sum to 1 and make sure output a meaningful error message, if they do not
+
+<details><p><summary>Need a hint?</summary></p>
+The `gene_dna()`-function already checks it the length of the DNA is divisible by 3, use this as inspiration to add your own check. If you are uncertain on how to compute the `sum()` of a vector in `R`, try to google a bit...
+</details>
+
+<details><p><summary>A bit more advanced hint</summary></p>
+Actually, you should be careful when comparing numbers when you create apps or any analysis code. If you sum a large vector, you might experience, that even when the sum should be equal to 1, it will fail a direct comparison, such as `sum(p) == 1`. This has to do with internal representation of numbers in a computer resulting in small rounding errors. Therefore, it is safer to use e.g.: `abs(sum(p) - 1) < 1e-10`, i.e. is the difference between my sum and the number 1 smaller than some very small number.
+</details>
+
+### Controlling the Layout
+
+By now your base app is up and running, but you may want to tinker with the layout of the user interface. We can do so using the `card()`-function from the `bslib`-package:
+
+<details><summary>Click to expand app code</summary><p>
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Define the User Interface (Frontend)
+ui <- page_fluid(
+  layout_columns(
+    col_widths = 12,
+    card(
+      titlePanel("Virtual Central Dogma"),
+      style = "background-color: #f0f0f0; padding: 15px;"
+    )),
+  layout_columns(
+    col_widths = 12,
+    card(
+      titlePanel("About"),
+      helpText("Describe what your app does...")
+    )),
+  layout_columns(
+    col_widths = 12,
+    card(
+      card_header("Virtual Gene Generator"),
+      sliderInput(inputId = "n_bases",
+                  label = "Number of bases:",
+                  min = 1,
+                  max = 60,
+                  value = 30,
+                  width = "100%"),
+      layout_columns(
+        col_widths = c(3, 3, 3, 3),
+        numericInput(inputId = "prob_A",
+                     label = "Probability of A",
+                     value = 0.25,
+                     min = 0,
+                     max = 1,
+                     step = 0.1),
+        numericInput(inputId = "prob_T",
+                     label = "Probability of T",
+                     value = 0.25,
+                     min = 0,
+                     max = 1,
+                     step = 0.1),
+        numericInput(inputId = "prob_C",
+                     label = "Probability of C",
+                     value = 0.25,
+                     min = 0,
+                     max = 1,
+                     step = 0.1),
+        numericInput(inputId = "prob_G",
+                     label = "Probability of G",
+                     value = 0.25,
+                     min = 0,
+                     max = 1,
+                     step = 0.1)
+    ))),
+  layout_columns(
+    col_widths = 12,
+    card(
+      card_header("Virtual Gene output"),
+      mainPanel(
+        verbatimTextOutput(outputId = "dna")
+      )
+    ))
 )
 ```
-
-I have added placeholder names, you should replace these with relevant module functions as the app is build.
-
-
-You will start by implementing the plotting module ("module2") because it is a lot simpler, with only a single text input and a plot.
-
-#### Task 3.3 - Create the plotting shiny module
-
-
-Your plotting module should take in a peptide sequence and plot the relative absolute abundance of each amino acid.
-
-
-1. Go to `dev/02_dev.R` and find the function to add a module. For now, set `with_test = FALSE` - you will not be creating tests for the app in this exercise, unless you want to. Remember to name the module something sensible related to the description above instead of just "module2". Run the function.
-2. Scroll to the bottom of the module and copy the commented out server function and add it to `R/app_server.R` inside the `app_server` function.
-3. Redo step 2, but for the ui function. Importantly, place it in the second `tabPanel` in `R/app_ui.R`, instead of the "module2". Give it a sensible title. If you made your own layout, place the module where you imagine it should go.
-4. **Go back to the module script**. Use my suggested module layout below. If you want, you are more than welcome to design it yourself. See the layout guide [here](https://shiny.posit.co/r/articles/build/layout-guide/) or [cheat sheet](https://rstudio.github.io/cheatsheets/html/shiny.html) for inspiration.
-    - Fill your desired layout in the `tagsList` of the `ui` function in the module.
-
-<details> <summary>If you want, draw inspiration for the layout I chose </summary>
-```{r}
-#| eval: false
-sidebarLayout(
-      sidebarPanel(
-        "peptide_sequence"
-      ),
-      mainPanel(
-        "plot"
-      )
-    )
-```
-The names in the example are not actual shiny stuff, just names I put in as a placeholder. Feel free to use them as your inputIDs and outputIDs or come up with your own.
-</details>
-</br>
-
-5. Run the app to see what it looks like (by refreshing the app url you created on Task 2.1).
-  - Remember if you get a "Not Found" error, the "/shiny/" might be missing from the url.
-
-6. Add an input field for the `peptide_sequence`, replace the string with the input you are adding. Please try it out first.
-  - Remember `ns()` around input/output IDs
-
-<details> <summary>Possible solution </summary>
-```{r}
-#| eval: false
-textAreaInput(
-          inputId = ns("peptide"),
-          label = "Peptide sequence",
-          width = 300,
-          height = 100,
-          placeholder = "Insert peptide sequence"
-        )
-```
-
-</details>
-</br>
-
-7. Add an output field for the `plot`, replacing the placeholder string. Please try it out first.
-
-<details> <summary>Possible solution </summary>
-```{r}
-#| eval: false
-plotOutput(
-          outputId = ns("abundance")
-          )
-```
-
 </details>
 
-<details> <summary>Full possible solution </summary>
-```{r}
-#| eval: false
-mod_abundance_ui <- function(id){
-  ns <- NS(id)
-  tagList(
-    shiny::sidebarLayout(
-      shiny::sidebarPanel(
-        shiny::textAreaInput(
-          inputId = ns("peptide"),
-          label = "Peptide sequence",
-          width = 300,
-          height = 100,
-          placeholder = "Insert peptide sequence"
-        )
-      ),
-      shiny::mainPanel(
-        shiny::plotOutput(
-          outputId = ns("abundance")
-          )
+- **Task:** Update your app using the above `card()`-function layout
 
-      )
-    )
-  )
-}
-```
-</details>
+### It's Complicated...
 
-#### Task 3.4 - Plotting module server logic
+As you have probably realised by now, the final app can be rather many lines of code defining the user interface and likewise for the server and also associated functions. To address this, it is recommendable to divide your app into seperate files mimicking the illustration of the anatomy of a Shiny app. To do so, we will need four files:
 
-<!-- There should be something that handles the peptide sequence and something that gives that sequence to a plotting function, whose output should be displayed in the app.
--->
-There are several ways to solve this task, but keep in mind that if an empty string is given to `function_five`, it will give an error and the app will crash. Prevent that.
-Please try to make the server logic on your own. Also feel free to add an additional button to control when the plotting is happening (see my slide on reactivity for inspiration).
+1. The functions: `app_functions.R`
+1. The user interface: `ui.R`
+1. The server: `server.R`
+1. The app: `virtual_central_dogma.R`
 
-1. **Go the the module server function.** Make the server logic for handling the text input and render a plot using `function_five` from your package, remember to rename the function call appropriately (`yourpackage::function_five`).
-  - Ensure the IDs match.
-  - It does not matter where in the module server function you put it, as long as you put it inside the function.
-
-<details> <summary>Possible solution </summary>
-```{r}
-#| eval: false
-output$abundance <- renderPlot({
-      if(input$peptide == ""){
-        NULL
-      } else{
-        input$peptide |>
-          yourpackage::function_five() +
-          ggplot2::theme(legend.position = "none")
-        }
-    })
-```
-
-</details>
-</br>
-
-
-
-2. **Discuss in your group what is going on in my solution**. Why does it work, and what other ways could you get to the same solution (check my slide on reactivity for inspiration). As a small note, I chose to hide the legend, as that looked better in the app.
-
-3. Add `@importFrom ggplot2 theme` and `@import yourpackage` to the module server function description.
-
-4. Go to `dev/02_dev.R` and run the first function to add `ggplot2` and `yourpackage` to your package dependencies: `attachment::att_amend_desc()`. Or add it to the `DESCRIPTION` manually.
-
-5. Run every line but the last in `dev/run_dev.R` and reopen your app to see that it works (You can just type in random amino acids in the field).
-  - If you run the last line, a popup will tell you the connection is refused - it would work locally, but doesn't on the server.
-  - Remember if you get a "Not Found" error, the "/shiny/" might be missing from the url.
-  - If no changes appear, close the tab for a minute and try again.
-
-
-#### Task 3.5 - Create shiny "module1"
-
-The "module1" module (please pick a sensible name) should take in a DNA strand and convert it into a peptide sequence.
-There should also be an option to create a random DNA strand, in case the user does not have one of their own.
-
-1. Go to `dev/02_dev.R` and find the function to add a module. Again, set `with_test = FALSE`. Remember to name the module something sensible related to the description above. Run the function.
-2. In the created module file, scroll to the bottom of the module and copy the commented out module server function and add it to `R/app_server.R` in the `app_server` function.
-3. Do the same for the ui function. Importantly, place it in the first `tabPanel` in `R/app_ui.R`, replacing the "module1" string. Give it a sensible title. If you made your own layout, place the module where you imagine it should go.
-4. Go back to the module script. Use my suggested module layout below. If you want, you are more than welcome to design it yourself. See the layout guide [here](https://shiny.posit.co/r/articles/build/layout-guide/) or [cheat sheet](https://rstudio.github.io/cheatsheets/html/shiny.html) for inspiration.
-    - Fill your desired layout in the `tagsList` of the `ui` function in the module.
-```{r}
-#| eval: false
-fluidRow(
-  column(8, "DNA_sequence"),
-  column(4, "random_dna_length", "generate_dna_button")
-),
-"peptide_sequence"
-```
-Again, the names in the example are not actual shiny stuff, just names I put in as a placeholder. Feel free to use them as your inputIDs and outputIDs or come up with your own.
-
-
-5. Before we continue, try to run the app: Run every line but the last in `dev/run_dev.R` and reopen your app.
-  - Remember if you get a "Not Found" error, the "/shiny/" might be missing from the URL.
-  - If no changes appear, close the tab for a minute and try again.
-6. **Discuss in your group which parts of the UI needs to be reactive (updateable) and which don't.** Of course, when you type a letter, the letter should appear where you typed it - that part happens automatically. But what needs to update when a button is clicked or an input changes?
-7. Let's add some inputs (buttons, text, etc.):
-    - Go [here](https://shiny.posit.co/r/gallery/widgets/widget-gallery/) for inspiration for inputs.
-    - Look at the shiny [cheat sheet](https://rstudio.github.io/cheatsheets/html/shiny.html) for inspiration for input and output.
-    - Remember to wrap your input/output IDs with `ns()` (required in modules).
-
-<details> <summary>Hint for `DNA_sequence` </summary> 
-For the DNA input, I wanted the sequence to be updated when the user clicks the "generate_dna_button" button. The simplest way to make UI inputs reactive is with an `uiOutput()`. My "DNA_sequence" look like: `uiOutput(ns("DNA"))`. The content of the field will be defined in the server.
-</details>
-
-<details> <summary>Hint for `random_dna_length` and `generate_dna_button` </summary> 
-I chose a numeric input for the "random_dna_length" and an actionButton for the "generate_dna_button". They look like:
-```{r}
-#| eval: false
-numericInput(
-    inputId = ns("dna_length"),
-    value = 6000,
-    min = 3,
-    max = 100000,
-    step = 3,
-    label = "Random DNA length"
-  ),
-actionButton(
-    inputId = ns("generate_dna"),
-    label = "Generate random DNA", style = "margin-top: 18px;"
-  )
-```
-I added the style to adjust the position of the button. That is in no way required.
-</details>
-
-<details> <summary>Hint for `peptide_sequence` </summary> 
-For "peptide_sequence", I chose a `verbatimTextOutput`. You may not have seen it before; it is in the shiny cheat sheet, but it simply allows for long-form text output in a grey box.
-The `tagAppendAttributes` allow you to add CSS tags (you don't need to know what that means). In this case, I wanted the text to wrap. By googling a bit, I found the solution seen below (feel free to see how it looks with and without it - but remember you will first see something, when you have made the server logic in the next task).
-```{r}
-#| eval: false
-verbatimTextOutput(outputId = ns("peptide")) |> 
-  tagAppendAttributes(style = "white-space: pre-wrap;")
-```
-</details>
-
-<details> <summary>Full possible solution</summary> 
-```{r}
-#| eval: false
-mod_dna_expression_ui <- function(id){
-  ns <- NS(id)
-  tagList(
-    fluidRow(
-      column(8, shiny::uiOutput(ns("DNA"))),
-      column(4, shiny::numericInput(
-        inputId = ns("dna_length"),
-        value = 6000,
-        min = 3,
-        max = 100000,
-        step = 3,
-        label = "Random DNA length"
-      ),
-      shiny::actionButton(
-        inputId = ns("generate_dna"),
-        label = "Generate random DNA", style = "margin-top: 18px;"
-      ))
-    ),
-    shiny::verbatimTextOutput(outputId = ns("peptide")) |> 
-      shiny::tagAppendAttributes(style = "white-space: pre-wrap;")
-
-  )
-}
-```
-</details>
-
-</br>
-
-8. Reopen your app to see what it looks like. Remember, all `output` stuff will not appear before the server outputs something to it.
-
-#### Task 3.6 - Adding server logic
-
-This task might seem a bit confusing, but hang tight!
-Let me take you through this one step at a time.
-
-1. First, the DNA sequence should be an object that reacts to user input. Therefore, it should be a reactive value.
-    - As the first line to add in the server function in your module, write `dna <- reactiveVal()`.
-    - Read more about reactive values [here](https://mastering-shiny.org/reactivity-objects.html?q=reactiveVal#reactive-values) if you like. The important thing to have in mind is that every time you want to get the value run `dna()`, and when you update it run `dna(new_value)` with your new value - you will see an example of this in a minute.
-2. If you, like me, wanted your DNA input strand to be updateable in the input field, add the following somewhere in the server:
+The latter will look something like this:
 
 ```{r}
+#| echo: true
 #| eval: false
-output$DNA <- renderUI({
-      textAreaInput(
-        inputId = ns("DNA"),
-        label = "DNA sequence",
-        placeholder = "Insert DNA sequence",
-        value = dna(),
-        height = 100,
-        width = 600
-        )
-    })
-```
-- Make sure the IDs match.
-- **Discuss in the group what is going on there.**
 
-<details> <summary>Answer </summary> 
-The `output$DNA` informs shiny to update the output with DNA as ID from the UI. In this case the `uiOutput` you added earlier.
-The `renderUI` creates a UI field. This function is complementary to the `uiOutput`.
-`textAreaInput` is a large text input field - suitable for large text inputs, such as DNA.
-The `ns()` should always be called when adding input/output fields in modules. Note that it is not necessary when assigning to outputs, such as `output$DNA`.
-The `dna()` adds the DNA strand as the value in the field, this ensures that the updated DNA value is displayed in the input field, when it is generated with the 'random DNA' function.
+# Load needed libraries
+library("PACKAGE_NAME")
 
-As an added note, notice that the input and output IDs can be the same, as with the `ns("DNA")` ID for both `uiOutput` and `textAreaInput` in this case. I find it handy to name them the same, so I know which input and output interacts. If you find it confusing, you can name them something else.
-</details>
-</br>
+# Load needed functions
+source(file = "app_functions.R")
 
-3. The next step is to add a reaction when the "generate random DNA" button is clicked.
-    - There are a few ways to handle this. My favorite is the following:
-    
-```{r}
-#| eval: false
-observeEvent(input$generate_dna, {
-      dna(
-        yourpackage::function_one(input$dna_length)
-      )
-    })
+# Run the frontend user interface ui.R
+source(file = "ui.R")
+
+# Run the backend server server.R
+source(file = "server.R")
+
+# Run the Shiny app
+shinyApp(ui = ui, server = server)
 ```
 
-4. Write the name of your package instead of `yourpackage` and add the name you gave function one from last week's exercise.
-    - Make sure the input names are the same as for your app (`generate_dna` and `dna_length`)
-    - **Discuss in your group what is going on.** Before looking at the answer, consider reading [this section](https://mastering-shiny.org/basic-reactivity.html?q=observ#observers).
+- **Task:** First make sure, that your app runs as is and then create these four files and copy/paste the approproiate code into each of the files
 
-<details> <summary>Answer </summary> 
-The `observeEvent` function observes when a change occurs to the `generate_dna` input.
-The reaction to a change then involves updating the dna value to the output of `function_one()` - or what you chose to call the function.
-</details>
-</br>
+### Completing the Central Dogma
 
-5. Lastly, we should address what happens when there is DNA to be translated into a peptide:
-    - Feel free to play around with a solution, based on what you have done previously.
-    - The challenging part is to make the peptide update automatically without initial loading problems or nuisance for the user (the latter refers to a problem where an [observer](https://mastering-shiny.org/basic-reactivity.html?q=observer#observers) may deselect the text input field such that the user has to press the field again to continue typing.)
-    - Otherwise, use my solution below:
+So far you have just been working with the `gene_dna()`-function, but we naturally have to also include:
 
-<details> <summary>Possible solution </summary> 
+- Transcription
+- Translation
+- A bit of analysis
 
-This may not work as intended if you did not choose the `uiOutput` for the DNA input field. Then you may have to use `dna()` or add an `actionButton`. Ask if you run into issues. Please note that I am using `input$DNA` and *not* `dna()`. You will discuss why in a minute, but feel free to try it out both ways and see if you notice the difference.
+If you scroll a bit back, you were given some pre-built code for the following functions:
 
-```{r}
-#| eval: false
-output$peptide <- renderText({
-      # Ensure input is not NULL and is longer than 2 characters
-      if(is.null(input$DNA)){
-        NULL
-      } else if(nchar(input$DNA) < 3){
-        NULL
-      } else{
-        input$DNA |> 
-          toupper() |> 
-          yourpackage::function_two() |> 
-          yourpackage::function_three() |> 
-          yourpackage::function_four()
-      }
-    })
-```
+- `gene_dna()`
+- `transcribe_dna()`
+- `translate_rna()`
+- `base_freqs()`
 
-</details>
-</br>
+Right then:
 
-6. Regardless of wether you used my solution or not, **discuss in your group what goes on in my solution**
+- **Task:** Expand your app to include the central dogma functions `gene_dna()`, `transcribe_dna()` and `translate_rna()`. Note that any further analysis, such as e.g. `base_freqs()` or similar is optional
 
-<details> <summary>Answer </summary> 
-With a direct `renderText` on the `input$DNA`, the output will update whenever the input field changes, without causing the nuisance described above, which would be introduced with an `observeEvent` without an associated `actionButton`. Recall `input$DNA` gets updated when `generate_dna` is clicked.
-The first test checks that the input is not `NULL`, which it is upon loading the app, causing an error message in the console, but doesn't necessarily crash the app. An output of `NULL` renders nothing (this fact can be useful when building apps in the future).
-The second test ensures an output is only generated when there is more than 3 characters to interpret.
-The `toupper()` function ensures the input is upper case, which is required for the codon table.
-`renderText` does as you would expect and renders some text for the UI. You might have guessed from the row of functions in the `renderText`, it takes the dna strand and converts it using the package you created last week into a peptide sequence.
-This peptide sequence is then stored in the peptide output, which links to the `verbatimTextOutput` you likely have in your ui function
+A bit of help to get you started:
 
-</details>
-</br>
-
-7. Please make sure all input and output IDs match in the UI and Server functions.
-8. Go to `dev/02_dev.R` and run the first function to add dependencies: `attachment::att_amend_desc()` or do it manually.
-9. Reopen the app and see if it acts as expected.
-  - Remember if you get a "Not Found" error, the "/shiny/" might be missing from the url.
-  - If no changes appear, close the tab for a minute and try again.
-10. Push it to GitHub
+- You can find an overview of the different [input controls here](https://shiny.posit.co/r/getstarted/shiny-basics/lesson3/)
 
 
-</br>
+### Getting Your Shiny App LIVE!
 
-Awesomely done! You have now created a fully functional R shiny application that takes in a DNA strand or creates a random one, converts it into a peptide sequence, and then is able to plot the abundance of each amino acid in the sequence.
+_Note, when we publish our app, each file will be "build" and this will create errors if some functions are not found. Therefore, make sure to include `library("PACKAGE_NAME")` in each files for all needed libraries_
 
+1. Go to [shinyapps.io](https://www.shinyapps.io)
+2. Log in or create an account
+3. Go back to your RStudio session and launch your Shiny App
+4. In the upper right corner, it'll say "Publish"
+5. You may get prompted to install some packages, so go ahead and do so
+6. You will then get prompted to "Connect Publishing Account", click "Next"
+7. Choose your "ShinyApps.io" account
+8. Follow the outlined connect procedure
+9. Choose a "Title" for your app
+10. Click "Publish"
 
-## <<span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: [how to](assignments.qmd))
+_After some automated build procedures, your Shiny App is LIVE - CONGRATULATIONS!_
 
-----
+NB! If you an error saying:
 
+- _"An error has occurred! An error has occurred. Check your logs or contact the app author for clarification."_
 
-This week's assignment is a short group discussion (1/4 - 1/2 page).
-Please cover these topics:
+Then likely, there is a problem withs paths or libraries, did you remember to start this last part as a seperate project? Also, did you remember to include library definitions in all 3 files?
 
-- What did you find most challenging about creating a shiny app?
-- What do you feel are the benefits and challenges with using `golem` for app development?
-- Maintaining reproducibility when using shiny apps is a challenge. As an example, some pharma-companies display databases to medical doctors for pointy-clicky data exploration. What are your thoughts on maintaining reproducibility in that scenario? What if the database is updated or the app is updated with new or changed functionality?
-- What other challenges and limitations do you see shiny apps may have? Please elaborate.
+## <span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: [how to](assignments.qmd))
 
+For this week's assignment you have to:
 
-- Hand in a pdf with you discussion points and links to your shiny app GitHub page and the app itself.
+1. Create a new Github repository, name it `group_XX_shiny`, where `XX` is your group name, e.g. `06`
+1. Finish the Central Dogma shiny app by Github collaborating (Psst... Perhaps branching and delegate specific cards to group members would be prudent)
+1. Publish your finished shiny app to shinyapps.io
+1. Place the link to your published app in the README of the repository
+1. For your assignment hand in, simply create a text file containing the link to your group Github repository containing your shiny app
 
-
-As an **optional** extra challenge, try to expand your shiny app with a third module.
-You decide what the content of the module should be. Remember to put the shiny module functions somewhere in `R/app_ui.R` in the `app_ui` function and `R/app_server.R` in the `app_server` function.
-If you made one, add a brief description of the module in the hand-in.
+_You app should contain the central dogma functions `gene_dna()`, `transcribe_dna()` and `translate_rna()`, but any further analysis, such as e.g. `base_freqs()` or similar is optional. Please feel free to style your app as you please_
