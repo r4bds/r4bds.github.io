@@ -129,6 +129,8 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 ```
 
+_Note, the use of `$` is base dialect for the variable `bins` in the `input`-data_
+
 :::
 
 ::: {.column width="50%"}
@@ -243,22 +245,483 @@ _This frontend-to-backend continuous communication is key!_
 ::: {.column width="50%"}
 
 - Frontend, the user interface
-  - This is where the user interacts with your app
-  - Chooses arguments to function parameters
-  - Choices are "requests"
-  
+
+```{r}
+#| echo: true
+#| eval: false
+
+ui <- fluidPage(
+  titlePanel("Hello Shiny!"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput(inputId = "bins",
+                  label = "Number of bins:",
+                  min = 1,
+                  max = 50,
+                  value = 30)
+    ),
+    mainPanel(
+      plotOutput(outputId = "distPlot")
+    )
+  )
+)
+```
+
+- The `sliderInput` has a specific `inputId` set to `"bins"`
+
 
 :::
 
 ::: {.column width="50%"}
 
 - Backend, the server
-  - This is where the computations are made in response to the user's choices
-  - Chosen arguments are passed to function parameters, producing an output
-  - The output is the "response"
+
+```{r}
+#| echo: true
+#| eval: false
+
+server <- function(input, output) {
+  output$distPlot <- renderPlot({
+    x <- faithful$waiting
+    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+    hist(x, breaks = bins, col = "#75AADB", border = "white",
+         xlab = "Waiting time to next eruption (in mins)",
+         main = "Histogram of waiting times")
+  })
+}
+```
+
+- `inputId` from the `sliderInput` set to `"bins"` exists in the variable `input`
 
 :::
 
 ::::
 
-_This frontend-to-backend continuous communication is key!_
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Hello Shiny!
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Frontend, the user interface
+
+```{r}
+#| echo: true
+#| eval: false
+
+ui <- fluidPage(
+  titlePanel("Hello Shiny!"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput(inputId = "bins",
+                  label = "Number of bins:",
+                  min = 1,
+                  max = 50,
+                  value = 30)
+    ),
+    mainPanel(
+      plotOutput(outputId = "distPlot")
+    )
+  )
+)
+```
+
+- The `plotOutput()` has a specific `outputId` where we can name the `distPlot` we defined in the `server()`-function
+
+
+:::
+
+::: {.column width="50%"}
+
+- Backend, the server
+
+```{r}
+#| echo: true
+#| eval: false
+
+server <- function(input, output) {
+  output$distPlot <- renderPlot({
+    x <- faithful$waiting
+    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+    hist(x, breaks = bins, col = "#75AADB", border = "white",
+         xlab = "Waiting time to next eruption (in mins)",
+         main = "Histogram of waiting times")
+  })
+}
+```
+
+- The plot in the `server`-function is saved in the special variable `output`, which is sent back to the `ui` and can be used as `outputId`
+
+:::
+
+::::
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Defining the Input
+
+![](images/shiny_inputs.png){fig-align="center"}
+
+E.g. `sliderInput(inputId = "bins", ...)` in "Hello Shiny!"
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Defining the Input
+
+![](images/shiny_inputs_w_functions.png){fig-align="center"}
+
+E.g. `sliderInput(inputId = "bins", ...)` in "Hello Shiny!"
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Defining the Input
+
+![](images/shiny_inputs_row1.png)
+
+:::: {.columns}
+
+::: {.column width="25%"}
+```{r}
+#| echo: true
+#| eval: false
+
+actionButton(
+  inputId = "action",
+  label = "Action")
+submitButton(
+  text = "Submit")
+```
+:::
+
+::: {.column width="25%"}
+```{r}
+#| echo: true
+#| eval: false
+
+checkboxInput(
+  inputId = "checkbox",
+  label = "Choice A",
+  value = TRUE)
+```
+:::
+
+::: {.column width="25%"}
+```{r}
+#| echo: true
+#| eval: false
+
+checkboxGroupInput(
+  inputId = "checkGroup",
+  label = "Select all that apply",
+  choices = list(
+    "Choice 1" = 1,
+    "Choice 2" = 2,
+    "Choice 3" = 3),
+  selected = 1)
+```
+:::
+
+::: {.column width="25%"}
+```{r}
+#| echo: true
+#| eval: false
+
+dateInput(
+  inputId = "date",
+  label = "Select date",
+  value = "2014-01-01")
+```
+:::
+
+::::
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Defining the Input
+
+![](images/shiny_inputs_row2.png)
+
+:::: {.columns}
+
+::: {.column width="25%"}
+```{r}
+#| echo: true
+#| eval: false
+
+dateRangeInput(
+  inputId = "dates",
+  label = "Select dates")
+```
+:::
+
+::: {.column width="25%"}
+```{r}
+#| echo: true
+#| eval: false
+
+fileInput(
+  inputId = "file",
+  label = NULL)
+```
+:::
+
+::: {.column width="25%"}
+```{r}
+#| echo: true
+#| eval: false
+
+helpText(
+  "Note: help text isn't a true",
+  "widget, but it provides an easy",
+  "way to add text to accompany",
+  "other widgets.")
+```
+:::
+
+::: {.column width="25%"}
+```{r}
+#| echo: true
+#| eval: false
+
+numericInput(
+  inputId = "num",
+  label = "Input number",
+  value = 1)
+```
+:::
+
+::::
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Defining the Input
+
+![](images/shiny_inputs_row3.png)
+
+:::: {.columns}
+
+::: {.column width="25%"}
+```{r}
+#| echo: true
+#| eval: false
+
+radioButtons(
+  inputId = "radio",
+  label = "Select option",
+  choices = list(
+    "Choice 1" = 1,
+    "Choice 2" = 2,
+    "Choice 3" = 3),
+  selected = 1)
+```
+:::
+
+::: {.column width="25%"}
+```{r}
+#| echo: true
+#| eval: false
+
+selectInput(
+  inputId = "select",
+  label = "Select option",
+  choices = list(
+    "Choice 1" = 1,
+    "Choice 2" = 2,
+    "Choice 3" = 3),
+  selected = 1)
+```
+:::
+
+::: {.column width="25%"}
+```{r}
+#| echo: true
+#| eval: false
+
+sliderInput(
+  inputId = "slider1",
+  label = "Set value",
+  min = 0,
+  max = 100,
+  value = 50)
+sliderInput(
+  inputId = "slider2",
+  label = "Set value range",
+  min = 0,
+  max = 100,
+  value = c(25, 75))
+```
+:::
+
+::: {.column width="25%"}
+```{r}
+#| echo: true
+#| eval: false
+
+textInput(
+  inputId = "text",
+  label = NULL,
+  value = "Enter text...")
+```
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Defining the Output
+
+| Output function    | Creates   |
+|--------------------|-----------|
+| dataTableOutput    | DataTable |
+| htmlOutput         | raw HTML  |
+| imageOutput        | image     |
+| plotOutput         | plot      |
+| tableOutput        | table     |
+| textOutput         | text      |
+| uiOutput           | raw HTML  |
+| verbatimTextOutput | text      |
+
+E.g. `plotOutput(outputId = "distPlot")` in "Hello Shiny!"
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Reactive versus Event Driven
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+### Reactive
+
+_The app is automatically updated, when a user chooses an option_
+
+- Real-time Updates
+- More simple interaction
+- Improved User Experience
+- Performance Overhead
+- Works best with smaller data
+
+:::
+
+::: {.column width="50%"}
+
+### Event-Driven
+
+_The app is only updated, when the user clicks a button_
+
+- Controlled updates after all choices have been made
+- Gives an overall better performance
+- May seem old-fashioned to some users
+- Works better with larger data
+
+:::
+
+::::
+
+_Today, we will work with creating a reactive app_
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## In essense...
+
+![](images/shiny_is_like_a_pile_of_legos.png){fig-align="center"}
+
+_Once you get your head around the syntax and functionality of the Shiny, it’s no longer about what you can build, but what you should build. Dashboards only have value, if they create value!_
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Summary
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Shiny facilitates seamless creation of powerful interactive applications
+- The analysis becomes interactive
+- Provides a user interface for dynamic data interaction
+- Connects non-data literate professionals directly to the data
+- Fully customisable
+- Allow user complete free exploration
+- Or restrict to “meaningful data interaction”
+- Used in production across industries!
+
+:::
+
+::: {.column width="50%"}
+
+<br>
+<br>
+<br>
+
+![](images/logo_shiny_hex.png){fig-align="center"}
+
+:::
+
+::::
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Once more unto the breach, dear friends, once more!
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Once more unto the breach, dear friends, once more!
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- One last time in fact!
+
+- Break and then the very last exercises of this year's R for Bio Data Science course!
+
+:::
+
+::: {.column width="50%"}
+
+<br>
+<br>
+<br>
+
+![](images/the_office_sad_day.gif){fig-align="center"}
+
+:::
+
+::::
+
+
+
+
