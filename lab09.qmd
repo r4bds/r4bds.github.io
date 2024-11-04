@@ -56,7 +56,7 @@ Then, for this particular session, we will make use of Posit's free Cloud infras
 1. Make sure to `Verify Your Email` as instructed
 1. Then return to where you set up the account and click the blue `Continue` button
 
-Congratulations! You have now created your personal posic cloud account. You will land in `Your Workspace`. Here you will have to create a new project, which you will use to work on the exercises today, so please:
+Congratulations! You have now created your personal Posit cloud account. You will land in `Your Workspace`. Here you will have to create a new project, which you will use to work on the exercises today, so please:
 
 1. In the upper right corner, click the blue `New Project` button
 1. Choose `New RStudio Project`
@@ -289,7 +289,7 @@ gene_dna <- function(length, base_probs = c(0.25, 0.25, 0.25, 0.25)){
   dna_string <- paste0(
     x = dna_vector,
     collapse = "")
-  return(dna)
+  return(dna_string)
 }
 ```
 </p></details>
@@ -550,7 +550,7 @@ ui <- page_fluid(
 ```
 </details>
 
-- **Task:** Update your app using the above `card()`-function layout
+- **Task:** Update your app using the above `card()`-function layout. Remember to load the `bslib`-package.
 
 ### It's Complicated...
 
@@ -611,7 +611,7 @@ A bit of help to get you started:
 
 ### Getting Your Shiny App LIVE!
 
-_Note, when we publish our app, each file will be "build" and this will create errors if some functions are not found. Therefore, make sure to include `library("PACKAGE_NAME")` in each files for all needed libraries_
+_Note, when we publish our app, each file will be "build" and this will create errors if some functions are not found. Therefore, make sure to include `library("PACKAGE_NAME")` in each files for all needed libraries_ and source the app_functions.R file where it's needed too.
 
 1. Go to [shinyapps.io](https://www.shinyapps.io)
 2. Log in or create an account
@@ -630,7 +630,7 @@ NB! If you an error saying:
 
 - _"An error has occurred! An error has occurred. Check your logs or contact the app author for clarification."_
 
-Then likely, there is a problem withs paths or libraries, did you remember to start this last part as a seperate project? Also, did you remember to include library definitions in all 3 files?
+Then likely, there is a problem withs paths or libraries, did you remember to start this last part as a seperate project? Also, did you remember to include library definitions and source the app_functions.R file in all the necessary files?
 
 ## <span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: [how to](assignments.qmd))
 
