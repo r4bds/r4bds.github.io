@@ -1,5 +1,7 @@
 # Exam {.unnumbered  #sec-examdesc}
 
+**Make sure you are familiar with the rules concerning the [use of Artificial Intelligence (generative AI) in teaching and exams at DTU](#sec-air4bds)**
+
 ## Design
 
 The exam consists of 3 components:

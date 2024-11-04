@@ -1,6 +1,6 @@
 # Project Description {.unnumbered #sec-projdesc}
 
-**Make sure you have read the [exam description](#sec-examdesc)**
+**Make sure you have read the [exam description](#sec-examdesc) and that you are familiar with the rules concerning the [use of Artificial Intelligence (generative AI) in teaching and exams at DTU](#sec-air4bds)**
 
 ## Project Groups
 

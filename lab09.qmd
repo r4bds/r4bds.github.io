@@ -635,7 +635,7 @@ NB! If you an error saying:
 
 - _"An error has occurred! An error has occurred. Check your logs or contact the app author for clarification."_
 
-Then likely, there is a problem withs paths or libraries, did you remember to start this last part as a seperate project? Also, did you remember to include library definitions and source the app_functions.R file in all the necessary files?
+Then likely, there is a problem withs paths or libraries, did you remember to start this last part as a separate project? Also, did you remember to include library definitions and source the `app_functions.R`-file in all the necessary files?
 
 ## <span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: [how to](assignments.qmd))
 
@@ -647,4 +647,4 @@ For this week's assignment you have to:
 1. Place the link to your published app in the README of the repository
 1. For your assignment hand in, simply create a text file containing the link to your group Github repository containing your shiny app
 
-_You app should contain the central dogma functions `gene_dna()`, `transcribe_dna()` and `translate_rna()`, but any further analysis, such as e.g. `base_freqs()` or similar is optional. Please feel free to style your app as you please_
+_You app should contain the central dogma functions `gene_dna()`, `transcribe_dna()` and `translate_rna()`, but any further analysis, such as e.g. `base_freqs()` or similar is optional. Please feel free to style your app as you please. Also, when creating your app, try to use your favourite LLM-technology, **BUT** use it wisely, use it to **EXPLAIN** code, **NOT** to **GENERATE** code!_

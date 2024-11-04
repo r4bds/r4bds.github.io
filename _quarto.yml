@@ -48,6 +48,7 @@ book:
 
     - part: course_elements.qmd
       chapters: 
+        - ai_in_r4bds.qmd
         - assignments.qmd
         - project_description.qmd
         - project_faq.qmd

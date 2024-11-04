@@ -229,4 +229,36 @@ shinyApp(ui = ui, server = server)
 
 ::::
 
-_This frontend-to-backend continous communication is key!_
+_This frontend-to-backend continuous communication is key!_
+
+
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Hello Shiny!
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+- Frontend, the user interface
+  - This is where the user interacts with your app
+  - Chooses arguments to function parameters
+  - Choices are "requests"
+  
+
+:::
+
+::: {.column width="50%"}
+
+- Backend, the server
+  - This is where the computations are made in response to the user's choices
+  - Chosen arguments are passed to function parameters, producing an output
+  - The output is the "response"
+
+:::
+
+::::
+
+_This frontend-to-backend continuous communication is key!_

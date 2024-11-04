@@ -1,0 +1,31 @@
+# Use of AI in the R for Bio Data Science Course {.unnumbered #sec-air4bds}
+
+_The following is a copy of [Study announcement s1885](https://www.inside.dtu.dk/en/undervisning/regler/studiemeddelelser/meddelelsevisning?id=%7BB11F57BB-9D05-4A55-ABA9-5CBC8E2A2843%7D). It is **very** important that students are familiar with the official rules concerning use of AI and also that it remains the responsibility of the student to be in full compliance with the following_
+
+## Use of Artificial Intelligence (generative AI) in teaching and exams at DTU
+
+DTU embraces the use of artificial intelligence (generative AI like ChatGPT), and therefore allows its integration in teaching and exams with open internet access. In the future, lecturers will have the opportunity to incorporate generative AI in their teaching, and in certain courses, students will be encouraged to use generative AI to solve tasks - all aimed at enhancing learning and fostering the development of better engineering skills.
+
+However, particularly concerning exams, there are several conditions that you must be aware of when employing generative AI. Further details can be found below.
+
+### The Use of Generative AI for Exam E2023
+
+For the E2023 exams, the rules regarding the use of aids, as outlined in the course description (the course base), are applicable.
+
+In instances where the use of generative AI, such as ChatGPT, is permitted for exams, it is imperative to adhere to DTU's code of honour and comply with the rules of good academic practice, which are consistently applicable.
+
+You must remember the following:
+
+- Always explicitly declare if any part of your submission is not your original work. Failure to do so may be considered exam cheating, in accordance with [DTU's code of honour](https://www.inside.dtu.dk/en/undervisning/regler/aereskodeks?rfb=eyJwIjpmYWxzZSwidWlkIjoiMjYzMTA5ODgtYWViOS00YzAyLWI1ZWQtNDg0NDIwZTZjZGJhIiwic2NwIjoiaW50ZXJuYWwiLCJrYmlkIjozNTAsInNpZCI6IjJSaUI0VVpjeWNuSGdzR3BpTklRSGciLCJhaWQiOjI3NTYxOTEsInNlY2lkIjo1NjQzNjg2Niwic3QiOiJ3ZWJfc2NyYXBlIn0) and [the rules for referencing when using generative AI](https://www.inside.dtu.dk/en/medarbejder/forskning-innovation-og-raadgivning/litteratur-og-reference/referencehaandtering/kunstig-intelligens?rfb=eyJwIjpmYWxzZSwidWlkIjoiMjYzMTA5ODgtYWViOS00YzAyLWI1ZWQtNDg0NDIwZTZjZGJhIiwic2NwIjoiaW50ZXJuYWwiLCJrYmlkIjozNTAsInNpZCI6ImFKTktQcFJWLW5KQ0FqZnJCWkFqSnciLCJhaWQiOjI3NTcyMTQsInNlY2lkIjo1NjQ0NzYwNSwic3QiOiJ3ZWJfc2NyYXBlIn0).
+- Generative AI can produce output that may be inaccurate or incorrect. It should be viewed as a tool, and you are responsible for ensuring the quality and correctness of the work you hand in.
+- AI-generated output may include material protected by copyright without clear indication. It is your responsibility to ensure compliance with copyright laws.
+- Generative AI can exhibit biases and may be trained based on specific attitudes. Consequently, critical evaluation of its output is essential.
+- Generative AI reuses the information you feed into it. Consequently, avoid providing sensitive information.
+- The guideline "All aids, no internet access" for the exam implies that you must not use generative AI.
+
+By adhering to these guidelines, you contribute to maintaining academic integrity and responsible use of generative AI in the educational context at DTU.
+
+### Questions?
+
+You can contact [the Student Guidance](https://www.inside.dtu.dk/da/undervisning/faglig/vejledningstilbud/studievejledningen) if you have general questions about exam rules, cheating, and plagiarism. If you have questions about the exam rules for a specific course, you must contact your lecturer.
+
