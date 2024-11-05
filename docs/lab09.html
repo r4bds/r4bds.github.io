@@ -354,6 +354,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#getting-your-shiny-app-live" id="toc-getting-your-shiny-app-live" class="nav-link" data-scroll-target="#getting-your-shiny-app-live">Getting Your Shiny App LIVE!</a></li>
   </ul></li>
   <li><a href="#group-assignment-important-see-how-to" id="toc-group-assignment-important-see-how-to" class="nav-link" data-scroll-target="#group-assignment-important-see-how-to"><span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: <span>how to</span>)</a></li>
+  <li><a href="#how-to-publish-from-posit-cloud" id="toc-how-to-publish-from-posit-cloud" class="nav-link" data-scroll-target="#how-to-publish-from-posit-cloud">How to Publish from Posit Cloud</a></li>
   </ul>
 </nav>
     </div>
@@ -994,11 +995,43 @@ Click to expand app code
 <ol type="1">
 <li>Create a new Github repository, name it <code>group_XX_shiny</code>, where <code>XX</code> is your group name, e.g.&nbsp;<code>06</code></li>
 <li>Finish the Central Dogma shiny app by Github collaborating (Psst… Perhaps branching and delegate specific cards to group members would be prudent)</li>
-<li>Publish your finished shiny app to shinyapps.io</li>
+<li>Publish your finished shiny app to shinyapps.io (See How to Publish from Posit Cloud)</li>
 <li>Place the link to your published app in the README of the repository</li>
 <li>For your assignment hand in, simply create a text file containing the link to your group Github repository containing your shiny app</li>
 </ol>
 <p><em>You app should contain the central dogma functions <code>gene_dna()</code>, <code>transcribe_dna()</code> and <code>translate_rna()</code>, but any further analysis, such as e.g.&nbsp;<code>base_freqs()</code> or similar is optional. Please feel free to style your app as you please. Also, when creating your app, try to use your favourite LLM-technology, <strong>BUT</strong> use it wisely, use it to <strong>EXPLAIN</strong> code, <strong>NOT</strong> to <strong>GENERATE</strong> code!</em></p>
+</section>
+<section id="how-to-publish-from-posit-cloud" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-publish-from-posit-cloud">How to Publish from Posit Cloud</h2>
+<p>Since October 2024 publishing on Posit Cloud has been deprecated. Therefore, we will have to setup publishing via shinyapps.io:</p>
+<ol type="1">
+<li>Go to your finished app on <a href="http://posit.cloud">Posit Cloud</a></li>
+<li>Click <code>Run App</code> above your <code>central_dogma_app.R</code>-file and check that everything works as expected</li>
+<li>Now, click <code>Tools</code> <span class="math inline">\(\Rightarrow\)</span> <code>Global Options...</code> <span class="math inline">\(\Rightarrow\)</span> <code>Publishing</code> (in the left panel) <span class="math inline">\(\Rightarrow\)</span> <code>Connect...</code> in the upper right corner</li>
+<li>You may get prompted for some packages, which needs installing, click <code>Yes</code></li>
+<li>Once they are installed, you will be prompted to <code>Connect Account</code>, click <code>ShinyApps.io</code></li>
+<li>Now you will have to click on the <code>your account on ShinyApps</code>-link</li>
+<li>Once on shinyapps.io, click <code>Log In</code> in the upper right corner (It’s the same login as to Posit Cloud)</li>
+<li>If this is your first time to shinyapps.io, you will see something like <em>“Hi! You must be new here…”</em>, nevermind this</li>
+<li>In the upper right corner, click your name and choose <code>Tokens</code></li>
+<li>Then click the green <code>+ Add Tokens</code>-button</li>
+<li>It’s okay if you have en existing token, make sure to check the date-of-creation, which for the relevant token should be today and then click <code>Show</code></li>
+<li>Now you will see a new box and you should be in the <code>With R</code>-tab, find the green <code>Show secret</code>-button and click it</li>
+<li>Now, click <code>Copy to clipboard</code></li>
+<li>Then go back to your Posit Cloud tab and paste the token and code, i.e.&nbsp;all of it, it should start with <code>rsconnect::setAccountInfo(...)</code></li>
+<li>Then still on the Posit Cloud, click <code>Connect Account</code></li>
+<li>Under <code>Publishing Accounts</code>, make sure you see <code>id-name: shinyapps.io</code></li>
+<li>Click <code>OK</code></li>
+<li>Then still on Posit Cloud, make sure you are in your <code>central_dogma_app.R</code>-file and then run the app</li>
+<li>Click the small triangle in the upper right corner of the your app and choose <code>Other Destination...</code></li>
+<li>Click your shinyapps.io accout name</li>
+<li>Click <code>Publish</code></li>
+<li>Your will get a message <code>Deployment Started...</code>, click <code>OK</code> - <em>Your app will be deployed by <code>rsconnect</code>, this might take a few minutes, so be patient</em></li>
+<li>Now, back in your shinyapps.io session, on the left click <code>Applications</code> and then click <code>All</code></li>
+<li>Find your app, likely named <code>project</code> and it will likely have status <code>Running</code>, and then click on the name of your app</li>
+<li>In the <code>OVERVIEW</code>, find the URL and click it, this will be the public version of your app!</li>
+</ol>
+<p>Phheeww! Well done!</p>
 
 
 </section>
