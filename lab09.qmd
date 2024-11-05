@@ -87,7 +87,9 @@ _Once you are done, click `OK` to close the `Options`_
 
 ### Initial "Hello Shiny World"
 
-Now let us get started on `Shiny`. First, find the console and enter: 
+_IMPORTANT: If the Posit Cloud "hangs" for some reason, look in the upper right corner, there you will find a circle with three dots, click it and choose `Relaunch Project`. Also, you have limited ram, so in case you clutter your work environment, you may have to run a `rm(list = ls())` to clear your ram_
+
+Now, let us get started on `Shiny`! First, find the console and enter: 
 
 ```{r}
 #| echo: true
