@@ -20,14 +20,15 @@ _Each talk features a Bio Data Science professional sharing unique insights into
 - [Gubra](https://www.gubra.dk)
 - [QIAGEN](https://www.qiagen.com/dk/product-categories/informatics-and-data)
 - [UCPH Center for Health Data Science](https://heads.ku.dk)
-- TBA
 
 #### Symposium Programme
 
-- [Abril Diosdado Hernández](https://www.linkedin.com/in/abrildh/), Associate Research Scientist, [Gubra](https://www.gubra.dk)
-- [Ruth Stoney ](https://www.linkedin.com/in/ruth-stoney-19b603b9/), Senior Field Applications Scientist, [QIAGEN](https://www.qiagen.com/dk/product-categories/informatics-and-data)
-- [Helene Wegener](https://www.linkedin.com/in/helene-wegener-75b589230/), Junior Data Scientist, [UCPH Center for Health Data Science](https://heads.ku.dk)
-- TBA
+-	09.00 – 09.25: [Abril Diosdado Hernández](https://www.linkedin.com/in/abrildh/), Associate Research Scientist, [Gubra](https://www.gubra.dk)
+-	09.25 – 09.30: Short break and switch
+-	09.30 – 09.55: [Ruth Stoney ](https://www.linkedin.com/in/ruth-stoney-19b603b9/), Senior Field Applications Scientist, [QIAGEN](https://www.qiagen.com/dk/product-categories/informatics-and-data)
+-	09.55 – 10.00: Short break and switch
+-	10.00 – 10.25: [Helene Wegener](https://www.linkedin.com/in/helene-wegener-75b589230/), Junior Data Scientist, [UCPH Center for Health Data Science](https://heads.ku.dk)
+-	10.25 – 10.35: Symposium round off
 
 ### 2023
 
