@@ -29,7 +29,7 @@ The exam consists of 3 components:
 
 ### The Presentation
 
-- The format is 10-slides-in-10-mins
+- The format is 10-slides-in-10-mins on the clock
 - Everyone in the group must present a part of the project
 - Expect a few overall questions regarding the decisions you have made throughout your project
 - IMPORTANT: The final presentation in HTML-format must be zipped and uploaded to DTU Learn before deadline, so we can check the GitHub version is identical

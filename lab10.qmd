@@ -23,7 +23,7 @@ _Each talk features a Bio Data Science professional sharing unique insights into
 
 #### Symposium Programme
 
--	09.00 – 09.25: "R Shiny Apps as Game-Changers in Preclinical Trials" by [Abril Diosdado Hernández](https://www.linkedin.com/in/abrildh/), Associate Research Scientist, [Gubra](https://www.gubra.dk)
+-	09.00 – 09.25: ["R Shiny Apps as Game-Changers in Preclinical Trials"](https://raw.githack.com/r4bds/r4bds.github.io/main/symposium/2024/2024_R_symposium_ADH.pdf) by [Abril Diosdado Hernández](https://www.linkedin.com/in/abrildh/), Associate Research Scientist, [Gubra](https://www.gubra.dk)
 -	09.25 – 09.30: Short break and switch
 -	09.30 – 09.55: ["Accessing QIAGEN OmicSoft Data using the R API"](https://raw.githack.com/r4bds/r4bds.github.io/main/symposium/2024/Qiagen_R_omicsoft_Nov2024.pdf) by [Ruth Stoney ](https://www.linkedin.com/in/ruth-stoney-19b603b9/), Senior Field Applications Scientist, [QIAGEN](https://www.qiagen.com/dk/product-categories/informatics-and-data)
 -	09.55 – 10.00: Short break and switch
