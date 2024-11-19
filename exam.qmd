@@ -26,11 +26,12 @@ The exam consists of 3 components:
 - The aim of the project is to cover the entire course cycle, so be sure to align your project
 - Be sure to read [Project Description](#sec-projdesc)
 - Questions? Make sure to consult the [Project FAQ](#sec-projfaq)
+- Final check? Be sure to consult the [Project Checklist](#sec-projchecklist)
 
 ### The Presentation
 
-- The format is 10-slides-in-10-mins on the clock
-- Everyone in the group must present a part of the project
+- The format is 10-slides-in-10-mins **on the clock**
+- Everyone in the group **must** be physically present and present a part of the project
 - Expect a few overall questions regarding the decisions you have made throughout your project
 - IMPORTANT: The final presentation in HTML-format must be zipped and uploaded to DTU Learn before deadline, so we can check the GitHub version is identical
 

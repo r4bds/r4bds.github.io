@@ -91,7 +91,7 @@ Where directories left-to-right, starting with `data` and corresponding files ar
   - `presentation.html`: Self-contained HTML5 presentation (just as the course slides)
 </details>
 
-**Important: This entails, that the entire project as put on GitHub, can be cloned and then executed end-to-end. Since, we are not putting data on GitHub, if possible included programmatic retrieval of data and/or data instructions in your GitHub README file**
+**Important: This entails, that the entire project as put on GitHub, can be cloned and then executed end-to-end. Since, we are not putting data on GitHub, if possible included programmatic retrieval of data and/or data instructions on how to easily retrieve the data, e.g. via login, in your GitHub repository README file**
 
 #### But How???
 
