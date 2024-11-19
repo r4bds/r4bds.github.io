@@ -42,7 +42,8 @@
 ### Can we subset the data?
 
 - Yes, if you are particularly interested in a subset of the data, then that is perfectly fine. Just be aware, that any choice you take with the data, you must be able to account for why you took that choice
-- You should NOT just sample 100 observations as was done in the exercises to reduce runtime. However, if your data set is very large, consider down-sampling either randomly or by some metric of association. For the latter e.g. perform a test and identify the top X observations, save those to file and continue from there. 
+- You should NOT just sample 100 observations as was done in the exercises to reduce runtime. However, if your data set is very large, consider down-sampling either randomly or by some metric of association. For the latter e.g. perform a test and identify the top X observations, save those to file and continue from there
+- How big is too big? Well, that depends, can you work with it smoothly and is RStudio responsive? A hard cut is not really meaningful, so instead try to evaluate if it is feasible to work with the data smoothly on a "normal" laptop
 - For large data, try appending “.gz” to your files, when you write them using `write_tsv()`, this will invoke gzip-compression
 
 ## Input/output files 

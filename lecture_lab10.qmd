@@ -272,7 +272,7 @@ The exam consists of 3 components:
 
 ### The Presentation
 
-- The format is a 10-slides-in-10-mins
+- The format is a 10-slides-in-10-mins on the clock
 - Everyone in the group must present a part of the project
 - Expect a few overall questions regarding the decisions you have made throughout your project
 - NOTE: The final presentation in HTML-format must be zipped and uploaded to DTU Learn before deadline, so we can check the GitHub version is identical
@@ -287,7 +287,7 @@ The exam consists of 3 components:
 ### The MCQ
 
 - A 2-hour individual multiple choice exam
-- In 2022 the exam contained 60 questions, expect a similar number of questions
+- In 2023 the exam contained 80 questions, expect a similar number of questions
 - All aids are allowed, but no open internet
 - Each question will have 4 possible answers and only 1 is the right one and you can only choose one answer per question
 

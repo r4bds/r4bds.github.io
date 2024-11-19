@@ -38,7 +38,7 @@ The exam consists of 3 components:
 ### The MCQ
 
 - A 2-hour individual multiple choice exam
-- In 2022 the exam contained 60 questions, expect a similar number of questions
+- In 2023 the exam contained 80 questions, expect a similar number of questions
 - All aids are allowed, but no open internet
 - Each question will have 4 possible answers and only 1 is the right one and you can only choose one answer per question
 
