@@ -123,6 +123,10 @@
 - Basically, any package, which automatically does "things", that are part of the learning objectives, will not allow you to demonstrate, that you have met the learning objectives and is thus **NOT** to be used! You **HAVE** to show that you can do these things manually
 - But why??? Because using "magic"-packages restricts you to the functionality of those packages, whereas if you understand how to do the details yourself, then you are free as a bird to create _anything_
 
+### Can we install package X for our project?
+
+- If you need a specific package, please request it at the slack channel for the project and exam. The problem is that with that many groups, then each installing some number of packages, will create an unnecessary load on our storage due to redundancy
+
 ### How do we run the entire project incl. the presentation?
 
 - Make sure to include a programmatic call to render a file, i.e. in your run-all qmd file, when you include sub-documents and run the run-all file, the sub-files will not be generated, hence you need to include a programmatic call in your run-all file, which will also render the seperate sub-documents
