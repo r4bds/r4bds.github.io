@@ -9,6 +9,7 @@
 
 ### "Have we included a project README on the GitHub Repository?"
 - **<span style="color: red;">IMPORTANT:</span>** First header in the README has to be "Project Contributors" and then please state the student ids and matching GitHub usernames, so we know who-is-who
+- Be sure to include a direct link to your presentation, e.g. the direct link to the lecture in lab 3 is: `https://raw.githack.com/r4bds/r4bds.github.io/main/lecture_lab03.html`
 - Since we're not putting data on GitHub, you need to let us know how to get the data
 
 ### “Does our presentation follow the IMRAD structure?”

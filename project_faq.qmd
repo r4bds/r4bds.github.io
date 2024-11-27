@@ -271,7 +271,7 @@
 
 ### Where should we “place” our Shiny app in our presentation?
 
-- Demo it briefly at the end
+- Demo it briefly at the end, but stay within the assigned per-presentation time
 
 ### How can we illustrate our data handling?
 
