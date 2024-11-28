@@ -70,6 +70,9 @@ Where directories left-to-right, starting with `data` and corresponding files ar
 
 <details>
 <p><summary>`R`: **Your code**</summary></p>
+
+_NB! Every `.qmd`-file MUST be end-to-end executable independent from environment variables create in other `.qmd`-files_
+
   - `01_load.qmd`: Loads your data, e.g. combining multiple sheets from an excel file
   - `02_clean.qmd`: Cleans your data per your specifications and converts to tidy format
   - `03_augment.qmd`: Adds new variables, like e.g. computing a BMI
