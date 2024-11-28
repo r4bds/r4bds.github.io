@@ -91,6 +91,13 @@
 - Augment == Adding something
 - Be aware, that if you downstream discover a need to create a variable, you will need to go back to the augment and update
 
+### What goes in "describe"?
+
+- Descriptive statistics, e.g. how many in each group in your data, etc.
+- "Describe" is for clarifying the content of the data, the starting point of the analysis if you will
+- Should contain some key insights before you begin the analysis
+- Describe your data in plots and perhaps some tables if relevant
+
 ### Can we mix base R and tidyverse? 
 
 - No, you might as well get used to it - Tidyverse all the way! (This is a tidyverse course)
