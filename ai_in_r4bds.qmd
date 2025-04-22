@@ -1,5 +1,9 @@
 # Use of AI in the R for Bio Data Science Course {.unnumbered #sec-air4bds}
 
+Please note, that rules on the use of Generative AI (GAI) in "written exams with all aids - without internet." are such that in addition to written aids, students are allowed to bring laptops, tablets, and similar devices but it is NOT allowed to use generative AI, even if the tool is available in an offline version!
+
+Failure to comply with the above, will be considered cheating and reported as such.
+
 _The following is a copy of [Study announcement s1885](https://www.inside.dtu.dk/en/undervisning/regler/studiemeddelelser/meddelelsevisning?id=%7BB11F57BB-9D05-4A55-ABA9-5CBC8E2A2843%7D). It is **very** important that students are familiar with the official rules concerning use of AI and also that it remains the responsibility of the student to be in full compliance with the following_
 
 ## Use of Artificial Intelligence (generative AI) in teaching and exams at DTU
