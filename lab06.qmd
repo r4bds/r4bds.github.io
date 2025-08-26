@@ -24,7 +24,7 @@ _Please prepare the following materials:_
 - Video: [Broom: Converting Statistical Models to Tidy Data Frames](https://www.youtube.com/watch?v=7VGPUBWGv6g)
 - Video: [Alex Hayes | Solving the model representation problem with broom | RStudio (2019)](https://www.youtube.com/watch?v=gLZyvY5_kWQ)
 - Video: ["The Joy of Functional Programming (for Data Science)" with Hadley Wickham](https://www.youtube.com/watch?v=bzUmK0Y07ck)
-- Optional: If you are completely new to statistical modelling, then [click here for a primer](primer_on_linear_models_in_r.qmd)
+- Optional: If you are completely new to statistical modelling, then [click here for a primer](primer_linear_models.qmd)
 
 _Unless explicitly stated, do not do the per-chapter exercises in the R4DS2e book_
 
@@ -220,7 +220,7 @@ gravier_clean_aug <- gravier_clean |>
 
 Recall, in the second lab, we were looking at "our favourite gene". In the following either look back to what was your favourite gene or choose a new 🤷️
 
-Let's fit our first model! If the concept of models and linear regression is unfamiliar, consider checking out the [primer on linear models in R](primer_on_linear_models_in_r.qmd) before proceeding.
+Let's fit our first model! If the concept of models and linear regression is unfamiliar, consider checking out the [primer on linear models in R](primer_linear_models.qmd) before proceeding.
 
 - **T7: Use the `lm()` function to create your first model and save it to a new variable e.g. "my_first_model"**
 

@@ -50,7 +50,7 @@ But don't worry too much, the setup steps will be given here as well.
 
 ### TASKS
 
-If you haven't read the [Primer on R packages](primer_on_r_packages.qmd) yet, consider reading it now. 
+If you haven't read the [Primer on R packages](primer_r_packages.qmd) yet, consider reading it now. 
 
 ### Task 1 - Setting up the R package
 
@@ -227,7 +227,7 @@ Normally, you should also describe how the raw data was cleaned. You would do th
 
 Your package now includes some data.
 
-Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from [The Package Workflow](primer_on_r_packages.qmd#pkgwf) section:
+Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from [The Package Workflow](primer_r_packages.qmd#pkgwf) section:
 ```{r}
 #| eval: false
 rstudioapi::documentSaveAll()  # Saves all you files
@@ -270,7 +270,7 @@ For each function (found below), complete the following steps:
     - The return has the format: `@return description of function output`
     - Examples can span multiple lines and what you write will be run, so make it runnable.
     - **Important!** Either fill out everything or delete what you don't. Otherwise, the package check will fail (Do **not** delete `@export` for these functions).
-6. Run the three lines of codes from [The Package Workflow](primer_on_r_packages.qmd#pkgwf) section
+6. Run the three lines of codes from [The Package Workflow](primer_r_packages.qmd#pkgwf) section
   - If at this point, you get a warning that `NAMESPACE` already exists, delete it and try again.
 ```{r}
 #| eval: false

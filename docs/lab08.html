@@ -451,7 +451,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="tasks" class="level3">
 <h3 class="anchored" data-anchor-id="tasks">TASKS</h3>
-<p>If you haven’t read the <a href="primer_on_r_packages.qmd">Primer on R packages</a> yet, consider reading it now.</p>
+<p>If you haven’t read the <a href="./primer_r_packages.html">Primer on R packages</a> yet, consider reading it now.</p>
 </section>
 <section id="task-1---setting-up-the-r-package" class="level3">
 <h3 class="anchored" data-anchor-id="task-1---setting-up-the-r-package">Task 1 - Setting up the R package</h3>
@@ -648,7 +648,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 </div>
 <p>Normally, you should also describe how the raw data was cleaned. You would do that in the file that opens after running <code>usethis::use_data_raw( name = "NAME_OF_YOUR_OBJECT", open = TRUE )</code>, but that is less relevant here, so we will skip that part.</p>
 <p>Your package now includes some data.</p>
-<p>Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from <a href="primer_on_r_packages.qmd#pkgwf">The Package Workflow</a> section:</p>
+<p>Restart R, clean your Environment (small broom in the Environment tab), run the three lines of code from <a href="./primer_r_packages.html#pkgwf">The Package Workflow</a> section:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>rstudioapi<span class="sc">::</span><span class="fu">documentSaveAll</span>()  <span class="co"># Saves all you files</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">document</span>()  <span class="co"># Writes all your manuals for you</span></span>
@@ -679,7 +679,7 @@ Copy the generated token (should start with ghp_) and store it securely (e.g.&nb
 <li>Examples can span multiple lines and what you write will be run, so make it runnable.</li>
 <li><strong>Important!</strong> Either fill out everything or delete what you don’t. Otherwise, the package check will fail (Do <strong>not</strong> delete <code>@export</code> for these functions).</li>
 </ul></li>
-<li>Run the three lines of codes from <a href="primer_on_r_packages.qmd#pkgwf">The Package Workflow</a> section</li>
+<li>Run the three lines of codes from <a href="./primer_r_packages.html#pkgwf">The Package Workflow</a> section</li>
 </ol>
 <ul>
 <li>If at this point, you get a warning that <code>NAMESPACE</code> already exists, delete it and try again.</li>

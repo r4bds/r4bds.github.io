@@ -70,7 +70,7 @@ Again, go to the [R for Bio Data Science RStudio Cloud Server](https://teaching.
 - NB! The Quarto document MUST be placed together with your `.Rproj` file (defining, the project root - look in your `Files` tab) and also there, the `data`-folder should be placed!
 - REMEMBER paths are important! Also, R is case-sensitive, i.e. "data" is not the same as "Data"
 
-See [Paths and Projects](paths_and_projects.qmd)
+See [Paths and Projects](primer_paths_and_projects.qmd)
 
 ### The `here` package as your friendly neighborhood path helper
 
