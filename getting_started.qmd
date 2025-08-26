@@ -18,29 +18,29 @@ First, make sure you have a working DTU account, either as a student id or emplo
 
 Please click here to test your access the cloud server: [R for Bio Data Science Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php)
 
-## Class Communication
+## Slack as Class Communication  {#sec-slack}
 
 To streamline class communication, we will be using Slack. The aim is to facilitate getting you help fast and efficiently from classmates, the TAs, and myself. Rather than emailing questions to the teaching staff, I encourage you to post your questions on Slack. Each teaching lab will have its own dedicated Slack channel. Note: You can also make group specific Slack channels!
 
-Please join the Slack workspace by clicking [here](https://join.slack.com/t/r4bds2024/shared_invite/zt-2pitcnpja-ot0zIYOsikzEMYZt84eMMA)
+Please join the Slack workspace by clicking [here](https://join.slack.com/t/r4bds2025/shared_invite/zt-3akpiw85j-0iYP60WFr2QLeENeoT9uHw)
 
-## Setting up a GitHub account
+## Setting up a GitHub account {#sec-github}
 
 Prior to class, please go to [GitHub](https://github.com) and setup and account, shouldn't take long. During the registration process you can set up a student account, which will give you additional benefits, including GitHub Pro. In order to get it, you need to use your DTU email when setting account and select Apply for your GitHub student benefits when asked during the registration process. You'll be then asked to apply for GitHub Student Developer Pack, which will require uploading your student id photo. The process of confirming a student account may take up to a few days (however, it can be almost instantaneous). In the meantime you can already use your free account. Free account should be sufficient for this class, so if you don't want to set up a school account, you don't need to.
 
-Please state your GitHub username in [this google sheet](https://docs.google.com/spreadsheets/d/1yXC3ZBr4nS3DIJuBXFxejqsybI-kGU_NFrVupye6B6E/edit?usp=sharing).
+Please state your GitHub username in [this google sheet](https://docs.google.com/spreadsheets/d/13KkJ7aHHwMLqS2iGJ-smPBYXPldugkTG0rRvPusBPa4/edit?usp=sharing).
 
-We will then invite you to the [Github organisation](https://github.com/rforbiodatascience24) for this year's course. This is where you will learn how to do collaborative data science.
+We will then invite you to the [Github organisation](https://github.com/rforbiodatascience25) for this year's course. This is where you will learn how to do collaborative data science.
 
-## Group Formation
+## Group Formation {#sec-groups}
 
 The backbone of this course is modern **collaborative** data science and as such group work and active participation herein is mandatory. Furthermore, It is **important** that course participants prioritise to **be present** during classes as the course design is based on student-student interaction in an active learning environment. Therefore, students will work in groups of 4-5 students.
 
-Please click here and fill in the [group formation sheet](https://docs.google.com/spreadsheets/d/1P3wbjztVje5s5REtUhldcIr9gTtEMkDLJo6YMBfPOis/edit?usp=sharing)
+Please click here and fill in the [group formation sheet](https://docs.google.com/spreadsheets/d/1nBy4EMSgDw5FMAPvCqnI00H1-d_97MrKs7ANVusnR_Y/edit?usp=sharing)
 
-## Pre Course Questionnaire
+## Pre Course Questionnaire {#sec-questionnaire}
 
 It is important for the teaching team to understand the class composition.
 
-Please click here and fill in this brief and 100% [anonymous questionnaire](https://forms.gle/Hyxa93VdsXU5gKHw6)
+Please click here and fill in this brief and 100% [anonymous questionnaire](https://forms.gle/NG4bMnmoWQyN8uAz8)
 

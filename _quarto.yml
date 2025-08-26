@@ -11,7 +11,7 @@ book:
     left: |
       R for Bio Data Science
     center: |
-      All content © 2023 - 2024 Leon Eyrich Jessen. All rights reserved
+      All content © 2023 - 2025 Leon Eyrich Jessen. All rights reserved
     right: |
       Full course description available at <a href="https://kurser.dtu.dk/course/22100">DTU Course Base</a>.
   
@@ -34,17 +34,23 @@ book:
         - lab08.qmd
         - lab09.qmd
         - lab10.qmd
+        
+    - part: primers.qmd
+      chapters:
+        - primer_linear_models.qmd
+        - primer_logistic_regression.qmd
+        - primer_functions.qmd
+        - primer_r_packages.qmd
+        - primer_paths_and_projects.qmd
+        - primer_variable_assignment.qmd
 
-    - part: resources.qmd
-      chapters: 
-        - guide_for_working_locally.qmd
-        - guide_for_building_r4ds2e_locally.qmd
-        - paths_and_projects.qmd
-        - variable_assignment_in_r.qmd
+    - part: guides.qmd
+      chapters:
+        - guide_rstudio_server.qmd
+        - guide_working_locally.qmd
+        - guide_building_r4ds2e_locally.qmd
         - code_styling.qmd
-        - primer_on_linear_models_in_r.qmd
         - external_resources.qmd
-        - primer_on_r_packages.qmd
 
     - part: course_elements.qmd
       chapters: 

@@ -1,0 +1,25 @@
+# Guide for Cloud server and the RStudio IDE {.unnumbered}
+
+## Course Cloud Server Logon
+
+Go to the [R for Bio Data Science Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php) and follow the login procedure.
+
+## The RStudio IDE
+
+Upon login, you will be presented with the RStudio integrated development environment (IDE) for R:
+
+![](images/lab01_01.png){fig-align="center" width="800px"}
+
+First, just a quick change of settings to enable graphics. Click `Tools` $\rightarrow$ `Global Options`. Then under `General`, choose the tab `Graphics` and under `Graphics Device`, choose `Cairo` as your `Backend`. Then click `Apply` and finally `OK`. That was easy right? Now, please continue.
+
+Welcome to the RStudio IDE. It allows you to consolidate all features needed to develop `R` code for analysis. Now, click `Tools` $\rightarrow$ `Global Options...` $\rightarrow$ `Pane Layout` and you will see this:
+
+![](images/lab01_02.png){fig-align="center" width="600px"}
+
+This outlines the four panes you have in your RStudio IDE and allow you rearrange them as you please. Now, re-arrange them, so that they look like this:
+
+![](images/lab01_03.png){fig-align="center" width="600px"}
+
+Click `Apply` $\rightarrow$ `OK` and you should see this:
+
+![](images/lab01_04.png){fig-align="center" width="800px"}
