@@ -12,9 +12,40 @@ Teaching sessions will be E3A, Tuesday mornings 8 - 12 in building 358, room 060
 
 _Please note, at DTU we do not use "the academic quarter", this means that 8 am, means that class will commence at 8 am_
 
+## Class Rules & Expectations
+
+### What I Expect From You (the Students):
+
+1. Active Participation
+    - Come prepared to engage with both coding and biological data science concepts.
+    - Ask questions, curiosity drives learning.
+2. Effort Over Perfection
+    - Mistakes are part of programming and science. Document them, learn from them, and keep iterating.
+    - Show your reasoning process, not just the final result.
+3. Collaboration & Respect
+    - Support each other in learning R, teaching your peers is one of the best ways to learn yourself.
+    - Respect diverse perspectives and backgrounds.
+4. Professional Conduct
+    - Meet deadlines unless unforeseen circumstances arise (in which case, communicate early).
+    - Uphold academic integrity: your code should be your own work unless group collaboration or AI use is explicitly stated.
+
+### What You Can Expect From Me (the Course Responsible):
+1. Clarity & Structure
+    - I will explain concepts step by step and connect theory to practice.
+    - I will provide clear instructions and transparent guidelines and expectations.
+2. Accessibility & Support
+    - I will make myself available during class and on Slack for questions.
+    - I will provide constructive feedback to help you grow.
+3. A Safe Learning Environment
+    - No question is "too simple"
+    - I will foster a respectful, inclusive space for all students.
+4. Practical Relevance
+    - I will use real-world biological datasets where possible.
+    - I will highlight how R skills connect to research and professional opportunities.
+
 ## Logging onto Cloud Server
 
-First, make sure you have a working DTU account, either as a student id or employee initials (e.g. PhD-students or postdocs). In this course we will be using a cloud server infrastructure to perform our work.
+First, make sure you have a working DTU account, either as a student id or employee initials (e.g. PhD-students or postdocs) and that your multi factor authentication is functional. In this course we will be using a cloud server infrastructure to perform our work.
 
 Please click here to test your access the cloud server: [R for Bio Data Science Cloud Server](https://teaching.healthtech.dtu.dk/22100/rstudio.php)
 

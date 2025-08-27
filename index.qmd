@@ -10,4 +10,6 @@ Inspirational quotes can be cliche, however this one hits the nail on the head:
 
 -   *"Think about the readability of your code. Every project your work on is fundamentally collaborative. Even if you are not working with any other person, you are always working with future you and you really do not want to be in a situation where future you has no idea what past you was thinking, because past you will not respond to any emails!"* [Hadley Wickham](https://github.com/hadley)
 
-Bio Data Science in intrinsically collaborative (even if it's just you working) and intrinsically interdisciplinary, so collaborative-, reproducibility- and communication- skills are key. In this course, you will learn how to do modern project oriented collaborative bio data science in tidyverse `R` - Welcome!
+Bio Data Science in intrinsically collaborative (even if it's just you working) and intrinsically interdisciplinary, so collaborative-, reproducibility- and communication- skills are key. In this course, you will learn how to generate value by activating your knowledge on doing modern project oriented collaborative bio data science in tidyverse `R` - Welcome!
+
+![](images/value_knowledge_data.png){fig-align="center"}
