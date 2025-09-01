@@ -47,6 +47,10 @@ Today, we will focus on getting you started and up and running with the first el
 
 ### First steps
 
+#### Up and Running with the Course Cloud Server
+
+In the menu on your left, you will find, amongst other things, some guides. Find the `Guide for Cloud server and the RStudio IDE`, click it and follow the guide.
+
 #### The Console
 
 Now, in the console, as you saw in the video, you can type commands like:
@@ -122,6 +126,8 @@ But why? Imagine you have created a project, where you have indeed used absolute
 
 Projects are a *must* and allow you to create reproducible encapsulated bio data science projects. Note, the concept of reproducibility is absolutely central to this course and must be considered in all aspects of the life cycle of a project!
 
+If projects and paths seem unfamiliar to you, you may want to look in the menu on the left and find the `Primers` and then find and click `Paths & Projects`, which will guide you through the details.
+
 #### Quarto
 
 While `.R`-scripts are a perfectly valid way to write scripts, there is another Skywalker:
@@ -146,6 +152,8 @@ Proceed to [R4DS2e Chapter 28 Quarto](https://r4ds.hadley.nz/quarto) and do the 
 
 ### Artificial Intelligence in modern Bio Data Science
 
+This section is new as of 2025, please read carefully and follow along...
+
 *Honestly, if AI is going to solve all coding and analysis tasks moving forth, then why even bother???* 🤷
 
 This technology has made its entrance and is here to stay, but in order to really increase your learning yield, it is very important to understand how to use this technology.
@@ -167,7 +175,7 @@ Can an AI solve the majority of tasks you will work with in this course? YES!!! 
 
 Basically, what will you learn, if you let the smartest student do your homework? 🤷
 
-Here is the long term catch, if you do possess competencies beyond what an AI can do, then why would a future employer hire you instead of just getting an AI to solve the tasks???
+Here is the long term catch, **if you do possess competencies beyond what an AI can do, then why would a future employer hire you instead of just getting an AI to solve the tasks???**
 
 It is not just about passing this course, it is about understanding that in this course, you will be building the foundation for your future career.
 
@@ -238,7 +246,12 @@ Once you are confident that the AI has the right equation you now want to impres
 
 Note, in the proposed code, you can simply in the upper right corner click `copy`.
 
--   *T10:* Copy the code and paste it into the console in your RStudio Cloud server session and then run it, by hitting return. It the AI provided a separate example, also run this and check the result
+-   *T10:* Copy the code and paste it into the console in your RStudio Cloud server session and then run it, by hitting return. Run the function with these two examples `CASSIRSSYEQYF` and `CASSLGQGNTLYF` and compare with your group, did all of your functions run? Did you all get the same value?
+
+<details>
+<p><summary>Pssst... Don't know how to do this and need a hint?</summary></p>
+Well, in this exercise, ask your faourite AI: "How do I run these two examples `paste examples` through this function `paste function`
+</details>
 
 -   *T11:* Now, return to your favourite AI and enter: "Please propose an R-function for randomly generating a pseudo sequence. Then use that to compute the pseudo-sequence distance metric 10 times"
 
@@ -248,91 +261,16 @@ Again, run this code and check the 10 computed distances. The exact meaning of t
 
 The AI will now come with some longer explanation, which may or may not be correct.
 
-From conferring with other works on computing sequence distance metrics, it is my understanding that these metrics are bounded between 0 and 1, is that not also the case here?
+Ok, so now you want to collect everything, so you enter: "I now want a complete script, please create a script, with a function implementing the pseudo sequence distance calculation, a function, which can randomly generate amino acid sequences and then finally, generate 2 times 10 random amino acid sequences and compute all pseudo sequence distances"
+
+And then let's vibe-code: Simply copy/paste the script and run it in the console, if it does not run, simply copy/paste the error into your favourite AI and keep doing that until you code runs.
+
+-   *T13:* Once your code runs, try to see if you can share your examples with your group and compare if you get the same distances
+
+Finally:
+
+-   *Q7:* Assuming your code runs, discuss if you understand the details of the code and whether you would be comfortable sharing the code into an environment, where it is to support a multi-million-dollar drug development pipeline?
+
+-   *Q8:* Knowing that these AI assistants can hallucinate, i.e. give you information, which is _completely wrong_ equally confident as information, which is correct, how do you know, if your function does what it is supposed to?
 
 
-##### Moving onto R
-
-In the upper left corner, click `ChatGPT` it to start a new session.
-
-Again, type the following questions in the prompt and read the answers:
-
-1.  *R*
-2.  *What is R?*
-3.  *Give a few simple examples*
-4.  *Explain the difference between base R and Tidyverse R*
-
-If you get some code examples, try copying and pasting them into the console in RStudio to see if they run.
-
-##### Prompt Engineering
-
-Start a new chat and enter:
-
-1.  *Give a few simple examples*
-
-Compare the response with the one from before, is it the same or different and why so?
-
-Discuss in your group what is "Prompt Engineering" and how does it relate to the above few tests you did? (Bonus info: Prompt engineer is already a job and people are making money off of selling "prompts")
-
-##### ...a bit more
-
-Start a new chat and enter:
-
-1.  *Tell me about DNA*
-
-Check if it gives you correct information?
-
-Now, write:
-
-2.  *Give a few fun examples on how to get started with the R programming language using DNA*
-3.  *Copy/paste the code into the Console, do the examples all run?*
-4.  *Discuss in your group if you understand what is going on*
-5.  *Earlier you were told to play around with some code snippets. Perhaps you didn't fully catch what was going on? If so, try to type in e.g.:*
-
-```{verbatim}
-I'm new to R, please explain in simple terms, what the following code does:
-
-"
-nucleotides <- c("a", "c", "g", "t")
-replicate(n = 10, expr = paste0(sample(nucleotides, size = 100, replace = TRUE), collapse = ""))
-"
-```
-
-6. *Now, you could also ask a question like this:*
-
-```{verbatim}
-I am a student in the course "R for Bio Data Science" and we have been asked to solve the following problem:
-
-"
-Now it is time to take it a step further. A) Create a function, which returns random RNA of length 'l' and B) another function, which performs reverse transcription.
-"
-
-Please give me the solution to the problem
-```
-
-7.  *Try to run the code, you were presumable given. Likely, the tasks have been solved, but did you actually learn something? Do you understand the details of the code?*
-
-##### Strawberry Fields Forever
-
-Start yet a new chat and run:
-
-1.  *How many Rs are there in the word strawberry?*
-2.  *How many Rs are there in the word strawberries?*
-3.  *What is the difference between strawberry and strawberries?*
-4.  *Try as above, but using 'raspberry' and 'cranberry'*
-5.  *Inspect the answers, did ChatGPT get these simple questions right?*
-
-##### Summary
-
-**The following is IMPORTANT, so please read carefully and please discuss in your group**
-
-While `ChatGPT` can be a powerful tool for code productivity, it comes with a major caveat: **When it fails, it fails with confidence** (See `Strawberry Fields Forever` above). This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can use your experience to evaluate if you are heading in the right direction or if you're being send on a wild goose chase. In this situation, ChatGPT can be a powerful sparring partner to augment your bio data science workflow to enhance productivity.
-
-Know the difference between "asking for a solution" and "asking for an explanation" - Do not cheat yourself here, it is **very important** that the yield of this course is that **you** learn **Tidyverse R** and **not** how to "use ChatGPT to produced code".
-
-Therefore, **do not use ChatGPT to solve the exercises**, rather use ChatGPT as a learning assistant. Here is an example of the difference:
-
-- **Wrong:** _Give me the tidyverse code for adding a new variable `z` to a dataset, which is the sum of `x` and `y`_
-- **Right:** _In simple terms, explain which tidyverse function is used to add variables to datasets and give a very basic example of how it is used_
-
-The **wrong** way will give you the solution directly, robbing you of the learning process of internalising the functionality and the translation of the general explanation to the specific application to your problem. The **right** way, will allow you to work with your understanding of the problem and how to translate the general explation into a specific solution to your problem.

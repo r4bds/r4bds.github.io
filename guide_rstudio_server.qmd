@@ -23,6 +23,7 @@ This outlines the four panes you have in your RStudio IDE and allow you rearrang
 Click `Apply` $\rightarrow$ `OK` and you should see this:
 
 ![](images/lab01_04.png){fig-align="center" width="800px"}
+
 ### Source
 
 - Where you write and edit scripts (.R files, Quarto, etc.).

@@ -445,6 +445,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Today, we will focus on getting you started and up and running with the first elements of the course, namely the RStudio IDE (Integrated Developer Environment) and Quarto. If the relationship between <code>R</code> and RStudio is unclear, think of it this way: Consider a car, in that case, <code>R</code> would be the engine and RStudio would be the rest of the car. Neither is particularly useful, but together they form a functioning unit. Before you continue, make sure you in fact did watch the “RStudio for the Total Beginner” video (See the <a href="#sec-learning-materials">Learning Materials</a> for today’s session).</p>
 <section id="first-steps" class="level3">
 <h3 class="anchored" data-anchor-id="first-steps">First steps</h3>
+<section id="up-and-running-with-the-course-cloud-server" class="level4">
+<h4 class="anchored" data-anchor-id="up-and-running-with-the-course-cloud-server">Up and Running with the Course Cloud Server</h4>
+<p>In the menu on your left, you will find, amongst other things, some guides. Find the <code>Guide for Cloud server and the RStudio IDE</code>, click it and follow the guide.</p>
+</section>
 <section id="the-console" class="level4">
 <h4 class="anchored" data-anchor-id="the-console">The Console</h4>
 <p>Now, in the console, as you saw in the video, you can type commands like:</p>
@@ -512,6 +516,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Projects allow you to create fully transferable bio data science projects, meaning that the root of the project will be where the <code>.Rproj</code> file is located. You can confirm this by entering <code>getwd()</code> in the console. This means that under <em>no circumstances</em> should you ever <em>not</em> work within a project, nor should you <em>ever</em> use absolute paths. Every single path you state in your project <em>must</em> be relative to the project root.</p>
 <p>But why? Imagine you have created a project, where you have indeed used absolute paths. Now you want to share that project with a colleague. Said colleague gets your project and tests the reproducibility by running the project end-to-end. But it <em>completely</em> fails because you have hardcoded your paths to be absolute, meaning that all file and project resource locations point to locations on your laptop.</p>
 <p>Projects are a <em>must</em> and allow you to create reproducible encapsulated bio data science projects. Note, the concept of reproducibility is absolutely central to this course and must be considered in all aspects of the life cycle of a project!</p>
+<p>If projects and paths seem unfamiliar to you, you may want to look in the menu on the left and find the <code>Primers</code> and then find and click <code>Paths &amp; Projects</code>, which will guide you through the details.</p>
 </section>
 <section id="quarto" class="level4">
 <h4 class="anchored" data-anchor-id="quarto">Quarto</h4>
@@ -537,6 +542,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="artificial-intelligence-in-modern-bio-data-science" class="level3">
 <h3 class="anchored" data-anchor-id="artificial-intelligence-in-modern-bio-data-science">Artificial Intelligence in modern Bio Data Science</h3>
+<p>This section is new as of 2025, please read carefully and follow along…</p>
 <p><em>Honestly, if AI is going to solve all coding and analysis tasks moving forth, then why even bother???</em> 🤷</p>
 <p>This technology has made its entrance and is here to stay, but in order to really increase your learning yield, it is very important to understand how to use this technology.</p>
 <p>You can compare these technologies with being in the same group as the absolute smartest students in class, in fact the smartest student who has ever taken this class.</p>
@@ -550,7 +556,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In this course, the importance of being aware of actively building and training your computational thinking competencies, while also building your technical toolbox cannot be underestimated!!!</p>
 <p>Can an AI solve the majority of tasks you will work with in this course? YES!!! BUT, it is up to you as a student to actively engage the course taking responsibility for building competencies as outlined above.</p>
 <p>Basically, what will you learn, if you let the smartest student do your homework? 🤷</p>
-<p>Here is the long term catch, if you do possess competencies beyond what an AI can do, then why would a future employer hire you instead of just getting an AI to solve the tasks???</p>
+<p>Here is the long term catch, <strong>if you do possess competencies beyond what an AI can do, then why would a future employer hire you instead of just getting an AI to solve the tasks???</strong></p>
 <p>It is not just about passing this course, it is about understanding that in this course, you will be building the foundation for your future career.</p>
 <section id="getting-started" class="level4">
 <h4 class="anchored" data-anchor-id="getting-started">Getting started</h4>
@@ -619,95 +625,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Note, in the proposed code, you can simply in the upper right corner click <code>copy</code>.</p>
 <ul>
-<li><p><em>T10:</em> Copy the code and paste it into the console in your RStudio Cloud server session and then run it, by hitting return. It the AI provided a separate example, also run this and check the result</p></li>
-<li><p><em>T11:</em> Now, return to your favourite AI and enter: “Please propose an R-function for randomly generating a pseudo sequence. Then use that to compute the pseudo-sequence distance metric 10 times”</p></li>
+<li><em>T10:</em> Copy the code and paste it into the console in your RStudio Cloud server session and then run it, by hitting return. Run the function with these two examples <code>CASSIRSSYEQYF</code> and <code>CASSLGQGNTLYF</code> and compare with your group, did all of your functions run? Did you all get the same value?</li>
+</ul>
+<details>
+<p>
+</p><summary>
+Pssst… Don’t know how to do this and need a hint?
+</summary>
+<p></p>
+Well, in this exercise, ask your faourite AI: “How do I run these two examples <code>paste examples</code> through this function <code>paste function</code>
+</details>
+<ul>
+<li><em>T11:</em> Now, return to your favourite AI and enter: “Please propose an R-function for randomly generating a pseudo sequence. Then use that to compute the pseudo-sequence distance metric 10 times”</li>
 </ul>
 <p>Again, run this code and check the 10 computed distances. The exact meaning of these 10 examples is not clear to you, so you decide to again turn to your AI:</p>
 <ul>
 <li><em>T12:</em> Enter: “The exact meaning of these values are not clear to me. Here are my computed values:” and then copy paste the computed values from your R-console</li>
 </ul>
 <p>The AI will now come with some longer explanation, which may or may not be correct.</p>
-<p>From conferring with other works on computing sequence distance metrics, it is my understanding that these metrics are bounded between 0 and 1, is that not also the case here?</p>
-<section id="moving-onto-r" class="level5">
-<h5 class="anchored" data-anchor-id="moving-onto-r">Moving onto R</h5>
-<p>In the upper left corner, click <code>ChatGPT</code> it to start a new session.</p>
-<p>Again, type the following questions in the prompt and read the answers:</p>
-<ol type="1">
-<li><em>R</em></li>
-<li><em>What is R?</em></li>
-<li><em>Give a few simple examples</em></li>
-<li><em>Explain the difference between base R and Tidyverse R</em></li>
-</ol>
-<p>If you get some code examples, try copying and pasting them into the console in RStudio to see if they run.</p>
-</section>
-<section id="prompt-engineering" class="level5">
-<h5 class="anchored" data-anchor-id="prompt-engineering">Prompt Engineering</h5>
-<p>Start a new chat and enter:</p>
-<ol type="1">
-<li><em>Give a few simple examples</em></li>
-</ol>
-<p>Compare the response with the one from before, is it the same or different and why so?</p>
-<p>Discuss in your group what is “Prompt Engineering” and how does it relate to the above few tests you did? (Bonus info: Prompt engineer is already a job and people are making money off of selling “prompts”)</p>
-</section>
-<section id="a-bit-more" class="level5">
-<h5 class="anchored" data-anchor-id="a-bit-more">…a bit more</h5>
-<p>Start a new chat and enter:</p>
-<ol type="1">
-<li><em>Tell me about DNA</em></li>
-</ol>
-<p>Check if it gives you correct information?</p>
-<p>Now, write:</p>
-<ol start="2" type="1">
-<li><em>Give a few fun examples on how to get started with the R programming language using DNA</em></li>
-<li><em>Copy/paste the code into the Console, do the examples all run?</em></li>
-<li><em>Discuss in your group if you understand what is going on</em></li>
-<li><em>Earlier you were told to play around with some code snippets. Perhaps you didn’t fully catch what was going on? If so, try to type in e.g.:</em></li>
-</ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>I'm new to R, please explain in simple terms, what the following code does:</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>"</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>nucleotides &lt;- c("a", "c", "g", "t")</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>replicate(n = 10, expr = paste0(sample(nucleotides, size = 100, replace = TRUE), collapse = ""))</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="6" type="1">
-<li><em>Now, you could also ask a question like this:</em></li>
-</ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>I am a student in the course "R for Bio Data Science" and we have been asked to solve the following problem:</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>"</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>Now it is time to take it a step further. A) Create a function, which returns random RNA of length 'l' and B) another function, which performs reverse transcription.</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>"</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>Please give me the solution to the problem</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol start="7" type="1">
-<li><em>Try to run the code, you were presumable given. Likely, the tasks have been solved, but did you actually learn something? Do you understand the details of the code?</em></li>
-</ol>
-</section>
-<section id="strawberry-fields-forever" class="level5">
-<h5 class="anchored" data-anchor-id="strawberry-fields-forever">Strawberry Fields Forever</h5>
-<p>Start yet a new chat and run:</p>
-<ol type="1">
-<li><em>How many Rs are there in the word strawberry?</em></li>
-<li><em>How many Rs are there in the word strawberries?</em></li>
-<li><em>What is the difference between strawberry and strawberries?</em></li>
-<li><em>Try as above, but using ‘raspberry’ and ‘cranberry’</em></li>
-<li><em>Inspect the answers, did ChatGPT get these simple questions right?</em></li>
-</ol>
-</section>
-<section id="summary" class="level5">
-<h5 class="anchored" data-anchor-id="summary">Summary</h5>
-<p><strong>The following is IMPORTANT, so please read carefully and please discuss in your group</strong></p>
-<p>While <code>ChatGPT</code> can be a powerful tool for code productivity, it comes with a major caveat: <strong>When it fails, it fails with confidence</strong> (See <code>Strawberry Fields Forever</code> above). This means that it will be equally confident whether it is right or wrong! The optimal yield is when you are working on a problem with a tool, where you already have a good knowledge of the problem and the tool. Here, you can use your experience to evaluate if you are heading in the right direction or if you’re being send on a wild goose chase. In this situation, ChatGPT can be a powerful sparring partner to augment your bio data science workflow to enhance productivity.</p>
-<p>Know the difference between “asking for a solution” and “asking for an explanation” - Do not cheat yourself here, it is <strong>very important</strong> that the yield of this course is that <strong>you</strong> learn <strong>Tidyverse R</strong> and <strong>not</strong> how to “use ChatGPT to produced code”.</p>
-<p>Therefore, <strong>do not use ChatGPT to solve the exercises</strong>, rather use ChatGPT as a learning assistant. Here is an example of the difference:</p>
+<p>Ok, so now you want to collect everything, so you enter: “I now want a complete script, please create a script, with a function implementing the pseudo sequence distance calculation, a function, which can randomly generate amino acid sequences and then finally, generate 2 times 10 random amino acid sequences and compute all pseudo sequence distances”</p>
+<p>And then let’s vibe-code: Simply copy/paste the script and run it in the console, if it does not run, simply copy/paste the error into your favourite AI and keep doing that until you code runs.</p>
 <ul>
-<li><strong>Wrong:</strong> <em>Give me the tidyverse code for adding a new variable <code>z</code> to a dataset, which is the sum of <code>x</code> and <code>y</code></em></li>
-<li><strong>Right:</strong> <em>In simple terms, explain which tidyverse function is used to add variables to datasets and give a very basic example of how it is used</em></li>
+<li><em>T13:</em> Once your code runs, try to see if you can share your examples with your group and compare if you get the same distances</li>
 </ul>
-<p>The <strong>wrong</strong> way will give you the solution directly, robbing you of the learning process of internalising the functionality and the translation of the general explanation to the specific application to your problem. The <strong>right</strong> way, will allow you to work with your understanding of the problem and how to translate the general explation into a specific solution to your problem.</p>
+<p>Finally:</p>
+<ul>
+<li><p><em>Q7:</em> Assuming your code runs, discuss if you understand the details of the code and whether you would be comfortable sharing the code into an environment, where it is to support a multi-million-dollar drug development pipeline?</p></li>
+<li><p><em>Q8:</em> Knowing that these AI assistants can hallucinate, i.e.&nbsp;give you information, which is <em>completely wrong</em> equally confident as information, which is correct, how do you know, if your function does what it is supposed to?</p></li>
+</ul>
 
 
-</section>
 </section>
 </section>
 </section>
