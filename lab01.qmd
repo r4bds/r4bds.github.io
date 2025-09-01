@@ -249,7 +249,7 @@ Note, in the proposed code, you can simply in the upper right corner click `copy
 -   *T10:* Copy the code and paste it into the console in your RStudio Cloud server session and then run it, by hitting return. Run the function with these two examples `CASSIRSSYEQYF` and `CASSLGQGNTLYF` and compare with your group, did all of your functions run? Did you all get the same value?
 
 <details>
-<p><summary>Pssst... Don't know how to do this and need a hint?</summary></p>
+<p><summary>Pssst... Don't know how to do this and need a hint? Try to click here...</summary></p>
 Well, in this exercise, ask your faourite AI: "How do I run these two examples `paste examples` through this function `paste function`
 </details>
 
@@ -273,4 +273,6 @@ Finally:
 
 -   *Q8:* Knowing that these AI assistants can hallucinate, i.e. give you information, which is _completely wrong_ equally confident as information, which is correct, how do you know, if your function does what it is supposed to?
 
+_That's it for today and remember moving in this course: DON'T use AI to generate the solution to an exercise, instead think your way through the exercise, generate YOUR solution and then DO get feedback from AI on your solution!_
 
+Put in the time and the effort in this course and you will learn how to create the good solution and often even better than an AI and that's your angle right there!
