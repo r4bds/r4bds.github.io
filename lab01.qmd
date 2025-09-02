@@ -142,7 +142,9 @@ You should now see something like this:
 
 ![](images/lab01_05.png){fig-align="center" width="800px"}
 
-Try clicking the `Render` button just above the quarto-document. This will create the HTML5 output file. Note! You may get a `Connection Refused` message. If so, don't worry, just close the page to return to the cloud server and find the generated `.html` file, left-click and select `View in Web Browser`.
+Try clicking the `Render` button just above the quarto-document. This will create the HTML5 output file. Note! You may get a `Connection Refused` message. If so, don't worry, just close the page to return to the cloud server and find the generated `.html`-file, left-click and select `View in Web Browser`.
+
+You may also get a bit of a weird message, which could look something like this `/file_show?path=%2Fnet%2Fpupil1%2Fhome%2Fpeople%2Fztizh%2Ftry.html not found`. In that case, click the generated `.html`-file and choose `Open in Editor` and then at the top of document, find the button saying `Preview` and click it. Note, this is a work-around.
 
 If you have previously worked with `Rmarkdown`, then many features of `Quarto` will be familiar. Think of `Quarto` as a complete rethinking of `Rmarkdown`, i.e. based on all the experience gained, what would the optimal way of constructing an open-source scientific and technical publishing system?
 
