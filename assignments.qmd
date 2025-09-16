@@ -2,9 +2,17 @@
 
 *As part of this course, starting from Lab 2, there will be a weekly hand in. Here, follows the instructions for creating and handing in course assignments.*
 
+## Feedback
+
+The aim of these weekly group hand ins, is for you to get feedback on your work and your progress.
+
+You will then receive group feedback on your assignment, which you should make sure to go over in your group. Please note, that some groups may have members across 22100 and 22160, in that case, the feedback will only appear under the course number, where the assignment was submitted.
+
+**Therefore, please make sure to go over the feedback from last week's assignment at the beginning of each exercise session**
+
 ## Assignment Instructions
 
-The assignment will be marked "Group Assignment" with red font in the exercises. In your group, you are to prepare an answer to **just this one question**. Think about reproducibility from the get-go, so include in your assignment, what is needed to re-create your micro-report, e.g. if you're using external data, from where and how did you get it? You will then receive group feedback on your assignment, which you should make sure to go over in your group.
+The assignment will be marked "Group Assignment" with red font in the exercises. In your group, you are to prepare an answer to **just this one question**. Think about reproducibility from the get-go, so include in your assignment, what is needed to re-create your micro-report, e.g. if you're using external data, from where and how did you get it?
 
 *Please note, that in order to include all elements in a self-contained html file, you will have to use the following YAML-header in your Quarto document:*
 
