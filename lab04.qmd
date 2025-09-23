@@ -110,6 +110,8 @@ Bonus info: We are engineers, so of course, we love equations, we can include st
 
 Try it!
 
+_(Note, this might not work if you do a copy/paste, so try to type it)_
+
 ### A few handy short cuts
 
 Insert new code chunk:
