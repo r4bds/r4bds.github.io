@@ -175,7 +175,7 @@ Let's take a look at the meta data:
 
 ```{r}
 meta_data |> 
-  sample_n(10)
+  slice_sample(n = 10)
 ```
 
 - **Q1: How many observations of how many variables are in the data?**
@@ -257,7 +257,7 @@ meta_data <- meta_data |>
 
 ```{r}
 meta_data |> 
-  sample_n(10)
+  slice_sample(n = 10)
 ```
 
 
@@ -306,7 +306,7 @@ Before we proceed, this is the data we will carry on with:
 #| echo: true
 #| eval: true
 meta_data |> 
-  sample_n(10)
+  slice_sample(n = 10)
 ```
 
 Now, we have a beautiful `tidy` dataset, recall that this entails, that each row is an observation, each column is a variable and each cell holds one value.
@@ -319,7 +319,7 @@ Let's start with simply having a look see:
 #| echo: true
 #| eval: true
 peptide_data |> 
-  sample_n(10)
+  slice_sample(n = 10)
 ```
 
 - **Q3: How many observations of how many variables are in the data?**
@@ -351,7 +351,7 @@ Once again, before we proceed, this is the data we will carry on with:
 #| echo: true
 #| eval: true
 peptide_data |> 
-  sample_n(10)
+  slice_sample(n = 10)
 ```
 
 - **Q4: Is this tidy data? Why/why not?**
@@ -371,7 +371,7 @@ peptide_data <- peptide_data |>
 #| echo: true
 #| eval: true
 peptide_data |> 
-  sample_n(size = 10)
+  slice_sample(n = 10)
 ```
 
 <details><p><summary>Click here for hint</summary></p>
@@ -396,7 +396,7 @@ peptide_data <- peptide_data |>
 #| echo: true
 #| eval: true
 peptide_data |> 
-  sample_n(size = 10)
+  slice_sample(n = 10)
 ```
 
 - **T8: Re-create the following plot**
@@ -454,16 +454,16 @@ peptide_data <- peptide_data |>
 #| echo: true
 #| eval: true
 peptide_data |> 
-  sample_n(size = 10)
+  slice_sample(n = 10)
 ```
 
 - **Q5: Now, presumable you got a warning, discuss in your group why that is?**
 
 - **Q6: With respect to `peptide_n`, discuss in your group, if this is wide- or long-data?**
 
-Now, finally we will use the what we prepared for today, data pivoting. There are two functions, namely `pivot_wider()` and `pivot_longer()`. Also, now, we will use a trick when developing ones data pipeline, while working with new functions, that on might not be completely comfortable with. You have seen the `sample_n()` function several times above and we can use that to randomly sample `n` observations from data. This we can utilise to work with a smaller data set in the development face and once we are ready, we can increase this `n` gradually to see if everything continues to work as anticipated.
+Now, finally we will use the what we prepared for today, data pivoting. There are two functions, namely `pivot_wider()` and `pivot_longer()`. Also, now, we will use a trick when developing ones data pipeline, while working with new functions, that on might not be completely comfortable with. You have seen the `slice_sample()` function several times above and we can use that to randomly sample `n` observations from data. This we can utilise to work with a smaller data set in the development face and once we are ready, we can increase this `n` gradually to see if everything continues to work as anticipated.
 
-- **T11: Using the `peptide_data`, run a few `sample_n()` calls with varying degree of `n` to make sure, that you get a feeling for what is going on**
+- **T11: Using the `peptide_data`, run a few `slice_sample()` calls with varying degree of `n` to make sure, that you get a feeling for what is going on**
 
 - **T12: From the `peptide_data` data above, with peptide_1, peptide_2, etc. create this data set using one of the data pivoting functions. Remember to start initially with sampling a smaller data set and then work on that first! Also, once you're sure you're good to go, reuse the `peptide_data` variable as we don't want huge redundant data sets floating around in our environment**
 
@@ -499,7 +499,7 @@ my_data <- tibble(
 #| echo: true
 #| eval: true
 peptide_data |> 
-  sample_n(10)
+  slice_sample(n = 10)
 ```
 
 - **Q7: You will see some `NA`s in the `peptide` variable, discuss in your group from where these arise?**
@@ -523,7 +523,7 @@ peptide_data <- peptide_data |>
 #| eval: true
 
 peptide_data |> 
-  sample_n(10)
+  slice_sample(n = 10)
 ```
 
 - **Q8: Now how many rows and columns and is this data tidy? Discuss in your group why/why not?**
@@ -565,7 +565,7 @@ peptide_data <- peptide_data |>
 #| eval: true
 
 peptide_data |> 
-  sample_n(10)
+  slice_sample(n = 10)
 ```
 
 - **T16: Re-create this plot**
@@ -608,7 +608,7 @@ peptide_data |>
 #| echo: true
 #| eval: true
 peptide_data |> 
-  sample_n(10)
+  slice_sample(n = 10)
 ```
 
 #### Creating one data set from two data sets
@@ -620,7 +620,7 @@ Before we move onto using the family of `*_join()` functions you prepared for to
 #| eval: true
 
 meta_data |> 
-  sample_n(10)
+  slice_sample(n = 10)
 ```
 
 Remember you can scroll in the data.
@@ -646,7 +646,7 @@ meta_data <- meta_data |>
 #| eval: true
 
 meta_data |> 
-  sample_n(10)
+  slice_sample(n = 10)
 ```
 
 Remember, what we are aiming for here, is to create one data set from two. So:
@@ -666,7 +666,7 @@ meta_data <- meta_data |>
 #| echo: true
 #| eval: true
 meta_data |> 
-  sample_n(10)
+  slice_sample(n = 10)
 ```
 
 Use the `View()` function again, to look at the `meta_data`. Notice something? Some alleles are e.g. `A*11:01`, whereas others are `B*51:01:02`. You can find information on why, by visiting [Nomenclature for Factors of the HLA System](http://hla.alleles.org/nomenclature/naming.html).
@@ -693,7 +693,7 @@ meta_data <- meta_data |>
 #| echo: true
 #| eval: true
 meta_data |> 
-  sample_n(10)
+  slice_sample(n = 10)
 ```
 
 The asterisk, i.e. `*` is a rather annoying character because of ambiguity, so:
@@ -713,7 +713,7 @@ meta_data <- meta_data |>
 #| echo: true
 #| eval: true
 meta_data |> 
-  sample_n(size = 10)
+  slice_sample(n = 10)
 ```
 
 <details><p><summary>Click here for hint 1</summary></p>
@@ -731,7 +731,7 @@ Recall the `peptide_data`?
 #| eval: true
 
 peptide_data |>
-  sample_n(10)
+  slice_sample(n = 10)
 ```
 
 - **T21: Create a `dplyr` pipeline, starting with the `peptide_data`, which joins it with the `meta_data` and remember to make sure that you get only unqiue observations of rows. Save this data into a new variable names `peptide_meta_data` (If you get a warning, discuss in your group what it means?)**
@@ -761,7 +761,7 @@ peptide_meta_data <- peptide_data |>
 #| eval: true
 
 peptide_meta_data |>
-  sample_n(10)
+  slice_sample(n = 10)
 ```
 
 ### Analysis
