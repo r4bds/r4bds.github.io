@@ -16,7 +16,7 @@
 
 _Please prepare the following materials:_
 
-- **Important:** Questionnaire (brief, 5-10 min): [Course Midway Evaluation](https://forms.gle/hbrLKptajJX7wsRs7)
+- **Important:** Brief midway evaluation questionnaire (est. ~2 min): [pre-course anonymous questionaire](getting_started.qmd#sec-midwayeval)
 -  Book (Note, this is intentionally 1.ed.): [R4DS: Chapter 22: Introduction](https://r4ds.had.co.nz/model-intro.html)
 -  Book (Note, this is intentionally 1.ed.): [Chapter 23: Model Basics](https://r4ds.had.co.nz/model-basics.html)
 -  Book (Note, this is intentionally 1.ed.): [Chapter 24: Model Building](https://r4ds.had.co.nz/model-building.html)
