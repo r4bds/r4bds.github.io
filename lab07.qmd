@@ -131,13 +131,33 @@ usethis::use_git_config(user.name = "YOUR_GITHUB_USERNAME", user.email = "THE_EM
 usethis::create_github_token()
 ```
 
-3. Login
-4. Under `Note`, where it says `DESCRIBE THE TOKEN'S USE CASE`, delete the text and write e.g.`R for Bio Data Science lab 7 git exercises`
-5. Under `Expiration`, where it says `30 days`, change that to `90 days`
-6. Do not change any other setting, but simply scroll down and click `Generate token`
-7. A new `Personal access tokens (classic)` page will appear, stating your personal access token, which starts with `ghp_`, go ahead and copy it
-8. Store the `PAT` somewhere save, e.g. in a password management tool. It will serve as your password when connecting to the repository via R.
-9. Again in the console, run the below command and enter your `PAT` when prompted for the password:
+3. In the `Console`, run the command:
+
+```{r}
+#| echo: true
+#| eval: false
+usethis::use_git_config(pull.rebase = "false")
+```
+
+<details>
+<p><summary>For now, you can ignore what `pull.rebase` does, but click here if you are curious</summary></p>
+When pulling from a repository that has received new commits between your last `pull` and your last commit, you can run into the problem that 
+there are new commits with changes in the same places of the code as you have been editing. In this case, a rebase will simply apply your changes 
+on top of whatever modifications happened in those new commits. This can sometimes break the code and it can be hard to understand why. Setting 
+`pull.rebase = "false"` will make it so that you are forced to solve the conflicting changes manually when you run into that situation. You can 
+find a much more technical explanation on merging vs. rebasing [here](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).
+
+If you do not set `pull.rebase` at all, the first time that your `pull` conflicts with existing commits git will simply ask you whether you want 
+to rebase or merge by default. Setting this option here simply avoids the error message from appearing later on.
+</details>
+
+4. Login
+5. Under `Note`, where it says `DESCRIBE THE TOKEN'S USE CASE`, delete the text and write e.g.`R for Bio Data Science lab 7 git exercises`
+6. Under `Expiration`, where it says `30 days`, change that to `90 days`
+7. Do not change any other setting, but simply scroll down and click `Generate token`
+8. A new `Personal access tokens (classic)` page will appear, stating your personal access token, which starts with `ghp_`, go ahead and copy it
+9. Store the `PAT` somewhere save, e.g. in a password management tool. It will serve as your password when connecting to the repository via R.
+10. Again in the `Console`, run the below command and enter your `PAT` when prompted for the password:
 
 ```{r}
 #| echo: true
