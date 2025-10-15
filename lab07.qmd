@@ -84,14 +84,16 @@ First, select a team **<span style="color:darkgreen;">Captain</span>**, that per
 
 1. Refresh the page and go into the new repository. If you don't see it, check your mail and accept your invitation to join the repository.
 
-#### **<span style="color:darkgreen;">Team</span>**
+#### **<span style="color:darkgreen;">Captain</span>**
+
+#### **Cloning the repository**
 
 1. [Click here](https://teaching.healthtech.dtu.dk/22100/rstudio.php) to go to the course RStudio cloud server and login
 1. In the upper right corner, click on ![](images/paths_new_proj.png)`<your_current_project_name>`
 1. Choose ![](images/paths_new_proj_plus.png) `New Project...`
 1. Select ![](images/icon_version_control.png) **Version Control**
 1. Select ![](images/icon_git.png) **Git**
-1. Under `Repository URL:`, enter `https://github.com/rforbiodatascienceYY/groupXX`, where again you replace `YY` with year and replace `XX` with your group number, e.g. `02`. 
+1. Under `Repository URL:`, enter `https://github.com/rforbiodatascienceYY/groupXX`, where again you replace `YY` with  the current year and replace `XX` with your group number, e.g. `02`. 
 1. Under `Project directory name:`, enter `lab07_git_exercises`
 1. Under `Create project as a subdirectory of:`, make sure that is says `~/projects`
 1. Click `Create Project`
@@ -102,13 +104,27 @@ In your `Files` pane, you should now see:
 
 ![](images/git_first_files.png){fig-align="center" width=40%}
 
-...and now in your `Environment` pane, you should see a new `git` tab:
+...and now in your `Environment` pane, you should see a new `Git` tab:
 
 ![](images/git_environment_pane.png){fig-align="center" width=50%}
 
-If you click the `git` tab, you should see:
+If you click the `Git` tab, you should see:
 
 ![](images/environment_pane_git_tab.png){fig-align="center" width=50%}
+
+#### **Pushing the project basics to GitHub**
+
+1. In the `Git` tab, tick the 2 boxes under `staged` (we will get into what `.gitignore` is later)
+1. Click `commit`
+1. In the upper right corner, add a `Commit message`, e.g "Project basics"
+1. Click the `Commit` button
+1. A pop-up, will give you details on your commit, look through them and then click `Close`
+1. Click the ![](images/pull.png) `Pull` button, then the ![](images/push.png) `Push` button
+
+#### **<span style="color:darkgreen;">Crew</span>**
+
+1. Make sure that you can see the `lab07_git_exercises.Rproj` and `.gitignore` files in the GitHub repository before proceeding further
+1. Follow the instructions under *Cloning the repository* that your captain followed a few moments ago (but **not** the *Pushing the project basics to GitHub*)
 
 #### Setting up your Credentials and Personal Access Token (**<span style="color:darkgreen;">Team</span>**)
 
