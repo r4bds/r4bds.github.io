@@ -127,14 +127,6 @@ usethis::use_git_config(user.name = "YOUR_GITHUB_USERNAME", user.email = "THE_EM
 ```{r}
 #| echo: true
 #| eval: false
-usethis::create_github_token()
-```
-
-3. In the `Console`, run the command:
-
-```{r}
-#| echo: true
-#| eval: false
 usethis::use_git_config(pull.rebase = "false")
 ```
 
@@ -146,9 +138,17 @@ on top of whatever modifications happened in those new commits. This can sometim
 `pull.rebase = "false"` will make it so that you are forced to solve the conflicting changes manually when you run into that situation. You can 
 find a much more technical explanation on merging vs. rebasing [here](https://www.atlassian.com/git/tutorials/merging-vs-rebasing).
 
-If you do not set `pull.rebase` at all, the first time that your `pull` conflicts with existing commits git will simply ask you whether you want 
-to rebase or merge by default. Setting this option here simply avoids the error message from appearing later on.
+If you do not set `pull.rebase` at all, the first time that your `pull` conflicts with existing commits git will simply ask you to set it. Doing 
+it now simply avoids the error message from appearing later.
 </details>
+
+3. In the `Console`, run the command:
+
+```{r}
+#| echo: true
+#| eval: false
+usethis::create_github_token()
+```
 
 4. Login
 5. Under `Note`, where it says `DESCRIBE THE TOKEN'S USE CASE`, delete the text and write e.g.`R for Bio Data Science lab 7 git exercises`
