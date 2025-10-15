@@ -123,24 +123,14 @@ If you click the `Git` tab, you should see:
 
 #### **<span style="color:darkgreen;">Crew</span>**
 
-1. Make sure that you can see the `lab07_git_exercises.Rproj` and `.gitignore` files in the GitHub repository before proceeding further
+1. Make sure that you can see the `lab07_git_exercises.Rproj` and `.gitignore` files that your captain just pushed in the GitHub repository before proceeding further
 1. Follow the instructions under *Cloning the repository* that your captain followed a few moments ago (but **not** the *Pushing the project basics to GitHub*)
 
 #### **<span style="color:darkgreen;">Team</span>**
 
-#### Setting up your Credentials and Personal Access Token 
+#### Setting up `git`'s pull strategy
 
-*GitHub doesn't know who you are, at this point you're just someone who cloned your first GitHub repository and now you want to do all sorts of stuff! We can't have that, so let's fix that by letting GitHub verify what your account is.*
-
-1. In the `Console`, run the command:
-
-```{r}
-#| echo: true
-#| eval: false
-usethis::use_git_config(user.name = "YOUR_GITHUB_USERNAME", user.email = "THE_EMAIL_YOU_USED_TO_CREATE_YOUR_GITHUB_ACCOUNT")
-```
-
-2. In the `Console`, run the command:
+In the `Console`, run the command:
 
 ```{r}
 #| echo: true
@@ -160,7 +150,19 @@ If you do not set `pull.rebase` at all, the first time that your `pull` conflict
 it now simply avoids the error message from appearing later.
 </details>
 
-3. In the `Console`, run the command:
+#### Setting up your Credentials and Personal Access Token 
+
+*GitHub doesn't know who you are, at this point you're just someone who cloned your first GitHub repository and now you want to do all sorts of stuff! We can't have that, so let's fix that by letting GitHub verify what your account is.*
+
+1. In the `Console`, run the command:
+
+```{r}
+#| echo: true
+#| eval: false
+usethis::use_git_config(user.name = "YOUR_GITHUB_USERNAME", user.email = "THE_EMAIL_YOU_USED_TO_CREATE_YOUR_GITHUB_ACCOUNT")
+```
+
+2. In the `Console`, run the command:
 
 ```{r}
 #| echo: true
@@ -168,13 +170,13 @@ it now simply avoids the error message from appearing later.
 usethis::create_github_token()
 ```
 
-4. Log into GitHub if not logged in already
-5. Under `Note`, where it says `DESCRIBE THE TOKEN'S USE CASE`, delete the text and write e.g.`R for Bio Data Science lab 7 git exercises`
-6. Under `Expiration`, where it says `30 days`, change that to `90 days`
-7. Do not change any other setting, but simply scroll down and click `Generate token`
-8. A new `Personal access tokens (classic)` page will appear, stating your personal access token, which starts with `ghp_`, go ahead and copy it
-9. Store the `PAT` somewhere save, e.g. in a password management tool. It will serve as your password when connecting to the repository via R.
-10. Again in the `Console`, run the below command and enter your `PAT` when prompted for the password:
+3. Log into GitHub if not logged in already
+4. Under `Note`, where it says `DESCRIBE THE TOKEN'S USE CASE`, delete the text and write e.g.`R for Bio Data Science lab 7 git exercises`
+5. Under `Expiration`, where it says `30 days`, change that to `90 days`
+6. Do not change any other setting, but simply scroll down and click `Generate token`
+7. A new `Personal access tokens (classic)` page will appear, stating your personal access token, which starts with `ghp_`, go ahead and copy it
+8. Store the `PAT` somewhere save, e.g. in a password management tool. It will serve as your password when connecting to the repository via R.
+9. Again in the `Console`, run the below command and enter your `PAT` when prompted for the password:
 
 ```{r}
 #| echo: true
