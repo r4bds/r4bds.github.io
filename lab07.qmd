@@ -62,7 +62,7 @@ First, select a team **<span style="color:darkgreen;">Captain</span>**, that per
 
 #### **<span style="color:darkgreen;">Team</span>**
 
-1. Go to [GitHub](https://github.com) and login
+1. Go to [GitHub](https://github.com) and log in
 1. In the upper right corner, click on your profile picture. Then in the menu, click on "Your Organizations" and go into rforbiodatascienceYY (replace `YY` with year). If you are not a member, contact a TA NOW before proceeding. Next, go into repositories (top left).
 
 #### **<span style="color:darkgreen;">Captain</span>**
@@ -87,7 +87,7 @@ First, select a team **<span style="color:darkgreen;">Captain</span>**, that per
 #### **<span style="color:darkgreen;">Team</span>**
 
 1. [Click here](https://teaching.healthtech.dtu.dk/22100/rstudio.php) to go to the course RStudio cloud server and login
-1. In the upper right corner, where it should say ![](images/paths_new_proj.png)`r_for_bio_data_science`, click
+1. In the upper right corner, click on ![](images/paths_new_proj.png)`<your_current_project_name>`
 1. Choose ![](images/paths_new_proj_plus.png) `New Project...`
 1. Select ![](images/icon_version_control.png) **Version Control**
 1. Select ![](images/icon_git.png) **Git**
@@ -150,7 +150,7 @@ it now simply avoids the error message from appearing later.
 usethis::create_github_token()
 ```
 
-4. Login
+4. Log into GitHub if not logged in already
 5. Under `Note`, where it says `DESCRIBE THE TOKEN'S USE CASE`, delete the text and write e.g.`R for Bio Data Science lab 7 git exercises`
 6. Under `Expiration`, where it says `30 days`, change that to `90 days`
 7. Do not change any other setting, but simply scroll down and click `Generate token`
