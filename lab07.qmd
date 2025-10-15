@@ -126,7 +126,9 @@ If you click the `Git` tab, you should see:
 1. Make sure that you can see the `lab07_git_exercises.Rproj` and `.gitignore` files in the GitHub repository before proceeding further
 1. Follow the instructions under *Cloning the repository* that your captain followed a few moments ago (but **not** the *Pushing the project basics to GitHub*)
 
-#### Setting up your Credentials and Personal Access Token (**<span style="color:darkgreen;">Team</span>**)
+#### **<span style="color:darkgreen;">Team</span>**
+
+#### Setting up your Credentials and Personal Access Token 
 
 *GitHub doesn't know who you are, you're just someone who cloned your first GitHub repository and now you want to do all sorts of stuff! We can't have that, so let's fix that GitHub doesn't know who you are!*
 
@@ -182,7 +184,9 @@ gitcreds::gitcreds_set()
 
 Stop, wait a minute and make sure, that **ALL** group members are at this stage of the exercises.
 
-#### Making your Credentials and Personal Access Token stick around (**<span style="color:darkgreen;">Team</span>**)
+#### **<span style="color:darkgreen;">Team</span>**
+
+#### Making your Credentials and Personal Access Token stick around
 
 *The thing is, we're actually working on a Linux server here, this entails a that you're credentials and PAT exists in a cache, which is cleared every 15 minutes. This. Is. Annoying! So let's fix it!*
 
