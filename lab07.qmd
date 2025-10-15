@@ -130,7 +130,7 @@ If you click the `Git` tab, you should see:
 
 #### Setting up your Credentials and Personal Access Token 
 
-*GitHub doesn't know who you are, you're just someone who cloned your first GitHub repository and now you want to do all sorts of stuff! We can't have that, so let's fix that GitHub doesn't know who you are!*
+*GitHub doesn't know who you are, at this point you're just someone who cloned your first GitHub repository and now you want to do all sorts of stuff! We can't have that, so let's fix that by letting GitHub verify what your account is.*
 
 1. In the `Console`, run the command:
 
