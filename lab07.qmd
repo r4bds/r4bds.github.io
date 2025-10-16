@@ -264,13 +264,15 @@ Once **everyone** has added to their assigned section, **everyone** should do a 
 
 Ok that's pretty great so far - Right? The thing is... Consider, the `ggplot2` repository, that you found in *T1*. Thousands of companies and even more thousands of people rely on `ggplot` for advanced data visualisation. What would happen, if you wanted to add a new feature or wanted to optimise an existing one, while people were actively installing your package? They would get what stage your code was in, which may or may not be functional - Enter branching!
 
-Below here, is an illustration, consider the **<span style="color:green;">Master</span>** the stable version people can download and use and then **<span style="color:blue;">Your Work</span>** will be the feature or update that you personally are working on. **<span style="color:orange;">Someone Else's Work</span>** will be another team and that persons work on a new feature or update. Before the last **<span style="color:green;">green</span>** circle, note how both the **<span style="color:blue;">Your Work</span>**- and **<span style="color:orange;">Someone Else's Work</span>**-branches are merged onto the **<span style="color:green;">Master</span>**-branch.
+Below here is an illustrated example where each circle is a `git` commit. The **<span style="color:green;">main</span>** branch is the stable version of the software that people can download. **<span style="color:blue;">Your Work</span>** will be the feature or update that you personally are working on and **<span style="color:orange;">Someone Else's Work</span>** will be another team working on a different new feature or update. Before the last commit in **<span style="color:green;">main</span>** (the right-most green circle), note how both the **<span style="color:blue;">Your Work</span>** and **<span style="color:orange;">Someone Else's Work</span>**-branches have been merged onto the **<span style="color:green;">main</span>**-branch.
 
 ![](images/git_branching_merging.png){fig-align="center" width=90%}
 
-*There can be even more branches*
+*Note: until not so long ago, the default name for the main branch used to be "master". For obvious reasons, the software engineering world is moving away from the master/slave terminology...*
 
-- **Q5:** Again, find the `ggplot` GitHub site and see if you can find how many branches there are?
+In a `git` repository, there can be as many branches as you want. Software teams usually have guidelines on how to organize branches on a specific repository and it can vary substantially between teams and/or projects.
+
+- **Q5:** Find the `ggplot` GitHub repo again. How many branches there are?
 
 #### **<span style="color:darkgreen;">Team</span>**
 
