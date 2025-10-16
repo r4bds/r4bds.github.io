@@ -291,7 +291,7 @@ In a `git` repository, there can be as many branches as you want. Software teams
 1. Make sure you are in the main branch and then click the `group_document.qmd`, you should now **not** see your new feature/analysis that you added
 1. On the left, where it says `main`, click and select your `STUDENT_ID`, you **should** now see your new feature/analysis that you added
 
-*Congratulations! You have now succesfully done your first branching!*
+*Congratulations! You have now successfully done your first branching!*
 
 ### Your first branch merging
 
