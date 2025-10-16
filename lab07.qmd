@@ -405,11 +405,11 @@ It contains a list of files and folders, which should **not** end up at your `gi
 
 You have now gotten to play around with collaborative coding using `git` - Well done!
 
-If you are more curious for more, please feel free to play around with a new file, edit commit/pull/push etc. Perhaps also take an extra look at the GitHub, explore and learn more 👍
+If you are more curious for more, please feel free to play around with a new file, edit commit/pull/push etc. Perhaps also take an extra look at the GitHub, explore and learn more 👍 We have also only just scratched the surface here, you can read much more [here](https://happygitwithr.com).
+
+If you are handy with the terminal, it is usually a good idea to learn how to use `git`'s command-line interface. When using git from the terminal, you can pair it with any code editor or programming language without worrying about where the git buttons are or if they behave slightly differently between different code editors. The error messages are also much easier to understand and solve and you get the general advantages of the terminal: speed and automation. The [Primer on git command line vs. RStudio]() shows the equivalent git commands of everything we have done here today.
 
 ### <span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: [how to](assignments.qmd))
-
-First of all, here we have just scratched the surface. You can [read much more here](https://happygitwithr.com).
 
 Your assignment this time, will be to:
 
