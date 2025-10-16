@@ -190,18 +190,18 @@ Stop, wait a minute and make sure, that **ALL** group members are at this stage 
 
 #### Making your Credentials and Personal Access Token stick around
 
-*The thing is, we're actually working on a Linux server here, this entails a that you're credentials and PAT exists in a cache, which is cleared every 15 minutes. This. Is. Annoying! So let's fix it!*
+*The thing is, we're actually working on a Linux server here, this entails a that you're credentials and PAT exists in a cache, which is cleared every 15 minutes. This is annoying, so let's fix it!*
 
-First of all RStudio is a (G)raphical (U)ser (I)nterface, meaning, that it allows you to do pointy-clicky stuff, but at the end of the day, everything happens at the command line. That also goes for git, so your button-pushing simply gets converted into commands, which are executed at the command line. If you are not comfortable with the command line, don't worry, the pointy-clicky stuff will be sufficient for now! If you are comfortable with the command line, I advice to get comfortable with git on the command line as well, you do get some extra bang-for-the-buck!
+First of all RStudio is a Graphical User Interface (GUI), meaning, that it allows you to do pointy-clicky stuff, but at the end of the day, everything happens at the command line. That also goes for git, so your button-pushing simply gets converted into commands, which are executed at the command line. If you are not comfortable with the command line, don't worry, the pointy-clicky stuff will be sufficient for now!
 
 Now, a brief visit of the command line:
 
-1. In the `Console` pane, click the `Terminal` tab, which gains you access to the system underlying RStudio
+1. In the `Console` pane, click the `Terminal` tab, which gains you access to the Linux server that RStudio is running on
 1. You should see something like `user@pupilX:/net/pupilX/home/people/user/projects/lab07_git_exercises$`
 1. Enter `ls -a`, this will `l`ist `a`ll the files, compare with your `Files` pane, you will see that RStudio is "hiding" something from you, namely the `.git` folder
 1. Enter `ls -a .git` and you will see the content of the folder, this is where all the git-magic happens
-1. See the config file? That holds the configuration, enter `git config --global --list`
-1. Recall you entered your GitHub username and mail? This is where it ended up! Note the `credential.helper=cache`, which tells us, that the credentials are being cached. Now, enter `git config --global credential.helper 'cache --timeout=86400'`. Hint: You can paste with Ctrl-Shift-V in the terminal on Windows.
+1. See the config file? That holds the configuration, enter the command `git config --global --list`
+1. Recall you entered your GitHub username and mail? This is where it ended up! Note the `credential.helper=cache`, which tells us, that the credentials are being cached. Now, enter `git config --global credential.helper 'cache --timeout=86400'`. *Some browsers won't let you paste with Ctrl + V on the `Terminal`, but right click and Paste will usually work*
 1. Re-run the command `git config --global --list` and confirm the change
 1. Go back to your `Console` and run the command `gitcreds::gitcreds_set()`. Select option 2, and re-enter your PAT.
 1. If you didn't get a list of options in the prior step, restart your R session and retry.
