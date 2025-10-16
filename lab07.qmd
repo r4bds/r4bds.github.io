@@ -403,7 +403,7 @@ It contains a list of files and folders, which should **not** end up at your `gi
 
 ### Summary
 
-You have not gotten to play around with collaborative coding using `git` - Well done!
+You have now gotten to play around with collaborative coding using `git` - Well done!
 
 If you are more curious for more, please feel free to play around with a new file, edit commit/pull/push etc. Perhaps also take an extra look at the GitHub, explore and learn more 👍
 
