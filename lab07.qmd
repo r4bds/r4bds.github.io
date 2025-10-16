@@ -280,7 +280,7 @@ In a `git` repository, there can be as many branches as you want. Software teams
 1. In branch name, enter your student id
 1. You should see a pop-up with the message `Branch 'STUDENT_ID' set up to track remote branch 'STUDENT_ID' from 'origin'.` at the bottom, go ahead and click `Close`
 1. Next to where you clicked `New Branch` just before, it should now say `STUDENT_ID`, click it and confirm that you see `STUDENT_ID` and `main`
-1. Look at the illustration above and make sure you are on par with that from the original branch `main`, which is equivalent with **<span style="color:green;">Master</span>**, you have created a new branch `STUDENT_ID`, which is equivalent to **<span style="color:blue;">Your Work</span>**
+1. Look at the illustration above and understand that you have created a new branch `STUDENT_ID` that branches out from **<span style="color:green;">main</span>** and is equivalent to **<span style="color:blue;">Your Work</span>**. Discuss this with your group if it is not clear.
 1. Click `STUDENT_ID` and you will get a confirmation that you are already on that branch and that you are up-to-date, click `Close`
 1. In the `group_document.qmd` under your section, using markdown, enter a new sub-header and name it e.g. `New feature` or `New analysis`. Make sure that you all use the "Visual" editor for the .qmd file!
 1. Enter some text, a few code chunks with a bit of `R`-code of your choosing and save the document
