@@ -1,4 +1,4 @@
-# Lab 7: Collaborative Bio Data Science using GitHub via RStudio {.unnumbered}
+# Lab 7: Collaborative Bio Data Science using git and GitHub via RStudio {.unnumbered}
 
 ## Package(s)
 
