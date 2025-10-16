@@ -1,0 +1,152 @@
+# `git` command line vs. RStudio GUI {.unnumbered}
+
+If you are handy with the terminal, it is a good idea to learn `git`'s command-line interface. When using git from the 
+terminal, you can pair it with any code editor or programming language without worrying about where the git buttons are 
+or if they behave slightly differently between different code editors. The error messages are also much easier to understand 
+and you get the general advantages of the terminal: it is faster and automatable.
+
+Of course, both the GUI and the Terminal are powerful, and it's completely normal to use a combination of both. And even if you
+prefer only the GUI, it is still useful to know the terminal version for when you use a code editor different than RStudio.
+
+This primer will explain the basics of the `git` command-line interface by comparing it to the RStudio Git tab.
+
+## GitHub credentials
+
+When pushing to a GitHub repository, or when pulling from a private one, GitHub needs to authenticate that you are the actual owner of
+your account. [In Lab 7 we used Personal Access Tokens](lab07.qmd#setting-up-your-credentials-and-personal-access-token), but when working 
+purely from the Linux terminal, it is most common to use SSH keys.
+
+First, create an ssh key by running `ssh-keygen` (leave everything empty by pressing enter a few times) and then `cd` into `~./.ssh`.
+
+You will see 1 or more pairs of files named `whatever` and `whatever.pub`. Copy the contents the one ending in `.pub` (if there are multiple, 
+any of them will work). Then add it to your GitHub account by following [these instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account).
+
+## Setting `git` options
+
+The equivalent of the `usethis::use_git_config(<option_name> = <value>)` function that [we used in Lab 7](lab07.qmd#setting-up-gits-pull-strategy) is:
+
+```bash
+git config --global <option_name> <value>
+```
+
+The `--global` flag will make the option persist across all your `git` repositories, but you can remove it to apply the configuration
+to only the current repo. You can undo it with:
+
+```bash
+git config unset --global <option_name>
+```
+
+## Creating a repository and connecting it to GitHub
+
+These instructions are valid regardless of whether you want to create a completely empty repository or whether you want 
+to convert an existing RStudio project (or any folder with code) into a git repository. To create an empty one, simply
+create the folder or RStudio project and go from there.
+
+#### Terminal
+
+`cd` into the directory with code you want to turn into a git repository and run `git init`. From then you
+can use all of `git`'s functionality.
+
+On whatever git repository hosting service you use (e.g. GitHub), you will find instructions on how to pair a newly 
+created repo with your local `git` repo. On GitHub, simply follow the instructions under *…or push an existing repository 
+from the command line* that will appear in your newly created repo (you must have created at least 1 commit).
+
+#### RStudio
+
+1. Click on your `.Rproj` file under the `Files` tab.
+1. Click on `Git/SVN`
+1. On `Version control system:`, select git
+1. When asked if you want to initialize a git repository, click on `Yes` (if it asks you to restart RStudio, say yes again)
+
+At this point, you can create commits and branches as you like, or go back to any previous commit. However the local repo is 
+not connected to GitHub yet, so you will not be able to pull or push.
+
+To the best of our knowledge, there is no way to do this from the RStudio GUI, but can you always just follow the Terminal 
+instructions above (skipping the `git init`, which is what you just did) or in the case of creating a new project, simply 
+create it [as we did in Lab 7](lab07.qmd#creating-the-repository).
+
+
+## Checking the repository status
+
+The `git status` command will show you a summary of any changed and/or new files that are not committed. In RStudio, the equivalent
+is simply looking at the *Status* column of the Git tab.
+
+## Pulling and pushing
+
+The equivalent of the ![](images/pull.png) Pull button is `git pull`, while the ![](images/push.png) Push button is `git push`.
+
+## Creating commits
+
+#### Adding to the staging area
+
+To add a file to the staging area, you `git add <file_path_1> <file_path_2> ...`. This is the equivalent of ticking the check 
+boxes of the *Staged* column in the Git tab of Rstudio.
+
+#### Reviewing and commiting the contents of the staging area
+
+When you click the *Diff* or *Commit* button in the RStudio Git tab, you will get a nice visualization with deleted (or modified)
+lines of code in red, and new lines in green. On the top right of that, you can then add a commit message and click *Commit*.
+
+In the terminal you can get the nice visualization with `git diff --staged` and once you have reviewed it, you can commit by running
+`git commit -m "<your_commit_message>"`
+
+## Branching
+
+To create a new branch in RStudio, you click the new branch button (![](images/git_new_branch.png)) in the Git tab and switch between 
+branches with the little dropdown to the right of the new branch button. 
+
+In the terminal, you create the branch with:
+
+```bash
+git branch <your_branch_name>
+```
+
+You can verify that it was created by listing existing branches with `git branch` (simply running it without a branch name). Note that 
+it will only list branches in your local repo, which will not necessarily contain all branches from GitHub. Add the `--all` option to 
+also show branches in the remote repository (i.e., the GitHub repo).
+
+You can switch to the newly created branch (or any other branch) with: 
+
+```bash
+git checkout <your_branch_name>
+```
+
+Alternatively, you can create the branch and switch to it at once by adding the `-b` option to `checkout`: 
+
+```bash
+git checkout -b <your_branch_name>
+```
+
+## Time travelling
+
+#### Looking into the past
+
+The window that pops up when clicking the *History* button on the Git tab has a lot of information, which can be obtained from the
+terminal with a few different commands.
+
+The `git log` command will show you a list of all the existing commits. The long "random" code on each commit is code is called 
+the *commit hash* and is a unique identifier for each commit.
+
+You can view the exact changes that were made in that commit by doing:
+
+```bash
+git show <commit_hash>
+``` 
+
+Or see all the (cumulative) changes between 2 commits with:
+
+```bash
+git diff <commit_hash_1> <commit_hash_2>
+```
+
+#### When this baby hits 88 miles per hour...
+
+As far as we know, there is no way of reverting back to a previous commit from the RStudio GUI. From the terminal, the same `checkout` 
+command that we use to change branches can also be used:
+
+```bash
+git checkout <commit_hash>
+```
+
+Once you are done investigating why you have a bug that didn't exist before your colleague started messing with the code, you can
+`git log` again to find the most recent commit and `checkout` back to the future.

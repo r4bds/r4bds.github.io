@@ -43,6 +43,7 @@ book:
         - primer_r_packages.qmd
         - primer_paths_and_projects.qmd
         - primer_variable_assignment.qmd
+        - primer_git_cli.qmd
 
     - part: guides.qmd
       chapters:

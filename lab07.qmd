@@ -38,9 +38,14 @@ _A student who has met the objectives of the session will be able to:_
 
 ### Prologue
 
-![](images/git_collab.gif){fig-align="center" width=80%}
+Using `git` is completely central for collaborative bio data science. You can use `git` not only for `R`, but for any code-based 
+project in any language or code editor. From small research groups to tech giants, almost every bioinformatics, data science or 
+software engineering project in the world uses `git` to manage code versions and collaboration.
 
-*Using `git` is completely central for collaborative bio data science. You can use `git` not only for `R`, but for any code-based collaboration. All bioinformatics departments in major players in Danish Pharma, are using `git` - Learning `git` is a key bio data science skill! Today, you will take your first steps - Happy Learning!*
+Learning`git` is a key Bio  Data Science skill that will be expected of you for almost any bioinformatics job! Today, you will 
+take your first steps - Happy Learning!
+
+![](images/git_collab.gif){fig-align="center" width=80%}
 
 - **T1:** Find the `GitHub` repository for the `ggplot2` R-package
 - **Q1:** How many Contributors are there?
@@ -62,10 +67,78 @@ First, select a team **<span style="color:darkgreen;">Captain</span>**, that per
 
 #### **<span style="color:darkgreen;">Team</span>**
 
+#### Setting up your Credentials and Personal Access Token 
+
+*Before you do anything relating to GitHub repositories, you have to inform GitHub of who you are and let GitHub verify what your account is.*
+
+1. In the `Console`, run the command:
+
+```{r}
+#| echo: true
+#| eval: false
+usethis::use_git_config(user.name = "YOUR_GITHUB_USERNAME", user.email = "THE_EMAIL_YOU_USED_TO_CREATE_YOUR_GITHUB_ACCOUNT")
+```
+
+2. In the `Console`, run the command:
+
+```{r}
+#| echo: true
+#| eval: false
+usethis::create_github_token()
+```
+
+3. Log into GitHub if not logged in already
+4. Under *Note*, where it says *DESCRIBE THE TOKEN'S USE CASE*, delete the text and write e.g.`R for Bio Data Science lab 7 git exercises`
+5. Under *Expiration*, where it says *30 days*, change that to *90 days*
+6. Do not change any other setting, but simply scroll down and click *Generate token*
+7. A new *Personal access tokens (classic)* page will appear, stating your personal access token, which starts with `ghp_`, go ahead and copy it
+8. Store the PAT somewhere safe, e.g. in a password management tool. It is effectively your password when connecting to the repository via R.
+9. Again in the Console, run the below command and enter your PAT when prompted for the password:
+
+```{r}
+#| echo: true
+#| eval: false
+gitcreds::gitcreds_set()
+```
+
+Before proceeding, make sure that **ALL** group members are at this stage of the exercises.
+
+#### Making your Credentials and Personal Access Token stick around
+
+*By default, your credentials and PAT are cleaned every 15 minutes. This is annoying, so let's fix it!*
+
+First of all RStudio is a Graphical User Interface (GUI), meaning, that it allows you to do pointy-clicky stuff, but at the end of the day, everything happens at the command line. That also goes for git, so your button-pushing simply gets converted into commands, which are executed in the terminal.
+
+If you are not comfortable with the terminal, don't worry! We will only do a short visit to the command line to do a few things that are not available in the GUI and then return to the pointy-clicky stuff:
+
+1. In the `Console` pane, click the `Terminal` tab, which gains you access to the Linux server that RStudio is running on
+2. You should see something like:
+
+```bash
+user@pupilX:~/projects/lab07_git_exercises$
+```
+3. Enter the command:
+```bash
+git config --global --list
+```
+4. Recall you entered your GitHub username and mail? This is where it ended up! Note the `credential.helper=cache`, which tells us, that the credentials are being cached. Now, enter:
+```bash
+git config --global credential.helper 'cache --timeout=86400'
+```
+5. Re-run the command `git config --global --list` and confirm the change
+6. Go back to your `Console` and run the command `gitcreds::gitcreds_set()`. Select option 2, and re-enter your PAT.
+7. If you didn't get a list of options in the prior step, restart your R session and retry.
+
+*Congratulations! You have now used the command line and you will forever be part of an elite few, who know that everything you see in hacker-movies is BS, except perhaps for Wargames and Mr. Robot! Also, your PAT will now be good for 24h* 
+
+#### **<span style="color:darkgreen;">Team</span>**
+
 1. Go to [GitHub](https://github.com) and log in
-1. In the upper right corner, click on your profile picture. Then in the menu, click on "Your Organizations" and go into rforbiodatascienceYY (replace `YY` with year). If you are not a member, contact a TA NOW before proceeding. Next, go into repositories (top left).
+1. In the upper right corner, click on your profile picture. Then in the menu, click on "Your Organizations" and go into rforbiodatascienceYY (where `YY` is the current year). **If you are not a member, contact a TA before proceeding.** Next, go into repositories (top left).
 
 #### **<span style="color:darkgreen;">Captain</span>**
+
+#### **Creating the repository**
 
 1. Click "New repository"
 1. Since you created the project from the organisation, the default owner of the repository is the organisation (rforbiodatascienceYY). Verify and keep that, please.
@@ -150,64 +223,6 @@ If you do not set `pull.rebase` at all, the first time that your `pull` conflict
 it now simply avoids the error message from appearing later.
 </details>
 
-#### Setting up your Credentials and Personal Access Token 
-
-*GitHub doesn't know who you are, at this point you're just someone who cloned your first GitHub repository and now you want to do all sorts of stuff! We can't have that, so let's fix that by letting GitHub verify what your account is.*
-
-1. In the `Console`, run the command:
-
-```{r}
-#| echo: true
-#| eval: false
-usethis::use_git_config(user.name = "YOUR_GITHUB_USERNAME", user.email = "THE_EMAIL_YOU_USED_TO_CREATE_YOUR_GITHUB_ACCOUNT")
-```
-
-2. In the `Console`, run the command:
-
-```{r}
-#| echo: true
-#| eval: false
-usethis::create_github_token()
-```
-
-3. Log into GitHub if not logged in already
-4. Under `Note`, where it says `DESCRIBE THE TOKEN'S USE CASE`, delete the text and write e.g.`R for Bio Data Science lab 7 git exercises`
-5. Under `Expiration`, where it says `30 days`, change that to `90 days`
-6. Do not change any other setting, but simply scroll down and click `Generate token`
-7. A new `Personal access tokens (classic)` page will appear, stating your personal access token, which starts with `ghp_`, go ahead and copy it
-8. Store the `PAT` somewhere save, e.g. in a password management tool. It will serve as your password when connecting to the repository via R.
-9. Again in the `Console`, run the below command and enter your `PAT` when prompted for the password:
-
-```{r}
-#| echo: true
-#| eval: false
-gitcreds::gitcreds_set()
-```
-
-Stop, wait a minute and make sure, that **ALL** group members are at this stage of the exercises.
-
-#### **<span style="color:darkgreen;">Team</span>**
-
-#### Making your Credentials and Personal Access Token stick around
-
-*The thing is, we're actually working on a Linux server here, this entails a that you're credentials and PAT exists in a cache, which is cleared every 15 minutes. This is annoying, so let's fix it!*
-
-First of all RStudio is a Graphical User Interface (GUI), meaning, that it allows you to do pointy-clicky stuff, but at the end of the day, everything happens at the command line. That also goes for git, so your button-pushing simply gets converted into commands, which are executed at the command line. If you are not comfortable with the command line, don't worry, the pointy-clicky stuff will be sufficient for now!
-
-Now, a brief visit of the command line:
-
-1. In the `Console` pane, click the `Terminal` tab, which gains you access to the Linux server that RStudio is running on
-1. You should see something like `user@pupilX:/net/pupilX/home/people/user/projects/lab07_git_exercises$`
-1. Enter `ls -a`, this will `l`ist `a`ll the files, compare with your `Files` pane, you will see that RStudio is "hiding" something from you, namely the `.git` folder
-1. Enter `ls -a .git` and you will see the content of the folder, this is where all the git-magic happens
-1. See the config file? That holds the configuration, enter the command `git config --global --list`
-1. Recall you entered your GitHub username and mail? This is where it ended up! Note the `credential.helper=cache`, which tells us, that the credentials are being cached. Now, enter `git config --global credential.helper 'cache --timeout=86400'`. *Some browsers won't let you paste with Ctrl + V on the `Terminal`, but right click and Paste will usually work*
-1. Re-run the command `git config --global --list` and confirm the change
-1. Go back to your `Console` and run the command `gitcreds::gitcreds_set()`. Select option 2, and re-enter your PAT.
-1. If you didn't get a list of options in the prior step, restart your R session and retry.
-
-*Congratulations! You have now used the command line and you will forever be part of an elite few, who know that everything you see in hacker-movies is BS, except perhaps for Wargames and Mr. Robot! Also, your PAT will now be good for 24h* 
-
 ### Your first collaboration
 
 #### **<span style="color:darkgreen;">Team</span>**
@@ -234,7 +249,7 @@ Now, a brief visit of the command line:
 
 1. Create a new Quarto Document, title it "Group Document" and save it as `group_document.qmd`
 1. Using markdown headers, create one section for each group member, incl. yourself. Here, you can use your names, student ids or whatever you deem appropriate
-1. Again in the `Environment` pane, make sure you are in the `git` tab and then tick the box next to `group_document.qmd`. If you do not see the document in this window after saving, refresh the browser and it should appear.
+1. Again in the `Environment` pane, make sure you are in the `git` tab and then tick the box next to `group_document.qmd`. If you do not see the document in this window after saving, click the ![](images/git_refresh_button.png) refresh button on the top right of the `Git` tab.
 1. Click `Commit`
 1. Add a commit message, e.g. "Add group document"
 1. Click the `Commit` button
@@ -247,18 +262,16 @@ Now, a brief visit of the command line:
 
 1. Click `Pull` and confirm that you now also have the file `group_document.qmd`
 1. Open `group_document.qmd` and find your assigned section
-1. In your section and your section only, enter some text, add a few code chunks with some `R`-code
-1. Make sure to save the document
+1. In your section and your section only, enter some text, add a few code chunks with some R code
+1. Save the document
 1. Now again, find the `group_document.qmd` in the `git` tab of the `Environment` pane and tick the box under `Staged`
 1. Click `Commit`
 1. Note how your changes to the document are highlighted in green
-1. Add a commit message, e.g. "Update the STUDENT_ID section" and click `Commit`
-1. Click `Close`
-1. Click `Pull`
-1. Click `Push`
+1. Add a commit message, e.g. "Update the STUDENT_ID section" and click `Commit` and then `Close`
+1. As we shoudl always do after committing: ![](images/pull.png) `Pull`, then ![](images/push.png) `Push`
 1. Go to the group GitHub, find the `group_document.qmd` and click it, do you see your changes?
 
-Once **everyone** has added to their assigned section, **everyone** should do a pull/push, so **everyone** has the complete version of the `group_document.qmd`.
+Once **everyone** has added to their assigned section, **everyone** should do a pull/push, so **everyone** has the complete version of the `group_document.qmd`. If everything was done correctly there should be no merge conflicts, but contact a TA if anything went wrong.
 
 ### Your first branching
 
@@ -319,7 +332,7 @@ Think about e.g. again the `ggplot2` repo, if anyone could create a new branch a
 
 ### Your first merge conflict
 
-Okay, that's all good an well. Seems easy and straight forward, right? Well, that is as long as we don't have a `conflict`. A conflict is when two or more changes to one file are not compatible, consider:
+Okay, that's all good an well. Seems easy and straight forward, right? Well, that is as long as we don't have a *conflict*. A conflict is when two or more changes to one file are not compatible. In fact, let's screw things up! We will be working with this file:
 
 ```{verbatim}
 Top 10 Bio Data Science Languages of ALL Time:
@@ -335,27 +348,23 @@ Top 10 Bio Data Science Languages of ALL Time:
 1. R
 ```
 
-In fact, let's screw things up!
-
 #### **<span style="color:darkgreen;">Captain</span>**
 
 1. Go to the RStudio session and where you usually click `Quarto Document...`, this time let's just create a simple `Text File`
 1. Copy/paste the `Top 10 Bio Data Science Languages of ALL Time` into the file
 1. Save the file as `best_ds_langs.txt`
 1. Make sure you are in the `main` branch
-1. Do a commit/pull/push and check the file ended at your group github
+1. Do a commit/pull/push and check the file can be seen in your group's GitHub repo
 
 #### **<span style="color:darkgreen;">Crew</span>**
 
 Rrrrrrr... Let's commit mutiny! (Double pun intended)
 
 1. Make sure you are in the `main` branch and then hit `Pull`
-1. Open the `best_ds_langs.txt`
-1. Each of you separately (wrongfully) replace `R` with an (inferior) bio data science language of your choice (you can really write anything)
-1. Now, this time **we do not pull first**, simply commit and then push
-1. Now you can `pull`
-1. You will now get notified about a `merge conflict`
-1. Close and re-open the `best_ds_langs.txt` file, it should look something like:
+2. Open the `best_ds_langs.txt`
+3. Each of you separately (wrongfully) replace `R` with an (inferior) bio data science language of your choice
+4. Then commit, pull and push.
+5. The first crewmember to push will have succeeded. But if you weren't so lucky, you will now be notified about a *merge conflict*. Close and re-open the `best_ds_langs.txt` file, it should look something like:
 
 ```{verbatim}
 Top 10 Bio Data Science Languages of ALL Time:
@@ -375,19 +384,35 @@ Top 10 Bio Data Science Languages of ALL Time:
 >>>>>>> 85283ca3246b7f7462ab633085f92ac5f173d3e7
 ```
 
+<details>
+<p><summary>`git`'s merge conflict syntax</summary></p>
+A *merge conflict* happens when you try to pull from a repository that has had changes in the same lines of a file that you have also changed. Git doesn’t know which version to pick, so it asks you to resolve it. When such conflicts occur, `git` leaves markers in the file, showing:
+
+- Everything below `<<<<<<<` is your current changes (`HEAD` means "your current commit")
+- `=======` is simply the separator between the 2 versions
+- Everything above `>>>>>>>` is the version you are pulling. That long "random" code is called the *commit hash* and is a unique identifier for each commit in your git repository. You can use this code to return back (or go forward to) any committed version of your code.
+</details>
+
+
+6. Keep only your preferred Bio Data Science language and also remove the lines containing `<<<<<<<`, `=======` and `>>>>>>>`
+
+*Congratulations! You have now fixed your first merge conflict!*
+
+7. You will need to commit your changes again before pulling and pushing. However, if another crewmemeber has (again) pushed before you, you will have yet another merge conflict to solve! Return to step 5 if that is the case. This is the chaos of mutiny and why a well organized team and modular code are critical for collaborative software development.
+
 #### **<span style="color:darkgreen;">Captain</span>**
 
 Get your **<span style="color:darkgreen;">Crew</span>** in order!
 
-1. Simply edit the file so that you delete everything below 2. and add the final line, which emphasises that `1. R is superior!`
-1. The box under `Staged` looks a bit odd right, just click it
-1. Click `Commit` and add a commit message, e.g. `Fixed merge conflict, got crew back in order!`
-1. Click `Commit`, `Close`, `Pull`, `Close`, `Push`, `Close` and close the commit window
-1. Return to your GitHub group and confirm all is in order and you can continue with confidence knowing that `R is superior!` (Check the file to make sure)
+1. Pull the changes made by your crew and simply edit the file so that you delete everything below 2. and add the final line, which emphasises that `1. R is superior!`
+1. Commit your changes and add a commit message, e.g. `Got crew back in order!`
+1. Pull and Push to the GitHub repo
+1. Return to your GitHub repository and confirm all is in order and that you can continue with confidence knowing that `R is superior!` (Check the file to make sure)
 
-*Congratulations! You have now fixed your first merge conflict!*
+#### **<span style="color:darkgreen;">Team</span>**
 
-Lastly, click the `History` button next to the `Push` button and explore the history of how your branches and commits have changed through these exercises.
+1. Pull from RStudio and make sure that your `best_ds_langs.txt` has the changes that your captain just made.
+1. Click the `History` button next to the `Push` button and explore the history of how your branches and commits have changed through these exercises. Discuss with your group what you see.
 
 ### The .gitignore file
 
@@ -399,15 +424,19 @@ You may have noticed the `.gitignore` file?
 
 It contains a list of files and folders, which should **not** end up at your `git` repo, i.e. files which should be ignored. An important aspect of working with GitHub is that GitHub is meant for code, **not** data! Let's say we had a `data` and a `data/_raw/`, we could add those to the `.gitignore` file to avoid the data being included in our commits. Currently, files like `.RData` and folders like `.Rproj.user` should be listed in the `.gitignore` file, as these are unique to each of your own sessions and shouldn't be committed to the repo.
 
-1. Update the `.gitignore` file and get the updated version to GitHub
+2. Update the `.gitignore` file with the suggestions above and get the updated version to GitHub (we'll assume you know how to do that by now 😉).
 
 ### Summary
 
 You have now gotten to play around with collaborative coding using `git` - Well done!
 
-If you are more curious for more, please feel free to play around with a new file, edit commit/pull/push etc. Perhaps also take an extra look at the GitHub, explore and learn more 👍 We have also only just scratched the surface here, you can read much more [here](https://happygitwithr.com).
+If you are more curious for more, please feel free to play around with a new file, edit commit/pull/push etc. Perhaps also 
+take an extra look at the GitHub, explore and learn more 👍 We have also only just scratched the surface here, you can read 
+much more [here](https://happygitwithr.com).
 
-If you are handy with the terminal, it is usually a good idea to learn how to use `git`'s command-line interface. When using git from the terminal, you can pair it with any code editor or programming language without worrying about where the git buttons are or if they behave slightly differently between different code editors. The error messages are also much easier to understand and solve and you get the general advantages of the terminal: speed and automation. The [Primer on git command line vs. RStudio]() shows the equivalent git commands of everything we have done here today.
+If you are handy with the terminal, it is a good idea to learn how to use `git` from the terminal. The 
+[Primer on git command line vs. RStudio](primer_git_cli.qmd) shows the equivalent git commands of everything 
+we have done in these exercises.
 
 ### <span style="color: red;">GROUP ASSIGNMENT</span> (Important, see: [how to](assignments.qmd))
 
