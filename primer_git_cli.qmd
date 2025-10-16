@@ -79,16 +79,30 @@ The equivalent of the ![](images/pull.png) Pull button is `git pull`, while the 
 
 #### Adding to the staging area
 
-To add a file to the staging area, you `git add <file_path_1> <file_path_2> ...`. This is the equivalent of ticking the check 
-boxes of the *Staged* column in the Git tab of Rstudio.
+To add a file to the staging area, you do:
+
+```bash
+git add <file_path> # you can add as many paths as you want
+```
+
+This is the equivalent of ticking the check boxes of the *Staged* column in the Git tab of Rstudio.
 
 #### Reviewing and commiting the contents of the staging area
 
 When you click the *Diff* or *Commit* button in the RStudio Git tab, you will get a nice visualization with deleted (or modified)
 lines of code in red, and new lines in green. On the top right of that, you can then add a commit message and click *Commit*.
 
-In the terminal you can get the nice visualization with `git diff --staged` and once you have reviewed it, you can commit by running
-`git commit -m "<your_commit_message>"`
+In the terminal you can get the nice visualization with:
+
+```bash
+git diff --staged
+``` 
+
+And once you have reviewed it, you can commit by running:
+
+```bash
+git commit -m "<your_commit_message>"
+```
 
 ## Branching
 
