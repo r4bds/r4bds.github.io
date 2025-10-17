@@ -63,13 +63,15 @@ _First, make sure to read and discuss the feedback you got from last week's assi
 
 *GitHub is **the** place for collaborative coding and different group members will have to do different tasks in a specific order, to make it through the exercises together, so... Team Up and don't rush it!*
 
-First, select a team **<span style="color:darkgreen;">Captain</span>**, that person will have to carry out specific tasks. If **<span style="color:darkgreen;">Team</span>** is stated, then that refers to all group members and lastly if **<span style="color:darkgreen;">Crew</span>** is stated, then that is everyone but the **<span style="color:darkgreen;">Captain</span>**. Please note, that tasks are sequential, so if a task is assigned to the **<span style="color:darkgreen;">Captain</span>**, then the **<span style="color:darkgreen;">Crew</span>** has to await completion before proceeding!
+First, select a team **<span style="color:darkgreen;">Captain</span>**. That person will have to carry out specific tasks. Tasks under **<span style="color:darkgreen;">Team</span>** should be carried out by all group members (including the captain), but if **<span style="color:darkgreen;">Crew</span>** is stated, then those tasks are carried out by everyone except the **<span style="color:darkgreen;">Captain</span>**. 
+
+It is important to note that **tasks are sequential**, so if a task is assigned to the **<span style="color:darkgreen;">Captain</span>**, then the **<span style="color:darkgreen;">Crew</span>** has to await completion before proceeding!
 
 #### **<span style="color:darkgreen;">Team</span>**
 
 #### Setting up your Credentials and Personal Access Token 
 
-*Before you do anything relating to GitHub repositories, you have to inform GitHub of who you are and let GitHub verify what your account is.*
+*Before you do anything relating to GitHub repositories, you have to inform GitHub of who you are and let GitHub verify what your account is. Without authentication, anyone could be pushing to your repo or pulling from your private repos!*
 
 1. In the `Console`, run the command:
 
@@ -111,30 +113,35 @@ First of all RStudio is a Graphical User Interface (GUI), meaning, that it allow
 
 If you are not comfortable with the terminal, don't worry! We will only do a short visit to the command line to do a few things that are not available in the GUI and then return to the pointy-clicky stuff:
 
-1. In the `Console` pane, click the `Terminal` tab, which gains you access to the Linux server that RStudio is running on
-2. You should see something like:
+1. In the `Console` pane, click the `Terminal` tab, which gains you access to the Linux server that RStudio is running on. You should see something like:
 
 ```bash
 user@pupilX:~/projects/lab07_git_exercises$
 ```
-3. Enter the command:
+
+2. Enter the command:
+
 ```bash
 git config --global --list
 ```
-4. Recall you entered your GitHub username and mail? This is where it ended up! Note the `credential.helper=cache`, which tells us, that the credentials are being cached. Now, enter:
+
+3. Recall you entered your GitHub username and mail? This is where it ended up! Note the `credential.helper=cache`, which tells us that the credentials are being cached. Now, enter:
+
 ```bash
 git config --global credential.helper 'cache --timeout=86400'
 ```
-5. Re-run the command `git config --global --list` and confirm the change
-6. Go back to your `Console` and run the command `gitcreds::gitcreds_set()`. Select option 2, and re-enter your PAT.
-7. If you didn't get a list of options in the prior step, restart your R session and retry.
+
+4. Re-run the command `git config --global --list` and confirm the change
+5. Go back to your `Console` and run the command `gitcreds::gitcreds_set()`. Select option 2, and re-enter your PAT.
+6. If you didn't get a list of options in the prior step, restart your R session and retry.
 
 *Congratulations! You have now used the command line and you will forever be part of an elite few, who know that everything you see in hacker-movies is BS, except perhaps for Wargames and Mr. Robot! Also, your PAT will now be good for 24h* 
 
 #### **<span style="color:darkgreen;">Team</span>**
 
 1. Go to [GitHub](https://github.com) and log in
-1. In the upper right corner, click on your profile picture. Then in the menu, click on "Your Organizations" and go into rforbiodatascienceYY (where `YY` is the current year). **If you are not a member, contact a TA before proceeding.** Next, go into repositories (top left).
+1. In the upper right corner, click on your profile picture. Then in the menu, click on "Your Organizations" and go into rforbiodatascienceYY (where `YY` is the current year). **If you are not a member, contact a TA before proceeding.**
+1. Go into repositories (on the top left).
 
 #### **<span style="color:darkgreen;">Captain</span>**
 
@@ -228,9 +235,9 @@ it now simply avoids the error message from appearing later.
 #### **<span style="color:darkgreen;">Team</span>**
 
 1. Create a new Quarto document, title it `student_id` and save id as `student_id.qmd`, where `student_id` is your... You guessed it! **Make sure that "Use visual markdown editor" is checked.**
-1. In the `environment` pane, click the `git` tab
-1. Tick the 3 boxes under `staged`
-1. Click `commit`
+1. In the *Environment* pane, click the *Git* tab
+1. Tick the box under *Staged* corresponding to your newly created `student_id.qmd`. If you do not see the document in this window after saving, click the ![](images/git_refresh_button.png) refresh button on the top right of the *Git* tab.
+1. Click `Commit`
 1. In the upper right corner, add a `Commit message`, e.g "First commit by student_id"
 1. Click the `Commit` button
 1. A pop-up, will give you details on your commit, look through them and then click `Close`
@@ -240,7 +247,6 @@ it now simply avoids the error message from appearing later.
 
 - **Q4:** Discuss in your group what each of the steps did and why they are performed? 
 
-
 ### Your next collaboration
 
 *That first collaboration was easy right!? Well, you were all working on different files...*
@@ -248,8 +254,8 @@ it now simply avoids the error message from appearing later.
 #### **<span style="color:darkgreen;">Captain</span>**
 
 1. Create a new Quarto Document, title it "Group Document" and save it as `group_document.qmd`
-1. Using markdown headers, create one section for each group member, incl. yourself. Here, you can use your names, student ids or whatever you deem appropriate
-1. Again in the `Environment` pane, make sure you are in the `git` tab and then tick the box next to `group_document.qmd`. If you do not see the document in this window after saving, click the ![](images/git_refresh_button.png) refresh button on the top right of the `Git` tab.
+1. Using markdown headers, create one section for each group member (including yourself). Here, you can use your names, student ids or whatever you deem appropriate
+1. Again in the `Environment` pane, make sure you are in the `git` tab and then tick the box next to `group_document.qmd`. As before, click the ![](images/git_refresh_button.png) refresh button if you can't see it.
 1. Click `Commit`
 1. Add a commit message, e.g. "Add group document"
 1. Click the `Commit` button
@@ -268,7 +274,7 @@ it now simply avoids the error message from appearing later.
 1. Click `Commit`
 1. Note how your changes to the document are highlighted in green
 1. Add a commit message, e.g. "Update the STUDENT_ID section" and click `Commit` and then `Close`
-1. As we shoudl always do after committing: ![](images/pull.png) `Pull`, then ![](images/push.png) `Push`
+1. Like before, always ![](images/pull.png) `Pull` before ![](images/push.png) `Push`ing
 1. Go to the group GitHub, find the `group_document.qmd` and click it, do you see your changes?
 
 Once **everyone** has added to their assigned section, **everyone** should do a pull/push, so **everyone** has the complete version of the `group_document.qmd`. If everything was done correctly there should be no merge conflicts, but contact a TA if anything went wrong.
@@ -277,7 +283,7 @@ Once **everyone** has added to their assigned section, **everyone** should do a 
 
 Ok that's pretty great so far - Right? The thing is... Consider, the `ggplot2` repository, that you found in *T1*. Thousands of companies and even more thousands of people rely on `ggplot` for advanced data visualisation. What would happen, if you wanted to add a new feature or wanted to optimise an existing one, while people were actively installing your package? They would get what stage your code was in, which may or may not be functional - Enter branching!
 
-Below here is an illustrated example where each circle is a `git` commit. The **<span style="color:green;">main</span>** branch is the stable version of the software that people can download. **<span style="color:blue;">Your Work</span>** will be the feature or update that you personally are working on and **<span style="color:orange;">Someone Else's Work</span>** will be another team working on a different new feature or update. Before the last commit in **<span style="color:green;">main</span>** (the right-most green circle), note how both the **<span style="color:blue;">Your Work</span>** and **<span style="color:orange;">Someone Else's Work</span>**-branches have been merged onto the **<span style="color:green;">main</span>**-branch.
+Below here is an illustrated example where each circle is a `git` commit. The **<span style="color:green;">main</span>** branch is the stable version of the software that people can download. **<span style="color:blue;">Your Work</span>** will be the feature or update that you personally are working on and **<span style="color:orange;">Someone Else's Work</span>** will be another team working on a different new feature or update. Before the last commit in **<span style="color:green;">main</span>** (the right-most green circle), note how both the **<span style="color:blue;">Your Work</span>** and **<span style="color:orange;">Someone Else's Work</span>** branches have been merged onto the **<span style="color:green;">main</span>** branch.
 
 ![](images/git_branching_merging.png){fig-align="center" width=90%}
 
@@ -289,15 +295,15 @@ In a `git` repository, there can be as many branches as you want. Software teams
 
 #### **<span style="color:darkgreen;">Team</span>**
 
-1. Go to your RStudio session and in the `git` tab of the `Environment` pane, click ![](images/git_new_branch.png) `New Branch`
+1. Go to your RStudio session and in the *Git* tab of the *Environment* pane, click ![](images/git_new_branch.png) `New Branch`
 1. In branch name, enter your student id
 1. You should see a pop-up with the message `Branch 'STUDENT_ID' set up to track remote branch 'STUDENT_ID' from 'origin'.` at the bottom, go ahead and click `Close`
 1. Next to where you clicked `New Branch` just before, it should now say `STUDENT_ID`, click it and confirm that you see `STUDENT_ID` and `main`
 1. Look at the illustration above and understand that you have created a new branch `STUDENT_ID` that branches out from **<span style="color:green;">main</span>** and is equivalent to **<span style="color:blue;">Your Work</span>**. Discuss this with your group if it is not clear.
 1. Click `STUDENT_ID` and you will get a confirmation that you are already on that branch and that you are up-to-date, click `Close`
-1. In the `group_document.qmd` under your section, using markdown, enter a new sub-header and name it e.g. `New feature` or `New analysis`. Make sure that you all use the "Visual" editor for the .qmd file!
+1. In the `group_document.qmd` under your section, using markdown, enter a new sub-header and name it e.g. `New feature` or `New analysis`. As a reminder, make sure that you **all** use the "Visual" editor for the .qmd file.
 1. Enter some text, a few code chunks with a bit of `R`-code of your choosing and save the document
-1. Again, in the `git` tab, tick the box under staged and click `Commit`
+1. Again, in the *Git* tab, tick the box under staged and click `Commit`
 1. Add a commit message, e.g. `New feature from STUDENT_ID` and click `Commit`
 1. Click `Close`, `Pull`, `Close`, `Push` and `Close` and then close the commit window
 1. Go to your group GitHub and confirm that you now have at least 2 branches
@@ -321,14 +327,20 @@ In a `git` repository, there can be as many branches as you want. Software teams
 
 *Congratulations! You have now successfully done your first branch merge!*
 
-But wait, what was this `Pull request`??? What you actually did, was:
+But wait, what was this *Pull request*??? What you actually did, was:
+
 1. Created a new branch
 1. Completed a new feature/analysis
-1. Push'ed the new feature/analysis to GitHub
+1. Pushed the new feature/analysis to GitHub
 1. Created a `Pull request` for merging your branch `STUDENT_ID` into the `main` branch
 1. Approved and completed the `Pull request`
 
 Think about e.g. again the `ggplot2` repo, if anyone could create a new branch and then do as described above, then there would be no way of making quality control. Therefore, typically such pull requests will have to be approved by someone. This can either be someone who is close-to-the-code e.g. in the case of `ggplot2`, that'd be someone like Hadley. In a company, then that might be some senior developer approving junior developers pull requests. At one point you might have seen something like "The main branch is unprotected", this is exactly that!
+
+<details>
+<p><summary>Small note about the term *Pull request*</summary></p>
+The name *Pull request* can be a bit counter-intuitive, because you are not requesting to pull the repository, but rather requesting to the maintainers that *they* pull *your* changes. Maybe, a more intuitive name would have been *Merge request*, which doesn't leave much room for ambiguity. Actually, in most other `git` repository hosting services aside from GitHub (e.g. GitLab) the equivalent feature is actually called *Merge request*.
+</details>
 
 ### Your first merge conflict
 
@@ -354,13 +366,13 @@ Top 10 Bio Data Science Languages of ALL Time:
 1. Copy/paste the `Top 10 Bio Data Science Languages of ALL Time` into the file
 1. Save the file as `best_ds_langs.txt`
 1. Make sure you are in the `main` branch
-1. Do a commit/pull/push and check the file can be seen in your group's GitHub repo
+1. Do a commit/pull/push and check that the file can be seen in your group's GitHub repo
 
 #### **<span style="color:darkgreen;">Crew</span>**
 
 Rrrrrrr... Let's commit mutiny! (Double pun intended)
 
-1. Make sure you are in the `main` branch and then hit `Pull`
+1. Make sure you are in the `main` branch and then ![](images/pull.png) Pull
 2. Open the `best_ds_langs.txt`
 3. Each of you separately (wrongfully) replace `R` with an (inferior) bio data science language of your choice
 4. Then commit, pull and push.
@@ -399,6 +411,8 @@ A *merge conflict* happens when you try to pull from a repository that has had c
 *Congratulations! You have now fixed your first merge conflict!*
 
 7. You will need to commit your changes again before pulling and pushing. However, if another crewmemeber has (again) pushed before you, you will have yet another merge conflict to solve! Return to step 5 if that is the case. This is the chaos of mutiny and why a well organized team and modular code are critical for collaborative software development.
+
+Discuss with your group what just happened and make sure that everyone understands why merge conflicts can happen.
 
 #### **<span style="color:darkgreen;">Captain</span>**
 
