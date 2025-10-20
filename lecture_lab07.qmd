@@ -1,6 +1,6 @@
 ---
 title: "Lecture Lab 7"
-author: "Leon Eyrich Jessen"
+author: "Leon Eyrich Jessen, Daniel Romero"
 format:
   revealjs:
     embed-resources: true
@@ -10,10 +10,79 @@ format:
     height: 900
     mainfont: avenir
     logo: images/r4bds_logo_small.png
-    footer: "R for Bio Data Science"
+    footer: "**R for Bio Data Science** | Lab 7: Collaborative Bio Data Science using git and GitHub via RStudio"
 ---
 
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The nightmare of keeping track of file versions
 
+![](images/many_files_joke_git.jpg){fig-align="center" width="60%"}
+
+- How many of you have run into this situation...? Now imagine multiplying this by dozens of files in a common Bio Data Science project!
+- This is nightmare to work with and terrible for reproducibility!
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Version Control to the rescue
+
+- To avoid situations like that, we use *Version Control System* (VCS)
+- i.e., a program that allows to store snapshots that we can go back to at any point in time
+- `git` is by far the most popular Version Control tool for software projects in the world (>95% of all software projects)
+
+![](images/Git_logo.jpg){fig-align="center" height=250}
+
+- `git` is **only for code**!
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The git workflow
+
+1. <span  style="color:orange;">**Initialize**</span> the git repository (only once per project)
+1. Write and modify your code as usual
+1. <span  style="color:orange;">**Add**</span> your changes to the staging area
+1. Review the staging area
+1. <span  style="color:orange;">**Commit**</span> your changes (save a version which you can return back to at any time)
+1. Return to step 2
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## The git workflow
+
+1. <span  style="color:orange;">**Initialize**</span> the git repository (only once per project)
+1. Write and modify your code as usual
+1. <span  style="color:orange;">**Add**</span> your changes to the staging area
+1. Review the staging area
+1. <span  style="color:orange;">**Commit**</span> your changes (save a version which you can return back to at any time) 
+1. Return to step 2
+
+- *Commit messages should be informative*
+- *Ideally, every commit is a working version of the code*
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Centralized repositories
+
+- The most common way to use `git` is pairing it with a git repository hosting platform
+- Web services that will store your git repository and give you extra features on top of `git`
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Centralized repositories
+
+- The most common way to use `git` is pairing it with a git repository hosting platform
+- Web services that will store your git repository and give you extra features on top of `git`
+- GitHub is the most popular, but there are many others:
+
+![](images/git_hosting_logos.jpg){fig-align="center" height=300}
+
+- `git` and GitHub are related but completely different things! Think of it as R vs. RStudio
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -29,7 +98,6 @@ format:
   - Send code snippets in emails
   - Use a whatsapp-group to exchange code
   - ...?
-
 
 
 <!--# ---------------------------------------------------------------------- -->
@@ -51,147 +119,96 @@ format:
 - All of which would be a recipe for inevitable disaster!
 
 
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Collaborative Bio Data Science using GitHub via RStudio
-
-- Of course there is a better way!
-
-- We can use... git!
-
-- Git is a distributed version control system
-
-- It tracks versions of files
-
-- "Git is a distributed version control system that tracks versions of files. It is often used to control source code by programmers who are developing software collaboratively." (Wiki definition)
-
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Collaborative Bio Data Science using GitHub via RStudio
-
-- Of course there is a better way!
-
-- We can use... git!
-
-- Git is a distributed version control system
-
-- It tracks versions of files
-
-- "Git is a distributed version control system that tracks versions of analyses. It is often used to control analysis code by bioinformaticians who are developing pipelines collaboratively." (R4BDS definition)
-
-
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Collaborative Bio Data Science using GitHub via RStudio
-
-- Bonus info: The brain child of... Linus Torvalds
-
-- Tracking changes in the Linux kernel
-
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Okay, so... Git versus GitHub
-
-- Think along the lines of `R` versus `RStudio`, engine and interface
-
-:::: {.columns}
-
-::: {.column width="50%"}
-
-![](images/logo_git.png){fig-align="center" width="80%"}
-
-:::
-
-::: {.column width="50%"}
-
-![](images/GitHub_Lockup_Light.png){fig-align="center" width="80%"}
-
-:::
-
-::::
-
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Okay, so... What does it "do"?
-
-- If you share code in mails, chat groups, shared docs
-
-- You have no way of tracking what happened when to what and how
-
-- You may sit with some results and have no idea how they came about
-
-- This is the absolute opposite of doing reproducible bio data science
-
-
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Okay, so... What does it "do"?
-
-- Git and github:
-
-  - helps you track the EXACT changes made in your analysis project
-
-  - enables multiple collaborators
-
-  - are industry standard in largely any company doing (Bio) Data Science
-
-  - facilitates teamwork increasing productivity
-  
-- Again: Spend time initially to save time in the long run
-
-- Remember the talk from the first lab? Using git is absolute key to doing reproducible research
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Okay, so... What does it "do"?
-
-_...and perhaps nearer to you for now_
-
-![](images/memes_lab07.png){fig-align="center"}
-
-
-
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
 ## Okay, so... How does your team "do" it?
 
-![](images/git_collab.gif){fig-align="center" width=80%}
+Github is not only a backup, but a collaboration platform
+
+![](images/git_collab.gif){fig-align="center" height=550}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Pulling and pushing!
+
+When working with collaborators, we have to add a few extra step to the git workflow...
+
+### Before
+
+1. <span  style="color:orange;">**Initialize**</span> the git repository (only once per project)
+1. Write and modify your code as usual
+1. <span  style="color:orange;">**Add**</span> your changes to the staging area
+1. Review the staging area
+1. <span  style="color:orange;">**Commit**</span> your changes (save a version which you can return back to at any time)
+1. Return to step 2
 
 
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Pulling and pushing!
+
+When working with collaborators, we have to add a few extra step to the git workflow...
+
+### After
+
+1. <span  style="color:orange;">**Initialize**</span> the git repository (only once per project)
+1. Write and modify your code as usual
+1. <span  style="color:orange;">**Add**</span> your changes to the staging area
+1. Review the staging area
+1. <span  style="color:orange;">**Commit**</span> your changes (save a version which you can return back to at any time)
+1. <span  style="color:#70c6ff;">**Pull**</span> new changes from the central repo
+1. <span  style="color:#70c6ff;">**Push**</span> your changes to the central repo
+1. Return to step 2
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Pulling and pushing!
+
+When working with collaborators, we have to add a few extra step to the git workflow...
+
+### After*
+
+1. <span  style="color:orange;">**Initialize**</span> the git repository (only once per project)
+1. Write and modify your code as usual
+1. <span  style="color:orange;">**Add**</span> your changes to the staging area
+1. Review the staging area
+1. <span  style="color:orange;">**Commit**</span> your changes (save a version which you can return back to at any time)
+1. <span  style="color:#70c6ff;">**Pull**</span> new changes from the central repo
+1. [Occasionally] <span  style="color:#ed4a4a;">**Solve merge conflicts**</span>
+1. <span  style="color:#70c6ff;">**Push**</span> your changes to the central repo
+1. Return to step 2
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
 ## Branching, a way of developing in parallel
 
-![](images/git_branching_merging.png){fig-align="center" width=90%}
+With branches, you can work on your own without disturbing or getting disturbed by other people, then merge at the end.
 
+![](images/git_branching_merging.png){fig-align="center" height=500}
+
+<!--# ---------------------------------------------------------------------- -->
+<!--# SLIDE ---------------------------------------------------------------- -->
+<!--# ---------------------------------------------------------------------- -->
+## Pull requests: contributing other people's software
+
+A feature of GitHub to contribute to other people's code: work on your own independent branch, then request the maintainers that to pull your code into the main branch
+
+![](images/github_PR_example.jpg){fig-align="center"}
 
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## But really, the best thing is to...
+## Final notes
 
-
+- `git` is a powerful tool for reproducible data science
+- We won't do it today, but `git` is most powerful from the Terminal
+- We will intentionally run you through the common issues with `git`. Don't get discouraged!
 
 
 <!--# ---------------------------------------------------------------------- -->
@@ -200,7 +217,5 @@ _...and perhaps nearer to you for now_
 ## But really, the best thing is to...
 
 - Try it out for your self
-
+- <span  style="color:white">**FOLLOWING TODAY'S EXERCISES POINT-BY-POINT IS SUPERCALIFRAGILISTICEXPIALIDOCIOUS!!!**</span>
 - Break and then exercises
-
-- TODAY FOLLOWING THE EXERCISES POINT-BY-POINT IS SUPERCALIFRAGILISTICEXPIALIDOCIOUS!!!
