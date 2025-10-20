@@ -16,12 +16,57 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
+
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+
+library("tidyverse")
+this_year <- "data/2025 Course Midway Evaluation (Responses) - Form Responses 1.tsv"
+eval_data <- read_tsv(file = this_year)
+mk_bar_plot <- function(data, x){
+  m <- data |>
+    summarise(m = median({{x}})) |>
+    pull() 
+  data |>
+  count({{x}}) |> 
+  mutate(pct = str_c(round(n/sum(n)*100,1), "%")) |> 
+  ggplot(
+    mapping = aes(
+      x = {{x}},
+      y = n,
+      label = pct)) +
+  geom_col(fill = "cornflowerblue",
+           colour = "black") +
+  geom_text(size = 6,
+            nudge_y = 1) +
+  geom_hline(yintercept = 0) +
+  scale_x_continuous(breaks = seq(1,10),
+                     limits = c(0,11)) +
+  labs(x = "",
+       y = "",
+       title = rlang::englue("{{x}}"),
+       subtitle = str_c("Median Score = ", m)) +
+  theme_minimal(base_size = 20) +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        plot.title = element_text(size = 16),
+        plot.subtitle = element_text(size = 14),
+        plot.title.position = "plot",
+        plot.title.align = 0)
+}
+```
+
 ## Midway Evaluation
 
 - Our opportunity to understand if the course elements works as intended
 - Your opportunity to let us know, how the course looks on the students side
 - Super important to align
-- 76 out of 124 enrolled students answered this year 
+- 67 out of 140 enrolled students answered this year 
 - THANK YOU for this important contribution!
 
 
@@ -31,15 +76,10 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 ## Highlights: What's Working Well in the Course
 
-- The course is well-organized, with clear structure, helpful recaps of previous material, and balanced lecture-to-exercise time
+- Hands-on exercises and practical sessions are consistently praised as engaging, well-designed, and central to learning success.
+- Instructor and TA support receive strong positive mentions—students find the guidance clear, helpful, and motivating.
+- Collaborative learning through group work is viewed as effective for understanding material and maintaining engagement.
 
-- Hands-on approach with well-guided exercises that align with learning level
-
-- The TAs play a crucial role by offering timely assistance, encouraging questions
-
-- Working in teams is beneficial for learning, especially when combined with the practical nature of the assignments
-
-- Course materials, particularly the website, reading materials, and exercises, are helpful in getting through the course content
 
 
 <!--# ---------------------------------------------------------------------- -->
@@ -47,11 +87,10 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 ## Highlights: What could be better
 
-- Workload of exercises is sometimes too large, unevenly spread across weeks, or time-consuming, particularly Week 5
-- Several students experienced difficulties with the R cloud server and prefer working locally with RStudio
-- Many students would prefer slightly longer lectures with more in-depth explanations rather than relying heavily on pre-class preparation
-- The volume of reading and preparation materials, with some finding it difficult to manage before each class
-- The early start times pose challenges for some students, particularly those commuting, making it harder to follow the course
+- Clarify course scope and reading expectations — several students mention uncertainty about what constitutes the official curriculum ("pensum") and desired preparation depth.
+- Balance assignment workload and pacing — a few respondents note that some exercises or lab assignments feel time-intensive or unevenly distributed.
+- Enhance lecture–exercise integration — while lectures are appreciated, students suggest even tighter linkage between theory and practical sessions.
+
 
 
 <!--# ---------------------------------------------------------------------- -->
@@ -59,11 +98,9 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 ## Highlights: Group Assignment Element
 
-- Group work can be challenging due to varying skill levels, often leading to one or two group members completing most of the work
-- Differences in progress during in-class exercises and limited time for coordination outside class make group collaboration difficult for some students.
-- Many find the group assignments beneficial for practice, some feel the tasks are too large or complex to be effectively tackled as a group within the available time
-- Generally the feedback is found useful and constructive, helping to improve their work throughout the course
-- Several students suggest smaller groups for more effective collaboration and equal participation in the assignments
+- Group feedback is highly valued — students frequently describe it as useful, constructive, and motivating for improving their work.
+- Collaborative dynamics are generally positive, with many appreciating how group work reinforces understanding and accountability.
+- Some variation in group engagement — while most experiences are good, a few mention uneven contribution or occasional coordination challenges.
 
 
 
@@ -72,11 +109,9 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 ## Highlights: Open input and feedback
 
-- Many students prefer working with RStudio locally rather than using the R cloud server, which some found unreliable
-- Collaborating on group assignments is difficult due to varying skill levels and working paces, which impacts the ability to collaborate effectively
-- Students appreciate the overall structure, but there is some feedback suggesting more balance in the amount of preparation material and fewer exercises in certain weeks (e.g., Week 5)
-- Students find the feedback valuable, but some mentioned issues with only the person submitting the group assignment being able to view it, suggesting improvements for accessibility across the group
-- Overall, students find the course highly valuable, particularly in terms of learning R and bio data science, with several suggesting it should be promoted more to bachelor students and integrated into earlier stages of their studies
+- Strong overall satisfaction — many spontaneous comments describe the course as fun, well-structured, and one of the best of the semester.
+- Appreciation for clarity and organization — students commend the teaching structure, the GitHub materials, and the logical flow of exercises and lectures.
+- Constructive suggestions — a few note a desire for more real-world data examples and slightly extended exercise time to consolidate learning.
 
 
 
@@ -85,7 +120,10 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 ## 
 
-![](images/midway_01.png){fig-align="center" width=100%}
+```{r}
+eval_data |>
+  mk_bar_plot(x = `Quick bird's-eye view: Generally speaking, this has so far been a good course`)
+```
 
 
 
@@ -94,7 +132,10 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 ## 
 
-![](images/midway_02.png){fig-align="center" width=100%}
+```{r}
+eval_data |>
+  mk_bar_plot(x = `I would recommend this course to my fellow students / colleagues`)
+```
 
 
 
@@ -103,7 +144,10 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 ## 
 
-![](images/midway_03.png){fig-align="center" width=100%}
+```{r}
+eval_data |>
+  mk_bar_plot(x = `So far, the course content has aligned with my expectations`)
+```
 
 
 
@@ -112,7 +156,10 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 ## 
 
-![](images/midway_04.png){fig-align="center" width=100%}
+```{r}
+eval_data |>
+  mk_bar_plot(x = `So far, the course content aligns with the course learning objectives, as described in the DTU Course Base (See DTU course base description)`)
+```
 
 
 
@@ -121,6 +168,17 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 ## 
 
-![](images/midway_05.png){fig-align="center" width=100%}
+```{r}
+time_usage_summary <- eval_data |>
+  summarise(mu = mean(`In ADDITION to our 8-12 teaching sessions, how many hours are you spending OUTSIDE class per week?`),
+            sigma = sd(`In ADDITION to our 8-12 teaching sessions, how many hours are you spending OUTSIDE class per week?`))
+time_mu <- round(time_usage_summary$mu, 1)
+time_sigma <- round(time_usage_summary$sigma, 1)
+time_lower <- round(4 + time_mu - time_sigma, 0)
+time_upper <- round(4 + time_mu + time_sigma, 0)
 
-_Average: 4 + 3.9 +/- 2.2 ~6-10h/week, expected time usage for 5 ECTS ~9-10h/week_
+eval_data |>
+  mk_bar_plot(x = `In ADDITION to our 8-12 teaching sessions, how many hours are you spending OUTSIDE class per week?`)
+```
+
+_Average: 4 + `{r} time_mu` +/- `{r} time_sigma` ~ `{r} time_lower`-`{r} time_upper`h/week, expected time usage for 5 ECTS ~9-10h/week_
