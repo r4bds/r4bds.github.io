@@ -580,3 +580,11 @@ pl
 :::
 
 ::::
+
+## Disclaimer
+
+This comment was added to several hand ins this time:
+
+ - _Overall a nice report, please adjust to the feedback above for the next assignment and also, I am guessing that some issues here were solved with chatGPT or similar, if you do so, it is your responsibility to be able account 100% for the code, that is produced - Please understand that you will "own" any mistakes or design/creative choices taken when completing the code made by the AI, so make sure to understand what is going on!_
+
+In other words: At the final project - Any mistakes made by AI are YOUR mistakes 🫵
