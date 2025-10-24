@@ -238,7 +238,8 @@ it now simply avoids the error message from appearing later.
 
 1. Create a new Quarto document, title it `student_id` and save id as `student_id.qmd`, where `student_id` is your... You guessed it! **Make sure that "Use visual markdown editor" is checked.**
 1. In the *Environment* pane, click the *Git* tab
-1. Tick the box under *Staged* corresponding to your newly created `student_id.qmd`. If you do not see the document in this window after saving, click the ![](images/git_refresh_button.png) refresh button on the top right of the *Git* tab.
+1. Tick the box under *Staged* corresponding to your newly created `student_id.qmd`. If you do not see the document in this window after saving, click the ![](images/git_refresh_button.png) refresh button on the top right of the *Git* tab.  
+*Note: regardless of clicking the refresh button, you must have saved the file (Ctrl. + S or clicking the save button) before it appears on the Git tab*
 1. Click `Commit`
 1. In the upper right corner, add a `Commit message`, e.g "First commit by student_id"
 1. Click the `Commit` button
