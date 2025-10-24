@@ -116,7 +116,7 @@ If you are not comfortable with the terminal, don't worry! We will only do a sho
 1. In the `Console` pane, click the `Terminal` tab, which gains you access to the Linux server that RStudio is running on. You should see something like:
 
 ```bash
-user@pupilX:~/projects/lab07_git_exercises$
+user@pupilX:/your/working/directory$
 ```
 
 2. Enter the command:
@@ -192,6 +192,8 @@ If you click the `Git` tab, you should see:
 
 ![](images/environment_pane_git_tab.png){fig-align="center" width=50%}
 
+*Note that when it's the crew's turn to clone the repository, they will not see the `.gitignore` and `lab07_git_exercises.Rproj` listed there (that area will simply be empty).*
+
 #### **Pushing the project basics to GitHub**
 
 1. In the `Git` tab, tick the 2 boxes under `staged` (we will get into what `.gitignore` is later)
@@ -236,7 +238,8 @@ it now simply avoids the error message from appearing later.
 
 1. Create a new Quarto document, title it `student_id` and save id as `student_id.qmd`, where `student_id` is your... You guessed it! **Make sure that "Use visual markdown editor" is checked.**
 1. In the *Environment* pane, click the *Git* tab
-1. Tick the box under *Staged* corresponding to your newly created `student_id.qmd`. If you do not see the document in this window after saving, click the ![](images/git_refresh_button.png) refresh button on the top right of the *Git* tab.
+1. Tick the box under *Staged* corresponding to your newly created `student_id.qmd`. If you do not see the document in this window after saving, click the ![](images/git_refresh_button.png) refresh button on the top right of the *Git* tab.  
+*Note: regardless of clicking the refresh button, you must have saved the file (Ctrl. + S or clicking the save button) before it appears on the Git tab*
 1. Click `Commit`
 1. In the upper right corner, add a `Commit message`, e.g "First commit by student_id"
 1. Click the `Commit` button
@@ -244,6 +247,9 @@ it now simply avoids the error message from appearing later.
 1. Now, very important **ALWAYS** click the ![](images/pull.png) `Pull` button **BEFORE** clicking the ![](images/push.png) `Push` button
 1. Clicking `Pull`, you should see "Already up to date."
 1. Then click `Push`
+1. Wait for every team member to Push, then check that you can see the files in the GitHub repo
+1. ![](images/pull.png) `Pull` again and check that you can see your teammates' files in your local `git` repo. Open one of them and check that you can see its contents.  
+*Note: when opening a file from another team member, you might get an error saying something like "the file is in a restricted path". If so, click the red on/off on the top right of RStudio, then click on "Start New Session" and try again.*
 
 - **Q4:** Discuss in your group what each of the steps did and why they are performed? 
 
