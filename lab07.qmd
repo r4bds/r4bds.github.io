@@ -192,6 +192,8 @@ If you click the `Git` tab, you should see:
 
 ![](images/environment_pane_git_tab.png){fig-align="center" width=50%}
 
+*Note that when it's the crew's turn to clone the repository, they will not see the `.gitignore` and `lab07_git_exercises.Rproj` listed there (that area will simply be empty).*
+
 #### **Pushing the project basics to GitHub**
 
 1. In the `Git` tab, tick the 2 boxes under `staged` (we will get into what `.gitignore` is later)
