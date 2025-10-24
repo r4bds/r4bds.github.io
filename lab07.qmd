@@ -246,6 +246,9 @@ it now simply avoids the error message from appearing later.
 1. Now, very important **ALWAYS** click the ![](images/pull.png) `Pull` button **BEFORE** clicking the ![](images/push.png) `Push` button
 1. Clicking `Pull`, you should see "Already up to date."
 1. Then click `Push`
+1. Wait for every team member to Push, then check that you can see the files in the GitHub repo
+1. ![](images/pull.png) `Pull` again and check that you can see your teammates' files in your local `git` repo. Open one of them and check that you can see its contents.  
+*Note: when opening a file from another team member, you might get an error saying something like "the file is in a restricted path". If so, click the red on/off on the top right of RStudio, then click on "Start New Session" and try again.*
 
 - **Q4:** Discuss in your group what each of the steps did and why they are performed? 
 
