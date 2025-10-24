@@ -116,7 +116,7 @@ If you are not comfortable with the terminal, don't worry! We will only do a sho
 1. In the `Console` pane, click the `Terminal` tab, which gains you access to the Linux server that RStudio is running on. You should see something like:
 
 ```bash
-user@pupilX:~/projects/lab07_git_exercises$
+user@pupilX:/your/working/directory$
 ```
 
 2. Enter the command:
