@@ -101,7 +101,7 @@ During the previous class, you have been using a combination of console and term
 
 **Still only the first team member**
 
-1. Go to [https://github.com/rforbiodatascience24](https://github.com/rforbiodatascience24) and go to repositories.
+1. Go to [https://github.com/rforbiodatascience25](https://github.com/rforbiodatascience25) and go to repositories.
 2. Click the green `New` button
 3. Create a new repository called `group_X_package`. Remember to replace the **X**
 4. Select `rforbiodatascience24` as owner

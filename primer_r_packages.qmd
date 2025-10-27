@@ -35,7 +35,7 @@ Or do it manually, as you are used to.
 
 Try running `?mean` in the Console.
 
-If you have every wondered how to write a manual like the one that pops up, please click here and read - if not, consider reading it anyway, as you will use it later.
+If you have ever wondered how to write a manual like the one that pops up, please click here and read - if not, consider reading it anyway, as you will use it later.
 
 When you have made a function, or have at least defined one, you should describe what it does and how to use it.
 The manual you write for your function is the function documentation, and it should describe the purpose of the function and how to use it.
