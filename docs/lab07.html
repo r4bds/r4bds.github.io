@@ -512,7 +512,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>In the <code>Console</code> pane, click the <code>Terminal</code> tab, which gains you access to the Linux server that RStudio is running on. You should see something like:</li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">user@pupilX:~/projects/lab07_git_exercises$</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">user@pupilX:/your/working/directory$</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol start="2" type="1">
 <li>Enter the command:</li>
 </ol>
@@ -597,6 +597,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="images/environment_pane_git_tab.png" class="img-fluid figure-img" style="width:50.0%"></p>
 </figure>
 </div>
+<p><em>Note that when it’s the crew’s turn to clone the repository, they will not see the <code>.gitignore</code> and <code>lab07_git_exercises.Rproj</code> listed there (that area will simply be empty).</em></p>
 </section>
 <section id="pushing-the-project-basics-to-github" class="level4">
 <h4 class="anchored" data-anchor-id="pushing-the-project-basics-to-github"><strong>Pushing the project basics to GitHub</strong></h4>
@@ -643,7 +644,8 @@ If you do not set <code>pull.rebase</code> at all, the first time that your <cod
 <ol type="1">
 <li>Create a new Quarto document, title it <code>student_id</code> and save id as <code>student_id.qmd</code>, where <code>student_id</code> is your… You guessed it! <strong>Make sure that “Use visual markdown editor” is checked.</strong></li>
 <li>In the <em>Environment</em> pane, click the <em>Git</em> tab</li>
-<li>Tick the box under <em>Staged</em> corresponding to your newly created <code>student_id.qmd</code>. If you do not see the document in this window after saving, click the <img src="images/git_refresh_button.png" class="img-fluid"> refresh button on the top right of the <em>Git</em> tab.</li>
+<li>Tick the box under <em>Staged</em> corresponding to your newly created <code>student_id.qmd</code>. If you do not see the document in this window after saving, click the <img src="images/git_refresh_button.png" class="img-fluid"> refresh button on the top right of the <em>Git</em> tab.<br>
+<em>Note: regardless of clicking the refresh button, you must have saved the file (Ctrl. + S or clicking the save button) before it appears on the Git tab</em></li>
 <li>Click <code>Commit</code></li>
 <li>In the upper right corner, add a <code>Commit message</code>, e.g “First commit by student_id”</li>
 <li>Click the <code>Commit</code> button</li>
@@ -651,6 +653,9 @@ If you do not set <code>pull.rebase</code> at all, the first time that your <cod
 <li>Now, very important <strong>ALWAYS</strong> click the <img src="images/pull.png" class="img-fluid"> <code>Pull</code> button <strong>BEFORE</strong> clicking the <img src="images/push.png" class="img-fluid"> <code>Push</code> button</li>
 <li>Clicking <code>Pull</code>, you should see “Already up to date.”</li>
 <li>Then click <code>Push</code></li>
+<li>Wait for every team member to Push, then check that you can see the files in the GitHub repo</li>
+<li><img src="images/pull.png" class="img-fluid"> <code>Pull</code> again and check that you can see your teammates’ files in your local <code>git</code> repo. Open one of them and check that you can see its contents.<br>
+<em>Note: when opening a file from another team member, you might get an error saying something like “the file is in a restricted path”. If so, click the red on/off on the top right of RStudio, then click on “Start New Session” and try again.</em></li>
 </ol>
 <ul>
 <li><strong>Q4:</strong> Discuss in your group what each of the steps did and why they are performed?</li>
