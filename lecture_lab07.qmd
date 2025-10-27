@@ -21,14 +21,14 @@ format:
 ![](images/many_files_joke_git.jpg){fig-align="center" width="60%"}
 
 - How many of you have run into this situation...? Now imagine multiplying this by dozens of files in a common Bio Data Science project!
-- This is nightmare to work with and terrible for reproducibility!
+- This a is nightmare to work with and terrible for reproducibility!
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
 ## Version Control to the rescue
 
-- To avoid situations like that, we use *Version Control System* (VCS)
+- To avoid situations like that, we use a *Version Control System* (VCS)
 - i.e., a program that allows to store snapshots that we can go back to at any point in time
 - `git` is by far the most popular Version Control tool for software projects in the world (>95% of all software projects)
 
@@ -68,8 +68,8 @@ format:
 <!--# ---------------------------------------------------------------------- -->
 ## Centralized repositories
 
-- The most common way to use `git` is pairing it with a git repository hosting platform
-- Web services that will store your git repository and give you extra features on top of `git`
+- The most common way to use `git` is pairing it with a *git repository hosting platform*
+- i.e., a web service that will store your git repository and give you extra features on top of `git`
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
