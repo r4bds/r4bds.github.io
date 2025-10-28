@@ -1,4 +1,4 @@
-# Lab 10 Project Startup & Industry Talks {.unnumbered}
+# Lab 10: Project Startup & Industry Talks {.unnumbered}
 
 ## Schedule
 
@@ -12,6 +12,23 @@
 _This mini symposium on Applications of R for Bio Data Science in Industry offers participants a glimpse into how modern Bio Data Science is transforming value creation in the pharmaceutical and healthcare sectors._
 
 _Each talk features a Bio Data Science professional sharing unique insights into real-world projects that apply cutting-edge Bio Data Science techniques, while also providing a glimpse into the career paths that have enabled their exciting work. Every talk will be followed by a Q&A session._
+
+### 2025
+
+#### Companies Represented
+
+- [Company]()
+- [Company]()
+- [Company]()
+
+#### Symposium Programme
+
+-	09.00 – 09.25: [Lorem]() by [Lorem](), Title, [Company]()
+-	09.25 – 09.30: Short break and switch
+-	09.30 – 09.55: [Lorem]() by [Lorem](), Title, [Company]()
+-	09.55 – 10.00: Short break and switch
+-	10.00 – 10.25: [Lorem]() by [Lorem](), Title, [Company]()
+-	10.25 – 10.35: Symposium round off
 
 ### 2024
 

@@ -37,9 +37,20 @@ The exam consists of 3 components:
 
 ### The MCQ
 
-- A 2-hour individual multiple choice exam
-- In 2023 the exam contained 80 questions, expect a similar number of questions
-- All aids are allowed, but no open internet
-- Each question will have 4 possible answers and only 1 is the right one and you can only choose one answer per question
+- Duration: 2-hour individual multiple-choice exam
+- Format: In 2024, the exam contained 100 questions, expect a similar number. Each question will be short and have four possible answers, with only one correct answer, and you can select only one per question.
+- Focus: Tests your conceptual and applied understanding of the key elements of the course, especially those covered in Labs 1-9.
+- Approximate content balance:
+  - ~60% Core Tidyverse skills: Data wrangling, data visualization, and functional programming
+  - ~20% Reproducibility and reporting: RStudio projects, Quarto, and workflow organization
+  - ~20% Collaboration and software engineering: Git/GitHub, R packages, and Shiny applications
+- Question style:
+  - A mix of conceptual questions (definitions, understanding of principles)
+  - Applied reasoning questions ("What would this code snippet output?")
+  - No code writing required, focus is on interpreting and reasoning about code or workflow logic
+  - Aids: All aids are allowed (Your lab-notes, scripts, textbooks, Quarto documents, etc.), but NO open internet access.
+- Goal: To assess your understanding of the fundamental principles, tools, and workflows of modern bio data science using R, focusing on comprehension and interpretation, not rote memorization.
+
+For the official exam description, see the course base for [22100](https://kurser.dtu.dk/course/22100) or [22160](https://kurser.dtu.dk/course/22160)
 
 **If any aspects of the above is not clear, please reach out to the teaching team!**
