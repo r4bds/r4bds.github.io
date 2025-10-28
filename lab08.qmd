@@ -104,7 +104,7 @@ During the previous class, you have been using a combination of console and term
 1. Go to [https://github.com/rforbiodatascience25](https://github.com/rforbiodatascience25) and go to repositories.
 2. Click the green `New` button
 3. Create a new repository called `group_X_package`. Remember to replace the **X**
-4. Select `rforbiodatascience24` as owner
+4. Select `rforbiodatascienceYY` as owner. Remember to replace the **YY** with the current year.
 5. Make the repository `Public`
 6. Click the green `Create repository` button
 7. In this new repository, click the `settings` tab
@@ -129,10 +129,10 @@ During the previous class, you have been using a combination of console and term
 2. Go back to the RStudio Server project
 3. Type in the console `gitcreds::gitcreds_set()` and paste the `PAT` key
 4. Stage all files (in the `git` window in the top right) by ticking all boxes under `Staged`
-5. Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the **X**.
+5. Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the **X** with your group number, and **YY** with the current year.
 ```{r}
 #| eval: false
-usethis::use_git_remote(name = "origin", "https://github.com/rforbiodatascience24/group_X_package.git", overwrite = TRUE) # Remember to replace the X
+usethis::use_git_remote(name = "origin", "https://github.com/rforbiodatascienceYY/group_X_package.git", overwrite = TRUE) # Remember to replace the X and the YY
 usethis::use_git_config(user.name = "USERNAME", user.email = "USEREMAIL@EXAMPLE.ORG")
 gert::git_commit_all("Package setup")
 gert::git_push("origin")
