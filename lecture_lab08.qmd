@@ -294,7 +294,7 @@ fun_name <- function(param1, param2 = 2){
 <!--# ---------------------------------------------------------------------- -->
 ## Using functions in a package
 
-- Explicit parameters and arguments `improves clarity`:
+- Explicit parameters and arguments `improve clarity`:
 
 ```{r}
 #| echo: true
@@ -656,7 +656,7 @@ saveWidget(report$DependencyReporter$graph_viz,
 #| eval: false
 install.packages("devtools")          # CRAN: The Comprehensive R Archive Network
 
-devtools::install_bioc("pairedGSEA")  # Bioconductor (but use BiocManager::install()
+devtools::install_bioc("pairedGSEA")  # Bioconductor (but use BiocManager::install())
 
 devtools::install_github("cyCombine") # GitHub
 
@@ -744,7 +744,7 @@ sumC(5, 6)
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
-## Standing on the shoulder of giants
+## Standing on the shoulders of giants
 
 
 :::: {.columns}
