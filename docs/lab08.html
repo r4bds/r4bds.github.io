@@ -522,7 +522,7 @@ Write vignettes: <code>usethis::use_vignette("Vignette name")</code>
 <li>Go to <a href="https://github.com/rforbiodatascience25">https://github.com/rforbiodatascience25</a> and go to repositories.</li>
 <li>Click the green <code>New</code> button</li>
 <li>Create a new repository called <code>group_X_package</code>. Remember to replace the <strong>X</strong></li>
-<li>Select <code>rforbiodatascience24</code> as owner</li>
+<li>Select <code>rforbiodatascienceYY</code> as owner. Remember to replace the <strong>YY</strong> with the current year.</li>
 <li>Make the repository <code>Public</code></li>
 <li>Click the green <code>Create repository</code> button</li>
 <li>In this new repository, click the <code>settings</code> tab</li>
@@ -555,10 +555,10 @@ Copy the generated token (should start with ghp_) and store it securely (e.g., i
 <li>Go back to the RStudio Server project</li>
 <li>Type in the console <code>gitcreds::gitcreds_set()</code> and paste the <code>PAT</code> key</li>
 <li>Stage all files (in the <code>git</code> window in the top right) by ticking all boxes under <code>Staged</code></li>
-<li>Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the <strong>X</strong>.</li>
+<li>Still in the console, run the following commands. Replace your group number and use your GitHub username and email. You run these to link your project to the GitHub repository you created. Remember to replace the <strong>X</strong> with your group number, and <strong>YY</strong> with the current year.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_remote</span>(<span class="at">name =</span> <span class="st">"origin"</span>, <span class="st">"https://github.com/rforbiodatascience24/group_X_package.git"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>) <span class="co"># Remember to replace the X</span></span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_remote</span>(<span class="at">name =</span> <span class="st">"origin"</span>, <span class="st">"https://github.com/rforbiodatascienceYY/group_X_package.git"</span>, <span class="at">overwrite =</span> <span class="cn">TRUE</span>) <span class="co"># Remember to replace the X and the YY</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"USERNAME"</span>, <span class="at">user.email =</span> <span class="st">"USEREMAIL@EXAMPLE.ORG"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_commit_all</span>(<span class="st">"Package setup"</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>gert<span class="sc">::</span><span class="fu">git_push</span>(<span class="st">"origin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
