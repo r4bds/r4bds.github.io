@@ -432,13 +432,6 @@ _Once you get your head around the syntax and functionality of the Shiny, it’s
 ::::
 
 
-
-<!--# ---------------------------------------------------------------------- -->
-<!--# SLIDE ---------------------------------------------------------------- -->
-<!--# ---------------------------------------------------------------------- -->
-## Once more unto the breach, dear friends, once more!
-
-
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
 <!--# ---------------------------------------------------------------------- -->
@@ -451,6 +444,10 @@ _Once you get your head around the syntax and functionality of the Shiny, it’s
 
 - Break and then the very last exercises of this year's R for Bio Data Science course!
 
+<br>
+
+![](images/sad_kermit.jpeg){fig-align="center" height=400}
+
 :::
 
 ::: {.column width="50%"}
@@ -460,6 +457,7 @@ _Once you get your head around the syntax and functionality of the Shiny, it’s
 <br>
 
 ![](images/the_office_sad_day.gif){fig-align="center" height=300}
+
 
 :::
 

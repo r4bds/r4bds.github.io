@@ -242,27 +242,40 @@ The purpose of testing:
 
 With `testhat`, we have a collection of `expect_*` functions that check for specific conditions
 
+:::: {.columns}
+
+::: {.column width="70%"}
+
 ```{r}
 #| eval: false
 #| echo: true
 
-test_that("correct length", {
-  DNA_length <- sample(1:100, 1)
-  expect_equal(nchar(random_DNA(DNA_length)), DNA_length)
+test_that("rnadom DNA has the correct length", {
+  DNA_length <- 100
+  generated_DNA <- random_DNA(DNA_length)
+  
+  expect_equal(nchar(generated_DNA), DNA_length)
 })
 
 test_that("all letters are valid DNA", {
-  DNA_letters = c("A", "C", "T", "G")
-  generated_DNA = random_DNA(400)
-  generated_DNA = strsplit(generated_DNA, "")[[1]] # transform to vector form
-  is_valid_letter = generated_DNA %in% DNA_letters
+  DNA_letters <- c("A", "C", "T", "G")
+
+  generated_DNA <- random_DNA(400)
+  generated_DNA <- strsplit(generated_DNA, "")[[1]] # transform to vector form
+  
+  is_valid_letter <- generated_DNA %in% DNA_letters
   expect_true(all(is_valid_letter))
 })
 ```
 
-<br>
+:::
 
-![](images/testthat.png){fig-align="center" height=200}
+::: {.column width="30%"}
+
+![](images/testthat.png){fig-align="center" height=250}
+:::
+
+::::
 
 <!--# ---------------------------------------------------------------------- -->
 <!--# SLIDE ---------------------------------------------------------------- -->
@@ -405,6 +418,5 @@ export(function_y)
 </br>
 
 **Solution:** Delete `R/hello.R` and `man/hello.md`
-
 
 
