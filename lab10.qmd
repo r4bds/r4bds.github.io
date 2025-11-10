@@ -25,7 +25,7 @@ _Each talk features a Bio Data Science professional sharing unique insights into
 
 -	09.00 – 09.25: TBA by [Laura Sans](https://www.linkedin.com/in/laurasansc/), Associate Bioinformatician, [Muna Therapeutics](https://munatherapeutics.com)
 -	09.25 – 09.30: Short break and switch
--	09.30 – 09.55: TBA by [Marc Clos Garcia](https://www.linkedin.com/in/marcclosgarcia/), Clinical Omics Researcher, [Steno Diabetes Center Copenhagen](https://www.sdcc.dk)
+-	09.30 – 09.55: **"R for Omics Analysis Pipelines Development"** by [Marc Clos Garcia](https://www.linkedin.com/in/marcclosgarcia/), Clinical Omics Researcher, [Steno Diabetes Center Copenhagen](https://www.sdcc.dk)
 -	09.55 – 10.00: Short break and switch
 -	10.00 – 10.25: TBA by [Sebastian Sbirna](https://www.linkedin.com/in/sebastian-sbirna/), Data Governance Lead – Global Data & AI, [Novo Nordisk](https://www.novonordisk.com)
 -	10.25 – 11.00: Q&A and Symposium round off
