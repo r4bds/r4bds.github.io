@@ -2,6 +2,9 @@ project:
   type: book
   output-dir: docs
 
+date: today
+date-format: "YYYY"
+
 book:
   title: "R for Bio Data Science"
   reader-mode: true
@@ -11,7 +14,7 @@ book:
     left: |
       R for Bio Data Science
     center: |
-      All content © 2023 - 2026 Leon Eyrich Jessen. All rights reserved. <a href="https://www.dtu.dk/english/person/leon-eyrich-jessen?id=22554&entity=profile">Contact information</a>
+      All content © 2023-{{< meta date >}} Leon Eyrich Jessen. All rights reserved. <a href="https://www.dtu.dk/english/person/leon-eyrich-jessen?id=22554&entity=profile">Contact information</a>
     right: |
       Full course description available at <a href="https://kurser.dtu.dk/course/22160">DTU Course Base</a>.
   

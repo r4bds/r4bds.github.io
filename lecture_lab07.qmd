@@ -1,6 +1,8 @@
 ---
 title: "Lecture Lab 7"
 author: "Leon Eyrich Jessen, Daniel Romero"
+date: today
+date-format: "YYYY"
 format:
   revealjs:
     embed-resources: true
@@ -10,7 +12,7 @@ format:
     height: 900
     mainfont: avenir
     logo: images/r4bds_logo_small.png
-    footer: "**R for Bio Data Science** | Lab 7: Collaborative Bio Data Science using git and GitHub via RStudio"
+    footer: "© 2023-{{< meta date >}} Leon Eyrich Jessen · All rights reserved · R for Bio Data Science"
 ---
 
 <!--# ---------------------------------------------------------------------- -->

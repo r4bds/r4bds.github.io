@@ -2,6 +2,8 @@
 title: "How to Organise a Project"
 subtitle: "The most important talk you never heard"
 author: "Leon Eyrich Jessen"
+date: today
+date-format: "YYYY"
 format:
   revealjs:
     embed-resources: true
@@ -11,7 +13,7 @@ format:
     height: 900
     mainfont: avenir
     logo: images/r4bds_logo_small.png
-    footer: "R for Bio Data Science"
+    footer: "© 2023-{{< meta date >}} Leon Eyrich Jessen · All rights reserved · R for Bio Data Science"
 ---
 
 
