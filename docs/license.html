@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2026-01-01">
 
-<title>R for Bio Data Science - Guide for Building the R4DS2e Book Locally</title>
+<title>R for Bio Data Science - Licence</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,8 +26,7 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./code_styling.html" rel="next">
-<link href="./guide_working_locally.html" rel="prev">
+<link href="./references.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -66,7 +65,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Guide for Building the R4DS2e Book Locally</h1>
+      <h1 class="quarto-secondary-nav-title">Licence</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -236,7 +235,7 @@ ul.task-list{list-style: none;}
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./guide_building_r4ds2e_locally.html" class="sidebar-item-text sidebar-link active">Guide for Building the R4DS2e Book Locally</a>
+  <a href="./guide_building_r4ds2e_locally.html" class="sidebar-item-text sidebar-link">Guide for Building the R4DS2e Book Locally</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -298,7 +297,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./license.html" class="sidebar-item-text sidebar-link">Licence</a>
+  <a href="./license.html" class="sidebar-item-text sidebar-link active">Licence</a>
   </div>
 </li>
     </ul>
@@ -306,20 +305,14 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#clone-repository" id="toc-clone-repository" class="nav-link active" data-scroll-target="#clone-repository">Clone Repository</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Guide for Building the R4DS2e Book Locally</h1>
+<h1 class="title d-none d-lg-block">Licence</h1>
 </div>
 
 
@@ -339,33 +332,18 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="clone-repository" class="level2">
-<h2 class="anchored" data-anchor-id="clone-repository">Clone Repository</h2>
-<ol type="1">
-<li>In the upper right corner of RStudio, click the current project</li>
-<li>Choose <code>New Project...</code></li>
-<li>Choose <code>Version Control</code></li>
-<li>Choose <code>Git</code></li>
-<li>Under <code>Repository URL:</code>, enter <code>https://github.com/hadley/r4ds</code></li>
-<li>Under <code>Project directory name:</code>, enter <code>r4ds</code></li>
-<li>Under <code>Create project as subdirectory of:</code> uge the <code>Browse...</code>-button to navigate to where you want to place this project</li>
-<li>Click <code>Create Project</code></li>
-</ol>
-<p>A <code>Clone Repository</code> process now starts, wait for it to finish</p>
-<ol type="1">
-<li>In the RStudio <code>Files</code> pane of your new project, find and open the file <code>index.qmd</code></li>
-<li>Click the <code>render</code>-button above the <code>index.qmd</code>-file you just opened</li>
-<li>It probably will not run on the first try! Make sure to check the errors, e.g.&nbsp;<code>Error in library(ggthemes) : there is no package called 'ggthemes'</code> and then run e.g.&nbsp;<code>install.packages("ggthemes")</code></li>
-<li>Again, click the <code>render</code>-button above the <code>index.qmd</code>-file (Be aware that RStudio will show you the file, where the missing package is mentioned, so you will have to make sure, that you click the <code>index.qmd</code>-file tab) and redo installation of any missing packages (For Restart R error, see below)</li>
-<li>Once all missing packages have been installed, the rendered book will appear in the <code>Viewer</code> pane. Click the small white and lightblue icon with and arrow</li>
-<li>The book will now open locally in your browser on e.g.&nbsp;<code>http://localhost:7829/index.html</code></li>
-</ol>
-<p>Congratulations! You have now sucessfully cloned a GitHub repository and build an entire Quarto book from scratch!</p>
-<p>If you get stuck in a loop where RStudio says “Restart R prior to install” on the same package. Select <code>Cancel</code>, quit the project, re-open the project and as the first thing, type in the <code>install.packages("PACKAGE_NAME")</code>-command and then select <code>No</code>, when it prompts for restart.</p>
-<p>Stop for a moment and consider that you get all of this is for free! All the tons of hours being put in by the 287 contributors have done so in the name of open source and open learning! That’s nothing short of awesome!</p>
+<p>Unless otherwise stated, original teaching materials on this site are © 2023–2026 Leon Eyrich Jessen and licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Licence</a>.</p>
+<p>You may copy and share the material in unmodified form for non-commercial educational and research purposes, provided that appropriate credit is given, a link to the original source is included, and any copyright notice is retained.</p>
+<p>You may link to the public site from course pages, reading lists, and learning management systems, provided that the material is clearly attributed and accessed via the original URL.</p>
+<p>Commercial, fee-based, continuing-education, corporate-training, or other revenue-generating use requires prior written permission.</p>
+<p>Copying substantial parts of the material into another course, website, repository, slide deck, learning management system, textbook, or course pack also requires prior written permission, as does adapting, translating, embedding, repackaging, or redistributing the material.</p>
+<p>Third-party materials, including package logos, external images, datasets, quotations, linked resources, and software dependencies, remain under their respective licences.</p>
+<p>Code examples are provided for educational use as part of the teaching material. Standalone software components, where explicitly indicated, may be licensed separately.</p>
+<p>Please cite as: <em>Leon Eyrich Jessen, R for Bio Data Science, Technical University of Denmark, https://r4bds.github.io</em></p>
+<p>For permission requests, please contact Leon Eyrich Jessen at ljess@dtu.dk.</p>
+<p>Leon Eyrich Jessen</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -467,14 +445,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./guide_working_locally.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Guide for Working Locally</span>
+      <a href="./references.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./code_styling.html" class="pagination-link">
-        <span class="nav-page-text">Code Styling</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

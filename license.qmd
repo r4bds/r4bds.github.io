@@ -1,0 +1,21 @@
+# Licence {.unnumbered}
+
+Unless otherwise stated, original teaching materials on this site are © 2023–`r format(Sys.Date(), "%Y")` Leon Eyrich Jessen and licensed under a [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Licence](https://creativecommons.org/licenses/by-nc-nd/4.0/).
+
+You may copy and share the material in unmodified form for non-commercial educational and research purposes, provided that appropriate credit is given, a link to the original source is included, and any copyright notice is retained.
+
+You may link to the public site from course pages, reading lists, and learning management systems, provided that the material is clearly attributed and accessed via the original URL.
+
+Commercial, fee-based, continuing-education, corporate-training, or other revenue-generating use requires prior written permission.
+
+Copying substantial parts of the material into another course, website, repository, slide deck, learning management system, textbook, or course pack also requires prior written permission, as does adapting, translating, embedding, repackaging, or redistributing the material.
+
+Third-party materials, including package logos, external images, datasets, quotations, linked resources, and software dependencies, remain under their respective licences.
+
+Code examples are provided for educational use as part of the teaching material. Standalone software components, where explicitly indicated, may be licensed separately.
+
+Please cite as: _Leon Eyrich Jessen, R for Bio Data Science, Technical University of Denmark, https://r4bds.github.io_
+
+For permission requests, please contact Leon Eyrich Jessen at ljess@dtu.dk.
+
+Leon Eyrich Jessen
