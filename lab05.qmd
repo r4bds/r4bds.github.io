@@ -167,7 +167,7 @@ meta_data <- read_csv(file = "data/subject-metadata.csv",
 
 ### Data Description
 
-*It is customary to include a description of the data, helping the reader if the report, i.e. your stakeholder, to get an easy overview*
+*It is customary to include a description of the data, helping the reader of the report, i.e. your stakeholder, to get an easy overview*
 
 #### The Subject Meta Data
 
