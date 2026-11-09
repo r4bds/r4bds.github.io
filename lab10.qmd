@@ -24,7 +24,7 @@ _Each talk features a Bio Data Science professional sharing unique insights into
 
 -	09.00 – 09.25: **TBA** by [Thomas Tams](https://www.linkedin.com/in/thomas-tams-746119221/), Cofounder & CTO at Dalea, [Dalea](https://dalea.tech)
 -	09.25 – 09.30: Short break and switch
--	09.30 – 09.55: **TBA** by [Jose Maria (Txema) Gonzalez Izarzugaza](https://www.linkedin.com/in/tgizarzugaza/), Director, Integrated Translational Evidence and Methods, [Novo](https://www.novonordisk.com)
+-	09.30 – 09.55: **Drug discovery in the Era of Artificial Intelligence** by [Jose MG Izarzugaza](https://www.linkedin.com/in/tgizarzugaza/), Director of Integrated Translational Evidence and Methods. Translational and Clinical Omics, Data Science, AI and Digital Innovation, R&D, [Novo](https://www.novonordisk.com)
 -	09.55 – 10.30: Q&A and Symposium round off
 
 ### 2025
