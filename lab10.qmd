@@ -13,6 +13,20 @@ _This mini symposium on Applications of R for Bio Data Science in Industry offer
 
 _Each talk features a Bio Data Science professional sharing unique insights into real-world projects that apply cutting-edge Bio Data Science techniques, while also providing a glimpse into the career paths that have enabled their exciting work. Every talk will be followed by a Q&A session._
 
+### 2026
+
+#### Companies Represented
+
+- [Novo](https://www.novonordisk.com)
+- [Dalea](https://dalea.tech)
+
+#### Symposium Programme
+
+-	09.00 – 09.25: **TBA** by [Thomas Tams](https://www.linkedin.com/in/thomas-tams-746119221/), Cofounder & CTO at Dalea, [Dalea](https://dalea.tech)
+-	09.25 – 09.30: Short break and switch
+-	09.30 – 09.55: **TBA** by [Jose Maria (Txema) Gonzalez Izarzugaza](https://www.linkedin.com/in/tgizarzugaza/), Director, Integrated Translational Evidence and Methods, [Novo](https://www.novonordisk.com)
+-	09.55 – 10.30: Q&A and Symposium round off
+
 ### 2025
 
 #### Companies Represented
