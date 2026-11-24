@@ -1,8 +1,10 @@
 # Project Checklist {.unnumbered #sec-projchecklist}
 
-**Make sure you are familiar with the rules concerning the [use of Artificial Intelligence (generative AI) in teaching and exams at DTU](#sec-air4bds)**
-
 ### IMPORTANT: Ask yourselves:
+
+### "Did we remember to declare use of AI?"
+
+**For declaring use-of-AI in this projects, please see [Declaration of AI in the Project](#sec-aideclare)**
 
 ### "Have we remembered to look through the FAQ and description"
 - This is essential, this is where all the information on the project is collected
