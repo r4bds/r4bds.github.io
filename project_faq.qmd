@@ -1,6 +1,10 @@
 # Project FAQ {.unnumbered #sec-projfaq}
 
+## Declaration of AI in the Project
+
 **Make sure you are familiar with the rules concerning the [use of Artificial Intelligence (generative AI) in teaching and exams at DTU](#sec-air4bds)**
+
+**For declaring use-of-AI in this projects, please see [Declaration of AI in the Project](#sec-aideclare)**
 
 ## Text in the Quarto Docs
 

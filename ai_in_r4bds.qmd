@@ -1,5 +1,7 @@
 # Use of AI in the R for Bio Data Science Course {.unnumbered #sec-air4bds}
 
+**For declaring use-of-AI in this projects, please see [Declaration of AI in the Project](#sec-aideclare)**
+
 Please note, that rules on the use of Generative AI (GAI) in "written exams with all aids - without internet." are such that in addition to written aids, students are allowed to bring laptops, tablets, and similar devices but it is NOT allowed to use generative AI, even if the tool is available in an offline version!
 
 Failure to comply with the above, will be considered cheating and reported as such.

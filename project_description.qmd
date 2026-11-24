@@ -1,6 +1,28 @@
 # Project Description {.unnumbered #sec-projdesc}
 
+## Declaration of AI in the Project {.unnumbered #sec-aideclare}
+
 **Make sure you have read the [exam description](#sec-examdesc) and that you are familiar with the rules concerning the [use of Artificial Intelligence (generative AI) in teaching and exams at DTU](#sec-air4bds)**
+
+In the same way that we aim for transparency and reproducibility in our data science workflows, we also aim for transparency in our use of AI. Hence, as part of your project, you must include a section entitled "Declaration of AI Use" at the end of your GitHub README.
+
+The purpose is not for you to document every single interaction with an AI, nor are you required to provide a list of all your prompts. Rather, you should provide a concise, high-level account of how AI has been used in connection with your project work.
+
+Your declaration should include:
+
+- **Tools:** Which AI tools and, where known, models did you use?
+- **Purpose:** For what purposes did you use AI, e.g. brainstorming, literature exploration, conceptual understanding, troubleshooting or language improvement?
+- **Scope:** In which parts of the project did you use AI, and to what extent did it contribute to the work?
+- **Verification:** How did you critically evaluate and verify the information or suggestions provided by AI?
+- **Impact:** How did the use of AI influence your decisions, workflow and/or final deliverables?
+
+If you did not use AI in connection with your project work, simply state this.
+
+The declaration should be written collectively by the group and reflect the use of AI by all group members throughout the project period.
+
+Most importantly, it is your responsibility to ensure that you understand, can explain and can account for all aspects of your project. AI must not replace the competencies that you are expected to acquire and demonstrate through the learning objectives of this course.
+
+As always: **The process is the product!**
 
 ## Project Groups
 
@@ -29,6 +51,18 @@ _Bio Data Science is a collaborative effort, which is reflected in the design of
 As per the rules for the European Credit Transfer System (ECTS) points, 1 credit equals 28 hours. Therefore, for a 5-person group working for 3 weeks, the expected total project hours is ~150. Setup your collaborative project and this will be more than sufficient to create a full bio data science project. Note, for lab 13, you workload will be a ~10min. presentation therefore the hours for this lab is included.
 
 ## Project Description
+
+### Principles and Scope
+
+Outline of the general principles and scope of the project work:
+
+1. The process is the product: Reproducibility and demonstrating mastery of the entire Bio Data Science cycle take precedence over scientific results or model performance.
+2. Learning objectives drive project decisions: Students must independently demonstrate the competencies acquired during the course.
+3. Tidyverse first: Tidyverse for data manipulation and visualisation, with base R permitted for core statistical functionality.
+4. Independent problem-solving: No AI-generated code or packages that automate away the competencies being assessed.
+5. End-to-end reproducibility: Programmatic data handling, analysis and dynamic reporting.
+6. Two final deliverables: A public GitHub repository and an IMRAD-structured Quarto HTML presentation. No separate report.
+7. Appropriate project scope: This is a Bio Data Science course, not an advanced modelling or software development course.
 
 ### Aim
 
